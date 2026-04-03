@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Manrope:wght@600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-error-container": "#93000a",
+                    "surface-dim": "#d9dadb",
+                    "surface-container-high": "#e7e8e9",
+                    "inverse-on-surface": "#f0f1f2",
+                    "tertiary-container": "#c8a84c",
+                    "surface-container-low": "#f3f4f5",
+                    "on-primary-fixed": "#001c37",
+                    "surface-container-highest": "#e1e3e4",
+                    "on-tertiary-fixed": "#241a00",
+                    "surface-container-lowest": "#ffffff",
+                    "inverse-surface": "#2e3132",
+                    "on-secondary-container": "#785d00",
+                    "surface-container": "#edeeef",
+                    "on-secondary-fixed-variant": "#584400",
+                    "on-primary-container": "#768dad",
+                    "surface": "#f8f9fa",
+                    "on-tertiary-fixed-variant": "#584400",
+                    "on-surface": "#191c1d",
+                    "primary-container": "#0a2540",
+                    "error": "#ba1a1a",
+                    "secondary": "#755b00",
+                    "primary-fixed-dim": "#b0c8eb",
+                    "on-secondary": "#ffffff",
+                    "on-secondary-fixed": "#241a00",
+                    "on-surface-variant": "#43474d",
+                    "on-background": "#191c1d",
+                    "surface-bright": "#f8f9fa",
+                    "primary-fixed": "#d2e4ff",
+                    "primary": "#000f22",
+                    "secondary-fixed-dim": "#e6c364",
+                    "on-primary": "#ffffff",
+                    "surface-variant": "#e1e3e4",
+                    "surface-tint": "#49607e",
+                    "on-tertiary-container": "#4f3d00",
+                    "outline": "#74777e",
+                    "on-primary-fixed-variant": "#314865",
+                    "outline-variant": "#c4c6ce",
+                    "tertiary": "#755b00",
+                    "error-container": "#ffdad6",
+                    "secondary-fixed": "#ffe08f",
+                    "on-tertiary": "#ffffff",
+                    "on-error": "#ffffff",
+                    "inverse-primary": "#b0c8eb",
+                    "tertiary-fixed": "#ffe08f",
+                    "background": "#f8f9fa",
+                    "secondary-container": "#fed977",
+                    "tertiary-fixed-dim": "#e6c364"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "fontFamily": {
+                    "headline": ["Manrope", "sans-serif"],
+                    "body": ["Inter", "sans-serif"],
+                    "label": ["Inter", "sans-serif"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .hero-gradient {
+            background: linear-gradient(to right, rgba(10, 37, 64, 0.95) 0%, rgba(10, 37, 64, 0.6) 100%);
+        }
+    </style>
+</head>
+<body class="bg-surface font-body text-on-surface">
+<!-- TopNavBar -->
+<nav class="sticky top-0 z-50 bg-slate-50 dark:bg-slate-900 border-none">
+<div class="flex justify-between items-center w-full px-8 py-6 max-w-7xl mx-auto">
+<div class="text-2xl font-bold tracking-tighter text-slate-900 dark:text-slate-50">Maxim Autos</div>
+<div class="hidden md:flex items-center space-x-10">
+<a class="text-slate-900 dark:text-slate-50 border-b-2 border-yellow-400 pb-1 font-medium transition-all hover:text-yellow-500 duration-300" href="#">Inventory</a>
+<a class="text-slate-500 dark:text-slate-400 font-medium hover:text-yellow-500 transition-colors duration-300" href="#">Financing</a>
+<a class="text-slate-500 dark:text-slate-400 font-medium hover:text-yellow-500 transition-colors duration-300" href="#">About</a>
+<a class="text-slate-500 dark:text-slate-400 font-medium hover:text-yellow-500 transition-colors duration-300" href="#">Reviews</a>
+<a class="text-slate-500 dark:text-slate-400 font-medium hover:text-yellow-500 transition-colors duration-300" href="#">Contact</a>
+</div>
+<a class="bg-secondary-container text-on-secondary-container px-6 py-3 rounded-xl font-bold hover:opacity-80 active:scale-95 transition-all text-sm tracking-wide" href="tel:847-510-8947">
+                Call 847-510-8947
+            </a>
+</div>
+</nav>
+<!-- Hero Section -->
+<header class="relative min-h-[870px] flex items-center overflow-hidden bg-primary-container">
+<div class="absolute inset-0 z-0">
+<img alt="Maxim Autos Showroom" class="w-full h-full object-cover object-center opacity-60" data-alt="Modern luxury car dealership showroom with sleek vehicles parked under cinematic lighting with architectural glass reflections" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBeOYNoiJoh7i7b66rxJy3myD-LhFzHfh1OfMnfGS5m0eR4qgBLDzmc4nL1_tk9bE_PSUOZmf-pUdyU8_dDkKPoPmP0U971lXm9OXGWMHcDbD29bWnABB9szixfa89PrJ8cmdLj5b16Y0zHvK7x0h-T_FSnFD-ip_VmTj_i2EemB-Jm9-lyEBE8n1BDKXD8gMQ9gIdMQNRLXti5gXE0VgSAwEhYchFgj6_nhC8wThxwSBCBTz4UplnoZgdY1Ps4Ei9f48_NCd7Q-7Pz"/>
+<div class="absolute inset-0 hero-gradient"></div>
+</div>
+<div class="relative z-10 w-full max-w-7xl mx-auto px-8 py-20">
+<div class="max-w-2xl">
+<h1 class="font-headline text-5xl md:text-7xl font-extrabold text-white leading-tight tracking-tight mb-6">
+                    Quality Used Cars in Skokie, IL
+                </h1>
+<p class="text-xl md:text-2xl text-on-primary-container mb-12 font-light leading-relaxed">
+                    Every car inspected. Every price transparent. Every customer protected.
+                </p>
+<div class="flex flex-col sm:flex-row gap-4">
+<button class="bg-secondary-container text-on-secondary-container px-10 py-5 rounded-xl font-bold text-lg hover:opacity-90 active:scale-95 transition-all shadow-xl shadow-primary-container/20">
+                        Browse Inventory
+                    </button>
+<button class="bg-transparent border-2 border-on-primary-container text-white px-10 py-5 rounded-xl font-bold text-lg hover:bg-white/10 active:scale-95 transition-all">
+                        Text Jerry
+                    </button>
+</div>
+</div>
+</div>
+</header>
+<!-- Value Proposition Section -->
+<section class="py-24 bg-surface">
+<div class="max-w-7xl mx-auto px-8">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+<!-- Card 1 -->
+<div class="bg-surface-container-lowest p-10 rounded-xl transition-all duration-300">
+<div class="w-14 h-14 bg-primary-container/5 rounded-full flex items-center justify-center mb-8">
+<span class="material-symbols-outlined text-4xl text-primary-container" data-icon="shield" data-weight="fill" style="font-variation-settings: 'FILL' 1;">shield</span>
+</div>
+<h3 class="font-headline text-2xl font-bold mb-4">Total Protection</h3>
+<p class="text-on-surface-variant leading-relaxed">
+                        Independent Inspection Report, 3-month Warranty, Maxim Select Certified for peace of mind.
+                    </p>
+</div>
+<!-- Card 2 -->
+<div class="bg-surface-container-lowest p-10 rounded-xl transition-all duration-300">
+<div class="w-14 h-14 bg-primary-container/5 rounded-full flex items-center justify-center mb-8">
+<span class="material-symbols-outlined text-4xl text-primary-container" data-icon="directions_car" data-weight="fill" style="font-variation-settings: 'FILL' 1;">directions_car</span>
+</div>
+<h3 class="font-headline text-2xl font-bold mb-4">Skip the DMV Headache</h3>
+<p class="text-on-surface-variant leading-relaxed">
+                        Metal Plates On-the-spot, Drive Home Today, and Instant Registration handled in-house.
+                    </p>
+</div>
+<!-- Card 3 -->
+<div class="bg-surface-container-lowest p-10 rounded-xl transition-all duration-300">
+<div class="w-14 h-14 bg-primary-container/5 rounded-full flex items-center justify-center mb-8">
+<span class="material-symbols-outlined text-4xl text-primary-container" data-icon="sell" data-weight="fill" style="font-variation-settings: 'FILL' 1;">sell</span>
+</div>
+<h3 class="font-headline text-2xl font-bold mb-4">Transparent Pricing</h3>
+<p class="text-on-surface-variant leading-relaxed">
+                        No Hidden Fees, Upfront Pricing, and Financing solutions for All Credit Levels.
+                    </p>
+</div>
+</div>
+</div>
+</section>
+<!-- Featured Vehicles Section -->
+<section class="py-24 bg-surface-container-low">
+<div class="max-w-7xl mx-auto px-8">
+<div class="flex justify-between items-end mb-16">
+<div>
+<span class="text-secondary font-bold uppercase tracking-widest text-sm mb-3 block">Featured Collection</span>
+<h2 class="font-headline text-4xl md:text-5xl font-extrabold">Premier Inventory</h2>
+</div>
+<a class="hidden md:flex items-center text-primary font-bold hover:text-secondary transition-colors" href="#">
+                    View Full Inventory <span class="material-symbols-outlined ml-2">arrow_forward</span>
+</a>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<!-- Vehicle Card 1 -->
+<div class="group bg-surface-container-lowest overflow-hidden rounded-xl">
+<div class="relative h-64 overflow-hidden">
+<img alt="2021 Toyota Camry" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="Side profile of a sleek charcoal grey sedan parked in a clean minimalist environment with soft shadows" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDcO6CplQO5XRSC1N7XC_-SlV7i_NBw8-sF0msJ4bznX6ChrXygmIPhrUy_9Z-7bjvgBFuubw9wJV3j8lH1InZEiKIIu0G1l1gDKvv03FEgZNE5X5WAp9coNK4r0bIIdt5G-ZIW8EQcZbaOpVy4l0BlRUbhPa7_bAMbN9ND8gjg2jq7ZmBQ-gZ3vETaFFXIJ00uXGq9Paggf4fSyFK922AxGwWBqQ6F6bg68Pc3alWTE_Dd20g-l3dgKJaL9RIi26glegRTol4VIpGH"/>
+<div class="absolute top-4 left-4 bg-primary-container text-white text-xs font-bold px-3 py-1 rounded">JUST ARRIVED</div>
+</div>
+<div class="p-8">
+<h3 class="font-headline text-2xl font-bold mb-2">2021 Toyota Camry</h3>
+<div class="flex justify-between items-center mb-8 text-on-surface-variant">
+<span class="text-lg font-medium">$24,900</span>
+<span class="text-sm">28,450 Miles</span>
+</div>
+<button class="w-full bg-secondary-container text-on-secondary-container py-4 rounded-xl font-bold hover:opacity-90 transition-all">
+                            View Details
+                        </button>
+</div>
+</div>
+<!-- Vehicle Card 2 -->
+<div class="group bg-surface-container-lowest overflow-hidden rounded-xl">
+<div class="relative h-64 overflow-hidden">
+<img alt="2020 Honda CR-V" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="Front three-quarter view of a clean white compact SUV in a professional studio setting with soft top-down lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCEsCdmVdpJ8blpw4vtJhzbPzy3ppPCq6Nc2BBJO7esHaP7wmkpEfqOF31BzsWlkpFKh5_0eLCUKHa4y5K3VjF1qLaW9g85yAflJiPM8FwvWQxO0hAR_sb7OMoZKs-bKe-ylo89VyOJQJRJ_gelWRJ-YrscJlxY2lFfOQUDlChE2tvpvTehAMiblxvA--aLhl_8zjVW6OF832LHL6yQQdHsZm4zVgl4dHV9-wy_GyqPOJAPWk_5SF5vKMpnejBWtNTqDarCvwOzO8Z0"/>
+<div class="absolute top-4 left-4 bg-secondary-container text-on-secondary-container text-xs font-bold px-3 py-1 rounded">MAXIM SELECT</div>
+</div>
+<div class="p-8">
+<h3 class="font-headline text-2xl font-bold mb-2">2020 Honda CR-V</h3>
+<div class="flex justify-between items-center mb-8 text-on-surface-variant">
+<span class="text-lg font-medium">$26,500</span>
+<span class="text-sm">34,100 Miles</span>
+</div>
+<button class="w-full bg-secondary-container text-on-secondary-container py-4 rounded-xl font-bold hover:opacity-90 transition-all">
+                            View Details
+                        </button>
+</div>
+</div>
+<!-- Vehicle Card 3 -->
+<div class="group bg-surface-container-lowest overflow-hidden rounded-xl">
+<div class="relative h-64 overflow-hidden">
+<img alt="2019 BMW 3 Series" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="Close up view of the grille and headlight of a premium black luxury sedan with morning dew in high resolution" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDatU9C-_uR2TK5g4wtjQanka6KGJ46dVB-0ZyYsf7_7oXdrP3LqJZnGMZfbjuGOfaflESbwiR1E3XVftMy4y7A8c37emMg4SPASYHLdgDO-pXkChIIb6w-V94R1fE8zBB4gM18G0CEDF13syHVs34HbkQxbYHi3cLuMIysyk1GjxCyVAr-SjzV2vQBifNvK7p_SiDUeBOOE34pCfHtWGswj610IbTpdfF4a9GsQbdm9USYuyL2ikAz8o5Afdc-V-XS6Dt5XhKN0cG7"/>
+</div>
+<div class="p-8">
+<h3 class="font-headline text-2xl font-bold mb-2">2019 BMW 3 Series</h3>
+<div class="flex justify-between items-center mb-8 text-on-surface-variant">
+<span class="text-lg font-medium">$28,950</span>
+<span class="text-sm">42,000 Miles</span>
+</div>
+<button class="w-full bg-secondary-container text-on-secondary-container py-4 rounded-xl font-bold hover:opacity-90 transition-all">
+                            View Details
+                        </button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Reviews Section -->
+<section class="py-24 bg-primary-container text-white">
+<div class="max-w-7xl mx-auto px-8">
+<div class="text-center mb-16">
+<div class="flex justify-center items-center gap-1 mb-4">
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<h2 class="font-headline text-4xl md:text-5xl font-extrabold mb-4">5.0 Stars on Google | 33+ Reviews</h2>
+<p class="text-on-primary-container text-lg">Real stories from our local North Shore neighbors.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<div class="bg-white/5 p-8 rounded-xl backdrop-blur-sm border border-white/10">
+<p class="text-lg italic mb-6 leading-relaxed">"Easiest car buying experience ever. Jerry was honest, direct, and had the plates ready before I even left. Highly recommend!"</p>
+<div class="font-bold text-secondary">— Michael R.</div>
+</div>
+<div class="bg-white/5 p-8 rounded-xl backdrop-blur-sm border border-white/10">
+<p class="text-lg italic mb-6 leading-relaxed">"The transparency is what sold me. No hidden fees or back-and-forth games. The car was in exactly the condition described."</p>
+<div class="font-bold text-secondary">— Sarah L.</div>
+</div>
+<div class="bg-white/5 p-8 rounded-xl backdrop-blur-sm border border-white/10">
+<p class="text-lg italic mb-6 leading-relaxed">"Great local dealership. Jerry helped me find a safe car for my daughter and handled all the financing within an hour."</p>
+<div class="font-bold text-secondary">— David K.</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Neighborhood Section -->
+<section class="py-24 bg-surface">
+<div class="max-w-7xl mx-auto px-8">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+<div>
+<h2 class="font-headline text-4xl font-extrabold mb-8">Serving the North Shore</h2>
+<p class="text-on-surface-variant text-lg mb-10 leading-relaxed">
+                        Based in Skokie, we are proud to serve our local community and surrounding neighbors with premium used vehicles and world-class service.
+                    </p>
+<div class="flex flex-wrap gap-3">
+<span class="px-5 py-2 bg-surface-container-high rounded-full text-sm font-medium">Skokie</span>
+<span class="px-5 py-2 bg-surface-container-high rounded-full text-sm font-medium">Evanston</span>
+<span class="px-5 py-2 bg-surface-container-high rounded-full text-sm font-medium">Niles</span>
+<span class="px-5 py-2 bg-surface-container-high rounded-full text-sm font-medium">Morton Grove</span>
+<span class="px-5 py-2 bg-surface-container-high rounded-full text-sm font-medium">Lincolnwood</span>
+<span class="px-5 py-2 bg-surface-container-high rounded-full text-sm font-medium">Des Plaines</span>
+<span class="px-5 py-2 bg-surface-container-high rounded-full text-sm font-medium">Wilmette</span>
+<span class="px-5 py-2 bg-surface-container-high rounded-full text-sm font-medium">Glenview</span>
+</div>
+</div>
+<div class="relative h-[400px] rounded-2xl overflow-hidden shadow-2xl">
+<div class="absolute inset-0 bg-primary-container/20 mix-blend-multiply"></div>
+<img alt="North Shore Map" class="w-full h-full object-cover grayscale contrast-125" data-alt="Stylized map showing the Chicago north shore suburbs with elegant minimalist design and dark navy accents" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDVjaVeNmcZM1AypjHU6wHH2hG3-DFnPD08EucZ1jkwNVQG6OzbxvBk9XmK84fJBQ6vrUZ_vV4e1hDeXhcO9znY15k_t04X-ifBjLoj0HpycLLkAHU7R6Rj9I7C1pzRK94R7E8XpZmrKneNQZtRKuG3y5oypjpLjZ4wdld9GDtwTIuofuxw-iS0SAhQ1OvHbd98pFiL8grno9NmqvSCaTpdgqWIAPzf0h55SlsLJ_cOQC1vjy28gbJxfK3XdffzJr2_krsPZGzj3ohu"/>
+<div class="absolute bottom-6 left-6 bg-white p-4 rounded-xl shadow-lg">
+<div class="font-bold">Maxim Autos Skokie</div>
+<div class="text-sm text-on-surface-variant">Visit our showroom today</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="bg-slate-950 dark:bg-black text-slate-400">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-12 w-full px-8 py-16 max-w-7xl mx-auto">
+<!-- Brand & Info -->
+<div>
+<div class="text-xl font-bold text-slate-50 mb-6">Maxim Autos</div>
+<div class="space-y-4 font-body text-sm leading-relaxed">
+<p class="flex items-start gap-3">
+<span class="material-symbols-outlined text-yellow-400 text-xl">location_on</span>
+                        Skokie IL, 60077
+                    </p>
+<p class="flex items-center gap-3">
+<span class="material-symbols-outlined text-yellow-400 text-xl">phone</span>
+                        847-510-8947
+                    </p>
+<p class="flex items-center gap-3">
+<span class="material-symbols-outlined text-yellow-400 text-xl">mail</span>
+                        jerryf@maximautos.com
+                    </p>
+</div>
+</div>
+<!-- Hours & Appointments -->
+<div>
+<div class="text-yellow-400 font-bold mb-6 font-headline text-sm uppercase tracking-widest">Business Hours</div>
+<div class="space-y-3 font-body text-sm">
+<div class="flex justify-between border-b border-white/5 pb-2">
+<span>Mon / Tue / Thu / Fri</span>
+<span class="text-slate-50">3-7 PM</span>
+</div>
+<div class="flex justify-between border-b border-white/5 pb-2">
+<span>Saturday</span>
+<span class="text-slate-50">10 AM - 3 PM</span>
+</div>
+<div class="flex justify-between border-b border-white/5 pb-2">
+<span>Wed / Sun</span>
+<span class="text-slate-50 font-medium">Closed</span>
+</div>
+<p class="mt-6 text-yellow-400 font-bold italic">
+                        After-hours appointments available, text Jerry.
+                    </p>
+</div>
+</div>
+<!-- Navigation Links -->
+<div>
+<div class="text-yellow-400 font-bold mb-6 font-headline text-sm uppercase tracking-widest">Quick Links</div>
+<ul class="space-y-4 font-body text-sm">
+<li><a class="text-yellow-400 font-bold hover:text-yellow-300 transition-colors" href="#">Inventory</a></li>
+<li><a class="hover:text-yellow-300 transition-colors" href="#">Financing</a></li>
+<li><a class="hover:text-yellow-300 transition-colors" href="#">About</a></li>
+<li><a class="hover:text-yellow-300 transition-colors" href="#">Reviews</a></li>
+<li><a class="hover:text-yellow-300 transition-colors" href="#">Contact</a></li>
+</ul>
+</div>
+</div>
+<div class="w-full px-8 py-8 border-t border-white/5 max-w-7xl mx-auto text-xs flex justify-between items-center opacity-60">
+<span>© 2024 Maxim Autos. Skokie, IL.</span>
+<div class="flex gap-6">
+<a class="hover:text-white transition-colors" href="#">Privacy Policy</a>
+<a class="hover:text-white transition-colors" href="#">Terms of Service</a>
+</div>
+</div>
+</footer>
+</body></html>

@@ -1,0 +1,110 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import faqData from '../data/faq.json';
+
+const title = 'Frequently Asked Questions — Maxim Autos, Skokie IL';
+const description = 'Answers to common questions about Maxim Autos: warranty, financing, plates, inspections, trade-ins, hours, and more. Used car dealer in Skokie, IL.';
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqData.map(item => ({
+    "@type": "Question",
+    "name": item.question,
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": item.answer
+    }
+  }))
+};
+---
+
+<Layout title={title} description={description}>
+  <Fragment slot="structured-data">
+    <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+  </Fragment>
+
+  <Header slot="header" />
+
+  <!-- Hero -->
+  <section class="bg-navy py-16 lg:py-20">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8 text-center">
+      <span class="text-orange font-bold uppercase tracking-widest text-sm mb-3 block">FAQ</span>
+      <h1 class="font-headline text-4xl md:text-5xl lg:text-6xl font-extrabold text-white leading-tight tracking-tight mb-6">
+        Frequently Asked Questions
+      </h1>
+      <p class="text-xl text-gray-300 max-w-2xl mx-auto leading-relaxed">
+        Everything you need to know about buying a car at Maxim Autos.
+      </p>
+    </div>
+  </section>
+
+  <!-- FAQ Accordion -->
+  <section class="py-20 bg-white">
+    <div class="max-w-3xl mx-auto px-6 lg:px-8">
+      <div class="space-y-4">
+        {faqData.map((item, index) => (
+          <div class="faq-item border border-gray-200 rounded-xl overflow-hidden">
+            <button
+              class="faq-toggle w-full flex items-center justify-between p-6 text-left hover:bg-surface/50 transition-colors"
+              aria-expanded="false"
+              aria-controls={`faq-answer-${index}`}
+            >
+              <span class="font-headline font-bold text-lg pr-4">{item.question}</span>
+              <span class="material-symbols-outlined text-orange shrink-0 faq-icon transition-transform duration-200">expand_more</span>
+            </button>
+            <div id={`faq-answer-${index}`} class="faq-answer hidden px-6 pb-6">
+              <p class="text-gray-600 leading-relaxed">{item.answer}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-16 bg-surface">
+    <div class="max-w-3xl mx-auto px-6 lg:px-8 text-center">
+      <h2 class="font-headline text-2xl md:text-3xl font-extrabold mb-4">Still Have Questions?</h2>
+      <p class="text-gray-600 text-lg mb-8">Text Jerry directly — he responds fast and answers everything honestly.</p>
+      <div class="flex flex-col sm:flex-row justify-center gap-4">
+        <a href="sms:8475108947&body=Hi Jerry, I have a question about Maxim Autos." class="inline-flex items-center justify-center gap-2 bg-orange text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-orange-dark transition-colors">
+          <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">sms</span>
+          Text Jerry
+        </a>
+        <a href="/contact" class="inline-flex items-center justify-center gap-2 bg-navy text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-navy-light transition-colors">
+          Contact Us
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <Footer slot="footer" />
+</Layout>
+
+<script is:inline>
+  document.querySelectorAll('.faq-toggle').forEach(button => {
+    button.addEventListener('click', () => {
+      const item = button.closest('.faq-item');
+      const answer = item.querySelector('.faq-answer');
+      const icon = button.querySelector('.faq-icon');
+      const isOpen = !answer.classList.contains('hidden');
+
+      // Close all others
+      document.querySelectorAll('.faq-item').forEach(otherItem => {
+        if (otherItem !== item) {
+          otherItem.querySelector('.faq-answer').classList.add('hidden');
+          otherItem.querySelector('.faq-toggle').setAttribute('aria-expanded', 'false');
+          otherItem.querySelector('.faq-icon').style.transform = 'rotate(0deg)';
+        }
+      });
+
+      // Toggle current
+      answer.classList.toggle('hidden');
+      button.setAttribute('aria-expanded', isOpen ? 'false' : 'true');
+      icon.style.transform = isOpen ? 'rotate(0deg)' : 'rotate(180deg)';
+    });
+  });
+</script>

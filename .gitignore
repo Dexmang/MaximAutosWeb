@@ -1,0 +1,8 @@
+node_modules/
+dist/
+.astro/
+.claude/
+*.mov
+
+# Original full-size photos (keep only web/ and thumb/ optimized versions)
+web_assets/photos/*/*.jpg

@@ -1,0 +1,143 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import reviews from '../data/reviews.json';
+
+const title = 'Customer Reviews — Maxim Autos, Skokie IL | 5-Star Google Reviews';
+const description = 'Read 5-star customer reviews for Maxim Autos in Skokie, IL. 33+ verified reviews on Google. No games, no hidden fees — just honest cars and personal service from Jerry Franco.';
+
+const ratingSchema = {
+  "@context": "https://schema.org",
+  "@type": "AutoDealer",
+  "name": "Maxim Autos",
+  "url": "https://maximautos.com",
+  "telephone": "+1-847-510-8947",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Skokie",
+    "addressRegion": "IL",
+    "postalCode": "60077",
+    "addressCountry": "US"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "5.0",
+    "reviewCount": "33",
+    "bestRating": "5",
+    "worstRating": "1"
+  },
+  "review": reviews.map(r => ({
+    "@type": "Review",
+    "reviewRating": {
+      "@type": "Rating",
+      "ratingValue": String(r.rating),
+      "bestRating": "5"
+    },
+    "author": {
+      "@type": "Person",
+      "name": r.name
+    },
+    "reviewBody": r.text,
+    "datePublished": r.date
+  }))
+};
+---
+
+<Layout title={title} description={description}>
+  <Fragment slot="structured-data">
+    <script type="application/ld+json" set:html={JSON.stringify(ratingSchema)} />
+  </Fragment>
+
+  <Header slot="header" />
+
+  <!-- Hero -->
+  <section class="bg-navy py-16 lg:py-20">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8 text-center">
+      <div class="flex justify-center items-center gap-1 mb-6">
+        {[1,2,3,4,5].map(() => (
+          <span class="material-symbols-outlined text-orange text-4xl md:text-5xl" style="font-variation-settings: 'FILL' 1;">star</span>
+        ))}
+      </div>
+      <h1 class="font-headline text-5xl md:text-6xl lg:text-7xl font-extrabold text-white leading-tight tracking-tight mb-4">
+        5.0 Stars
+      </h1>
+      <p class="text-xl text-gray-300 max-w-2xl mx-auto leading-relaxed mb-2">
+        33+ verified reviews from North Shore neighbors
+      </p>
+      <a
+        href="https://www.google.com/maps/place/Maxim+Autos/"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-flex items-center gap-2 text-orange font-bold hover:underline mt-4"
+      >
+        See all reviews on Google <span class="material-symbols-outlined text-sm">open_in_new</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- Review Cards -->
+  <section class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {reviews.map(review => (
+          <div class="bg-surface p-8 rounded-xl border border-gray-100 hover:border-orange/20 hover:shadow-md transition-all flex flex-col">
+            <!-- Stars -->
+            <div class="flex items-center gap-1 mb-4">
+              {Array.from({ length: review.rating }).map(() => (
+                <span class="material-symbols-outlined text-orange text-lg" style="font-variation-settings: 'FILL' 1;">star</span>
+              ))}
+            </div>
+            <!-- Review text -->
+            <p class="text-gray-700 text-lg italic leading-relaxed mb-6 flex-1">"{review.text}"</p>
+            <!-- Attribution -->
+            <div class="flex items-center justify-between pt-4 border-t border-gray-200">
+              <span class="font-bold text-navy">— {review.name}</span>
+              <div class="flex items-center gap-2 text-xs text-gray-400">
+                <span>{review.source}</span>
+                <span>&bull;</span>
+                <span>{review.date}</span>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Google Reviews CTA -->
+  <section class="py-16 bg-surface">
+    <div class="max-w-3xl mx-auto px-6 lg:px-8 text-center">
+      <h2 class="font-headline text-2xl md:text-3xl font-extrabold mb-4">See All Our Reviews</h2>
+      <p class="text-gray-600 text-lg mb-8">Read what our customers have to say on Google.</p>
+      <a
+        href="https://www.google.com/maps/place/Maxim+Autos/"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-flex items-center justify-center gap-2 bg-navy text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-navy-light transition-colors"
+      >
+        <span class="material-symbols-outlined">open_in_new</span>
+        Read Reviews on Google
+      </a>
+    </div>
+  </section>
+
+  <!-- CTA Banner -->
+  <section class="py-16 bg-orange">
+    <div class="max-w-4xl mx-auto px-6 lg:px-8 text-center">
+      <h2 class="font-headline text-3xl md:text-4xl font-extrabold text-white mb-4">Ready to Experience It Yourself?</h2>
+      <p class="text-white/90 text-lg mb-8">Join 33+ happy customers. Text Jerry to get started.</p>
+      <div class="flex flex-col sm:flex-row justify-center gap-4">
+        <a href="sms:8475108947&body=Hi Jerry, I'm interested in a vehicle at Maxim Autos." class="inline-flex items-center justify-center gap-2 bg-white text-navy px-8 py-4 rounded-xl font-bold text-lg hover:bg-gray-100 transition-colors">
+          <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">sms</span>
+          Text Jerry
+        </a>
+        <a href="/inventory" class="inline-flex items-center justify-center gap-2 bg-navy text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-navy-light transition-colors">
+          Browse Inventory
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <Footer slot="footer" />
+</Layout>

@@ -1,0 +1,309 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import VehicleCard from '../components/VehicleCard.astro';
+import vehicles from '../data/vehicles.json';
+
+const title = 'Used Cars for Sale in Skokie, IL';
+const description = `Browse ${vehicles.length} quality-inspected used cars for sale at Maxim Autos in Skokie, IL. Prices from $${Math.min(...vehicles.map(v => v.price)).toLocaleString()} to $${Math.max(...vehicles.map(v => v.price)).toLocaleString()}. Every vehicle includes a 3-month warranty, independent inspection report, and metal plates on-the-spot. Financing available for all credit levels.`;
+
+const bodyStyles = [...new Set(vehicles.map(v => v.bodyStyle))].sort();
+---
+
+<Layout title={title} description={description}>
+  <Fragment slot="structured-data">
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "AutoDealer",
+      "name": "Maxim Autos",
+      "url": "https://maximautos.com/inventory",
+      "telephone": "+1-847-510-8947",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Skokie",
+        "addressRegion": "IL",
+        "postalCode": "60077",
+        "addressCountry": "US"
+      },
+      "makesOffer": vehicles.map(v => ({
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Car",
+          "name": `${v.year} ${v.make} ${v.model} ${v.trim}`,
+          "brand": { "@type": "Brand", "name": v.make },
+          "model": v.model,
+          "vehicleModelDate": String(v.year),
+          "mileageFromOdometer": {
+            "@type": "QuantitativeValue",
+            "value": v.mileage,
+            "unitCode": "SMI"
+          },
+          "color": v.exteriorColor,
+          "vehicleInteriorColor": v.interiorColor,
+          "vehicleEngine": { "@type": "EngineSpecification", "name": v.engine },
+          "vehicleTransmission": v.transmission,
+          "driveWheelConfiguration": v.drivetrain,
+          "fuelType": v.fuelType,
+          "bodyType": v.bodyStyle,
+          "vehicleIdentificationNumber": v.vin !== "TBD" ? v.vin : undefined,
+          "itemCondition": "https://schema.org/UsedCondition",
+          "url": `https://maximautos.com/vehicle/${v.slug}`
+        },
+        "price": v.price,
+        "priceCurrency": "USD",
+        "availability": "https://schema.org/InStock",
+        "seller": { "@type": "AutoDealer", "name": "Maxim Autos" }
+      }))
+    })} />
+  </Fragment>
+
+  <Header slot="header" />
+
+  <!-- Page Header -->
+  <section class="bg-navy py-12 md:py-16">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+      <h1 class="font-headline text-3xl md:text-5xl font-extrabold text-white mb-3">Used Cars for Sale</h1>
+      <p class="text-gray-400 text-lg">Quality-inspected vehicles in Skokie, IL &mdash; every one backed by our 3-month warranty</p>
+    </div>
+  </section>
+
+  <!-- Filter Bar -->
+  <section class="sticky top-[73px] z-40 bg-white border-b border-gray-200 shadow-sm">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8 py-4">
+      <div class="flex flex-col md:flex-row md:items-center gap-4">
+        <!-- Price Range -->
+        <div class="flex flex-col gap-1.5">
+          <label class="text-xs font-semibold text-gray-500 uppercase tracking-wider">Price</label>
+          <div class="flex flex-wrap gap-2" id="filter-price">
+            <button data-price="all" class="filter-btn filter-btn--active px-4 py-2 rounded-lg text-sm font-semibold transition-all">All</button>
+            <button data-price="5000-8000" class="filter-btn px-4 py-2 rounded-lg text-sm font-semibold transition-all">$5K&ndash;$8K</button>
+            <button data-price="8000-12000" class="filter-btn px-4 py-2 rounded-lg text-sm font-semibold transition-all">$8K&ndash;$12K</button>
+            <button data-price="12000-15000" class="filter-btn px-4 py-2 rounded-lg text-sm font-semibold transition-all">$12K&ndash;$15K</button>
+          </div>
+        </div>
+
+        <!-- Body Style -->
+        <div class="flex flex-col gap-1.5">
+          <label class="text-xs font-semibold text-gray-500 uppercase tracking-wider">Body Style</label>
+          <div class="flex flex-wrap gap-2" id="filter-body">
+            <button data-body="all" class="filter-btn filter-btn--active px-4 py-2 rounded-lg text-sm font-semibold transition-all">All</button>
+            {bodyStyles.map(style => (
+              <button data-body={style} class="filter-btn px-4 py-2 rounded-lg text-sm font-semibold transition-all">{style}</button>
+            ))}
+          </div>
+        </div>
+
+        <!-- Sort -->
+        <div class="flex flex-col gap-1.5 md:ml-auto">
+          <label class="text-xs font-semibold text-gray-500 uppercase tracking-wider">Sort</label>
+          <select id="filter-sort" class="px-4 py-2 rounded-lg text-sm font-semibold border border-gray-200 bg-white text-gray-700 focus:ring-2 focus:ring-orange/30 focus:border-orange cursor-pointer">
+            <option value="price-asc">Price: Low to High</option>
+            <option value="price-desc">Price: High to Low</option>
+            <option value="year-desc">Newest First</option>
+            <option value="mileage-asc">Mileage: Low to High</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Inventory Grid -->
+  <section class="py-10 bg-surface">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+      <!-- Count + Active Filters -->
+      <div class="flex items-center justify-between mb-8">
+        <p class="text-gray-600 font-medium" id="vehicle-count">
+          Showing <span class="text-navy font-bold" id="count-num">{vehicles.length}</span> vehicles
+        </p>
+        <button id="clear-filters" class="hidden text-sm text-orange font-semibold hover:underline">Clear Filters</button>
+      </div>
+
+      <!-- Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="vehicle-grid">
+        {vehicles.map(v => (
+          <div
+            class="vehicle-card"
+            data-price={v.price}
+            data-body={v.bodyStyle}
+            data-year={v.year}
+            data-mileage={v.mileage}
+            data-slug={v.slug}
+          >
+            <VehicleCard
+              slug={v.slug}
+              year={v.year}
+              make={v.make}
+              model={v.model}
+              trim={v.trim}
+              price={v.price}
+              mileage={v.mileage}
+              drivetrain={v.drivetrain}
+              engine={v.engine}
+              photoPath={v.photoPath}
+              certified={v.certified}
+            />
+          </div>
+        ))}
+      </div>
+
+      <!-- No Results -->
+      <div id="no-results" class="hidden text-center py-20">
+        <span class="material-symbols-outlined text-6xl text-gray-300 mb-4 block">search_off</span>
+        <h3 class="font-headline text-xl font-bold text-gray-700 mb-2">No vehicles match your filters</h3>
+        <p class="text-gray-500 mb-6">Try adjusting your price range or body style selection.</p>
+        <button id="reset-from-empty" class="inline-flex items-center gap-2 bg-orange text-white px-6 py-3 rounded-lg font-bold text-sm hover:bg-orange-dark transition-colors">
+          <span class="material-symbols-outlined text-lg">filter_alt_off</span>
+          Clear All Filters
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-16 bg-orange">
+    <div class="max-w-4xl mx-auto px-6 lg:px-8 text-center">
+      <h2 class="font-headline text-3xl md:text-4xl font-extrabold text-white mb-4">Don't See What You're Looking For?</h2>
+      <p class="text-white/90 text-lg mb-8">Tell Jerry what you need. We source vehicles weekly and can find the right car for your budget.</p>
+      <div class="flex flex-col sm:flex-row justify-center gap-4">
+        <a href="sms:8475108947&body=Hi Jerry, I'm looking for a specific vehicle. Can you help me find it?" class="inline-flex items-center justify-center gap-2 bg-white text-navy px-8 py-4 rounded-xl font-bold text-lg hover:bg-gray-100 transition-colors">
+          <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">sms</span>
+          Text Jerry
+        </a>
+        <a href="tel:8475108947" class="inline-flex items-center justify-center gap-2 bg-navy text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-navy-light transition-colors">
+          <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">call</span>
+          (847) 510-8947
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <Footer slot="footer" />
+</Layout>
+
+<style is:inline>
+  .filter-btn {
+    background: #f8f9fa;
+    color: #4b5563;
+    border: 1px solid #e5e7eb;
+  }
+  .filter-btn:hover {
+    background: #edeeef;
+    border-color: #d1d5db;
+  }
+  .filter-btn--active {
+    background: #0a2540 !important;
+    color: #fff !important;
+    border-color: #0a2540 !important;
+  }
+</style>
+
+<script is:inline>
+(function () {
+  const grid = document.getElementById('vehicle-grid');
+  const cards = Array.from(grid.querySelectorAll('.vehicle-card'));
+  const countEl = document.getElementById('count-num');
+  const noResults = document.getElementById('no-results');
+  const clearBtn = document.getElementById('clear-filters');
+  const resetEmpty = document.getElementById('reset-from-empty');
+  const sortSelect = document.getElementById('filter-sort');
+
+  let activePrice = 'all';
+  let activeBody = 'all';
+
+  function setActiveBtn(group, value) {
+    group.querySelectorAll('.filter-btn').forEach(btn => {
+      btn.classList.toggle('filter-btn--active', btn.dataset.price === value || btn.dataset.body === value);
+    });
+  }
+
+  function applyFilters() {
+    let visible = 0;
+
+    cards.forEach(card => {
+      const price = parseInt(card.dataset.price, 10);
+      const body = card.dataset.body;
+
+      let show = true;
+
+      if (activePrice !== 'all') {
+        const [min, max] = activePrice.split('-').map(Number);
+        if (price < min || price > max) show = false;
+      }
+
+      if (activeBody !== 'all') {
+        if (body !== activeBody) show = false;
+      }
+
+      card.style.display = show ? '' : 'none';
+      if (show) visible++;
+    });
+
+    countEl.textContent = visible;
+    noResults.classList.toggle('hidden', visible > 0);
+    grid.classList.toggle('hidden', visible === 0);
+
+    const hasFilters = activePrice !== 'all' || activeBody !== 'all';
+    clearBtn.classList.toggle('hidden', !hasFilters);
+  }
+
+  function applySorting() {
+    const sortVal = sortSelect.value;
+    const sorted = [...cards].sort((a, b) => {
+      switch (sortVal) {
+        case 'price-asc':
+          return parseInt(a.dataset.price) - parseInt(b.dataset.price);
+        case 'price-desc':
+          return parseInt(b.dataset.price) - parseInt(a.dataset.price);
+        case 'year-desc':
+          return parseInt(b.dataset.year) - parseInt(a.dataset.year);
+        case 'mileage-asc':
+          return parseInt(a.dataset.mileage) - parseInt(b.dataset.mileage);
+        default:
+          return 0;
+      }
+    });
+
+    sorted.forEach(card => grid.appendChild(card));
+  }
+
+  function resetFilters() {
+    activePrice = 'all';
+    activeBody = 'all';
+    setActiveBtn(document.getElementById('filter-price'), 'all');
+    setActiveBtn(document.getElementById('filter-body'), 'all');
+    applyFilters();
+  }
+
+  // Price filter buttons
+  document.getElementById('filter-price').addEventListener('click', function (e) {
+    const btn = e.target.closest('.filter-btn');
+    if (!btn) return;
+    activePrice = btn.dataset.price;
+    setActiveBtn(this, activePrice);
+    applyFilters();
+  });
+
+  // Body style filter buttons
+  document.getElementById('filter-body').addEventListener('click', function (e) {
+    const btn = e.target.closest('.filter-btn');
+    if (!btn) return;
+    activeBody = btn.dataset.body;
+    setActiveBtn(this, activeBody);
+    applyFilters();
+  });
+
+  // Sort
+  sortSelect.addEventListener('change', function () {
+    applySorting();
+    applyFilters();
+  });
+
+  // Clear / Reset
+  clearBtn.addEventListener('click', resetFilters);
+  resetEmpty.addEventListener('click', resetFilters);
+
+  // Initial sort
+  applySorting();
+})();
+</script>

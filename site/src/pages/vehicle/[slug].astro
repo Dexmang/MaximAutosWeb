@@ -1,0 +1,521 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import VehicleCard from '../../components/VehicleCard.astro';
+import vehicles from '../../data/vehicles.json';
+
+export function getStaticPaths() {
+  return vehicles.map(v => ({
+    params: { slug: v.slug },
+    props: { vehicle: v },
+  }));
+}
+
+const { vehicle } = Astro.props;
+const v = vehicle;
+const titleText = `${v.year} ${v.make} ${v.model} ${v.trim}`;
+const pageTitle = `${titleText} for Sale in Skokie, IL`;
+const pageDesc = `${titleText} with ${v.mileage.toLocaleString()} miles for $${v.price.toLocaleString()} at Maxim Autos in Skokie, IL. ${v.engine}, ${v.transmission}, ${v.drivetrain}. Maxim Select Certified with 3-month warranty, free CARFAX, and independent inspection. Metal plates on-the-spot.`;
+
+const seoSuffix = 'maxim-autos-skokie-il';
+
+// Build photo arrays using photoPrefix for reliable URL matching
+const exteriorPhotos = Array.from({ length: v.photos.exterior }, (_, i) => {
+  const num = String(i + 1).padStart(2, '0');
+  return `/${v.photoPath}/web/${v.photoPrefix}-photo-exterior-${seoSuffix}-${num}.jpg`;
+});
+const interiorPhotos = Array.from({ length: v.photos.interior }, (_, i) => {
+  const num = String(i + 1).padStart(2, '0');
+  return `/${v.photoPath}/web/${v.photoPrefix}-photo-interior-${seoSuffix}-${num}.jpg`;
+});
+const allPhotos = [...exteriorPhotos, ...interiorPhotos];
+
+// Thumbnail versions for the strip
+const thumbPhotos = allPhotos.map(p => p.replace('/web/', '/thumb/'));
+
+// Other vehicles (exclude current)
+const otherVehicles = vehicles.filter(o => o.slug !== v.slug).slice(0, 3);
+
+// SMS link
+const smsBody = encodeURIComponent(`Hi Jerry, I'm interested in the ${titleText} listed on MaximAutos.com.`);
+
+// FAQ data
+const faqs = [
+  {
+    q: `Is the ${v.year} ${v.make} ${v.model} reliable?`,
+    a: `The ${v.year} ${v.make} ${v.model} is well-regarded for its reliability. This specific vehicle has been thoroughly inspected by an independent mechanic as part of our Maxim Select Certification process. The inspection report is included with your purchase so you can review every detail before buying.`
+  },
+  {
+    q: `What warranty comes with this ${v.make} ${v.model}?`,
+    a: `This ${v.year} ${v.make} ${v.model} includes our 3-Month "Peace of Mind" Warranty at no additional cost. The warranty covers major mechanical components and gives you confidence in your purchase. Extended warranty options are also available.`
+  },
+  {
+    q: `Can I get financing for a used ${v.make} ${v.model}?`,
+    a: `Yes. Maxim Autos offers financing for all credit levels, including first-time buyers and those rebuilding credit. Contact Jerry directly to discuss financing options for this ${titleText}. There are no hidden fees — what you see is what you pay.`
+  },
+  {
+    q: `Does this ${v.make} ${v.model} come with a CARFAX report?`,
+    a: `Yes. A free CARFAX vehicle history report is included with every vehicle at Maxim Autos. You can review the full history of this ${titleText} before making a decision. Ask Jerry for the report anytime.`
+  },
+  {
+    q: `What does "Maxim Select Certified" mean?`,
+    a: `Maxim Select Certified means this ${titleText} has passed an independent mechanical inspection, includes a 3-month warranty, and comes with a free CARFAX report. It's our commitment that every vehicle we sell meets a higher standard than the typical used car lot.`
+  },
+  {
+    q: `Can I drive this ${v.make} ${v.model} home the same day I buy it?`,
+    a: `Yes. Maxim Autos issues metal license plates on-the-spot and handles DMV registration instantly. You can drive this ${titleText} home the same day you purchase it — no waiting for temporary plates or paperwork.`
+  },
+  {
+    q: `How many miles does this ${v.year} ${v.make} ${v.model} have?`,
+    a: `This ${titleText} currently has ${v.mileage.toLocaleString()} miles on the odometer. The ${v.engine} engine paired with ${v.transmission.toLowerCase()} transmission and ${v.drivetrain} drivetrain is well-suited for daily driving and long trips alike.`
+  },
+  {
+    q: `Are there any hidden fees on this ${v.make} ${v.model}?`,
+    a: `No. Maxim Autos uses transparent, upfront pricing. The listed price of $${v.price.toLocaleString()} is the price you pay, plus standard state tax, title, and license fees. There are no dealer markups, documentation fees surprises, or hidden charges.`
+  },
+  {
+    q: `What features does this ${titleText} include?`,
+    a: `This ${titleText} comes equipped with: ${v.features.join(', ')}. The ${v.trim} trim level includes the ${v.engine} engine, ${v.transmission.toLowerCase()} transmission, and ${v.drivetrain} drivetrain.`
+  }
+];
+
+// JSON-LD Vehicle schema
+const vehicleSchema = {
+  "@context": "https://schema.org",
+  "@type": "Car",
+  "name": titleText,
+  "description": pageDesc,
+  "brand": { "@type": "Brand", "name": v.make },
+  "model": v.model,
+  "vehicleModelDate": String(v.year),
+  "mileageFromOdometer": {
+    "@type": "QuantitativeValue",
+    "value": v.mileage,
+    "unitCode": "SMI"
+  },
+  "color": v.exteriorColor,
+  "vehicleInteriorColor": v.interiorColor,
+  "vehicleEngine": { "@type": "EngineSpecification", "name": v.engine },
+  "vehicleTransmission": v.transmission,
+  "driveWheelConfiguration": v.drivetrain,
+  "fuelType": v.fuelType,
+  "bodyType": v.bodyStyle,
+  "itemCondition": "https://schema.org/UsedCondition",
+  "offers": {
+    "@type": "Offer",
+    "price": v.price,
+    "priceCurrency": "USD",
+    "availability": "https://schema.org/InStock",
+    "seller": {
+      "@type": "AutoDealer",
+      "name": "Maxim Autos",
+      "telephone": "+1-847-510-8947",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Skokie",
+        "addressRegion": "IL",
+        "postalCode": "60077",
+        "addressCountry": "US"
+      }
+    }
+  },
+  "image": allPhotos.length > 0 ? allPhotos[0] : undefined,
+  "url": `https://maximautos.com/vehicle/${v.slug}`
+};
+
+if (v.vin && v.vin !== "TBD") {
+  vehicleSchema.vehicleIdentificationNumber = v.vin;
+}
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map(f => ({
+    "@type": "Question",
+    "name": f.q,
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": f.a
+    }
+  }))
+};
+---
+
+<Layout title={pageTitle} description={pageDesc}>
+  <Fragment slot="structured-data">
+    <script type="application/ld+json" set:html={JSON.stringify(vehicleSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+  </Fragment>
+
+  <Header slot="header" />
+
+  <!-- Breadcrumb -->
+  <div class="bg-white border-b border-gray-100">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8 py-3">
+      <nav class="flex items-center gap-2 text-sm text-gray-500">
+        <a href="/" class="hover:text-navy transition-colors">Home</a>
+        <span class="material-symbols-outlined text-xs">chevron_right</span>
+        <a href="/inventory" class="hover:text-navy transition-colors">Inventory</a>
+        <span class="material-symbols-outlined text-xs">chevron_right</span>
+        <span class="text-navy font-medium">{titleText}</span>
+      </nav>
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <section class="py-8 md:py-12 bg-surface">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-5 gap-8">
+
+        <!-- Left Column: Gallery + Specs (3/5 width) -->
+        <div class="lg:col-span-3 space-y-8">
+
+          <!-- Photo Gallery -->
+          {allPhotos.length > 0 ? (
+            <div>
+              <!-- Main Image -->
+              <div class="relative bg-gray-100 rounded-xl overflow-hidden aspect-[4/3]">
+                <img
+                  id="main-photo"
+                  src={allPhotos[0]}
+                  alt={`${titleText} for sale at Maxim Autos Skokie IL`}
+                  class="w-full h-full object-cover"
+                />
+                {v.certified && (
+                  <div class="absolute top-4 left-4 bg-navy text-white text-xs font-bold px-3 py-1.5 rounded-md flex items-center gap-1">
+                    <span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">verified</span>
+                    MAXIM SELECT CERTIFIED
+                  </div>
+                )}
+                <!-- Photo counter -->
+                <div class="absolute bottom-4 right-4 bg-black/60 text-white text-xs font-semibold px-3 py-1.5 rounded-md flex items-center gap-1">
+                  <span class="material-symbols-outlined text-sm">photo_camera</span>
+                  <span id="photo-counter">1</span> / {allPhotos.length}
+                </div>
+              </div>
+
+              <!-- Thumbnails -->
+              {allPhotos.length > 1 && (
+                <div class="mt-3 overflow-x-auto pb-2">
+                  <div class="flex gap-2" id="thumb-strip">
+                    {allPhotos.map((photo, i) => (
+                      <button
+                        class:list={[
+                          'thumb-btn shrink-0 w-20 h-16 rounded-lg overflow-hidden border-2 transition-all',
+                          i === 0 ? 'border-orange ring-2 ring-orange/30' : 'border-transparent opacity-70 hover:opacity-100'
+                        ]}
+                        data-index={i}
+                        data-src={photo}
+                      >
+                        <img src={thumbPhotos[i]} alt={`${titleText} photo ${i + 1}`} class="w-full h-full object-cover" loading="lazy" />
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              )}
+            </div>
+          ) : (
+            <div class="bg-gray-100 rounded-xl aspect-[4/3] flex items-center justify-center">
+              <div class="text-center text-gray-400">
+                <span class="material-symbols-outlined text-6xl mb-2 block">no_photography</span>
+                <p class="font-medium">Photos coming soon</p>
+              </div>
+            </div>
+          )}
+
+          <!-- Specs Table -->
+          <div class="bg-white rounded-xl p-6 md:p-8 shadow-sm">
+            <h2 class="font-headline text-xl font-bold text-navy mb-6 flex items-center gap-2">
+              <span class="material-symbols-outlined text-orange" style="font-variation-settings: 'FILL' 1;">info</span>
+              Vehicle Specifications
+            </h2>
+            <div class="grid grid-cols-2 md:grid-cols-3 gap-y-5 gap-x-8">
+              {[
+                { label: 'Year', value: v.year, icon: 'calendar_today' },
+                { label: 'Make', value: v.make, icon: 'directions_car' },
+                { label: 'Model', value: v.model, icon: 'badge' },
+                { label: 'Trim', value: v.trim, icon: 'tune' },
+                { label: 'Mileage', value: `${v.mileage.toLocaleString()} mi`, icon: 'speed' },
+                { label: 'Engine', value: v.engine, icon: 'engineering' },
+                { label: 'Transmission', value: v.transmission, icon: 'settings' },
+                { label: 'Drivetrain', value: v.drivetrain, icon: 'all_inclusive' },
+                { label: 'Ext. Color', value: v.exteriorColor, icon: 'palette' },
+                { label: 'Int. Color', value: v.interiorColor, icon: 'weekend' },
+                { label: 'Body Style', value: v.bodyStyle, icon: 'local_shipping' },
+                { label: 'Fuel Type', value: v.fuelType, icon: 'local_gas_station' },
+                { label: 'VIN', value: v.vin !== 'TBD' ? v.vin : 'Available on request', icon: 'fingerprint' },
+              ].map(spec => (
+                <div>
+                  <p class="text-xs text-gray-400 uppercase tracking-wider font-semibold mb-1">{spec.label}</p>
+                  <p class="text-sm font-semibold text-gray-900">{spec.value}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <!-- Features -->
+          {v.features.length > 0 && (
+            <div class="bg-white rounded-xl p-6 md:p-8 shadow-sm">
+              <h2 class="font-headline text-xl font-bold text-navy mb-6 flex items-center gap-2">
+                <span class="material-symbols-outlined text-orange" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+                Features & Equipment
+              </h2>
+              <div class="flex flex-wrap gap-2">
+                {v.features.map(feat => (
+                  <span class="inline-flex items-center gap-1 bg-surface text-gray-700 px-4 py-2 rounded-full text-sm font-medium border border-gray-200">
+                    <span class="material-symbols-outlined text-sm text-orange" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                    {feat}
+                  </span>
+                ))}
+              </div>
+            </div>
+          )}
+
+          <!-- FAQ Accordion -->
+          <div class="bg-white rounded-xl p-6 md:p-8 shadow-sm">
+            <h2 class="font-headline text-xl font-bold text-navy mb-6 flex items-center gap-2">
+              <span class="material-symbols-outlined text-orange" style="font-variation-settings: 'FILL' 1;">help</span>
+              Frequently Asked Questions
+            </h2>
+            <div class="divide-y divide-gray-100" id="faq-list">
+              {faqs.map((faq, i) => (
+                <div class="faq-item">
+                  <button
+                    class="faq-toggle w-full flex items-center justify-between text-left py-4 gap-4"
+                    data-index={i}
+                    aria-expanded="false"
+                  >
+                    <span class="font-semibold text-gray-900 text-sm md:text-base">{faq.q}</span>
+                    <span class="material-symbols-outlined text-gray-400 shrink-0 faq-icon transition-transform duration-200">expand_more</span>
+                  </button>
+                  <div class="faq-answer hidden pb-4 pr-10">
+                    <p class="text-gray-600 text-sm leading-relaxed">{faq.a}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Column: Price, CTAs, Trust (2/5 width) -->
+        <div class="lg:col-span-2">
+          <div class="lg:sticky lg:top-[90px] space-y-6">
+
+            <!-- Price Card -->
+            <div class="bg-white rounded-xl p-6 md:p-8 shadow-sm border border-gray-100">
+              <h1 class="font-headline text-2xl md:text-3xl font-extrabold text-navy mb-2">{titleText}</h1>
+              <p class="text-gray-500 text-sm mb-4">{v.trim} &bull; {v.mileage.toLocaleString()} mi &bull; {v.exteriorColor}</p>
+
+              <div class="flex items-baseline gap-2 mb-6">
+                <span class="text-4xl font-extrabold text-navy">${v.price.toLocaleString()}</span>
+              </div>
+
+              <!-- Primary CTA -->
+              <a
+                href={`sms:8475108947&body=${smsBody}`}
+                class="w-full flex items-center justify-center gap-2 bg-orange text-white py-4 rounded-xl font-bold text-lg hover:bg-orange-dark transition-colors shadow-lg shadow-orange/20 mb-3"
+              >
+                <span class="material-symbols-outlined text-xl" style="font-variation-settings: 'FILL' 1;">sms</span>
+                Text Jerry About This Vehicle
+              </a>
+
+              <!-- Secondary CTA -->
+              <a
+                href="tel:8475108947"
+                class="w-full flex items-center justify-center gap-2 bg-navy text-white py-4 rounded-xl font-bold text-lg hover:bg-navy-light transition-colors mb-4"
+              >
+                <span class="material-symbols-outlined text-xl" style="font-variation-settings: 'FILL' 1;">call</span>
+                Call (847) 510-8947
+              </a>
+
+              <p class="text-xs text-gray-400 text-center">Available Mon-Fri 3-7pm, Sat 10am-3pm. After-hours? Text anytime.</p>
+            </div>
+
+            <!-- Maxim Select Badge -->
+            {v.certified && (
+              <div class="bg-navy rounded-xl p-6 text-white">
+                <div class="flex items-center gap-3 mb-4">
+                  <div class="w-12 h-12 bg-orange/20 rounded-xl flex items-center justify-center">
+                    <span class="material-symbols-outlined text-3xl text-orange" style="font-variation-settings: 'FILL' 1;">verified</span>
+                  </div>
+                  <div>
+                    <h3 class="font-headline font-bold text-lg">Maxim Select Certified</h3>
+                    <p class="text-gray-400 text-xs">Our highest quality standard</p>
+                  </div>
+                </div>
+                <p class="text-gray-300 text-sm leading-relaxed">
+                  This {titleText} has been fully inspected by an independent mechanic and meets our Maxim Select quality standards. Buy with confidence.
+                </p>
+              </div>
+            )}
+
+            <!-- Trust Signals -->
+            <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-100">
+              <h3 class="font-headline font-bold text-navy mb-4">The Maxim Autos Difference</h3>
+              <div class="space-y-4">
+                <div class="flex items-start gap-3">
+                  <div class="w-10 h-10 bg-green-50 rounded-lg flex items-center justify-center shrink-0">
+                    <span class="material-symbols-outlined text-green-600" style="font-variation-settings: 'FILL' 1;">shield</span>
+                  </div>
+                  <div>
+                    <p class="font-semibold text-sm text-gray-900">3-Month Warranty Included</p>
+                    <p class="text-xs text-gray-500">Peace of Mind coverage on major components at no extra cost</p>
+                  </div>
+                </div>
+                <div class="flex items-start gap-3">
+                  <div class="w-10 h-10 bg-blue-50 rounded-lg flex items-center justify-center shrink-0">
+                    <span class="material-symbols-outlined text-blue-600" style="font-variation-settings: 'FILL' 1;">description</span>
+                  </div>
+                  <div>
+                    <p class="font-semibold text-sm text-gray-900">Free CARFAX Report</p>
+                    <p class="text-xs text-gray-500">Full vehicle history included with every purchase</p>
+                  </div>
+                </div>
+                <div class="flex items-start gap-3">
+                  <div class="w-10 h-10 bg-purple-50 rounded-lg flex items-center justify-center shrink-0">
+                    <span class="material-symbols-outlined text-purple-600" style="font-variation-settings: 'FILL' 1;">search</span>
+                  </div>
+                  <div>
+                    <p class="font-semibold text-sm text-gray-900">Independent Inspection</p>
+                    <p class="text-xs text-gray-500">Third-party mechanic inspection report provided</p>
+                  </div>
+                </div>
+                <div class="flex items-start gap-3">
+                  <div class="w-10 h-10 bg-orange-50 rounded-lg flex items-center justify-center shrink-0">
+                    <span class="material-symbols-outlined text-orange" style="font-variation-settings: 'FILL' 1;">directions_car</span>
+                  </div>
+                  <div>
+                    <p class="font-semibold text-sm text-gray-900">Drive Home Today</p>
+                    <p class="text-xs text-gray-500">Metal plates on-the-spot, instant DMV registration</p>
+                  </div>
+                </div>
+                <div class="flex items-start gap-3">
+                  <div class="w-10 h-10 bg-yellow-50 rounded-lg flex items-center justify-center shrink-0">
+                    <span class="material-symbols-outlined text-yellow-600" style="font-variation-settings: 'FILL' 1;">sell</span>
+                  </div>
+                  <div>
+                    <p class="font-semibold text-sm text-gray-900">No Hidden Fees</p>
+                    <p class="text-xs text-gray-500">Transparent pricing — what you see is what you pay</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Financing Callout -->
+            <div class="bg-surface rounded-xl p-6 border border-gray-200">
+              <div class="flex items-center gap-3 mb-3">
+                <span class="material-symbols-outlined text-2xl text-navy" style="font-variation-settings: 'FILL' 1;">payments</span>
+                <h3 class="font-headline font-bold text-navy">Financing Available</h3>
+              </div>
+              <p class="text-sm text-gray-600 mb-4">All credit levels welcome. First-time buyers, rebuilding credit — we work with you to find the right option.</p>
+              <a href="/financing" class="inline-flex items-center gap-1 text-orange font-bold text-sm hover:underline">
+                Learn about financing <span class="material-symbols-outlined text-sm">arrow_forward</span>
+              </a>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- More Vehicles -->
+  {otherVehicles.length > 0 && (
+    <section class="py-16 bg-white">
+      <div class="max-w-7xl mx-auto px-6 lg:px-8">
+        <div class="flex justify-between items-end mb-10">
+          <div>
+            <span class="text-orange font-bold uppercase tracking-widest text-sm mb-3 block">Keep Browsing</span>
+            <h2 class="font-headline text-2xl md:text-3xl font-extrabold">More Vehicles</h2>
+          </div>
+          <a href="/inventory" class="hidden md:flex items-center gap-1 text-navy font-bold hover:text-orange transition-colors">
+            View All <span class="material-symbols-outlined">arrow_forward</span>
+          </a>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {otherVehicles.map(o => (
+            <VehicleCard
+              slug={o.slug}
+              year={o.year}
+              make={o.make}
+              model={o.model}
+              trim={o.trim}
+              price={o.price}
+              mileage={o.mileage}
+              drivetrain={o.drivetrain}
+              engine={o.engine}
+              bodyStyle={o.bodyStyle}
+              photoPath={o.photoPath}
+              photoPrefix={o.photoPrefix}
+              certified={o.certified}
+            />
+          ))}
+        </div>
+        <div class="text-center mt-8 md:hidden">
+          <a href="/inventory" class="inline-flex items-center gap-2 bg-navy text-white px-8 py-4 rounded-xl font-bold hover:bg-navy-light transition-colors">
+            View All Inventory <span class="material-symbols-outlined">arrow_forward</span>
+          </a>
+        </div>
+      </div>
+    </section>
+  )}
+
+  <!-- Back to Inventory -->
+  <section class="py-8 bg-surface border-t border-gray-200">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8 text-center">
+      <a href="/inventory" class="inline-flex items-center gap-2 text-navy font-bold hover:text-orange transition-colors">
+        <span class="material-symbols-outlined">arrow_back</span>
+        Back to Full Inventory
+      </a>
+    </div>
+  </section>
+
+  <Footer slot="footer" />
+</Layout>
+
+<script is:inline>
+(function () {
+  // Photo gallery
+  const mainPhoto = document.getElementById('main-photo');
+  const counter = document.getElementById('photo-counter');
+  const thumbStrip = document.getElementById('thumb-strip');
+
+  if (thumbStrip) {
+    thumbStrip.addEventListener('click', function (e) {
+      const btn = e.target.closest('.thumb-btn');
+      if (!btn) return;
+
+      const src = btn.dataset.src;
+      const index = parseInt(btn.dataset.index, 10);
+
+      // Update main image
+      mainPhoto.src = src;
+      if (counter) counter.textContent = index + 1;
+
+      // Update active thumb
+      thumbStrip.querySelectorAll('.thumb-btn').forEach(t => {
+        t.classList.remove('border-orange', 'ring-2', 'ring-orange/30');
+        t.classList.add('border-transparent', 'opacity-70');
+      });
+      btn.classList.remove('border-transparent', 'opacity-70');
+      btn.classList.add('border-orange', 'ring-2', 'ring-orange/30');
+    });
+  }
+
+  // FAQ accordion
+  document.getElementById('faq-list')?.addEventListener('click', function (e) {
+    const toggle = e.target.closest('.faq-toggle');
+    if (!toggle) return;
+
+    const item = toggle.closest('.faq-item');
+    const answer = item.querySelector('.faq-answer');
+    const icon = toggle.querySelector('.faq-icon');
+    const expanded = toggle.getAttribute('aria-expanded') === 'true';
+
+    toggle.setAttribute('aria-expanded', String(!expanded));
+    answer.classList.toggle('hidden', expanded);
+    icon.style.transform = expanded ? '' : 'rotate(180deg)';
+  });
+})();
+</script>

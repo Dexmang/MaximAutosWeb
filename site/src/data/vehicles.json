@@ -1,0 +1,101 @@
+[
+  {
+    "slug": "2014-lexus-rx350",
+    "year": 2014,
+    "make": "Lexus",
+    "model": "RX 350",
+    "trim": "Base",
+    "price": 12995,
+    "mileage": 98000,
+    "exteriorColor": "Silver",
+    "interiorColor": "Black",
+    "engine": "3.5L V6",
+    "transmission": "Automatic",
+    "drivetrain": "AWD",
+    "fuelType": "Gasoline",
+    "bodyStyle": "SUV",
+    "vin": "TBD",
+    "condition": "Used",
+    "certified": true,
+    "warranty": "3-Month Peace of Mind Warranty Included",
+    "carfax": true,
+    "inspection": true,
+    "features": ["Leather Seats", "Sunroof", "Backup Camera", "Bluetooth", "Heated Seats", "Navigation", "Keyless Entry"],
+    "photos": {
+      "exterior": 20,
+      "interior": 20
+    },
+    "videos": {
+      "exterior": 5
+    },
+    "photoPath": "photos/lexus-rx350-2014",
+    "photoPrefix": "2014-lexus-rx350",
+    "description": "2014 Lexus RX 350 AWD with 3.5L V6 engine. Maxim Select Certified with independent inspection report. Includes 3-month Peace of Mind Warranty. Metal plates issued on-the-spot \u2014 drive home today."
+  },
+  {
+    "slug": "2013-lexus-rx350",
+    "year": 2013,
+    "make": "Lexus",
+    "model": "RX 350",
+    "trim": "Base",
+    "price": 11495,
+    "mileage": 105000,
+    "exteriorColor": "Black",
+    "interiorColor": "Tan",
+    "engine": "3.5L V6",
+    "transmission": "Automatic",
+    "drivetrain": "AWD",
+    "fuelType": "Gasoline",
+    "bodyStyle": "SUV",
+    "vin": "TBD",
+    "condition": "Used",
+    "certified": true,
+    "warranty": "3-Month Peace of Mind Warranty Included",
+    "carfax": true,
+    "inspection": true,
+    "features": ["Leather Seats", "Sunroof", "Bluetooth", "Heated Seats", "Keyless Entry", "Power Liftgate"],
+    "photos": {
+      "exterior": 20,
+      "interior": 20
+    },
+    "videos": {
+      "exterior": 5
+    },
+    "photoPath": "photos/lexus-rx350-2013",
+    "photoPrefix": "2013-lexus-rx-350",
+    "description": "2013 Lexus RX 350 AWD. Loaded with leather, sunroof, and heated seats. Maxim Select Certified with independent inspection. 3-month warranty included. No hidden fees \u2014 drive home today with metal plates."
+  },
+  {
+    "slug": "2016-subaru-outback-36r",
+    "year": 2016,
+    "make": "Subaru",
+    "model": "Outback",
+    "trim": "3.6R Limited",
+    "price": 13995,
+    "mileage": 82000,
+    "exteriorColor": "White",
+    "interiorColor": "Black",
+    "engine": "3.6L H6",
+    "transmission": "CVT",
+    "drivetrain": "AWD",
+    "fuelType": "Gasoline",
+    "bodyStyle": "Wagon",
+    "vin": "TBD",
+    "condition": "Used",
+    "certified": true,
+    "warranty": "3-Month Peace of Mind Warranty Included",
+    "carfax": true,
+    "inspection": true,
+    "features": ["Leather Seats", "Sunroof", "Backup Camera", "Bluetooth", "Heated Seats", "Navigation", "EyeSight Driver Assist", "Harman Kardon Audio"],
+    "photos": {
+      "exterior": 16,
+      "interior": 16
+    },
+    "videos": {
+      "exterior": 1
+    },
+    "photoPath": "photos/subaru-outback-2016",
+    "photoPrefix": "2016-subaru-outback-36r",
+    "description": "2016 Subaru Outback 3.6R Limited with EyeSight driver assist. Powerful 3.6L H6 engine, full leather interior, Harman Kardon premium audio. Maxim Select Certified. 3-month warranty, free CARFAX, metal plates on-the-spot."
+  }
+]

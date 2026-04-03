@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-container-lowest": "#ffffff",
+                    "surface": "#f8f9fa",
+                    "inverse-primary": "#b0c8eb",
+                    "secondary-fixed-dim": "#e6c364",
+                    "on-tertiary-fixed": "#241a00",
+                    "on-error": "#ffffff",
+                    "primary-fixed-dim": "#b0c8eb",
+                    "on-secondary-fixed": "#241a00",
+                    "secondary-container": "#fed977",
+                    "on-tertiary-container": "#4f3d00",
+                    "on-secondary-fixed-variant": "#584400",
+                    "surface-container": "#edeeef",
+                    "on-tertiary": "#ffffff",
+                    "surface-variant": "#e1e3e4",
+                    "on-surface-variant": "#43474d",
+                    "on-tertiary-fixed-variant": "#584400",
+                    "primary-fixed": "#d2e4ff",
+                    "outline-variant": "#c4c6ce",
+                    "on-primary-fixed-variant": "#314865",
+                    "background": "#f8f9fa",
+                    "outline": "#74777e",
+                    "tertiary-container": "#c8a84c",
+                    "on-secondary": "#ffffff",
+                    "surface-tint": "#49607e",
+                    "surface-bright": "#f8f9fa",
+                    "on-primary": "#ffffff",
+                    "surface-container-highest": "#e1e3e4",
+                    "inverse-on-surface": "#f0f1f2",
+                    "on-background": "#191c1d",
+                    "primary": "#000f22",
+                    "on-primary-fixed": "#001c37",
+                    "tertiary-fixed-dim": "#e6c364",
+                    "on-secondary-container": "#785d00",
+                    "secondary-fixed": "#ffe08f",
+                    "on-surface": "#191c1d",
+                    "surface-container-low": "#f3f4f5",
+                    "on-primary-container": "#768dad",
+                    "inverse-surface": "#2e3132",
+                    "surface-dim": "#d9dadb",
+                    "secondary": "#755b00",
+                    "on-error-container": "#93000a",
+                    "primary-container": "#0a2540",
+                    "surface-container-high": "#e7e8e9",
+                    "error-container": "#ffdad6",
+                    "tertiary-fixed": "#ffe08f",
+                    "error": "#ba1a1a",
+                    "tertiary": "#755b00"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "fontFamily": {
+                    "headline": ["Manrope"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f3f4f5; /* surface-container-low as per brand request for light gray */
+        }
+        h1, h2, h3, .brand-font {
+            font-family: 'Manrope', sans-serif;
+        }
+    </style>
+</head>
+<body class="text-on-surface">
+<!-- Top Navigation -->
+<header class="bg-slate-50 dark:bg-slate-900 font-manrope tracking-tight sticky top-0 z-50">
+<div class="flex justify-between items-center w-full px-8 py-4 max-w-screen-2xl mx-auto">
+<div class="text-2xl font-bold tracking-tighter text-slate-900 dark:text-white">
+                Maxim Autos
+            </div>
+<nav class="hidden md:flex gap-8">
+<a class="text-slate-600 dark:text-slate-400 font-medium hover:text-amber-600 dark:hover:text-amber-400 transition-colors duration-300" href="#">Home</a>
+<a class="text-amber-600 dark:text-amber-400 font-bold border-b-2 border-amber-500 hover:text-amber-600 dark:hover:text-amber-400 transition-colors duration-300" href="#">Inventory</a>
+<a class="text-slate-600 dark:text-slate-400 font-medium hover:text-amber-600 dark:hover:text-amber-400 transition-colors duration-300" href="#">About</a>
+<a class="text-slate-600 dark:text-slate-400 font-medium hover:text-amber-600 dark:hover:text-amber-400 transition-colors duration-300" href="#">Contact</a>
+</nav>
+<div class="flex items-center gap-6">
+<div class="relative hidden lg:block">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-sm">search</span>
+<input class="pl-10 pr-4 py-2 bg-surface-container-high border-none rounded-xl text-sm focus:ring-2 focus:ring-secondary outline-none w-64" placeholder="Search models..." type="text"/>
+</div>
+<button class="bg-primary-container text-white px-6 py-2.5 rounded-xl text-sm font-bold scale-95 transition-transform duration-150 hover:scale-100">
+                    Value My Trade
+                </button>
+</div>
+</div>
+</header>
+<main class="max-w-screen-2xl mx-auto px-8 py-12">
+<!-- Header Section -->
+<section class="mb-12">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
+<div class="max-w-2xl">
+<span class="text-secondary font-bold tracking-widest text-xs uppercase mb-2 block">Premium Pre-Owned</span>
+<h1 class="text-5xl font-extrabold text-primary-container leading-tight tracking-tighter">
+                        Used Cars for Sale in <span class="text-secondary">Skokie IL</span>
+</h1>
+<p class="text-on-surface-variant mt-4 text-lg leading-relaxed">
+                        Discover a curated collection of high-performance vehicles and luxury assets, each meticulously inspected for the sovereign collector.
+                    </p>
+</div>
+<div class="flex items-center gap-4 text-sm font-semibold text-on-surface-variant bg-surface-container px-6 py-3 rounded-xl">
+<span class="material-symbols-outlined text-secondary">filter_list</span>
+<span>142 Vehicles Available</span>
+</div>
+</div>
+</section>
+<!-- Filter Bar -->
+<section class="bg-surface-container-lowest rounded-xl p-6 mb-12 shadow-[0px_20px_40px_rgba(10,37,64,0.04)] sticky top-24 z-40 backdrop-blur-md bg-white/90 border border-white/20">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+<div class="space-y-2">
+<label class="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant">Vehicle Make</label>
+<select class="w-full bg-surface-container-low border-none rounded-lg py-3 px-4 text-sm focus:ring-2 focus:ring-secondary appearance-none">
+<option>All Makes</option>
+<option>Porsche</option>
+<option>BMW</option>
+<option>Mercedes-Benz</option>
+<option>Audi</option>
+<option>Lexus</option>
+</select>
+</div>
+<div class="space-y-2">
+<label class="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant">Body Type</label>
+<select class="w-full bg-surface-container-low border-none rounded-lg py-3 px-4 text-sm focus:ring-2 focus:ring-secondary appearance-none">
+<option>All Styles</option>
+<option>Sedan</option>
+<option>SUV</option>
+<option>Coupe</option>
+<option>Convertible</option>
+</select>
+</div>
+<div class="space-y-2">
+<label class="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant">Price Range</label>
+<div class="flex items-center gap-3">
+<input class="w-full bg-surface-container-low border-none rounded-lg py-3 px-4 text-sm focus:ring-2 focus:ring-secondary" placeholder="Min" type="text"/>
+<span class="text-outline-variant">—</span>
+<input class="w-full bg-surface-container-low border-none rounded-lg py-3 px-4 text-sm focus:ring-2 focus:ring-secondary" placeholder="Max" type="text"/>
+</div>
+</div>
+<div class="flex items-end">
+<button class="w-full bg-primary text-white py-3 rounded-lg font-bold text-sm hover:bg-primary-container transition-all flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-sm">search</span>
+                        Apply Filters
+                    </button>
+</div>
+</div>
+</section>
+<!-- Inventory Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+<!-- Card 1 -->
+<div class="group bg-surface-container-lowest rounded-xl overflow-hidden transition-all duration-300 hover:-translate-y-2 hover:shadow-[0px_30px_60px_rgba(10,37,64,0.08)]">
+<div class="relative h-64 overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="front three-quarter view of a sleek black luxury sedan parked on a clean studio floor with soft cinematic lighting and reflections" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCcf_KLyMvzsnyaKEgiS86QCz5rixKgdEL4XE6Yulab3oNxxhUWC8GLqCdYAzvIGtiUOhJhpMl_qbF81aP3z-qtyCIEwg0f1H_OHdKCAaWjiGqRpPECojOguxkb0921rKymusJEkVlMPlZ7jHeIW44tsSYJVgS6i9bKvb8O1ceFRL7zNsl_8fO1v6p6Q1yoj9LUmMEGWvTK-GYOxA8Gx3pyEkX8E8hCK8AgMsrf8YP3dY-Kvp6IUhKoTJiYDQDeLuRDGzbebeNAnjdX"/>
+<div class="absolute top-4 left-4 bg-secondary-container text-on-secondary-container px-3 py-1 rounded-md text-[10px] font-bold uppercase tracking-tighter flex items-center gap-1">
+<span class="material-symbols-outlined text-xs" data-weight="fill">verified</span>
+                        Maxim Select Certified
+                    </div>
+</div>
+<div class="p-8">
+<div class="flex justify-between items-start mb-4">
+<div>
+<p class="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant mb-1">Stock #M20459</p>
+<h3 class="text-2xl font-bold text-primary tracking-tight">2022 BMW 5 Series</h3>
+<p class="text-on-surface-variant text-sm mt-1">540i xDrive Sedan</p>
+</div>
+<div class="text-right">
+<span class="text-2xl font-extrabold text-primary-container">$54,995</span>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-y-3 gap-x-6 py-6 border-y border-outline-variant/15 text-sm">
+<div class="flex items-center gap-2 text-on-surface-variant">
+<span class="material-symbols-outlined text-secondary text-lg">speed</span>
+                            18,432 Miles
+                        </div>
+<div class="flex items-center gap-2 text-on-surface-variant">
+<span class="material-symbols-outlined text-secondary text-lg">settings</span>
+                            All-Wheel Drive
+                        </div>
+<div class="flex items-center gap-2 text-on-surface-variant">
+<span class="material-symbols-outlined text-secondary text-lg">local_gas_station</span>
+                            Mild Hybrid
+                        </div>
+<div class="flex items-center gap-2 text-on-surface-variant">
+<span class="material-symbols-outlined text-secondary text-lg">palette</span>
+                            Black Sapphire
+                        </div>
+</div>
+<div class="mt-8 flex gap-3">
+<button class="flex-1 bg-secondary-container text-on-secondary-container py-3 rounded-xl font-bold text-sm hover:bg-secondary-fixed-dim transition-colors">
+                            View Details
+                        </button>
+<button class="w-12 h-12 flex items-center justify-center border border-outline-variant rounded-xl text-primary hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined">favorite</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="group bg-surface-container-lowest rounded-xl overflow-hidden transition-all duration-300 hover:-translate-y-2 hover:shadow-[0px_30px_60px_rgba(10,37,64,0.08)]">
+<div class="relative h-64 overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="side profile of a modern white high-performance SUV in a bright architectural setting with sharp shadows and minimalist background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBlZnEtSMGCsPmVTcKSY8RfWw2yZHkYQCQRnFD3-Qc6BIjOyB-9MaB-fil2tpurH7PXIZAdiBcHpTQs093NYQafqZz-k6fNA1YGJkl0kdy20ZzCINLlhpJyb7X6uzW2TWbLPdP9SZpc2u5Q3Vu_53KeKZfgY-yc1VsKN91O-LyM_Td_Gh9OTDcNbqhDh4GR21fR016TfzHeH8UCvsS9gWxgRMjDyYfoj5nvfszbWyR28kXMdTK9CGMguFBz_TkyI707W9s4X-46Yu0r"/>
+<div class="absolute top-4 left-4 bg-secondary-container text-on-secondary-container px-3 py-1 rounded-md text-[10px] font-bold uppercase tracking-tighter flex items-center gap-1">
+<span class="material-symbols-outlined text-xs" data-weight="fill">verified</span>
+                        Maxim Select Certified
+                    </div>
+</div>
+<div class="p-8">
+<div class="flex justify-between items-start mb-4">
+<div>
+<p class="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant mb-1">Stock #M21004</p>
+<h3 class="text-2xl font-bold text-primary tracking-tight">2021 Porsche Macan</h3>
+<p class="text-on-surface-variant text-sm mt-1">S Sport Utility</p>
+</div>
+<div class="text-right">
+<span class="text-2xl font-extrabold text-primary-container">$62,500</span>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-y-3 gap-x-6 py-6 border-y border-outline-variant/15 text-sm">
+<div class="flex items-center gap-2 text-on-surface-variant">
+<span class="material-symbols-outlined text-secondary text-lg">speed</span>
+                            24,110 Miles
+                        </div>
+<div class="flex items-center gap-2 text-on-surface-variant">
+<span class="material-symbols-outlined text-secondary text-lg">settings</span>
+                            All-Wheel Drive
+                        </div>
+<div class="flex items-center gap-2 text-on-surface-variant">
+<span class="material-symbols-outlined text-secondary text-lg">local_gas_station</span>
+                            Gasoline
+                        </div>
+<div class="flex items-center gap-2 text-on-surface-variant">
+<span class="material-symbols-outlined text-secondary text-lg">palette</span>
+                            Carrara White
+                        </div>
+</div>
+<div class="mt-8 flex gap-3">
+<button class="flex-1 bg-secondary-container text-on-secondary-container py-3 rounded-xl font-bold text-sm hover:bg-secondary-fixed-dim transition-colors">
+                            View Details
+                        </button>
+<button class="w-12 h-12 flex items-center justify-center border border-outline-variant rounded-xl text-primary hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined">favorite</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="group bg-surface-container-lowest rounded-xl overflow-hidden transition-all duration-300 hover:-translate-y-2 hover:shadow-[0px_30px_60px_rgba(10,37,64,0.08)]">
+<div class="relative h-64 overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="front view of a gray luxury coupe with led headlights illuminated in a dark showroom with reflective floor and premium atmosphere" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCiCoOjCoXGwo6UzmL9kZfDkgmjsSxfUfkDnJ1LC7wdWQvrGx-vlUXhgpJ7QmiBGFSnh0H_UqUXNtC9KYBPDcYqJC0wf4RkegEi2jI3bxXGQKGk3b3Q8q_bndZKgm6caaTy6WWGhW0jd99Cu0mFB3nvHTry6yjviHMCjYkaBbx9yEcB1nYC89IS748o_TSFZprEVI05zUwww09XUnBPSpHBRrbh18Fz9WfQdjN6VpgzjhtloD0_bvP-WQW_59XsyR-A0b3s6fDVvHDu"/>
+</div>
+<div class="p-8">
+<div class="flex justify-between items-start mb-4">
+<div>
+<p class="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant mb-1">Stock #M21382</p>
+<h3 class="text-2xl font-bold text-primary tracking-tight">2023 Audi A5</h3>
+<p class="text-on-surface-variant text-sm mt-1">45 S line Premium Plus</p>
+</div>
+<div class="text-right">
+<span class="text-2xl font-extrabold text-primary-container">$48,200</span>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-y-3 gap-x-6 py-6 border-y border-outline-variant/15 text-sm">
+<div class="flex items-center gap-2 text-on-surface-variant">
+<span class="material-symbols-outlined text-secondary text-lg">speed</span>
+                            12,500 Miles
+                        </div>
+<div class="flex items-center gap-2 text-on-surface-variant">
+<span class="material-symbols-outlined text-secondary text-lg">settings</span>
+                            Quattro AWD
+                        </div>
+<div class="flex items-center gap-2 text-on-surface-variant">
+<span class="material-symbols-outlined text-secondary text-lg">local_gas_station</span>
+                            Gasoline
+                        </div>
+<div class="flex items-center gap-2 text-on-surface-variant">
+<span class="material-symbols-outlined text-secondary text-lg">palette</span>
+                            Daytona Gray
+                        </div>
+</div>
+<div class="mt-8 flex gap-3">
+<button class="flex-1 bg-secondary-container text-on-secondary-container py-3 rounded-xl font-bold text-sm hover:bg-secondary-fixed-dim transition-colors">
+                            View Details
+                        </button>
+<button class="w-12 h-12 flex items-center justify-center border border-outline-variant rounded-xl text-primary hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined">favorite</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Card 4 -->
+<div class="group bg-surface-container-lowest rounded-xl overflow-hidden transition-all duration-300 hover:-translate-y-2 hover:shadow-[0px_30px_60px_rgba(10,37,64,0.08)]">
+<div class="relative h-64 overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="rear angle of a deep blue luxury sedan on a coastal road at twilight with mountains in the background and soft ambient light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCmsud1_NvkLrFz5CzAq3SSw_Q_Us-LaWXaiCcX_mOjFukqZFh56fKyCVRer3fNdhG6lI0NvncDW1pBw8aOlXvIy-6b2ny3Qfob37evJw_bYmobAub6OVhgiGcdBtVnHbGhESK0n0OSc9LBvEpAqZ4_MY2an-6YyJz55M1Cuf1TlSKMj7ySZ4yJ37J_3Bc2ZcpXgdrlAlmLo-2pOwB4clHRsSInzlGvSGh3Bj1eimz2xFTCNLeYfL7ItjkWjj_H7MgIXIETtqQR5wEb"/>
+<div class="absolute top-4 left-4 bg-secondary-container text-on-secondary-container px-3 py-1 rounded-md text-[10px] font-bold uppercase tracking-tighter flex items-center gap-1">
+<span class="material-symbols-outlined text-xs" data-weight="fill">verified</span>
+                        Maxim Select Certified
+                    </div>
+</div>
+<div class="p-8">
+<div class="flex justify-between items-start mb-4">
+<div>
+<p class="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant mb-1">Stock #M21550</p>
+<h3 class="text-2xl font-bold text-primary tracking-tight">2020 Lexus ES</h3>
+<p class="text-on-surface-variant text-sm mt-1">350 Luxury Sedan</p>
+</div>
+<div class="text-right">
+<span class="text-2xl font-extrabold text-primary-container">$38,900</span>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-y-3 gap-x-6 py-6 border-y border-outline-variant/15 text-sm">
+<div class="flex items-center gap-2 text-on-surface-variant">
+<span class="material-symbols-outlined text-secondary text-lg">speed</span>
+                            32,150 Miles
+                        </div>
+<div class="flex items-center gap-2 text-on-surface-variant">
+<span class="material-symbols-outlined text-secondary text-lg">settings</span>
+                            Front-Wheel Drive
+                        </div>
+<div class="flex items-center gap-2 text-on-surface-variant">
+<span class="material-symbols-outlined text-secondary text-lg">local_gas_station</span>
+                            Gasoline
+                        </div>
+<div class="flex items-center gap-2 text-on-surface-variant">
+<span class="material-symbols-outlined text-secondary text-lg">palette</span>
+                            Nightfall Mica
+                        </div>
+</div>
+<div class="mt-8 flex gap-3">
+<button class="flex-1 bg-secondary-container text-on-secondary-container py-3 rounded-xl font-bold text-sm hover:bg-secondary-fixed-dim transition-colors">
+                            View Details
+                        </button>
+<button class="w-12 h-12 flex items-center justify-center border border-outline-variant rounded-xl text-primary hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined">favorite</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Card 5 -->
+<div class="group bg-surface-container-lowest rounded-xl overflow-hidden transition-all duration-300 hover:-translate-y-2 hover:shadow-[0px_30px_60px_rgba(10,37,64,0.08)]">
+<div class="relative h-64 overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="front view of a gray modern SUV in a luxury residential driveway with clean landscaping and soft morning sun" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAP9nsAzD13LSK3SRjEu7fkjHZFFqPs-YQzUwhoaJlwdzqp_QqVzNLXGz_pyezZIFKAjDEEPhw53_Y6QRmKlpvze7lAatLBuLQFA0AiPPUAMUsXayCW2p4srVvtsEDvsUh_A6gC5gBcK2-eiGCFQa86lj2JD-zn6Or8kkbKrnWwlrT3SN-DhM-DarqGSnxqPo0d7Ud6H9oW3mm4DC5F9Gi_taXdWX7OHy0Y3V6mDVwN-EYgdCAGBIb9CP83RR20O_STOvQnQUvwii8C"/>
+</div>
+<div class="p-8">
+<div class="flex justify-between items-start mb-4">
+<div>
+<p class="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant mb-1">Stock #M21884</p>
+<h3 class="text-2xl font-bold text-primary tracking-tight">2021 Mercedes GLE</h3>
+<p class="text-on-surface-variant text-sm mt-1">450 4MATIC SUV</p>
+</div>
+<div class="text-right">
+<span class="text-2xl font-extrabold text-primary-container">$59,800</span>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-y-3 gap-x-6 py-6 border-y border-outline-variant/15 text-sm">
+<div class="flex items-center gap-2 text-on-surface-variant">
+<span class="material-symbols-outlined text-secondary text-lg">speed</span>
+                            21,700 Miles
+                        </div>
+<div class="flex items-center gap-2 text-on-surface-variant">
+<span class="material-symbols-outlined text-secondary text-lg">settings</span>
+                            All-Wheel Drive
+                        </div>
+<div class="flex items-center gap-2 text-on-surface-variant">
+<span class="material-symbols-outlined text-secondary text-lg">local_gas_station</span>
+                            Mild Hybrid
+                        </div>
+<div class="flex items-center gap-2 text-on-surface-variant">
+<span class="material-symbols-outlined text-secondary text-lg">palette</span>
+                            Selenite Gray
+                        </div>
+</div>
+<div class="mt-8 flex gap-3">
+<button class="flex-1 bg-secondary-container text-on-secondary-container py-3 rounded-xl font-bold text-sm hover:bg-secondary-fixed-dim transition-colors">
+                            View Details
+                        </button>
+<button class="w-12 h-12 flex items-center justify-center border border-outline-variant rounded-xl text-primary hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined">favorite</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Promotion Card -->
+<div class="bg-primary-container rounded-xl p-10 flex flex-col justify-center relative overflow-hidden group">
+<div class="absolute -right-20 -bottom-20 w-80 h-80 bg-secondary/10 rounded-full blur-3xl transition-all group-hover:scale-150"></div>
+<div class="relative z-10">
+<span class="text-secondary font-bold text-xs uppercase tracking-[0.2em] mb-4 block">Special Offer</span>
+<h3 class="text-4xl font-extrabold text-white mb-6 leading-tight">Don't see what you're looking for?</h3>
+<p class="text-on-primary-container mb-10 leading-relaxed max-w-xs">Our acquisition specialists can source any premium vehicle through our exclusive nationwide network.</p>
+<button class="inline-flex items-center gap-3 text-secondary-container font-bold group">
+                        Source a Vehicle
+                        <span class="material-symbols-outlined transition-transform group-hover:translate-x-2">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Pagination -->
+<div class="mt-20 flex justify-center items-center gap-4">
+<button class="w-12 h-12 flex items-center justify-center rounded-xl bg-surface-container text-on-surface-variant hover:bg-secondary-container hover:text-on-secondary-container transition-all">
+<span class="material-symbols-outlined">chevron_left</span>
+</button>
+<div class="flex gap-2">
+<button class="w-12 h-12 flex items-center justify-center rounded-xl bg-primary text-white font-bold">1</button>
+<button class="w-12 h-12 flex items-center justify-center rounded-xl bg-surface-container text-on-surface-variant hover:bg-white transition-all font-bold">2</button>
+<button class="w-12 h-12 flex items-center justify-center rounded-xl bg-surface-container text-on-surface-variant hover:bg-white transition-all font-bold">3</button>
+<span class="px-2 self-end mb-3 text-outline-variant">...</span>
+<button class="w-12 h-12 flex items-center justify-center rounded-xl bg-surface-container text-on-surface-variant hover:bg-white transition-all font-bold">12</button>
+</div>
+<button class="w-12 h-12 flex items-center justify-center rounded-xl bg-surface-container text-on-surface-variant hover:bg-secondary-container hover:text-on-secondary-container transition-all">
+<span class="material-symbols-outlined">chevron_right</span>
+</button>
+</div>
+</main>
+<!-- Footer -->
+<footer class="bg-slate-900 dark:bg-black font-inter text-sm leading-relaxed full-width py-12 mt-20">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-8 px-8 max-w-screen-2xl mx-auto">
+<div class="col-span-1 md:col-span-1">
+<div class="text-xl font-bold text-white mb-6">Maxim Autos</div>
+<p class="text-slate-400 max-w-xs mb-6">Experience the pinnacle of automotive excellence in Skokie. Our showroom features a world-class selection of curated pre-owned assets.</p>
+<div class="flex gap-4">
+<span class="w-8 h-8 rounded-full bg-slate-800 flex items-center justify-center text-white opacity-80 hover:opacity-100 transition-opacity cursor-pointer">
+<span class="material-symbols-outlined text-sm">public</span>
+</span>
+<span class="w-8 h-8 rounded-full bg-slate-800 flex items-center justify-center text-white opacity-80 hover:opacity-100 transition-opacity cursor-pointer">
+<span class="material-symbols-outlined text-sm">mail</span>
+</span>
+</div>
+</div>
+<div>
+<h4 class="text-white font-bold mb-6">Quick Links</h4>
+<ul class="space-y-4">
+<li><a class="text-slate-400 hover:text-white transition-colors" href="#">Inventory</a></li>
+<li><a class="text-slate-400 hover:text-white transition-colors" href="#">Sell Your Car</a></li>
+<li><a class="text-slate-400 hover:text-white transition-colors" href="#">Financing</a></li>
+<li><a class="text-slate-400 hover:text-white transition-colors" href="#">Service Center</a></li>
+</ul>
+</div>
+<div>
+<h4 class="text-white font-bold mb-6">Company</h4>
+<ul class="space-y-4">
+<li><a class="text-slate-400 hover:text-white transition-colors" href="#">About Us</a></li>
+<li><a class="text-slate-400 hover:text-white transition-colors" href="#">Careers</a></li>
+<li><a class="text-slate-400 hover:text-white transition-colors" href="#">Privacy Policy</a></li>
+<li><a class="text-slate-400 hover:text-white transition-colors" href="#">Terms of Service</a></li>
+</ul>
+</div>
+<div>
+<h4 class="text-white font-bold mb-6">Visit Us</h4>
+<p class="text-slate-400 mb-2">123 Luxury Way</p>
+<p class="text-slate-400 mb-6">Skokie, IL 60076</p>
+<div class="text-amber-400 font-bold mb-1">Mon-Sat: 9am-8pm</div>
+<div class="text-slate-400">Sunday: Closed</div>
+</div>
+</div>
+<div class="max-w-screen-2xl mx-auto px-8 mt-12 pt-12 border-t border-slate-800">
+<p class="text-slate-400 text-xs">© 2024 Maxim Autos. All rights reserved. Mon-Sat: 9am-8pm. 123 Luxury Way.</p>
+</div>
+</footer>
+</body></html>

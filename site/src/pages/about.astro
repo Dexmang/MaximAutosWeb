@@ -1,0 +1,153 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+const title = 'About Maxim Autos — Owner-Operated Used Car Dealer in Skokie, IL';
+const description = 'Meet Jerry Franco, owner of Maxim Autos. Every vehicle personally inspected, every price transparent, every customer protected. 5-star Google reviews. Skokie, IL.';
+---
+
+<Layout title={title} description={description}>
+  <Header slot="header" />
+
+  <!-- Hero -->
+  <section class="bg-navy py-16 lg:py-20">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8 text-center">
+      <span class="text-orange font-bold uppercase tracking-widest text-sm mb-3 block">About Us</span>
+      <h1 class="font-headline text-4xl md:text-5xl lg:text-6xl font-extrabold text-white leading-tight tracking-tight mb-6">
+        Owner-Operated. <br class="hidden md:block" />Personally Inspected.
+      </h1>
+      <p class="text-xl text-gray-300 max-w-2xl mx-auto leading-relaxed">
+        Every car inspected. Every price transparent. Every customer protected.
+      </p>
+    </div>
+  </section>
+
+  <!-- Meet Jerry Franco -->
+  <section class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <!-- Photo placeholder -->
+        <div class="bg-surface rounded-2xl aspect-[4/5] flex items-center justify-center border border-gray-200">
+          <div class="text-center text-gray-400">
+            <span class="material-symbols-outlined text-6xl mb-4 block" style="font-variation-settings: 'FILL' 1;">person</span>
+            <p class="text-sm font-medium">Jerry Franco</p>
+            <p class="text-xs">Owner, Maxim Autos</p>
+          </div>
+        </div>
+
+        <!-- Text -->
+        <div>
+          <span class="text-orange font-bold uppercase tracking-widest text-sm mb-3 block">Meet the Owner</span>
+          <h2 class="font-headline text-3xl md:text-4xl font-extrabold mb-6">Jerry Franco</h2>
+          <div class="space-y-4 text-gray-600 text-lg leading-relaxed">
+            <p>
+              At Maxim Autos, there are no salespeople, no games, and no pressure. Jerry Franco runs the dealership himself — from personally inspecting every vehicle on the lot to handling every transaction face-to-face.
+            </p>
+            <p>
+              When you visit Maxim Autos, you deal directly with the owner. Jerry hand-picks each vehicle, reviews every inspection report, and sets every price. That means the person answering your questions is the same person who stands behind the car.
+            </p>
+            <p>
+              This owner-operated approach is what makes Maxim Autos different. No layers of management, no hidden agendas — just honest cars at transparent prices with personal service from start to finish.
+            </p>
+            <p class="text-navy font-semibold italic border-l-4 border-orange pl-4">
+              "Every car inspected. Every price transparent. Every customer protected." — Jerry Franco
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Three Pillars -->
+  <section class="py-20 bg-surface">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+      <div class="text-center mb-14">
+        <span class="text-orange font-bold uppercase tracking-widest text-sm mb-3 block">The Maxim Autos Difference</span>
+        <h2 class="font-headline text-3xl md:text-4xl font-extrabold">Three Pillars of Trust</h2>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="text-center p-8 rounded-xl bg-white border border-gray-100 hover:border-orange/20 hover:shadow-md transition-all">
+          <div class="w-16 h-16 bg-navy/5 rounded-2xl flex items-center justify-center mx-auto mb-6">
+            <span class="material-symbols-outlined text-4xl text-navy" style="font-variation-settings: 'FILL' 1;">verified_user</span>
+          </div>
+          <h3 class="font-headline text-xl font-bold mb-3">Total Protection</h3>
+          <ul class="text-gray-600 text-sm space-y-2">
+            <li>Independent Inspection Report included</li>
+            <li>3-Month "Peace of Mind" Warranty</li>
+            <li>Maxim Select Certified vehicles</li>
+          </ul>
+        </div>
+        <div class="text-center p-8 rounded-xl bg-white border border-gray-100 hover:border-orange/20 hover:shadow-md transition-all">
+          <div class="w-16 h-16 bg-navy/5 rounded-2xl flex items-center justify-center mx-auto mb-6">
+            <span class="material-symbols-outlined text-4xl text-navy" style="font-variation-settings: 'FILL' 1;">directions_car</span>
+          </div>
+          <h3 class="font-headline text-xl font-bold mb-3">Skip the DMV Headache</h3>
+          <ul class="text-gray-600 text-sm space-y-2">
+            <li>Metal plates issued on-the-spot</li>
+            <li>Drive home today</li>
+            <li>Instant DMV registration</li>
+          </ul>
+        </div>
+        <div class="text-center p-8 rounded-xl bg-white border border-gray-100 hover:border-orange/20 hover:shadow-md transition-all">
+          <div class="w-16 h-16 bg-navy/5 rounded-2xl flex items-center justify-center mx-auto mb-6">
+            <span class="material-symbols-outlined text-4xl text-navy" style="font-variation-settings: 'FILL' 1;">sell</span>
+          </div>
+          <h3 class="font-headline text-xl font-bold mb-3">Transparent Pricing</h3>
+          <ul class="text-gray-600 text-sm space-y-2">
+            <li>No hidden fees or surprises</li>
+            <li>Upfront competitive pricing</li>
+            <li>Financing for all credit levels</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Choose Maxim Autos -->
+  <section class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+      <div class="max-w-3xl mx-auto">
+        <div class="text-center mb-12">
+          <span class="text-orange font-bold uppercase tracking-widest text-sm mb-3 block">Why Choose Us</span>
+          <h2 class="font-headline text-3xl md:text-4xl font-extrabold">Why Choose Maxim Autos</h2>
+        </div>
+        <ul class="space-y-4">
+          {[
+            { icon: 'person', text: 'Owner-operated — deal directly with Jerry, no salespeople' },
+            { icon: 'star', text: '5-star Google reviews (33+ and counting)' },
+            { icon: 'fact_check', text: 'Independent inspection report included with every vehicle' },
+            { icon: 'shield', text: '3-month "Peace of Mind" Warranty at no extra cost' },
+            { icon: 'credit_card', text: 'Metal plates issued on-the-spot — no DMV trip needed' },
+            { icon: 'visibility', text: 'No hidden fees, no dealer fees, no documentation fees' },
+            { icon: 'account_balance', text: 'Financing for all credit levels, including first-time buyers' },
+          ].map(item => (
+            <li class="flex items-start gap-4 p-4 rounded-xl bg-surface border border-gray-100">
+              <span class="material-symbols-outlined text-orange text-2xl mt-0.5 shrink-0" style="font-variation-settings: 'FILL' 1;">{item.icon}</span>
+              <span class="text-gray-700 text-lg">{item.text}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Banner -->
+  <section class="py-16 bg-orange">
+    <div class="max-w-4xl mx-auto px-6 lg:px-8 text-center">
+      <h2 class="font-headline text-3xl md:text-4xl font-extrabold text-white mb-4">Ready to See the Difference?</h2>
+      <p class="text-white/90 text-lg mb-8">Text Jerry for a quick response, or browse the full inventory online.</p>
+      <div class="flex flex-col sm:flex-row justify-center gap-4">
+        <a href="sms:8475108947&body=Hi Jerry, I'm interested in a vehicle at Maxim Autos." class="inline-flex items-center justify-center gap-2 bg-white text-navy px-8 py-4 rounded-xl font-bold text-lg hover:bg-gray-100 transition-colors">
+          <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">sms</span>
+          Text Jerry
+        </a>
+        <a href="/inventory" class="inline-flex items-center justify-center gap-2 bg-navy text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-navy-light transition-colors">
+          Browse Inventory
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <Footer slot="footer" />
+</Layout>

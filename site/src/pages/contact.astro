@@ -1,0 +1,188 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+const title = 'Contact Maxim Autos — Used Car Dealer Skokie, IL';
+const description = 'Contact Maxim Autos in Skokie, IL. Call (847) 510-8947, text Jerry, or visit us. Mon/Tue/Thu/Fri 3-7PM, Sat 10AM-3PM. After-hours appointments welcome.';
+
+const hours = [
+  { days: 'Monday', time: '3:00 PM – 7:00 PM' },
+  { days: 'Tuesday', time: '3:00 PM – 7:00 PM' },
+  { days: 'Wednesday', time: 'Closed' },
+  { days: 'Thursday', time: '3:00 PM – 7:00 PM' },
+  { days: 'Friday', time: '3:00 PM – 7:00 PM' },
+  { days: 'Saturday', time: '10:00 AM – 3:00 PM' },
+  { days: 'Sunday', time: 'Closed' },
+];
+---
+
+<Layout title={title} description={description}>
+  <Header slot="header" />
+
+  <!-- Hero -->
+  <section class="bg-navy py-16 lg:py-20">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8 text-center">
+      <span class="text-orange font-bold uppercase tracking-widest text-sm mb-3 block">Get in Touch</span>
+      <h1 class="font-headline text-4xl md:text-5xl lg:text-6xl font-extrabold text-white leading-tight tracking-tight mb-6">
+        Contact Maxim Autos
+      </h1>
+      <p class="text-xl text-gray-300 max-w-2xl mx-auto leading-relaxed">
+        Text Jerry for the fastest response. Walk-ins and after-hours appointments always welcome.
+      </p>
+    </div>
+  </section>
+
+  <!-- Quick CTAs -->
+  <section class="py-8 bg-orange">
+    <div class="max-w-4xl mx-auto px-6 lg:px-8 flex flex-col sm:flex-row justify-center gap-4">
+      <a href="sms:8475108947&body=Hi Jerry, I'm interested in a vehicle at Maxim Autos." class="inline-flex items-center justify-center gap-2 bg-white text-navy px-8 py-4 rounded-xl font-bold text-lg hover:bg-gray-100 transition-colors">
+        <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">sms</span>
+        Text Jerry
+      </a>
+      <a href="tel:8475108947" class="inline-flex items-center justify-center gap-2 bg-navy text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-navy-light transition-colors">
+        <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">call</span>
+        Call (847) 510-8947
+      </a>
+    </div>
+  </section>
+
+  <!-- Two Column: Info + Form -->
+  <section class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+
+        <!-- Left: Contact Info + Map -->
+        <div>
+          <h2 class="font-headline text-2xl font-extrabold mb-8">Dealership Information</h2>
+
+          <!-- Contact Details -->
+          <div class="space-y-4 mb-10">
+            <div class="flex items-start gap-4">
+              <span class="material-symbols-outlined text-orange text-2xl mt-0.5" style="font-variation-settings: 'FILL' 1;">location_on</span>
+              <div>
+                <p class="font-bold text-gray-900">Address</p>
+                <p class="text-gray-600">Skokie, IL 60077</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-4">
+              <span class="material-symbols-outlined text-orange text-2xl mt-0.5" style="font-variation-settings: 'FILL' 1;">phone</span>
+              <div>
+                <p class="font-bold text-gray-900">Phone</p>
+                <a href="tel:8475108947" class="text-gray-600 hover:text-navy transition-colors">(847) 510-8947</a>
+              </div>
+            </div>
+            <div class="flex items-start gap-4">
+              <span class="material-symbols-outlined text-orange text-2xl mt-0.5" style="font-variation-settings: 'FILL' 1;">mail</span>
+              <div>
+                <p class="font-bold text-gray-900">Email</p>
+                <a href="mailto:jerryf@maximautos.com" class="text-gray-600 hover:text-navy transition-colors">jerryf@maximautos.com</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Business Hours -->
+          <h3 class="font-headline text-xl font-bold mb-4">Business Hours</h3>
+          <div class="bg-surface rounded-xl border border-gray-200 overflow-hidden mb-6">
+            <table class="w-full text-sm">
+              <tbody>
+                {hours.map(row => (
+                  <tr class="border-b border-gray-100 last:border-0">
+                    <td class="px-5 py-3 font-medium text-gray-900">{row.days}</td>
+                    <td class:list={['px-5 py-3 text-right', row.time === 'Closed' ? 'text-gray-400 font-medium' : 'text-gray-700']}>
+                      {row.time}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+          <p class="text-orange font-semibold italic text-sm mb-10">
+            After-hours appointments welcome — text Jerry at (847) 510-8947
+          </p>
+
+          <!-- Map Placeholder -->
+          <div class="bg-surface rounded-xl border border-gray-200 aspect-video flex items-center justify-center">
+            <div class="text-center text-gray-400">
+              <span class="material-symbols-outlined text-5xl mb-2 block">map</span>
+              <p class="text-sm">Google Maps embed</p>
+              <p class="text-xs">Skokie, IL 60077</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Contact Form -->
+        <div>
+          <h2 class="font-headline text-2xl font-extrabold mb-8">Send a Message</h2>
+          <form action="#" method="POST" class="space-y-6">
+            <div>
+              <label for="contact-name" class="block text-sm font-medium text-gray-700 mb-2">Name</label>
+              <input
+                type="text"
+                id="contact-name"
+                name="name"
+                required
+                class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-orange focus:ring-2 focus:ring-orange/20 transition-colors text-gray-900"
+                placeholder="Your name"
+              />
+            </div>
+            <div>
+              <label for="contact-email" class="block text-sm font-medium text-gray-700 mb-2">Email</label>
+              <input
+                type="email"
+                id="contact-email"
+                name="email"
+                required
+                class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-orange focus:ring-2 focus:ring-orange/20 transition-colors text-gray-900"
+                placeholder="you@email.com"
+              />
+            </div>
+            <div>
+              <label for="contact-phone" class="block text-sm font-medium text-gray-700 mb-2">Phone</label>
+              <input
+                type="tel"
+                id="contact-phone"
+                name="phone"
+                class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-orange focus:ring-2 focus:ring-orange/20 transition-colors text-gray-900"
+                placeholder="(555) 555-5555"
+              />
+            </div>
+            <div>
+              <label for="contact-preferred" class="block text-sm font-medium text-gray-700 mb-2">Preferred Contact Method</label>
+              <select
+                id="contact-preferred"
+                name="preferred_contact"
+                class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-orange focus:ring-2 focus:ring-orange/20 transition-colors text-gray-900"
+              >
+                <option value="text">Text</option>
+                <option value="call">Call</option>
+                <option value="email">Email</option>
+              </select>
+            </div>
+            <div>
+              <label for="contact-message" class="block text-sm font-medium text-gray-700 mb-2">Message</label>
+              <textarea
+                id="contact-message"
+                name="message"
+                rows="5"
+                required
+                class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-orange focus:ring-2 focus:ring-orange/20 transition-colors text-gray-900 resize-none"
+                placeholder="Tell us what you're looking for..."
+              ></textarea>
+            </div>
+            <button
+              type="submit"
+              class="w-full bg-orange text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-orange-dark transition-colors flex items-center justify-center gap-2"
+            >
+              <span class="material-symbols-outlined">send</span>
+              Send Message
+            </button>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <Footer slot="footer" />
+</Layout>
