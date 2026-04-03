@@ -15,12 +15,13 @@ interface Props {
   certified: boolean;
 }
 
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 const { slug, year, make, model, trim, price, mileage, drivetrain, engine, bodyStyle, photoPath, photoPrefix, certified } = Astro.props;
 const title = `${year} ${make} ${model}`;
-const photoSrc = `/${photoPath}/thumb/${photoPrefix}-photo-exterior-maxim-autos-skokie-il-01.jpg`;
+const photoSrc = `${base}/${photoPath}/thumb/${photoPrefix}-photo-exterior-maxim-autos-skokie-il-01.jpg`;
 ---
 
-<a href={`/vehicle/${slug}`} class="vehicle-card group block bg-white overflow-hidden rounded-xl shadow-sm hover:shadow-lg transition-all duration-300" data-price={price} data-body={bodyStyle} data-mileage={mileage} data-year={year}>
+<a href={`${base}/vehicle/${slug}`} class="vehicle-card group block bg-white overflow-hidden rounded-xl shadow-sm hover:shadow-lg transition-all duration-300" data-price={price} data-body={bodyStyle} data-mileage={mileage} data-year={year}>
   <div class="relative h-56 overflow-hidden bg-gray-100">
     <img
       src={photoSrc}

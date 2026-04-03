@@ -1,4 +1,5 @@
 ---
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 const currentYear = new Date().getFullYear();
 ---
 
@@ -6,7 +7,7 @@ const currentYear = new Date().getFullYear();
   <div class="grid grid-cols-1 md:grid-cols-3 gap-12 w-full px-6 lg:px-8 py-16 max-w-7xl mx-auto">
     <!-- Brand & Contact -->
     <div>
-      <img src="/brand/logo-header.png" alt="Maxim Autos" class="h-10 mb-6 brightness-0 invert" />
+      <img src={`${base}/brand/logo-header.png`} alt="Maxim Autos" class="h-10 mb-6 brightness-0 invert" />
       <p class="text-sm mb-6 leading-relaxed">
         Quality used cars in Skokie, IL. Every vehicle inspected, every price transparent, every customer protected.
       </p>
@@ -52,13 +53,13 @@ const currentYear = new Date().getFullYear();
     <div>
       <h3 class="text-orange font-bold mb-6 font-headline text-sm uppercase tracking-widest">Quick Links</h3>
       <ul class="space-y-3 text-sm">
-        <li><a class="hover:text-white transition-colors" href="/inventory">Browse Inventory</a></li>
-        <li><a class="hover:text-white transition-colors" href="/financing">Financing</a></li>
-        <li><a class="hover:text-white transition-colors" href="/sell-trade">Sell / Trade</a></li>
-        <li><a class="hover:text-white transition-colors" href="/about">About Jerry</a></li>
-        <li><a class="hover:text-white transition-colors" href="/testimonials">Reviews</a></li>
-        <li><a class="hover:text-white transition-colors" href="/faq">FAQ</a></li>
-        <li><a class="hover:text-white transition-colors" href="/contact">Contact</a></li>
+        <li><a class="hover:text-white transition-colors" href={`${base}/inventory`}>Browse Inventory</a></li>
+        <li><a class="hover:text-white transition-colors" href={`${base}/financing`}>Financing</a></li>
+        <li><a class="hover:text-white transition-colors" href={`${base}/sell-trade`}>Sell / Trade</a></li>
+        <li><a class="hover:text-white transition-colors" href={`${base}/about`}>About Jerry</a></li>
+        <li><a class="hover:text-white transition-colors" href={`${base}/testimonials`}>Reviews</a></li>
+        <li><a class="hover:text-white transition-colors" href={`${base}/faq`}>FAQ</a></li>
+        <li><a class="hover:text-white transition-colors" href={`${base}/contact`}>Contact</a></li>
       </ul>
     </div>
   </div>

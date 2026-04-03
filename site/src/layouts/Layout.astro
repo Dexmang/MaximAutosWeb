@@ -6,10 +6,11 @@ interface Props {
   canonicalUrl?: string;
 }
 
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 const {
   title,
   description = 'Quality used cars in Skokie, IL. Every vehicle inspected, every price transparent. 3-month warranty included, metal plates on-the-spot, financing for all credit levels. Maxim Autos.',
-  ogImage = '/brand/logo-cropped.png',
+  ogImage = `${base}/brand/logo-cropped.png`,
   canonicalUrl,
 } = Astro.props;
 
@@ -29,7 +30,7 @@ const canonical = canonicalUrl || Astro.url.href;
     <title>{fullTitle}</title>
 
     <link rel="canonical" href={canonical} />
-    <link rel="icon" href="/brand/logo-header.png" type="image/png" />
+    <link rel="icon" href={`${base}/brand/logo-header.png`} type="image/png" />
 
     <!-- Open Graph -->
     <meta property="og:type" content="website" />

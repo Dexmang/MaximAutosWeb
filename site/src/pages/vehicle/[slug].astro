@@ -12,6 +12,7 @@ export function getStaticPaths() {
   }));
 }
 
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 const { vehicle } = Astro.props;
 const v = vehicle;
 const titleText = `${v.year} ${v.make} ${v.model} ${v.trim}`;
@@ -23,11 +24,11 @@ const seoSuffix = 'maxim-autos-skokie-il';
 // Build photo arrays using photoPrefix for reliable URL matching
 const exteriorPhotos = Array.from({ length: v.photos.exterior }, (_, i) => {
   const num = String(i + 1).padStart(2, '0');
-  return `/${v.photoPath}/web/${v.photoPrefix}-photo-exterior-${seoSuffix}-${num}.jpg`;
+  return `${base}/${v.photoPath}/web/${v.photoPrefix}-photo-exterior-${seoSuffix}-${num}.jpg`;
 });
 const interiorPhotos = Array.from({ length: v.photos.interior }, (_, i) => {
   const num = String(i + 1).padStart(2, '0');
-  return `/${v.photoPath}/web/${v.photoPrefix}-photo-interior-${seoSuffix}-${num}.jpg`;
+  return `${base}/${v.photoPath}/web/${v.photoPrefix}-photo-interior-${seoSuffix}-${num}.jpg`;
 });
 const allPhotos = [...exteriorPhotos, ...interiorPhotos];
 
@@ -154,9 +155,9 @@ const faqSchema = {
   <div class="bg-white border-b border-gray-100">
     <div class="max-w-7xl mx-auto px-6 lg:px-8 py-3">
       <nav class="flex items-center gap-2 text-sm text-gray-500">
-        <a href="/" class="hover:text-navy transition-colors">Home</a>
+        <a href={`${base}/`} class="hover:text-navy transition-colors">Home</a>
         <span class="material-symbols-outlined text-xs">chevron_right</span>
-        <a href="/inventory" class="hover:text-navy transition-colors">Inventory</a>
+        <a href={`${base}/inventory`} class="hover:text-navy transition-colors">Inventory</a>
         <span class="material-symbols-outlined text-xs">chevron_right</span>
         <span class="text-navy font-medium">{titleText}</span>
       </nav>
@@ -409,7 +410,7 @@ const faqSchema = {
                 <h3 class="font-headline font-bold text-navy">Financing Available</h3>
               </div>
               <p class="text-sm text-gray-600 mb-4">All credit levels welcome. First-time buyers, rebuilding credit — we work with you to find the right option.</p>
-              <a href="/financing" class="inline-flex items-center gap-1 text-orange font-bold text-sm hover:underline">
+              <a href={`${base}/financing`} class="inline-flex items-center gap-1 text-orange font-bold text-sm hover:underline">
                 Learn about financing <span class="material-symbols-outlined text-sm">arrow_forward</span>
               </a>
             </div>
@@ -429,7 +430,7 @@ const faqSchema = {
             <span class="text-orange font-bold uppercase tracking-widest text-sm mb-3 block">Keep Browsing</span>
             <h2 class="font-headline text-2xl md:text-3xl font-extrabold">More Vehicles</h2>
           </div>
-          <a href="/inventory" class="hidden md:flex items-center gap-1 text-navy font-bold hover:text-orange transition-colors">
+          <a href={`${base}/inventory`} class="hidden md:flex items-center gap-1 text-navy font-bold hover:text-orange transition-colors">
             View All <span class="material-symbols-outlined">arrow_forward</span>
           </a>
         </div>
@@ -453,7 +454,7 @@ const faqSchema = {
           ))}
         </div>
         <div class="text-center mt-8 md:hidden">
-          <a href="/inventory" class="inline-flex items-center gap-2 bg-navy text-white px-8 py-4 rounded-xl font-bold hover:bg-navy-light transition-colors">
+          <a href={`${base}/inventory`} class="inline-flex items-center gap-2 bg-navy text-white px-8 py-4 rounded-xl font-bold hover:bg-navy-light transition-colors">
             View All Inventory <span class="material-symbols-outlined">arrow_forward</span>
           </a>
         </div>
@@ -464,7 +465,7 @@ const faqSchema = {
   <!-- Back to Inventory -->
   <section class="py-8 bg-surface border-t border-gray-200">
     <div class="max-w-7xl mx-auto px-6 lg:px-8 text-center">
-      <a href="/inventory" class="inline-flex items-center gap-2 text-navy font-bold hover:text-orange transition-colors">
+      <a href={`${base}/inventory`} class="inline-flex items-center gap-2 text-navy font-bold hover:text-orange transition-colors">
         <span class="material-symbols-outlined">arrow_back</span>
         Back to Full Inventory
       </a>

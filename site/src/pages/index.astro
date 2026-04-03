@@ -6,6 +6,7 @@ import VehicleCard from '../components/VehicleCard.astro';
 import vehicles from '../data/vehicles.json';
 import reviews from '../data/reviews.json';
 
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 const title = 'Quality Used Cars in Skokie, IL — Maxim Autos';
 const description = 'Maxim Autos: quality-inspected used cars $5K–$15K in Skokie, IL. 3-month warranty included, metal plates on-the-spot, financing for all credit levels. 5-star Google reviews.';
 const featured = vehicles.slice(0, 6);
@@ -75,7 +76,7 @@ const featured = vehicles.slice(0, 6);
           Every car inspected. Every price transparent. Every customer protected.
         </p>
         <div class="flex flex-col sm:flex-row gap-4">
-          <a href="/inventory" class="inline-flex items-center justify-center gap-2 bg-orange text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-orange-dark transition-colors shadow-lg shadow-orange/20">
+          <a href={`${base}/inventory`} class="inline-flex items-center justify-center gap-2 bg-orange text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-orange-dark transition-colors shadow-lg shadow-orange/20">
             Browse Inventory
             <span class="material-symbols-outlined">arrow_forward</span>
           </a>
@@ -141,7 +142,7 @@ const featured = vehicles.slice(0, 6);
           <span class="text-orange font-bold uppercase tracking-widest text-sm mb-3 block">Current Inventory</span>
           <h2 class="font-headline text-3xl md:text-4xl font-extrabold">Featured Vehicles</h2>
         </div>
-        <a href="/inventory" class="hidden md:flex items-center gap-1 text-navy font-bold hover:text-orange transition-colors">
+        <a href={`${base}/inventory`} class="hidden md:flex items-center gap-1 text-navy font-bold hover:text-orange transition-colors">
           View All <span class="material-symbols-outlined">arrow_forward</span>
         </a>
       </div>
@@ -165,7 +166,7 @@ const featured = vehicles.slice(0, 6);
         ))}
       </div>
       <div class="text-center mt-10 md:hidden">
-        <a href="/inventory" class="inline-flex items-center gap-2 bg-navy text-white px-8 py-4 rounded-xl font-bold hover:bg-navy-light transition-colors">
+        <a href={`${base}/inventory`} class="inline-flex items-center gap-2 bg-navy text-white px-8 py-4 rounded-xl font-bold hover:bg-navy-light transition-colors">
           View All Inventory <span class="material-symbols-outlined">arrow_forward</span>
         </a>
       </div>
@@ -201,7 +202,7 @@ const featured = vehicles.slice(0, 6);
         ))}
       </div>
       <div class="text-center mt-10">
-        <a href="/testimonials" class="inline-flex items-center gap-2 text-orange font-bold hover:underline">
+        <a href={`${base}/testimonials`} class="inline-flex items-center gap-2 text-orange font-bold hover:underline">
           Read All Reviews <span class="material-symbols-outlined">arrow_forward</span>
         </a>
       </div>
@@ -222,7 +223,7 @@ const featured = vehicles.slice(0, 6);
             <span class="px-5 py-2.5 bg-surface rounded-full text-sm font-medium text-gray-700 border border-gray-200">{city}</span>
           ))}
         </div>
-        <a href="/contact" class="inline-flex items-center gap-2 bg-navy text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-navy-light transition-colors">
+        <a href={`${base}/contact`} class="inline-flex items-center gap-2 bg-navy text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-navy-light transition-colors">
           <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">location_on</span>
           Get Directions
         </a>
@@ -240,7 +241,7 @@ const featured = vehicles.slice(0, 6);
           <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">sms</span>
           Text Jerry Now
         </a>
-        <a href="/inventory" class="inline-flex items-center justify-center gap-2 bg-navy text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-navy-light transition-colors">
+        <a href={`${base}/inventory`} class="inline-flex items-center justify-center gap-2 bg-navy text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-navy-light transition-colors">
           Browse Inventory
         </a>
       </div>

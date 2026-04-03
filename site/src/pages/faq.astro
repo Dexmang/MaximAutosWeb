@@ -4,6 +4,7 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import faqData from '../data/faq.json';
 
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 const title = 'Frequently Asked Questions — Maxim Autos, Skokie IL';
 const description = 'Answers to common questions about Maxim Autos: warranty, financing, plates, inspections, trade-ins, hours, and more. Used car dealer in Skokie, IL.';
 
@@ -74,7 +75,7 @@ const faqSchema = {
           <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">sms</span>
           Text Jerry
         </a>
-        <a href="/contact" class="inline-flex items-center justify-center gap-2 bg-navy text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-navy-light transition-colors">
+        <a href={`${base}/contact`} class="inline-flex items-center justify-center gap-2 bg-navy text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-navy-light transition-colors">
           Contact Us
         </a>
       </div>

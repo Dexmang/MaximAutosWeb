@@ -4,6 +4,7 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import reviews from '../data/reviews.json';
 
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 const title = 'Customer Reviews — Maxim Autos, Skokie IL | 5-Star Google Reviews';
 const description = 'Read 5-star customer reviews for Maxim Autos in Skokie, IL. 33+ verified reviews on Google. No games, no hidden fees — just honest cars and personal service from Jerry Franco.';
 
@@ -132,7 +133,7 @@ const ratingSchema = {
           <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">sms</span>
           Text Jerry
         </a>
-        <a href="/inventory" class="inline-flex items-center justify-center gap-2 bg-navy text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-navy-light transition-colors">
+        <a href={`${base}/inventory`} class="inline-flex items-center justify-center gap-2 bg-navy text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-navy-light transition-colors">
           Browse Inventory
         </a>
       </div>

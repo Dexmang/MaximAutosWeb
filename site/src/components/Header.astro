@@ -1,20 +1,21 @@
 ---
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 const currentPath = Astro.url.pathname;
 const navLinks = [
-  { href: '/inventory', label: 'Inventory' },
-  { href: '/financing', label: 'Financing' },
-  { href: '/about', label: 'About' },
-  { href: '/testimonials', label: 'Reviews' },
-  { href: '/faq', label: 'FAQ' },
-  { href: '/contact', label: 'Contact' },
+  { href: `${base}/inventory`, label: 'Inventory' },
+  { href: `${base}/financing`, label: 'Financing' },
+  { href: `${base}/about`, label: 'About' },
+  { href: `${base}/testimonials`, label: 'Reviews' },
+  { href: `${base}/faq`, label: 'FAQ' },
+  { href: `${base}/contact`, label: 'Contact' },
 ];
 ---
 
 <nav class="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-100">
   <div class="flex justify-between items-center w-full px-6 lg:px-8 py-4 max-w-7xl mx-auto">
     <!-- Logo -->
-    <a href="/" class="flex items-center gap-2 shrink-0">
-      <img src="/brand/logo-header.png" alt="Maxim Autos" class="h-10 md:h-12 w-auto" />
+    <a href={`${base}/`} class="flex items-center gap-2 shrink-0">
+      <img src={`${base}/brand/logo-header.png`} alt="Maxim Autos" class="h-10 md:h-12 w-auto" />
     </a>
 
     <!-- Desktop Nav -->
