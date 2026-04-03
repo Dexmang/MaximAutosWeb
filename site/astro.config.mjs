@@ -1,6 +1,8 @@
 import { defineConfig } from 'astro/config';
 export default defineConfig({
-  site: 'https://maximautos.com',
+  // For GitHub Pages preview: site: 'https://dexmang.github.io', base: '/MaximAutosWeb',
+  site: 'https://dexmang.github.io',
+  base: '/MaximAutosWeb',
   publicDir: '../web_assets',
   vite: {
     server: {
