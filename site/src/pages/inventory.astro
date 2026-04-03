@@ -6,7 +6,7 @@ import VehicleCard from '../components/VehicleCard.astro';
 import vehicles from '../data/vehicles.json';
 
 const title = 'Used Cars for Sale in Skokie, IL';
-const description = `Browse ${vehicles.length} quality-inspected used cars for sale at Maxim Autos in Skokie, IL. Prices from $${Math.min(...vehicles.map(v => v.price)).toLocaleString()} to $${Math.max(...vehicles.map(v => v.price)).toLocaleString()}. Every vehicle includes a 3-month warranty, independent inspection report, and metal plates on-the-spot. Financing available for all credit levels.`;
+const description = `Browse ${vehicles.length} quality-inspected used cars for sale at Maxim Autos in Skokie, IL. Prices from $${Math.min(...vehicles.map(v => v.price)).toLocaleString()} to $${Math.max(...vehicles.map(v => v.price)).toLocaleString()}. Every vehicle includes an independent inspection report and metal plates on-the-spot. Financing available for all credit levels.`;
 
 const bodyStyles = [...new Set(vehicles.map(v => v.bodyStyle))].sort();
 ---
@@ -64,7 +64,7 @@ const bodyStyles = [...new Set(vehicles.map(v => v.bodyStyle))].sort();
   <section class="bg-navy py-12 md:py-16">
     <div class="max-w-7xl mx-auto px-6 lg:px-8">
       <h1 class="font-headline text-3xl md:text-5xl font-extrabold text-white mb-3">Used Cars for Sale</h1>
-      <p class="text-gray-400 text-lg">Quality-inspected vehicles in Skokie, IL &mdash; every one backed by our 3-month warranty</p>
+      <p class="text-gray-400 text-lg">Quality-inspected vehicles in Skokie, IL &mdash; every one fully inspected</p>
     </div>
   </section>
 

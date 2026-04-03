@@ -17,7 +17,7 @@ const { vehicle } = Astro.props;
 const v = vehicle;
 const titleText = `${v.year} ${v.make} ${v.model} ${v.trim}`;
 const pageTitle = `${titleText} for Sale in Skokie, IL`;
-const pageDesc = `${titleText} with ${v.mileage.toLocaleString()} miles for $${v.price.toLocaleString()} at Maxim Autos in Skokie, IL. ${v.engine}, ${v.transmission}, ${v.drivetrain}. Maxim Select Certified with 3-month warranty, free CARFAX, and independent inspection. Metal plates on-the-spot.`;
+const pageDesc = `${titleText} with ${v.mileage.toLocaleString()} miles for $${v.price.toLocaleString()} at Maxim Autos in Skokie, IL. ${v.engine}, ${v.transmission}, ${v.drivetrain}. Fully inspected with free CARFAX and independent inspection report. Metal plates on-the-spot.`;
 
 const seoSuffix = 'maxim-autos-skokie-il';
 
@@ -45,11 +45,11 @@ const smsBody = encodeURIComponent(`Hi Jerry, I'm interested in the ${titleText}
 const faqs = [
   {
     q: `Is the ${v.year} ${v.make} ${v.model} reliable?`,
-    a: `The ${v.year} ${v.make} ${v.model} is well-regarded for its reliability. This specific vehicle has been thoroughly inspected by an independent mechanic as part of our Maxim Select Certification process. The inspection report is included with your purchase so you can review every detail before buying.`
+    a: `The ${v.year} ${v.make} ${v.model} is well-regarded for its reliability. This specific vehicle has been thoroughly inspected by an independent mechanic as part of our full inspection process. The inspection report is included with your purchase so you can review every detail before buying.`
   },
   {
-    q: `What warranty comes with this ${v.make} ${v.model}?`,
-    a: `This ${v.year} ${v.make} ${v.model} includes our 3-Month "Peace of Mind" Warranty at no additional cost. The warranty covers major mechanical components and gives you confidence in your purchase. Extended warranty options are also available.`
+    q: `Is this ${v.make} ${v.model} inspected before sale?`,
+    a: `Yes. This ${v.year} ${v.make} ${v.model} has been fully inspected by an independent mechanic. The detailed inspection report is included with your purchase so you can review every component before buying.`
   },
   {
     q: `Can I get financing for a used ${v.make} ${v.model}?`,
@@ -60,8 +60,8 @@ const faqs = [
     a: `Yes. A free CARFAX vehicle history report is included with every vehicle at Maxim Autos. You can review the full history of this ${titleText} before making a decision. Ask Jerry for the report anytime.`
   },
   {
-    q: `What does "Maxim Select Certified" mean?`,
-    a: `Maxim Select Certified means this ${titleText} has passed an independent mechanical inspection, includes a 3-month warranty, and comes with a free CARFAX report. It's our commitment that every vehicle we sell meets a higher standard than the typical used car lot.`
+    q: `What does "Fully Inspected" mean at Maxim Autos?`,
+    a: `Fully Inspected means this ${titleText} has passed an independent mechanical inspection, and comes with a free CARFAX report. It's our commitment that every vehicle we sell meets a higher standard than the typical used car lot.`
   },
   {
     q: `Can I drive this ${v.make} ${v.model} home the same day I buy it?`,
@@ -186,7 +186,7 @@ const faqSchema = {
                 {v.certified && (
                   <div class="absolute top-4 left-4 bg-navy text-white text-xs font-bold px-3 py-1.5 rounded-md flex items-center gap-1">
                     <span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">verified</span>
-                    MAXIM SELECT CERTIFIED
+                    FULLY INSPECTED
                   </div>
                 )}
                 <!-- Photo counter -->
@@ -333,7 +333,7 @@ const faqSchema = {
               <p class="text-xs text-gray-400 text-center">Available Mon-Fri 3-7pm, Sat 10am-3pm. After-hours? Text anytime.</p>
             </div>
 
-            <!-- Maxim Select Badge -->
+            <!-- Fully Inspected Badge -->
             {v.certified && (
               <div class="bg-navy rounded-xl p-6 text-white">
                 <div class="flex items-center gap-3 mb-4">
@@ -341,12 +341,12 @@ const faqSchema = {
                     <span class="material-symbols-outlined text-3xl text-orange" style="font-variation-settings: 'FILL' 1;">verified</span>
                   </div>
                   <div>
-                    <h3 class="font-headline font-bold text-lg">Maxim Select Certified</h3>
-                    <p class="text-gray-400 text-xs">Our highest quality standard</p>
+                    <h3 class="font-headline font-bold text-lg">Fully Inspected</h3>
+                    <p class="text-gray-400 text-xs">Independent mechanic verified</p>
                   </div>
                 </div>
                 <p class="text-gray-300 text-sm leading-relaxed">
-                  This {titleText} has been fully inspected by an independent mechanic and meets our Maxim Select quality standards. Buy with confidence.
+                  This {titleText} has been fully inspected by an independent mechanic and meets our quality standards. Buy with confidence.
                 </p>
               </div>
             )}
@@ -360,8 +360,8 @@ const faqSchema = {
                     <span class="material-symbols-outlined text-green-600" style="font-variation-settings: 'FILL' 1;">shield</span>
                   </div>
                   <div>
-                    <p class="font-semibold text-sm text-gray-900">3-Month Warranty Included</p>
-                    <p class="text-xs text-gray-500">Peace of Mind coverage on major components at no extra cost</p>
+                    <p class="font-semibold text-sm text-gray-900">Fully Inspected</p>
+                    <p class="text-xs text-gray-500">Independent mechanic inspection with detailed report</p>
                   </div>
                 </div>
                 <div class="flex items-start gap-3">
