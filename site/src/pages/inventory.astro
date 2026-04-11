@@ -127,7 +127,7 @@ const bodyStyles = [...new Set(vehicles.map(v => v.bodyStyle))].sort();
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5" id="vehicle-grid">
         {vehicles.map(v => (
           <div
-            class="vehicle-card"
+            class="vehicle-item"
             data-price={v.price}
             data-body={v.bodyStyle}
             data-year={v.year}
@@ -212,7 +212,7 @@ const bodyStyles = [...new Set(vehicles.map(v => v.bodyStyle))].sort();
 <script is:inline>
 (function () {
   const grid = document.getElementById('vehicle-grid');
-  const cards = Array.from(grid.querySelectorAll('.vehicle-card'));
+  const cards = Array.from(grid.querySelectorAll('.vehicle-item'));
   const countEl = document.getElementById('count-num');
   const noResults = document.getElementById('no-results');
   const clearBtn = document.getElementById('clear-filters');
