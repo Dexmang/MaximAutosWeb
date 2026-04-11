@@ -42,7 +42,7 @@ const featured = vehicles.slice(0, 6);
       "aggregateRating": {
         "@type": "AggregateRating",
         "ratingValue": "5.0",
-        "reviewCount": "33",
+        "reviewCount": "34",
         "bestRating": "5"
       },
       "areaServed": [
@@ -61,26 +61,51 @@ const featured = vehicles.slice(0, 6);
   <Header slot="header" />
 
   <!-- Hero -->
-  <section class="relative min-h-[600px] lg:min-h-[700px] flex items-center bg-navy">
-    <div class="absolute inset-0 bg-gradient-to-r from-navy/95 via-navy/80 to-navy/60 z-10"></div>
-    <div class="relative z-20 w-full max-w-7xl mx-auto px-6 lg:px-8 py-20">
-      <div class="max-w-2xl">
-        <div class="flex items-center gap-2 mb-6">
-          <span class="material-symbols-outlined text-orange" style="font-variation-settings: 'FILL' 1;">star</span>
-          <span class="text-orange font-bold text-sm">5.0 Stars on Google &bull; 33+ Reviews</span>
-        </div>
-        <h1 class="font-headline text-4xl md:text-6xl lg:text-7xl font-extrabold text-white leading-tight tracking-tight mb-6">
-          Quality Used Cars in Skokie, IL
+  <section class="relative min-h-[448px] lg:min-h-[512px] flex items-center overflow-hidden bg-navy">
+    <div class="absolute inset-0 z-0">
+      <img
+        src={`${base}/brand/hero-family.jpg`}
+        alt="Family enjoying their car purchased from Maxim Autos in Skokie IL"
+        class="w-full h-full object-cover object-center"
+        loading="eager"
+      />
+      <div class="absolute inset-0 bg-gradient-to-r from-navy/90 via-navy/70 to-navy/20"></div>
+    </div>
+    <div class="relative z-10 w-full max-w-7xl mx-auto px-6 lg:px-8 py-10">
+      <div class="max-w-xl">
+        <a href="https://www.google.com/search?q=Maxim+Autos+Skokie+IL+reviews" target="_blank" rel="noopener"
+           class="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 text-white rounded-full px-4 py-2 mb-6 hover:bg-white/20 transition-colors">
+          <span class="material-symbols-outlined text-orange text-base" style="font-variation-settings: 'FILL' 1;">star</span>
+          <span class="font-bold text-sm">5.0 Stars on Google</span>
+          <span class="text-white/60 text-xs">· 34 Reviews</span>
+        </a>
+        <h1 class="font-headline text-4xl md:text-5xl lg:text-6xl font-extrabold text-white leading-tight tracking-tight mb-4">
+          Cars You Can<br/>Actually Trust.
         </h1>
-        <p class="text-xl md:text-2xl text-gray-300 mb-10 leading-relaxed">
-          Every car inspected. Every price transparent. Every customer protected.
+        <p class="text-lg md:text-xl text-white/80 mb-7 leading-relaxed">
+          Skokie's no-games used car dealer. Every car inspected, every price upfront. Metal plates same day.
         </p>
-        <div class="flex flex-col sm:flex-row gap-4">
-          <a href={`${base}/inventory`} class="inline-flex items-center justify-center gap-2 bg-orange text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-orange-dark transition-colors shadow-lg shadow-orange/20">
-            Browse Inventory
-            <span class="material-symbols-outlined">arrow_forward</span>
+        <div class="flex flex-wrap gap-2 mb-8">
+          {[
+            { label: 'Under $10K', href: `${base}/inventory` },
+            { label: 'SUVs', href: `${base}/inventory` },
+            { label: 'Sedans', href: `${base}/inventory` },
+            { label: 'AWD', href: `${base}/inventory` },
+            { label: 'View All', href: `${base}/inventory` },
+          ].map(chip => (
+            <a href={chip.href}
+               class="bg-white/15 backdrop-blur-sm border border-white/25 text-white text-sm font-semibold px-4 py-2 rounded-full hover:bg-white/30 transition-all">
+              {chip.label}
+            </a>
+          ))}
+        </div>
+        <div class="flex flex-col sm:flex-row gap-3">
+          <a href={`${base}/inventory`}
+             class="inline-flex items-center justify-center gap-2 bg-orange text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-orange-dark transition-colors shadow-lg shadow-orange/30">
+            Browse Inventory <span class="material-symbols-outlined">arrow_forward</span>
           </a>
-          <a href="sms:8475108947&body=Hi Jerry, I'm interested in a vehicle at Maxim Autos." class="inline-flex items-center justify-center gap-2 bg-transparent border-2 border-white/30 text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-white/10 transition-colors">
+          <a href="sms:8475108947&body=Hi Jerry, I'm interested in a vehicle at Maxim Autos."
+             class="inline-flex items-center justify-center gap-2 bg-white text-navy px-8 py-4 rounded-xl font-bold text-lg hover:bg-gray-100 transition-colors">
             <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">sms</span>
             Text Jerry
           </a>
@@ -89,61 +114,16 @@ const featured = vehicles.slice(0, 6);
     </div>
   </section>
 
-  <!-- Three Pillars -->
-  <section class="py-20 bg-white">
-    <div class="max-w-7xl mx-auto px-6 lg:px-8">
-      <div class="text-center mb-14">
-        <span class="text-orange font-bold uppercase tracking-widest text-sm mb-3 block">The Maxim Autos Difference</span>
-        <h2 class="font-headline text-3xl md:text-4xl font-extrabold">Why Buyers Choose Us</h2>
-      </div>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <div class="text-center p-8 rounded-xl border border-gray-100 hover:border-orange/20 hover:shadow-md transition-all">
-          <div class="w-16 h-16 bg-navy/5 rounded-2xl flex items-center justify-center mx-auto mb-6">
-            <span class="material-symbols-outlined text-4xl text-navy" style="font-variation-settings: 'FILL' 1;">verified_user</span>
-          </div>
-          <h3 class="font-headline text-xl font-bold mb-3">Total Protection</h3>
-          <ul class="text-gray-600 text-sm space-y-2">
-            <li>Independent Inspection Report included</li>
-            <li>Independent Inspection Report included</li>
-            <li>Fully inspected vehicles</li>
-          </ul>
-        </div>
-        <div class="text-center p-8 rounded-xl border border-gray-100 hover:border-orange/20 hover:shadow-md transition-all">
-          <div class="w-16 h-16 bg-navy/5 rounded-2xl flex items-center justify-center mx-auto mb-6">
-            <span class="material-symbols-outlined text-4xl text-navy" style="font-variation-settings: 'FILL' 1;">directions_car</span>
-          </div>
-          <h3 class="font-headline text-xl font-bold mb-3">Skip the DMV Headache</h3>
-          <ul class="text-gray-600 text-sm space-y-2">
-            <li>Metal plates issued on-the-spot</li>
-            <li>Drive home today</li>
-            <li>Instant DMV registration</li>
-          </ul>
-        </div>
-        <div class="text-center p-8 rounded-xl border border-gray-100 hover:border-orange/20 hover:shadow-md transition-all">
-          <div class="w-16 h-16 bg-navy/5 rounded-2xl flex items-center justify-center mx-auto mb-6">
-            <span class="material-symbols-outlined text-4xl text-navy" style="font-variation-settings: 'FILL' 1;">sell</span>
-          </div>
-          <h3 class="font-headline text-xl font-bold mb-3">Transparent Pricing</h3>
-          <ul class="text-gray-600 text-sm space-y-2">
-            <li>No hidden fees or surprises</li>
-            <li>Upfront competitive pricing</li>
-            <li>Financing for all credit levels</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- Featured Vehicles -->
-  <section class="py-20 bg-surface">
+  <section class="py-10 bg-surface">
     <div class="max-w-7xl mx-auto px-6 lg:px-8">
-      <div class="flex justify-between items-end mb-12">
+      <div class="flex justify-between items-center mb-6">
         <div>
-          <span class="text-orange font-bold uppercase tracking-widest text-sm mb-3 block">Current Inventory</span>
-          <h2 class="font-headline text-3xl md:text-4xl font-extrabold">Featured Vehicles</h2>
+          <span class="text-orange font-bold uppercase tracking-widest text-sm mb-1 block">Current Inventory</span>
+          <h2 class="font-headline text-2xl md:text-3xl font-extrabold">Available Now</h2>
         </div>
-        <a href={`${base}/inventory`} class="hidden md:flex items-center gap-1 text-navy font-bold hover:text-orange transition-colors">
-          View All <span class="material-symbols-outlined">arrow_forward</span>
+        <a href={`${base}/inventory`} class="flex items-center gap-1 text-navy font-bold hover:text-orange transition-colors text-sm">
+          View All <span class="material-symbols-outlined text-lg">arrow_forward</span>
         </a>
       </div>
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -161,7 +141,9 @@ const featured = vehicles.slice(0, 6);
             bodyStyle={v.bodyStyle}
             photoPath={v.photoPath}
             photoPrefix={v.photoPrefix}
-            certified={v.certified}
+            inspected={v.inspected}
+            primaryPhotoUrl={v.primaryPhotoUrl}
+            photos={v.photos}
           />
         ))}
       </div>
@@ -173,17 +155,72 @@ const featured = vehicles.slice(0, 6);
     </div>
   </section>
 
-  <!-- Reviews -->
-  <section class="py-20 bg-navy text-white">
+  <!-- Three Pillars -->
+  <section class="py-10 bg-white">
     <div class="max-w-7xl mx-auto px-6 lg:px-8">
-      <div class="text-center mb-14">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="flex items-start gap-4 p-6 rounded-xl border border-gray-100 hover:border-orange/20 hover:shadow-md transition-all">
+          <div class="w-12 h-12 bg-navy/5 rounded-xl flex items-center justify-center shrink-0">
+            <span class="material-symbols-outlined text-2xl text-navy" style="font-variation-settings: 'FILL' 1;">verified_user</span>
+          </div>
+          <div>
+            <h3 class="font-headline text-base font-bold mb-1">Total Protection</h3>
+            <p class="text-gray-500 text-sm">Independent inspection report included · 3-Month Warranty · Free CARFAX</p>
+          </div>
+        </div>
+        <div class="flex items-start gap-4 p-6 rounded-xl border border-gray-100 hover:border-orange/20 hover:shadow-md transition-all">
+          <div class="w-12 h-12 bg-navy/5 rounded-xl flex items-center justify-center shrink-0">
+            <span class="material-symbols-outlined text-2xl text-navy" style="font-variation-settings: 'FILL' 1;">directions_car</span>
+          </div>
+          <div>
+            <h3 class="font-headline text-base font-bold mb-1">Skip the DMV</h3>
+            <p class="text-gray-500 text-sm">Metal plates issued on-the-spot · Drive home today · Instant registration</p>
+          </div>
+        </div>
+        <div class="flex items-start gap-4 p-6 rounded-xl border border-gray-100 hover:border-orange/20 hover:shadow-md transition-all">
+          <div class="w-12 h-12 bg-navy/5 rounded-xl flex items-center justify-center shrink-0">
+            <span class="material-symbols-outlined text-2xl text-navy" style="font-variation-settings: 'FILL' 1;">sell</span>
+          </div>
+          <div>
+            <h3 class="font-headline text-base font-bold mb-1">Transparent Pricing</h3>
+            <p class="text-gray-500 text-sm">No hidden fees · Upfront pricing · Financing for all credit levels</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- We Buy Cars -->
+  <section class="py-10 bg-white border-t border-gray-100">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+      <div class="bg-navy rounded-2xl p-8 md:p-10 flex flex-col md:flex-row items-center gap-6 md:gap-10">
+        <div class="w-16 h-16 bg-orange/20 rounded-2xl flex items-center justify-center shrink-0">
+          <span class="material-symbols-outlined text-4xl text-orange" style="font-variation-settings: 'FILL' 1;">monetization_on</span>
+        </div>
+        <div class="flex-1 text-center md:text-left">
+          <h2 class="font-headline text-2xl md:text-3xl font-extrabold text-white mb-2">Selling Your Car? We Buy Private Party.</h2>
+          <p class="text-gray-300 text-base">Get a fast, fair cash offer — no dealer games, no lowball tricks. Text Jerry a photo and your asking price.</p>
+        </div>
+        <a href="sms:8475108947&body=Hi Jerry, I'd like to sell my car. Here's what I have:"
+           class="shrink-0 inline-flex items-center gap-2 bg-orange text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-orange-dark transition-colors whitespace-nowrap">
+          <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">sms</span>
+          Get an Offer
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Reviews -->
+  <section class="py-12 bg-navy text-white">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+      <div class="text-center mb-10">
         <div class="flex justify-center items-center gap-1 mb-4">
           {[1,2,3,4,5].map(() => (
             <span class="material-symbols-outlined text-orange text-2xl" style="font-variation-settings: 'FILL' 1;">star</span>
           ))}
         </div>
         <h2 class="font-headline text-3xl md:text-5xl font-extrabold mb-3">5.0 Stars on Google</h2>
-        <p class="text-gray-400 text-lg">33+ reviews from North Shore neighbors</p>
+        <p class="text-gray-400 text-lg">34+ reviews from North Shore neighbors</p>
       </div>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
         {reviews.map(review => (
@@ -210,29 +247,35 @@ const featured = vehicles.slice(0, 6);
   </section>
 
   <!-- Serving North Shore -->
-  <section class="py-20 bg-white">
+  <section class="py-10 bg-white">
     <div class="max-w-7xl mx-auto px-6 lg:px-8">
-      <div class="max-w-3xl mx-auto text-center">
-        <h2 class="font-headline text-3xl md:text-4xl font-extrabold mb-6">Serving Chicago's North Shore</h2>
-        <p class="text-gray-600 text-lg mb-10 leading-relaxed">
-          Located in Skokie, Maxim Autos proudly serves buyers across Chicago's North Shore suburbs.
-          Quality-inspected used cars from $5,000 to $15,000 with financing for all credit levels.
-        </p>
-        <div class="flex flex-wrap justify-center gap-3 mb-10">
-          {['Skokie', 'Evanston', 'Niles', 'Morton Grove', 'Lincolnwood', 'Des Plaines', 'Wilmette', 'Glenview', 'Chicago'].map(city => (
-            <span class="px-5 py-2.5 bg-surface rounded-full text-sm font-medium text-gray-700 border border-gray-200">{city}</span>
-          ))}
+      <div class="flex flex-col md:flex-row items-center gap-8">
+        <div class="flex-1">
+          <h2 class="font-headline text-2xl md:text-3xl font-extrabold mb-3">Serving Chicago's North Shore</h2>
+          <p class="text-gray-600 mb-4">Located in Skokie. Quality-inspected used cars $5K–$15K with financing for all credit levels.</p>
+          <div class="flex flex-wrap gap-2 mb-5">
+            {['Skokie', 'Evanston', 'Niles', 'Morton Grove', 'Lincolnwood', 'Des Plaines', 'Wilmette', 'Glenview', 'Chicago'].map(city => (
+              <span class="px-3 py-1.5 bg-surface rounded-full text-sm font-medium text-gray-700 border border-gray-200">{city}</span>
+            ))}
+          </div>
+          <a href={`${base}/contact`} class="inline-flex items-center gap-2 bg-navy text-white px-6 py-3 rounded-xl font-bold hover:bg-navy-light transition-colors">
+            <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">location_on</span>
+            Get Directions
+          </a>
         </div>
-        <a href={`${base}/contact`} class="inline-flex items-center gap-2 bg-navy text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-navy-light transition-colors">
-          <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">location_on</span>
-          Get Directions
-        </a>
+        <div class="hidden md:block w-72 h-48 bg-surface rounded-2xl overflow-hidden border border-gray-200">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2963.7!2d-87.7334!3d42.0334!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDLCsDAyJzAwLjIiTiA4N8KwNDQnMDAuMiJX!5e0!3m2!1sen!2sus!4v1234567890"
+            width="100%" height="100%" style="border:0;" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+            title="Maxim Autos location map Skokie IL"
+          ></iframe>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- CTA Banner -->
-  <section class="py-16 bg-orange">
+  <section class="py-12 bg-orange">
     <div class="max-w-4xl mx-auto px-6 lg:px-8 text-center">
       <h2 class="font-headline text-3xl md:text-4xl font-extrabold text-white mb-4">Ready to Find Your Next Car?</h2>
       <p class="text-white/90 text-lg mb-8">Text Jerry for a quick response, or browse the full inventory online.</p>

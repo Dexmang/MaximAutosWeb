@@ -13,9 +13,15 @@ const navLinks = [
 
 <nav class="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-100">
   <div class="flex justify-between items-center w-full px-6 lg:px-8 py-4 max-w-7xl mx-auto">
-    <!-- Logo -->
-    <a href={`${base}/`} class="flex items-center gap-2 shrink-0">
-      <img src={`${base}/brand/logo-header.png`} alt="Maxim Autos" class="h-10 md:h-12 w-auto" />
+    <!-- Logo + Rating -->
+    <a href={`${base}/`} class="flex items-center gap-3 shrink-0">
+      <img src={`${base}/brand/logo-header.png`} alt="Maxim Autos" class="h-9 md:h-11 w-auto" />
+      <a href="https://www.google.com/search?q=Maxim+Autos+Skokie+IL+reviews" target="_blank" rel="noopener"
+         class="hidden md:flex items-center gap-1 bg-surface border border-gray-200 rounded-lg px-2.5 py-1 hover:border-orange/40 transition-colors">
+        <span class="material-symbols-outlined text-orange text-base" style="font-variation-settings:'FILL' 1;">star</span>
+        <span class="font-extrabold text-navy text-sm">5.0</span>
+        <span class="text-gray-400 text-xs font-medium">Google · 34 reviews</span>
+      </a>
     </a>
 
     <!-- Desktop Nav -->

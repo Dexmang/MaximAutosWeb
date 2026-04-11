@@ -12,44 +12,69 @@ interface Props {
   bodyStyle: string;
   photoPath: string;
   photoPrefix: string;
-  certified: boolean;
+  inspected: boolean;
+  primaryPhotoUrl?: string;
+  photos?: { exterior: number; interior: number; source: string };
 }
 
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
-const { slug, year, make, model, trim, price, mileage, drivetrain, engine, bodyStyle, photoPath, photoPrefix, certified } = Astro.props;
+const { slug, year, make, model, trim, price, mileage, drivetrain, engine, bodyStyle, photoPath, photoPrefix, inspected, primaryPhotoUrl, photos } = Astro.props;
 const title = `${year} ${make} ${model}`;
-const photoSrc = `${base}/${photoPath}/thumb/${photoPrefix}-photo-exterior-maxim-autos-skokie-il-01.jpg`;
+
+// Use DealerCenter CDN URL if available, otherwise fall back to local path
+const photoSrc = (photos?.source === 'dealercenter' && primaryPhotoUrl)
+  ? primaryPhotoUrl
+  : `${base}/${photoPath}/thumb/${photoPrefix}-photo-exterior-maxim-autos-skokie-il-01.jpg`;
+
+// Payment estimate: 10% down, 9.9% APR, 60 months
+const downPayment = Math.round(price * 0.10);
+const principal = price - downPayment;
+const monthlyRate = 0.099 / 12;
+const numPayments = 60;
+const monthlyPayment = Math.round(
+  principal * (monthlyRate * Math.pow(1 + monthlyRate, numPayments)) /
+  (Math.pow(1 + monthlyRate, numPayments) - 1)
+);
 ---
 
 <a href={`${base}/vehicle/${slug}`} class="vehicle-card group block bg-white overflow-hidden rounded-xl shadow-sm hover:shadow-lg transition-all duration-300" data-price={price} data-body={bodyStyle} data-mileage={mileage} data-year={year}>
-  <div class="relative h-56 overflow-hidden bg-gray-100">
+  <div class="relative h-48 overflow-hidden bg-gray-100">
     <img
       src={photoSrc}
       alt={`${title} for sale at Maxim Autos Skokie IL`}
       class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
       loading="lazy"
     />
-    {certified && (
-      <div class="absolute top-3 left-3 bg-navy text-white text-xs font-bold px-3 py-1.5 rounded-md flex items-center gap-1">
-        <span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">verified</span>
+    {inspected && (
+      <div class="absolute top-2 left-2 bg-navy text-white text-xs font-bold px-2.5 py-1 rounded-md flex items-center gap-1">
+        <span class="material-symbols-outlined text-xs" style="font-variation-settings: 'FILL' 1;">verified</span>
         FULLY INSPECTED
       </div>
     )}
   </div>
-  <div class="p-5">
-    <h3 class="font-headline text-lg font-bold text-gray-900 mb-1">{title}</h3>
-    <p class="text-sm text-gray-500 mb-3">{trim} &bull; {engine} &bull; {drivetrain}</p>
-    <div class="flex justify-between items-center mb-4">
-      <span class="text-2xl font-extrabold text-navy">${price.toLocaleString()}</span>
+  <div class="p-4">
+    <h3 class="font-headline text-base font-bold text-gray-900 mb-0.5">{title}</h3>
+    <p class="text-xs text-gray-500 mb-3">{trim} &bull; {engine} &bull; {drivetrain}</p>
+
+    <!-- Price + Payment -->
+    <div class="flex justify-between items-end mb-3">
+      <div>
+        <span class="text-xl font-extrabold text-navy">${price.toLocaleString()}</span>
+        <div class="flex items-center gap-1 mt-0.5">
+          <span class="text-xs font-bold text-orange">${monthlyPayment}/mo est.</span>
+          <span class="text-xs text-gray-400 font-normal">*</span>
+        </div>
+      </div>
       <span class="text-sm text-gray-500">{mileage.toLocaleString()} mi</span>
     </div>
-    <div class="flex gap-2">
-      <span class="inline-flex items-center gap-1 text-xs bg-green-50 text-green-700 px-2.5 py-1 rounded-full font-medium">
-        <span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">search</span>
-        Fully Inspected
+
+    <div class="flex gap-1.5">
+      <span class="inline-flex items-center gap-1 text-xs bg-green-50 text-green-700 px-2 py-1 rounded-full font-medium">
+        <span class="material-symbols-outlined text-xs" style="font-variation-settings: 'FILL' 1;">search</span>
+        Inspected
       </span>
-      <span class="inline-flex items-center gap-1 text-xs bg-blue-50 text-blue-700 px-2.5 py-1 rounded-full font-medium">
-        <span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">description</span>
+      <span class="inline-flex items-center gap-1 text-xs bg-blue-50 text-blue-700 px-2 py-1 rounded-full font-medium">
+        <span class="material-symbols-outlined text-xs" style="font-variation-settings: 'FILL' 1;">description</span>
         Free CARFAX
       </span>
     </div>

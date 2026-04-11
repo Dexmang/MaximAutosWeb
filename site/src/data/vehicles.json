@@ -1,101 +1,268 @@
 [
   {
-    "slug": "2014-lexus-rx350",
+    "slug": "2020-hyundai-tucson-ultimate-awd",
+    "year": 2020,
+    "make": "Hyundai",
+    "model": "Tucson",
+    "trim": "Ultimate AWD",
+    "price": 11995,
+    "mileage": 121711,
+    "exteriorColor": "Black",
+    "interiorColor": "",
+    "engine": "2.5L I4",
+    "transmission": "Automatic",
+    "drivetrain": "AWD",
+    "fuelType": "Gasoline",
+    "bodyStyle": "SUV",
+    "vin": "KM8J3CAL9LU250710",
+    "condition": "Used",
+    "inspected": true,
+    "warranty": "3-Month Warranty",
+    "carfax": true,
+    "inspection": true,
+    "features": [
+      "Panoramic Sunroof",
+      "Heated & Ventilated Leather Seats",
+      "Apple CarPlay",
+      "Blind Spot Monitoring",
+      "AWD"
+    ],
+    "highlights": [
+      "Carfax 1-Owner, clean history",
+      "Panoramic sunroof, heated and ventilated leather",
+      "121,711 miles, 3-Month Warranty"
+    ],
+    "status": "available",
+    "dateAdded": "2026-04-10",
+    "featured": true,
+    "sortOrder": 1,
+    "stockNumber": "J10175",
+    "dealerCenterUrl": "https://www.maximautos.com/inventory/hyundai/tucson/j10175/",
+    "primaryPhotoUrl": "https://imagescf.dealercenter.net/640/480/202604-656fc4603a2a4657a7416e4d94b73b8c/202601-76435ec891f04eb193cc46a494d9ea43.jpg",
+    "photoUrls": [
+      "https://imagescf.dealercenter.net/640/480/202604-656fc4603a2a4657a7416e4d94b73b8c/202601-76435ec891f04eb193cc46a494d9ea43.jpg"
+    ],
+    "photos": {
+      "exterior": 1,
+      "interior": 0,
+      "source": "dealercenter"
+    },
+    "photoPath": "",
+    "photoPrefix": "2020-hyundai-tucson-ultimate-awd",
+    "makeSlug": "hyundai",
+    "bodyStyleSlug": "suvs",
+    "description": "Carfax 1-Owner, perfect history. Ultimate trim with panoramic sunroof, heated & ventilated leather, blind spot monitoring, AWD, Apple CarPlay. 121,711 miles. Fully inspected, 3-Month Warranty. Same-day metal plates. Financing available. Located at Maxim Autos in Skokie, IL."
+  },
+  {
+    "slug": "2017-ford-escape-titanium",
+    "year": 2017,
+    "make": "Ford",
+    "model": "Escape",
+    "trim": "Titanium",
+    "price": 12950,
+    "mileage": 55183,
+    "exteriorColor": "Gray",
+    "interiorColor": "",
+    "engine": "2.0L EcoBoost",
+    "transmission": "Automatic",
+    "drivetrain": "FWD",
+    "fuelType": "Gasoline",
+    "bodyStyle": "SUV",
+    "vin": "1FMCU0J95HUE21095",
+    "condition": "Used",
+    "inspected": true,
+    "warranty": "3-Month Warranty",
+    "carfax": true,
+    "inspection": true,
+    "features": [
+      "Panoramic Roof",
+      "Heated Leather Seats",
+      "Navigation",
+      "Apple CarPlay",
+      "SYNC 3"
+    ],
+    "highlights": [
+      "Carfax 1-Owner, only 55,183 miles",
+      "EcoBoost 2.0T, navigation, panoramic roof",
+      "Titanium trim, 3-Month Warranty"
+    ],
+    "status": "available",
+    "dateAdded": "2026-04-10",
+    "featured": true,
+    "sortOrder": 2,
+    "stockNumber": "J10188",
+    "dealerCenterUrl": "https://www.maximautos.com/inventory/ford/escape/j10188/",
+    "primaryPhotoUrl": "https://imagescf.dealercenter.net/640/480/202604-d64250575c7d468d96b086574dc67c1c/202604-fb5322d9470842c3a723ff2f27d8b74f.jpg",
+    "photoUrls": [
+      "https://imagescf.dealercenter.net/640/480/202604-d64250575c7d468d96b086574dc67c1c/202604-fb5322d9470842c3a723ff2f27d8b74f.jpg"
+    ],
+    "photos": {
+      "exterior": 1,
+      "interior": 0,
+      "source": "dealercenter"
+    },
+    "photoPath": "",
+    "photoPrefix": "2017-ford-escape-titanium",
+    "makeSlug": "ford",
+    "bodyStyleSlug": "suvs",
+    "description": "Carfax 1-Owner, perfect history. Titanium trim with 55,183 miles. EcoBoost 2.0T, navigation, panoramic roof, heated leather, SYNC 3, Apple CarPlay. Fully inspected, 3-Month Warranty. Same-day metal plates. Financing available. Located at Maxim Autos in Skokie, IL."
+  },
+  {
+    "slug": "2008-jaguar-xj-vanden-plas-l",
+    "year": 2008,
+    "make": "Jaguar",
+    "model": "XJ",
+    "trim": "Vanden Plas L",
+    "price": 11900,
+    "mileage": 104150,
+    "exteriorColor": "",
+    "interiorColor": "",
+    "engine": "4.2L V8",
+    "transmission": "Automatic",
+    "drivetrain": "RWD",
+    "fuelType": "Gasoline",
+    "bodyStyle": "Sedan",
+    "vin": "SAJWA79B58SH23092",
+    "condition": "Used",
+    "inspected": true,
+    "warranty": "3-Month Warranty",
+    "carfax": true,
+    "inspection": true,
+    "features": [
+      "V8 4.2L Engine",
+      "Long Wheelbase",
+      "Luxury Interior",
+      "Rear-Wheel Drive"
+    ],
+    "highlights": [
+      "Carfax 1-Owner, clean history",
+      "V8 4.2L flagship Vanden Plas long-wheelbase",
+      "104,150 miles, 3-Month Warranty"
+    ],
+    "status": "available",
+    "dateAdded": "2026-04-10",
+    "featured": false,
+    "sortOrder": 0,
+    "stockNumber": "J10186",
+    "dealerCenterUrl": "https://www.maximautos.com/inventory/jaguar/xj/j10186/",
+    "primaryPhotoUrl": "https://imagescf.dealercenter.net/640/480/202604-7028dd181d9049068bb7f663f9440bed/202604-93164bf99ad046f99d153a21a21ee701.jpg",
+    "photoUrls": [
+      "https://imagescf.dealercenter.net/640/480/202604-7028dd181d9049068bb7f663f9440bed/202604-93164bf99ad046f99d153a21a21ee701.jpg"
+    ],
+    "photos": {
+      "exterior": 1,
+      "interior": 0,
+      "source": "dealercenter"
+    },
+    "photoPath": "",
+    "photoPrefix": "2008-jaguar-xj-vanden-plas-l",
+    "makeSlug": "jaguar",
+    "bodyStyleSlug": "sedans",
+    "description": "Carfax 1-Owner, perfect history. Vanden Plas L long-wheelbase flagship with V8 4.2L, 104,150 miles. Luxury interior, rear-wheel drive, automatic. Fully inspected, 3-Month Warranty. Same-day metal plates. Financing available. Located at Maxim Autos in Skokie, IL."
+  },
+  {
+    "slug": "2014-lexus-rx-350-awd",
     "year": 2014,
     "make": "Lexus",
     "model": "RX 350",
-    "trim": "Base",
-    "price": 12995,
-    "mileage": 98000,
-    "exteriorColor": "Silver",
-    "interiorColor": "Black",
+    "trim": "AWD",
+    "price": 14950,
+    "mileage": 99000,
+    "exteriorColor": "",
+    "interiorColor": "",
     "engine": "3.5L V6",
     "transmission": "Automatic",
     "drivetrain": "AWD",
     "fuelType": "Gasoline",
     "bodyStyle": "SUV",
-    "vin": "TBD",
+    "vin": "JTJBK1BA4E2462410",
     "condition": "Used",
-    "certified": true,
-    "warranty": "",
+    "inspected": true,
+    "warranty": "3-Month Warranty",
     "carfax": true,
     "inspection": true,
-    "features": ["Leather Seats", "Sunroof", "Backup Camera", "Bluetooth", "Heated Seats", "Navigation", "Keyless Entry"],
+    "features": [
+      "3.5L V6 Engine",
+      "AWD",
+      "Premium Luxury SUV"
+    ],
+    "highlights": [
+      "Carfax 1-Owner, clean history",
+      "Premium luxury SUV, V6 AWD",
+      "99,000 miles, 3-Month Warranty"
+    ],
+    "status": "available",
+    "dateAdded": "2026-04-10",
+    "featured": true,
+    "sortOrder": 3,
+    "stockNumber": "J10185",
+    "dealerCenterUrl": "https://www.maximautos.com/inventory/lexus/rx/j10185/",
+    "primaryPhotoUrl": "https://imagescf.dealercenter.net/640/480/202604-f519c536c61e4702af86e4c624d596b0/202604-c3455bc60d774d95bbc26a4556587c57.jpg",
+    "photoUrls": [
+      "https://imagescf.dealercenter.net/640/480/202604-f519c536c61e4702af86e4c624d596b0/202604-c3455bc60d774d95bbc26a4556587c57.jpg"
+    ],
     "photos": {
-      "exterior": 20,
-      "interior": 20
+      "exterior": 1,
+      "interior": 0,
+      "source": "dealercenter"
     },
-    "videos": {
-      "exterior": 5
-    },
-    "photoPath": "photos/lexus-rx350-2014",
-    "photoPrefix": "2014-lexus-rx350",
-    "description": "2014 Lexus RX 350 AWD with 3.5L V6 engine. Fully inspected with independent inspection report. Free CARFAX included. Metal plates issued on-the-spot \u2014 drive home today."
+    "photoPath": "",
+    "photoPrefix": "2014-lexus-rx-350-awd",
+    "makeSlug": "lexus",
+    "bodyStyleSlug": "suvs",
+    "description": "Carfax 1-Owner, perfect history. Lexus RX 350 AWD with V6 power, 99,000 miles. Premium luxury SUV fully inspected, 3-Month Warranty. Same-day metal plates. Financing available. Located at Maxim Autos in Skokie, IL."
   },
   {
-    "slug": "2013-lexus-rx350",
-    "year": 2013,
-    "make": "Lexus",
-    "model": "RX 350",
-    "trim": "Base",
-    "price": 11495,
-    "mileage": 105000,
-    "exteriorColor": "Black",
-    "interiorColor": "Tan",
-    "engine": "3.5L V6",
-    "transmission": "Automatic",
-    "drivetrain": "AWD",
-    "fuelType": "Gasoline",
-    "bodyStyle": "SUV",
-    "vin": "TBD",
-    "condition": "Used",
-    "certified": true,
-    "warranty": "",
-    "carfax": true,
-    "inspection": true,
-    "features": ["Leather Seats", "Sunroof", "Bluetooth", "Heated Seats", "Keyless Entry", "Power Liftgate"],
-    "photos": {
-      "exterior": 20,
-      "interior": 20
-    },
-    "videos": {
-      "exterior": 5
-    },
-    "photoPath": "photos/lexus-rx350-2013",
-    "photoPrefix": "2013-lexus-rx-350",
-    "description": "2013 Lexus RX 350 AWD. Loaded with leather, sunroof, and heated seats. Fully inspected with independent inspection report. Free CARFAX included. No hidden fees \u2014 drive home today with metal plates."
-  },
-  {
-    "slug": "2016-subaru-outback-36r",
-    "year": 2016,
+    "slug": "2017-subaru-outback-25i-limited-awd",
+    "year": 2017,
     "make": "Subaru",
     "model": "Outback",
-    "trim": "3.6R Limited",
-    "price": 13995,
-    "mileage": 82000,
-    "exteriorColor": "White",
-    "interiorColor": "Black",
-    "engine": "3.6L H6",
+    "trim": "2.5i Limited AWD",
+    "price": 10996,
+    "mileage": 97000,
+    "exteriorColor": "Silver",
+    "interiorColor": "",
+    "engine": "2.5L PZEV H4",
     "transmission": "CVT",
     "drivetrain": "AWD",
     "fuelType": "Gasoline",
     "bodyStyle": "Wagon",
-    "vin": "TBD",
+    "vin": "4S4BSANC1H3317349",
     "condition": "Used",
-    "certified": true,
-    "warranty": "",
+    "inspected": true,
+    "warranty": "3-Month Warranty",
     "carfax": true,
     "inspection": true,
-    "features": ["Leather Seats", "Sunroof", "Backup Camera", "Bluetooth", "Heated Seats", "Navigation", "EyeSight Driver Assist", "Harman Kardon Audio"],
+    "features": [
+      "EyeSight Driver Assist",
+      "Leather Seats",
+      "Sunroof",
+      "AWD"
+    ],
+    "highlights": [
+      "Carfax 1-Owner, clean history",
+      "EyeSight, leather, sunroof — Limited trim",
+      "97,000 miles, 3-Month Warranty"
+    ],
+    "status": "available",
+    "dateAdded": "2026-04-10",
+    "featured": false,
+    "sortOrder": 0,
+    "stockNumber": "J10190",
+    "dealerCenterUrl": "https://www.maximautos.com/inventory/subaru/outback/j10190/",
+    "primaryPhotoUrl": "https://imagescf.dealercenter.net/640/480/202604-2da3fcff65fd4b4ab4469ac6267f697c/202604-65a78c96f09c4c83b3012c66350a95be.jpg",
+    "photoUrls": [
+      "https://imagescf.dealercenter.net/640/480/202604-2da3fcff65fd4b4ab4469ac6267f697c/202604-65a78c96f09c4c83b3012c66350a95be.jpg"
+    ],
     "photos": {
-      "exterior": 16,
-      "interior": 16
+      "exterior": 1,
+      "interior": 0,
+      "source": "dealercenter"
     },
-    "videos": {
-      "exterior": 1
-    },
-    "photoPath": "photos/subaru-outback-2016",
-    "photoPrefix": "2016-subaru-outback-36r",
-    "description": "2016 Subaru Outback 3.6R Limited with EyeSight driver assist. Powerful 3.6L H6 engine, full leather interior, Harman Kardon premium audio. Fully inspected. Free CARFAX, metal plates on-the-spot."
+    "photoPath": "",
+    "photoPrefix": "2017-subaru-outback-25i-limited-awd",
+    "makeSlug": "subaru",
+    "bodyStyleSlug": "wagons",
+    "description": "Carfax 1-Owner, perfect history. Limited trim with EyeSight, leather seats, sunroof, AWD, 97,000 miles. PZEV 2.5L engine. Fully inspected, 3-Month Warranty. Same-day metal plates. Financing available. Located at Maxim Autos in Skokie, IL."
   }
 ]
