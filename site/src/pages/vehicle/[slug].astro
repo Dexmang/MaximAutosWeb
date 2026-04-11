@@ -21,12 +21,11 @@ const pageDesc = `${titleText} with ${v.mileage.toLocaleString()} miles for $${v
 
 const seoSuffix = 'maxim-autos-skokie-il';
 
-// Build photo arrays — use DealerCenter CDN URLs if available, else local paths
+// Build photo arrays — DealerCenter CDN or local paths
 let allPhotos: string[];
 let thumbPhotos: string[];
 
 if (v.photos?.source === 'dealercenter' && v.photoUrls?.length > 0) {
-  // DealerCenter photos: use CDN URLs directly (no thumbs — same URL)
   allPhotos = v.photoUrls;
   thumbPhotos = v.photoUrls;
 } else {
@@ -42,17 +41,27 @@ if (v.photos?.source === 'dealercenter' && v.photoUrls?.length > 0) {
   thumbPhotos = allPhotos.map(p => p.replace('/web/', '/thumb/'));
 }
 
-// Other vehicles (exclude current)
 const otherVehicles = vehicles.filter(o => o.slug !== v.slug).slice(0, 3);
-
-// SMS link
 const smsBody = encodeURIComponent(`Hi Jerry, I'm interested in the ${titleText} listed on MaximAutos.com.`);
 
-// FAQ data
+// Static payment estimate for sidebar (10% down, 9.9% APR, 60 months)
+const downPayment = Math.round(v.price * 0.10);
+const principal = v.price - downPayment;
+const monthlyRate = 0.099 / 12;
+const numPayments = 60;
+const monthlyPayment = Math.round(
+  principal * (monthlyRate * Math.pow(1 + monthlyRate, numPayments)) /
+  (Math.pow(1 + monthlyRate, numPayments) - 1)
+);
+
+const highlights: string[] = (v as any).highlights || [];
+const description: string = (v as any).description || '';
+const stockNumber: string = (v as any).stockNumber || '';
+
 const faqs = [
   {
     q: `Is the ${v.year} ${v.make} ${v.model} reliable?`,
-    a: `The ${v.year} ${v.make} ${v.model} is well-regarded for its reliability. This specific vehicle has been thoroughly inspected by an independent mechanic as part of our full inspection process. The inspection report is included with your purchase so you can review every detail before buying.`
+    a: `The ${v.year} ${v.make} ${v.model} is well-regarded for its reliability. This specific vehicle has been thoroughly inspected by an independent mechanic. The inspection report is included with your purchase so you can review every detail before buying.`
   },
   {
     q: `Is this ${v.make} ${v.model} inspected before sale?`,
@@ -67,20 +76,16 @@ const faqs = [
     a: `Yes. A free CARFAX vehicle history report is included with every vehicle at Maxim Autos. You can review the full history of this ${titleText} before making a decision. Ask Jerry for the report anytime.`
   },
   {
-    q: `What does "Fully Inspected" mean at Maxim Autos?`,
-    a: `Fully Inspected means this ${titleText} has passed an independent mechanical inspection, and comes with a free CARFAX report. It's our commitment that every vehicle we sell meets a higher standard than the typical used car lot.`
-  },
-  {
-    q: `Can I drive this ${v.make} ${v.model} home the same day I buy it?`,
+    q: `Can I drive this ${v.make} ${v.model} home the same day?`,
     a: `Yes. Maxim Autos issues metal license plates on-the-spot and handles DMV registration instantly. You can drive this ${titleText} home the same day you purchase it — no waiting for temporary plates or paperwork.`
   },
   {
     q: `How many miles does this ${v.year} ${v.make} ${v.model} have?`,
-    a: `This ${titleText} currently has ${v.mileage.toLocaleString()} miles on the odometer. The ${v.engine} engine paired with ${v.transmission.toLowerCase()} transmission and ${v.drivetrain} drivetrain is well-suited for daily driving and long trips alike.`
+    a: `This ${titleText} currently has ${v.mileage.toLocaleString()} miles on the odometer. The ${v.engine} engine with ${v.transmission.toLowerCase()} transmission and ${v.drivetrain} drivetrain is well-suited for daily driving.`
   },
   {
     q: `Are there any hidden fees on this ${v.make} ${v.model}?`,
-    a: `No. Maxim Autos uses transparent, upfront pricing. The listed price of $${v.price.toLocaleString()} is the price you pay, plus standard state tax, title, and license fees. There are no dealer markups, documentation fees surprises, or hidden charges.`
+    a: `No. Maxim Autos uses transparent, upfront pricing. The listed price of $${v.price.toLocaleString()} is the price you pay, plus standard state tax, title, and license fees. There are no hidden charges.`
   },
   {
     q: `What features does this ${titleText} include?`,
@@ -88,7 +93,6 @@ const faqs = [
   }
 ];
 
-// JSON-LD Vehicle schema
 const vehicleSchema = {
   "@context": "https://schema.org",
   "@type": "Car",
@@ -97,11 +101,7 @@ const vehicleSchema = {
   "brand": { "@type": "Brand", "name": v.make },
   "model": v.model,
   "vehicleModelDate": String(v.year),
-  "mileageFromOdometer": {
-    "@type": "QuantitativeValue",
-    "value": v.mileage,
-    "unitCode": "SMI"
-  },
+  "mileageFromOdometer": { "@type": "QuantitativeValue", "value": v.mileage, "unitCode": "SMI" },
   "color": v.exteriorColor,
   "vehicleInteriorColor": v.interiorColor,
   "vehicleEngine": { "@type": "EngineSpecification", "name": v.engine },
@@ -133,7 +133,7 @@ const vehicleSchema = {
 };
 
 if (v.vin && v.vin !== "TBD") {
-  vehicleSchema.vehicleIdentificationNumber = v.vin;
+  (vehicleSchema as any).vehicleIdentificationNumber = v.vin;
 }
 
 const faqSchema = {
@@ -142,10 +142,7 @@ const faqSchema = {
   "mainEntity": faqs.map(f => ({
     "@type": "Question",
     "name": f.q,
-    "acceptedAnswer": {
-      "@type": "Answer",
-      "text": f.a
-    }
+    "acceptedAnswer": { "@type": "Answer", "text": f.a }
   }))
 };
 ---
@@ -155,7 +152,6 @@ const faqSchema = {
     <script type="application/ld+json" set:html={JSON.stringify(vehicleSchema)} />
     <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
   </Fragment>
-
   <Header slot="header" />
 
   <!-- Breadcrumb -->
@@ -171,55 +167,58 @@ const faqSchema = {
     </div>
   </div>
 
+  <!-- Photo data for JS (XSS-safe JSON embed) -->
+  <script id="photo-data" type="application/json" set:html={JSON.stringify(allPhotos)} />
+
   <!-- Main Content -->
-  <section class="py-8 md:py-12 bg-surface">
+  <section class="py-6 md:py-10 bg-surface">
     <div class="max-w-7xl mx-auto px-6 lg:px-8">
-      <div class="grid grid-cols-1 lg:grid-cols-5 gap-8">
+      <div class="grid grid-cols-1 lg:grid-cols-5 gap-6 lg:gap-8">
 
-        <!-- Left Column: Gallery + Specs (3/5 width) -->
-        <div class="lg:col-span-3 space-y-8">
-
-          <!-- Photo Gallery -->
+        <!-- GALLERY: col-span-3 row-1, order-1 on mobile -->
+        <div class="order-1 lg:col-span-3 lg:row-start-1">
           {allPhotos.length > 0 ? (
             <div>
-              <!-- Main Image -->
-              <div class="relative bg-gray-100 rounded-xl overflow-hidden aspect-[4/3]">
+              <!-- Hero image — click opens lightbox -->
+              <div class="relative bg-gray-100 rounded-xl overflow-hidden aspect-[4/3] cursor-pointer group" id="gallery-hero">
                 <img
                   id="main-photo"
                   src={allPhotos[0]}
                   alt={`${titleText} for sale at Maxim Autos Skokie IL`}
-                  class="w-full h-full object-cover"
+                  class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-[1.02]"
                 />
                 {v.inspected && (
-                  <div class="absolute top-4 left-4 bg-navy text-white text-xs font-bold px-3 py-1.5 rounded-md flex items-center gap-1">
-                    <span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">verified</span>
+                  <div class="absolute top-3 left-3 bg-navy text-white text-xs font-bold px-2.5 py-1 rounded-md flex items-center gap-1">
+                    <span class="material-symbols-outlined text-xs" style="font-variation-settings: 'FILL' 1;">verified</span>
                     FULLY INSPECTED
                   </div>
                 )}
-                <!-- Photo counter -->
-                <div class="absolute bottom-4 right-4 bg-black/60 text-white text-xs font-semibold px-3 py-1.5 rounded-md flex items-center gap-1">
+                <div class="absolute bottom-3 left-3 bg-black/60 text-white text-xs font-semibold px-2.5 py-1.5 rounded-md flex items-center gap-1.5">
                   <span class="material-symbols-outlined text-sm">photo_camera</span>
-                  <span id="photo-counter">1</span> / {allPhotos.length}
+                  <span><span id="photo-counter">1</span> / {allPhotos.length}</span>
+                </div>
+                <div class="absolute bottom-3 right-3 bg-black/60 text-white text-xs font-semibold px-2.5 py-1.5 rounded-md hidden sm:flex items-center gap-1">
+                  <span class="material-symbols-outlined text-sm">open_in_full</span>
+                  Click to expand
                 </div>
               </div>
 
-              <!-- Thumbnails -->
+              <!-- Thumbnail grid — ALL photos visible at once -->
               {allPhotos.length > 1 && (
-                <div class="mt-3 overflow-x-auto pb-2">
-                  <div class="flex gap-2" id="thumb-strip">
-                    {allPhotos.map((photo, i) => (
-                      <button
-                        class:list={[
-                          'thumb-btn shrink-0 w-20 h-16 rounded-lg overflow-hidden border-2 transition-all',
-                          i === 0 ? 'border-orange ring-2 ring-orange/30' : 'border-transparent opacity-70 hover:opacity-100'
-                        ]}
-                        data-index={i}
-                        data-src={photo}
-                      >
-                        <img src={thumbPhotos[i]} alt={`${titleText} photo ${i + 1}`} class="w-full h-full object-cover" loading="lazy" />
-                      </button>
-                    ))}
-                  </div>
+                <div class="grid grid-cols-5 sm:grid-cols-6 md:grid-cols-7 gap-1.5 mt-2" id="thumb-grid">
+                  {allPhotos.map((photo, i) => (
+                    <button
+                      class:list={[
+                        'thumb-btn aspect-square rounded-md overflow-hidden border-2 transition-all focus:outline-none focus:ring-2 focus:ring-orange/40',
+                        i === 0 ? 'border-orange' : 'border-transparent opacity-60 hover:opacity-100 hover:border-gray-300'
+                      ]}
+                      data-index={i}
+                      data-src={photo}
+                      aria-label={`View photo ${i + 1}`}
+                    >
+                      <img src={photo} alt={`${titleText} photo ${i + 1}`} class="w-full h-full object-cover" loading="lazy" />
+                    </button>
+                  ))}
                 </div>
               )}
             </div>
@@ -231,267 +230,315 @@ const faqSchema = {
               </div>
             </div>
           )}
+        </div>
 
-          <!-- Specs Table -->
-          <div class="bg-white rounded-xl p-6 md:p-8 shadow-sm">
-            <h2 class="font-headline text-xl font-bold text-navy mb-6 flex items-center gap-2">
-              <span class="material-symbols-outlined text-orange" style="font-variation-settings: 'FILL' 1;">info</span>
-              Vehicle Specifications
-            </h2>
-            <div class="grid grid-cols-2 md:grid-cols-3 gap-y-5 gap-x-8">
-              {[
-                { label: 'Year', value: v.year, icon: 'calendar_today' },
-                { label: 'Make', value: v.make, icon: 'directions_car' },
-                { label: 'Model', value: v.model, icon: 'badge' },
-                { label: 'Trim', value: v.trim, icon: 'tune' },
-                { label: 'Mileage', value: `${v.mileage.toLocaleString()} mi`, icon: 'speed' },
-                { label: 'Engine', value: v.engine, icon: 'engineering' },
-                { label: 'Transmission', value: v.transmission, icon: 'settings' },
-                { label: 'Drivetrain', value: v.drivetrain, icon: 'all_inclusive' },
-                { label: 'Ext. Color', value: v.exteriorColor, icon: 'palette' },
-                { label: 'Int. Color', value: v.interiorColor, icon: 'weekend' },
-                { label: 'Body Style', value: v.bodyStyle, icon: 'local_shipping' },
-                { label: 'Fuel Type', value: v.fuelType, icon: 'local_gas_station' },
-                { label: 'VIN', value: v.vin !== 'TBD' ? v.vin : 'Available on request', icon: 'fingerprint' },
-              ].map(spec => (
+        <!-- SIDEBAR: col-span-2, spans both rows — order-2 on mobile (price shows right after gallery) -->
+        <div class="order-2 lg:col-span-2 lg:row-start-1 lg:row-span-2">
+          <div class="lg:sticky lg:top-[90px] space-y-4">
+
+            <!-- Price Card -->
+            <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-100">
+              <h1 class="font-headline text-2xl md:text-3xl font-extrabold text-navy mb-1">{titleText}</h1>
+              <p class="text-gray-500 text-sm mb-4">{v.trim} &bull; {v.mileage.toLocaleString()} mi &bull; {v.exteriorColor}</p>
+
+              <div class="mb-3">
+                <span class="text-4xl font-extrabold text-navy" data-vehicle-price={v.price}>${v.price.toLocaleString()}</span>
+              </div>
+
+              <!-- Static payment estimate — "Customize" switches to Financing tab -->
+              <div class="bg-surface rounded-lg px-4 py-3 mb-4 flex items-center justify-between">
                 <div>
-                  <p class="text-xs text-gray-400 uppercase tracking-wider font-semibold mb-1">{spec.label}</p>
-                  <p class="text-sm font-semibold text-gray-900">{spec.value}</p>
+                  <span class="text-xs text-gray-500 font-medium">Est. Monthly Payment</span>
+                  <div class="text-orange font-extrabold text-xl">${monthlyPayment}/mo est.*</div>
                 </div>
+                <button class="tab-switch-btn text-xs font-bold text-navy hover:text-orange transition-colors flex items-center gap-1" data-switch-tab="financing">
+                  Customize
+                  <span class="material-symbols-outlined text-base">tune</span>
+                </button>
+              </div>
+
+              <a
+                href={`sms:8475108947&body=${smsBody}`}
+                class="w-full flex items-center justify-center gap-2 bg-orange text-white py-4 rounded-xl font-bold text-lg hover:bg-orange-dark transition-colors shadow-lg shadow-orange/20 mb-3"
+              >
+                <span class="material-symbols-outlined text-xl" style="font-variation-settings: 'FILL' 1;">sms</span>
+                Text Jerry
+              </a>
+
+              <a
+                href="tel:8475108947"
+                class="w-full flex items-center justify-center gap-2 bg-navy text-white py-4 rounded-xl font-bold text-lg hover:bg-navy-light transition-colors mb-3"
+              >
+                <span class="material-symbols-outlined text-xl" style="font-variation-settings: 'FILL' 1;">call</span>
+                (847) 510-8947
+              </a>
+
+              <p class="text-xs text-gray-400 text-center">Mon–Sat 9am–7pm &bull; After-hours? Text anytime.</p>
+            </div>
+
+            <!-- Compact Trust Signals -->
+            <div class="bg-white rounded-xl p-5 shadow-sm border border-gray-100">
+              <h3 class="font-headline font-bold text-navy text-sm mb-4">The Maxim Autos Difference</h3>
+              <div class="space-y-3">
+                {[
+                  { icon: 'shield', color: 'text-green-600', label: 'Fully Inspected', sub: 'Independent mechanic report included' },
+                  { icon: 'description', color: 'text-blue-600', label: 'Free CARFAX Report', sub: 'Full vehicle history included' },
+                  { icon: 'directions_car', color: 'text-orange', label: 'Drive Home Today', sub: 'Metal plates on-the-spot' },
+                  { icon: 'sell', color: 'text-yellow-600', label: 'No Hidden Fees', sub: 'Transparent pricing, no surprises' },
+                ].map(item => (
+                  <div class="flex items-center gap-3">
+                    <span class:list={['material-symbols-outlined text-xl shrink-0', item.color]} style="font-variation-settings: 'FILL' 1;">{item.icon}</span>
+                    <div>
+                      <p class="font-semibold text-sm text-gray-900">{item.label}</p>
+                      <p class="text-xs text-gray-500">{item.sub}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- TABS + CONTENT: col-span-3 row-2, order-3 on mobile -->
+        <div class="order-3 lg:col-span-3 lg:row-start-2">
+
+          <!-- Sticky Tab Navigation -->
+          <div class="sticky top-[73px] z-30 bg-white border-b border-gray-200 rounded-t-xl overflow-hidden" id="tab-nav">
+            <div class="flex overflow-x-auto" role="tablist" style="-ms-overflow-style:none;scrollbar-width:none;">
+              <button class="tab-btn tab-active" data-tab="overview" role="tab" aria-selected="true">Overview</button>
+              <button class="tab-btn" data-tab="specs" role="tab" aria-selected="false">Features &amp; Specs</button>
+              <button class="tab-btn" data-tab="history" role="tab" aria-selected="false">History &amp; Inspection</button>
+              <button class="tab-btn" data-tab="financing" role="tab" aria-selected="false">Financing</button>
+            </div>
+          </div>
+
+          <!-- OVERVIEW TAB -->
+          <div class="tab-panel bg-white rounded-b-xl p-6 shadow-sm" data-panel="overview">
+            {highlights.length > 0 && (
+              <div class="mb-6">
+                <h2 class="font-headline text-base font-bold text-navy mb-3">Highlights</h2>
+                <div class="flex flex-wrap gap-2">
+                  {highlights.map((h: string) => (
+                    <span class="inline-flex items-center gap-1.5 bg-green-50 text-green-800 border border-green-100 px-3 py-1.5 rounded-full text-sm font-semibold">
+                      <span class="material-symbols-outlined text-sm text-green-600" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                      {h}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            <h2 class="font-headline text-base font-bold text-navy mb-3">Quick Specs</h2>
+            <div class="grid grid-cols-2 md:grid-cols-3 gap-3 mb-6">
+              {[
+                { label: 'Year', value: String(v.year) },
+                { label: 'Mileage', value: `${v.mileage.toLocaleString()} mi` },
+                { label: 'Engine', value: v.engine },
+                { label: 'Transmission', value: v.transmission },
+                { label: 'Drivetrain', value: v.drivetrain },
+                { label: 'Body Style', value: v.bodyStyle },
+              ].map(spec => (
+                <div class="bg-surface rounded-lg p-3">
+                  <p class="text-xs text-gray-400 uppercase tracking-wider font-semibold mb-0.5">{spec.label}</p>
+                  <p class="text-sm font-bold text-gray-900">{spec.value}</p>
+                </div>
+              ))}
+            </div>
+
+            {description && (
+              <div class="mb-5">
+                <h3 class="font-headline text-base font-bold text-navy mb-2">About This Vehicle</h3>
+                <p class="text-gray-600 text-sm leading-relaxed">{description}</p>
+              </div>
+            )}
+
+            <div class="flex flex-wrap gap-2 pt-4 border-t border-gray-100">
+              {[
+                { icon: 'description', color: 'bg-blue-50 text-blue-700', label: 'Free CARFAX' },
+                { icon: 'verified', color: 'bg-green-50 text-green-700', label: 'Fully Inspected' },
+                { icon: 'local_shipping', color: 'bg-purple-50 text-purple-700', label: 'Drive Home Today' },
+                { icon: 'sell', color: 'bg-orange-50 text-orange-700', label: 'No Hidden Fees' },
+              ].map(b => (
+                <span class:list={['inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold', b.color]}>
+                  <span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">{b.icon}</span>
+                  {b.label}
+                </span>
               ))}
             </div>
           </div>
 
-          <!-- Features -->
-          {v.features.length > 0 && (
-            <div class="bg-white rounded-xl p-6 md:p-8 shadow-sm">
-              <h2 class="font-headline text-xl font-bold text-navy mb-6 flex items-center gap-2">
-                <span class="material-symbols-outlined text-orange" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
-                Features & Equipment
-              </h2>
-              <div class="flex flex-wrap gap-2">
-                {v.features.map(feat => (
-                  <span class="inline-flex items-center gap-1 bg-surface text-gray-700 px-4 py-2 rounded-full text-sm font-medium border border-gray-200">
-                    <span class="material-symbols-outlined text-sm text-orange" style="font-variation-settings: 'FILL' 1;">check_circle</span>
-                    {feat}
-                  </span>
+          <!-- FEATURES & SPECS TAB -->
+          <div class="tab-panel hidden bg-white rounded-b-xl p-6 shadow-sm" data-panel="specs">
+            <h2 class="font-headline text-base font-bold text-navy mb-4">Vehicle Specifications</h2>
+            <div class="grid grid-cols-2 gap-y-4 gap-x-6 mb-8">
+              {[
+                { label: 'Year', value: v.year },
+                { label: 'Make', value: v.make },
+                { label: 'Model', value: v.model },
+                { label: 'Trim', value: v.trim },
+                { label: 'Mileage', value: `${v.mileage.toLocaleString()} mi` },
+                { label: 'Engine', value: v.engine },
+                { label: 'Transmission', value: v.transmission },
+                { label: 'Drivetrain', value: v.drivetrain },
+                { label: 'Fuel Type', value: v.fuelType },
+                { label: 'Body Style', value: v.bodyStyle },
+                { label: 'Ext. Color', value: v.exteriorColor },
+                { label: 'Int. Color', value: v.interiorColor },
+                { label: 'VIN', value: v.vin !== 'TBD' ? v.vin : 'Available on request' },
+                { label: 'Stock #', value: stockNumber || 'Available on request' },
+              ].map(spec => (
+                <div class="border-b border-gray-100 pb-3">
+                  <p class="text-xs text-gray-400 uppercase tracking-wider font-semibold mb-0.5">{spec.label}</p>
+                  <p class="text-sm font-semibold text-gray-900">{spec.value}</p>
+                </div>
+              ))}
+            </div>
+
+            {v.features.length > 0 && (
+              <div>
+                <h2 class="font-headline text-base font-bold text-navy mb-4">Features &amp; Equipment</h2>
+                <div class="flex flex-wrap gap-2">
+                  {v.features.map((feat: string) => (
+                    <span class="inline-flex items-center gap-1 bg-surface text-gray-700 px-3 py-1.5 rounded-full text-sm font-medium border border-gray-200">
+                      <span class="material-symbols-outlined text-sm text-orange" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                      {feat}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            )}
+          </div>
+
+          <!-- HISTORY & INSPECTION TAB -->
+          <div class="tab-panel hidden bg-white rounded-b-xl p-6 shadow-sm" data-panel="history">
+            <div class="bg-green-50 border border-green-200 rounded-xl p-5 mb-6 flex items-start gap-4">
+              <div class="w-12 h-12 bg-green-100 rounded-xl flex items-center justify-center shrink-0">
+                <span class="material-symbols-outlined text-3xl text-green-700" style="font-variation-settings: 'FILL' 1;">verified</span>
+              </div>
+              <div>
+                <h2 class="font-headline font-bold text-green-900 text-lg mb-1">Fully Inspected by Independent Mechanic</h2>
+                <p class="text-green-800 text-sm leading-relaxed">This {titleText} has passed a comprehensive inspection by an independent mechanic — not our own staff. The full inspection report is available for your review before purchase.</p>
+              </div>
+            </div>
+
+            <h3 class="font-headline font-bold text-navy mb-3 text-sm">Inspection Covers</h3>
+            <div class="grid grid-cols-2 gap-2 mb-6">
+              {['Engine & Drivetrain', 'Brakes & Suspension', 'Tires & Wheels', 'Electrical Systems', 'Interior & Exterior', 'Fluid Levels', 'Lights & Signals', 'Steering & Alignment'].map(item => (
+                <div class="flex items-center gap-2 text-sm text-gray-700">
+                  <span class="material-symbols-outlined text-sm text-green-600 shrink-0" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                  {item}
+                </div>
+              ))}
+            </div>
+
+            <div class="bg-blue-50 border border-blue-100 rounded-xl p-5 mb-4">
+              <div class="flex items-start gap-3">
+                <span class="material-symbols-outlined text-2xl text-blue-700 shrink-0" style="font-variation-settings: 'FILL' 1;">description</span>
+                <div>
+                  <h3 class="font-headline font-bold text-blue-900 mb-1">Free CARFAX Included</h3>
+                  <p class="text-blue-800 text-sm mb-3">Full vehicle history report included with your purchase. Review accident history, service records, number of owners, and more.</p>
+                  {v.vin && v.vin !== 'TBD' && (
+                    <p class="text-xs text-blue-700 font-mono bg-blue-100 inline-block px-2 py-1 rounded">VIN: {v.vin}</p>
+                  )}
+                </div>
+              </div>
+            </div>
+
+            <div class="bg-surface border border-gray-200 rounded-xl p-5">
+              <div class="flex items-start gap-3">
+                <span class="material-symbols-outlined text-2xl text-navy shrink-0" style="font-variation-settings: 'FILL' 1;">security</span>
+                <div>
+                  <h3 class="font-headline font-bold text-navy mb-1">3-Month Peace of Mind Warranty</h3>
+                  <p class="text-gray-600 text-sm">Every vehicle sold at Maxim Autos includes a 3-month warranty covering major mechanical components. Ask Jerry for full warranty details.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- FINANCING TAB -->
+          <div class="tab-panel hidden bg-white rounded-b-xl p-6 shadow-sm" data-panel="financing">
+            <h2 class="font-headline text-base font-bold text-navy mb-5">Estimate Your Payment</h2>
+
+            <div class="mb-5">
+              <div class="flex justify-between items-center mb-2">
+                <label class="text-sm font-semibold text-gray-700">Down Payment</label>
+                <span class="text-base font-bold text-navy" id="fin-down-display">$0</span>
+              </div>
+              <input type="range" id="fin-down-slider"
+                min="0" max={Math.round(v.price * 0.5)} step="250"
+                value={Math.round(v.price * 0.10)}
+                class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-orange"
+              />
+              <div class="flex justify-between text-xs text-gray-400 mt-1">
+                <span>$0</span><span>${Math.round(v.price * 0.5).toLocaleString()}</span>
+              </div>
+            </div>
+
+            <div class="mb-5">
+              <div class="flex justify-between items-center mb-2">
+                <label class="text-sm font-semibold text-gray-700">Interest Rate (APR)</label>
+                <span class="text-base font-bold text-navy" id="fin-apr-display">9.9%</span>
+              </div>
+              <input type="range" id="fin-apr-slider"
+                min="3.9" max="24.9" step="0.5" value="9.9"
+                class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-orange"
+              />
+              <div class="flex justify-between text-xs text-gray-400 mt-1">
+                <span>3.9%</span><span>24.9%</span>
+              </div>
+            </div>
+
+            <div class="mb-6">
+              <label class="text-sm font-semibold text-gray-700 block mb-2">Loan Term</label>
+              <div class="flex gap-2" id="fin-term-selector">
+                {[36, 48, 60, 72].map(t => (
+                  <button data-term={t}
+                    class:list={['fin-term-btn flex-1 py-2.5 rounded-lg text-sm font-bold border transition-all', t === 60 ? 'bg-navy text-white border-navy' : 'bg-white text-gray-600 border-gray-200 hover:border-navy']}>
+                    {t}mo
+                  </button>
                 ))}
               </div>
             </div>
-          )}
 
-          <!-- FAQ Accordion -->
-          <div class="bg-white rounded-xl p-6 md:p-8 shadow-sm">
-            <h2 class="font-headline text-xl font-bold text-navy mb-6 flex items-center gap-2">
+            <div class="bg-navy rounded-xl p-6 text-center mb-4">
+              <p class="text-white/60 text-sm mb-1">Estimated Monthly Payment</p>
+              <p class="text-4xl font-extrabold text-white" id="fin-result">--</p>
+              <p class="text-white/50 text-xs mt-2">Principal financed: <span id="fin-principal">--</span></p>
+            </div>
+
+            <p class="text-xs text-gray-400 mb-6">* For illustrative purposes only. Actual rates and terms vary by lender and credit profile.</p>
+
+            <div class="bg-surface rounded-xl p-5">
+              <h3 class="font-headline font-bold text-navy mb-2">All Credit Levels Welcome</h3>
+              <p class="text-gray-600 text-sm mb-3">First-time buyers, those rebuilding credit, or buyers with no credit history — Maxim Autos works with you. No hidden fees. What you see is what you pay.</p>
+              <a href={`${base}/financing`} class="inline-flex items-center gap-1 text-orange font-bold text-sm hover:underline">
+                Learn more about financing <span class="material-symbols-outlined text-sm">arrow_forward</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- FAQ — always visible below tabs -->
+          <div class="mt-6 bg-white rounded-xl p-6 shadow-sm">
+            <h2 class="font-headline text-lg font-bold text-navy mb-5 flex items-center gap-2">
               <span class="material-symbols-outlined text-orange" style="font-variation-settings: 'FILL' 1;">help</span>
               Frequently Asked Questions
             </h2>
             <div class="divide-y divide-gray-100" id="faq-list">
               {faqs.map((faq, i) => (
                 <div class="faq-item">
-                  <button
-                    class="faq-toggle w-full flex items-center justify-between text-left py-4 gap-4"
-                    data-index={i}
-                    aria-expanded="false"
-                  >
-                    <span class="font-semibold text-gray-900 text-sm md:text-base">{faq.q}</span>
+                  <button class="faq-toggle w-full flex items-center justify-between text-left py-4 gap-4" data-index={i} aria-expanded="false">
+                    <span class="font-semibold text-gray-900 text-sm">{faq.q}</span>
                     <span class="material-symbols-outlined text-gray-400 shrink-0 faq-icon transition-transform duration-200">expand_more</span>
                   </button>
-                  <div class="faq-answer hidden pb-4 pr-10">
+                  <div class="faq-answer hidden pb-4 pr-8">
                     <p class="text-gray-600 text-sm leading-relaxed">{faq.a}</p>
                   </div>
                 </div>
               ))}
             </div>
           </div>
-        </div>
 
-        <!-- Right Column: Price, CTAs, Trust (2/5 width) -->
-        <div class="lg:col-span-2">
-          <div class="lg:sticky lg:top-[90px] space-y-6">
-
-            <!-- Price Card -->
-            <div class="bg-white rounded-xl p-6 md:p-8 shadow-sm border border-gray-100">
-              <h1 class="font-headline text-2xl md:text-3xl font-extrabold text-navy mb-2">{titleText}</h1>
-              <p class="text-gray-500 text-sm mb-4">{v.trim} &bull; {v.mileage.toLocaleString()} mi &bull; {v.exteriorColor}</p>
-
-              <div class="flex items-baseline gap-3 mb-2">
-                <span class="text-4xl font-extrabold text-navy" data-vehicle-price={v.price}>${v.price.toLocaleString()}</span>
-              </div>
-
-              <!-- Payment Estimate teaser -->
-              <div class="bg-surface rounded-lg px-4 py-2.5 mb-5 flex items-center justify-between">
-                <div>
-                  <span class="text-xs text-gray-500 font-medium">Est. Monthly Payment</span>
-                  <div class="text-orange font-extrabold text-xl" id="payment-display">calculating...</div>
-                </div>
-                <button id="payment-toggle"
-                  class="text-xs font-bold text-navy hover:text-orange transition-colors flex items-center gap-1">
-                  Customize <span class="material-symbols-outlined text-base">expand_more</span>
-                </button>
-              </div>
-
-              <!-- Payment Calculator (expandable) -->
-              <div id="payment-calculator" class="hidden bg-surface rounded-xl p-4 mb-4 border border-gray-200">
-                <h4 class="font-headline font-bold text-navy text-sm mb-4">Personalize Your Payment</h4>
-
-                <!-- Down Payment Slider -->
-                <div class="mb-4">
-                  <div class="flex justify-between items-center mb-1.5">
-                    <label class="text-xs font-semibold text-gray-600">Down Payment</label>
-                    <span class="text-sm font-bold text-navy" id="down-display">$1,500</span>
-                  </div>
-                  <input type="range" id="down-slider"
-                    min="0" max={Math.round(v.price * 0.5)} step="250"
-                    value={Math.round(v.price * 0.10)}
-                    class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-orange"
-                  />
-                  <div class="flex justify-between text-xs text-gray-400 mt-1">
-                    <span>$0</span><span>${Math.round(v.price * 0.5).toLocaleString()}</span>
-                  </div>
-                </div>
-
-                <!-- APR Slider -->
-                <div class="mb-4">
-                  <div class="flex justify-between items-center mb-1.5">
-                    <label class="text-xs font-semibold text-gray-600">Interest Rate (APR)</label>
-                    <span class="text-sm font-bold text-navy" id="apr-display">9.9%</span>
-                  </div>
-                  <input type="range" id="apr-slider"
-                    min="3.9" max="24.9" step="0.5" value="9.9"
-                    class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-orange"
-                  />
-                  <div class="flex justify-between text-xs text-gray-400 mt-1">
-                    <span>3.9%</span><span>24.9%</span>
-                  </div>
-                </div>
-
-                <!-- Term Selector -->
-                <div class="mb-4">
-                  <label class="text-xs font-semibold text-gray-600 block mb-2">Loan Term</label>
-                  <div class="flex gap-2" id="term-selector">
-                    {[36, 48, 60, 72].map(t => (
-                      <button data-term={t}
-                        class:list={['term-btn flex-1 py-2 rounded-lg text-xs font-bold border transition-all', t === 60 ? 'bg-navy text-white border-navy' : 'bg-white text-gray-600 border-gray-200 hover:border-navy']}>
-                        {t}mo
-                      </button>
-                    ))}
-                  </div>
-                </div>
-
-                <!-- Result -->
-                <div class="bg-navy rounded-xl p-4 text-center">
-                  <p class="text-white/60 text-xs mb-1">Estimated Monthly Payment</p>
-                  <p class="text-3xl font-extrabold text-white" id="calc-result">--</p>
-                  <p class="text-white/40 text-xs mt-1">Principal: <span id="calc-principal">--</span></p>
-                </div>
-                <p class="text-xs text-gray-400 mt-3 text-center">For illustrative purposes only. Actual terms vary by lender and credit profile.</p>
-              </div>
-
-              <!-- Primary CTA -->
-              <a
-                href={`sms:8475108947&body=${smsBody}`}
-                class="w-full flex items-center justify-center gap-2 bg-orange text-white py-4 rounded-xl font-bold text-lg hover:bg-orange-dark transition-colors shadow-lg shadow-orange/20 mb-3"
-              >
-                <span class="material-symbols-outlined text-xl" style="font-variation-settings: 'FILL' 1;">sms</span>
-                Text Jerry About This Vehicle
-              </a>
-
-              <!-- Secondary CTA -->
-              <a
-                href="tel:8475108947"
-                class="w-full flex items-center justify-center gap-2 bg-navy text-white py-4 rounded-xl font-bold text-lg hover:bg-navy-light transition-colors mb-4"
-              >
-                <span class="material-symbols-outlined text-xl" style="font-variation-settings: 'FILL' 1;">call</span>
-                Call (847) 510-8947
-              </a>
-
-              <p class="text-xs text-gray-400 text-center">Available Mon-Fri 3-7pm, Sat 10am-3pm. After-hours? Text anytime.</p>
-            </div>
-
-            <!-- Fully Inspected Badge -->
-            {v.inspected && (
-              <div class="bg-navy rounded-xl p-6 text-white">
-                <div class="flex items-center gap-3 mb-4">
-                  <div class="w-12 h-12 bg-orange/20 rounded-xl flex items-center justify-center">
-                    <span class="material-symbols-outlined text-3xl text-orange" style="font-variation-settings: 'FILL' 1;">verified</span>
-                  </div>
-                  <div>
-                    <h3 class="font-headline font-bold text-lg">Fully Inspected</h3>
-                    <p class="text-gray-400 text-xs">Independent mechanic verified</p>
-                  </div>
-                </div>
-                <p class="text-gray-300 text-sm leading-relaxed">
-                  This {titleText} has been fully inspected by an independent mechanic and meets our quality standards. Buy with confidence.
-                </p>
-              </div>
-            )}
-
-            <!-- Trust Signals -->
-            <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-100">
-              <h3 class="font-headline font-bold text-navy mb-4">The Maxim Autos Difference</h3>
-              <div class="space-y-4">
-                <div class="flex items-start gap-3">
-                  <div class="w-10 h-10 bg-green-50 rounded-lg flex items-center justify-center shrink-0">
-                    <span class="material-symbols-outlined text-green-600" style="font-variation-settings: 'FILL' 1;">shield</span>
-                  </div>
-                  <div>
-                    <p class="font-semibold text-sm text-gray-900">Fully Inspected</p>
-                    <p class="text-xs text-gray-500">Independent mechanic inspection with detailed report</p>
-                  </div>
-                </div>
-                <div class="flex items-start gap-3">
-                  <div class="w-10 h-10 bg-blue-50 rounded-lg flex items-center justify-center shrink-0">
-                    <span class="material-symbols-outlined text-blue-600" style="font-variation-settings: 'FILL' 1;">description</span>
-                  </div>
-                  <div>
-                    <p class="font-semibold text-sm text-gray-900">Free CARFAX Report</p>
-                    <p class="text-xs text-gray-500">Full vehicle history included with every purchase</p>
-                  </div>
-                </div>
-                <div class="flex items-start gap-3">
-                  <div class="w-10 h-10 bg-purple-50 rounded-lg flex items-center justify-center shrink-0">
-                    <span class="material-symbols-outlined text-purple-600" style="font-variation-settings: 'FILL' 1;">search</span>
-                  </div>
-                  <div>
-                    <p class="font-semibold text-sm text-gray-900">Independent Inspection</p>
-                    <p class="text-xs text-gray-500">Third-party mechanic inspection report provided</p>
-                  </div>
-                </div>
-                <div class="flex items-start gap-3">
-                  <div class="w-10 h-10 bg-orange-50 rounded-lg flex items-center justify-center shrink-0">
-                    <span class="material-symbols-outlined text-orange" style="font-variation-settings: 'FILL' 1;">directions_car</span>
-                  </div>
-                  <div>
-                    <p class="font-semibold text-sm text-gray-900">Drive Home Today</p>
-                    <p class="text-xs text-gray-500">Metal plates on-the-spot, instant DMV registration</p>
-                  </div>
-                </div>
-                <div class="flex items-start gap-3">
-                  <div class="w-10 h-10 bg-yellow-50 rounded-lg flex items-center justify-center shrink-0">
-                    <span class="material-symbols-outlined text-yellow-600" style="font-variation-settings: 'FILL' 1;">sell</span>
-                  </div>
-                  <div>
-                    <p class="font-semibold text-sm text-gray-900">No Hidden Fees</p>
-                    <p class="text-xs text-gray-500">Transparent pricing — what you see is what you pay</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Financing Callout -->
-            <div class="bg-surface rounded-xl p-6 border border-gray-200">
-              <div class="flex items-center gap-3 mb-3">
-                <span class="material-symbols-outlined text-2xl text-navy" style="font-variation-settings: 'FILL' 1;">payments</span>
-                <h3 class="font-headline font-bold text-navy">Financing Available</h3>
-              </div>
-              <p class="text-sm text-gray-600 mb-4">All credit levels welcome. First-time buyers, rebuilding credit — we work with you to find the right option.</p>
-              <a href={`${base}/financing`} class="inline-flex items-center gap-1 text-orange font-bold text-sm hover:underline">
-                Learn about financing <span class="material-symbols-outlined text-sm">arrow_forward</span>
-              </a>
-            </div>
-
-          </div>
         </div>
       </div>
     </div>
@@ -501,16 +548,16 @@ const faqSchema = {
   {otherVehicles.length > 0 && (
     <section class="py-16 bg-white">
       <div class="max-w-7xl mx-auto px-6 lg:px-8">
-        <div class="flex justify-between items-end mb-10">
+        <div class="flex justify-between items-end mb-8">
           <div>
-            <span class="text-orange font-bold uppercase tracking-widest text-sm mb-3 block">Keep Browsing</span>
-            <h2 class="font-headline text-2xl md:text-3xl font-extrabold">More Vehicles</h2>
+            <span class="text-orange font-bold uppercase tracking-widest text-sm mb-2 block">Keep Browsing</span>
+            <h2 class="font-headline text-2xl font-extrabold">More Vehicles</h2>
           </div>
           <a href={`${base}/inventory`} class="hidden md:flex items-center gap-1 text-navy font-bold hover:text-orange transition-colors">
             View All <span class="material-symbols-outlined">arrow_forward</span>
           </a>
         </div>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {otherVehicles.map(o => (
             <VehicleCard
               slug={o.slug}
@@ -526,13 +573,10 @@ const faqSchema = {
               photoPath={o.photoPath}
               photoPrefix={o.photoPrefix}
               inspected={o.inspected}
+              primaryPhotoUrl={o.primaryPhotoUrl}
+              photos={o.photos}
             />
           ))}
-        </div>
-        <div class="text-center mt-8 md:hidden">
-          <a href={`${base}/inventory`} class="inline-flex items-center gap-2 bg-navy text-white px-8 py-4 rounded-xl font-bold hover:bg-navy-light transition-colors">
-            View All Inventory <span class="material-symbols-outlined">arrow_forward</span>
-          </a>
         </div>
       </div>
     </section>
@@ -548,130 +592,284 @@ const faqSchema = {
     </div>
   </section>
 
+  <!-- Lightbox Dialog -->
+  <dialog id="lightbox">
+    <button id="lightbox-close" aria-label="Close lightbox">
+      <span class="material-symbols-outlined">close</span>
+    </button>
+    <div id="lightbox-counter">1 / {allPhotos.length}</div>
+    <button id="lightbox-prev" aria-label="Previous photo">
+      <span class="material-symbols-outlined">chevron_left</span>
+    </button>
+    <img id="lightbox-img" src="" alt={`${titleText} photo`} />
+    <button id="lightbox-next" aria-label="Next photo">
+      <span class="material-symbols-outlined">chevron_right</span>
+    </button>
+  </dialog>
+
   <Footer slot="footer" />
 </Layout>
 
+<style is:inline>
+  /* Tab nav */
+  .tab-btn {
+    padding: 0.875rem 1.25rem;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    color: #6b7280;
+    border-bottom: 2px solid transparent;
+    white-space: nowrap;
+    transition: color 0.15s, border-color 0.15s;
+    background: none;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    cursor: pointer;
+  }
+  .tab-btn:hover { color: #0a2540; }
+  .tab-btn.tab-active { color: #0a2540; border-bottom-color: #f08010; }
+
+  /* Lightbox */
+  #lightbox {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+    width: 100%;
+    max-width: 100%;
+    height: 100%;
+    max-height: 100%;
+    margin: 0;
+    padding: 0;
+    border: none;
+    background: rgba(0, 0, 0, 0.95);
+    align-items: center;
+    justify-content: center;
+  }
+  #lightbox[open] { display: flex; }
+  #lightbox::backdrop { background: transparent; }
+  #lightbox-img {
+    max-width: 90vw;
+    max-height: 85vh;
+    object-fit: contain;
+    border-radius: 4px;
+  }
+  #lightbox-close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: rgba(255,255,255,0.12);
+    border: none;
+    border-radius: 50%;
+    width: 2.75rem;
+    height: 2.75rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    cursor: pointer;
+    z-index: 10;
+    transition: background 0.15s;
+  }
+  #lightbox-close:hover { background: rgba(255,255,255,0.25); }
+  #lightbox-counter {
+    position: absolute;
+    top: 1.125rem;
+    left: 50%;
+    transform: translateX(-50%);
+    color: rgba(255,255,255,0.65);
+    font-size: 0.875rem;
+    font-weight: 600;
+    pointer-events: none;
+  }
+  #lightbox-prev, #lightbox-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255,255,255,0.12);
+    border: none;
+    border-radius: 50%;
+    width: 3.25rem;
+    height: 3.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    cursor: pointer;
+    z-index: 10;
+    transition: background 0.15s;
+  }
+  #lightbox-prev:hover, #lightbox-next:hover { background: rgba(255,255,255,0.25); }
+  #lightbox-prev { left: 1rem; }
+  #lightbox-next { right: 1rem; }
+  #lightbox-prev .material-symbols-outlined,
+  #lightbox-next .material-symbols-outlined { font-size: 2rem; }
+</style>
+
 <script is:inline>
 (function () {
-  // Photo gallery
-  const mainPhoto = document.getElementById('main-photo');
-  const counter = document.getElementById('photo-counter');
-  const thumbStrip = document.getElementById('thumb-strip');
+  // Photo array from embedded JSON
+  var photoDataEl = document.getElementById('photo-data');
+  var photos = photoDataEl ? JSON.parse(photoDataEl.textContent) : [];
 
-  if (thumbStrip) {
-    thumbStrip.addEventListener('click', function (e) {
-      const btn = e.target.closest('.thumb-btn');
-      if (!btn) return;
+  // === GALLERY ===
+  var mainPhoto = document.getElementById('main-photo');
+  var counterEl = document.getElementById('photo-counter');
+  var thumbGrid = document.getElementById('thumb-grid');
+  var currentIndex = 0;
 
-      const src = btn.dataset.src;
-      const index = parseInt(btn.dataset.index, 10);
-
-      // Update main image
-      mainPhoto.src = src;
-      if (counter) counter.textContent = index + 1;
-
-      // Update active thumb
-      thumbStrip.querySelectorAll('.thumb-btn').forEach(t => {
-        t.classList.remove('border-orange', 'ring-2', 'ring-orange/30');
-        t.classList.add('border-transparent', 'opacity-70');
+  function setMainPhoto(index) {
+    if (index < 0 || index >= photos.length) return;
+    currentIndex = index;
+    if (mainPhoto) mainPhoto.src = photos[index];
+    if (counterEl) counterEl.textContent = index + 1;
+    if (thumbGrid) {
+      thumbGrid.querySelectorAll('.thumb-btn').forEach(function (btn) {
+        var i = parseInt(btn.dataset.index, 10);
+        var active = i === index;
+        btn.classList.toggle('border-orange', active);
+        btn.classList.toggle('border-transparent', !active);
+        btn.classList.toggle('opacity-60', !active);
       });
-      btn.classList.remove('border-transparent', 'opacity-70');
-      btn.classList.add('border-orange', 'ring-2', 'ring-orange/30');
+    }
+  }
+
+  if (thumbGrid) {
+    thumbGrid.addEventListener('click', function (e) {
+      var btn = e.target.closest('.thumb-btn');
+      if (btn) setMainPhoto(parseInt(btn.dataset.index, 10));
     });
   }
 
-  // Payment Calculator
-  (function() {
-    var vehiclePrice = parseFloat(document.querySelector('[data-vehicle-price]')?.dataset.vehiclePrice || 0);
-    if (!vehiclePrice) {
-      // fallback: read from the price display
-      var priceText = document.querySelector('.text-4xl.font-extrabold.text-navy')?.textContent || '';
-      vehiclePrice = parseFloat(priceText.replace(/[^0-9.]/g, '')) || 0;
-    }
+  // === LIGHTBOX ===
+  var lightbox = document.getElementById('lightbox');
+  var lightboxImg = document.getElementById('lightbox-img');
+  var lightboxCounter = document.getElementById('lightbox-counter');
 
-    var downSlider = document.getElementById('down-slider');
-    var aprSlider = document.getElementById('apr-slider');
-    var termSelector = document.getElementById('term-selector');
-    var downDisplay = document.getElementById('down-display');
-    var aprDisplay = document.getElementById('apr-display');
-    var calcResult = document.getElementById('calc-result');
-    var calcPrincipal = document.getElementById('calc-principal');
-    var paymentDisplay = document.getElementById('payment-display');
-    var toggleBtn = document.getElementById('payment-toggle');
-    var calcPanel = document.getElementById('payment-calculator');
-    var toggleIcon = toggleBtn?.querySelector('.material-symbols-outlined');
+  function updateLightbox(index) {
+    currentIndex = index;
+    if (lightboxImg) lightboxImg.src = photos[index];
+    if (lightboxCounter) lightboxCounter.textContent = (index + 1) + ' / ' + photos.length;
+  }
 
+  function openLightbox(index) {
+    if (!lightbox || !photos.length) return;
+    updateLightbox(index);
+    lightbox.showModal();
+  }
+
+  var galleryHero = document.getElementById('gallery-hero');
+  if (galleryHero) {
+    galleryHero.addEventListener('click', function () { openLightbox(currentIndex); });
+  }
+
+  var lightboxClose = document.getElementById('lightbox-close');
+  var lightboxPrev = document.getElementById('lightbox-prev');
+  var lightboxNext = document.getElementById('lightbox-next');
+
+  if (lightboxClose) lightboxClose.addEventListener('click', function () { lightbox.close(); });
+  if (lightboxPrev) lightboxPrev.addEventListener('click', function () { updateLightbox((currentIndex - 1 + photos.length) % photos.length); });
+  if (lightboxNext) lightboxNext.addEventListener('click', function () { updateLightbox((currentIndex + 1) % photos.length); });
+
+  if (lightbox) {
+    lightbox.addEventListener('click', function (e) { if (e.target === lightbox) lightbox.close(); });
+    lightbox.addEventListener('keydown', function (e) {
+      if (e.key === 'ArrowLeft') updateLightbox((currentIndex - 1 + photos.length) % photos.length);
+      if (e.key === 'ArrowRight') updateLightbox((currentIndex + 1) % photos.length);
+    });
+  }
+
+  // === TABS ===
+  var tabBtns = document.querySelectorAll('.tab-btn');
+  var tabPanels = document.querySelectorAll('.tab-panel');
+
+  function switchTab(name) {
+    tabBtns.forEach(function (btn) {
+      var active = btn.dataset.tab === name;
+      btn.classList.toggle('tab-active', active);
+      btn.setAttribute('aria-selected', active ? 'true' : 'false');
+    });
+    tabPanels.forEach(function (panel) {
+      panel.classList.toggle('hidden', panel.dataset.panel !== name);
+    });
+  }
+
+  tabBtns.forEach(function (btn) {
+    btn.addEventListener('click', function () { switchTab(btn.dataset.tab); });
+  });
+
+  // Sidebar "Customize" → switch to Financing tab + scroll to tabs
+  document.querySelectorAll('.tab-switch-btn').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      switchTab(btn.dataset.switchTab);
+      var tabNav = document.getElementById('tab-nav');
+      if (tabNav) tabNav.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  });
+
+  // === PAYMENT CALCULATOR (Financing tab) ===
+  (function () {
+    var price = parseFloat(document.querySelector('[data-vehicle-price]').dataset.vehiclePrice || 0);
+    var downSlider = document.getElementById('fin-down-slider');
+    var aprSlider = document.getElementById('fin-apr-slider');
+    var termSel = document.getElementById('fin-term-selector');
+    var downDisp = document.getElementById('fin-down-display');
+    var aprDisp = document.getElementById('fin-apr-display');
+    var resultEl = document.getElementById('fin-result');
+    var principalEl = document.getElementById('fin-principal');
     var activeTerm = 60;
 
-    function calcPayment(price, down, aprPct, termMonths) {
-      var principal = price - down;
+    function calc(p, d, apr, n) {
+      var principal = p - d;
       if (principal <= 0) return 0;
-      var r = (aprPct / 100) / 12;
-      if (r === 0) return Math.round(principal / termMonths);
-      return Math.round(principal * (r * Math.pow(1 + r, termMonths)) / (Math.pow(1 + r, termMonths) - 1));
+      var r = (apr / 100) / 12;
+      if (r === 0) return Math.round(principal / n);
+      return Math.round(principal * (r * Math.pow(1 + r, n)) / (Math.pow(1 + r, n) - 1));
     }
 
     function update() {
       if (!downSlider || !aprSlider) return;
-      var down = parseFloat(downSlider.value);
+      var d = parseFloat(downSlider.value);
       var apr = parseFloat(aprSlider.value);
-      var term = activeTerm;
-      var payment = calcPayment(vehiclePrice, down, apr, term);
-      var principal = vehiclePrice - down;
-
-      if (downDisplay) downDisplay.textContent = '$' + Math.round(down).toLocaleString();
-      if (aprDisplay) aprDisplay.textContent = apr.toFixed(1) + '%';
-      if (calcResult) calcResult.textContent = '$' + payment + '/mo';
-      if (calcPrincipal) calcPrincipal.textContent = '$' + Math.round(principal).toLocaleString();
-      if (paymentDisplay) paymentDisplay.textContent = '$' + payment + '/mo est.';
+      var payment = calc(price, d, apr, activeTerm);
+      if (downDisp) downDisp.textContent = '$' + Math.round(d).toLocaleString();
+      if (aprDisp) aprDisp.textContent = apr.toFixed(1) + '%';
+      if (resultEl) resultEl.textContent = '$' + payment + '/mo';
+      if (principalEl) principalEl.textContent = '$' + Math.round(price - d).toLocaleString();
     }
 
-    // Init with defaults
-    if (downSlider) downSlider.value = Math.round(vehiclePrice * 0.10);
-    update();
-
-    if (downSlider) downSlider.addEventListener('input', update);
+    if (downSlider) { downSlider.value = Math.round(price * 0.10); downSlider.addEventListener('input', update); }
     if (aprSlider) aprSlider.addEventListener('input', update);
-
-    if (termSelector) {
-      termSelector.addEventListener('click', function(e) {
-        var btn = e.target.closest('.term-btn');
+    if (termSel) {
+      termSel.addEventListener('click', function (e) {
+        var btn = e.target.closest('.fin-term-btn');
         if (!btn) return;
         activeTerm = parseInt(btn.dataset.term);
-        termSelector.querySelectorAll('.term-btn').forEach(function(b) {
-          b.classList.toggle('bg-navy', b.dataset.term == activeTerm);
-          b.classList.toggle('text-white', b.dataset.term == activeTerm);
-          b.classList.toggle('border-navy', b.dataset.term == activeTerm);
-          b.classList.toggle('bg-white', b.dataset.term != activeTerm);
-          b.classList.toggle('text-gray-600', b.dataset.term != activeTerm);
-          b.classList.toggle('border-gray-200', b.dataset.term != activeTerm);
+        termSel.querySelectorAll('.fin-term-btn').forEach(function (b) {
+          var a = b.dataset.term == activeTerm;
+          b.classList.toggle('bg-navy', a); b.classList.toggle('text-white', a); b.classList.toggle('border-navy', a);
+          b.classList.toggle('bg-white', !a); b.classList.toggle('text-gray-600', !a); b.classList.toggle('border-gray-200', !a);
         });
         update();
       });
     }
-
-    if (toggleBtn) {
-      toggleBtn.addEventListener('click', function() {
-        var hidden = calcPanel.classList.contains('hidden');
-        calcPanel.classList.toggle('hidden', !hidden);
-        if (toggleIcon) toggleIcon.style.transform = hidden ? 'rotate(180deg)' : '';
-      });
-    }
+    update();
   })();
 
-  // FAQ accordion
-  document.getElementById('faq-list')?.addEventListener('click', function (e) {
-    const toggle = e.target.closest('.faq-toggle');
-    if (!toggle) return;
-
-    const item = toggle.closest('.faq-item');
-    const answer = item.querySelector('.faq-answer');
-    const icon = toggle.querySelector('.faq-icon');
-    const expanded = toggle.getAttribute('aria-expanded') === 'true';
-
-    toggle.setAttribute('aria-expanded', String(!expanded));
-    answer.classList.toggle('hidden', expanded);
-    icon.style.transform = expanded ? '' : 'rotate(180deg)';
-  });
+  // === FAQ ACCORDION ===
+  var faqList = document.getElementById('faq-list');
+  if (faqList) {
+    faqList.addEventListener('click', function (e) {
+      var toggle = e.target.closest('.faq-toggle');
+      if (!toggle) return;
+      var item = toggle.closest('.faq-item');
+      var answer = item.querySelector('.faq-answer');
+      var icon = toggle.querySelector('.faq-icon');
+      var expanded = toggle.getAttribute('aria-expanded') === 'true';
+      toggle.setAttribute('aria-expanded', String(!expanded));
+      answer.classList.toggle('hidden', expanded);
+      icon.style.transform = expanded ? '' : 'rotate(180deg)';
+    });
+  }
 })();
 </script>
