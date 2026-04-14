@@ -215,9 +215,11 @@ function mapNode(node, _offer, existingByVin) {
   const hasDcPhotos = existing?.primaryPhotoUrl?.includes('dealercenter') && (existing?.photoUrls?.length ?? 0) > 0;
   const primaryPhotoUrl = hasDcPhotos ? existing.primaryPhotoUrl : (cgPhotoUrl || existing?.primaryPhotoUrl || '');
   const photoUrls = hasDcPhotos ? existing.photoUrls : ([cgPhotoUrl].filter(Boolean));
+  // Derive source from actual URL — VehicleCard uses 'dealercenter' to decide CDN vs local path
+  const photoSource = primaryPhotoUrl.includes('dealercenter') ? 'dealercenter' : 'cargurus';
   const photos = hasDcPhotos
-    ? existing.photos
-    : { exterior: cgPhotoCount || (cgPhotoUrl ? 1 : 0), interior: 0, source: 'cargurus' };
+    ? { ...existing.photos, source: photoSource }
+    : { exterior: cgPhotoCount || (cgPhotoUrl ? 1 : 0), interior: 0, source: photoSource };
 
   // Features — use CarGurus if we don't have them, otherwise keep existing
   const features = (existing?.features?.length > 0)
