@@ -29,11 +29,11 @@ if (v.photos?.source === 'dealercenter' && v.photoUrls?.length > 0) {
   allPhotos = v.photoUrls;
   thumbPhotos = v.photoUrls;
 } else {
-  const exteriorPhotos = Array.from({ length: v.photos.exterior }, (_, i) => {
+  const exteriorPhotos = Array.from({ length: v.photos?.exterior ?? 0 }, (_, i) => {
     const num = String(i + 1).padStart(2, '0');
     return `${base}/${v.photoPath}/web/${v.photoPrefix}-photo-exterior-${seoSuffix}-${num}.jpg`;
   });
-  const interiorPhotos = Array.from({ length: v.photos.interior }, (_, i) => {
+  const interiorPhotos = Array.from({ length: v.photos?.interior ?? 0 }, (_, i) => {
     const num = String(i + 1).padStart(2, '0');
     return `${base}/${v.photoPath}/web/${v.photoPrefix}-photo-interior-${seoSuffix}-${num}.jpg`;
   });

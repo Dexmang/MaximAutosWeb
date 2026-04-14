@@ -212,6 +212,10 @@ const drivetrains = [...new Set(vehicles.map(v => v.drivetrain).filter(Boolean))
     color: #4b5563;
     border: 1px solid #e5e7eb;
   }
+  .filter-btn:focus-visible {
+    outline: 2px solid #f08010;
+    outline-offset: 2px;
+  }
   .filter-btn:hover {
     background: #edeeef;
     border-color: #d1d5db;
@@ -338,8 +342,8 @@ const drivetrains = [...new Set(vehicles.map(v => v.drivetrain).filter(Boolean))
   });
 
   sortSelect.addEventListener('change', function () {
-    applySorting();
     applyFilters();
+    applySorting();
   });
 
   clearBtn.addEventListener('click', resetFilters);
