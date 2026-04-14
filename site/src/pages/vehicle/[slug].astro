@@ -189,9 +189,12 @@ const faqSchema = {
           <!-- Price block -->
           <div>
             <span class="text-4xl font-extrabold text-navy" data-vehicle-price={v.price}>${v.price.toLocaleString()}</span>
-            <div class="flex items-center gap-2 mt-0.5">
-              <span class="text-sm font-bold text-orange">${monthlyPayment}/mo est.*</span>
-              <button class="tab-switch-btn text-xs text-gray-400 hover:text-navy underline transition-colors" data-switch-tab="financing">Customize</button>
+            <div class="flex items-center gap-2 mt-1">
+              <span class="text-sm font-bold text-orange" id="header-monthly-payment">${monthlyPayment}/mo est.*</span>
+              <button class="tab-switch-btn inline-flex items-center gap-1 text-xs font-bold text-white bg-orange hover:bg-orange-dark transition-colors px-2.5 py-1 rounded-full" data-switch-tab="financing">
+                <span class="material-symbols-outlined text-xs" style="font-size:13px">tune</span>
+                Customize Payment
+              </button>
             </div>
           </div>
           <!-- CTA buttons -->
@@ -964,6 +967,9 @@ const faqSchema = {
       if (aprDisp) aprDisp.textContent = apr.toFixed(1) + '%';
       if (resultEl) resultEl.textContent = '$' + payment + '/mo';
       if (principalEl) principalEl.textContent = '$' + Math.round(price - d).toLocaleString();
+      // Keep header payment estimate in sync
+      var headerPayment = document.getElementById('header-monthly-payment');
+      if (headerPayment) headerPayment.textContent = '$' + payment + '/mo*';
     }
 
     if (downSlider) { downSlider.value = Math.round(price * 0.10); downSlider.addEventListener('input', update); }

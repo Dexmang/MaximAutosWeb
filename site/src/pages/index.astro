@@ -88,10 +88,10 @@ const featured = vehicles.slice(0, 6);
         </p>
         <div class="flex flex-wrap gap-2 mb-8">
           {[
-            { label: 'Under $10K', href: `${base}/inventory` },
-            { label: 'SUVs', href: `${base}/inventory` },
-            { label: 'Sedans', href: `${base}/inventory` },
-            { label: 'AWD', href: `${base}/inventory` },
+            { label: 'Under $10K', href: `${base}/inventory?price=under10k` },
+            { label: 'SUVs', href: `${base}/inventory?body=SUV` },
+            { label: 'Sedans', href: `${base}/inventory?body=Sedan` },
+            { label: 'AWD', href: `${base}/inventory?drive=AWD` },
             { label: 'View All', href: `${base}/inventory` },
           ].map(chip => (
             <a href={chip.href}
