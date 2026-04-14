@@ -1,0 +1,9 @@
+{
+  "name": "maximautosweb-root",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "sync": "node scripts/sync-from-cargurus.js",
+    "sync:dry": "node scripts/sync-from-cargurus.js --dry-run"
+  }
+}
