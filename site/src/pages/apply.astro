@@ -1,0 +1,514 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const title = 'Apply for Auto Financing | Maxim Autos Skokie, IL';
+const description = 'Apply for auto financing online at Maxim Autos in Skokie, IL. All credit levels welcome including first-time buyers and those rebuilding credit. Fast, easy application.';
+
+const states = ['AL','AK','AZ','AR','CA','CO','CT','DE','FL','GA','HI','ID','IL','IN','IA','KS','KY','LA','ME','MD','MA','MI','MN','MS','MO','MT','NE','NV','NH','NJ','NM','NY','NC','ND','OH','OK','OR','PA','RI','SC','SD','TN','TX','UT','VT','VA','WA','WV','WI','WY'];
+---
+
+<Layout title={title} description={description}>
+  <Header slot="header" />
+
+  <!-- Hero -->
+  <section class="bg-navy py-10 lg:py-14">
+    <div class="max-w-4xl mx-auto px-6 lg:px-8 text-center">
+      <span class="text-orange font-bold uppercase tracking-widest text-sm mb-3 block">Credit Application</span>
+      <h1 class="font-headline text-3xl md:text-4xl lg:text-5xl font-extrabold text-white leading-tight tracking-tight mb-4">
+        Apply for Auto Financing in Skokie, IL
+      </h1>
+      <p class="text-gray-300 text-lg max-w-2xl mx-auto">All credit levels welcome. First-time buyers, rebuilding credit, good or fair credit. Fill out the form below and Jerry will follow up same day.</p>
+    </div>
+  </section>
+
+  <!-- Main Form -->
+  <section class="py-12 bg-surface">
+    <div class="max-w-3xl mx-auto px-6 lg:px-8">
+
+      <!-- Buyer / Co-Buyer tabs -->
+      <div class="flex border-b border-gray-300 mb-8">
+        <button id="tab-buyer" class="app-tab app-tab--active px-6 py-3 font-bold text-sm" type="button">Buyer</button>
+        <button id="tab-cobuyer" class="app-tab px-6 py-3 font-bold text-sm" type="button">Co-Buyer</button>
+      </div>
+
+      <p class="text-sm text-gray-500 mb-6">All fields marked with <span class="text-red-500 font-bold">*</span> are required.</p>
+
+      <form id="apply-form" action="https://formspree.io/f/mlgadzvp" method="POST" class="space-y-8">
+        <input type="hidden" name="_subject" value="Credit Application — Maxim Autos" />
+        <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" />
+
+        <!-- ===== BUYER SECTION ===== -->
+        <div id="section-buyer">
+
+          <!-- Personal Information -->
+          <div class="app-section">
+            <h2 class="app-section-title">Personal Information</h2>
+            <div class="app-grid">
+              <div>
+                <label class="app-label">First Name <span class="text-red-500">*</span></label>
+                <input type="text" name="buyer_first_name" required class="app-input" placeholder="First name" />
+              </div>
+              <div>
+                <label class="app-label">Last Name <span class="text-red-500">*</span></label>
+                <input type="text" name="buyer_last_name" required class="app-input" placeholder="Last name" />
+              </div>
+              <div>
+                <label class="app-label">Email <span class="text-red-500">*</span></label>
+                <input type="email" name="buyer_email" required class="app-input" placeholder="you@email.com" />
+              </div>
+              <div>
+                <label class="app-label">Cell Phone <span class="text-red-500">*</span></label>
+                <input type="tel" name="buyer_cell_phone" required class="app-input" placeholder="(555) 555-5555" />
+              </div>
+              <div>
+                <label class="app-label">Home Phone <span class="text-gray-400 font-normal text-xs">(Optional)</span></label>
+                <input type="tel" name="buyer_home_phone" class="app-input" placeholder="(555) 555-5555" />
+              </div>
+              <div>
+                <label class="app-label">Date of Birth <span class="text-red-500">*</span></label>
+                <input type="date" name="buyer_dob" required class="app-input" />
+              </div>
+              <div>
+                <label class="app-label">Driver's License Number</label>
+                <input type="text" name="buyer_dl_number" class="app-input" placeholder="License number" />
+              </div>
+              <div>
+                <label class="app-label">Driver's License State</label>
+                <select name="buyer_dl_state" class="app-input">
+                  <option value="">State</option>
+                  {states.map(s => <option value={s}>{s}</option>)}
+                </select>
+              </div>
+              <div>
+                <label class="app-label">DL Issue Date</label>
+                <input type="date" name="buyer_dl_issue" class="app-input" />
+              </div>
+              <div>
+                <label class="app-label">DL Expiry Date</label>
+                <input type="date" name="buyer_dl_expiry" class="app-input" />
+              </div>
+            </div>
+          </div>
+
+          <!-- Residential Information -->
+          <div class="app-section">
+            <h2 class="app-section-title">Residential Information</h2>
+            <div class="app-grid">
+              <div class="col-span-2">
+                <label class="app-label">Street Address <span class="text-red-500">*</span></label>
+                <input type="text" name="buyer_address" required class="app-input" placeholder="123 Main St" />
+              </div>
+              <div>
+                <label class="app-label">City <span class="text-red-500">*</span></label>
+                <input type="text" name="buyer_city" required class="app-input" placeholder="City" />
+              </div>
+              <div>
+                <label class="app-label">State <span class="text-red-500">*</span></label>
+                <select name="buyer_state" required class="app-input">
+                  <option value="">State</option>
+                  {states.map(s => <option value={s}>{s}</option>)}
+                </select>
+              </div>
+              <div>
+                <label class="app-label">Zip Code <span class="text-red-500">*</span></label>
+                <input type="text" name="buyer_zip" required class="app-input" placeholder="60077" maxlength="5" />
+              </div>
+              <div>
+                <label class="app-label">Housing Type <span class="text-red-500">*</span></label>
+                <select name="buyer_housing_type" required class="app-input">
+                  <option value="">Select</option>
+                  <option value="Own">Own</option>
+                  <option value="Rent">Rent</option>
+                  <option value="Live with Family">Live with Family</option>
+                  <option value="Other">Other</option>
+                </select>
+              </div>
+              <div>
+                <label class="app-label">Monthly Rent/Mortgage <span class="text-red-500">*</span></label>
+                <div class="relative">
+                  <span class="absolute left-3 top-1/2 -translate-y-1/2 text-gray-500 font-semibold">$</span>
+                  <input type="number" name="buyer_monthly_housing" required class="app-input pl-7" placeholder="0" min="0" />
+                </div>
+              </div>
+              <div>
+                <label class="app-label">Years at Address <span class="text-red-500">*</span></label>
+                <select name="buyer_years_address" required class="app-input">
+                  <option value="">Years</option>
+                  {Array.from({length: 31}, (_, i) => <option value={i}>{i}</option>)}
+                </select>
+              </div>
+              <div>
+                <label class="app-label">Months at Address</label>
+                <select name="buyer_months_address" class="app-input">
+                  <option value="">Months</option>
+                  {Array.from({length: 12}, (_, i) => <option value={i}>{i}</option>)}
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <!-- Employment Information -->
+          <div class="app-section">
+            <h2 class="app-section-title">Employment Information</h2>
+            <div class="app-grid">
+              <div>
+                <label class="app-label">Employer Name <span class="text-red-500">*</span></label>
+                <input type="text" name="buyer_employer" required class="app-input" placeholder="Employer name" />
+              </div>
+              <div>
+                <label class="app-label">Title / Position <span class="text-red-500">*</span></label>
+                <input type="text" name="buyer_title" required class="app-input" placeholder="Your title" />
+              </div>
+              <div>
+                <label class="app-label">Employer Phone <span class="text-red-500">*</span></label>
+                <input type="tel" name="buyer_employer_phone" required class="app-input" placeholder="(555) 555-5555" />
+              </div>
+              <div>
+                <label class="app-label">Monthly Gross Income <span class="text-red-500">*</span></label>
+                <div class="relative">
+                  <span class="absolute left-3 top-1/2 -translate-y-1/2 text-gray-500 font-semibold">$</span>
+                  <input type="number" name="buyer_monthly_income" required class="app-input pl-7" placeholder="0" min="0" />
+                </div>
+              </div>
+              <div>
+                <label class="app-label">Years at Job <span class="text-red-500">*</span></label>
+                <select name="buyer_years_job" required class="app-input">
+                  <option value="">Years</option>
+                  {Array.from({length: 51}, (_, i) => <option value={i}>{i}</option>)}
+                </select>
+              </div>
+              <div>
+                <label class="app-label">Months at Job</label>
+                <select name="buyer_months_job" class="app-input">
+                  <option value="">Months</option>
+                  {Array.from({length: 12}, (_, i) => <option value={i}>{i}</option>)}
+                </select>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- ===== CO-BUYER SECTION (hidden by default) ===== -->
+        <div id="section-cobuyer" class="hidden">
+
+          <!-- Co-Buyer Personal Information -->
+          <div class="app-section">
+            <h2 class="app-section-title">Co-Buyer Personal Information</h2>
+            <div class="app-grid">
+              <div>
+                <label class="app-label">First Name</label>
+                <input type="text" name="cobuyer_first_name" class="app-input" placeholder="First name" />
+              </div>
+              <div>
+                <label class="app-label">Last Name</label>
+                <input type="text" name="cobuyer_last_name" class="app-input" placeholder="Last name" />
+              </div>
+              <div>
+                <label class="app-label">Email</label>
+                <input type="email" name="cobuyer_email" class="app-input" placeholder="you@email.com" />
+              </div>
+              <div>
+                <label class="app-label">Cell Phone</label>
+                <input type="tel" name="cobuyer_cell_phone" class="app-input" placeholder="(555) 555-5555" />
+              </div>
+              <div>
+                <label class="app-label">Date of Birth</label>
+                <input type="date" name="cobuyer_dob" class="app-input" />
+              </div>
+              <div>
+                <label class="app-label">Driver's License Number</label>
+                <input type="text" name="cobuyer_dl_number" class="app-input" placeholder="License number" />
+              </div>
+              <div>
+                <label class="app-label">DL State</label>
+                <select name="cobuyer_dl_state" class="app-input">
+                  <option value="">State</option>
+                  {states.map(s => <option value={s}>{s}</option>)}
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <!-- Co-Buyer Residential -->
+          <div class="app-section">
+            <h2 class="app-section-title">Co-Buyer Residential Information</h2>
+            <div class="app-grid">
+              <div class="col-span-2">
+                <label class="app-label">Street Address</label>
+                <input type="text" name="cobuyer_address" class="app-input" placeholder="123 Main St" />
+              </div>
+              <div>
+                <label class="app-label">City</label>
+                <input type="text" name="cobuyer_city" class="app-input" placeholder="City" />
+              </div>
+              <div>
+                <label class="app-label">State</label>
+                <select name="cobuyer_state" class="app-input">
+                  <option value="">State</option>
+                  {states.map(s => <option value={s}>{s}</option>)}
+                </select>
+              </div>
+              <div>
+                <label class="app-label">Zip Code</label>
+                <input type="text" name="cobuyer_zip" class="app-input" placeholder="60077" maxlength="5" />
+              </div>
+              <div>
+                <label class="app-label">Housing Type</label>
+                <select name="cobuyer_housing_type" class="app-input">
+                  <option value="">Select</option>
+                  <option value="Own">Own</option>
+                  <option value="Rent">Rent</option>
+                  <option value="Live with Family">Live with Family</option>
+                  <option value="Other">Other</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <!-- Co-Buyer Employment -->
+          <div class="app-section">
+            <h2 class="app-section-title">Co-Buyer Employment Information</h2>
+            <div class="app-grid">
+              <div>
+                <label class="app-label">Employer Name</label>
+                <input type="text" name="cobuyer_employer" class="app-input" placeholder="Employer name" />
+              </div>
+              <div>
+                <label class="app-label">Title / Position</label>
+                <input type="text" name="cobuyer_title" class="app-input" placeholder="Your title" />
+              </div>
+              <div>
+                <label class="app-label">Monthly Gross Income</label>
+                <div class="relative">
+                  <span class="absolute left-3 top-1/2 -translate-y-1/2 text-gray-500 font-semibold">$</span>
+                  <input type="number" name="cobuyer_monthly_income" class="app-input pl-7" placeholder="0" min="0" />
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- ===== INTERESTED VEHICLE ===== -->
+        <div class="app-section">
+          <h2 class="app-section-title">Interested Vehicle <span class="text-gray-400 font-normal text-sm">(Optional)</span></h2>
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+            <div>
+              <label class="app-label">Stock #</label>
+              <input type="text" name="vehicle_stock" class="app-input" placeholder="Stock #" />
+            </div>
+            <div>
+              <label class="app-label">Year</label>
+              <input type="text" name="vehicle_year" class="app-input" placeholder="2021" maxlength="4" />
+            </div>
+            <div>
+              <label class="app-label">Make</label>
+              <input type="text" name="vehicle_make" class="app-input" placeholder="Honda" />
+            </div>
+            <div>
+              <label class="app-label">Model</label>
+              <input type="text" name="vehicle_model" class="app-input" placeholder="Civic" />
+            </div>
+            <div>
+              <label class="app-label">Vehicle Price</label>
+              <div class="relative">
+                <span class="absolute left-3 top-1/2 -translate-y-1/2 text-gray-500 font-semibold">$</span>
+                <input type="number" name="vehicle_price" class="app-input pl-7" placeholder="0" min="0" />
+              </div>
+            </div>
+            <div>
+              <label class="app-label">Down Payment</label>
+              <div class="relative">
+                <span class="absolute left-3 top-1/2 -translate-y-1/2 text-gray-500 font-semibold">$</span>
+                <input type="number" name="vehicle_down_payment" class="app-input pl-7" placeholder="0" min="0" />
+              </div>
+            </div>
+            <div>
+              <label class="app-label">Exterior Color</label>
+              <input type="text" name="vehicle_ext_color" class="app-input" placeholder="Silver" />
+            </div>
+            <div>
+              <label class="app-label">Interior Color</label>
+              <input type="text" name="vehicle_int_color" class="app-input" placeholder="Black" />
+            </div>
+          </div>
+        </div>
+
+        <!-- ===== CONSENT ===== -->
+        <div class="bg-white rounded-xl border border-gray-200 p-6 space-y-4">
+          <label class="flex items-start gap-3 cursor-pointer">
+            <input type="checkbox" name="sms_marketing" value="yes" class="mt-0.5 w-4 h-4 accent-orange shrink-0" />
+            <span class="text-sm text-gray-600">I want to receive marketing text messages on the phone number provided.</span>
+          </label>
+          <label class="flex items-start gap-3 cursor-pointer">
+            <input type="checkbox" name="sms_updates" value="yes" class="mt-0.5 w-4 h-4 accent-orange shrink-0" />
+            <span class="text-sm text-gray-600">I want to receive non-marketing messages, including updates and news, on the phone number provided.</span>
+          </label>
+          <p class="text-xs text-gray-400 leading-relaxed">Message frequency may vary. Message and data rates may apply. Reply HELP for help or STOP to opt out.</p>
+          <p class="text-xs text-gray-500 leading-relaxed border-t border-gray-100 pt-4">
+            I, the undersigned, for the purpose of securing credit, certify that the information provided is correct; authorize financial institutions to obtain consumer credit reports periodically and to gather employment history; and understand that this application will be retained whether or not it is approved.
+          </p>
+          <label class="flex items-start gap-3 cursor-pointer">
+            <input type="checkbox" name="privacy_consent" required value="yes" class="mt-0.5 w-4 h-4 accent-orange shrink-0" />
+            <span class="text-sm text-gray-600">By submitting this request, I accept the <a href={`${base}/privacy-policy`} class="text-orange hover:underline">Privacy Policy</a>. <span class="text-red-500">*</span></span>
+          </label>
+        </div>
+
+        <!-- Submit -->
+        <div class="text-center">
+          <button type="submit" id="apply-submit-btn"
+            class="inline-flex items-center justify-center gap-2 bg-orange text-white px-12 py-4 rounded-xl font-bold text-lg hover:bg-orange-dark transition-colors shadow-lg shadow-orange/20">
+            <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">send</span>
+            Submit Application
+          </button>
+          <p class="text-xs text-gray-400 mt-3">A team member will follow up with you same day during business hours.</p>
+        </div>
+
+      </form>
+    </div>
+  </section>
+
+  <!-- Trust bar -->
+  <section class="py-10 bg-white border-t border-gray-100">
+    <div class="max-w-4xl mx-auto px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
+        {[
+          { icon: 'groups', title: 'All Credit Levels', text: 'Good, fair, rebuilding, or first-time buyer. We work with lenders for every situation.' },
+          { icon: 'lock', title: 'Secure Submission', text: 'Your information is submitted securely and only shared with lenders to process your application.' },
+          { icon: 'schedule', title: 'Same Day Response', text: 'Jerry reviews every application and follows up the same business day.' },
+        ].map(item => (
+          <div class="flex flex-col items-center gap-3">
+            <span class="material-symbols-outlined text-3xl text-orange" style="font-variation-settings: 'FILL' 1;">{item.icon}</span>
+            <h3 class="font-headline font-bold text-navy">{item.title}</h3>
+            <p class="text-gray-500 text-sm leading-relaxed">{item.text}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <Footer slot="footer" />
+</Layout>
+
+<style is:inline>
+  .app-tab {
+    border-bottom: 3px solid transparent;
+    color: #6b7280;
+    background: none;
+    cursor: pointer;
+    transition: color 0.15s, border-color 0.15s;
+  }
+  .app-tab:hover { color: #0a2540; }
+  .app-tab--active {
+    border-bottom-color: #f08010;
+    color: #0a2540;
+  }
+  .app-section {
+    background: #fff;
+    border: 1px solid #e5e7eb;
+    border-radius: 0.75rem;
+    padding: 1.5rem;
+    border-left: 4px solid #0a2540;
+  }
+  .app-section-title {
+    font-family: var(--font-headline, 'Barlow', sans-serif);
+    font-size: 1rem;
+    font-weight: 700;
+    color: #0a2540;
+    margin-bottom: 1.25rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid #f3f4f6;
+  }
+  .app-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+  .col-span-2 { grid-column: span 2; }
+  @media (max-width: 640px) {
+    .app-grid { grid-template-columns: 1fr; }
+    .col-span-2 { grid-column: span 1; }
+  }
+  .app-label {
+    display: block;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    color: #374151;
+    margin-bottom: 0.375rem;
+  }
+  .app-input {
+    width: 100%;
+    padding: 0.625rem 0.875rem;
+    border: 1px solid #d1d5db;
+    border-radius: 0.5rem;
+    font-size: 0.9375rem;
+    color: #111827;
+    background: #fff;
+    transition: border-color 0.15s, box-shadow 0.15s;
+    outline: none;
+    appearance: auto;
+  }
+  .app-input:focus {
+    border-color: #f08010;
+    box-shadow: 0 0 0 3px rgba(240,128,16,0.15);
+  }
+  .app-input::placeholder { color: #9ca3af; }
+</style>
+
+<script is:inline>
+(function () {
+  // Tab switching
+  var tabBuyer = document.getElementById('tab-buyer');
+  var tabCobuyer = document.getElementById('tab-cobuyer');
+  var sectionBuyer = document.getElementById('section-buyer');
+  var sectionCobuyer = document.getElementById('section-cobuyer');
+
+  tabBuyer.addEventListener('click', function () {
+    tabBuyer.classList.add('app-tab--active');
+    tabCobuyer.classList.remove('app-tab--active');
+    sectionBuyer.classList.remove('hidden');
+    sectionCobuyer.classList.add('hidden');
+  });
+
+  tabCobuyer.addEventListener('click', function () {
+    tabCobuyer.classList.add('app-tab--active');
+    tabBuyer.classList.remove('app-tab--active');
+    sectionCobuyer.classList.remove('hidden');
+    sectionBuyer.classList.add('hidden');
+  });
+
+  // Form submission
+  var form = document.getElementById('apply-form');
+  var btn = document.getElementById('apply-submit-btn');
+  if (!form) return;
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var origHtml = btn.innerHTML;
+    btn.disabled = true;
+    btn.innerHTML = '<span class="material-symbols-outlined">sync</span> Submitting...';
+
+    fetch(form.action, {
+      method: 'POST',
+      body: new FormData(form),
+      headers: { 'Accept': 'application/json' }
+    }).then(function (res) {
+      if (res.ok) {
+        form.closest('section').innerHTML = '<div class="max-w-2xl mx-auto px-6 py-20 text-center"><span class="material-symbols-outlined text-6xl text-green-500 mb-6 block" style="font-variation-settings:\'FILL\' 1;">check_circle</span><h2 class="font-headline text-2xl font-extrabold text-navy mb-3">Application Submitted!</h2><p class="text-gray-600 text-lg mb-2">Jerry will review your application and follow up same day during business hours.</p><p class="text-gray-500 text-sm mb-8">Prefer a faster response? Text Jerry directly.</p><a href="sms:8475108947&body=Hi Jerry, I just submitted a credit application on your website." class="inline-flex items-center gap-2 bg-orange text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-orange-dark transition-colors"><span class="material-symbols-outlined" style="font-variation-settings:\'FILL\' 1;">sms</span>Text Jerry Now</a></div>';
+      } else {
+        btn.disabled = false;
+        btn.innerHTML = origHtml;
+        alert('Something went wrong. Please text Jerry at (847) 510-8947.');
+      }
+    }).catch(function () {
+      btn.disabled = false;
+      btn.innerHTML = origHtml;
+      alert('Something went wrong. Please text Jerry at (847) 510-8947.');
+    });
+  });
+})();
+</script>

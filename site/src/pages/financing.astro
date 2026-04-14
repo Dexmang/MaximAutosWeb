@@ -3,6 +3,7 @@ import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 const title = 'Used Car Financing in Skokie, IL | All Credit Levels | Maxim Autos';
 const description = 'Financing for all credit levels at Maxim Autos in Skokie, IL. First-time buyers, rebuilding credit, all welcome. No credit check to browse. Apply in minutes.';
 
@@ -35,10 +36,14 @@ const faqSchema = {
       <p class="text-xl text-gray-300 max-w-2xl mx-auto leading-relaxed">
         First-time buyer? Rebuilding credit? No problem. Maxim Autos works with multiple lenders to find you the best rate.
       </p>
-      <div class="mt-8">
-        <a href="#apply" class="inline-flex items-center justify-center gap-2 bg-orange text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-orange-dark transition-colors shadow-lg shadow-orange/20">
+      <div class="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
+        <a href={`${base}/apply`} class="inline-flex items-center justify-center gap-2 bg-orange text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-orange-dark transition-colors shadow-lg shadow-orange/20">
           <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">payments</span>
-          Apply Now
+          Full Credit Application
+        </a>
+        <a href="#apply" class="inline-flex items-center justify-center gap-2 bg-white/10 border border-white/30 text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-white/20 transition-colors">
+          <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">edit_note</span>
+          Quick Pre-Qualify
         </a>
       </div>
     </div>
