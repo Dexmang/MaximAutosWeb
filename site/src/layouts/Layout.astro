@@ -9,7 +9,7 @@ interface Props {
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 const {
   title,
-  description = 'Quality used cars in Skokie, IL. Every vehicle inspected, every price transparent. Metal plates on-the-spot, financing for all credit levels. Maxim Autos.',
+  description = 'Quality used cars in Skokie, IL. Every vehicle inspected, every price transparent. Metal plates same day, financing for all credit levels. Maxim Autos.',
   ogImage = `${base}/brand/hero-family.jpg`,
   canonicalUrl,
 } = Astro.props;
@@ -164,12 +164,12 @@ const canonical = canonicalUrl || Astro.url.href;
           </button>
         </div>
         <div class="p-5">
-          <p class="text-sm text-gray-600 mb-4 leading-relaxed">Hi! I'm Jerry, owner of Maxim Autos. Text me directly — fastest way to get answers about any car on the lot.</p>
+          <p class="text-sm text-gray-600 mb-4 leading-relaxed">Hi! I'm Jerry, owner of Maxim Autos. Text me directly. Fastest way to get answers about any car on the lot.</p>
           <div class="bg-surface rounded-xl p-3 mb-4 text-xs text-gray-500">
             <p class="font-semibold text-gray-700 mb-1">Hours:</p>
             <p>Mon, Tue, Thu, Fri: 3–7pm</p>
             <p>Saturday: 10am–3pm</p>
-            <p class="text-orange font-semibold mt-1">After hours? Text anytime — I check!</p>
+            <p class="text-orange font-semibold mt-1">After hours? Text anytime. I check!</p>
           </div>
           <a href="sms:8475108947&body=Hi Jerry, I have a question about a vehicle at Maxim Autos."
              class="w-full flex items-center justify-center gap-2 bg-orange text-white py-3 rounded-xl font-bold text-sm hover:bg-orange-dark transition-colors mb-2">

@@ -6,7 +6,7 @@ import VehicleCard from '../components/VehicleCard.astro';
 import vehicles from '../data/vehicles.json';
 
 const title = 'Used Cars for Sale in Skokie, IL';
-const description = `Browse ${vehicles.length} quality-inspected used cars for sale at Maxim Autos in Skokie, IL. Prices from $${Math.min(...vehicles.map(v => v.price)).toLocaleString()} to $${Math.max(...vehicles.map(v => v.price)).toLocaleString()}. Every vehicle includes an independent inspection report and metal plates on-the-spot. Financing available for all credit levels.`;
+const description = `Browse ${vehicles.length} fully inspected used cars for sale at Maxim Autos in Skokie, IL. Prices from $${Math.min(...vehicles.map(v => v.price)).toLocaleString()} to $${Math.max(...vehicles.map(v => v.price)).toLocaleString()}. Every vehicle includes an independent inspection report and same-day metal plates. Financing available for all credit levels.`;
 
 const bodyStyles = [...new Set(vehicles.map(v => v.bodyStyle))].sort();
 const drivetrains = [...new Set(vehicles.map(v => v.drivetrain).filter(Boolean))].sort();
@@ -67,7 +67,7 @@ const drivetrains = [...new Set(vehicles.map(v => v.drivetrain).filter(Boolean))
       <!-- Compact header inline -->
       <div class="flex items-center justify-between mb-3">
         <div>
-          <h1 class="font-headline text-xl font-extrabold text-navy leading-tight">Pre-Owned Cars — Skokie, IL</h1>
+          <h1 class="font-headline text-xl font-extrabold text-navy leading-tight">Pre-Owned Cars in Skokie, IL</h1>
           <p class="text-xs text-gray-500">Every vehicle fully inspected · Free CARFAX included</p>
         </div>
         <a href="sms:8475108947&body=Hi Jerry, I'm looking for a car."

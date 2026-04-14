@@ -6,7 +6,7 @@ import reviews from '../data/reviews.json';
 
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 const title = 'Customer Reviews — Maxim Autos, Skokie IL | 5-Star Google Reviews';
-const description = 'Read 5-star customer reviews for Maxim Autos in Skokie, IL. 34+ verified reviews on Google. No games, no hidden fees — just honest cars and personal service from Jerry Franco.';
+const description = 'Read 5-star customer reviews for Maxim Autos in Skokie, IL. 34+ verified reviews on Google. No games, no hidden fees. Just honest cars and personal service from Jerry Franco.';
 
 const ratingSchema = {
   "@context": "https://schema.org",
@@ -93,7 +93,7 @@ const ratingSchema = {
             <p class="text-gray-700 text-lg italic leading-relaxed mb-6 flex-1">"{review.text}"</p>
             <!-- Attribution -->
             <div class="flex items-center justify-between pt-4 border-t border-gray-200">
-              <span class="font-bold text-navy">— {review.name}</span>
+              <span class="font-bold text-navy">{review.name}</span>
               <div class="flex items-center gap-2 text-xs text-gray-400">
                 <span>{review.source}</span>
                 <span>&bull;</span>

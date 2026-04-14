@@ -17,7 +17,7 @@ const { vehicle } = Astro.props;
 const v = vehicle;
 const titleText = `${v.year} ${v.make} ${v.model} ${v.trim}`;
 const pageTitle = `${titleText} for Sale in Skokie, IL`;
-const pageDesc = `${titleText} with ${v.mileage.toLocaleString()} miles for $${v.price.toLocaleString()} at Maxim Autos in Skokie, IL. ${v.engine}, ${v.transmission}, ${v.drivetrain}. Fully inspected with free CARFAX and independent inspection report. Metal plates on-the-spot.`;
+const pageDesc = `${titleText} with ${v.mileage.toLocaleString()} miles for $${v.price.toLocaleString()} at Maxim Autos in Skokie, IL. ${v.engine}, ${v.transmission}, ${v.drivetrain}. Fully inspected with free CARFAX and independent inspection report. Same-day metal plates.`;
 
 const seoSuffix = 'maxim-autos-skokie-il';
 
@@ -77,7 +77,7 @@ const faqs = [
   },
   {
     q: `Can I drive this ${v.make} ${v.model} home the same day?`,
-    a: `Yes. Maxim Autos issues metal license plates on-the-spot and handles DMV registration instantly. You can drive this ${titleText} home the same day you purchase it. No waiting for temporary plates or paperwork.`
+    a: `Yes. Maxim Autos issues metal license plates on the spot and handles DMV registration instantly. You can drive this ${titleText} home the same day you purchase it. No waiting for temporary plates or paperwork.`
   },
   {
     q: `How many miles does this ${v.year} ${v.make} ${v.model} have?`,
@@ -384,7 +384,7 @@ const faqSchema = {
                   {[
                     { icon: 'shield', color: 'text-green-600', label: 'Fully Inspected', sub: 'Independent mechanic report included' },
                     { icon: 'description', color: 'text-blue-600', label: 'Free CARFAX Report', sub: 'Full vehicle history included' },
-                    { icon: 'directions_car', color: 'text-orange', label: 'Drive Home Today', sub: 'Metal plates on-the-spot' },
+                    { icon: 'directions_car', color: 'text-orange', label: 'Drive Home Today', sub: 'Metal plates on the spot' },
                     { icon: 'sell', color: 'text-yellow-600', label: 'No Hidden Fees', sub: 'Transparent upfront pricing' },
                   ].map(item => (
                     <div class="flex items-center gap-3">

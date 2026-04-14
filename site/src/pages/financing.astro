@@ -4,14 +4,14 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 
 const title = 'Used Car Financing in Skokie, IL — All Credit Levels | Maxim Autos';
-const description = 'Financing for all credit levels at Maxim Autos in Skokie, IL. First-time buyers, rebuilding credit — all welcome. No credit check to browse. Apply in minutes.';
+const description = 'Financing for all credit levels at Maxim Autos in Skokie, IL. First-time buyers, rebuilding credit, all welcome. No credit check to browse. Apply in minutes.';
 
 const faqSchema = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
   "mainEntity": [
     { "@type": "Question", "name": "Can I get financing with bad credit?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Maxim Autos works with multiple lenders to find financing for all credit levels, including those rebuilding credit. We welcome first-time buyers and buyers with challenged credit." } },
-    { "@type": "Question", "name": "How much down payment do I need?", "acceptedAnswer": { "@type": "Answer", "text": "Down payment requirements vary by lender and credit situation. Text Jerry at (847) 510-8947 to discuss your specific situation — there is no obligation." } },
+    { "@type": "Question", "name": "How much down payment do I need?", "acceptedAnswer": { "@type": "Answer", "text": "Down payment requirements vary by lender and credit situation. Text Jerry at (847) 510-8947 to discuss your specific situation. There is no obligation." } },
     { "@type": "Question", "name": "Does applying affect my credit score?", "acceptedAnswer": { "@type": "Answer", "text": "Browsing inventory has no impact on your credit score. A formal credit application involves a soft or hard inquiry depending on the lender. The pre-qualification form on this page is not a credit application." } },
     { "@type": "Question", "name": "What interest rates are available?", "acceptedAnswer": { "@type": "Answer", "text": "Rates vary by lender, credit profile, and loan term. Maxim Autos works with multiple lenders to find the best available rate for your situation. The payment calculator on each vehicle listing shows estimated payments across different rates." } },
     { "@type": "Question", "name": "Can I get financing as a first-time buyer?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Maxim Autos specifically works with lenders who approve first-time buyers. There is no credit history requirement to apply." } }
@@ -69,9 +69,9 @@ const faqSchema = {
       </div>
       <div class="space-y-8">
         {[
-          { step: '1', title: 'Browse & Choose', text: 'Explore our quality-inspected inventory online or in person. Every vehicle comes with a CARFAX report and independent inspection.', icon: 'inventory_2' },
+          { step: '1', title: 'Browse & Choose', text: 'Explore our fully inspected inventory online or in person. Every vehicle comes with a CARFAX report and independent inspection.', icon: 'inventory_2' },
           { step: '2', title: 'Apply in Minutes', text: 'Fill out the pre-qualification form below or text Jerry directly. We work with multiple lenders to match you with the best rate available.', icon: 'edit_note' },
-          { step: '3', title: 'Drive Home Today with Plates', text: 'Once approved, we handle everything: paperwork, registration, and metal plates on-the-spot. No DMV trip, no temporary tags.', icon: 'directions_car' },
+          { step: '3', title: 'Drive Home Today with Plates', text: 'Once approved, we handle everything: paperwork, registration, and metal plates on the spot. No DMV trip, no temporary tags.', icon: 'directions_car' },
         ].map(item => (
           <div class="flex gap-6 items-start bg-white p-8 rounded-xl border border-gray-100">
             <div class="w-14 h-14 bg-orange rounded-2xl flex items-center justify-center shrink-0">
