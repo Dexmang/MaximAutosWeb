@@ -9,7 +9,7 @@ interface Props {
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 const {
   title,
-  description = 'Quality used cars in Skokie, IL. Every vehicle inspected, every price transparent. Metal plates same day, financing for all credit levels. Maxim Autos.',
+  description = 'Quality used cars in Skokie, IL. Every vehicle inspected, every price transparent. Metal plates on the spot. Skip the DMV. Financing for all credit levels. Maxim Autos.',
   ogImage = `${base}/brand/hero-family.jpg`,
   canonicalUrl,
 } = Astro.props;
@@ -108,7 +108,7 @@ const canonical = canonicalUrl || Astro.url.href;
     <div class="bg-orange text-white py-2.5">
       <div class="max-w-7xl mx-auto px-4">
         <div class="flex flex-wrap justify-center gap-x-5 gap-y-1 text-xs font-bold tracking-wide text-center">
-          <span class="flex items-center gap-1"><span class="material-symbols-outlined text-sm" style="font-variation-settings:'FILL' 1;">check_circle</span>Metal Plates Same Day</span>
+          <span class="flex items-center gap-1"><span class="material-symbols-outlined text-sm" style="font-variation-settings:'FILL' 1;">check_circle</span>Skip the DMV</span>
           <span class="hidden sm:flex items-center gap-1"><span class="material-symbols-outlined text-sm" style="font-variation-settings:'FILL' 1;">check_circle</span>Free CARFAX Every Car</span>
           <span class="flex items-center gap-1"><span class="material-symbols-outlined text-sm" style="font-variation-settings:'FILL' 1;">check_circle</span>Fully Inspected</span>
           <span class="hidden sm:flex items-center gap-1"><span class="material-symbols-outlined text-sm" style="font-variation-settings:'FILL' 1;">check_circle</span>No Hidden Fees</span>
