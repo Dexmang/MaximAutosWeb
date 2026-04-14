@@ -406,9 +406,14 @@ const faqSchema = {
                   Text Jerry
                 </a>
                 <a href="tel:8475108947"
-                   class="w-full flex items-center justify-center gap-2 bg-white/10 text-white py-3 rounded-lg font-bold text-base hover:bg-white/20 transition-colors">
+                   class="w-full flex items-center justify-center gap-2 bg-white/10 text-white py-3 rounded-lg font-bold text-base hover:bg-white/20 transition-colors mb-2">
                   <span class="material-symbols-outlined text-lg" style="font-variation-settings: 'FILL' 1;">call</span>
                   (847) 510-8947
+                </a>
+                <a href={`${base}/financing`}
+                   class="w-full flex items-center justify-center gap-2 border border-orange/70 text-orange py-3 rounded-lg font-bold text-base hover:bg-orange hover:text-white hover:border-orange transition-colors">
+                  <span class="material-symbols-outlined text-lg" style="font-variation-settings: 'FILL' 1;">payments</span>
+                  Apply for Financing
                 </a>
               </div>
             </div>
@@ -608,9 +613,11 @@ const faqSchema = {
 
               <div class="bg-surface rounded-xl p-5">
                 <h3 class="font-headline font-bold text-navy mb-2">All Credit Levels Welcome</h3>
-                <p class="text-gray-600 text-sm mb-3">First-time buyers, those rebuilding credit, or buyers with no credit history. No hidden fees. What you see is what you pay.</p>
-                <a href={`${base}/financing`} class="inline-flex items-center gap-1 text-orange font-bold text-sm hover:underline">
-                  Learn more about financing <span class="material-symbols-outlined text-sm">arrow_forward</span>
+                <p class="text-gray-600 text-sm mb-4">First-time buyers, those rebuilding credit, or buyers with no credit history. No hidden fees. What you see is what you pay.</p>
+                <a href={`${base}/financing`}
+                   class="w-full flex items-center justify-center gap-2 bg-orange text-white py-3 rounded-lg font-bold text-sm hover:bg-orange-dark transition-colors">
+                  <span class="material-symbols-outlined text-base" style="font-variation-settings: 'FILL' 1;">payments</span>
+                  Apply for Financing
                 </a>
               </div>
             </div>
@@ -721,6 +728,26 @@ const faqSchema = {
       <span class="material-symbols-outlined">chevron_right</span>
     </button>
   </dialog>
+
+  <!-- Mobile sticky CTA bar -->
+  <div class="fixed bottom-0 left-0 right-0 z-40 md:hidden bg-white border-t border-gray-200 shadow-[0_-4px_12px_rgba(0,0,0,0.08)]">
+    <div class="flex">
+      <a href={`sms:8475108947&body=${smsBody}`} class="flex-1 flex flex-col items-center justify-center py-3 gap-0.5 text-navy hover:bg-gray-50 transition-colors">
+        <span class="material-symbols-outlined text-xl" style="font-variation-settings: 'FILL' 1;">sms</span>
+        <span class="text-xs font-bold">Text</span>
+      </a>
+      <a href="tel:8475108947" class="flex-1 flex flex-col items-center justify-center py-3 gap-0.5 text-navy hover:bg-gray-50 transition-colors border-x border-gray-200">
+        <span class="material-symbols-outlined text-xl" style="font-variation-settings: 'FILL' 1;">call</span>
+        <span class="text-xs font-bold">Call</span>
+      </a>
+      <a href={`${base}/financing`} class="flex-1 flex flex-col items-center justify-center py-3 gap-0.5 bg-orange text-white hover:bg-orange-dark transition-colors">
+        <span class="material-symbols-outlined text-xl" style="font-variation-settings: 'FILL' 1;">payments</span>
+        <span class="text-xs font-bold">Get Financing</span>
+      </a>
+    </div>
+  </div>
+  <!-- Spacer so sticky bar doesn't cover content on mobile -->
+  <div class="h-16 md:hidden"></div>
 
   <Footer slot="footer" />
 </Layout>
