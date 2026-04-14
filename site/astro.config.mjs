@@ -1,10 +1,12 @@
 import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
 
+// Vercel sets VERCEL=1 automatically during builds
+const isVercel = process.env.VERCEL === '1';
+
 export default defineConfig({
-  // For GitHub Pages preview: site: 'https://dexmang.github.io', base: '/MaximAutosWeb',
-  site: 'https://dexmang.github.io',
-  base: '/MaximAutosWeb',
+  site: isVercel ? 'https://maximautos.com' : 'https://dexmang.github.io',
+  base: isVercel ? '/' : '/MaximAutosWeb',
   publicDir: '../web_assets',
   integrations: [
     sitemap(),

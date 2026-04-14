@@ -1,0 +1,6 @@
+{
+  "buildCommand": "cd site && npm ci && npm run build",
+  "outputDirectory": "site/dist",
+  "installCommand": "echo 'deps installed via buildCommand'",
+  "framework": null
+}

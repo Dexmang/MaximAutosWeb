@@ -200,6 +200,15 @@ const faqSchema = {
   if (!form) return;
   form.addEventListener('submit', function (e) {
     e.preventDefault();
+    // Formspree not yet configured — route to SMS
+    if (form.action.includes('YOUR_')) {
+      var name = (document.getElementById('fin-name').value || '').trim();
+      var phone = (document.getElementById('fin-phone').value || '').trim();
+      var budget = document.getElementById('fin-budget').value || '';
+      var body = encodeURIComponent('Hi Jerry, my name is ' + (name || 'a visitor') + '. I want to pre-qualify for financing. Monthly budget: ' + budget + '. Best phone: ' + phone);
+      window.location.href = 'sms:8475108947&body=' + body;
+      return;
+    }
     var btn = form.querySelector('button[type="submit"]');
     var origText = btn.innerHTML;
     btn.disabled = true;

@@ -236,6 +236,14 @@ const hours = [
   if (!form) return;
   form.addEventListener('submit', function (e) {
     e.preventDefault();
+    // Formspree not yet configured — route to SMS
+    if (form.action.includes('YOUR_')) {
+      var name = (document.getElementById('contact-name').value || '').trim();
+      var msg = (document.getElementById('contact-message').value || '').trim();
+      var body = encodeURIComponent('Hi Jerry, I\'m ' + (name || 'a visitor') + '. ' + msg);
+      window.location.href = 'sms:8475108947&body=' + body;
+      return;
+    }
     var btn = form.querySelector('button[type="submit"]');
     var origText = btn.innerHTML;
     btn.disabled = true;

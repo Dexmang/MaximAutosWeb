@@ -159,6 +159,15 @@ const description = 'Sell your car or trade it in at Maxim Autos in Skokie, IL. 
   if (!form) return;
   form.addEventListener('submit', function (e) {
     e.preventDefault();
+    // Formspree not yet configured — route to SMS
+    if (form.action.includes('YOUR_')) {
+      var name = (document.getElementById('sell-name').value || '').trim();
+      var ymm = (document.getElementById('sell-ymm').value || '').trim();
+      var mileage = (document.getElementById('sell-mileage').value || '').trim();
+      var body = encodeURIComponent('Hi Jerry, I\'m ' + (name || 'a visitor') + ' looking to sell/trade my ' + ymm + ' with ' + mileage + ' miles.');
+      window.location.href = 'sms:8475108947&body=' + body;
+      return;
+    }
     var btn = form.querySelector('button[type="submit"]');
     var origText = btn.innerHTML;
     btn.disabled = true;
