@@ -162,6 +162,23 @@ function extractVehicleNodes(tiles) {
 }
 
 /**
+ * Fetch all full-size (1024x768) photo URLs from a CarGurus listing detail page.
+ * Returns array of https URLs, deduplicated, in order of appearance.
+ */
+async function fetchListingPhotos(listingId) {
+  const url = `https://www.cargurus.com/details/${listingId}`;
+  try {
+    const html = await fetchHtml(url);
+    const matches = [...html.matchAll(/https?:\/\/static\.cargurus\.com\/images\/forsale\/[^\s"'<>&]+?-1024x768\.jpeg/g)];
+    const unique = [...new Set(matches.map(m => m[0]))];
+    return unique;
+  } catch (e) {
+    console.warn(`  Could not fetch photos for listing ${listingId}: ${e.message}`);
+    return [];
+  }
+}
+
+/**
  * Map a CarGurus tile data object to our vehicles.json schema.
  *
  * CarGurus tile.data structure (key fields):
@@ -359,9 +376,35 @@ async function main() {
     })
     .filter(v => v && v.year && v.make);
 
-  console.log(`Mapped ${vehicles.length} vehicles:`);
+  // Fetch full photo galleries from each listing detail page (in parallel)
+  console.log(`\nFetching full photo galleries...`);
+  await Promise.all(
+    vehicleNodes.map(async ({ node }, i) => {
+      const listingId = node.id;
+      const v = vehicles[i];
+      if (!v || !listingId) return;
+
+      // Skip if we already have multiple photos for this VIN
+      if (v.photoUrls?.length > 1) {
+        console.log(`  ${v.year} ${v.make} ${v.model}: kept ${v.photoUrls.length} existing photos`);
+        return;
+      }
+
+      const photos = await fetchListingPhotos(listingId);
+      if (photos.length > 0) {
+        v.primaryPhotoUrl = photos[0];
+        v.photoUrls = photos;
+        v.photos = { exterior: photos.length, interior: 0, source: 'cargurus' };
+        console.log(`  ${v.year} ${v.make} ${v.model}: ${photos.length} photos fetched`);
+      } else {
+        console.log(`  ${v.year} ${v.make} ${v.model}: no photos found`);
+      }
+    })
+  );
+
+  console.log(`\nMapped ${vehicles.length} vehicles:`);
   vehicles.forEach(v =>
-    console.log(`  • ${v.year} ${v.make} ${v.model} ${v.trim} — $${v.price.toLocaleString()} — ${v.mileage.toLocaleString()} mi [${v.vin}]`)
+    console.log(`  • ${v.year} ${v.make} ${v.model} ${v.trim} — $${v.price.toLocaleString()} — ${v.mileage.toLocaleString()} mi — ${v.photoUrls?.length ?? 0} photos`)
   );
 
   // Diff

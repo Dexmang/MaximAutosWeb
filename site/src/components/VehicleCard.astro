@@ -21,8 +21,8 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 const { slug, year, make, model, trim, price, mileage, drivetrain, engine, bodyStyle, photoPath, photoPrefix, inspected, primaryPhotoUrl, photos } = Astro.props;
 const title = `${year} ${make} ${model}`;
 
-// Use DealerCenter CDN URL if available, otherwise fall back to local path
-const photoSrc = (photos?.source === 'dealercenter' && primaryPhotoUrl)
+// Use CDN URL if available (dealercenter or cargurus), otherwise fall back to local path
+const photoSrc = primaryPhotoUrl
   ? primaryPhotoUrl
   : `${base}/${photoPath}/thumb/${photoPrefix}-photo-exterior-maxim-autos-skokie-il-01.jpg`;
 
