@@ -58,12 +58,12 @@ const monthlyPayment = Math.round(
       </div>
     )}
   </div>
-  <div class="p-4">
+  <div class="px-3 py-4 sm:px-4">
     <h3 class="font-headline text-base font-bold text-gray-900 mb-0.5">{title}</h3>
     <p class="text-xs text-gray-500 mb-3">{trim} &bull; {engine} &bull; {drivetrain}</p>
 
     <!-- Price + Payment -->
-    <div class="flex justify-between items-end mb-3">
+    <div class="flex flex-wrap justify-between items-end mb-3 gap-y-1">
       <div>
         <span class="text-xl font-extrabold text-navy">${price.toLocaleString()}</span>
         <div class="flex items-center gap-1 mt-0.5">
