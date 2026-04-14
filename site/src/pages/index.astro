@@ -82,7 +82,7 @@ const featured = vehicles.slice(0, 6);
         <h1 class="font-headline text-4xl md:text-5xl lg:text-6xl font-extrabold text-white leading-tight tracking-tight mb-4">
           Pre-Owned Cars<br/>in Skokie, IL
         </h1>
-        <p class="font-headline text-2xl md:text-3xl font-bold text-orange mb-3">Cars You Can Actually Trust.</p>
+        <p class="font-headline text-2xl md:text-3xl font-bold text-white mb-3">Cars You Can Actually Trust.</p>
         <p class="text-lg md:text-xl text-white/80 mb-7 leading-relaxed">
           Skokie's no-games pre-owned car dealer. Every car inspected, every price upfront. Metal plates same day.
         </p>
@@ -102,7 +102,7 @@ const featured = vehicles.slice(0, 6);
         </div>
         <div class="flex flex-col sm:flex-row gap-3">
           <a href={`${base}/inventory`}
-             class="inline-flex items-center justify-center gap-2 bg-orange text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-orange-dark transition-colors shadow-lg shadow-orange/30">
+             class="inline-flex items-center justify-center gap-2 bg-orange text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-orange-dark transition-colors shadow-lg">
             Browse Inventory <span class="material-symbols-outlined">arrow_forward</span>
           </a>
           <a href="sms:8475108947&body=Hi Jerry, I'm interested in a vehicle at Maxim Autos."
@@ -276,16 +276,16 @@ const featured = vehicles.slice(0, 6);
   </section>
 
   <!-- CTA Banner -->
-  <section class="py-12 bg-orange">
+  <section class="py-12 bg-navy">
     <div class="max-w-4xl mx-auto px-6 lg:px-8 text-center">
       <h2 class="font-headline text-3xl md:text-4xl font-extrabold text-white mb-4">Ready to Find Your Next Car?</h2>
-      <p class="text-white/90 text-lg mb-8">Text Jerry for a quick response, or browse the full inventory online.</p>
+      <p class="text-white/70 text-lg mb-8">Text Jerry for a quick response, or browse the full inventory online.</p>
       <div class="flex flex-col sm:flex-row justify-center gap-4">
-        <a href="sms:8475108947&body=Hi Jerry, I'm interested in a vehicle at Maxim Autos." class="inline-flex items-center justify-center gap-2 bg-white text-navy px-8 py-4 rounded-xl font-bold text-lg hover:bg-gray-100 transition-colors">
+        <a href="sms:8475108947&body=Hi Jerry, I'm interested in a vehicle at Maxim Autos." class="inline-flex items-center justify-center gap-2 bg-orange text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-orange-dark transition-colors">
           <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">sms</span>
           Text Jerry Now
         </a>
-        <a href={`${base}/inventory`} class="inline-flex items-center justify-center gap-2 bg-navy text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-navy-light transition-colors">
+        <a href={`${base}/inventory`} class="inline-flex items-center justify-center gap-2 bg-white/10 text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-white/20 transition-colors border border-white/20">
           Browse Inventory
         </a>
       </div>

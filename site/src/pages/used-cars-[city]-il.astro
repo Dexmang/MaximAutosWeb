@@ -330,22 +330,22 @@ const mapsDirectionsUrl = `https://www.google.com/maps/dir/${encodeURIComponent(
   </section>
 
   <!-- CTA -->
-  <section class="py-16 bg-orange">
+  <section class="py-16 bg-navy">
     <div class="max-w-4xl mx-auto px-6 lg:px-8 text-center">
       <h2 class="font-headline text-3xl md:text-4xl font-extrabold text-white mb-4">
         Ready to Make the Trip from {suburb.city}?
       </h2>
-      <p class="text-white/90 text-lg mb-8">
+      <p class="text-white/70 text-lg mb-8">
         Text Jerry first and he will have everything ready when you arrive. {suburb.driveTimeMin} minutes and you could drive home with plates today.
       </p>
       <div class="flex flex-col sm:flex-row justify-center gap-4">
         <a href={`sms:8475108947&body=Hi Jerry, I'm coming from ${suburb.city} and interested in a vehicle at Maxim Autos.`}
-           class="inline-flex items-center justify-center gap-2 bg-white text-navy px-8 py-4 rounded-xl font-bold text-lg hover:bg-gray-100 transition-colors">
+           class="inline-flex items-center justify-center gap-2 bg-orange text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-orange-dark transition-colors">
           <span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1;">sms</span>
           Text Jerry
         </a>
         <a href="tel:8475108947"
-           class="inline-flex items-center justify-center gap-2 bg-navy text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-navy-light transition-colors">
+           class="inline-flex items-center justify-center gap-2 bg-white/10 text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-white/20 transition-colors border border-white/20">
           <span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1;">call</span>
           (847) 510-8947
         </a>

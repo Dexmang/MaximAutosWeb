@@ -200,7 +200,7 @@ const faqSchema = {
           <!-- CTA buttons -->
           <div class="flex gap-3">
             <a href={`sms:8475108947&body=${smsBody}`}
-               class="flex items-center justify-center gap-2 bg-orange text-white px-6 py-3 rounded-xl font-bold text-base hover:bg-orange-dark transition-colors shadow-md shadow-orange/20">
+               class="flex items-center justify-center gap-2 bg-orange text-white px-6 py-3 rounded-xl font-bold text-base hover:bg-orange-dark transition-colors shadow-sm">
               <span class="material-symbols-outlined text-lg" style="font-variation-settings: 'FILL' 1;">sms</span>
               Text Jerry
             </a>
@@ -373,7 +373,7 @@ const faqSchema = {
                   { icon: 'description', color: 'bg-blue-50 text-blue-700', label: 'Free CARFAX' },
                   { icon: 'verified', color: 'bg-green-50 text-green-700', label: 'Fully Inspected' },
                   { icon: 'local_shipping', color: 'bg-purple-50 text-purple-700', label: 'Drive Home Today' },
-                  { icon: 'sell', color: 'bg-orange-50 text-orange-700', label: 'No Hidden Fees' },
+                  { icon: 'sell', color: 'bg-blue-50 text-blue-700', label: 'No Hidden Fees' },
                 ].map(b => (
                   <span class:list={['inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold', b.color]}>
                     <span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">{b.icon}</span>
@@ -408,7 +408,7 @@ const faqSchema = {
               <div class="bg-navy rounded-xl p-5 text-center">
                 <p class="text-white/60 text-xs mb-3">Mon/Tue/Thu/Fri 3–7pm · Sat 10am–3pm · After-hours? Text anytime.</p>
                 <a href={`sms:8475108947&body=${smsBody}`}
-                   class="w-full flex items-center justify-center gap-2 bg-orange text-white py-3 rounded-lg font-bold text-base hover:bg-orange-dark transition-colors mb-2 shadow-md shadow-orange/20">
+                   class="w-full flex items-center justify-center gap-2 bg-orange text-white py-3 rounded-lg font-bold text-base hover:bg-orange-dark transition-colors mb-2">
                   <span class="material-symbols-outlined text-lg" style="font-variation-settings: 'FILL' 1;">sms</span>
                   Text Jerry
                 </a>
