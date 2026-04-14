@@ -9,6 +9,9 @@ on:
 permissions:
   contents: write
 
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
 jobs:
   sync:
     runs-on: ubuntu-latest
@@ -41,5 +44,5 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add site/src/data/vehicles.json
-          git commit -m "chore: sync inventory from CarGurus [$(date -u +%Y-%m-%dT%H:%MZ)]"
+          git commit -m "chore: sync inventory from CarGurus [${{ github.run_number }}]"
           git push
