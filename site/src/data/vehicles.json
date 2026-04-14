@@ -311,18 +311,10 @@
     "sortOrder": 0,
     "stockNumber": "J10187",
     "dealerCenterUrl": "",
-    "primaryPhotoUrl": "https://static.cargurus.com/images/forsale/2026/03/24/17/21/2018_volkswagen_tiguan-pic-7816056465095323343-1024x768.jpeg",
-    "photoUrls": [
-      "https://static.cargurus.com/images/forsale/2026/03/24/17/21/2018_volkswagen_tiguan-pic-7816056465095323343-1024x768.jpeg",
-      "https://static.cargurus.com/images/forsale/2026/03/24/17/21/2016_ford_edge-pic-7325505088707219634-1024x768.jpeg",
-      "https://static.cargurus.com/images/forsale/2026/03/24/17/21/2024_ford_explorer-pic-5197707869162915523-1024x768.jpeg",
-      "https://static.cargurus.com/images/forsale/2026/03/24/17/21/2017_jeep_wrangler-pic-7065865445258559974-1024x768.jpeg",
-      "https://static.cargurus.com/images/forsale/2026/03/28/01/52/2012_honda_pilot-pic-2466881115563458657-1024x768.jpeg",
-      "https://static.cargurus.com/images/forsale/2026/03/24/17/21/2018_nissan_armada-pic-7174580357625285-1024x768.jpeg",
-      "https://static.cargurus.com/images/forsale/2026/03/24/17/21/2020_jeep_grand_cherokee-pic-1830801899584086791-1024x768.jpeg"
-    ],
+    "primaryPhotoUrl": "",
+    "photoUrls": [],
     "photos": {
-      "exterior": 7,
+      "exterior": 0,
       "interior": 0,
       "source": "cargurus"
     },

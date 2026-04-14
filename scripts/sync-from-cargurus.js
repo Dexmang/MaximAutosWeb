@@ -163,14 +163,30 @@ function extractVehicleNodes(tiles) {
 
 /**
  * Fetch all full-size (1024x768) photo URLs from a CarGurus listing detail page.
+ * Filters to only return photos matching the vehicle's year and make to avoid
+ * picking up related/recommended listings that appear on the same page.
  * Returns array of https URLs, deduplicated, in order of appearance.
  */
-async function fetchListingPhotos(listingId) {
+async function fetchListingPhotos(listingId, year, make) {
   const url = `https://www.cargurus.com/details/${listingId}`;
   try {
     const html = await fetchHtml(url);
     const matches = [...html.matchAll(/https?:\/\/static\.cargurus\.com\/images\/forsale\/[^\s"'<>&]+?-1024x768\.jpeg/g)];
     const unique = [...new Set(matches.map(m => m[0]))];
+
+    // Filter to photos that match this vehicle's year and make
+    // URL format: .../YYYY_make_model-pic-...-1024x768.jpeg
+    if (year && make) {
+      const makeKey = make.toLowerCase().replace(/\s+/g, '_');
+      const prefix = `${year}_${makeKey}`;
+      const filtered = unique.filter(u => {
+        const filename = u.split('/').pop() || '';
+        return filename.startsWith(prefix);
+      });
+      // Use filtered set if it has photos; otherwise fall back to all (handles edge cases)
+      if (filtered.length > 0) return filtered;
+    }
+
     return unique;
   } catch (e) {
     console.warn(`  Could not fetch photos for listing ${listingId}: ${e.message}`);
@@ -390,7 +406,7 @@ async function main() {
         return;
       }
 
-      const photos = await fetchListingPhotos(listingId);
+      const photos = await fetchListingPhotos(listingId, v.year, v.make);
       if (photos.length > 0) {
         v.primaryPhotoUrl = photos[0];
         v.photoUrls = photos;
