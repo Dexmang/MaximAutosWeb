@@ -38,7 +38,7 @@ const description = 'Sell your car or trade it in at Maxim Autos in Skokie, IL. 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
         {[
           { step: '1', title: 'Send Your Info', text: 'Submit the form below or text Jerry your vehicle details. A VIN gets you the fastest offer.', icon: 'send' },
-          { step: '2', title: 'Get an Offer', text: 'Jerry reviews your vehicle info and responds with a fair, no-obligation offer — usually the same day.', icon: 'price_check' },
+          { step: '2', title: 'Get an Offer', text: 'Jerry reviews your vehicle info and responds with a fair, no-obligation offer. Usually the same day.', icon: 'price_check' },
           { step: '3', title: 'Sell or Trade', text: 'Accept the offer and get paid, or apply the value toward your next vehicle at Maxim Autos.', icon: 'handshake' },
         ].map(item => (
           <div class="text-center">
@@ -61,7 +61,10 @@ const description = 'Sell your car or trade it in at Maxim Autos in Skokie, IL. 
         <p class="text-gray-600 text-lg">Fill out the form or text Jerry directly for the fastest response.</p>
       </div>
 
-      <form action="#" method="POST" class="space-y-6 bg-white p-8 rounded-2xl border border-gray-200">
+      <!-- TODO: Replace YOUR_SELLTRADE_FORM_ID with your Formspree form ID from formspree.io -->
+      <form id="sell-trade-form" action="https://formspree.io/f/YOUR_SELLTRADE_FORM_ID" method="POST" class="space-y-6 bg-white p-8 rounded-2xl border border-gray-200">
+        <input type="hidden" name="_subject" value="Sell/Trade Inquiry — Maxim Autos" />
+        <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" />
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div>
             <label for="sell-name" class="block text-sm font-medium text-gray-700 mb-2">Name</label>
@@ -149,3 +152,34 @@ const description = 'Sell your car or trade it in at Maxim Autos in Skokie, IL. 
 
   <Footer slot="footer" />
 </Layout>
+
+<script is:inline>
+(function () {
+  var form = document.getElementById('sell-trade-form');
+  if (!form) return;
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var btn = form.querySelector('button[type="submit"]');
+    var origText = btn.innerHTML;
+    btn.disabled = true;
+    btn.innerHTML = '<span class="material-symbols-outlined">sync</span> Submitting...';
+    fetch(form.action, {
+      method: 'POST',
+      body: new FormData(form),
+      headers: { 'Accept': 'application/json' }
+    }).then(function (res) {
+      if (res.ok) {
+        form.innerHTML = '<div class="text-center py-12"><span class="material-symbols-outlined text-5xl text-green-500 mb-4 block" style="font-variation-settings:\'FILL\' 1;">check_circle</span><h3 class="font-headline text-xl font-bold text-navy mb-2">Offer Request Sent!</h3><p class="text-gray-600 mb-4">Jerry will review your vehicle info and respond with an offer — usually the same day.</p><a href="sms:8475108947&body=Hi Jerry, I just submitted a vehicle for an offer on your website." class="inline-flex items-center gap-2 bg-orange text-white px-6 py-3 rounded-xl font-bold hover:bg-orange-dark transition-colors"><span class="material-symbols-outlined" style="font-variation-settings:\'FILL\' 1;">sms</span>Text Jerry to Follow Up</a></div>';
+      } else {
+        btn.disabled = false;
+        btn.innerHTML = origText;
+        alert('Something went wrong. Please text Jerry directly at (847) 510-8947.');
+      }
+    }).catch(function () {
+      btn.disabled = false;
+      btn.innerHTML = origText;
+      alert('Something went wrong. Please text Jerry directly at (847) 510-8947.');
+    });
+  });
+})();
+</script>

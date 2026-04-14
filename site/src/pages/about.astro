@@ -6,9 +6,32 @@ import Footer from '../components/Footer.astro';
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 const title = 'About Maxim Autos — Owner-Operated Used Car Dealer in Skokie, IL';
 const description = 'Meet Jerry Franco, owner of Maxim Autos. Every vehicle personally inspected, every price transparent, every customer protected. 5-star Google reviews. Skokie, IL.';
+
+const personSchema = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Jerry Franco",
+  "jobTitle": "Owner",
+  "worksFor": {
+    "@type": "AutoDealer",
+    "name": "Maxim Autos",
+    "url": "https://maximautos.com"
+  },
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Skokie",
+    "addressRegion": "IL",
+    "addressCountry": "US"
+  },
+  "telephone": "+1-847-510-8947",
+  "url": "https://maximautos.com/about"
+};
 ---
 
 <Layout title={title} description={description}>
+  <Fragment slot="structured-data">
+    <script type="application/ld+json" set:html={JSON.stringify(personSchema)} />
+  </Fragment>
   <Header slot="header" />
 
   <!-- Hero -->
@@ -43,13 +66,13 @@ const description = 'Meet Jerry Franco, owner of Maxim Autos. Every vehicle pers
           <h2 class="font-headline text-3xl md:text-4xl font-extrabold mb-6">Jerry Franco</h2>
           <div class="space-y-4 text-gray-600 text-lg leading-relaxed">
             <p>
-              At Maxim Autos, there are no salespeople, no games, and no pressure. Jerry Franco runs the dealership himself — from personally inspecting every vehicle on the lot to handling every transaction face-to-face.
+              At Maxim Autos, there are no salespeople, no games, and no pressure. Jerry Franco runs the dealership himself. He personally inspects every vehicle on the lot and handles every transaction face-to-face.
             </p>
             <p>
               When you visit Maxim Autos, you deal directly with the owner. Jerry hand-picks each vehicle, reviews every inspection report, and sets every price. That means the person answering your questions is the same person who stands behind the car.
             </p>
             <p>
-              This owner-operated approach is what makes Maxim Autos different. No layers of management, no hidden agendas — just honest cars at transparent prices with personal service from start to finish.
+              This owner-operated approach is what makes Maxim Autos different. No layers of management, no hidden agendas. Just honest cars at transparent prices with personal service from start to finish.
             </p>
             <p class="text-navy font-semibold italic border-l-4 border-orange pl-4">
               "Every car inspected. Every price transparent. Every customer protected." — Jerry Franco
@@ -115,11 +138,11 @@ const description = 'Meet Jerry Franco, owner of Maxim Autos. Every vehicle pers
         </div>
         <ul class="space-y-4">
           {[
-            { icon: 'person', text: 'Owner-operated — deal directly with Jerry, no salespeople' },
-            { icon: 'star', text: '5-star Google reviews (33+ and counting)' },
+            { icon: 'person', text: 'Owner-operated. Deal directly with Jerry, no salespeople.' },
+            { icon: 'star', text: '5-star Google reviews (34+ and counting)' },
             { icon: 'fact_check', text: 'Independent inspection report included with every vehicle' },
             { icon: 'shield', text: 'Every vehicle fully inspected by an independent mechanic' },
-            { icon: 'credit_card', text: 'Metal plates issued on-the-spot — no DMV trip needed' },
+            { icon: 'credit_card', text: 'Metal plates issued on-the-spot. No DMV trip needed.' },
             { icon: 'visibility', text: 'No hidden fees, no dealer fees, no documentation fees' },
             { icon: 'account_balance', text: 'Financing for all credit levels, including first-time buyers' },
           ].map(item => (

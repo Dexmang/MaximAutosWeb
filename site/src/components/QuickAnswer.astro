@@ -1,0 +1,11 @@
+---
+interface Props {
+  answer: string;
+  label?: string;
+}
+const { answer, label = 'Quick Answer' } = Astro.props;
+---
+<div class="bg-white border-l-4 border-orange pl-5 pr-5 py-4 rounded-r-xl shadow-sm">
+  <p class="text-xs font-bold text-orange uppercase tracking-widest mb-2">{label}</p>
+  <p class="text-gray-800 text-sm md:text-base leading-relaxed">{answer}</p>
+</div>

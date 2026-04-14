@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://dexmang.github.io/MaximAutosWeb/sitemap-index.xml

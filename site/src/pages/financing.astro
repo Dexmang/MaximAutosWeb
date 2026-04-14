@@ -5,9 +5,24 @@ import Footer from '../components/Footer.astro';
 
 const title = 'Used Car Financing in Skokie, IL — All Credit Levels | Maxim Autos';
 const description = 'Financing for all credit levels at Maxim Autos in Skokie, IL. First-time buyers, rebuilding credit — all welcome. No credit check to browse. Apply in minutes.';
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "Can I get financing with bad credit?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Maxim Autos works with multiple lenders to find financing for all credit levels, including those rebuilding credit. We welcome first-time buyers and buyers with challenged credit." } },
+    { "@type": "Question", "name": "How much down payment do I need?", "acceptedAnswer": { "@type": "Answer", "text": "Down payment requirements vary by lender and credit situation. Text Jerry at (847) 510-8947 to discuss your specific situation — there is no obligation." } },
+    { "@type": "Question", "name": "Does applying affect my credit score?", "acceptedAnswer": { "@type": "Answer", "text": "Browsing inventory has no impact on your credit score. A formal credit application involves a soft or hard inquiry depending on the lender. The pre-qualification form on this page is not a credit application." } },
+    { "@type": "Question", "name": "What interest rates are available?", "acceptedAnswer": { "@type": "Answer", "text": "Rates vary by lender, credit profile, and loan term. Maxim Autos works with multiple lenders to find the best available rate for your situation. The payment calculator on each vehicle listing shows estimated payments across different rates." } },
+    { "@type": "Question", "name": "Can I get financing as a first-time buyer?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Maxim Autos specifically works with lenders who approve first-time buyers. There is no credit history requirement to apply." } }
+  ]
+};
 ---
 
 <Layout title={title} description={description}>
+  <Fragment slot="structured-data">
+    <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+  </Fragment>
   <Header slot="header" />
 
   <!-- Hero -->
@@ -28,8 +43,8 @@ const description = 'Financing for all credit levels at Maxim Autos in Skokie, I
     <div class="max-w-7xl mx-auto px-6 lg:px-8">
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
         {[
-          { icon: 'search_off', title: 'No Credit Check to Browse', text: 'Explore our full inventory online — no impact to your credit score.' },
-          { icon: 'groups', title: 'All Credit Levels', text: 'Good, fair, or rebuilding — we work with lenders who serve every situation.' },
+          { icon: 'search_off', title: 'No Credit Check to Browse', text: 'Explore our full inventory online. No impact to your credit score.' },
+          { icon: 'groups', title: 'All Credit Levels', text: 'Good, fair, or rebuilding. We work with lenders who serve every situation.' },
           { icon: 'person_add', title: 'First-Time Buyers', text: 'Building credit for the first time? We help first-time buyers get approved.' },
           { icon: 'trending_up', title: 'Rebuilding Credit', text: 'A financed vehicle purchase can help rebuild your credit history.' },
         ].map(item => (
@@ -56,7 +71,7 @@ const description = 'Financing for all credit levels at Maxim Autos in Skokie, I
         {[
           { step: '1', title: 'Browse & Choose', text: 'Explore our quality-inspected inventory online or in person. Every vehicle comes with a CARFAX report and independent inspection.', icon: 'inventory_2' },
           { step: '2', title: 'Apply in Minutes', text: 'Fill out the pre-qualification form below or text Jerry directly. We work with multiple lenders to match you with the best rate available.', icon: 'edit_note' },
-          { step: '3', title: 'Drive Home Today with Plates', text: 'Once approved, we handle everything — paperwork, registration, and metal plates on-the-spot. No DMV trip, no temporary tags.', icon: 'directions_car' },
+          { step: '3', title: 'Drive Home Today with Plates', text: 'Once approved, we handle everything: paperwork, registration, and metal plates on-the-spot. No DMV trip, no temporary tags.', icon: 'directions_car' },
         ].map(item => (
           <div class="flex gap-6 items-start bg-white p-8 rounded-xl border border-gray-100">
             <div class="w-14 h-14 bg-orange rounded-2xl flex items-center justify-center shrink-0">
@@ -81,7 +96,10 @@ const description = 'Financing for all credit levels at Maxim Autos in Skokie, I
         <p class="text-gray-600 text-lg">No obligation. No impact to your credit score.</p>
       </div>
 
-      <form action="#" method="POST" class="space-y-6 bg-surface p-8 rounded-2xl border border-gray-200">
+      <!-- TODO: Replace YOUR_FINANCING_FORM_ID with your Formspree form ID from formspree.io -->
+      <form id="financing-form" action="https://formspree.io/f/YOUR_FINANCING_FORM_ID" method="POST" class="space-y-6 bg-surface p-8 rounded-2xl border border-gray-200">
+        <input type="hidden" name="_subject" value="Financing Pre-Qualification — Maxim Autos" />
+        <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" />
         <div>
           <label for="fin-name" class="block text-sm font-medium text-gray-700 mb-2">Full Name</label>
           <input
@@ -175,3 +193,34 @@ const description = 'Financing for all credit levels at Maxim Autos in Skokie, I
 
   <Footer slot="footer" />
 </Layout>
+
+<script is:inline>
+(function () {
+  var form = document.getElementById('financing-form');
+  if (!form) return;
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var btn = form.querySelector('button[type="submit"]');
+    var origText = btn.innerHTML;
+    btn.disabled = true;
+    btn.innerHTML = '<span class="material-symbols-outlined">sync</span> Submitting...';
+    fetch(form.action, {
+      method: 'POST',
+      body: new FormData(form),
+      headers: { 'Accept': 'application/json' }
+    }).then(function (res) {
+      if (res.ok) {
+        form.innerHTML = '<div class="text-center py-12"><span class="material-symbols-outlined text-5xl text-green-500 mb-4 block" style="font-variation-settings:\'FILL\' 1;">check_circle</span><h3 class="font-headline text-xl font-bold text-navy mb-2">Pre-Qualification Submitted!</h3><p class="text-gray-600 mb-4">Jerry will follow up with financing options. Usually same day.</p><a href="sms:8475108947&body=Hi Jerry, I just submitted a financing pre-qualification on your website." class="inline-flex items-center gap-2 bg-orange text-white px-6 py-3 rounded-xl font-bold hover:bg-orange-dark transition-colors"><span class="material-symbols-outlined" style="font-variation-settings:\'FILL\' 1;">sms</span>Text Jerry to Follow Up</a></div>';
+      } else {
+        btn.disabled = false;
+        btn.innerHTML = origText;
+        alert('Something went wrong. Please text Jerry directly at (847) 510-8947.');
+      }
+    }).catch(function () {
+      btn.disabled = false;
+      btn.innerHTML = origText;
+      alert('Something went wrong. Please text Jerry directly at (847) 510-8947.');
+    });
+  });
+})();
+</script>

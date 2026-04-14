@@ -6,6 +6,38 @@ import Footer from '../components/Footer.astro';
 const title = 'Contact Maxim Autos — Used Car Dealer Skokie, IL';
 const description = 'Contact Maxim Autos in Skokie, IL. Call (847) 510-8947, text Jerry, or visit us. Mon/Tue/Thu/Fri 3-7PM, Sat 10AM-3PM. After-hours appointments welcome.';
 
+const localBusinessSchema = {
+  "@context": "https://schema.org",
+  "@type": "AutoDealer",
+  "name": "Maxim Autos",
+  "url": "https://maximautos.com",
+  "telephone": "+1-847-510-8947",
+  "email": "jerryf@maximautos.com",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "9101 Terminal Ave",
+    "addressLocality": "Skokie",
+    "addressRegion": "IL",
+    "postalCode": "60077",
+    "addressCountry": "US"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 42.0334,
+    "longitude": -87.7334
+  },
+  "openingHoursSpecification": [
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Thursday","Friday"], "opens": "15:00", "closes": "19:00" },
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": "Saturday", "opens": "10:00", "closes": "15:00" }
+  ],
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "5.0",
+    "reviewCount": "34",
+    "bestRating": "5"
+  }
+};
+
 const hours = [
   { days: 'Monday', time: '3:00 PM – 7:00 PM' },
   { days: 'Tuesday', time: '3:00 PM – 7:00 PM' },
@@ -18,6 +50,9 @@ const hours = [
 ---
 
 <Layout title={title} description={description}>
+  <Fragment slot="structured-data">
+    <script type="application/ld+json" set:html={JSON.stringify(localBusinessSchema)} />
+  </Fragment>
   <Header slot="header" />
 
   <!-- Hero -->
@@ -62,7 +97,7 @@ const hours = [
               <span class="material-symbols-outlined text-orange text-2xl mt-0.5" style="font-variation-settings: 'FILL' 1;">location_on</span>
               <div>
                 <p class="font-bold text-gray-900">Address</p>
-                <p class="text-gray-600">Skokie, IL 60077</p>
+                <p class="text-gray-600">9101 Terminal Ave<br/>Skokie, IL 60077</p>
               </div>
             </div>
             <div class="flex items-start gap-4">
@@ -101,20 +136,28 @@ const hours = [
             After-hours appointments welcome — text Jerry at (847) 510-8947
           </p>
 
-          <!-- Map Placeholder -->
-          <div class="bg-surface rounded-xl border border-gray-200 aspect-video flex items-center justify-center">
-            <div class="text-center text-gray-400">
-              <span class="material-symbols-outlined text-5xl mb-2 block">map</span>
-              <p class="text-sm">Google Maps embed</p>
-              <p class="text-xs">Skokie, IL 60077</p>
-            </div>
+          <!-- Google Maps Embed -->
+          <div class="rounded-xl overflow-hidden border border-gray-200 aspect-video">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2966.8!2d-87.7334!3d42.0334!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x880fcf6b0e2d2c0f%3A0x1!2sMaxim+Autos%2C+9101+Terminal+Ave%2C+Skokie%2C+IL+60077!5e0!3m2!1sen!2sus!4v1"
+              width="100%"
+              height="100%"
+              style="border:0;"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              title="Maxim Autos location — 9101 Terminal Ave, Skokie IL"
+            ></iframe>
           </div>
         </div>
 
         <!-- Right: Contact Form -->
         <div>
           <h2 class="font-headline text-2xl font-extrabold mb-8">Send a Message</h2>
-          <form action="#" method="POST" class="space-y-6">
+          <!-- TODO: Replace YOUR_CONTACT_FORM_ID with your Formspree form ID from formspree.io -->
+          <form id="contact-form" action="https://formspree.io/f/YOUR_CONTACT_FORM_ID" method="POST" class="space-y-6">
+            <input type="hidden" name="_subject" value="Contact Form — Maxim Autos" />
+            <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" />
             <div>
               <label for="contact-name" class="block text-sm font-medium text-gray-700 mb-2">Name</label>
               <input
@@ -186,3 +229,34 @@ const hours = [
 
   <Footer slot="footer" />
 </Layout>
+
+<script is:inline>
+(function () {
+  var form = document.getElementById('contact-form');
+  if (!form) return;
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var btn = form.querySelector('button[type="submit"]');
+    var origText = btn.innerHTML;
+    btn.disabled = true;
+    btn.innerHTML = '<span class="material-symbols-outlined animate-spin">sync</span> Sending...';
+    fetch(form.action, {
+      method: 'POST',
+      body: new FormData(form),
+      headers: { 'Accept': 'application/json' }
+    }).then(function (res) {
+      if (res.ok) {
+        form.innerHTML = '<div class="text-center py-12"><span class="material-symbols-outlined text-5xl text-green-500 mb-4 block" style="font-variation-settings:\'FILL\' 1;">check_circle</span><h3 class="font-headline text-xl font-bold text-navy mb-2">Message Sent!</h3><p class="text-gray-600">Jerry will follow up shortly. After hours? He checks texts too.</p></div>';
+      } else {
+        btn.disabled = false;
+        btn.innerHTML = origText;
+        alert('Something went wrong. Please text Jerry directly at (847) 510-8947.');
+      }
+    }).catch(function () {
+      btn.disabled = false;
+      btn.innerHTML = origText;
+      alert('Something went wrong. Please text Jerry directly at (847) 510-8947.');
+    });
+  });
+})();
+</script>

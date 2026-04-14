@@ -90,6 +90,16 @@ const canonical = canonicalUrl || Astro.url.href;
 
     <!-- Structured Data Slot -->
     <slot name="structured-data" />
+
+    <!-- Google Analytics 4 -->
+    <!-- TODO: Replace G-XXXXXXXXXX with your GA4 Measurement ID from analytics.google.com -->
+    <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-XXXXXXXXXX');
+    </script> -->
   </head>
   <body class="bg-surface font-body text-gray-900 antialiased">
     <slot name="header" />
@@ -111,6 +121,31 @@ const canonical = canonicalUrl || Astro.url.href;
       <slot />
     </main>
     <slot name="footer" />
+
+    <!-- ============================================================
+         TAWK.TO LIVE CHAT — replaces the custom chat widget below
+         Setup: 1) Go to tawk.to and create a free account
+                2) Add a property for maximautos.com
+                3) Get your Property ID and Widget ID
+                4) Replace PROPERTY_ID and WIDGET_ID below
+                5) Delete the "Floating Chat Widget" section below
+         ============================================================
+    -->
+    <!--
+    <script type="text/javascript">
+      var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+      Tawk_API.visitor = { name: 'Visitor', email: '' };
+      Tawk_API.customStyle = { visibility: { desktop: { position: 'br', xOffset: 24, yOffset: 24 }, mobile: { position: 'br', xOffset: 12, yOffset: 60 } } };
+      (function(){
+        var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+        s1.async=true;
+        s1.src='https://embed.tawk.to/PROPERTY_ID/WIDGET_ID';
+        s1.charset='UTF-8';
+        s1.setAttribute('crossorigin','*');
+        s0.parentNode.insertBefore(s1,s0);
+      })();
+    </script>
+    -->
 
     <!-- Floating Chat Widget -->
     <div id="chat-widget" class="fixed bottom-6 right-6 z-50 flex flex-col items-end gap-3">

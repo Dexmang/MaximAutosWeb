@@ -1,0 +1,357 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import VehicleCard from '../components/VehicleCard.astro';
+import QuickAnswer from '../components/QuickAnswer.astro';
+import vehicles from '../data/vehicles.json';
+import suburbs from '../data/suburbs.json';
+
+export function getStaticPaths() {
+  return suburbs.map(suburb => ({
+    params: { city: suburb.slug },
+    props: { suburb },
+  }));
+}
+
+interface Props {
+  suburb: (typeof suburbs)[0];
+}
+
+const { suburb } = Astro.props;
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+
+const available = vehicles.filter(v => v.status === 'available');
+const minPrice = Math.min(...available.map(v => v.price));
+const maxPrice = Math.max(...available.map(v => v.price));
+
+const canonicalUrl = `https://maximautos.com/used-cars-${suburb.slug}-il`;
+
+const title = `Used Cars Near ${suburb.city}, IL`;
+const description = `Looking for used cars near ${suburb.city}, IL? Maxim Autos in Skokie is just ${suburb.distanceMiles} miles away, about a ${suburb.driveTimeMin}-minute drive. ${available.length} fully inspected vehicles from $${minPrice.toLocaleString()} to $${maxPrice.toLocaleString()}. Free CARFAX, same-day metal plates, financing for all credit levels.`;
+const quickAnswer = `Maxim Autos is a used car dealer in Skokie, IL serving ${suburb.city} and the surrounding area. The dealership is ${suburb.distanceMiles} miles from ${suburb.city}, about a ${suburb.driveTimeMin}-minute drive. Current inventory includes ${available.length} fully inspected used cars priced from $${minPrice.toLocaleString()} to $${maxPrice.toLocaleString()}. Every vehicle includes a free CARFAX report and same-day metal plates are issued on-the-spot. Financing is available for all credit levels, including first-time buyers. Located at 9101 Terminal Ave, Skokie, IL 60077. Call or text (847) 510-8947.`;
+
+const otherSuburbs = suburbs.filter(s => s.slug !== suburb.slug);
+
+const localBusinessSchema = {
+  "@context": "https://schema.org",
+  "@type": "AutoDealer",
+  "name": "Maxim Autos",
+  "url": "https://maximautos.com",
+  "telephone": "+1-847-510-8947",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "9101 Terminal Ave",
+    "addressLocality": "Skokie",
+    "addressRegion": "IL",
+    "postalCode": "60077",
+    "addressCountry": "US"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 42.0334,
+    "longitude": -87.7334
+  },
+  "areaServed": [
+    { "@type": "City", "name": "Skokie", "addressRegion": "IL" },
+    { "@type": "City", "name": suburb.city, "addressRegion": "IL" },
+  ],
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "5.0",
+    "reviewCount": "34",
+    "bestRating": "5"
+  }
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": suburb.faq.map(item => ({
+    "@type": "Question",
+    "name": item.q,
+    "acceptedAnswer": { "@type": "Answer", "text": item.a }
+  }))
+};
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://maximautos.com" },
+    { "@type": "ListItem", "position": 2, "name": "Inventory", "item": "https://maximautos.com/inventory" },
+    { "@type": "ListItem", "position": 3, "name": `Used Cars Near ${suburb.city}, IL`, "item": canonicalUrl }
+  ]
+};
+
+const mapsDirectionsUrl = `https://www.google.com/maps/dir/${encodeURIComponent(suburb.city + ', IL')}/9101+Terminal+Ave+Skokie+IL+60077`;
+---
+
+<Layout title={title} description={description} canonicalUrl={canonicalUrl}>
+  <Fragment slot="structured-data">
+    <script type="application/ld+json" set:html={JSON.stringify(localBusinessSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+  </Fragment>
+  <Header slot="header" />
+
+  <!-- Hero -->
+  <section class="bg-navy py-14 lg:py-20">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+      <!-- Breadcrumb -->
+      <nav class="text-sm text-gray-400 mb-8" aria-label="Breadcrumb">
+        <ol class="flex items-center gap-2 flex-wrap">
+          <li><a href={`${base}/`} class="hover:text-white transition-colors">Home</a></li>
+          <li class="text-gray-600">/</li>
+          <li><a href={`${base}/inventory`} class="hover:text-white transition-colors">Inventory</a></li>
+          <li class="text-gray-600">/</li>
+          <li class="text-gray-300">Used Cars Near {suburb.city}</li>
+        </ol>
+      </nav>
+
+      <div class="text-center">
+        <span class="text-orange font-bold uppercase tracking-widest text-sm mb-3 block">{suburb.city}, IL</span>
+        <h1 class="font-headline text-4xl md:text-5xl lg:text-6xl font-extrabold text-white leading-tight tracking-tight mb-5">
+          Used Cars Near {suburb.city}, IL
+        </h1>
+        <p class="text-xl text-gray-300 max-w-2xl mx-auto leading-relaxed mb-8">
+          {suburb.distanceMiles} miles from {suburb.city}. About {suburb.driveTimeMin} minutes to Maxim Autos in Skokie. Every vehicle fully inspected, free CARFAX, same-day metal plates.
+        </p>
+
+        <!-- Stats Row -->
+        <div class="flex flex-wrap justify-center gap-6 mb-10 text-sm">
+          <div class="flex items-center gap-2 text-gray-300">
+            <span class="material-symbols-outlined text-orange text-base" style="font-variation-settings:'FILL' 1;">location_on</span>
+            {suburb.distanceMiles} miles away
+          </div>
+          <div class="flex items-center gap-2 text-gray-300">
+            <span class="material-symbols-outlined text-orange text-base" style="font-variation-settings:'FILL' 1;">schedule</span>
+            {suburb.driveTimeMin} min drive
+          </div>
+          <div class="flex items-center gap-2 text-gray-300">
+            <span class="material-symbols-outlined text-orange text-base" style="font-variation-settings:'FILL' 1;">star</span>
+            5-Star Google Rating
+          </div>
+          <div class="flex items-center gap-2 text-gray-300">
+            <span class="material-symbols-outlined text-orange text-base" style="font-variation-settings:'FILL' 1;">directions_car</span>
+            {available.length} vehicles in stock
+          </div>
+        </div>
+
+        <div class="flex flex-col sm:flex-row justify-center gap-4">
+          <a href={`sms:8475108947&body=Hi Jerry, I'm looking for a used car near ${suburb.city}. I saw your website.`}
+             class="inline-flex items-center justify-center gap-2 bg-orange text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-orange-dark transition-colors shadow-lg shadow-orange/20">
+            <span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1;">sms</span>
+            Text Jerry
+          </a>
+          <a href={`${base}/inventory`}
+             class="inline-flex items-center justify-center gap-2 bg-white text-navy px-8 py-4 rounded-xl font-bold text-lg hover:bg-gray-100 transition-colors">
+            View All Inventory
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Quick Answer -->
+  <section class="py-10 bg-surface">
+    <div class="max-w-3xl mx-auto px-6 lg:px-8">
+      <QuickAnswer answer={quickAnswer} />
+    </div>
+  </section>
+
+  <!-- Inventory -->
+  <section class="py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+      <div class="flex items-center justify-between mb-8 flex-wrap gap-4">
+        <div>
+          <h2 class="font-headline text-2xl md:text-3xl font-extrabold text-navy">
+            {available.length} Vehicles Available Now
+          </h2>
+          <p class="text-gray-600 mt-1 text-sm">All fully inspected. No dealer fees. Free CARFAX on every car.</p>
+        </div>
+        <a href={`${base}/inventory`}
+           class="inline-flex items-center gap-2 text-orange font-semibold hover:underline text-sm">
+          Full inventory with filters
+          <span class="material-symbols-outlined text-base">arrow_forward</span>
+        </a>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+        {available.map(v => (
+          <VehicleCard
+            slug={v.slug}
+            year={v.year}
+            make={v.make}
+            model={v.model}
+            trim={v.trim}
+            price={v.price}
+            mileage={v.mileage}
+            drivetrain={v.drivetrain}
+            engine={v.engine}
+            bodyStyle={v.bodyStyle}
+            photoPath={v.photoPath}
+            photoPrefix={v.photoPrefix}
+            inspected={v.inspected}
+            primaryPhotoUrl={v.primaryPhotoUrl}
+            photos={v.photos}
+          />
+        ))}
+      </div>
+      <p class="text-xs text-gray-400 mt-4">* Est. payment based on 10% down, 9.9% APR, 60-month term. For illustrative purposes only. Actual terms vary by credit.</p>
+    </div>
+  </section>
+
+  <!-- Why Drive from [City] -->
+  <section class="py-20 bg-surface">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+
+        <!-- Text -->
+        <div>
+          <span class="text-orange font-bold uppercase tracking-widest text-sm mb-3 block">Worth the Drive</span>
+          <h2 class="font-headline text-2xl md:text-3xl font-extrabold mb-5">
+            Why {suburb.city} Buyers Choose Maxim Autos
+          </h2>
+          <p class="text-gray-600 leading-relaxed mb-7">{suburb.whyVisit}</p>
+
+          <ul class="space-y-3 mb-8">
+            {[
+              { icon: 'verified_user', text: 'Independent inspection report included with every vehicle' },
+              { icon: 'description', text: 'Free CARFAX vehicle history report on every car' },
+              { icon: 'credit_card', text: 'Metal plates on-the-spot. No DMV trip.' },
+              { icon: 'visibility', text: 'No hidden fees. No dealer fees. Upfront pricing.' },
+              { icon: 'account_balance', text: 'Financing for all credit levels, including first-time buyers' },
+              { icon: 'person', text: 'Deal directly with Jerry, the owner. No salespeople.' },
+            ].map(item => (
+              <li class="flex items-center gap-3 text-sm text-gray-700">
+                <span class="material-symbols-outlined text-orange text-lg shrink-0" style="font-variation-settings:'FILL' 1;">{item.icon}</span>
+                {item.text}
+              </li>
+            ))}
+          </ul>
+
+          <!-- Directions Card -->
+          <div class="bg-white rounded-xl border border-gray-200 p-5">
+            <h3 class="font-headline font-bold mb-2 flex items-center gap-2 text-navy">
+              <span class="material-symbols-outlined text-orange text-xl" style="font-variation-settings:'FILL' 1;">navigation</span>
+              Directions from {suburb.city}
+            </h3>
+            <p class="text-sm text-gray-600 leading-relaxed mb-3">{suburb.directionsBlurb}</p>
+            <p class="text-sm font-bold text-navy">9101 Terminal Ave, Skokie, IL 60077</p>
+            <a
+              href={mapsDirectionsUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="mt-3 inline-flex items-center gap-1.5 text-orange font-semibold text-sm hover:underline"
+            >
+              <span class="material-symbols-outlined text-base">open_in_new</span>
+              Get directions on Google Maps
+            </a>
+          </div>
+        </div>
+
+        <!-- Map + Stats -->
+        <div>
+          <div class="rounded-2xl overflow-hidden border border-gray-200 shadow-sm" style="aspect-ratio:4/3;">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2966.8!2d-87.7334!3d42.0334!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x880fcf6b0e2d2c0f%3A0x1!2sMaxim+Autos%2C+9101+Terminal+Ave%2C+Skokie%2C+IL+60077!5e0!3m2!1sen!2sus!4v1"
+              width="100%"
+              height="100%"
+              style="border:0;"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              title={`Maxim Autos — directions from ${suburb.city}, IL`}
+            ></iframe>
+          </div>
+
+          <!-- Key Stats -->
+          <div class="grid grid-cols-3 gap-4 mt-5">
+            <div class="text-center bg-white rounded-xl border border-gray-200 p-4">
+              <p class="font-headline text-2xl font-extrabold text-navy">{suburb.distanceMiles}</p>
+              <p class="text-xs text-gray-500 mt-0.5">miles away</p>
+            </div>
+            <div class="text-center bg-white rounded-xl border border-gray-200 p-4">
+              <p class="font-headline text-2xl font-extrabold text-navy">{suburb.driveTimeMin}</p>
+              <p class="text-xs text-gray-500 mt-0.5">min drive</p>
+            </div>
+            <div class="text-center bg-white rounded-xl border border-gray-200 p-4">
+              <p class="font-headline text-2xl font-extrabold text-navy">5★</p>
+              <p class="text-xs text-gray-500 mt-0.5">Google rating</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="py-20 bg-white">
+    <div class="max-w-3xl mx-auto px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <span class="text-orange font-bold uppercase tracking-widest text-sm mb-3 block">FAQ</span>
+        <h2 class="font-headline text-2xl md:text-3xl font-extrabold">
+          Common Questions from {suburb.city} Buyers
+        </h2>
+      </div>
+      <div class="space-y-5">
+        {suburb.faq.map(item => (
+          <div class="bg-surface rounded-xl border border-gray-100 p-6">
+            <h3 class="font-headline font-bold text-navy mb-2">{item.q}</h3>
+            <p class="text-gray-600 leading-relaxed text-sm">{item.a}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Other Suburbs -->
+  <section class="py-14 bg-surface border-t border-gray-200">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8 text-center">
+      <p class="text-sm font-semibold text-gray-500 uppercase tracking-widest mb-5">Also Serving</p>
+      <div class="flex flex-wrap justify-center gap-3">
+        {otherSuburbs.map(s => (
+          <a
+            href={`${base}/used-cars-${s.slug}-il`}
+            class="px-5 py-2.5 rounded-full bg-white border border-gray-200 text-sm font-semibold text-navy hover:border-orange hover:text-orange transition-colors"
+          >
+            {s.city}
+          </a>
+        ))}
+        <a
+          href={`${base}/inventory`}
+          class="px-5 py-2.5 rounded-full bg-navy text-white text-sm font-semibold hover:bg-navy-light transition-colors"
+        >
+          Full Inventory
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-16 bg-orange">
+    <div class="max-w-4xl mx-auto px-6 lg:px-8 text-center">
+      <h2 class="font-headline text-3xl md:text-4xl font-extrabold text-white mb-4">
+        Ready to Make the Trip from {suburb.city}?
+      </h2>
+      <p class="text-white/90 text-lg mb-8">
+        Text Jerry first and he will have everything ready when you arrive. {suburb.driveTimeMin} minutes and you could drive home with plates today.
+      </p>
+      <div class="flex flex-col sm:flex-row justify-center gap-4">
+        <a href={`sms:8475108947&body=Hi Jerry, I'm coming from ${suburb.city} and interested in a vehicle at Maxim Autos.`}
+           class="inline-flex items-center justify-center gap-2 bg-white text-navy px-8 py-4 rounded-xl font-bold text-lg hover:bg-gray-100 transition-colors">
+          <span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1;">sms</span>
+          Text Jerry
+        </a>
+        <a href="tel:8475108947"
+           class="inline-flex items-center justify-center gap-2 bg-navy text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-navy-light transition-colors">
+          <span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1;">call</span>
+          (847) 510-8947
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <Footer slot="footer" />
+</Layout>
