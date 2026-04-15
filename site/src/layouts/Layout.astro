@@ -52,35 +52,6 @@ const canonical = canonicalUrl || Astro.url.href;
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
 
-    <!-- Tailwind CDN -->
-    <script is:inline src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <script is:inline>
-      tailwind.config = {
-        theme: {
-          extend: {
-            colors: {
-              navy: {
-                DEFAULT: '#0a2540',
-                light: '#1a3a5c',
-                dark: '#061a2e',
-              },
-              orange: {
-                DEFAULT: '#f08010',
-                light: '#f59a3e',
-                dark: '#c86a0a',
-              },
-              surface: '#f8f9fa',
-              'surface-dim': '#edeeef',
-            },
-            fontFamily: {
-              headline: ['Manrope', 'sans-serif'],
-              body: ['Inter', 'sans-serif'],
-            },
-          },
-        },
-      }
-    </script>
-
     <!-- Material Symbols -->
     <style is:inline>
       .material-symbols-outlined {
@@ -91,15 +62,17 @@ const canonical = canonicalUrl || Astro.url.href;
     <!-- Structured Data Slot -->
     <slot name="structured-data" />
 
-    <!-- Google Analytics 4 -->
-    <!-- TODO: Replace G-XXXXXXXXXX with your GA4 Measurement ID from analytics.google.com -->
-    <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <!-- Google Search Console Verification -->
+    <!-- TODO: Add meta name="google-site-verification" content="YOUR_VERIFICATION_CODE" here -->
+
+    <!-- Google Analytics 4 — Measurement ID: G-H05CD3EHE9 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-H05CD3EHE9"></script>
     <script is:inline>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-      gtag('config', 'G-XXXXXXXXXX');
-    </script> -->
+      gtag('config', 'G-H05CD3EHE9');
+    </script>
   </head>
   <body class="bg-surface font-body text-gray-900 antialiased">
     <slot name="header" />

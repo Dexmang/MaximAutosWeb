@@ -1,0 +1,336 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const title = 'Terms of Use | Maxim Autos';
+const description = 'Terms of Use for the Maxim Autos website. Covers vehicle sales, financing disclaimers, AS-IS disclosures, and website use policies for our Illinois dealership.';
+const effectiveDate = 'April 15, 2026';
+---
+
+<Layout title={title} description={description}>
+  <Header slot="header" />
+
+  <!-- Hero -->
+  <section class="bg-[#0a2540] py-16 lg:py-20">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8 text-center">
+      <span class="text-orange-500 font-bold uppercase tracking-widest text-sm mb-3 block">Legal</span>
+      <h1 class="font-headline text-4xl md:text-5xl font-extrabold text-white leading-tight tracking-tight mb-6">
+        Terms of Use
+      </h1>
+      <p class="text-lg text-gray-300 max-w-2xl mx-auto leading-relaxed">
+        Effective Date: {effectiveDate}
+      </p>
+    </div>
+  </section>
+
+  <!-- Content -->
+  <section class="py-20 bg-white">
+    <div class="max-w-3xl mx-auto px-6 lg:px-8">
+      <div class="space-y-12 text-gray-700 leading-relaxed text-base">
+
+        <!-- Intro -->
+        <div>
+          <p class="text-lg">
+            These Terms of Use govern your access to and use of the Maxim Autos website at maximautos.com, operated by Maxim Autos, a licensed Illinois used motor vehicle dealer located at <strong>9101 Terminal Ave, Skokie, IL 60077</strong>. By using this website, you agree to these terms. If you do not agree, please do not use the site.
+          </p>
+          <p class="mt-4 text-sm text-gray-500">
+            Maxim Autos is licensed by the Illinois Secretary of State, Department of Business Services, as a Class D Used Vehicle Dealer. Dealer complaints may be directed to the Illinois Secretary of State's office.
+          </p>
+        </div>
+
+        <!-- Section 1 -->
+        <div>
+          <h2 class="font-headline text-2xl font-extrabold text-[#0a2540] mb-4 pb-2 border-b border-gray-100">
+            1. Acceptable Use
+          </h2>
+          <p class="mb-4">You may use this website for lawful purposes only. You agree not to:</p>
+          <ul class="space-y-3 pl-4">
+            <li class="flex gap-3">
+              <span class="material-symbols-outlined text-orange-500 shrink-0 mt-0.5" style="font-variation-settings:'FILL' 1; font-size:1.1rem;">chevron_right</span>
+              <span>Use the site for any unlawful purpose or in violation of applicable federal, state, or local law</span>
+            </li>
+            <li class="flex gap-3">
+              <span class="material-symbols-outlined text-orange-500 shrink-0 mt-0.5" style="font-variation-settings:'FILL' 1; font-size:1.1rem;">chevron_right</span>
+              <span>Attempt to gain unauthorized access to any part of the website or its underlying systems</span>
+            </li>
+            <li class="flex gap-3">
+              <span class="material-symbols-outlined text-orange-500 shrink-0 mt-0.5" style="font-variation-settings:'FILL' 1; font-size:1.1rem;">chevron_right</span>
+              <span>Scrape, harvest, or collect contact information or content from the site using automated means</span>
+            </li>
+            <li class="flex gap-3">
+              <span class="material-symbols-outlined text-orange-500 shrink-0 mt-0.5" style="font-variation-settings:'FILL' 1; font-size:1.1rem;">chevron_right</span>
+              <span>Submit false or misleading information through any form on the site</span>
+            </li>
+            <li class="flex gap-3">
+              <span class="material-symbols-outlined text-orange-500 shrink-0 mt-0.5" style="font-variation-settings:'FILL' 1; font-size:1.1rem;">chevron_right</span>
+              <span>Reproduce, distribute, or display site content without written permission from Maxim Autos</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Section 2: AS-IS -->
+        <div>
+          <h2 class="font-headline text-2xl font-extrabold text-[#0a2540] mb-4 pb-2 border-b border-gray-100">
+            2. Vehicle Sales — AS-IS Disclosure
+          </h2>
+          <div class="p-4 bg-amber-50 rounded-xl border border-amber-200 mb-4">
+            <p class="font-bold text-amber-900 mb-1">Important Notice to All Buyers</p>
+            <p class="text-amber-800 text-sm">
+              Unless a separate written warranty or service contract is provided at the time of sale, all vehicles sold by Maxim Autos are sold <strong>AS-IS, WHERE-IS</strong>. This means the buyer accepts the vehicle in its current condition, with all faults, and Maxim Autos makes no warranties, express or implied, regarding the vehicle's mechanical condition, fitness for purpose, or freedom from defects after the sale.
+            </p>
+          </div>
+          <ul class="space-y-3 pl-4">
+            <li class="flex gap-3">
+              <span class="material-symbols-outlined text-orange-500 shrink-0 mt-0.5" style="font-variation-settings:'FILL' 1; font-size:1.1rem;">chevron_right</span>
+              <span>Buyers are strongly encouraged to have the vehicle independently inspected by a licensed mechanic of their choosing before purchase.</span>
+            </li>
+            <li class="flex gap-3">
+              <span class="material-symbols-outlined text-orange-500 shrink-0 mt-0.5" style="font-variation-settings:'FILL' 1; font-size:1.1rem;">chevron_right</span>
+              <span>A vehicle history report (CARFAX or equivalent) is provided or made available for each vehicle. Review it carefully before purchasing.</span>
+            </li>
+            <li class="flex gap-3">
+              <span class="material-symbols-outlined text-orange-500 shrink-0 mt-0.5" style="font-variation-settings:'FILL' 1; font-size:1.1rem;">chevron_right</span>
+              <span>Where a limited warranty or "Peace of Mind" coverage is offered, the specific terms will be provided in writing at the time of sale. The written warranty document governs, not any verbal representation.</span>
+            </li>
+            <li class="flex gap-3">
+              <span class="material-symbols-outlined text-orange-500 shrink-0 mt-0.5" style="font-variation-settings:'FILL' 1; font-size:1.1rem;">chevron_right</span>
+              <span>Nothing in any website listing or verbal conversation constitutes a warranty unless it is confirmed in a signed written document at the point of sale.</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Section 3: Pricing -->
+        <div>
+          <h2 class="font-headline text-2xl font-extrabold text-[#0a2540] mb-4 pb-2 border-b border-gray-100">
+            3. Pricing Accuracy Disclaimer
+          </h2>
+          <p class="mb-4">
+            Vehicle prices displayed on this website are for informational purposes only and are subject to change without notice. While we make every effort to display accurate and current pricing, we do not guarantee that prices shown are free of error.
+          </p>
+          <div class="p-4 bg-surface rounded-xl border border-gray-100">
+            <p class="text-sm text-gray-600">
+              <strong>Prices shown on the website do not constitute a binding offer.</strong> All vehicle prices are subject to confirmation at the time of sale. If a pricing error occurs, Maxim Autos reserves the right to correct it before finalizing any transaction. Taxes, title fees, plate fees, and applicable government charges are not included in listed prices unless explicitly stated.
+            </p>
+          </div>
+        </div>
+
+        <!-- Section 4: Payment Estimates -->
+        <div>
+          <h2 class="font-headline text-2xl font-extrabold text-[#0a2540] mb-4 pb-2 border-b border-gray-100">
+            4. Payment and Financing Estimate Disclaimer
+          </h2>
+          <p class="mb-4">
+            Any monthly payment estimates, loan calculators, or financing illustrations on this website are for general informational purposes only and do not represent a credit decision, loan commitment, or guaranteed financing offer.
+          </p>
+          <ul class="space-y-3 pl-4">
+            <li class="flex gap-3">
+              <span class="material-symbols-outlined text-orange-500 shrink-0 mt-0.5" style="font-variation-settings:'FILL' 1; font-size:1.1rem;">chevron_right</span>
+              <span>Estimated payments are not a guaranteed financing offer or a commitment to lend.</span>
+            </li>
+            <li class="flex gap-3">
+              <span class="material-symbols-outlined text-orange-500 shrink-0 mt-0.5" style="font-variation-settings:'FILL' 1; font-size:1.1rem;">chevron_right</span>
+              <span>Actual loan terms, interest rates, and monthly payments will depend on your credit profile, the lender, loan amount, down payment, and other factors determined at the time of application.</span>
+            </li>
+            <li class="flex gap-3">
+              <span class="material-symbols-outlined text-orange-500 shrink-0 mt-0.5" style="font-variation-settings:'FILL' 1; font-size:1.1rem;">chevron_right</span>
+              <span>Financing is subject to credit approval by third party lenders. Maxim Autos does not guarantee financing approval or any specific rate.</span>
+            </li>
+            <li class="flex gap-3">
+              <span class="material-symbols-outlined text-orange-500 shrink-0 mt-0.5" style="font-variation-settings:'FILL' 1; font-size:1.1rem;">chevron_right</span>
+              <span>All financed sales are completed through a <strong>Retail Installment Sales Contract (RISC)</strong> executed at the dealership. The RISC is the binding financing agreement and supersedes any estimate shown on this website.</span>
+            </li>
+            <li class="flex gap-3">
+              <span class="material-symbols-outlined text-orange-500 shrink-0 mt-0.5" style="font-variation-settings:'FILL' 1; font-size:1.1rem;">chevron_right</span>
+              <span>Calculator results should not be relied upon for any financial decision. Consult with a qualified financial advisor if needed.</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Section 5: Title and Registration -->
+        <div>
+          <h2 class="font-headline text-2xl font-extrabold text-[#0a2540] mb-4 pb-2 border-b border-gray-100">
+            5. Title and Registration Disclaimer
+          </h2>
+          <p class="mb-4">
+            Maxim Autos processes vehicle title transfers and Illinois license plate registration on behalf of buyers as a convenience service. The following applies to all Illinois title and plate transactions:
+          </p>
+          <ul class="space-y-3 pl-4">
+            <li class="flex gap-3">
+              <span class="material-symbols-outlined text-orange-500 shrink-0 mt-0.5" style="font-variation-settings:'FILL' 1; font-size:1.1rem;">chevron_right</span>
+              <span>Title transfer is processed through the Illinois Secretary of State in accordance with the Illinois Vehicle Code (625 ILCS 5/). Processing times are set by the State and are outside Maxim Autos' control.</span>
+            </li>
+            <li class="flex gap-3">
+              <span class="material-symbols-outlined text-orange-500 shrink-0 mt-0.5" style="font-variation-settings:'FILL' 1; font-size:1.1rem;">chevron_right</span>
+              <span>Metal license plates are issued at the time of sale where inventory is available, subject to Illinois Secretary of State rules and applicable plate fees.</span>
+            </li>
+            <li class="flex gap-3">
+              <span class="material-symbols-outlined text-orange-500 shrink-0 mt-0.5" style="font-variation-settings:'FILL' 1; font-size:1.1rem;">chevron_right</span>
+              <span>Title fees, registration fees, and applicable taxes are the buyer's responsibility and are calculated at the time of sale based on purchase price and Illinois state rates.</span>
+            </li>
+            <li class="flex gap-3">
+              <span class="material-symbols-outlined text-orange-500 shrink-0 mt-0.5" style="font-variation-settings:'FILL' 1; font-size:1.1rem;">chevron_right</span>
+              <span>Federal odometer disclosure law (49 U.S.C. § 32705) requires a written odometer statement at the time of title transfer. Buyers acknowledge receipt of the odometer disclosure as part of the sale documentation.</span>
+            </li>
+            <li class="flex gap-3">
+              <span class="material-symbols-outlined text-orange-500 shrink-0 mt-0.5" style="font-variation-settings:'FILL' 1; font-size:1.1rem;">chevron_right</span>
+              <span>Out-of-state buyers are responsible for registering the vehicle in their home state. Maxim Autos will provide the necessary title documents but is not responsible for the registration requirements of other states.</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Section 6: Inventory Availability -->
+        <div>
+          <h2 class="font-headline text-2xl font-extrabold text-[#0a2540] mb-4 pb-2 border-b border-gray-100">
+            6. Inventory Availability Disclaimer
+          </h2>
+          <p>
+            Vehicle listings on this website reflect current inventory to the best of our ability. However, inventory changes frequently. A vehicle displayed on this website may have been sold, placed under deposit, or removed from sale since the page was last updated. <strong>Availability is not guaranteed until confirmed directly with us.</strong> Contact us before making any trip to the dealership to verify a specific vehicle is still available.
+          </p>
+        </div>
+
+        <!-- Section 7: No Warranty on Website -->
+        <div>
+          <h2 class="font-headline text-2xl font-extrabold text-[#0a2540] mb-4 pb-2 border-b border-gray-100">
+            7. No Warranty on Website Accuracy
+          </h2>
+          <p class="mb-4">
+            This website is provided on an "as is" basis. Maxim Autos makes no warranties, express or implied, regarding the accuracy, completeness, or fitness for any purpose of the content on this site. We do not warrant that:
+          </p>
+          <ul class="space-y-3 pl-4">
+            <li class="flex gap-3">
+              <span class="material-symbols-outlined text-orange-500 shrink-0 mt-0.5" style="font-variation-settings:'FILL' 1; font-size:1.1rem;">chevron_right</span>
+              <span>The website will be available, uninterrupted, or error-free at all times</span>
+            </li>
+            <li class="flex gap-3">
+              <span class="material-symbols-outlined text-orange-500 shrink-0 mt-0.5" style="font-variation-settings:'FILL' 1; font-size:1.1rem;">chevron_right</span>
+              <span>Vehicle descriptions, photos, or specifications are free from error or omission</span>
+            </li>
+            <li class="flex gap-3">
+              <span class="material-symbols-outlined text-orange-500 shrink-0 mt-0.5" style="font-variation-settings:'FILL' 1; font-size:1.1rem;">chevron_right</span>
+              <span>Any defects or errors in the site will be corrected on any particular timeline</span>
+            </li>
+          </ul>
+          <p class="mt-4">
+            Vehicle photos may not represent the exact unit listed and are used for illustrative purposes. Always inspect the physical vehicle before purchasing.
+          </p>
+        </div>
+
+        <!-- Section 8: Arbitration -->
+        <div>
+          <h2 class="font-headline text-2xl font-extrabold text-[#0a2540] mb-4 pb-2 border-b border-gray-100">
+            8. Dispute Resolution
+          </h2>
+          <p class="mb-4">
+            We want to resolve any concerns fairly and directly. If you have a complaint about a vehicle purchase or any transaction with Maxim Autos, please contact us first at <strong>(847) 510-8947</strong> or <strong>jerryf@maximautos.com</strong>. Most issues can be resolved quickly through direct communication.
+          </p>
+          <p class="mb-4">
+            If a dispute cannot be resolved informally, you may also contact:
+          </p>
+          <ul class="space-y-3 pl-4">
+            <li class="flex gap-3">
+              <span class="material-symbols-outlined text-orange-500 shrink-0 mt-0.5" style="font-variation-settings:'FILL' 1; font-size:1.1rem;">chevron_right</span>
+              <span><strong>Illinois Attorney General's Consumer Protection Division</strong> — 1-800-243-0618 (consumer fraud complaints)</span>
+            </li>
+            <li class="flex gap-3">
+              <span class="material-symbols-outlined text-orange-500 shrink-0 mt-0.5" style="font-variation-settings:'FILL' 1; font-size:1.1rem;">chevron_right</span>
+              <span><strong>Illinois Secretary of State, Department of Business Services</strong> — for dealer licensing complaints</span>
+            </li>
+            <li class="flex gap-3">
+              <span class="material-symbols-outlined text-orange-500 shrink-0 mt-0.5" style="font-variation-settings:'FILL' 1; font-size:1.1rem;">chevron_right</span>
+              <span><strong>Federal Trade Commission (FTC)</strong> — for complaints about vehicle advertising or financing disclosures</span>
+            </li>
+          </ul>
+          <p class="mt-4">
+            Nothing in these Terms limits your right to file a complaint with any state or federal regulatory agency.
+          </p>
+        </div>
+
+        <!-- Section 9: Limitation of Liability -->
+        <div>
+          <h2 class="font-headline text-2xl font-extrabold text-[#0a2540] mb-4 pb-2 border-b border-gray-100">
+            9. Limitation of Liability
+          </h2>
+          <p>
+            To the fullest extent permitted by applicable law, Maxim Autos shall not be liable for any indirect, incidental, special, consequential, or punitive damages arising from your use of, or inability to use, this website or any content on it. This includes but is not limited to reliance on pricing, availability, or payment estimates displayed on the site. This limitation does not apply to direct claims arising from a completed vehicle sale transaction.
+          </p>
+        </div>
+
+        <!-- Section 10: Third Party Links -->
+        <div>
+          <h2 class="font-headline text-2xl font-extrabold text-[#0a2540] mb-4 pb-2 border-b border-gray-100">
+            10. Third-Party Links
+          </h2>
+          <p>
+            This website may contain links to third party websites such as CARFAX, financing partners, or listing platforms. These links are provided for your convenience only. Maxim Autos does not control those sites and is not responsible for their content, privacy practices, or accuracy. Visiting a third party site is at your own risk.
+          </p>
+        </div>
+
+        <!-- Section 11: Intellectual Property -->
+        <div>
+          <h2 class="font-headline text-2xl font-extrabold text-[#0a2540] mb-4 pb-2 border-b border-gray-100">
+            11. Intellectual Property
+          </h2>
+          <p>
+            All content on this website (including text, logos, vehicle photos, layout, and code) is the property of Maxim Autos or is used with permission. You may not copy, reproduce, republish, or redistribute any content from this site for commercial purposes without prior written consent from Maxim Autos.
+          </p>
+        </div>
+
+        <!-- Section 12: Governing Law -->
+        <div>
+          <h2 class="font-headline text-2xl font-extrabold text-[#0a2540] mb-4 pb-2 border-b border-gray-100">
+            12. Governing Law and Jurisdiction
+          </h2>
+          <p>
+            These Terms of Use are governed by the laws of the State of Illinois, including the Illinois Consumer Fraud and Deceptive Business Practices Act (ICFA) (815 ILCS 505/) and the Illinois Vehicle Code (625 ILCS 5/), without regard to conflict of law provisions. Any disputes arising from your use of this website shall be subject to the exclusive jurisdiction of the state and federal courts located in Cook County, Illinois. By using this site, you consent to personal jurisdiction in those courts.
+          </p>
+        </div>
+
+        <!-- Section 13: Changes -->
+        <div>
+          <h2 class="font-headline text-2xl font-extrabold text-[#0a2540] mb-4 pb-2 border-b border-gray-100">
+            13. Changes to These Terms
+          </h2>
+          <p>
+            We may update these Terms of Use at any time. Updated terms take effect as of the Effective Date shown at the top of this page. Continued use of the website after any update means you accept the revised terms.
+          </p>
+        </div>
+
+        <!-- Section 14: Contact -->
+        <div>
+          <h2 class="font-headline text-2xl font-extrabold text-[#0a2540] mb-4 pb-2 border-b border-gray-100">
+            14. Contact Us
+          </h2>
+          <p class="mb-4">Questions about these Terms? Reach us directly:</p>
+          <div class="p-5 bg-surface rounded-xl border border-gray-100">
+            <p class="font-bold text-gray-900 mb-1">Maxim Autos</p>
+            <p class="text-gray-600">9101 Terminal Ave, Skokie, IL 60077</p>
+            <p class="text-gray-600">Phone: <a href="tel:8475108947" class="text-orange-500 hover:underline">(847) 510-8947</a></p>
+            <p class="text-gray-600">Email: <a href="mailto:jerryf@maximautos.com" class="text-orange-500 hover:underline">jerryf@maximautos.com</a></p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-16 bg-surface">
+    <div class="max-w-3xl mx-auto px-6 lg:px-8 text-center">
+      <h2 class="font-headline text-2xl md:text-3xl font-extrabold mb-4">Questions About These Terms?</h2>
+      <p class="text-gray-600 text-lg mb-8">We keep things transparent. Contact us any time.</p>
+      <div class="flex flex-col sm:flex-row justify-center gap-4">
+        <a href="tel:8475108947" class="inline-flex items-center justify-center gap-2 bg-[#0a2540] text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-[#1a3a5c] transition-colors">
+          <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">call</span>
+          Call (847) 510-8947
+        </a>
+        <a href={`${base}/contact`} class="inline-flex items-center justify-center gap-2 bg-orange-500 text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-orange-600 transition-colors">
+          Contact Page
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <Footer slot="footer" />
+</Layout>

@@ -1,0 +1,322 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const title = 'Privacy Policy | Maxim Autos';
+const description = 'Privacy Policy for Maxim Autos. Learn how we collect, use, and protect your personal information as an Illinois licensed auto dealer.';
+const effectiveDate = 'April 15, 2026';
+---
+
+<Layout title={title} description={description}>
+  <Header slot="header" />
+
+  <!-- Hero -->
+  <section class="bg-[#0a2540] py-16 lg:py-20">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8 text-center">
+      <span class="text-orange-500 font-bold uppercase tracking-widest text-sm mb-3 block">Legal</span>
+      <h1 class="font-headline text-4xl md:text-5xl font-extrabold text-white leading-tight tracking-tight mb-6">
+        Privacy Policy
+      </h1>
+      <p class="text-lg text-gray-300 max-w-2xl mx-auto leading-relaxed">
+        Effective Date: {effectiveDate}
+      </p>
+    </div>
+  </section>
+
+  <!-- Content -->
+  <section class="py-20 bg-white">
+    <div class="max-w-3xl mx-auto px-6 lg:px-8">
+      <div class="prose-style space-y-12 text-gray-700 leading-relaxed text-base">
+
+        <!-- Intro -->
+        <div>
+          <p class="text-lg">
+            Maxim Autos ("we," "us," or "our") is a licensed Illinois used motor vehicle dealer operating the website at maximautos.com. This Privacy Policy explains what information we collect, how we use it, who we share it with, and your rights as a consumer. We keep it plain and direct with no fine print.
+          </p>
+          <p class="mt-4">
+            Our physical location is <strong>9101 Terminal Ave, Skokie, IL 60077</strong>. You can reach us by phone at <strong>(847) 510-8947</strong> or by email at <strong>jerryf@maximautos.com</strong>.
+          </p>
+        </div>
+
+        <!-- Section 1 -->
+        <div>
+          <h2 class="font-headline text-2xl font-extrabold text-[#0a2540] mb-4 pb-2 border-b border-gray-100">
+            1. Information We Collect
+          </h2>
+          <p class="mb-4">We only collect information you choose to give us. This may include:</p>
+          <ul class="space-y-3 pl-4">
+            <li class="flex gap-3">
+              <span class="material-symbols-outlined text-orange-500 shrink-0 mt-0.5" style="font-variation-settings:'FILL' 1; font-size:1.1rem;">chevron_right</span>
+              <span><strong>Contact details:</strong> name, phone number, email address, and mailing address when you fill out a contact or inquiry form.</span>
+            </li>
+            <li class="flex gap-3">
+              <span class="material-symbols-outlined text-orange-500 shrink-0 mt-0.5" style="font-variation-settings:'FILL' 1; font-size:1.1rem;">chevron_right</span>
+              <span><strong>Vehicle interest:</strong> stock number, VIN, or other vehicle details you reference in an inquiry.</span>
+            </li>
+            <li class="flex gap-3">
+              <span class="material-symbols-outlined text-orange-500 shrink-0 mt-0.5" style="font-variation-settings:'FILL' 1; font-size:1.1rem;">chevron_right</span>
+              <span><strong>Financial information:</strong> income, employment status, Social Security Number, date of birth, and credit information submitted through a credit application for financing purposes. This data is governed by the federal Gramm-Leach-Bliley Act (GLBA) and is handled in accordance with Section 6 below.</span>
+            </li>
+            <li class="flex gap-3">
+              <span class="material-symbols-outlined text-orange-500 shrink-0 mt-0.5" style="font-variation-settings:'FILL' 1; font-size:1.1rem;">chevron_right</span>
+              <span><strong>Driver's license and identity documents:</strong> when required for a test drive, vehicle sale, or title transfer under Illinois law.</span>
+            </li>
+            <li class="flex gap-3">
+              <span class="material-symbols-outlined text-orange-500 shrink-0 mt-0.5" style="font-variation-settings:'FILL' 1; font-size:1.1rem;">chevron_right</span>
+              <span><strong>Text and SMS messages:</strong> content of text conversations you initiate with us through the site or by texting our number directly.</span>
+            </li>
+          </ul>
+          <div class="mt-6 p-4 bg-surface rounded-xl border border-gray-100">
+            <p class="text-sm text-gray-600">
+              <strong>Cookies and tracking:</strong> We do not currently use cookies, analytics scripts, or tracking pixels on this website. If we add analytics in the future (such as Google Analytics), we will update this policy and add a cookie notice. We do not collect biometric identifiers or biometric information as defined under the Illinois Biometric Information Privacy Act (BIPA).
+            </p>
+          </div>
+        </div>
+
+        <!-- Section 2 -->
+        <div>
+          <h2 class="font-headline text-2xl font-extrabold text-[#0a2540] mb-4 pb-2 border-b border-gray-100">
+            2. How We Use Your Information
+          </h2>
+          <p class="mb-4">We use the information you provide to:</p>
+          <ul class="space-y-3 pl-4">
+            <li class="flex gap-3">
+              <span class="material-symbols-outlined text-orange-500 shrink-0 mt-0.5" style="font-variation-settings:'FILL' 1; font-size:1.1rem;">chevron_right</span>
+              <span>Respond to your questions and inquiries about vehicles</span>
+            </li>
+            <li class="flex gap-3">
+              <span class="material-symbols-outlined text-orange-500 shrink-0 mt-0.5" style="font-variation-settings:'FILL' 1; font-size:1.1rem;">chevron_right</span>
+              <span>Process financing applications and connect you with lenders</span>
+            </li>
+            <li class="flex gap-3">
+              <span class="material-symbols-outlined text-orange-500 shrink-0 mt-0.5" style="font-variation-settings:'FILL' 1; font-size:1.1rem;">chevron_right</span>
+              <span>Schedule appointments and test drives</span>
+            </li>
+            <li class="flex gap-3">
+              <span class="material-symbols-outlined text-orange-500 shrink-0 mt-0.5" style="font-variation-settings:'FILL' 1; font-size:1.1rem;">chevron_right</span>
+              <span>Complete a vehicle sale, including odometer disclosure, title transfer, and plate registration</span>
+            </li>
+            <li class="flex gap-3">
+              <span class="material-symbols-outlined text-orange-500 shrink-0 mt-0.5" style="font-variation-settings:'FILL' 1; font-size:1.1rem;">chevron_right</span>
+              <span>Follow up with you on a vehicle you expressed interest in</span>
+            </li>
+            <li class="flex gap-3">
+              <span class="material-symbols-outlined text-orange-500 shrink-0 mt-0.5" style="font-variation-settings:'FILL' 1; font-size:1.1rem;">chevron_right</span>
+              <span>Comply with Illinois state law, IDOT regulations, and federal requirements applicable to licensed motor vehicle dealers</span>
+            </li>
+          </ul>
+          <p class="mt-4">We do not sell your personal information to third parties for marketing purposes.</p>
+        </div>
+
+        <!-- Section 3 -->
+        <div>
+          <h2 class="font-headline text-2xl font-extrabold text-[#0a2540] mb-4 pb-2 border-b border-gray-100">
+            3. Who We Share Your Information With
+          </h2>
+          <p class="mb-4">We share your information only when necessary to provide our services:</p>
+          <ul class="space-y-3 pl-4">
+            <li class="flex gap-3">
+              <span class="material-symbols-outlined text-orange-500 shrink-0 mt-0.5" style="font-variation-settings:'FILL' 1; font-size:1.1rem;">chevron_right</span>
+              <span><strong>Formspree:</strong> our website contact forms are processed by Formspree, Inc. When you submit a form, your data is transmitted to Formspree and forwarded to us. Formspree's privacy policy is available at formspree.io/legal/privacy-policy.</span>
+            </li>
+            <li class="flex gap-3">
+              <span class="material-symbols-outlined text-orange-500 shrink-0 mt-0.5" style="font-variation-settings:'FILL' 1; font-size:1.1rem;">chevron_right</span>
+              <span><strong>Financing partners and lenders:</strong> if you submit a credit application, your financial information is shared with our lending partners to process your application. These lenders operate under their own privacy notices and are subject to the federal Gramm-Leach-Bliley Act (GLBA), which governs how financial institutions handle your nonpublic personal information.</span>
+            </li>
+            <li class="flex gap-3">
+              <span class="material-symbols-outlined text-orange-500 shrink-0 mt-0.5" style="font-variation-settings:'FILL' 1; font-size:1.1rem;">chevron_right</span>
+              <span><strong>Illinois Secretary of State:</strong> vehicle title transfer and plate registration require submitting buyer information to the State of Illinois as required by the Illinois Vehicle Code (625 ILCS 5/).</span>
+            </li>
+            <li class="flex gap-3">
+              <span class="material-symbols-outlined text-orange-500 shrink-0 mt-0.5" style="font-variation-settings:'FILL' 1; font-size:1.1rem;">chevron_right</span>
+              <span><strong>Dealer management and listing platforms:</strong> we use dealer software (such as DealerCenter) and third party listing platforms (such as CarGurus, Facebook Marketplace) to manage inventory. These platforms may receive limited vehicle and inquiry data as part of normal dealership operations.</span>
+            </li>
+            <li class="flex gap-3">
+              <span class="material-symbols-outlined text-orange-500 shrink-0 mt-0.5" style="font-variation-settings:'FILL' 1; font-size:1.1rem;">chevron_right</span>
+              <span><strong>Law enforcement and legal process:</strong> if required by court order, subpoena, or applicable law, we may disclose information to comply with legal obligations.</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Section 4 -->
+        <div>
+          <h2 class="font-headline text-2xl font-extrabold text-[#0a2540] mb-4 pb-2 border-b border-gray-100">
+            4. SMS and Text Message Consent
+          </h2>
+          <p class="mb-4">
+            When you initiate a text conversation with us (via a link on this website or by texting our number directly), you are providing consent to receive SMS responses related to your inquiry. We do not use any automated text messaging platform or mass texting service.
+          </p>
+          <ul class="space-y-3 pl-4">
+            <li class="flex gap-3">
+              <span class="material-symbols-outlined text-orange-500 shrink-0 mt-0.5" style="font-variation-settings:'FILL' 1; font-size:1.1rem;">chevron_right</span>
+              <span>We will only text you in reply to your inquiry or about the specific vehicle you asked about.</span>
+            </li>
+            <li class="flex gap-3">
+              <span class="material-symbols-outlined text-orange-500 shrink-0 mt-0.5" style="font-variation-settings:'FILL' 1; font-size:1.1rem;">chevron_right</span>
+              <span>We do not send bulk promotional texts or add you to a marketing list.</span>
+            </li>
+            <li class="flex gap-3">
+              <span class="material-symbols-outlined text-orange-500 shrink-0 mt-0.5" style="font-variation-settings:'FILL' 1; font-size:1.1rem;">chevron_right</span>
+              <span>You can opt out at any time by replying STOP to any message from us. Message and data rates may apply depending on your carrier plan.</span>
+            </li>
+            <li class="flex gap-3">
+              <span class="material-symbols-outlined text-orange-500 shrink-0 mt-0.5" style="font-variation-settings:'FILL' 1; font-size:1.1rem;">chevron_right</span>
+              <span>Your mobile number and text message content are never sold or shared with third parties for marketing purposes.</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Section 5 -->
+        <div>
+          <h2 class="font-headline text-2xl font-extrabold text-[#0a2540] mb-4 pb-2 border-b border-gray-100">
+            5. Data Security
+          </h2>
+          <p>
+            We take reasonable steps to protect your personal information from unauthorized access, disclosure, or misuse. Contact forms are transmitted over HTTPS. Financial data submitted through credit applications is handled by our lending partners through their secure systems, which are subject to federal financial institution data security standards. No method of transmission over the internet is 100% secure, and we cannot guarantee absolute security. In the event of a data breach affecting your information, we will notify you as required by applicable Illinois law.
+          </p>
+        </div>
+
+        <!-- Section 6: GLBA -->
+        <div>
+          <h2 class="font-headline text-2xl font-extrabold text-[#0a2540] mb-4 pb-2 border-b border-gray-100">
+            6. Financial Privacy (GLBA Notice)
+          </h2>
+          <p class="mb-4">
+            As a licensed auto dealer that arranges financing, Maxim Autos is subject to the federal <strong>Gramm-Leach-Bliley Act (GLBA)</strong> with respect to nonpublic personal financial information collected in connection with a credit or financing transaction.
+          </p>
+          <ul class="space-y-3 pl-4">
+            <li class="flex gap-3">
+              <span class="material-symbols-outlined text-orange-500 shrink-0 mt-0.5" style="font-variation-settings:'FILL' 1; font-size:1.1rem;">chevron_right</span>
+              <span>We collect financial information (such as income, employment, Social Security Number, and credit history) only for the purpose of arranging or processing a vehicle financing transaction.</span>
+            </li>
+            <li class="flex gap-3">
+              <span class="material-symbols-outlined text-orange-500 shrink-0 mt-0.5" style="font-variation-settings:'FILL' 1; font-size:1.1rem;">chevron_right</span>
+              <span>We share this information only with lending institutions that you are applying to through us. We do not sell or share your financial data with any marketing company.</span>
+            </li>
+            <li class="flex gap-3">
+              <span class="material-symbols-outlined text-orange-500 shrink-0 mt-0.5" style="font-variation-settings:'FILL' 1; font-size:1.1rem;">chevron_right</span>
+              <span>Each lender we work with provides their own GLBA-compliant privacy notice at the time of application. You should review their notice as well.</span>
+            </li>
+            <li class="flex gap-3">
+              <span class="material-symbols-outlined text-orange-500 shrink-0 mt-0.5" style="font-variation-settings:'FILL' 1; font-size:1.1rem;">chevron_right</span>
+              <span>If you do not wish to proceed with financing, you are not required to submit any financial information to us.</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Section 7 -->
+        <div>
+          <h2 class="font-headline text-2xl font-extrabold text-[#0a2540] mb-4 pb-2 border-b border-gray-100">
+            7. How Long We Keep Your Information
+          </h2>
+          <p>
+            We retain inquiry and customer records for as long as reasonably necessary for business and legal purposes. Records related to completed vehicle sales, including title documents, odometer disclosures, and bill of sale records, are retained as required by Illinois dealer licensing law and the Illinois Vehicle Code. Financial records related to Retail Installment Sales Contracts (RISCs) are retained as required by applicable federal and state law. You may request deletion of your non-transactional data at any time (see Section 9).
+          </p>
+        </div>
+
+        <!-- Section 8: Illinois Consumer Rights -->
+        <div>
+          <h2 class="font-headline text-2xl font-extrabold text-[#0a2540] mb-4 pb-2 border-b border-gray-100">
+            8. Your Rights as an Illinois Consumer
+          </h2>
+          <p class="mb-4">
+            Illinois residents have rights under the <strong>Illinois Consumer Fraud and Deceptive Business Practices Act (ICFA)</strong>, the <strong>Illinois Personal Information Protection Act (PIPA)</strong>, the <strong>Illinois Biometric Information Privacy Act (BIPA)</strong> (we collect no biometric data), and related state consumer protection laws. These rights include:
+          </p>
+          <ul class="space-y-3 pl-4">
+            <li class="flex gap-3">
+              <span class="material-symbols-outlined text-orange-500 shrink-0 mt-0.5" style="font-variation-settings:'FILL' 1; font-size:1.1rem;">chevron_right</span>
+              <span>The right to know what personal information we hold about you</span>
+            </li>
+            <li class="flex gap-3">
+              <span class="material-symbols-outlined text-orange-500 shrink-0 mt-0.5" style="font-variation-settings:'FILL' 1; font-size:1.1rem;">chevron_right</span>
+              <span>The right to request correction of inaccurate information</span>
+            </li>
+            <li class="flex gap-3">
+              <span class="material-symbols-outlined text-orange-500 shrink-0 mt-0.5" style="font-variation-settings:'FILL' 1; font-size:1.1rem;">chevron_right</span>
+              <span>The right to request deletion of your personal data, subject to any legal retention obligations</span>
+            </li>
+            <li class="flex gap-3">
+              <span class="material-symbols-outlined text-orange-500 shrink-0 mt-0.5" style="font-variation-settings:'FILL' 1; font-size:1.1rem;">chevron_right</span>
+              <span>The right to opt out of any future marketing communications from us</span>
+            </li>
+          </ul>
+          <p class="mt-4">
+            We do not sell your personal information. If our data practices change in a way that would constitute a "sale" under applicable law, we will update this policy and provide opt-out mechanisms before doing so.
+          </p>
+        </div>
+
+        <!-- Section 9: California / CCPA -->
+        <div>
+          <h2 class="font-headline text-2xl font-extrabold text-[#0a2540] mb-4 pb-2 border-b border-gray-100">
+            9. California Residents (CCPA / CPRA)
+          </h2>
+          <p class="mb-4">
+            Although Maxim Autos is an Illinois business, California residents who interact with our website have rights under the <strong>California Consumer Privacy Act (CCPA)</strong> as amended by the <strong>California Privacy Rights Act (CPRA)</strong>. These include the right to know, the right to delete, the right to correct, the right to opt out of the sale of personal information, and the right to non-discrimination for exercising these rights.
+          </p>
+          <p>
+            We do not sell personal data to any third party. To exercise any CCPA rights, contact us using the information in Section 11. We will respond to verifiable consumer requests within 45 days.
+          </p>
+        </div>
+
+        <!-- Section 10: Children -->
+        <div>
+          <h2 class="font-headline text-2xl font-extrabold text-[#0a2540] mb-4 pb-2 border-b border-gray-100">
+            10. Children's Privacy
+          </h2>
+          <p>
+            This website is not directed at children under 13. We do not knowingly collect personal information from children. If you believe a child has submitted information to us, contact us immediately and we will delete it.
+          </p>
+        </div>
+
+        <!-- Section 11: Contact -->
+        <div>
+          <h2 class="font-headline text-2xl font-extrabold text-[#0a2540] mb-4 pb-2 border-b border-gray-100">
+            11. Contact Us for Data Requests
+          </h2>
+          <p class="mb-4">
+            To request access to, correction of, or deletion of your personal information, contact us directly:
+          </p>
+          <div class="p-5 bg-surface rounded-xl border border-gray-100">
+            <p class="font-bold text-gray-900 mb-1">Maxim Autos</p>
+            <p class="text-gray-600">9101 Terminal Ave, Skokie, IL 60077</p>
+            <p class="text-gray-600">Phone: <a href="tel:8475108947" class="text-orange-500 hover:underline">(847) 510-8947</a></p>
+            <p class="text-gray-600">Email: <a href="mailto:jerryf@maximautos.com" class="text-orange-500 hover:underline">jerryf@maximautos.com</a></p>
+          </div>
+          <p class="mt-4 text-sm text-gray-500">We will respond to verifiable requests within 30 days.</p>
+        </div>
+
+        <!-- Section 12: Changes -->
+        <div>
+          <h2 class="font-headline text-2xl font-extrabold text-[#0a2540] mb-4 pb-2 border-b border-gray-100">
+            12. Changes to This Policy
+          </h2>
+          <p>
+            We may update this Privacy Policy from time to time. When we do, we will update the Effective Date at the top. Continued use of the website after any update constitutes acceptance of the revised policy. We encourage you to review this page periodically.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-16 bg-surface">
+    <div class="max-w-3xl mx-auto px-6 lg:px-8 text-center">
+      <h2 class="font-headline text-2xl md:text-3xl font-extrabold mb-4">Questions About Your Privacy?</h2>
+      <p class="text-gray-600 text-lg mb-8">Contact us directly. Jerry handles all data requests personally.</p>
+      <div class="flex flex-col sm:flex-row justify-center gap-4">
+        <a href="mailto:jerryf@maximautos.com" class="inline-flex items-center justify-center gap-2 bg-[#0a2540] text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-[#1a3a5c] transition-colors">
+          <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">mail</span>
+          Email Us
+        </a>
+        <a href={`${base}/contact`} class="inline-flex items-center justify-center gap-2 bg-orange-500 text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-orange-600 transition-colors">
+          Contact Page
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <Footer slot="footer" />
+</Layout>

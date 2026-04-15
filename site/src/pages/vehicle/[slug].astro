@@ -145,12 +145,37 @@ const faqSchema = {
     "acceptedAnswer": { "@type": "Answer", "text": f.a }
   }))
 };
+
+const productSchema: Record<string, unknown> = {
+  "@context": "https://schema.org",
+  "@type": "Product",
+  "name": titleText,
+  "description": pageDesc,
+  "brand": { "@type": "Brand", "name": v.make },
+  "offers": {
+    "@type": "Offer",
+    "price": v.price,
+    "priceCurrency": "USD",
+    "availability": "https://schema.org/InStock",
+    "url": `https://maximautos.com/vehicle/${v.slug}`,
+    "seller": { "@type": "AutoDealer", "name": "Maxim Autos" }
+  },
+  "vehicleIdentificationNumber": (v.vin && v.vin !== "TBD") ? v.vin : undefined,
+  "mileageFromOdometer": { "@type": "QuantitativeValue", "value": v.mileage, "unitCode": "SMI" },
+  "modelDate": String(v.year),
+  "vehicleTransmission": v.transmission,
+  "driveWheelConfiguration": v.drivetrain,
+};
+if (allPhotos.length > 0) productSchema["image"] = allPhotos[0];
+if ((v as any).fuelType) productSchema["fuelType"] = (v as any).fuelType;
+if ((v as any).exteriorColor) productSchema["color"] = (v as any).exteriorColor;
 ---
 
 <Layout title={pageTitle} description={pageDesc} ogImage={allPhotos.length > 0 ? allPhotos[0] : undefined}>
   <Fragment slot="structured-data">
     <script type="application/ld+json" set:html={JSON.stringify(vehicleSchema)} />
     <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(productSchema)} />
     <script type="application/ld+json" set:html={JSON.stringify({
       "@context": "https://schema.org",
       "@type": "BreadcrumbList",
@@ -611,7 +636,7 @@ const faqSchema = {
                 <p class="text-white/50 text-xs mt-2">Principal financed: <span id="fin-principal">--</span></p>
               </div>
 
-              <p class="text-xs text-gray-400 mb-6">* For illustrative purposes only. Actual rates and terms vary by lender and credit profile.</p>
+              <p class="text-sm text-gray-500 mt-2 mb-6">Payment estimates are for illustration purposes only and are not a guaranteed financing offer. Actual rates and terms depend on credit approval, down payment, and lender requirements.</p>
 
               <div class="bg-surface rounded-xl p-5">
                 <h3 class="font-headline font-bold text-navy mb-2">All Credit Levels Welcome</h3>

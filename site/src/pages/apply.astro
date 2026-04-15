@@ -342,7 +342,7 @@ const states = ['AL','AK','AZ','AR','CA','CO','CT','DE','FL','GA','HI','ID','IL'
         <div class="bg-white rounded-xl border border-gray-200 p-6 space-y-4">
           <label class="flex items-start gap-3 cursor-pointer">
             <input type="checkbox" name="sms_marketing" value="yes" class="mt-0.5 w-4 h-4 accent-orange shrink-0" />
-            <span class="text-sm text-gray-600">I want to receive marketing text messages on the phone number provided.</span>
+            <span class="text-sm text-gray-600">I want to receive marketing text messages on the phone number provided. By checking this box you agree to receive recurring automated marketing text messages from Maxim Autos. Consent is not a condition of purchase. See our <a href={`${base}/privacy-policy`} class="text-orange hover:underline">Privacy Policy</a> for details.</span>
           </label>
           <label class="flex items-start gap-3 cursor-pointer">
             <input type="checkbox" name="sms_updates" value="yes" class="mt-0.5 w-4 h-4 accent-orange shrink-0" />
@@ -360,6 +360,7 @@ const states = ['AL','AK','AZ','AR','CA','CO','CT','DE','FL','GA','HI','ID','IL'
 
         <!-- Submit -->
         <div class="text-center">
+          <p class="text-sm text-gray-500 mb-4">By submitting this application you consent to Maxim Autos contacting you by phone, text, or email. Your information is handled in accordance with our <a href={`${base}/privacy-policy`} class="text-orange hover:underline">Privacy Policy</a>.</p>
           <button type="submit" id="apply-submit-btn"
             class="inline-flex items-center justify-center gap-2 bg-orange text-white px-12 py-4 rounded-xl font-bold text-lg hover:bg-orange-dark transition-colors shadow-lg shadow-orange/20">
             <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">send</span>

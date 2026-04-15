@@ -1,5 +1,6 @@
 import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
+import tailwind from '@astrojs/tailwind';
 
 // Vercel sets VERCEL=1 automatically during builds
 const isVercel = process.env.VERCEL === '1';
@@ -10,6 +11,7 @@ export default defineConfig({
   publicDir: '../web_assets',
   integrations: [
     sitemap(),
+    tailwind(),
   ],
   vite: {
     server: {
