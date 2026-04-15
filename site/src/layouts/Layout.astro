@@ -95,93 +95,18 @@ const canonical = canonicalUrl || Astro.url.href;
     </main>
     <slot name="footer" />
 
-    <!-- ============================================================
-         TAWK.TO LIVE CHAT — replaces the custom chat widget below
-         Setup: 1) Go to tawk.to and create a free account
-                2) Add a property for maximautos.com
-                3) Get your Property ID and Widget ID
-                4) Replace PROPERTY_ID and WIDGET_ID below
-                5) Delete the "Floating Chat Widget" section below
-         ============================================================
-    -->
-    <!--
+    <!--Start of Tawk.to Script-->
     <script type="text/javascript">
       var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
-      Tawk_API.visitor = { name: 'Visitor', email: '' };
-      Tawk_API.customStyle = { visibility: { desktop: { position: 'br', xOffset: 24, yOffset: 24 }, mobile: { position: 'br', xOffset: 12, yOffset: 60 } } };
       (function(){
         var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
         s1.async=true;
-        s1.src='https://embed.tawk.to/PROPERTY_ID/WIDGET_ID';
+        s1.src='https://embed.tawk.to/69dfdfcf38b4681c3225155b/1jm984g8m';
         s1.charset='UTF-8';
         s1.setAttribute('crossorigin','*');
         s0.parentNode.insertBefore(s1,s0);
       })();
     </script>
-    -->
-
-    <!-- Floating Chat Widget -->
-    <div id="chat-widget" class="fixed bottom-6 right-6 z-50 hidden sm:flex flex-col items-end gap-3">
-      <!-- Chat Panel (hidden by default) -->
-      <div id="chat-panel" class="hidden bg-white rounded-2xl shadow-2xl border border-gray-100 w-80 overflow-hidden">
-        <div class="bg-navy px-5 py-4 flex items-center justify-between">
-          <div class="flex items-center gap-3">
-            <div class="w-10 h-10 bg-orange rounded-full flex items-center justify-center font-bold text-white text-lg">J</div>
-            <div>
-              <p class="text-white font-bold text-sm">Jerry Franco</p>
-              <p class="text-orange text-xs flex items-center gap-1"><span class="w-1.5 h-1.5 bg-green-400 rounded-full inline-block"></span>Usually replies in minutes</p>
-            </div>
-          </div>
-          <button id="chat-close" class="text-white/60 hover:text-white transition-colors">
-            <span class="material-symbols-outlined">close</span>
-          </button>
-        </div>
-        <div class="p-5">
-          <p class="text-sm text-gray-600 mb-4 leading-relaxed">Hi! I'm Jerry, owner of Maxim Autos. Text me directly. Fastest way to get answers about any car on the lot.</p>
-          <div class="bg-surface rounded-xl p-3 mb-4 text-xs text-gray-500">
-            <p class="font-semibold text-gray-700 mb-1">Hours:</p>
-            <p>Mon, Tue, Thu, Fri: 3–7pm</p>
-            <p>Saturday: 10am–3pm</p>
-            <p class="text-orange font-semibold mt-1">After hours? Text anytime. I check!</p>
-          </div>
-          <a href="sms:8475108947&body=Hi Jerry, I have a question about a vehicle at Maxim Autos."
-             class="w-full flex items-center justify-center gap-2 bg-orange text-white py-3 rounded-xl font-bold text-sm hover:bg-orange-dark transition-colors mb-2">
-            <span class="material-symbols-outlined text-lg" style="font-variation-settings:'FILL' 1;">sms</span>
-            Text Jerry Now
-          </a>
-          <a href="tel:8475108947"
-             class="w-full flex items-center justify-center gap-2 bg-navy text-white py-3 rounded-xl font-bold text-sm hover:bg-navy-light transition-colors">
-            <span class="material-symbols-outlined text-lg" style="font-variation-settings:'FILL' 1;">call</span>
-            Call (847) 510-8947
-          </a>
-        </div>
-      </div>
-      <!-- Chat Bubble Button -->
-      <button id="chat-toggle"
-        class="flex items-center gap-2 bg-orange text-white px-5 py-3.5 rounded-full shadow-xl hover:bg-orange-dark transition-all hover:scale-105 font-bold text-sm"
-        aria-label="Chat with Jerry">
-        <span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1;" id="chat-icon">chat</span>
-        <span id="chat-label">Chat with Jerry</span>
-      </button>
-    </div>
-
-    <script is:inline>
-    (function() {
-      var panel = document.getElementById('chat-panel');
-      var toggle = document.getElementById('chat-toggle');
-      var closeBtn = document.getElementById('chat-close');
-      var icon = document.getElementById('chat-icon');
-      var label = document.getElementById('chat-label');
-      var open = false;
-      function setOpen(val) {
-        open = val;
-        panel.classList.toggle('hidden', !open);
-        icon.textContent = open ? 'close' : 'chat';
-        label.textContent = open ? 'Close' : 'Chat with Jerry';
-      }
-      toggle.addEventListener('click', function() { setOpen(!open); });
-      closeBtn.addEventListener('click', function() { setOpen(false); });
-    })();
-    </script>
+    <!--End of Tawk.to Script-->
   </body>
 </html>

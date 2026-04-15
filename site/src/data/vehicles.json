@@ -17,7 +17,7 @@
     "vin": "1FMCU0J95HUE21095",
     "condition": "Used",
     "inspected": true,
-    "warranty": "3-Month Warranty",
+    "warranty": "4,500-mile, 3-month warranty",
     "carfax": true,
     "inspection": true,
     "features": [
@@ -30,8 +30,9 @@
     "highlights": [
       "Carfax 1-Owner, only 55,183 miles",
       "EcoBoost 2.0T, navigation, panoramic roof",
-      "Titanium trim, 3-Month Warranty"
+      "Titanium trim, 4,500-mile, 3-month warranty"
     ],
+    "historyBadges": ["1 Previous Owner", "Clean History", "No Accidents Reported", "CARFAX Included"],
     "status": "available",
     "dateAdded": "2026-04-10",
     "featured": true,
@@ -84,7 +85,7 @@
     "photoPrefix": "2017-ford-escape-titanium",
     "makeSlug": "ford",
     "bodyStyleSlug": "suvs",
-    "description": "Carfax 1-Owner, perfect history. Titanium trim with 55,183 miles. EcoBoost 2.0T, navigation, panoramic roof, heated leather, SYNC 3, Apple CarPlay. Fully inspected, 3-Month Warranty. Same-day metal plates. Financing available. Located at Maxim Autos in Skokie, IL."
+    "description": "Carfax 1-Owner, perfect history. Titanium trim with 55,183 miles. EcoBoost 2.0T, navigation, panoramic roof, heated leather, SYNC 3, Apple CarPlay. Fully inspected, 4,500-mile, 3-month warranty. Same-day metal plates. Financing available. Located at Maxim Autos in Skokie, IL."
   },
   {
     "slug": "2017-subaru-outback-25i-limited-awd",
@@ -104,7 +105,7 @@
     "vin": "4S4BSANC1H3317349",
     "condition": "Used",
     "inspected": true,
-    "warranty": "3-Month Warranty",
+    "warranty": "4,500-mile, 3-month warranty",
     "carfax": true,
     "inspection": true,
     "features": [
@@ -116,8 +117,9 @@
     "highlights": [
       "Carfax 1-Owner, clean history",
       "EyeSight, leather, sunroof. Limited trim",
-      "97,000 miles, 3-Month Warranty"
+      "97,000 miles, 4,500-mile, 3-month warranty"
     ],
+    "historyBadges": ["1 Previous Owner", "Clean History", "No Accidents Reported", "CARFAX Included"],
     "status": "available",
     "dateAdded": "2026-04-10",
     "featured": false,
@@ -129,7 +131,6 @@
       "https://static.cargurus.com/images/forsale/2026/04/10/09/27/2017_subaru_outback-pic-8486821194101164087-1024x768.jpeg",
       "https://static.cargurus.com/images/forsale/2026/04/03/14/04/2017_subaru_outback-pic-8336291793636412095-1024x768.jpeg",
       "https://static.cargurus.com/images/forsale/2026/04/03/14/04/2017_subaru_outback-pic-2533445763316347493-1024x768.jpeg",
-      "https://static.cargurus.com/images/forsale/2026/04/09/00/49/2017_subaru_outback-pic-6771950148711931786-1024x768.jpeg",
       "https://static.cargurus.com/images/forsale/2026/04/03/14/04/2017_subaru_outback-pic-3543454810697191743-1024x768.jpeg",
       "https://static.cargurus.com/images/forsale/2026/04/03/14/04/2017_subaru_outback-pic-3384285356391162573-1024x768.jpeg",
       "https://static.cargurus.com/images/forsale/2026/04/03/14/04/2017_subaru_outback-pic-255379877515310724-1024x768.jpeg",
@@ -170,7 +171,7 @@
     "photoPrefix": "2017-subaru-outback-25i-limited-awd",
     "makeSlug": "subaru",
     "bodyStyleSlug": "wagons",
-    "description": "Carfax 1-Owner, perfect history. Limited trim with EyeSight, leather seats, sunroof, AWD, 97,000 miles. PZEV 2.5L engine. Fully inspected, 3-Month Warranty. Same-day metal plates. Financing available. Located at Maxim Autos in Skokie, IL."
+    "description": "Carfax 1-Owner, perfect history. Limited trim with EyeSight, leather seats, sunroof, AWD, 97,000 miles. PZEV 2.5L engine. Fully inspected, 4,500-mile, 3-month warranty. Same-day metal plates. Financing available. Located at Maxim Autos in Skokie, IL."
   },
   {
     "slug": "2014-lexus-rx-350-awd",
@@ -190,7 +191,7 @@
     "vin": "JTJBK1BA4E2462410",
     "condition": "Used",
     "inspected": true,
-    "warranty": "3-Month Warranty",
+    "warranty": "4,500-mile, 3-month warranty",
     "carfax": true,
     "inspection": true,
     "features": [
@@ -208,8 +209,9 @@
     "highlights": [
       "Carfax 1-Owner, clean history",
       "Premium luxury SUV, V6 AWD",
-      "99,000 miles, 3-Month Warranty"
+      "99,000 miles, 4,500-mile, 3-month warranty"
     ],
+    "historyBadges": ["1 Previous Owner", "Clean History", "No Accidents Reported", "CARFAX Included"],
     "status": "available",
     "dateAdded": "2026-04-10",
     "featured": true,
@@ -263,7 +265,7 @@
     "photoPrefix": "2014-lexus-rx-350-awd",
     "makeSlug": "lexus",
     "bodyStyleSlug": "suvs",
-    "description": "Carfax 1-Owner, perfect history. Lexus RX 350 AWD with V6 power, 99,000 miles. Premium luxury SUV fully inspected, 3-Month Warranty. Same-day metal plates. Financing available. Located at Maxim Autos in Skokie, IL."
+    "description": "Carfax 1-Owner, perfect history. Lexus RX 350 AWD with V6 power, 99,000 miles. Premium luxury SUV fully inspected, 4,500-mile, 3-month warranty. Same-day metal plates. Financing available. Located at Maxim Autos in Skokie, IL."
   },
   {
     "slug": "2017-subaru-crosstrek-premium",
@@ -283,7 +285,7 @@
     "vin": "JF2GPABC4HH264053",
     "condition": "Used",
     "inspected": true,
-    "warranty": "3-Month Warranty",
+    "warranty": "4,500-mile, 3-month warranty",
     "carfax": true,
     "inspection": true,
     "features": [
@@ -295,8 +297,9 @@
     "highlights": [
       "Premium trim",
       "139,429 miles",
-      "Fully inspected, 3-Month Warranty"
+      "Fully inspected, 4,500-mile, 3-month warranty"
     ],
+    "historyBadges": ["Clean Title", "CARFAX Included"],
     "status": "available",
     "dateAdded": "2026-04-14",
     "featured": true,
@@ -352,7 +355,7 @@
     "photoPrefix": "2017-subaru-crosstrek-premium",
     "makeSlug": "subaru",
     "bodyStyleSlug": "suvs",
-    "description": "2017 Subaru Crosstrek Premium with 139,429 miles. Fully inspected, 3-Month Warranty. Same-day metal plates. Financing available. Located at Maxim Autos in Skokie, IL."
+    "description": "2017 Subaru Crosstrek Premium with 139,429 miles. Fully inspected, 4,500-mile, 3-month warranty. Same-day metal plates. Financing available. Located at Maxim Autos in Skokie, IL."
   },
   {
     "slug": "2008-jaguar-xj-vanden-plas-l",
@@ -372,7 +375,7 @@
     "vin": "SAJWA79B58SH23092",
     "condition": "Used",
     "inspected": true,
-    "warranty": "3-Month Warranty",
+    "warranty": "4,500-mile, 3-month warranty",
     "carfax": true,
     "inspection": true,
     "features": [
@@ -390,8 +393,9 @@
     "highlights": [
       "Carfax 1-Owner, clean history",
       "V8 4.2L flagship Vanden Plas long-wheelbase",
-      "104,150 miles, 3-Month Warranty"
+      "104,150 miles, 4,500-mile, 3-month warranty"
     ],
+    "historyBadges": ["1 Previous Owner", "Clean History", "No Accidents Reported", "CARFAX Included"],
     "status": "available",
     "dateAdded": "2026-04-10",
     "featured": false,
@@ -443,6 +447,6 @@
     "photoPrefix": "2008-jaguar-xj-vanden-plas-l",
     "makeSlug": "jaguar",
     "bodyStyleSlug": "sedans",
-    "description": "Carfax 1-Owner, perfect history. Vanden Plas L long-wheelbase flagship with V8 4.2L, 104,150 miles. Luxury interior, rear-wheel drive, automatic. Fully inspected, 3-Month Warranty. Same-day metal plates. Financing available. Located at Maxim Autos in Skokie, IL."
+    "description": "Carfax 1-Owner, perfect history. Vanden Plas L long-wheelbase flagship with V8 4.2L, 104,150 miles. Luxury interior, rear-wheel drive, automatic. Fully inspected, 4,500-mile, 3-month warranty. Same-day metal plates. Financing available. Located at Maxim Autos in Skokie, IL."
   }
 ]

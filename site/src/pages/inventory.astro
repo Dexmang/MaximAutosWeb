@@ -206,20 +206,24 @@ const drivetrains = [...new Set(vehicles.map(v => v.drivetrain).filter(Boolean))
     </div>
   </section>
 
-  <!-- CTA -->
+  <!-- Car Finder CTA -->
   <section class="py-16 bg-navy">
     <div class="max-w-4xl mx-auto px-6 lg:px-8 text-center">
+      <span class="text-orange font-bold uppercase tracking-widest text-sm mb-3 block">Hand-Picked Inventory</span>
       <h2 class="font-headline text-3xl md:text-4xl font-extrabold text-white mb-4">Don't See What You're Looking For?</h2>
-      <p class="text-white/70 text-lg mb-8">Tell Jerry what you need. We source vehicles weekly and can find the right car for your budget.</p>
+      <p class="text-white/70 text-lg mb-3">Jerry personally selects every pre-owned vehicle on this lot. We don't sell volume — we sell quality.</p>
+      <p class="text-white/60 text-base mb-8">Text Jerry exactly what you want — make, model, budget, features. He sources vehicles weekly and will find it for you.</p>
+      <!-- Mobile: clickable. Desktop: show phone number for reference -->
       <div class="flex flex-col sm:flex-row justify-center gap-4">
-        <a href="sms:8475108947&body=Hi Jerry, I'm looking for a specific vehicle. Can you help me find it?" class="inline-flex items-center justify-center gap-2 bg-orange text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-orange-dark transition-colors">
+        <a href="sms:8475108947&body=Hi Jerry, I'm looking for a specific vehicle. Can you help me find it?"
+           class="sm:hidden inline-flex items-center justify-center gap-2 bg-orange text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-orange-dark transition-colors">
           <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">sms</span>
-          Text Jerry
+          Text Jerry What You Want
         </a>
-        <a href="tel:8475108947" class="inline-flex items-center justify-center gap-2 bg-white/10 text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-white/20 transition-colors border border-white/20">
-          <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">call</span>
-          (847) 510-8947
-        </a>
+        <div class="hidden sm:inline-flex items-center justify-center gap-3 bg-white/10 border border-white/20 text-white px-8 py-4 rounded-xl font-bold text-lg">
+          <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">phone</span>
+          (847) 510-8947 — Call or Text
+        </div>
       </div>
     </div>
   </section>

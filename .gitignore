@@ -6,3 +6,5 @@ dist/
 
 # Original full-size photos (keep only web/ and thumb/ optimized versions)
 web_assets/photos/*/*.jpg
+
+.vercel
