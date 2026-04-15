@@ -2,5 +2,51 @@
   "buildCommand": "cd site && npm ci && npm run build",
   "outputDirectory": "site/dist",
   "installCommand": "echo 'deps installed via buildCommand'",
-  "framework": null
+  "framework": null,
+  "redirects": [
+    { "source": "/about-us",          "destination": "/about",     "permanent": true },
+    { "source": "/about-us/",         "destination": "/about",     "permanent": true },
+    { "source": "/contact-us",        "destination": "/contact",   "permanent": true },
+    { "source": "/contact-us/",       "destination": "/contact",   "permanent": true },
+    { "source": "/apply-online",      "destination": "/apply",     "permanent": true },
+    { "source": "/apply-online/",     "destination": "/apply",     "permanent": true },
+    { "source": "/car-finder",        "destination": "/inventory", "permanent": true },
+    { "source": "/car-finder/",       "destination": "/inventory", "permanent": true },
+    { "source": "/inventory/ford/escape/j10188",   "destination": "/vehicle/2017-ford-escape-titanium",           "permanent": true },
+    { "source": "/inventory/ford/escape/j10188/",  "destination": "/vehicle/2017-ford-escape-titanium",           "permanent": true },
+    { "source": "/inventory/subaru/outback/j10190",  "destination": "/vehicle/2017-subaru-outback-25i-limited-awd", "permanent": true },
+    { "source": "/inventory/subaru/outback/j10190/", "destination": "/vehicle/2017-subaru-outback-25i-limited-awd", "permanent": true },
+    { "source": "/inventory/lexus/rx/j10185",   "destination": "/vehicle/2014-lexus-rx-350-awd", "permanent": true },
+    { "source": "/inventory/lexus/rx/j10185/",  "destination": "/vehicle/2014-lexus-rx-350-awd", "permanent": true },
+    { "source": "/inventory/jaguar/xj/j10186",       "destination": "/vehicle/2008-jaguar-xj-vanden-plas-l", "permanent": true },
+    { "source": "/inventory/jaguar/xj/j10186/",      "destination": "/vehicle/2008-jaguar-xj-vanden-plas-l", "permanent": true },
+    { "source": "/inventory/jaguar/xj8-vanden-plas/j10186",  "destination": "/vehicle/2008-jaguar-xj-vanden-plas-l", "permanent": true },
+    { "source": "/inventory/jaguar/xj8-vanden-plas/j10186/", "destination": "/vehicle/2008-jaguar-xj-vanden-plas-l", "permanent": true },
+    { "source": "/inventory/subaru/crosstrek/j10187",  "destination": "/vehicle/2017-subaru-crosstrek-premium", "permanent": true },
+    { "source": "/inventory/subaru/crosstrek/j10187/", "destination": "/vehicle/2017-subaru-crosstrek-premium", "permanent": true },
+    { "source": "/inventory/:make/:model/:stock", "destination": "/inventory", "permanent": true },
+    { "source": "/inventory/:make/:model/:stock/", "destination": "/inventory", "permanent": true }
+  ],
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        { "key": "X-Content-Type-Options", "value": "nosniff" },
+        { "key": "X-Frame-Options", "value": "SAMEORIGIN" },
+        { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" }
+      ]
+    },
+    {
+      "source": "/brand/(.*)",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
+      ]
+    },
+    {
+      "source": "/photos/(.*)",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
+      ]
+    }
+  ]
 }
