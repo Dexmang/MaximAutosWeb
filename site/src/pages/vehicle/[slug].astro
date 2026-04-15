@@ -196,6 +196,8 @@ const faqSchema = {
                 Customize Payment
               </button>
             </div>
+            <!-- CarGurus Deal Rating Badge -->
+            <div data-cg-vin={v.vin} data-cg-price={String(v.price)} class="mt-2 cg-badge-wrap"></div>
           </div>
           <!-- CTA buttons -->
           <div class="flex gap-3">
@@ -1024,3 +1026,15 @@ const faqSchema = {
   }
 })();
 </script>
+
+<!-- CarGurus Deal Rating Badge -->
+<script is:inline>
+  window.CarGurus = window.CarGurus || {};
+  window.CarGurus.DealRatingBadge = window.CarGurus.DealRatingBadge || { options: {} };
+  window.CarGurus.DealRatingBadge.options = {
+    websitePartner: 'sp457703',
+    minRating: 'GOOD_PRICE',
+    style: 'STYLE1'
+  };
+</script>
+<script is:inline src="https://static.cargurus.com/js/api/en_US/1.0/dealratingbadge.js"></script>
