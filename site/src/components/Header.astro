@@ -1,81 +1,97 @@
 ---
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 const currentPath = Astro.url.pathname;
-const navLinks = [
+
+// Primary desktop nav — kept lean
+const primaryLinks = [
   { href: `${base}/inventory`, label: 'Inventory' },
   { href: `${base}/financing`, label: 'Financing' },
   { href: `${base}/sell-trade`, label: 'Sell / Trade' },
   { href: `${base}/about`, label: 'About' },
+];
+
+// Secondary links shown only in mobile menu + secondary bar
+const secondaryLinks = [
   { href: `${base}/testimonials`, label: 'Reviews' },
   { href: `${base}/faq`, label: 'FAQ' },
   { href: `${base}/contact`, label: 'Contact' },
-  { href: 'https://maps.google.com/?daddr=Skokie,IL+60077', label: 'Directions', external: true },
 ];
+
+const directionsUrl = 'https://maps.google.com/?daddr=9101+Terminal+Ave,+Skokie,+IL+60077';
 ---
 
+<!-- Secondary utility bar — desktop only -->
+<div class="hidden lg:block bg-gray-50 border-b border-gray-100">
+  <div class="max-w-7xl mx-auto px-6 lg:px-8 flex justify-end items-center gap-5 py-1.5">
+    {secondaryLinks.map(link => (
+      <a href={link.href}
+         class:list={['text-xs font-medium transition-colors', currentPath.startsWith(link.href) ? 'text-navy' : 'text-gray-400 hover:text-navy']}>
+        {link.label}
+      </a>
+    ))}
+    <a href={directionsUrl} target="_blank" rel="noopener"
+       class="flex items-center gap-1 text-xs font-medium text-gray-400 hover:text-navy transition-colors">
+      <span class="material-symbols-outlined text-sm" style="font-variation-settings:'FILL' 1;">location_on</span>
+      9101 Terminal Ave, Skokie IL
+    </a>
+  </div>
+</div>
+
 <nav class="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-100">
-  <div class="flex justify-between items-center w-full px-6 lg:px-8 py-4 max-w-7xl mx-auto">
+  <div class="flex justify-between items-center w-full px-6 lg:px-8 py-3 max-w-7xl mx-auto">
     <!-- Logo + Rating -->
     <div class="flex items-center gap-4 shrink-0">
       <a href={`${base}/`}>
-        <img src={`${base}/brand/logo-header.png`} alt="Maxim Autos" class="h-9 md:h-11 w-auto" />
+        <img src={`${base}/brand/logo-header.png`} alt="Maxim Autos" class="h-9 md:h-10 w-auto" />
       </a>
       <a href="https://www.google.com/search?q=Maxim+Autos+Skokie+IL+reviews" target="_blank" rel="noopener"
-         class="hidden md:flex items-center gap-1.5 bg-surface border border-gray-200 rounded-lg px-3 py-1.5 hover:border-orange/40 transition-colors">
-        <!-- Google "G" logo SVG -->
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" class="w-4 h-4 shrink-0">
+         class="hidden md:flex items-center gap-1.5 bg-surface border border-gray-200 rounded-lg px-2.5 py-1 hover:border-orange/40 transition-colors">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" class="w-3.5 h-3.5 shrink-0">
           <path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/>
           <path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/>
           <path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/>
           <path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.18 1.48-4.97 2.31-8.16 2.31-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/>
         </svg>
-        <span class="font-extrabold text-navy text-sm">5.0</span>
-        <span class="text-yellow-400 text-sm">★</span>
-        <span class="text-gray-400 text-xs font-medium">34 reviews</span>
+        <span class="font-extrabold text-navy text-xs">5.0</span>
+        <span class="text-yellow-400 text-xs">★</span>
+        <span class="text-gray-400 text-xs">34 reviews</span>
       </a>
     </div>
 
     <!-- Desktop Nav -->
     <div class="hidden lg:flex items-center gap-6">
-      {navLinks.map(link => (
-        link.external ? (
-          <a
-            href={link.href}
-            target="_blank"
-            rel="noopener"
-            class="flex items-center gap-1 text-sm font-medium text-gray-500 hover:text-navy transition-colors duration-200"
-          >
-            <span class="material-symbols-outlined text-base" style="font-variation-settings:'FILL' 1;">location_on</span>
-            {link.label}
-          </a>
-        ) : (
-          <a
-            href={link.href}
-            class:list={[
-              'text-sm font-medium transition-colors duration-200',
-              currentPath.startsWith(link.href)
-                ? 'text-navy border-b-2 border-orange pb-1'
-                : 'text-gray-500 hover:text-navy',
-            ]}
-          >
-            {link.label}
-          </a>
-        )
+      {primaryLinks.map(link => (
+        <a
+          href={link.href}
+          class:list={[
+            'text-sm font-medium transition-colors duration-200',
+            currentPath.startsWith(link.href)
+              ? 'text-navy border-b-2 border-orange pb-1'
+              : 'text-gray-500 hover:text-navy',
+          ]}
+        >
+          {link.label}
+        </a>
       ))}
+      <a href={directionsUrl} target="_blank" rel="noopener"
+         class="flex items-center gap-1 text-sm font-medium text-gray-500 hover:text-navy transition-colors duration-200">
+        <span class="material-symbols-outlined text-base" style="font-variation-settings:'FILL' 1;">location_on</span>
+        Directions
+      </a>
     </div>
 
     <!-- CTA + Mobile Toggle -->
-    <div class="flex items-center gap-2 lg:gap-3">
+    <div class="flex items-center gap-2">
       <a
         href="sms:8475108947&body=Hi Jerry, I'm interested in a vehicle at Maxim Autos."
-        class="hidden sm:inline-flex items-center gap-1.5 bg-orange text-white px-4 py-2.5 rounded-lg font-bold text-sm hover:bg-orange-dark transition-colors"
+        class="hidden sm:inline-flex items-center gap-1.5 bg-orange text-white px-3 py-2 rounded-lg font-bold text-sm hover:bg-orange-dark transition-colors"
       >
         <span class="material-symbols-outlined text-base" style="font-variation-settings: 'FILL' 1;">sms</span>
         Text Jerry
       </a>
       <a
         href="tel:8475108947"
-        class="hidden lg:inline-flex items-center gap-1.5 bg-navy text-white px-4 py-2.5 rounded-lg font-bold text-sm hover:bg-navy-light transition-colors"
+        class="hidden lg:inline-flex items-center gap-1.5 bg-navy text-white px-3 py-2 rounded-lg font-bold text-sm hover:bg-navy-light transition-colors"
       >
         <span class="material-symbols-outlined text-base" style="font-variation-settings: 'FILL' 1;">call</span>
         (847) 510-8947
@@ -94,31 +110,24 @@ const navLinks = [
   <!-- Mobile Menu -->
   <div id="mobile-menu" class="hidden lg:hidden bg-white border-t border-gray-100 pb-4">
     <div class="px-6 py-2 space-y-1">
-      {navLinks.map(link => (
-        link.external ? (
-          <a
-            href={link.href}
-            target="_blank"
-            rel="noopener"
-            class="flex items-center gap-2 py-3 px-4 rounded-lg text-sm font-medium text-gray-600 hover:bg-gray-50"
-          >
-            <span class="material-symbols-outlined text-base text-orange" style="font-variation-settings:'FILL' 1;">location_on</span>
-            {link.label}
-          </a>
-        ) : (
-          <a
-            href={link.href}
-            class:list={[
-              'block py-3 px-4 rounded-lg text-sm font-medium',
-              currentPath.startsWith(link.href)
-                ? 'bg-navy/5 text-navy'
-                : 'text-gray-600 hover:bg-gray-50',
-            ]}
-          >
-            {link.label}
-          </a>
-        )
+      {[...primaryLinks, ...secondaryLinks].map(link => (
+        <a
+          href={link.href}
+          class:list={[
+            'block py-3 px-4 rounded-lg text-sm font-medium',
+            currentPath.startsWith(link.href)
+              ? 'bg-navy/5 text-navy'
+              : 'text-gray-600 hover:bg-gray-50',
+          ]}
+        >
+          {link.label}
+        </a>
       ))}
+      <a href={directionsUrl} target="_blank" rel="noopener"
+         class="flex items-center gap-2 py-3 px-4 rounded-lg text-sm font-medium text-gray-600 hover:bg-gray-50">
+        <span class="material-symbols-outlined text-base text-orange" style="font-variation-settings:'FILL' 1;">location_on</span>
+        Directions — 9101 Terminal Ave, Skokie IL
+      </a>
       <div class="flex gap-2 pt-3">
         <a
           href="sms:8475108947&body=Hi Jerry, I'm interested in a vehicle at Maxim Autos."
@@ -144,7 +153,6 @@ const navLinks = [
   document.getElementById('mobile-menu-btn')?.addEventListener('click', () => {
     mobileMenu?.classList.toggle('hidden');
   });
-  // Close mobile menu when any nav link is tapped
   mobileMenu?.querySelectorAll('a').forEach(function(link) {
     link.addEventListener('click', function() {
       mobileMenu.classList.add('hidden');
