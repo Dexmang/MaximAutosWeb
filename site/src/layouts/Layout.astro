@@ -10,19 +10,13 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 const {
   title,
   description = 'Quality used cars in Skokie, IL. Every vehicle inspected, every price transparent. Metal plates on the spot. Skip the DMV. Financing for all credit levels. Maxim Autos.',
-  ogImage,
+  ogImage = `${base}/brand/hero-family.jpg`,
   canonicalUrl,
 } = Astro.props;
 
 const siteName = 'Maxim Autos';
-// Dedupe: if title already includes "Maxim Autos", do not append again
-const fullTitle = title.includes(siteName) ? title : `${title} | ${siteName}`;
-
-// Build absolute URLs using Astro.site (set in astro.config.mjs) so canonicals
-// and OG tags are always fully qualified and use the configured canonical domain
-const siteUrl = Astro.site ?? new URL('https://www.maximautos.com/');
-const canonical = canonicalUrl || new URL(Astro.url.pathname, siteUrl).href;
-const ogImageAbsolute = new URL(ogImage ?? `${base}/brand/hero-family.jpg`, siteUrl).href;
+const fullTitle = title === siteName ? title : `${title} | ${siteName}`;
+const canonical = canonicalUrl || Astro.url.href;
 ---
 
 <!doctype html>
@@ -43,14 +37,14 @@ const ogImageAbsolute = new URL(ogImage ?? `${base}/brand/hero-family.jpg`, site
     <meta property="og:site_name" content={siteName} />
     <meta property="og:title" content={fullTitle} />
     <meta property="og:description" content={description} />
-    <meta property="og:image" content={ogImageAbsolute} />
+    <meta property="og:image" content={ogImage} />
     <meta property="og:url" content={canonical} />
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={fullTitle} />
     <meta name="twitter:description" content={description} />
-    <meta name="twitter:image" content={ogImageAbsolute} />
+    <meta name="twitter:image" content={ogImage} />
 
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com" rel="preconnect" />
@@ -69,8 +63,7 @@ const ogImageAbsolute = new URL(ogImage ?? `${base}/brand/hero-family.jpg`, site
     <slot name="structured-data" />
 
     <!-- Google Search Console Verification -->
-    <!-- ACTION REQUIRED: Paste GSC verification meta tag below this line. Get it from search.google.com/search-console/welcome after adding https://www.maximautos.com as a URL prefix property. -->
-    <!-- Example: <meta name="google-site-verification" content="abc123xyz" /> -->
+    <!-- TODO: Add meta name="google-site-verification" content="YOUR_VERIFICATION_CODE" here -->
 
     <!-- Google Analytics 4 — Measurement ID: G-H05CD3EHE9 -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-H05CD3EHE9"></script>

@@ -19,8 +19,8 @@ const drivetrains = [...new Set(vehicles.map(v => v.drivetrain).filter(Boolean))
       "@context": "https://schema.org",
       "@type": "BreadcrumbList",
       "itemListElement": [
-        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.maximautos.com/" },
-        { "@type": "ListItem", "position": 2, "name": "Inventory", "item": "https://www.maximautos.com/inventory" }
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://maximautos.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Inventory", "item": "https://maximautos.com/inventory" }
       ]
     })} />
     <script type="application/ld+json" set:html={JSON.stringify({
@@ -30,7 +30,7 @@ const drivetrains = [...new Set(vehicles.map(v => v.drivetrain).filter(Boolean))
       "sameAs": [
         "https://www.google.com/maps/place/Maxim+Autos/@42.0464352,-87.7546134,17z/data=!3m1!4b1!4m6!3m5!1s0x880fcfcb0a430aed:0x4d36c77af06ce602!8m2!3d42.0464352!4d-87.7546134!16s%2Fg%2F11wmzx_p4t"
       ],
-      "url": "https://www.maximautos.com/inventory",
+      "url": "https://maximautos.com/inventory",
       "telephone": "+1-847-510-8947",
       "address": {
         "@type": "PostalAddress",
@@ -61,7 +61,7 @@ const drivetrains = [...new Set(vehicles.map(v => v.drivetrain).filter(Boolean))
           "bodyType": v.bodyStyle,
           "vehicleIdentificationNumber": v.vin !== "TBD" ? v.vin : undefined,
           "itemCondition": "https://schema.org/UsedCondition",
-          "url": `https://www.maximautos.com/vehicle/${v.slug}`
+          "url": `https://maximautos.com/vehicle/${v.slug}`
         },
         "price": v.price,
         "priceCurrency": "USD",
@@ -78,7 +78,7 @@ const drivetrains = [...new Set(vehicles.map(v => v.drivetrain).filter(Boolean))
     <div class="max-w-7xl mx-auto px-6 lg:px-8 py-3">
       <!-- Compact header inline -->
       <div class="mb-3">
-        <h1 class="font-headline text-xl font-extrabold text-navy leading-tight">Browse Used Cars for Sale in Skokie, IL</h1>
+        <h1 class="font-headline text-xl font-extrabold text-navy leading-tight">Pre-Owned Cars in Skokie, IL</h1>
         <p class="text-xs text-gray-500">Every vehicle fully inspected · Free CARFAX included</p>
       </div>
       <div class="flex flex-col md:flex-row md:items-center gap-3 flex-wrap">
@@ -180,8 +180,6 @@ const drivetrains = [...new Set(vehicles.map(v => v.drivetrain).filter(Boolean))
               inspected={v.inspected}
               primaryPhotoUrl={v.primaryPhotoUrl}
               photos={v.photos}
-              stockNumber={v.stockNumber}
-              dateAdded={v.dateAdded}
             />
           </div>
         ))}
@@ -219,67 +217,20 @@ const drivetrains = [...new Set(vehicles.map(v => v.drivetrain).filter(Boolean))
     </div>
   </section>
 
-  <!-- Wish List / Vehicle Request Form -->
+  <!-- Car Finder CTA -->
   <section class="py-16 bg-navy">
-    <div class="max-w-2xl mx-auto px-6 lg:px-8">
-      <div class="text-center mb-8">
-        <span class="text-orange font-bold uppercase tracking-widest text-sm mb-3 block">Curated Inventory</span>
-        <h2 class="font-headline text-3xl md:text-4xl font-extrabold text-white mb-4">Don't See What You're Looking For?</h2>
-        <p class="text-white/70 text-base">Jerry sources vehicles weekly. Tell him what you want and he will find it for you.</p>
+    <div class="max-w-4xl mx-auto px-6 lg:px-8 text-center">
+      <span class="text-orange font-bold uppercase tracking-widest text-sm mb-3 block">Hand-Picked Inventory</span>
+      <h2 class="font-headline text-3xl md:text-4xl font-extrabold text-white mb-4">Don't See What You're Looking For?</h2>
+      <p class="text-white/70 text-lg mb-3">Jerry personally selects every pre-owned vehicle on this lot. We don't sell volume — we sell quality.</p>
+      <p class="text-white/60 text-base mb-8">Text Jerry exactly what you want — make, model, budget, features. He sources vehicles weekly and will find it for you.</p>
+      <!-- Mobile: clickable. Desktop: show phone number for reference -->
+      <div class="flex flex-col sm:flex-row justify-center gap-4">
+        <div class="hidden sm:inline-flex items-center justify-center gap-3 bg-white/10 border border-white/20 text-white px-8 py-4 rounded-xl font-bold text-lg">
+          <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">phone</span>
+          (847) 510-8947 — Call or Text
+        </div>
       </div>
-      <form id="wishlist-form" action="https://formspree.io/f/xvzdgvan" method="POST" class="space-y-4 bg-white/5 border border-white/10 rounded-2xl p-6 md:p-8 backdrop-blur-sm">
-        <input type="hidden" name="_subject" value="Wish List: Vehicle Request from Inventory Page" />
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <div>
-            <label for="wl-name" class="block text-xs font-semibold text-white/70 uppercase tracking-wider mb-1.5">Your Name</label>
-            <input id="wl-name" name="name" type="text" required
-                   class="w-full px-4 py-3 rounded-xl bg-white/95 border border-white/20 text-gray-900 placeholder-gray-400 focus:ring-2 focus:ring-orange/30 focus:border-orange transition-colors"
-                   placeholder="Jane Smith" />
-          </div>
-          <div>
-            <label for="wl-phone" class="block text-xs font-semibold text-white/70 uppercase tracking-wider mb-1.5">Phone or Email</label>
-            <input id="wl-phone" name="contact" type="text" required
-                   class="w-full px-4 py-3 rounded-xl bg-white/95 border border-white/20 text-gray-900 placeholder-gray-400 focus:ring-2 focus:ring-orange/30 focus:border-orange transition-colors"
-                   placeholder="(847) 555-1234" />
-          </div>
-        </div>
-        <div>
-          <label for="wl-vehicle" class="block text-xs font-semibold text-white/70 uppercase tracking-wider mb-1.5">What are you looking for?</label>
-          <input id="wl-vehicle" name="vehicle" type="text" required
-                 class="w-full px-4 py-3 rounded-xl bg-white/95 border border-white/20 text-gray-900 placeholder-gray-400 focus:ring-2 focus:ring-orange/30 focus:border-orange transition-colors"
-                 placeholder="Honda CR-V, Toyota Camry, SUV with AWD, etc." />
-        </div>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <div>
-            <label for="wl-budget" class="block text-xs font-semibold text-white/70 uppercase tracking-wider mb-1.5">Budget</label>
-            <select id="wl-budget" name="budget" required
-                    class="w-full px-4 py-3 rounded-xl bg-white/95 border border-white/20 text-gray-900 focus:ring-2 focus:ring-orange/30 focus:border-orange transition-colors">
-              <option value="">Select range</option>
-              <option value="5k-8k">$5K to $8K</option>
-              <option value="8k-12k">$8K to $12K</option>
-              <option value="12k-15k">$12K to $15K</option>
-              <option value="flexible">Flexible</option>
-            </select>
-          </div>
-          <div>
-            <label for="wl-timeline" class="block text-xs font-semibold text-white/70 uppercase tracking-wider mb-1.5">Timeline</label>
-            <select id="wl-timeline" name="timeline" required
-                    class="w-full px-4 py-3 rounded-xl bg-white/95 border border-white/20 text-gray-900 focus:ring-2 focus:ring-orange/30 focus:border-orange transition-colors">
-              <option value="">When do you need it?</option>
-              <option value="this-week">This week</option>
-              <option value="this-month">This month</option>
-              <option value="next-60-days">Next 60 days</option>
-              <option value="just-looking">Just looking</option>
-            </select>
-          </div>
-        </div>
-        <button type="submit"
-                class="w-full bg-orange text-white px-6 py-4 rounded-xl font-bold text-base hover:bg-orange-dark transition-colors flex items-center justify-center gap-2">
-          <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">send</span>
-          Send Jerry My Wish List
-        </button>
-        <p class="text-center text-xs text-white/50 mt-2">Jerry will text or email you within 24 hours. By submitting, you agree to our <a href="/privacy-policy" class="underline hover:text-white">Privacy Policy</a>.</p>
-      </form>
     </div>
   </section>
 

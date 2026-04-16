@@ -25,7 +25,7 @@ const available = vehicles.filter(v => v.status === 'available');
 const minPrice = Math.min(...available.map(v => v.price));
 const maxPrice = Math.max(...available.map(v => v.price));
 
-const canonicalUrl = `https://www.maximautos.com/used-cars-${suburb.slug}-il`;
+const canonicalUrl = `https://maximautos.com/used-cars-${suburb.slug}-il`;
 
 const title = `Used Cars Near ${suburb.city}, IL`;
 const description = `Looking for used cars near ${suburb.city}, IL? Maxim Autos in Skokie is just ${suburb.distanceMiles} miles away, about a ${suburb.driveTimeMin}-minute drive. ${available.length} fully inspected vehicles from $${minPrice.toLocaleString()} to $${maxPrice.toLocaleString()}. Free CARFAX, same-day metal plates, financing for all credit levels.`;
@@ -40,7 +40,7 @@ const localBusinessSchema = {
   "sameAs": [
     "https://www.google.com/maps/place/Maxim+Autos/@42.0464352,-87.7546134,17z/data=!3m1!4b1!4m6!3m5!1s0x880fcfcb0a430aed:0x4d36c77af06ce602!8m2!3d42.0464352!4d-87.7546134!16s%2Fg%2F11wmzx_p4t"
   ],
-  "url": "https://www.maximautos.com",
+  "url": "https://maximautos.com",
   "telephone": "+1-847-510-8947",
   "address": {
     "@type": "PostalAddress",
@@ -81,8 +81,8 @@ const breadcrumbSchema = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   "itemListElement": [
-    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.maximautos.com" },
-    { "@type": "ListItem", "position": 2, "name": "Inventory", "item": "https://www.maximautos.com/inventory" },
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://maximautos.com" },
+    { "@type": "ListItem", "position": 2, "name": "Inventory", "item": "https://maximautos.com/inventory" },
     { "@type": "ListItem", "position": 3, "name": `Used Cars Near ${suburb.city}, IL`, "item": canonicalUrl }
   ]
 };

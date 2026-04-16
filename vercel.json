@@ -4,7 +4,6 @@
   "installCommand": "echo 'deps installed via buildCommand'",
   "framework": null,
   "redirects": [
-    { "source": "/sitemap.xml",       "destination": "/sitemap-index.xml", "permanent": false },
     { "source": "/about-us",          "destination": "/about",     "permanent": true },
     { "source": "/about-us/",         "destination": "/about",     "permanent": true },
     { "source": "/contact-us",        "destination": "/contact",   "permanent": true },
