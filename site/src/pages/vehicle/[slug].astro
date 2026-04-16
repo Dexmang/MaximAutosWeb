@@ -480,60 +480,6 @@ const faqSchema = {
             </div>
           </div>
 
-          <!-- Payment Calculator -->
-          <div class="mb-8">
-            <h2 class="font-headline text-base font-bold text-navy mb-4">Estimate Your Payment</h2>
-            <div class="bg-surface rounded-xl border border-gray-100 p-6">
-              <div class="mb-5">
-                <div class="flex justify-between items-center mb-2">
-                  <label class="text-sm font-semibold text-gray-700">Down Payment</label>
-                  <span class="text-base font-bold text-navy" id="fin-down-display">$0</span>
-                </div>
-                <input type="range" id="fin-down-slider"
-                  min="0" max={Math.round(v.price * 0.5)} step="250"
-                  value={Math.round(v.price * 0.10)}
-                  class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-orange" />
-                <div class="flex justify-between text-xs text-gray-400 mt-1">
-                  <span>$0</span><span>${Math.round(v.price * 0.5).toLocaleString()}</span>
-                </div>
-              </div>
-              <div class="mb-5">
-                <div class="flex justify-between items-center mb-2">
-                  <label class="text-sm font-semibold text-gray-700">Interest Rate (APR)</label>
-                  <span class="text-base font-bold text-navy" id="fin-apr-display">9.9%</span>
-                </div>
-                <input type="range" id="fin-apr-slider"
-                  min="3.9" max="24.9" step="0.5" value="9.9"
-                  class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-orange" />
-                <div class="flex justify-between text-xs text-gray-400 mt-1">
-                  <span>3.9%</span><span>24.9%</span>
-                </div>
-              </div>
-              <div class="mb-5">
-                <label class="text-sm font-semibold text-gray-700 block mb-2">Loan Term</label>
-                <div class="flex gap-2" id="fin-term-selector">
-                  {[36, 48, 60, 72].map(t => (
-                    <button data-term={t}
-                      class:list={['fin-term-btn flex-1 py-2.5 rounded-lg text-sm font-bold border transition-all', t === 60 ? 'bg-navy text-white border-navy' : 'bg-white text-gray-600 border-gray-200 hover:border-navy']}>
-                      {t}mo
-                    </button>
-                  ))}
-                </div>
-              </div>
-              <div class="bg-navy rounded-xl p-5 text-center mb-3">
-                <p class="text-white/60 text-sm mb-1">Estimated Monthly Payment</p>
-                <p class="text-4xl font-extrabold text-white" id="fin-result">--</p>
-                <p class="text-white/50 text-xs mt-1">Principal financed: <span id="fin-principal">--</span></p>
-              </div>
-              <p class="text-xs text-gray-400 mb-4">Estimates for illustration only. Actual rates and terms depend on credit approval and lender requirements.</p>
-              <a href={`${base}/apply`}
-                 class="w-full flex items-center justify-center gap-2 bg-orange text-white py-3 rounded-xl font-bold text-sm hover:bg-orange-dark transition-colors">
-                <span class="material-symbols-outlined text-base" style="font-variation-settings:'FILL' 1;">payments</span>
-                Get Pre-Approved
-              </a>
-            </div>
-          </div>
-
           <!-- FAQ -->
           <div class="mb-4">
             <h2 class="font-headline text-base font-bold text-navy mb-4 flex items-center gap-2">
@@ -823,54 +769,6 @@ const faqSchema = {
       if (e.key === 'ArrowRight') updateLightbox((currentIndex + 1) % photos.length);
     });
   }
-
-  // Payment calculator
-  (function () {
-    var priceEl = document.querySelector('[data-vehicle-price]');
-    var price = priceEl ? parseFloat(priceEl.dataset.vehiclePrice || 0) : 0;
-    var downSlider = document.getElementById('fin-down-slider');
-    var aprSlider = document.getElementById('fin-apr-slider');
-    var termSel = document.getElementById('fin-term-selector');
-    var downDisp = document.getElementById('fin-down-display');
-    var aprDisp = document.getElementById('fin-apr-display');
-    var resultEl = document.getElementById('fin-result');
-    var principalEl = document.getElementById('fin-principal');
-    var activeTerm = 60;
-
-    function calc(p, d, apr, n) {
-      var principal = p - d;
-      if (principal <= 0) return 0;
-      var r = (apr / 100) / 12;
-      if (r === 0) return Math.round(principal / n);
-      return Math.round(principal * (r * Math.pow(1 + r, n)) / (Math.pow(1 + r, n) - 1));
-    }
-    function update() {
-      if (!downSlider || !aprSlider) return;
-      var d = parseFloat(downSlider.value);
-      var apr = parseFloat(aprSlider.value);
-      var payment = calc(price, d, apr, activeTerm);
-      if (downDisp) downDisp.textContent = '$' + Math.round(d).toLocaleString();
-      if (aprDisp) aprDisp.textContent = apr.toFixed(1) + '%';
-      if (resultEl) resultEl.textContent = '$' + payment + '/mo';
-      if (principalEl) principalEl.textContent = '$' + Math.round(price - d).toLocaleString();
-    }
-    if (downSlider) { downSlider.value = Math.round(price * 0.10); downSlider.addEventListener('input', update); }
-    if (aprSlider) aprSlider.addEventListener('input', update);
-    if (termSel) {
-      termSel.addEventListener('click', function (e) {
-        var btn = e.target.closest('.fin-term-btn');
-        if (!btn) return;
-        activeTerm = parseInt(btn.dataset.term);
-        termSel.querySelectorAll('.fin-term-btn').forEach(function (b) {
-          var a = b.dataset.term == activeTerm;
-          b.classList.toggle('bg-navy', a); b.classList.toggle('text-white', a); b.classList.toggle('border-navy', a);
-          b.classList.toggle('bg-white', !a); b.classList.toggle('text-gray-600', !a); b.classList.toggle('border-gray-200', !a);
-        });
-        update();
-      });
-    }
-    update();
-  })();
 
   // FAQ accordion
   var faqList = document.getElementById('faq-list');
