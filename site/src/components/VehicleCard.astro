@@ -15,11 +15,23 @@ interface Props {
   inspected: boolean;
   primaryPhotoUrl?: string;
   photos?: { exterior: number; interior: number; source: string };
+  stockNumber?: string;
+  dateAdded?: string;
 }
 
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
-const { slug, year, make, model, trim, price, mileage, drivetrain, engine, bodyStyle, photoPath, photoPrefix, inspected, primaryPhotoUrl, photos } = Astro.props;
+const { slug, year, make, model, trim, price, mileage, drivetrain, engine, bodyStyle, photoPath, photoPrefix, inspected, primaryPhotoUrl, photos, stockNumber, dateAdded } = Astro.props;
 const title = `${year} ${make} ${model}`;
+
+// "Just Listed" badge if vehicle added within last 7 days
+function daysSince(dateStr?: string): number | null {
+  if (!dateStr) return null;
+  const d = new Date(dateStr);
+  if (Number.isNaN(d.getTime())) return null;
+  return Math.floor((Date.now() - d.getTime()) / (1000 * 60 * 60 * 24));
+}
+const daysOnLot = daysSince(dateAdded);
+const isJustListed = daysOnLot !== null && daysOnLot <= 7;
 
 // Use CDN URL if available, fall back to local path, or null if no valid source
 const localThumb = photoPath ? `${base}/${photoPath}/thumb/${photoPrefix}-photo-exterior-maxim-autos-skokie-il-01.jpg` : null;
@@ -57,22 +69,34 @@ const monthlyPayment = Math.round(
         FULLY INSPECTED
       </div>
     )}
+    {isJustListed && (
+      <div class="absolute top-2 right-2 bg-orange text-white text-xs font-bold px-2.5 py-1 rounded-md flex items-center gap-1">
+        <span class="material-symbols-outlined text-xs" style="font-variation-settings: 'FILL' 1;">new_releases</span>
+        JUST LISTED
+      </div>
+    )}
   </div>
   <div class="px-3 py-4 sm:px-4">
-    <h3 class="font-headline text-base font-bold text-gray-900 mb-0.5">{title}</h3>
+    <div class="flex items-start justify-between gap-2 mb-0.5">
+      <h3 class="font-headline text-base font-bold text-gray-900">{title}</h3>
+      {stockNumber && (
+        <span class="text-[10px] font-semibold text-gray-400 uppercase tracking-wider shrink-0 mt-1">Stock #{stockNumber}</span>
+      )}
+    </div>
     <p class="text-xs text-gray-500 mb-3">{trim} &bull; {engine} &bull; {drivetrain}</p>
 
     <!-- Price + Payment -->
-    <div class="flex flex-wrap justify-between items-end mb-3 gap-y-1">
+    <div class="flex flex-wrap justify-between items-end mb-1 gap-y-1">
       <div>
         <span class="text-xl font-extrabold text-navy">${price.toLocaleString()}</span>
         <div class="flex items-center gap-1 mt-0.5">
-          <span class="text-xs font-bold text-navy">${monthlyPayment}/mo est.</span>
-          <span class="text-xs text-gray-400 font-normal">*</span>
+          <span class="text-xs font-bold text-navy">${monthlyPayment}/mo est.*</span>
         </div>
       </div>
       <span class="text-sm text-gray-500">{mileage.toLocaleString()} mi</span>
     </div>
+    <!-- Reg Z compliance: APR + down payment + term adjacent to trigger term -->
+    <p class="text-[10px] text-gray-400 leading-tight mb-3">* Est. 9.9% APR, 10% down, 60 mo. Actual terms vary by credit. <a href={`${base}/financing`} class="underline hover:text-orange">See disclosures</a>.</p>
 
     <div class="flex flex-wrap gap-1.5">
       <span class="inline-flex items-center gap-1 text-xs bg-green-50 text-green-700 px-2 py-1 rounded-full font-medium">

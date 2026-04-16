@@ -23,7 +23,7 @@ const featured = vehicles.slice(0, 6);
         "https://www.google.com/maps/place/Maxim+Autos/@42.0464352,-87.7546134,17z/data=!3m1!4b1!4m6!3m5!1s0x880fcfcb0a430aed:0x4d36c77af06ce602!8m2!3d42.0464352!4d-87.7546134!16s%2Fg%2F11wmzx_p4t"
       ],
       "description": description,
-      "url": "https://maximautos.com",
+      "url": "https://www.maximautos.com",
       "telephone": "+1-847-510-8947",
       "email": "jerryf@maximautos.com",
       "address": {
@@ -72,6 +72,8 @@ const featured = vehicles.slice(0, 6);
         <img
           src={`${base}/brand/hero-family.jpg`}
           alt="Family enjoying their car purchased from Maxim Autos in Skokie IL"
+          width="1024"
+          height="572"
           class="w-full h-auto md:h-full md:object-cover md:object-center"
           loading="eager"
         />
@@ -90,9 +92,9 @@ const featured = vehicles.slice(0, 6);
           <span class="text-white/60 text-xs">· 34 Reviews</span>
         </a>
         <h1 class="font-headline text-4xl md:text-5xl lg:text-6xl font-extrabold text-white leading-tight tracking-tight mb-4">
-          Pre-Owned Cars<br/>in Skokie, IL
+          Used Cars <br/>in Skokie, IL
         </h1>
-        <p class="font-headline text-lg md:text-2xl lg:text-3xl font-bold text-white mb-3">Pre-Owned Cars You Can Actually Trust.</p>
+        <p class="font-headline text-lg md:text-2xl lg:text-3xl font-bold text-white mb-3">Used Cars You Can Actually Trust.</p>
         <p class="text-lg md:text-xl text-white/80 mb-7 leading-relaxed">
           $5K to $15K, hand-picked by the owner. Drive home the same day.
         </p>
@@ -119,14 +121,36 @@ const featured = vehicles.slice(0, 6);
     </div>
   </section>
 
+  <!-- Meet Jerry -->
+  <section class="py-10 bg-white border-b border-gray-100">
+    <div class="max-w-5xl mx-auto px-6 lg:px-8">
+      <div class="flex flex-col md:flex-row items-center gap-8 md:gap-10">
+        <img src={`${base}/brand/jerry.jpg`}
+             alt="Jerry Franco, owner of Maxim Autos in Skokie, IL"
+             width="240" height="240"
+             class="w-40 h-40 md:w-52 md:h-52 rounded-full object-cover border-4 border-orange/20 shadow-md shrink-0" />
+        <div class="text-center md:text-left">
+          <span class="text-orange font-bold uppercase tracking-widest text-sm mb-2 block">Meet Jerry</span>
+          <h2 class="font-headline text-2xl md:text-3xl font-extrabold text-navy mb-3">Owner. Buyer. Inspector. Your Point of Contact.</h2>
+          <p class="text-gray-600 text-base md:text-lg leading-relaxed mb-4">
+            Every car on this lot was picked, inspected, and priced by me personally. When you call or text the number on this site, you are reaching me directly. No BDC, no middleman.
+          </p>
+          <a href={`${base}/about`} class="inline-flex items-center gap-2 text-navy font-bold hover:text-orange transition-colors text-sm">
+            About Jerry <span class="material-symbols-outlined text-lg">arrow_forward</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- Featured Vehicles -->
   <section class="py-10 bg-surface">
     <div class="max-w-7xl mx-auto px-6 lg:px-8">
       <div class="flex justify-between items-center mb-6">
         <div>
-          <span class="text-orange font-bold uppercase tracking-widest text-sm mb-1 block">Current Inventory</span>
+          <span class="text-orange font-bold uppercase tracking-widest text-sm mb-1 block">Curated Inventory</span>
           <h2 class="font-headline text-2xl md:text-3xl font-extrabold">Hand-Picked. Every One.</h2>
-          <p class="text-gray-500 text-sm mt-1">We don't carry 200 cars. We carry the right ones.</p>
+          <p class="text-gray-500 text-sm mt-1">A small, carefully selected lineup. Every car passed Jerry's inspection.</p>
         </div>
         <a href={`${base}/inventory`} class="flex items-center gap-1 text-navy font-bold hover:text-orange transition-colors text-sm">
           View All <span class="material-symbols-outlined text-lg">arrow_forward</span>
@@ -150,6 +174,8 @@ const featured = vehicles.slice(0, 6);
             inspected={v.inspected}
             primaryPhotoUrl={v.primaryPhotoUrl}
             photos={v.photos}
+            stockNumber={v.stockNumber}
+            dateAdded={v.dateAdded}
           />
         ))}
       </div>

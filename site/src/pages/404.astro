@@ -1,0 +1,68 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const title = 'Page Not Found | Maxim Autos';
+const description = 'Sorry, that page could not be found. Browse our inventory or reach out to Jerry at Maxim Autos in Skokie, IL.';
+---
+
+<Layout title={title} description={description}>
+  <Header slot="header" />
+
+  <!-- Hero -->
+  <section class="bg-navy py-20 lg:py-28">
+    <div class="max-w-3xl mx-auto px-6 lg:px-8 text-center">
+      <div class="inline-flex items-center gap-3 bg-orange/20 border border-orange/40 text-orange rounded-full px-4 py-2 mb-6">
+        <span class="material-symbols-outlined">wrong_location</span>
+        <span class="font-bold text-sm uppercase tracking-widest">404 — Page Not Found</span>
+      </div>
+      <h1 class="font-headline text-4xl md:text-5xl lg:text-6xl font-extrabold text-white leading-tight tracking-tight mb-6">
+        Looks like that page took a wrong turn.
+      </h1>
+      <p class="text-lg text-gray-300 max-w-xl mx-auto leading-relaxed mb-10">
+        The page you were looking for is not on the lot. Let's get you back to something useful.
+      </p>
+      <div class="flex flex-col sm:flex-row justify-center gap-4">
+        <a href={`${base}/inventory`}
+           class="inline-flex items-center justify-center gap-2 bg-orange text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-orange-dark transition-colors shadow-lg">
+          <span class="material-symbols-outlined">directions_car</span>
+          Browse Inventory
+        </a>
+        <a href={`${base}/`}
+           class="inline-flex items-center justify-center gap-2 bg-white/10 border border-white/20 text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-white/20 transition-colors">
+          <span class="material-symbols-outlined">home</span>
+          Home
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Popular destinations -->
+  <section class="py-16 bg-white">
+    <div class="max-w-3xl mx-auto px-6 lg:px-8 text-center">
+      <h2 class="font-headline text-2xl md:text-3xl font-extrabold text-navy mb-8">Looking for something specific?</h2>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <a href={`${base}/inventory`} class="flex flex-col items-center gap-2 p-5 bg-surface rounded-xl border border-gray-100 hover:border-orange/40 hover:shadow-md transition-all">
+          <span class="material-symbols-outlined text-3xl text-orange" style="font-variation-settings:'FILL' 1;">directions_car</span>
+          <span class="font-bold text-navy">Inventory</span>
+        </a>
+        <a href={`${base}/financing`} class="flex flex-col items-center gap-2 p-5 bg-surface rounded-xl border border-gray-100 hover:border-orange/40 hover:shadow-md transition-all">
+          <span class="material-symbols-outlined text-3xl text-orange" style="font-variation-settings:'FILL' 1;">payments</span>
+          <span class="font-bold text-navy">Financing</span>
+        </a>
+        <a href={`${base}/sell-trade`} class="flex flex-col items-center gap-2 p-5 bg-surface rounded-xl border border-gray-100 hover:border-orange/40 hover:shadow-md transition-all">
+          <span class="material-symbols-outlined text-3xl text-orange" style="font-variation-settings:'FILL' 1;">swap_horiz</span>
+          <span class="font-bold text-navy">Sell or Trade</span>
+        </a>
+        <a href={`${base}/contact`} class="flex flex-col items-center gap-2 p-5 bg-surface rounded-xl border border-gray-100 hover:border-orange/40 hover:shadow-md transition-all">
+          <span class="material-symbols-outlined text-3xl text-orange" style="font-variation-settings:'FILL' 1;">chat</span>
+          <span class="font-bold text-navy">Contact</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <Footer slot="footer" />
+</Layout>

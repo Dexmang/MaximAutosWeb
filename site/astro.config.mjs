@@ -6,11 +6,15 @@ import tailwind from '@astrojs/tailwind';
 const isVercel = process.env.VERCEL === '1';
 
 export default defineConfig({
-  site: isVercel ? 'https://maximautos.com' : 'https://dexmang.github.io',
+  site: isVercel ? 'https://www.maximautos.com' : 'https://dexmang.github.io',
   base: isVercel ? '/' : '/MaximAutosWeb',
   publicDir: '../web_assets',
   integrations: [
-    sitemap(),
+    sitemap({
+      changefreq: 'weekly',
+      priority: 0.7,
+      lastmod: new Date(),
+    }),
     tailwind(),
   ],
   vite: {
