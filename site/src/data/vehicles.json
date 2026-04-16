@@ -5,7 +5,7 @@
     "make": "Ford",
     "model": "Escape",
     "trim": "Titanium FWD",
-    "price": 11950,
+    "price": 11949,
     "mileage": 55384,
     "exteriorColor": "Gray",
     "interiorColor": "Beige",
@@ -17,7 +17,7 @@
     "vin": "1FMCU0J95HUE21095",
     "condition": "Used",
     "inspected": true,
-    "warranty": "4,500-mile, 3-month warranty",
+    "warranty": "3-Month Warranty",
     "carfax": true,
     "inspection": true,
     "features": [
@@ -32,7 +32,6 @@
       "EcoBoost 2.0T, navigation, panoramic roof",
       "Titanium trim, 4,500-mile, 3-month warranty"
     ],
-    "historyBadges": ["1 Previous Owner", "Clean History", "No Accidents Reported", "CARFAX Included"],
     "status": "available",
     "dateAdded": "2026-04-10",
     "featured": true,
@@ -93,7 +92,7 @@
     "make": "Subaru",
     "model": "Outback",
     "trim": "2.5i Limited AWD",
-    "price": 9950,
+    "price": 9949,
     "mileage": 132551,
     "exteriorColor": "Silver",
     "interiorColor": "Beige",
@@ -105,7 +104,7 @@
     "vin": "4S4BSANC1H3317349",
     "condition": "Used",
     "inspected": true,
-    "warranty": "4,500-mile, 3-month warranty",
+    "warranty": "3-Month Warranty",
     "carfax": true,
     "inspection": true,
     "features": [
@@ -119,7 +118,6 @@
       "EyeSight, leather, sunroof. Limited trim",
       "97,000 miles, 4,500-mile, 3-month warranty"
     ],
-    "historyBadges": ["1 Previous Owner", "Clean History", "No Accidents Reported", "CARFAX Included"],
     "status": "available",
     "dateAdded": "2026-04-10",
     "featured": false,
@@ -131,6 +129,7 @@
       "https://static.cargurus.com/images/forsale/2026/04/10/09/27/2017_subaru_outback-pic-8486821194101164087-1024x768.jpeg",
       "https://static.cargurus.com/images/forsale/2026/04/03/14/04/2017_subaru_outback-pic-8336291793636412095-1024x768.jpeg",
       "https://static.cargurus.com/images/forsale/2026/04/03/14/04/2017_subaru_outback-pic-2533445763316347493-1024x768.jpeg",
+      "https://static.cargurus.com/images/forsale/2026/04/09/00/49/2017_subaru_outback-pic-6771950148711931786-1024x768.jpeg",
       "https://static.cargurus.com/images/forsale/2026/04/03/14/04/2017_subaru_outback-pic-3543454810697191743-1024x768.jpeg",
       "https://static.cargurus.com/images/forsale/2026/04/03/14/04/2017_subaru_outback-pic-3384285356391162573-1024x768.jpeg",
       "https://static.cargurus.com/images/forsale/2026/04/03/14/04/2017_subaru_outback-pic-255379877515310724-1024x768.jpeg",
@@ -179,7 +178,7 @@
     "make": "Lexus",
     "model": "RX",
     "trim": "350 AWD",
-    "price": 13950,
+    "price": 13949,
     "mileage": 142914,
     "exteriorColor": "Black",
     "interiorColor": "Black",
@@ -191,7 +190,7 @@
     "vin": "JTJBK1BA4E2462410",
     "condition": "Used",
     "inspected": true,
-    "warranty": "4,500-mile, 3-month warranty",
+    "warranty": "3-Month Warranty",
     "carfax": true,
     "inspection": true,
     "features": [
@@ -211,7 +210,6 @@
       "Premium luxury SUV, V6 AWD",
       "99,000 miles, 4,500-mile, 3-month warranty"
     ],
-    "historyBadges": ["1 Previous Owner", "Clean History", "No Accidents Reported", "CARFAX Included"],
     "status": "available",
     "dateAdded": "2026-04-10",
     "featured": true,
@@ -273,7 +271,7 @@
     "make": "Subaru",
     "model": "Crosstrek",
     "trim": "Premium",
-    "price": 9949,
+    "price": 10950,
     "mileage": 139429,
     "exteriorColor": "Black",
     "interiorColor": "Black",
@@ -285,7 +283,7 @@
     "vin": "JF2GPABC4HH264053",
     "condition": "Used",
     "inspected": true,
-    "warranty": "4,500-mile, 3-month warranty",
+    "warranty": "3-Month Warranty",
     "carfax": true,
     "inspection": true,
     "features": [
@@ -299,7 +297,6 @@
       "139,429 miles",
       "Fully inspected, 4,500-mile, 3-month warranty"
     ],
-    "historyBadges": ["Clean Title", "CARFAX Included"],
     "status": "available",
     "dateAdded": "2026-04-14",
     "featured": true,
@@ -344,10 +341,11 @@
       "https://static.cargurus.com/images/forsale/2026/04/14/03/33/2017_subaru_crosstrek-pic-3664234390485551239-1024x768.jpeg",
       "https://static.cargurus.com/images/forsale/2026/04/14/03/33/2017_subaru_crosstrek-pic-1668946317908765848-1024x768.jpeg",
       "https://static.cargurus.com/images/forsale/2026/04/14/03/33/2017_subaru_crosstrek-pic-5909113993974925568-1024x768.jpeg",
-      "https://static.cargurus.com/images/forsale/2026/04/14/03/33/2017_subaru_crosstrek-pic-1750909351924025587-1024x768.jpeg"
+      "https://static.cargurus.com/images/forsale/2026/04/14/03/33/2017_subaru_crosstrek-pic-1750909351924025587-1024x768.jpeg",
+      "https://static.cargurus.com/images/forsale/2026/04/10/09/27/2017_subaru_outback-pic-8486821194101164087-1024x768.jpeg"
     ],
     "photos": {
-      "exterior": 37,
+      "exterior": 38,
       "interior": 0,
       "source": "cargurus"
     },
@@ -363,7 +361,7 @@
     "make": "Jaguar",
     "model": "XJ-Series",
     "trim": "XJ8 L RWD",
-    "price": 10949,
+    "price": 11900,
     "mileage": 104150,
     "exteriorColor": "Black",
     "interiorColor": "Beige",
@@ -375,7 +373,7 @@
     "vin": "SAJWA79B58SH23092",
     "condition": "Used",
     "inspected": true,
-    "warranty": "4,500-mile, 3-month warranty",
+    "warranty": "3-Month Warranty",
     "carfax": true,
     "inspection": true,
     "features": [
@@ -395,7 +393,6 @@
       "V8 4.2L flagship Vanden Plas long-wheelbase",
       "104,150 miles, 4,500-mile, 3-month warranty"
     ],
-    "historyBadges": ["1 Previous Owner", "Clean History", "No Accidents Reported", "CARFAX Included"],
     "status": "available",
     "dateAdded": "2026-04-10",
     "featured": false,
