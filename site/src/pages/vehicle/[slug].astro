@@ -561,18 +561,54 @@ const faqSchema = {
         <!-- ===== RIGHT STICKY SIDEBAR ===== -->
         <div class="hidden lg:block w-80 shrink-0">
           <div class="sticky top-[73px]">
-            <!-- Price -->
+            <!-- Price + Payment Estimator -->
             <div class="bg-white rounded-2xl border border-gray-100 shadow-sm p-6 mb-4">
               <span class="text-4xl font-extrabold text-navy block mb-1" data-vehicle-price={v.price}>${v.price.toLocaleString()}</span>
-              <p class="text-sm text-gray-500 mb-4">Est. ${monthlyPayment}/mo · All credit levels welcome</p>
-              <!-- Non-clickable phone display for desktop -->
-              <div class="flex items-center gap-3 bg-surface border border-gray-200 rounded-xl px-4 py-3 mb-3">
-                <span class="material-symbols-outlined text-xl text-navy shrink-0" style="font-variation-settings:'FILL' 1;">phone</span>
-                <div>
-                  <p class="text-base font-bold text-navy leading-none">(847) 510-8947</p>
-                  <p class="text-xs text-gray-400 mt-0.5">Call or Text — Chat widget below</p>
+              <p class="text-sm text-gray-500 mb-4">Est. ${monthlyPayment}/mo</p>
+
+              <!-- Sidebar payment calculator -->
+              <div class="mb-4">
+                <p class="text-xs font-bold text-gray-500 uppercase tracking-widest mb-3 flex items-center gap-1.5">
+                  <span class="material-symbols-outlined text-sm text-orange" style="font-variation-settings:'FILL' 1;">calculate</span>
+                  Estimate Your Payment
+                </p>
+                <div class="mb-3">
+                  <div class="flex justify-between items-center mb-1">
+                    <label class="text-xs font-semibold text-gray-600">Down Payment</label>
+                    <span class="text-xs font-bold text-navy" id="sb-fin-down-display">$0</span>
+                  </div>
+                  <input type="range" id="sb-fin-down-slider"
+                    min="0" max={Math.round(v.price * 0.5)} step="250"
+                    value={Math.round(v.price * 0.10)}
+                    class="w-full h-1.5 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-orange" />
                 </div>
+                <div class="mb-3">
+                  <div class="flex justify-between items-center mb-1">
+                    <label class="text-xs font-semibold text-gray-600">APR</label>
+                    <span class="text-xs font-bold text-navy" id="sb-fin-apr-display">9.9%</span>
+                  </div>
+                  <input type="range" id="sb-fin-apr-slider"
+                    min="3.9" max="24.9" step="0.5" value="9.9"
+                    class="w-full h-1.5 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-orange" />
+                </div>
+                <div class="mb-3">
+                  <div class="flex gap-1.5" id="sb-fin-term-selector">
+                    {[36, 48, 60, 72].map(t => (
+                      <button data-term={t}
+                        class:list={['sb-fin-term-btn flex-1 py-1.5 rounded-lg text-xs font-bold border transition-all', t === 60 ? 'bg-navy text-white border-navy' : 'bg-white text-gray-500 border-gray-200 hover:border-navy']}>
+                        {t}mo
+                      </button>
+                    ))}
+                  </div>
+                </div>
+                <div class="bg-navy rounded-xl p-3 text-center mb-2">
+                  <p class="text-white/50 text-xs mb-0.5">Monthly Payment</p>
+                  <p class="text-2xl font-extrabold text-white" id="sb-fin-result">--</p>
+                  <p class="text-white/40 text-xs mt-0.5">Financed: <span id="sb-fin-principal">--</span></p>
+                </div>
+                <p class="text-xs text-gray-400 leading-relaxed">Estimates only. Actual terms depend on credit approval.</p>
               </div>
+
               <a href={`${base}/apply`}
                  class="w-full flex items-center justify-center gap-2 bg-orange text-white py-3 rounded-xl font-bold text-base hover:bg-orange-dark transition-colors">
                 <span class="material-symbols-outlined text-lg" style="font-variation-settings:'FILL' 1;">payments</span>
@@ -910,6 +946,54 @@ const faqSchema = {
       });
     }
     mUpdate();
+  })();
+
+  // Sidebar (desktop) payment calculator
+  (function () {
+    var priceEl = document.querySelector('[data-vehicle-price]');
+    var sbPrice = priceEl ? parseFloat(priceEl.dataset.vehiclePrice || 0) : 0;
+    var sbDown = document.getElementById('sb-fin-down-slider');
+    var sbApr = document.getElementById('sb-fin-apr-slider');
+    var sbTermSel = document.getElementById('sb-fin-term-selector');
+    var sbDownDisp = document.getElementById('sb-fin-down-display');
+    var sbAprDisp = document.getElementById('sb-fin-apr-display');
+    var sbResult = document.getElementById('sb-fin-result');
+    var sbPrincipal = document.getElementById('sb-fin-principal');
+    var sbActiveTerm = 60;
+
+    function sbCalc(p, d, apr, n) {
+      var principal = p - d;
+      if (principal <= 0) return 0;
+      var r = (apr / 100) / 12;
+      if (r === 0) return Math.round(principal / n);
+      return Math.round(principal * (r * Math.pow(1 + r, n)) / (Math.pow(1 + r, n) - 1));
+    }
+    function sbUpdate() {
+      if (!sbDown || !sbApr) return;
+      var d = parseFloat(sbDown.value);
+      var apr = parseFloat(sbApr.value);
+      var payment = sbCalc(sbPrice, d, apr, sbActiveTerm);
+      if (sbDownDisp) sbDownDisp.textContent = '$' + Math.round(d).toLocaleString();
+      if (sbAprDisp) sbAprDisp.textContent = apr.toFixed(1) + '%';
+      if (sbResult) sbResult.textContent = '$' + payment + '/mo';
+      if (sbPrincipal) sbPrincipal.textContent = '$' + Math.round(sbPrice - d).toLocaleString();
+    }
+    if (sbDown) { sbDown.value = Math.round(sbPrice * 0.10); sbDown.addEventListener('input', sbUpdate); }
+    if (sbApr) sbApr.addEventListener('input', sbUpdate);
+    if (sbTermSel) {
+      sbTermSel.addEventListener('click', function (e) {
+        var btn = e.target.closest('.sb-fin-term-btn');
+        if (!btn) return;
+        sbActiveTerm = parseInt(btn.dataset.term);
+        sbTermSel.querySelectorAll('.sb-fin-term-btn').forEach(function (b) {
+          var a = b.dataset.term == sbActiveTerm;
+          b.classList.toggle('bg-navy', a); b.classList.toggle('text-white', a); b.classList.toggle('border-navy', a);
+          b.classList.toggle('bg-white', !a); b.classList.toggle('text-gray-500', !a); b.classList.toggle('border-gray-200', !a);
+        });
+        sbUpdate();
+      });
+    }
+    sbUpdate();
   })();
 })();
 </script>
