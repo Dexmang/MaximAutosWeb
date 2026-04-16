@@ -256,6 +256,69 @@ const faqSchema = {
           <div class="lg:hidden mb-5 pb-5 border-b border-gray-100">
             <span class="text-3xl font-extrabold text-navy" data-vehicle-price={v.price}>${v.price.toLocaleString()}</span>
             <span class="text-sm text-gray-500 ml-2">Est. ${monthlyPayment}/mo</span>
+
+            <!-- Orange payment estimator callout -->
+            <button id="mobile-calc-toggle"
+              class="mt-3 w-full flex items-center justify-between bg-orange/10 border border-orange/30 text-orange rounded-xl px-4 py-3 font-bold text-sm hover:bg-orange/15 transition-colors">
+              <span class="flex items-center gap-2">
+                <span class="material-symbols-outlined text-lg" style="font-variation-settings:'FILL' 1;">calculate</span>
+                Estimate Your Payment
+              </span>
+              <span class="material-symbols-outlined text-base transition-transform duration-200" id="mobile-calc-icon">expand_more</span>
+            </button>
+
+            <!-- Expandable payment calculator -->
+            <div id="mobile-calc-panel" class="hidden mt-3 animate-slideDown">
+              <div class="bg-surface rounded-xl border border-orange/20 p-5">
+                <div class="mb-4">
+                  <div class="flex justify-between items-center mb-2">
+                    <label class="text-sm font-semibold text-gray-700">Down Payment</label>
+                    <span class="text-sm font-bold text-navy" id="m-fin-down-display">$0</span>
+                  </div>
+                  <input type="range" id="m-fin-down-slider"
+                    min="0" max={Math.round(v.price * 0.5)} step="250"
+                    value={Math.round(v.price * 0.10)}
+                    class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-orange" />
+                  <div class="flex justify-between text-xs text-gray-400 mt-1">
+                    <span>$0</span><span>${Math.round(v.price * 0.5).toLocaleString()}</span>
+                  </div>
+                </div>
+                <div class="mb-4">
+                  <div class="flex justify-between items-center mb-2">
+                    <label class="text-sm font-semibold text-gray-700">Interest Rate (APR)</label>
+                    <span class="text-sm font-bold text-navy" id="m-fin-apr-display">9.9%</span>
+                  </div>
+                  <input type="range" id="m-fin-apr-slider"
+                    min="3.9" max="24.9" step="0.5" value="9.9"
+                    class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-orange" />
+                  <div class="flex justify-between text-xs text-gray-400 mt-1">
+                    <span>3.9%</span><span>24.9%</span>
+                  </div>
+                </div>
+                <div class="mb-4">
+                  <label class="text-sm font-semibold text-gray-700 block mb-2">Loan Term</label>
+                  <div class="flex gap-2" id="m-fin-term-selector">
+                    {[36, 48, 60, 72].map(t => (
+                      <button data-term={t}
+                        class:list={['m-fin-term-btn flex-1 py-2 rounded-lg text-sm font-bold border transition-all', t === 60 ? 'bg-navy text-white border-navy' : 'bg-white text-gray-600 border-gray-200 hover:border-navy']}>
+                        {t}mo
+                      </button>
+                    ))}
+                  </div>
+                </div>
+                <div class="bg-navy rounded-xl p-4 text-center mb-3">
+                  <p class="text-white/60 text-xs mb-1">Estimated Monthly Payment</p>
+                  <p class="text-3xl font-extrabold text-white" id="m-fin-result">--</p>
+                  <p class="text-white/50 text-xs mt-1">Financed: <span id="m-fin-principal">--</span></p>
+                </div>
+                <p class="text-xs text-gray-400 mb-3">Estimates for illustration only. Actual terms depend on credit approval.</p>
+                <a href={`${base}/apply`}
+                   class="w-full flex items-center justify-center gap-2 bg-orange text-white py-3 rounded-xl font-bold text-sm hover:bg-orange-dark transition-colors">
+                  <span class="material-symbols-outlined text-base" style="font-variation-settings:'FILL' 1;">payments</span>
+                  Get Pre-Approved
+                </a>
+              </div>
+            </div>
           </div>
 
           <!-- History badges — shown first as top trust signal -->
@@ -788,6 +851,66 @@ const faqSchema = {
       icon.style.transform = expanded ? '' : 'rotate(180deg)';
     });
   }
+
+  // Mobile payment calculator (collapsible callout)
+  (function () {
+    var toggleBtn = document.getElementById('mobile-calc-toggle');
+    var panel = document.getElementById('mobile-calc-panel');
+    var icon = document.getElementById('mobile-calc-icon');
+    if (!toggleBtn || !panel) return;
+
+    toggleBtn.addEventListener('click', function () {
+      var open = !panel.classList.contains('hidden');
+      panel.classList.toggle('hidden', open);
+      icon.style.transform = open ? '' : 'rotate(180deg)';
+      if (!open) mUpdate();
+    });
+
+    var priceEl = document.querySelector('[data-vehicle-price]');
+    var mPrice = priceEl ? parseFloat(priceEl.dataset.vehiclePrice || 0) : 0;
+    var mDown = document.getElementById('m-fin-down-slider');
+    var mApr = document.getElementById('m-fin-apr-slider');
+    var mTermSel = document.getElementById('m-fin-term-selector');
+    var mDownDisp = document.getElementById('m-fin-down-display');
+    var mAprDisp = document.getElementById('m-fin-apr-display');
+    var mResult = document.getElementById('m-fin-result');
+    var mPrincipal = document.getElementById('m-fin-principal');
+    var mActiveTerm = 60;
+
+    function mCalc(p, d, apr, n) {
+      var principal = p - d;
+      if (principal <= 0) return 0;
+      var r = (apr / 100) / 12;
+      if (r === 0) return Math.round(principal / n);
+      return Math.round(principal * (r * Math.pow(1 + r, n)) / (Math.pow(1 + r, n) - 1));
+    }
+    function mUpdate() {
+      if (!mDown || !mApr) return;
+      var d = parseFloat(mDown.value);
+      var apr = parseFloat(mApr.value);
+      var payment = mCalc(mPrice, d, apr, mActiveTerm);
+      if (mDownDisp) mDownDisp.textContent = '$' + Math.round(d).toLocaleString();
+      if (mAprDisp) mAprDisp.textContent = apr.toFixed(1) + '%';
+      if (mResult) mResult.textContent = '$' + payment + '/mo';
+      if (mPrincipal) mPrincipal.textContent = '$' + Math.round(mPrice - d).toLocaleString();
+    }
+    if (mDown) { mDown.value = Math.round(mPrice * 0.10); mDown.addEventListener('input', mUpdate); }
+    if (mApr) mApr.addEventListener('input', mUpdate);
+    if (mTermSel) {
+      mTermSel.addEventListener('click', function (e) {
+        var btn = e.target.closest('.m-fin-term-btn');
+        if (!btn) return;
+        mActiveTerm = parseInt(btn.dataset.term);
+        mTermSel.querySelectorAll('.m-fin-term-btn').forEach(function (b) {
+          var a = b.dataset.term == mActiveTerm;
+          b.classList.toggle('bg-navy', a); b.classList.toggle('text-white', a); b.classList.toggle('border-navy', a);
+          b.classList.toggle('bg-white', !a); b.classList.toggle('text-gray-600', !a); b.classList.toggle('border-gray-200', !a);
+        });
+        mUpdate();
+      });
+    }
+    mUpdate();
+  })();
 })();
 </script>
 
