@@ -130,6 +130,17 @@ const drivetrains = [...new Set(vehicles.map(v => v.drivetrain).filter(Boolean))
     </div>
   </section>
 
+  <!-- Shipping callout -->
+  <div class="bg-navy/5 border-b border-navy/10">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8 py-3 flex items-center gap-3">
+      <span class="material-symbols-outlined text-xl text-navy shrink-0" style="font-variation-settings:'FILL' 1;">local_shipping</span>
+      <p class="text-sm text-gray-700">
+        <span class="font-bold text-navy">Not local?</span> Any of these can be delivered to your door — anywhere in the U.S. Complete the purchase online, pick up or get it shipped.
+        <a href={`${base}/ship`} class="text-orange font-bold hover:underline ml-1">How it works →</a>
+      </p>
+    </div>
+  </div>
+
   <!-- Inventory Grid -->
   <section class="py-6 bg-surface">
     <div class="max-w-7xl mx-auto px-6 lg:px-8">
