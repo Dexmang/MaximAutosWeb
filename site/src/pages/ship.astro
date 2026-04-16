@@ -1,0 +1,215 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const title = 'We Ship Nationwide | Buy From Anywhere | Maxim Autos';
+const description = 'Buy a car from Maxim Autos without leaving home. We ship door-to-door anywhere in the U.S. Personal video walkthrough, full CARFAX, licensed carrier — fully insured delivery.';
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "What if the car doesn't match the listing?", "acceptedAnswer": { "@type": "Answer", "text": "Before any money moves, Jerry records a personal video of the car showing every imperfection — every scratch, every wear item — and provides a full written condition disclosure. We want you confident before we ship anything." } },
+    { "@type": "Question", "name": "How does payment work for an out-of-state purchase?", "acceptedAnswer": { "@type": "Answer", "text": "Payment is by secure wire transfer or bank transfer. We do not load the car onto the carrier until payment clears. Title is sent to you within the standard processing window for your state." } },
+    { "@type": "Question", "name": "What about taxes and registration in my state?", "acceptedAnswer": { "@type": "Answer", "text": "We provide a standard bill of sale. You register the vehicle in your home state using your state's process. We can walk you through what your state requires — we handle out-of-state deals regularly." } },
+    { "@type": "Question", "name": "Is my car insured during shipping?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. All carriers we work with are FMCSA-licensed and insured. We send you the carrier's insurance certificate before the car is loaded." } },
+    { "@type": "Question", "name": "How long does shipping take?", "acceptedAnswer": { "@type": "Answer", "text": "Transit time depends on distance. Nearby states (Indiana, Wisconsin, Missouri) typically 1–2 days. Mid-range (New York, Atlanta, Dallas) 2–5 days. West Coast 5–9 days. We provide carrier contact info and tracking once the car is picked up." } },
+    { "@type": "Question", "name": "Can I have the car independently inspected before buying?", "acceptedAnswer": { "@type": "Answer", "text": "Absolutely. We welcome third-party pre-purchase inspections. You can arrange one through services like Lemon Squad or YourMechanic at your expense. We'll coordinate access." } }
+  ]
+};
+---
+
+<Layout title={title} description={description}>
+  <Fragment slot="structured-data">
+    <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://maximautos.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Ship Nationwide", "item": "https://maximautos.com/ship" }
+      ]
+    })} />
+  </Fragment>
+  <Header slot="header" />
+
+  <!-- Hero -->
+  <section class="bg-navy py-16 lg:py-20">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8 text-center">
+      <span class="text-orange font-bold uppercase tracking-widest text-sm mb-3 block">Nationwide Shipping</span>
+      <h1 class="font-headline text-4xl md:text-5xl lg:text-6xl font-extrabold text-white leading-tight tracking-tight mb-6">
+        You Shouldn't Have to Settle<br class="hidden md:block" /> Because of Your Zip Code
+      </h1>
+      <p class="text-xl text-gray-300 max-w-2xl mx-auto leading-relaxed mb-8">
+        Every car at Maxim Autos can be delivered to your door anywhere in the U.S. Door-to-door, insured, with a personal video from Jerry before we ship anything.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="sms:8475108947&body=Hi Jerry, I'm interested in shipping a vehicle from Maxim Autos."
+           class="sm:hidden inline-flex items-center justify-center gap-2 bg-orange text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-orange-dark transition-colors shadow-lg shadow-orange/20">
+          <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">sms</span>
+          Text Jerry
+        </a>
+        <div class="hidden sm:inline-flex items-center justify-center gap-2 bg-orange text-white px-8 py-4 rounded-xl font-bold text-lg">
+          <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">phone</span>
+          (847) 510-8947
+        </div>
+        <a href={`${base}/inventory`}
+           class="inline-flex items-center justify-center gap-2 bg-white/10 text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-white/20 transition-colors border border-white/20">
+          Browse Inventory
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works -->
+  <section class="py-14 bg-surface">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+      <div class="text-center mb-10">
+        <span class="text-orange font-bold uppercase tracking-widest text-sm mb-2 block">The Process</span>
+        <h2 class="font-headline text-3xl md:text-4xl font-extrabold">How It Works</h2>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+        {[
+          { step: '1', icon: 'search', title: 'Browse Online', text: 'Find a vehicle you like. Text or call Jerry with any questions — you get the owner directly, not a call center.' },
+          { step: '2', icon: 'videocam', title: 'Personal Video', text: 'Jerry records a video of the car for you. Every scratch, every wear item shown. Full CARFAX and written condition report included.' },
+          { step: '3', icon: 'payments', title: 'Secure Payment', text: 'Paperwork handled digitally. Secure wire transfer. We do not load the car until payment clears and you are ready.' },
+          { step: '4', icon: 'local_shipping', title: 'Door-to-Door Delivery', text: 'Licensed, insured carrier picks up the car. You get the carrier info and insurance certificate before loading. Most deliveries in 1–9 days.' },
+        ].map(s => (
+          <div class="flex flex-col items-start gap-3 bg-white rounded-2xl p-6 border border-gray-100 shadow-sm">
+            <div class="flex items-center gap-3">
+              <span class="w-7 h-7 bg-orange text-white text-xs font-extrabold rounded-full flex items-center justify-center shrink-0">{s.step}</span>
+              <span class="material-symbols-outlined text-2xl text-navy" style="font-variation-settings:'FILL' 1;">{s.icon}</span>
+            </div>
+            <h3 class="font-headline text-base font-bold">{s.title}</h3>
+            <p class="text-gray-500 text-sm leading-relaxed">{s.text}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- What's Included -->
+  <section class="py-14 bg-white">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+        <div>
+          <span class="text-orange font-bold uppercase tracking-widest text-sm mb-2 block">What You Get</span>
+          <h2 class="font-headline text-3xl md:text-4xl font-extrabold mb-6">You Know Exactly What You're Buying</h2>
+          <p class="text-gray-600 leading-relaxed mb-8">
+            We don't hide anything. Before you wire a dollar, you'll have a personal video of the car, a full CARFAX, and a written condition report that calls out every imperfection. If something doesn't look right, we'd rather lose the sale than have a frustrated customer on the other end of a hauler.
+          </p>
+          <div class="space-y-4">
+            {[
+              { icon: 'videocam', title: 'Personal Video Walkthrough', sub: 'Jerry records it for you. Every ding, every wear item — named and shown on camera.' },
+              { icon: 'description', title: 'Full CARFAX Report', sub: 'Accident history, title status, service records, previous owners.' },
+              { icon: 'fact_check', title: 'Written Condition Disclosure', sub: 'Every cosmetic and mechanical issue noted in writing before purchase.' },
+              { icon: 'verified_user', title: 'Carrier Insurance Certificate', sub: 'FMCSA-licensed carrier. You get the insurance docs before the car is loaded.' },
+              { icon: 'gavel', title: 'Out-of-State Title Handled', sub: 'We provide the bill of sale. We can walk you through your state\'s registration process.' },
+            ].map(item => (
+              <div class="flex items-start gap-4">
+                <div class="w-10 h-10 bg-navy/5 rounded-xl flex items-center justify-center shrink-0">
+                  <span class="material-symbols-outlined text-xl text-navy" style="font-variation-settings:'FILL' 1;">{item.icon}</span>
+                </div>
+                <div>
+                  <p class="font-bold text-sm text-gray-900">{item.title}</p>
+                  <p class="text-gray-500 text-sm">{item.sub}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <!-- Shipping Cost Table -->
+        <div>
+          <span class="text-orange font-bold uppercase tracking-widest text-sm mb-2 block">Shipping Costs</span>
+          <h2 class="font-headline text-3xl md:text-4xl font-extrabold mb-4">Transparent Pricing</h2>
+          <p class="text-gray-600 text-sm mb-6">
+            We use FMCSA-licensed carriers and pass the cost through with no markup. Open transport is standard for most vehicles. Enclosed available on request.
+          </p>
+          <div class="bg-surface rounded-2xl border border-gray-200 overflow-hidden">
+            <table class="w-full text-sm">
+              <thead>
+                <tr class="bg-navy text-white">
+                  <th class="text-left px-4 py-3 font-bold">From Chicago to</th>
+                  <th class="text-right px-4 py-3 font-bold">Est. Cost</th>
+                  <th class="text-right px-4 py-3 font-bold">Transit</th>
+                </tr>
+              </thead>
+              <tbody>
+                {[
+                  { to: 'Indianapolis / Milwaukee / St. Louis', cost: '$350–$500', transit: '1–2 days' },
+                  { to: 'New York / Atlanta / Charlotte', cost: '$700–$900', transit: '2–4 days' },
+                  { to: 'Dallas / Miami / Nashville', cost: '$850–$1,075', transit: '3–6 days' },
+                  { to: 'Phoenix / Denver / Las Vegas', cost: '$950–$1,150', transit: '4–7 days' },
+                  { to: 'Los Angeles / Seattle / Portland', cost: '$1,050–$1,225', transit: '5–9 days' },
+                ].map((row, i) => (
+                  <tr class:list={['border-t border-gray-200', i % 2 === 0 ? 'bg-white' : 'bg-surface']}>
+                    <td class="px-4 py-3 text-gray-700">{row.to}</td>
+                    <td class="px-4 py-3 text-right font-semibold text-navy">{row.cost}</td>
+                    <td class="px-4 py-3 text-right text-gray-500">{row.transit}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+          <p class="text-xs text-gray-400 mt-3">Estimates for open transport. Actual quotes vary by carrier availability and season. Jerry will get you an exact quote before anything is finalized.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="py-14 bg-surface">
+    <div class="max-w-3xl mx-auto px-6 lg:px-8">
+      <div class="text-center mb-10">
+        <span class="text-orange font-bold uppercase tracking-widest text-sm mb-2 block">FAQ</span>
+        <h2 class="font-headline text-3xl md:text-4xl font-extrabold">Common Questions</h2>
+      </div>
+      <div class="space-y-4">
+        {[
+          { q: "What if the car doesn't match the listing?", a: "Before any money moves, Jerry records a personal video showing every imperfection and provides a full written condition disclosure. We want you confident before we ship anything." },
+          { q: "How does payment work?", a: "Secure wire or bank transfer. We do not load the car onto the carrier until payment clears and you have confirmed you're ready to proceed." },
+          { q: "What about taxes and registration in my state?", a: "We provide a standard bill of sale. You register in your home state. We handle out-of-state deals regularly and can walk you through exactly what your state requires." },
+          { q: "Is my car insured during shipping?", a: "Yes. All carriers we work with are FMCSA-licensed and insured. You receive the carrier's insurance certificate before the car is loaded." },
+          { q: "How long does shipping take?", a: "Depends on distance. Nearby states 1–2 days. Mid-range destinations 2–5 days. West Coast 5–9 days. We give you carrier contact info and tracking once the car is picked up." },
+          { q: "Can I have the car inspected before buying?", a: "Absolutely. We welcome third-party pre-purchase inspections through services like Lemon Squad or YourMechanic. Arrange it at your expense and we'll coordinate access." },
+        ].map(item => (
+          <details class="bg-white rounded-xl border border-gray-200 group">
+            <summary class="flex items-center justify-between px-6 py-4 cursor-pointer font-bold text-sm text-gray-900 list-none">
+              {item.q}
+              <span class="material-symbols-outlined text-orange text-lg shrink-0 group-open:rotate-180 transition-transform">expand_more</span>
+            </summary>
+            <p class="px-6 pb-5 text-gray-500 text-sm leading-relaxed">{item.a}</p>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-12 bg-navy">
+    <div class="max-w-4xl mx-auto px-6 lg:px-8 text-center">
+      <h2 class="font-headline text-3xl md:text-4xl font-extrabold text-white mb-4">Ready to Find Your Car?</h2>
+      <p class="text-white/70 text-lg mb-8">Text Jerry a link to the vehicle you're interested in. He'll send you a personal video the same day.</p>
+      <div class="flex flex-col sm:flex-row justify-center gap-4">
+        <a href="sms:8475108947&body=Hi Jerry, I'm interested in shipping a vehicle from Maxim Autos."
+           class="sm:hidden inline-flex items-center justify-center gap-2 bg-orange text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-orange-dark transition-colors">
+          <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">sms</span>
+          Text Jerry Now
+        </a>
+        <div class="hidden sm:inline-flex items-center justify-center gap-2 bg-orange text-white px-8 py-4 rounded-xl font-bold text-lg">
+          <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">phone</span>
+          (847) 510-8947
+        </div>
+        <a href={`${base}/inventory`}
+           class="inline-flex items-center justify-center gap-2 bg-white/10 text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-white/20 transition-colors border border-white/20">
+          Browse Inventory
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <Footer slot="footer" />
+</Layout>
