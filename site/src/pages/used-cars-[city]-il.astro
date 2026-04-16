@@ -87,7 +87,7 @@ const breadcrumbSchema = {
   ]
 };
 
-const mapsDirectionsUrl = `https://www.google.com/maps/dir/${encodeURIComponent(suburb.city + ', IL')}/9101+Terminal+Ave+Skokie+IL+60077`;
+const mapsDirectionsUrl = `https://maps.google.com/maps?saddr=${encodeURIComponent(suburb.city + ', IL')}&daddr=Maxim+Autos,+9101+Terminal+Ave,+Skokie,+IL+60077`;
 ---
 
 <Layout title={title} description={description} canonicalUrl={canonicalUrl}>
