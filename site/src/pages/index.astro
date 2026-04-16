@@ -66,7 +66,7 @@ const featured = vehicles.slice(0, 6);
 
   <!-- Hero -->
   <section class="bg-navy overflow-hidden md:relative md:min-h-[448px] lg:min-h-[512px] md:flex md:items-center">
-    <div class="relative w-full md:absolute md:inset-0 md:z-0">
+    <div class="relative w-full max-h-44 overflow-hidden md:max-h-none md:overflow-visible md:absolute md:inset-0 md:z-0">
       <picture>
         <source srcset={`${base}/brand/hero-family.webp`} type="image/webp" />
         <img
@@ -94,7 +94,7 @@ const featured = vehicles.slice(0, 6);
         </h1>
         <p class="font-headline text-lg md:text-2xl lg:text-3xl font-bold text-white mb-3">Pre-Owned Cars You Can Actually Trust.</p>
         <p class="text-lg md:text-xl text-white/80 mb-7 leading-relaxed">
-          Every car inspected, every price upfront. Metal plates on the spot. Skip the DMV.
+          $5K to $15K, hand-picked by the owner. Drive home the same day.
         </p>
         <div class="flex flex-wrap gap-2 mb-8">
           {[
@@ -130,7 +130,8 @@ const featured = vehicles.slice(0, 6);
       <div class="flex justify-between items-center mb-6">
         <div>
           <span class="text-orange font-bold uppercase tracking-widest text-sm mb-1 block">Current Inventory</span>
-          <h2 class="font-headline text-2xl md:text-3xl font-extrabold">Available Now</h2>
+          <h2 class="font-headline text-2xl md:text-3xl font-extrabold">Hand-Picked. Every One.</h2>
+          <p class="text-gray-500 text-sm mt-1">We don't carry 200 cars. We carry the right ones.</p>
         </div>
         <a href={`${base}/inventory`} class="flex items-center gap-1 text-navy font-bold hover:text-orange transition-colors text-sm">
           View All <span class="material-symbols-outlined text-lg">arrow_forward</span>
@@ -272,7 +273,7 @@ const featured = vehicles.slice(0, 6);
               <span class="px-3 py-1.5 bg-surface rounded-full text-sm font-medium text-gray-700 border border-gray-200">{city}</span>
             ))}
           </div>
-          <a href="https://www.google.com/maps/dir/?api=1&destination=9101+Terminal+Ave,+Skokie,+IL+60077" target="_blank" rel="noopener" class="inline-flex items-center gap-2 bg-navy text-white px-6 py-3 rounded-xl font-bold hover:bg-navy-light transition-colors">
+          <a href="https://www.google.com/maps/place/Maxim+Autos/@42.0464352,-87.7546134,17z/data=!3m1!4b1!4m6!3m5!1s0x880fcfcb0a430aed:0x4d36c77af06ce602!8m2!3d42.0464352!4d-87.7546134!16s%2Fg%2F11wmzx_p4t" target="_blank" rel="noopener" class="inline-flex items-center gap-2 bg-navy text-white px-6 py-3 rounded-xl font-bold hover:bg-navy-light transition-colors">
             <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">location_on</span>
             Get Directions
           </a>
@@ -314,7 +315,7 @@ const featured = vehicles.slice(0, 6);
   <section class="py-12 bg-navy">
     <div class="max-w-4xl mx-auto px-6 lg:px-8 text-center">
       <h2 class="font-headline text-3xl md:text-4xl font-extrabold text-white mb-4">Ready to Find Your Next Car?</h2>
-      <p class="text-white/70 text-lg mb-8">Call or text Jerry for a quick response, or browse the full inventory online.</p>
+      <p class="text-white/70 text-lg mb-8">Every car hand-picked and personally inspected. Call or text Jerry for a quick response.</p>
       <div class="flex flex-col sm:flex-row justify-center gap-4">
         <a href="sms:8475108947&body=Hi Jerry, I'm interested in a vehicle at Maxim Autos." class="sm:hidden inline-flex items-center justify-center gap-2 bg-orange text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-orange-dark transition-colors">
           <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">sms</span>

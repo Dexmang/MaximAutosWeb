@@ -78,14 +78,28 @@ const canonical = canonicalUrl || Astro.url.href;
     <slot name="header" />
 
     <!-- Trust Strip — every page -->
-    <div class="bg-orange text-white py-2.5">
+    <div class="bg-orange text-white py-2">
       <div class="max-w-7xl mx-auto px-4">
-        <div class="flex flex-wrap justify-center gap-x-5 gap-y-1 text-xs font-bold tracking-wide text-center">
-          <span class="flex items-center gap-1"><span class="material-symbols-outlined text-sm" style="font-variation-settings:'FILL' 1;">check_circle</span>Skip the DMV</span>
-          <span class="hidden sm:flex items-center gap-1"><span class="material-symbols-outlined text-sm" style="font-variation-settings:'FILL' 1;">check_circle</span>Free CARFAX Every Car</span>
-          <span class="flex items-center gap-1"><span class="material-symbols-outlined text-sm" style="font-variation-settings:'FILL' 1;">check_circle</span>Fully Inspected</span>
-          <span class="hidden sm:flex items-center gap-1"><span class="material-symbols-outlined text-sm" style="font-variation-settings:'FILL' 1;">check_circle</span>No Hidden Fees</span>
-          <a href={`${base}/financing`} class="flex items-center gap-1 hover:underline"><span class="material-symbols-outlined text-sm" style="font-variation-settings:'FILL' 1;">check_circle</span>All Credit Welcome</a>
+        <div class="flex flex-wrap items-center gap-x-3 gap-y-1 text-xs">
+          <span class="font-bold uppercase tracking-widest text-white/80 shrink-0">Why Buyers Trust Us</span>
+          <span class="text-white/40 hidden sm:block">|</span>
+          <a href={`${base}/about`} class="flex items-center gap-1 hover:underline shrink-0">
+            <span class="material-symbols-outlined text-sm" style="font-variation-settings:'FILL' 1;">verified_user</span>
+            <span class="font-bold">Total Protection</span>
+            <span class="text-white/70 hidden lg:inline">· Inspection · 3-Mo Warranty · CARFAX</span>
+          </a>
+          <span class="text-white/40 hidden sm:block">·</span>
+          <div class="flex items-center gap-1 shrink-0">
+            <span class="material-symbols-outlined text-sm" style="font-variation-settings:'FILL' 1;">directions_car</span>
+            <span class="font-bold">Skip the DMV</span>
+            <span class="text-white/70 hidden lg:inline">· Metal plates on the spot</span>
+          </div>
+          <span class="text-white/40 hidden sm:block">·</span>
+          <a href={`${base}/financing`} class="flex items-center gap-1 hover:underline shrink-0">
+            <span class="material-symbols-outlined text-sm" style="font-variation-settings:'FILL' 1;">sell</span>
+            <span class="font-bold">Transparent Pricing</span>
+            <span class="text-white/70 hidden lg:inline">· No hidden fees · All credit welcome</span>
+          </a>
         </div>
       </div>
     </div>

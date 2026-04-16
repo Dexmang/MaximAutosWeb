@@ -17,7 +17,7 @@ const secondaryLinks = [
   { href: `${base}/contact`, label: 'Contact' },
 ];
 
-const directionsUrl = 'https://maps.google.com/?daddr=9101+Terminal+Ave,+Skokie,+IL+60077';
+const directionsUrl = 'https://www.google.com/maps/place/Maxim+Autos/@42.0464352,-87.7546134,17z/data=!3m1!4b1!4m6!3m5!1s0x880fcfcb0a430aed:0x4d36c77af06ce602!8m2!3d42.0464352!4d-87.7546134!16s%2Fg%2F11wmzx_p4t';
 ---
 
 <!-- Secondary utility bar — desktop only -->
@@ -98,6 +98,12 @@ const directionsUrl = 'https://maps.google.com/?daddr=9101+Terminal+Ave,+Skokie,
           <p class="text-xs text-gray-400 mt-0.5">Call or Text</p>
         </div>
       </div>
+      <!-- Mobile: directions icon — always visible, links to Google Maps pin -->
+      <a href={directionsUrl} target="_blank" rel="noopener"
+         class="lg:hidden flex items-center p-2 text-gray-500 hover:text-orange transition-colors"
+         aria-label="Get directions to Maxim Autos">
+        <span class="material-symbols-outlined text-2xl" style="font-variation-settings:'FILL' 1;">location_on</span>
+      </a>
       <!-- Mobile menu button -->
       <button
         id="mobile-menu-btn"
