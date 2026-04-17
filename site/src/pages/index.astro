@@ -150,6 +150,8 @@ const featured = vehicles.slice(0, 6);
             inspected={v.inspected}
             primaryPhotoUrl={v.primaryPhotoUrl}
             photos={v.photos}
+            dealRating={(v as any).dealRating}
+            priceSavings={(v as any).priceSavings}
           />
         ))}
       </div>

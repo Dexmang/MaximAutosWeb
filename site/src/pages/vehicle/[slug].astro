@@ -53,18 +53,26 @@ const highlights: string[] = (v as any).highlights || [];
 const historyBadges: string[] = (v as any).historyBadges || [];
 const description: string = (v as any).description || '';
 const stockNumber: string = (v as any).stockNumber || '';
-const imv: number | null = (v as any).imv || null;
 const mpg: string = (v as any).mpg || '';
 
-// Deal badge
-let dealLabel = '';
-let dealColor = '';
-if (imv && imv > 0) {
-  const ratio = v.price / imv;
-  if (ratio < 0.93) { dealLabel = 'Great Deal'; dealColor = 'bg-green-100 text-green-800 border-green-200'; }
-  else if (ratio < 1.0) { dealLabel = 'Good Deal'; dealColor = 'bg-teal-100 text-teal-800 border-teal-200'; }
-  else { dealLabel = 'Fair Price'; dealColor = 'bg-gray-100 text-gray-600 border-gray-200'; }
-}
+// Deal badge — sourced from CarGurus dealRating + priceSavings fields
+const dealRatingRaw: string = (v as any).dealRating || '';
+const priceSavingsRaw: number = (v as any).priceSavings || 0;
+const savingsStr = priceSavingsRaw > 0 ? `$${priceSavingsRaw.toLocaleString()} below market` : '';
+const DEAL_BADGE: Record<string, { label: string; bg: string; text: string }> = {
+  GREAT_PRICE: { label: 'Great Deal', bg: '#1a9b3b', text: '#fff' },
+  GOOD_PRICE:  { label: 'Good Deal',  bg: '#2ecc71', text: '#fff' },
+  FAIR_PRICE:  { label: 'Fair Deal',  bg: '#3498db', text: '#fff' },
+};
+const dealBadge = DEAL_BADGE[dealRatingRaw] || null;
+const dealLabel = dealBadge?.label || '';
+const dealBg = dealBadge?.bg || '';
+const dealText = dealBadge?.text || '';
+// Price meter: position the pointer as % across bar (0.70x–1.30x market = 0–100%)
+const marketValue = dealBadge && priceSavingsRaw > 0 ? v.price + priceSavingsRaw : 0;
+const meterPct = marketValue > 0
+  ? Math.min(96, Math.max(4, ((v.price / marketValue) - 0.70) / 0.60 * 100))
+  : 50;
 
 // Feature categorization
 const safetyKeywords = ['eyesight','blind spot','backup camera','backup','lane','collision','abs','airbag','alert','safety','stability','traction','monitor','sensor','assist','warning'];
@@ -321,8 +329,8 @@ const faqSchema = {
             </div>
           </div>
 
-          <!-- History badges — shown first as top trust signal -->
-          {historyBadges.length > 0 && (
+          <!-- History badges + deal rating — shown first as top trust signal -->
+          {(historyBadges.length > 0 || dealLabel) && (
             <div class="flex flex-wrap gap-2 mb-5">
               <a href={`${base}/ship`} class="inline-flex items-center gap-1.5 bg-navy/5 text-navy border border-navy/15 px-3 py-1.5 rounded-full text-xs font-semibold hover:bg-navy/10 transition-colors">
                 <span class="material-symbols-outlined text-xs text-navy" style="font-variation-settings:'FILL' 1;">local_shipping</span>
@@ -335,11 +343,43 @@ const faqSchema = {
                 </span>
               ))}
               {dealLabel && (
-                <span class:list={['inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-bold border', dealColor]}>
-                  <span class="material-symbols-outlined text-xs" style="font-variation-settings:'FILL' 1;">check_circle</span>
-                  {dealLabel}
+                <span class="inline-flex items-center gap-2">
+                  <span class="inline-flex items-center gap-1 text-xs font-bold pl-2 pr-3 py-1 relative"
+                    style={`background:${dealBg};color:${dealText};clip-path:polygon(10px 0%,100% 0%,100% 100%,10px 100%,0% 50%);border-radius:0 4px 4px 0`}>
+                    ▼ {dealLabel}{savingsStr ? ` · ${savingsStr}` : ''}
+                  </span>
+                  <span class="text-[10px] text-gray-400 font-medium">via CarGurus</span>
                 </span>
               )}
+            </div>
+          )}
+
+          <!-- CarGurus Price Meter -->
+          {dealBadge && marketValue > 0 && (
+            <div class="mb-6 rounded-xl border border-gray-100 bg-gray-50 p-4">
+              <div class="flex justify-between items-end mb-3">
+                <div>
+                  <p class="text-[10px] uppercase tracking-wide text-gray-400 font-semibold mb-0.5">Asking price</p>
+                  <p class="text-lg font-extrabold text-navy">${v.price.toLocaleString()}</p>
+                </div>
+                <div class="text-right">
+                  <p class="text-[10px] uppercase tracking-wide text-gray-400 font-semibold mb-0.5">Market estimate</p>
+                  <p class="text-lg font-bold text-gray-400 line-through">${marketValue.toLocaleString()}</p>
+                </div>
+              </div>
+              <!-- Meter bar with downward arrow pointer -->
+              <div class="relative pt-4 pb-1">
+                <div class="absolute" style={`left:${meterPct}%;transform:translateX(-50%);top:0;line-height:1`}>
+                  <span class="text-sm font-bold leading-none" style={`color:${dealBg}`}>▼</span>
+                </div>
+                <div class="h-2 rounded-full" style="background:linear-gradient(to right,#1a9b3b 0%,#4ade80 28%,#94a3b8 52%,#fb923c 75%,#ef4444 100%)"></div>
+              </div>
+              <div class="flex justify-between text-[10px] text-gray-400 mt-1.5">
+                <span>Great Deal</span>
+                <span>Fair Price</span>
+                <span>Above Market</span>
+              </div>
+              <p class="text-[10px] text-gray-400 mt-2 text-center">Price rating by <span class="font-semibold text-gray-500">CarGurus</span></p>
             </div>
           )}
 
@@ -433,7 +473,10 @@ const faqSchema = {
 
             <!-- C. Description -->
             {description && (
-              <p class="text-sm text-gray-600 leading-relaxed">{description}</p>
+              <div>
+                <p id="vdp-desc" class="text-sm text-gray-600 leading-relaxed" style="overflow:hidden;display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical">{description}</p>
+                <button class="text-xs text-blue-600 font-semibold mt-1.5 hover:underline" onclick="(function(btn){const d=document.getElementById('vdp-desc');const exp=d.style.webkitLineClamp==='unset';d.style.webkitLineClamp=exp?'4':'unset';btn.textContent=exp?'Read more \u25be':'Show less \u25b4';})(this)">Read more ▾</button>
+              </div>
             )}
           </div>
 

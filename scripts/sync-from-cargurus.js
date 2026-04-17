@@ -6,11 +6,12 @@
  * site/src/data/vehicles.json.
  *
  * Merge rules:
- *   - CarGurus is source of truth for: which cars exist, price, mileage
+ *   - CarGurus is source of truth for: which cars exist, price, mileage, dealRating
+ *   - Description is always regenerated from current data (stays fresh with price/mileage)
  *   - Existing vehicles.json data is preserved for: photos (DealerCenter CDN),
- *     features, highlights, description, stockNumber, dealerCenterUrl, slug
+ *     features, highlights, stockNumber, dealerCenterUrl, slug
  *   - Cars missing from CarGurus are removed (assumed sold)
- *   - New cars get auto-generated description/highlights
+ *   - New cars get auto-generated highlights
  *
  * Usage:
  *   node scripts/sync-from-cargurus.js           # writes vehicles.json
@@ -162,35 +163,55 @@ function extractVehicleNodes(tiles) {
 }
 
 /**
- * Fetch all full-size (1024x768) photo URLs from a CarGurus listing detail page.
- * Filters to only return photos matching the vehicle's year and make to avoid
- * picking up related/recommended listings that appear on the same page.
- * Returns array of https URLs, deduplicated, in order of appearance.
+ * Extract the dealer/seller description from a CarGurus detail page.
+ * The description is embedded as the first non-null "description" JSON field on the page.
  */
-async function fetchListingPhotos(listingId, year, make) {
+function extractDealerDescription(html) {
+  // Match "description":"<value>" where value is not null
+  const idx = html.indexOf('"description":"');
+  if (idx < 0) return '';
+  // Walk the string value (handles escaped chars)
+  let pos = idx + '"description":"'.length;
+  let result = '';
+  while (pos < html.length) {
+    const ch = html[pos];
+    if (ch === '\\') { pos += 2; result += ' '; continue; }
+    if (ch === '"') break;
+    result += ch;
+    pos++;
+  }
+  return result.trim();
+}
+
+/**
+ * Fetch all full-size (1024x768) photo URLs and the dealer description
+ * from a CarGurus listing detail page.
+ * Filters photos to only those matching the vehicle's year and make.
+ * Returns { photos: string[], description: string }.
+ */
+async function fetchListingDetail(listingId, year, make) {
   const url = `https://www.cargurus.com/details/${listingId}`;
   try {
     const html = await fetchHtml(url);
+
+    // Photos
     const matches = [...html.matchAll(/https?:\/\/static\.cargurus\.com\/images\/forsale\/[^\s"'<>&]+?-1024x768\.jpeg/g)];
     const unique = [...new Set(matches.map(m => m[0]))];
-
-    // Filter to photos that match this vehicle's year and make
-    // URL format: .../YYYY_make_model-pic-...-1024x768.jpeg
+    let photos = unique;
     if (year && make) {
       const makeKey = make.toLowerCase().replace(/\s+/g, '_');
       const prefix = `${year}_${makeKey}`;
-      const filtered = unique.filter(u => {
-        const filename = u.split('/').pop() || '';
-        return filename.startsWith(prefix);
-      });
-      // Use filtered set if it has photos; otherwise fall back to all (handles edge cases)
-      if (filtered.length > 0) return filtered;
+      const filtered = unique.filter(u => (u.split('/').pop() || '').startsWith(prefix));
+      if (filtered.length > 0) photos = filtered;
     }
 
-    return unique;
+    // Dealer description
+    const description = extractDealerDescription(html);
+
+    return { photos, description };
   } catch (e) {
-    console.warn(`  Could not fetch photos for listing ${listingId}: ${e.message}`);
-    return [];
+    console.warn(`  Could not fetch detail page for listing ${listingId}: ${e.message}`);
+    return { photos: [], description: '' };
   }
 }
 
@@ -221,9 +242,12 @@ function mapNode(node, _offer, existingByVin) {
   const model = onto.modelName || '';
   const trim = onto.trimName || '';
 
-  // Price and mileage — CarGurus is authoritative
+  // Price, mileage, dealRating, and priceSavings — CarGurus is authoritative
   const price = n.priceData?.current ?? existing?.price ?? 0;
   const mileage = n.mileageData?.value ?? existing?.mileage ?? 0;
+  const dealRating = n.dealRating || '';
+  // priceSavings: positive = below market (good), negative = above market
+  const priceSavings = n.priceData?.differential ?? 0;
 
   // Body style
   const bodyStyleRaw = onto.bodyTypeName || existing?.bodyStyle || '';
@@ -298,7 +322,9 @@ function mapNode(node, _offer, existingByVin) {
     photoPrefix: existing?.photoPrefix || slugify(`${year}-${make}-${model}-${trim}`),
     makeSlug: slugify(make),
     bodyStyleSlug: toBodyStyleSlug(bodyStyle),
-    description: existing?.description || generateDescription(year, make, model, trim, mileage),
+    description: generateDescription(year, make, model, trim, mileage),
+    dealRating,
+    priceSavings,
   };
 }
 
@@ -392,28 +418,35 @@ async function main() {
     })
     .filter(v => v && v.year && v.make);
 
-  // Fetch full photo galleries from each listing detail page (in parallel)
-  console.log(`\nFetching full photo galleries...`);
+  // Fetch detail pages for photos + dealer description (in parallel)
+  console.log(`\nFetching detail pages (photos + description)...`);
   await Promise.all(
     vehicleNodes.map(async ({ node }, i) => {
       const listingId = node.id;
       const v = vehicles[i];
       if (!v || !listingId) return;
 
-      // Skip if we already have multiple photos for this VIN
-      if (v.photoUrls?.length > 1) {
+      const skipPhotos = (v.photoUrls?.length ?? 0) > 1;
+      if (skipPhotos) {
         console.log(`  ${v.year} ${v.make} ${v.model}: kept ${v.photoUrls.length} existing photos`);
-        return;
       }
 
-      const photos = await fetchListingPhotos(listingId, v.year, v.make);
-      if (photos.length > 0) {
-        v.primaryPhotoUrl = photos[0];
-        v.photoUrls = photos;
-        v.photos = { exterior: photos.length, interior: 0, source: 'cargurus' };
-        console.log(`  ${v.year} ${v.make} ${v.model}: ${photos.length} photos fetched`);
-      } else {
-        console.log(`  ${v.year} ${v.make} ${v.model}: no photos found`);
+      const { photos, description } = await fetchListingDetail(listingId, v.year, v.make);
+
+      if (!skipPhotos) {
+        if (photos.length > 0) {
+          v.primaryPhotoUrl = photos[0];
+          v.photoUrls = photos;
+          v.photos = { exterior: photos.length, interior: 0, source: 'cargurus' };
+          console.log(`  ${v.year} ${v.make} ${v.model}: ${photos.length} photos fetched`);
+        } else {
+          console.log(`  ${v.year} ${v.make} ${v.model}: no photos found`);
+        }
+      }
+
+      if (description) {
+        v.description = description;
+        console.log(`  ${v.year} ${v.make} ${v.model}: description captured (${description.length} chars)`);
       }
     })
   );

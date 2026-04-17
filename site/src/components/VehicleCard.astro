@@ -15,10 +15,20 @@ interface Props {
   inspected: boolean;
   primaryPhotoUrl?: string;
   photos?: { exterior: number; interior: number; source: string };
+  dealRating?: string;
+  priceSavings?: number;
 }
 
+const DEAL_BADGE: Record<string, { label: string; bg: string; text: string }> = {
+  GREAT_PRICE: { label: 'Great Deal', bg: '#1a9b3b', text: '#fff' },
+  GOOD_PRICE:  { label: 'Good Deal',  bg: '#2ecc71', text: '#fff' },
+  FAIR_PRICE:  { label: 'Fair Deal',  bg: '#3498db', text: '#fff' },
+};
+
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
-const { slug, year, make, model, trim, price, mileage, drivetrain, engine, bodyStyle, photoPath, photoPrefix, inspected, primaryPhotoUrl, photos } = Astro.props;
+const { slug, year, make, model, trim, price, mileage, drivetrain, engine, bodyStyle, photoPath, photoPrefix, inspected, primaryPhotoUrl, photos, dealRating, priceSavings } = Astro.props;
+const dealBadge = dealRating ? (DEAL_BADGE[dealRating] || null) : null;
+const savingsStr = (priceSavings && priceSavings > 0) ? `$${priceSavings.toLocaleString()} below` : '';
 const title = `${year} ${make} ${model}`;
 
 // Use CDN URL if available, fall back to local path, or null if no valid source
@@ -66,6 +76,16 @@ const monthlyPayment = Math.round(
     <div class="flex flex-wrap justify-between items-end mb-3 gap-y-1">
       <div>
         <span class="text-xl font-extrabold text-navy">${price.toLocaleString()}</span>
+        {dealBadge && (
+          <div class="flex items-center gap-1 mt-1">
+            <!-- CarGurus-style price-tag badge with left arrow notch -->
+            <span class="inline-flex items-center gap-1 text-xs font-bold pl-2 pr-2.5 py-0.5 relative"
+              style={`background:${dealBadge.bg};color:${dealBadge.text};clip-path:polygon(8px 0%,100% 0%,100% 100%,8px 100%,0% 50%);border-radius:0 3px 3px 0`}>
+              ▼ {dealBadge.label}{savingsStr ? ` · ${savingsStr}` : ''}
+            </span>
+            <span class="text-[9px] text-gray-400 font-medium leading-none">CarGurus</span>
+          </div>
+        )}
         <div class="flex items-center gap-1 mt-0.5">
           <span class="text-xs font-bold text-navy">${monthlyPayment}/mo est.</span>
           <span class="text-xs text-gray-400 font-normal">*</span>
