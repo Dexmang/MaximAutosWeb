@@ -10,13 +10,19 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 const {
   title,
   description = 'Quality used cars in Skokie, IL. Every vehicle inspected, every price transparent. Metal plates on the spot. Skip the DMV. Financing for all credit levels. Maxim Autos.',
-  ogImage = `${base}/brand/hero-family.jpg`,
+  ogImage,
   canonicalUrl,
 } = Astro.props;
 
 const siteName = 'Maxim Autos';
-const fullTitle = title === siteName ? title : `${title} | ${siteName}`;
-const canonical = canonicalUrl || Astro.url.href;
+// Dedupe: if title already contains siteName, don't append it again
+const fullTitle = title.includes(siteName) ? title : `${title} | ${siteName}`;
+
+// Build canonical and OG image as absolute URLs using Astro.site (from astro.config.mjs)
+// so they always match the configured canonical domain regardless of inbound host
+const siteUrl = Astro.site ?? new URL('https://www.maximautos.com/');
+const canonical = canonicalUrl || new URL(Astro.url.pathname, siteUrl).href;
+const ogImageAbsolute = new URL(ogImage ?? `${base}/brand/hero-family.jpg`, siteUrl).href;
 ---
 
 <!doctype html>
@@ -37,14 +43,14 @@ const canonical = canonicalUrl || Astro.url.href;
     <meta property="og:site_name" content={siteName} />
     <meta property="og:title" content={fullTitle} />
     <meta property="og:description" content={description} />
-    <meta property="og:image" content={ogImage} />
+    <meta property="og:image" content={ogImageAbsolute} />
     <meta property="og:url" content={canonical} />
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={fullTitle} />
     <meta name="twitter:description" content={description} />
-    <meta name="twitter:image" content={ogImage} />
+    <meta name="twitter:image" content={ogImageAbsolute} />
 
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com" rel="preconnect" />

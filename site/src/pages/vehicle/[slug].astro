@@ -128,7 +128,7 @@ const vehicleSchema = {
     "seller": { "@type": "AutoDealer", "name": "Maxim Autos", "telephone": "+1-847-510-8947", "address": { "@type": "PostalAddress", "addressLocality": "Skokie", "addressRegion": "IL", "postalCode": "60077", "addressCountry": "US" } }
   },
   "image": allPhotos.length > 0 ? allPhotos[0] : undefined,
-  "url": `https://maximautos.com/vehicle/${v.slug}`
+  "url": `https://www.maximautos.com/vehicle/${v.slug}`
 };
 if (v.vin && v.vin !== 'TBD') (vehicleSchema as any).vehicleIdentificationNumber = v.vin;
 
@@ -147,8 +147,8 @@ const faqSchema = {
       "@context": "https://schema.org",
       "@type": "BreadcrumbList",
       "itemListElement": [
-        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://maximautos.com/" },
-        { "@type": "ListItem", "position": 2, "name": "Inventory", "item": "https://maximautos.com/inventory" },
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.maximautos.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Inventory", "item": "https://www.maximautos.com/inventory" },
         { "@type": "ListItem", "position": 3, "name": titleText }
       ]
     })} />

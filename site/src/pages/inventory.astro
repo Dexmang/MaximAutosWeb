@@ -19,8 +19,8 @@ const drivetrains = [...new Set(vehicles.map(v => v.drivetrain).filter(Boolean))
       "@context": "https://schema.org",
       "@type": "BreadcrumbList",
       "itemListElement": [
-        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://maximautos.com/" },
-        { "@type": "ListItem", "position": 2, "name": "Inventory", "item": "https://maximautos.com/inventory" }
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.maximautos.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Inventory", "item": "https://www.maximautos.com/inventory" }
       ]
     })} />
     <script type="application/ld+json" set:html={JSON.stringify({
@@ -30,7 +30,7 @@ const drivetrains = [...new Set(vehicles.map(v => v.drivetrain).filter(Boolean))
       "sameAs": [
         "https://www.google.com/maps/place/Maxim+Autos/@42.0464352,-87.7546134,17z/data=!3m1!4b1!4m6!3m5!1s0x880fcfcb0a430aed:0x4d36c77af06ce602!8m2!3d42.0464352!4d-87.7546134!16s%2Fg%2F11wmzx_p4t"
       ],
-      "url": "https://maximautos.com/inventory",
+      "url": "https://www.maximautos.com/inventory",
       "telephone": "+1-847-510-8947",
       "address": {
         "@type": "PostalAddress",
@@ -61,7 +61,7 @@ const drivetrains = [...new Set(vehicles.map(v => v.drivetrain).filter(Boolean))
           "bodyType": v.bodyStyle,
           "vehicleIdentificationNumber": v.vin !== "TBD" ? v.vin : undefined,
           "itemCondition": "https://schema.org/UsedCondition",
-          "url": `https://maximautos.com/vehicle/${v.slug}`
+          "url": `https://www.maximautos.com/vehicle/${v.slug}`
         },
         "price": v.price,
         "priceCurrency": "USD",
