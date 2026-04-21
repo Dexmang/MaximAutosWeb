@@ -1,0 +1,52 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const title = 'Page Not Found | Maxim Autos';
+const description = 'The page you are looking for may have been moved or no longer exists. Browse our inventory or contact Maxim Autos in Skokie, IL.';
+---
+
+<Layout title={title} description={description}>
+  <Header slot="header" />
+
+  <section class="bg-navy py-24 lg:py-32 flex-1">
+    <div class="max-w-2xl mx-auto px-6 lg:px-8 text-center">
+
+      <span class="text-orange font-bold uppercase tracking-widest text-sm mb-4 block">404</span>
+
+      <h1 class="font-headline text-4xl md:text-5xl font-extrabold text-white leading-tight tracking-tight mb-6">
+        Page Not Found
+      </h1>
+
+      <p class="text-xl text-gray-300 mb-10 leading-relaxed">
+        The page you are looking for may have been moved or no longer exists.
+      </p>
+
+      <div class="flex flex-col sm:flex-row justify-center gap-4 mb-12">
+        <a
+          href={`${base}/inventory`}
+          class="inline-flex items-center justify-center gap-2 bg-orange text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-orange/90 transition-colors"
+        >
+          <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">directions_car</span>
+          Browse Our Inventory
+        </a>
+        <a
+          href={`${base}/contact`}
+          class="inline-flex items-center justify-center gap-2 bg-white/10 text-white border border-white/20 px-8 py-4 rounded-xl font-bold text-lg hover:bg-white/20 transition-colors"
+        >
+          Contact Us
+        </a>
+      </div>
+
+      <p class="text-gray-400 text-base">
+        Or call us directly:
+        <a href="tel:8475108947" class="text-orange font-bold hover:underline ml-1">(847) 510-8947</a>
+      </p>
+
+    </div>
+  </section>
+
+  <Footer slot="footer" />
+</Layout>
