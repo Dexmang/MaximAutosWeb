@@ -20,7 +20,7 @@ const description = 'The page you are looking for may have been moved or no long
         Page Not Found
       </h1>
 
-      <p class="text-xl text-gray-300 mb-10 leading-relaxed">
+      <p class="text-xl text-gray-300 mb-10 leading-relaxed" data-404-body>
         The page you are looking for may have been moved or no longer exists.
       </p>
 
@@ -49,4 +49,16 @@ const description = 'The page you are looking for may have been moved or no long
   </section>
 
   <Footer slot="footer" />
+
+  <script is:inline>
+    (function () {
+      if (location.pathname.startsWith('/vehicle/')) {
+        var h1 = document.querySelector('h1');
+        var body = document.querySelector('[data-404-body]');
+        if (h1) h1.textContent = 'This vehicle may have sold';
+        if (body) body.textContent = 'Browse our current Pre-Owned inventory or text Jerry to source a similar one.';
+        if (document.title) document.title = 'Vehicle Not Available | Maxim Autos';
+      }
+    })();
+  </script>
 </Layout>

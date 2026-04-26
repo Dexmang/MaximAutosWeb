@@ -6,11 +6,12 @@ import VehicleCard from '../components/VehicleCard.astro';
 import vehicles from '../data/vehicles.json';
 
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const liveVehicles = vehicles.filter(v => (v as any).status !== 'sold');
 const title = 'Used Cars for Sale in Skokie, IL';
-const description = `Browse ${vehicles.length} fully inspected used cars for sale at Maxim Autos in Skokie, IL. Prices from $${Math.min(...vehicles.map(v => v.price)).toLocaleString()} to $${Math.max(...vehicles.map(v => v.price)).toLocaleString()}. Every vehicle includes an independent inspection report and same-day metal plates. Financing available for all credit levels.`;
+const description = `Browse ${liveVehicles.length} fully inspected used cars for sale at Maxim Autos in Skokie, IL. Prices from $${Math.min(...liveVehicles.map(v => v.price)).toLocaleString()} to $${Math.max(...liveVehicles.map(v => v.price)).toLocaleString()}. Every vehicle includes an independent inspection report and same-day metal plates. Financing available for all credit levels.`;
 
-const bodyStyles = [...new Set(vehicles.map(v => v.bodyStyle))].sort();
-const drivetrains = [...new Set(vehicles.map(v => v.drivetrain).filter(Boolean))].sort();
+const bodyStyles = [...new Set(liveVehicles.map(v => v.bodyStyle))].sort();
+const drivetrains = [...new Set(liveVehicles.map(v => v.drivetrain).filter(Boolean))].sort();
 ---
 
 <Layout title={title} description={description}>
@@ -39,7 +40,7 @@ const drivetrains = [...new Set(vehicles.map(v => v.drivetrain).filter(Boolean))
         "postalCode": "60077",
         "addressCountry": "US"
       },
-      "makesOffer": vehicles.map(v => ({
+      "makesOffer": liveVehicles.map(v => ({
         "@type": "Offer",
         "itemOffered": {
           "@type": "Car",
@@ -165,14 +166,14 @@ const drivetrains = [...new Set(vehicles.map(v => v.drivetrain).filter(Boolean))
       <!-- Count + Active Filters -->
       <div class="flex items-center justify-between mb-8">
         <p class="text-gray-600 font-medium" id="vehicle-count">
-          Showing <span class="text-navy font-bold" id="count-num">{vehicles.length}</span> vehicles
+          Showing <span class="text-navy font-bold" id="count-num">{liveVehicles.length}</span> vehicles
         </p>
         <button id="clear-filters" class="hidden text-sm text-orange font-semibold hover:underline">Clear Filters</button>
       </div>
 
       <!-- Grid -->
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5" id="vehicle-grid">
-        {vehicles.map(v => (
+        {liveVehicles.map(v => (
           <div
             class="vehicle-item"
             data-price={v.price}

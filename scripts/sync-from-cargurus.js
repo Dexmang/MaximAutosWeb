@@ -10,7 +10,11 @@
  *   - Description is always regenerated from current data (stays fresh with price/mileage)
  *   - Existing vehicles.json data is preserved for: photos (DealerCenter CDN),
  *     features, highlights, stockNumber, dealerCenterUrl, slug
- *   - Cars missing from CarGurus are removed (assumed sold)
+ *   - Cars missing from CarGurus are SOFT-DELETED: status flipped to "sold"
+ *     and sold_date stamped. The VDP URL keeps rendering with a SOLD treatment
+ *     so Google sees a 200 OK with rich content instead of a 404.
+ *   - If a previously-sold car re-appears in the CarGurus feed, the sold flag
+ *     is preserved (you can hand-flip it back to "available" in vehicles.json).
  *   - New cars get auto-generated highlights
  *
  * Usage:
@@ -309,7 +313,8 @@ function mapNode(node, _offer, existingByVin) {
     inspection: true,
     features,
     highlights: existing?.highlights || generateHighlights(year, make, model, trim, mileage),
-    status: 'available',
+    status: existing?.status === 'sold' ? 'sold' : 'available',
+    ...(existing?.status === 'sold' && existing?.sold_date ? { sold_date: existing.sold_date } : {}),
     dateAdded: existing?.dateAdded || new Date().toISOString().split('T')[0],
     featured: existing?.featured ?? true,
     sortOrder: existing?.sortOrder ?? 0,
@@ -331,14 +336,21 @@ function mapNode(node, _offer, existingByVin) {
 // ── diff summary ──────────────────────────────────────────────────────────────
 
 function printDiff(before, after) {
-  const beforeVins = new Set(before.map(v => v.vin));
-  const afterVins = new Set(after.map(v => v.vin));
+  const beforeByVin = new Map(before.map(v => [v.vin, v]));
+  const afterByVin = new Map(after.map(v => [v.vin, v]));
 
-  const added = after.filter(v => !beforeVins.has(v.vin));
-  const removed = before.filter(v => !afterVins.has(v.vin));
+  // Truly new VINs (not present before at all)
+  const added = after.filter(v => !beforeByVin.has(v.vin));
+  // Marked sold this run: VIN existed before and wasn't sold; now status is sold
+  const markedSold = after.filter(v => {
+    const old = beforeByVin.get(v.vin);
+    return old && old.status !== 'sold' && v.status === 'sold';
+  });
+  // Updates on still-live cars
   const updated = after.filter(v => {
-    if (!beforeVins.has(v.vin)) return false;
-    const old = before.find(b => b.vin === v.vin);
+    const old = beforeByVin.get(v.vin);
+    if (!old) return false;
+    if (v.status === 'sold') return false;
     return old.price !== v.price || old.mileage !== v.mileage;
   });
 
@@ -346,21 +358,21 @@ function printDiff(before, after) {
     console.log('\nAdded:');
     added.forEach(v => console.log(`  + ${v.year} ${v.make} ${v.model} ${v.trim} [${v.vin}]`));
   }
-  if (removed.length) {
-    console.log('\nRemoved (sold / de-listed):');
-    removed.forEach(v => console.log(`  - ${v.year} ${v.make} ${v.model} ${v.trim} [${v.vin}]`));
+  if (markedSold.length) {
+    console.log('\nMarked sold (kept VDP for SEO):');
+    markedSold.forEach(v => console.log(`  ~ ${v.year} ${v.make} ${v.model} ${v.trim} [${v.vin}] → status=sold, sold_date=${v.sold_date}`));
   }
   if (updated.length) {
     console.log('\nUpdated (price / mileage):');
     updated.forEach(v => {
-      const old = before.find(b => b.vin === v.vin);
+      const old = beforeByVin.get(v.vin);
       const changes = [];
       if (old.price !== v.price) changes.push(`price $${old.price.toLocaleString()} → $${v.price.toLocaleString()}`);
       if (old.mileage !== v.mileage) changes.push(`mileage ${old.mileage.toLocaleString()} → ${v.mileage.toLocaleString()}`);
       console.log(`  ~ ${v.year} ${v.make} ${v.model}: ${changes.join(', ')}`);
     });
   }
-  if (!added.length && !removed.length && !updated.length) {
+  if (!added.length && !markedSold.length && !updated.length) {
     console.log('\nNo changes.');
   }
 }
@@ -406,8 +418,8 @@ async function main() {
     process.exit(1);
   }
 
-  // Map to schema
-  const vehicles = vehicleNodes
+  // Map to schema (live cars from CarGurus)
+  const liveVehicles = vehicleNodes
     .map(({ node, offer }) => {
       try {
         return mapNode(node, offer, existingByVin);
@@ -417,6 +429,23 @@ async function main() {
       }
     })
     .filter(v => v && v.year && v.make);
+
+  // Soft-delete merge: anything in vehicles.json not in the live CarGurus feed
+  // becomes sold (preserves VDP URL, replaces 404 with 200 + SOLD treatment).
+  const liveVins = new Set(liveVehicles.map(v => v.vin));
+  const today = new Date().toISOString().slice(0, 10);
+  const newlySold = existing
+    .filter(e => e.vin && e.vin !== 'TBD' && !liveVins.has(e.vin) && e.status !== 'sold')
+    .map(e => ({ ...e, status: 'sold', sold_date: today }));
+  const stillSold = existing.filter(e => e.vin && e.vin !== 'TBD' && !liveVins.has(e.vin) && e.status === 'sold');
+  const vehicles = [...liveVehicles, ...newlySold, ...stillSold];
+
+  if (newlySold.length > 0) {
+    console.log(`\nMarked ${newlySold.length} vehicle(s) sold (missing from CarGurus feed).`);
+  }
+  if (stillSold.length > 0) {
+    console.log(`Preserving ${stillSold.length} previously-sold vehicle(s) for SEO.`);
+  }
 
   // Fetch detail pages for photos + dealer description (in parallel)
   console.log(`\nFetching detail pages (photos + description)...`);

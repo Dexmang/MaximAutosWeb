@@ -15,9 +15,14 @@ export function getStaticPaths() {
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 const { vehicle } = Astro.props;
 const v = vehicle;
+const isSold = (v as any).status === 'sold';
 const titleText = `${v.year} ${v.make} ${v.model} ${v.trim}`;
-const pageTitle = `${titleText} for Sale in Skokie, IL`;
-const pageDesc = `${titleText} with ${v.mileage.toLocaleString()} miles for $${v.price.toLocaleString()} at Maxim Autos in Skokie, IL. ${v.engine}, ${v.transmission}, ${v.drivetrain}. Fully inspected with free CARFAX. Same-day metal plates.`;
+const pageTitle = isSold
+  ? `${titleText} (Sold) | Maxim Autos Skokie, IL`
+  : `${titleText} for Sale in Skokie, IL`;
+const pageDesc = isSold
+  ? `${titleText} previously listed at Maxim Autos in Skokie, IL has sold. Browse our current Pre-Owned inventory or text Jerry to source a similar one.`
+  : `${titleText} with ${v.mileage.toLocaleString()} miles for $${v.price.toLocaleString()} at Maxim Autos in Skokie, IL. ${v.engine}, ${v.transmission}, ${v.drivetrain}. Fully inspected with free CARFAX. Same-day metal plates.`;
 const seoSuffix = 'maxim-autos-skokie-il';
 
 // Build photo arrays
@@ -36,7 +41,7 @@ if (v.photoUrls?.length > 0) {
   allPhotos = [...ext, ...intr];
 }
 
-const otherVehicles = vehicles.filter(o => o.slug !== v.slug).slice(0, 3);
+const otherVehicles = vehicles.filter(o => o.slug !== v.slug && (o as any).status !== 'sold').slice(0, 3);
 const smsBody = encodeURIComponent(`Hi Jerry, I'm interested in the ${titleText} listed on MaximAutos.com.`);
 
 // Static payment estimate (10% down, 9.9% APR, 60 mo)
@@ -124,7 +129,7 @@ const vehicleSchema = {
     "@type": "Offer",
     "price": v.price,
     "priceCurrency": "USD",
-    "availability": "https://schema.org/InStock",
+    "availability": isSold ? "https://schema.org/SoldOut" : "https://schema.org/InStock",
     "seller": { "@type": "AutoDealer", "name": "Maxim Autos", "telephone": "+1-847-510-8947", "address": { "@type": "PostalAddress", "addressLocality": "Skokie", "addressRegion": "IL", "postalCode": "60077", "addressCountry": "US" } }
   },
   "image": allPhotos.length > 0 ? allPhotos[0] : undefined,
@@ -157,6 +162,17 @@ const faqSchema = {
 
   <!-- Photo data for JS -->
   <script id="photo-data" type="application/json" set:html={JSON.stringify(allPhotos)} />
+
+  {isSold && (
+    <section class="bg-red-50 border-y border-red-200">
+      <div class="max-w-7xl mx-auto px-6 lg:px-8 py-4 flex items-center justify-center gap-2 text-center">
+        <span class="material-symbols-outlined text-navy" style="font-variation-settings:'FILL' 1;">sell</span>
+        <p class="font-headline font-extrabold text-navy text-base md:text-lg">
+          This vehicle has sold. We rotate inventory weekly.
+        </p>
+      </div>
+    </section>
+  )}
 
   <!-- ===== GALLERY ===== -->
   <section class="bg-gray-900">
@@ -260,6 +276,7 @@ const faqSchema = {
             {stockNumber && <><span class="text-gray-300">·</span><span>Stock #{stockNumber}</span></>}
           </div>
 
+          {!isSold && (
           <!-- Mobile price (shown below title on mobile, hidden on lg where sidebar shows) -->
           <div class="lg:hidden mb-5 pb-5 border-b border-gray-100">
             <span class="text-3xl font-extrabold text-navy" data-vehicle-price={v.price}>${v.price.toLocaleString()}</span>
@@ -328,9 +345,30 @@ const faqSchema = {
               </div>
             </div>
           </div>
+          )}
+
+          {isSold && (
+          <!-- Similar-inventory upsell (replaces price/CTA block when sold) -->
+          <div class="mb-6 bg-navy rounded-2xl p-6 text-white">
+            <h2 class="font-headline text-lg font-extrabold mb-2">Looking for a similar Pre-Owned {v.make} {v.model}?</h2>
+            <p class="text-white/80 text-sm mb-4">Jerry rotates inventory weekly and personally sources every car. Browse what's on the lot today, or text Jerry exactly what you want and he will find it for you.</p>
+            <div class="flex flex-col sm:flex-row gap-3">
+              <a href={`${base}/inventory${v.bodyStyleSlug ? '?body=' + v.bodyStyle : ''}`}
+                 class="flex-1 inline-flex items-center justify-center gap-2 bg-orange text-white px-5 py-3 rounded-xl font-bold text-sm hover:bg-orange/90 transition-colors">
+                <span class="material-symbols-outlined text-base">directions_car</span>
+                See Current Inventory
+              </a>
+              <a href={`sms:8475108947&body=${smsBody}`}
+                 class="flex-1 inline-flex items-center justify-center gap-2 bg-white/10 border border-white/30 text-white px-5 py-3 rounded-xl font-bold text-sm hover:bg-white/20 transition-colors">
+                <span class="material-symbols-outlined text-base" style="font-variation-settings:'FILL' 1;">sms</span>
+                Text Jerry to Source One
+              </a>
+            </div>
+          </div>
+          )}
 
           <!-- History badges + deal rating — shown first as top trust signal -->
-          {(historyBadges.length > 0 || dealLabel) && (
+          {!isSold && (historyBadges.length > 0 || dealLabel) && (
             <div class="flex flex-wrap gap-2 mb-5">
               <a href={`${base}/ship`} class="inline-flex items-center gap-1.5 bg-navy/5 text-navy border border-navy/15 px-3 py-1.5 rounded-full text-xs font-semibold hover:bg-navy/10 transition-colors">
                 <span class="material-symbols-outlined text-xs text-navy" style="font-variation-settings:'FILL' 1;">local_shipping</span>
@@ -355,7 +393,7 @@ const faqSchema = {
           )}
 
           <!-- CarGurus Price Meter -->
-          {dealBadge && marketValue > 0 && (
+          {!isSold && dealBadge && marketValue > 0 && (
             <div class="mb-6 rounded-xl border border-gray-100 bg-gray-50 p-4">
               <div class="flex justify-between items-end mb-3">
                 <div>
@@ -548,6 +586,7 @@ const faqSchema = {
         <!-- ===== END LEFT COLUMN ===== -->
 
         <!-- ===== RIGHT STICKY SIDEBAR ===== -->
+        {!isSold && (
         <div class="hidden lg:block w-80 shrink-0">
           <div class="sticky top-[73px]">
             <!-- Price + Payment Estimator -->
@@ -631,6 +670,7 @@ const faqSchema = {
             </div>
           </div>
         </div>
+        )}
         <!-- ===== END SIDEBAR ===== -->
 
       </div>
@@ -684,6 +724,7 @@ const faqSchema = {
     <button id="lightbox-next" aria-label="Next photo"><span class="material-symbols-outlined">chevron_right</span></button>
   </dialog>
 
+  {!isSold && (
   <!-- Mobile sticky CTA bar -->
   <div class="fixed bottom-0 left-0 right-0 z-40 md:hidden bg-white border-t border-gray-200 shadow-[0_-4px_12px_rgba(0,0,0,0.08)]">
     <div class="flex">
@@ -702,6 +743,7 @@ const faqSchema = {
     </div>
   </div>
   <div class="h-16 md:hidden"></div>
+  )}
 
   <Footer slot="footer" />
 </Layout>
