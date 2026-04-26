@@ -5,16 +5,20 @@
  * Fetches the live Maxim Autos inventory from CarGurus and updates
  * site/src/data/vehicles.json.
  *
- * Merge rules:
+ * Merge rules (CarGurus is the source of truth for live/sold):
  *   - CarGurus is source of truth for: which cars exist, price, mileage, dealRating
  *   - Description is always regenerated from current data (stays fresh with price/mileage)
  *   - Existing vehicles.json data is preserved for: photos (DealerCenter CDN),
  *     features, highlights, stockNumber, dealerCenterUrl, slug
- *   - Cars missing from CarGurus are SOFT-DELETED: status flipped to "sold"
- *     and sold_date stamped. The VDP URL keeps rendering with a SOLD treatment
- *     so Google sees a 200 OK with rich content instead of a 404.
- *   - If a previously-sold car re-appears in the CarGurus feed, the sold flag
- *     is preserved (you can hand-flip it back to "available" in vehicles.json).
+ *   - VIN re-appears in feed → status auto-flips to "available", missing_since
+ *     and sold_date are deleted. Cars can come back from off-market.
+ *   - VIN missing from feed → tolerance window before declaring sold. First miss
+ *     stamps missing_since (status stays "available", site renders normally).
+ *     Once a VIN has been missing ≥ OFF_MARKET_TOLERANCE_HOURS (default 24h),
+ *     status flips to "sold" and sold_date is stamped. missing_since is kept
+ *     for analytics ("how long off-market before flagged sold").
+ *   - Sold VDPs render with a SOLD treatment so Google sees a 200 OK with
+ *     rich content instead of a 404 (see site/src/pages/vehicle/[slug].astro).
  *   - New cars get auto-generated highlights
  *
  * Usage:
@@ -32,6 +36,11 @@ const CARGURUS_URL = 'https://www.cargurus.com/Cars/m-Maxim-Autos-sp457703';
 const VEHICLES_JSON = resolve(__dirname, '../site/src/data/vehicles.json');
 const DRY_RUN = process.argv.includes('--dry-run');
 const DEBUG = process.argv.includes('--debug');
+
+// Tolerance: a VIN must be missing from the CarGurus feed for at least this
+// many hours before status flips to "sold". Sync runs every 6h, so 24h ≈ 4
+// consecutive misses. Tunable via env if Jerry wants to widen/narrow.
+const OFF_MARKET_TOLERANCE_HOURS = Number(process.env.OFF_MARKET_TOLERANCE_HOURS || 24);
 
 // ── string helpers ────────────────────────────────────────────────────────────
 
@@ -313,8 +322,10 @@ function mapNode(node, _offer, existingByVin) {
     inspection: true,
     features,
     highlights: existing?.highlights || generateHighlights(year, make, model, trim, mileage),
-    status: existing?.status === 'sold' ? 'sold' : 'available',
-    ...(existing?.status === 'sold' && existing?.sold_date ? { sold_date: existing.sold_date } : {}),
+    // VIN appears in CarGurus feed → always live. Missing/sold fields are
+    // cleared here; tolerance/sold logic for missing VINs lives in the merge
+    // block below (so re-listed cars auto-flip back to available).
+    status: 'available',
     dateAdded: existing?.dateAdded || new Date().toISOString().split('T')[0],
     featured: existing?.featured ?? true,
     sortOrder: existing?.sortOrder ?? 0,
@@ -337,15 +348,41 @@ function mapNode(node, _offer, existingByVin) {
 
 function printDiff(before, after) {
   const beforeByVin = new Map(before.map(v => [v.vin, v]));
-  const afterByVin = new Map(after.map(v => [v.vin, v]));
 
   // Truly new VINs (not present before at all)
   const added = after.filter(v => !beforeByVin.has(v.vin));
-  // Marked sold this run: VIN existed before and wasn't sold; now status is sold
+
+  // Off-market 1st miss: previously available, now still available but with
+  // a missing_since stamp it didn't have before.
+  const offMarketNew = after.filter(v => {
+    const old = beforeByVin.get(v.vin);
+    return old && old.status !== 'sold' && v.status === 'available'
+      && v.missing_since && !old.missing_since;
+  });
+
+  // Off-market continuing: missing_since carried over and still within window
+  const offMarketContinuing = after.filter(v => {
+    const old = beforeByVin.get(v.vin);
+    return old && old.status !== 'sold' && v.status === 'available'
+      && v.missing_since && old.missing_since;
+  });
+
+  // Marked sold this run: was previously available, is now sold
   const markedSold = after.filter(v => {
     const old = beforeByVin.get(v.vin);
     return old && old.status !== 'sold' && v.status === 'sold';
   });
+
+  // Back on market: was sold (or had missing_since), now available without
+  // either flag (mapNode wipes them on re-list).
+  const backOnMarket = after.filter(v => {
+    const old = beforeByVin.get(v.vin);
+    if (!old) return false;
+    const wasOff = old.status === 'sold' || !!old.missing_since;
+    const nowOn = v.status === 'available' && !v.missing_since;
+    return wasOff && nowOn;
+  });
+
   // Updates on still-live cars
   const updated = after.filter(v => {
     const old = beforeByVin.get(v.vin);
@@ -358,8 +395,23 @@ function printDiff(before, after) {
     console.log('\nAdded:');
     added.forEach(v => console.log(`  + ${v.year} ${v.make} ${v.model} ${v.trim} [${v.vin}]`));
   }
+  if (backOnMarket.length) {
+    console.log('\nBack on market (re-listed from off-market or sold):');
+    backOnMarket.forEach(v => console.log(`  ↺ ${v.year} ${v.make} ${v.model} ${v.trim} [${v.vin}] → status=available`));
+  }
+  if (offMarketNew.length) {
+    console.log('\nOff-market (1st miss, still showing as live):');
+    offMarketNew.forEach(v => console.log(`  ? ${v.year} ${v.make} ${v.model} ${v.trim} [${v.vin}] missing_since=${v.missing_since}`));
+  }
+  if (offMarketContinuing.length) {
+    console.log('\nOff-market (continuing, still within tolerance):');
+    offMarketContinuing.forEach(v => {
+      const hours = ((Date.now() - Date.parse(v.missing_since)) / 3_600_000).toFixed(1);
+      console.log(`  ? ${v.year} ${v.make} ${v.model} ${v.trim} [${v.vin}] missing for ${hours}h (tolerance ${OFF_MARKET_TOLERANCE_HOURS}h)`);
+    });
+  }
   if (markedSold.length) {
-    console.log('\nMarked sold (kept VDP for SEO):');
+    console.log(`\nMarked sold (after ${OFF_MARKET_TOLERANCE_HOURS}h off-market, kept VDP for SEO):`);
     markedSold.forEach(v => console.log(`  ~ ${v.year} ${v.make} ${v.model} ${v.trim} [${v.vin}] → status=sold, sold_date=${v.sold_date}`));
   }
   if (updated.length) {
@@ -372,7 +424,7 @@ function printDiff(before, after) {
       console.log(`  ~ ${v.year} ${v.make} ${v.model}: ${changes.join(', ')}`);
     });
   }
-  if (!added.length && !markedSold.length && !updated.length) {
+  if (!added.length && !backOnMarket.length && !offMarketNew.length && !offMarketContinuing.length && !markedSold.length && !updated.length) {
     console.log('\nNo changes.');
   }
 }
@@ -430,21 +482,68 @@ async function main() {
     })
     .filter(v => v && v.year && v.make);
 
-  // Soft-delete merge: anything in vehicles.json not in the live CarGurus feed
-  // becomes sold (preserves VDP URL, replaces 404 with 200 + SOLD treatment).
+  // ─── Tolerance-window merge ────────────────────────────────────────────────
+  // CarGurus is source of truth for live vs sold. A VIN can flip back and
+  // forth (Jerry sometimes pulls cars temporarily for photos / rotation).
+  //
+  //   - VIN in feed → status="available" (cleared in mapNode above; missing_since
+  //     and sold_date are dropped here so re-listed cars auto-flip back).
+  //   - VIN NOT in feed:
+  //       * 1st miss → set missing_since=now, keep status="available"
+  //       * still missing & (now - missing_since) < 24h → keep both
+  //       * still missing & (now - missing_since) >= 24h → set status="sold",
+  //         sold_date=now (keep missing_since for analytics)
+  //   - Already sold + still missing → no-op (preserve VDP for SEO)
   const liveVins = new Set(liveVehicles.map(v => v.vin));
-  const today = new Date().toISOString().slice(0, 10);
-  const newlySold = existing
-    .filter(e => e.vin && e.vin !== 'TBD' && !liveVins.has(e.vin) && e.status !== 'sold')
-    .map(e => ({ ...e, status: 'sold', sold_date: today }));
-  const stillSold = existing.filter(e => e.vin && e.vin !== 'TBD' && !liveVins.has(e.vin) && e.status === 'sold');
-  const vehicles = [...liveVehicles, ...newlySold, ...stillSold];
+  const nowIso = new Date().toISOString();
+  const todayDate = nowIso.slice(0, 10);
 
-  if (newlySold.length > 0) {
-    console.log(`\nMarked ${newlySold.length} vehicle(s) sold (missing from CarGurus feed).`);
+  // Reappearance: any liveVehicle whose existing entry had missing_since or
+  // was previously sold, force-clear those flags. mapNode already set
+  // status='available'; we just have to NOT carry over the legacy fields.
+  // (mapNode doesn't echo unknown fields back, so this is automatic — no
+  // explicit cleanup needed here. Comment kept for future readers.)
+
+  const offMarketEntries = existing
+    .filter(e => e.vin && e.vin !== 'TBD' && !liveVins.has(e.vin))
+    .map(e => {
+      // Already declared sold — leave as-is (preserve sold_date and
+      // missing_since for analytics; VDP keeps rendering SOLD).
+      if (e.status === 'sold') return e;
+
+      const missingSince = e.missing_since || nowIso;
+      const hoursMissing = (Date.parse(nowIso) - Date.parse(missingSince)) / 3_600_000;
+
+      if (hoursMissing >= OFF_MARKET_TOLERANCE_HOURS) {
+        // Tolerance exceeded → mark sold. Keep missing_since for analytics.
+        return { ...e, status: 'sold', sold_date: todayDate, missing_since: missingSince };
+      }
+      // Within tolerance → still "available", just stamp first-miss timestamp.
+      return { ...e, status: 'available', missing_since: missingSince };
+    });
+
+  const vehicles = [...liveVehicles, ...offMarketEntries];
+
+  // Counts for log noise
+  const offMarketWithinWindow = offMarketEntries.filter(e => e.status === 'available').length;
+  const newlySoldThisRun = offMarketEntries.filter(e => {
+    if (e.status !== 'sold') return false;
+    const prior = existingByVin[e.vin];
+    return prior && prior.status !== 'sold';
+  }).length;
+  const stillSoldCount = offMarketEntries.filter(e => {
+    const prior = existingByVin[e.vin];
+    return prior && prior.status === 'sold';
+  }).length;
+
+  if (offMarketWithinWindow > 0) {
+    console.log(`\nOff-market within ${OFF_MARKET_TOLERANCE_HOURS}h tolerance: ${offMarketWithinWindow} vehicle(s). Site still shows them live.`);
   }
-  if (stillSold.length > 0) {
-    console.log(`Preserving ${stillSold.length} previously-sold vehicle(s) for SEO.`);
+  if (newlySoldThisRun > 0) {
+    console.log(`Marked sold (missing > ${OFF_MARKET_TOLERANCE_HOURS}h): ${newlySoldThisRun} vehicle(s).`);
+  }
+  if (stillSoldCount > 0) {
+    console.log(`Preserving ${stillSoldCount} previously-sold vehicle(s) for SEO.`);
   }
 
   // Fetch detail pages for photos + dealer description (in parallel)
