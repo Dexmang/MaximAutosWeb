@@ -21,19 +21,30 @@
  *     rich content instead of a 404 (see site/src/pages/vehicle/[slug].astro).
  *   - New cars get auto-generated highlights
  *
+ * Side effects (each sync run, in order):
+ *   1. Writes site/src/data/vehicles.json
+ *   2. Appends one line per URL transition to site/src/data/url-events.jsonl
+ *      (events: added / sold / back_on_market / slug_changed_old / _new)
+ *   3. POSTs the deduped URL list to IndexNow (Bing, Yandex, Seznam, Naver,
+ *      ChatGPT-via-Bing). Failures retry once after 5s; never throw.
+ *
  * Usage:
- *   node scripts/sync-from-cargurus.js           # writes vehicles.json
- *   node scripts/sync-from-cargurus.js --dry-run  # prints diff, no write
+ *   node scripts/sync-from-cargurus.js           # writes vehicles.json + pings
+ *   node scripts/sync-from-cargurus.js --dry-run  # prints diff, no write, no ping
  *   node scripts/sync-from-cargurus.js --debug    # dumps raw JSON-LD blocks
  */
 
-import { readFileSync, writeFileSync } from 'fs';
+import { readFileSync, writeFileSync, appendFileSync, existsSync } from 'fs';
 import { fileURLToPath } from 'url';
 import { dirname, join, resolve } from 'path';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const CARGURUS_URL = 'https://www.cargurus.com/Cars/m-Maxim-Autos-sp457703';
 const VEHICLES_JSON = resolve(__dirname, '../site/src/data/vehicles.json');
+const URL_EVENTS_PATH = resolve(__dirname, '../site/src/data/url-events.jsonl');
+const INDEXNOW_KEY_PATH = resolve(__dirname, '../.indexnow-key');
+const SITE_HOST = 'www.maximautos.com';
+const SITE_ORIGIN = `https://${SITE_HOST}`;
 const DRY_RUN = process.argv.includes('--dry-run');
 const DEBUG = process.argv.includes('--debug');
 
@@ -41,6 +52,84 @@ const DEBUG = process.argv.includes('--debug');
 // many hours before status flips to "sold". Sync runs every 6h, so 24h ≈ 4
 // consecutive misses. Tunable via env if Jerry wants to widen/narrow.
 const OFF_MARKET_TOLERANCE_HOURS = Number(process.env.OFF_MARKET_TOLERANCE_HOURS || 24);
+
+// ── URL event log + IndexNow ──────────────────────────────────────────────────
+
+/**
+ * Append one transition event to url-events.jsonl. Append-only; never rewrite.
+ * Each line is a single JSON object so the file stays git-friendly and crash-safe.
+ */
+function appendEvent({ event, vin, slug, url }) {
+  const line = JSON.stringify({
+    ts: new Date().toISOString(),
+    event,
+    vin,
+    slug,
+    url,
+  }) + '\n';
+  appendFileSync(URL_EVENTS_PATH, line, 'utf8');
+}
+
+function vdpUrl(slug) {
+  return `${SITE_ORIGIN}/vehicle/${slug}/`;
+}
+
+function loadIndexNowKey() {
+  try {
+    return readFileSync(INDEXNOW_KEY_PATH, 'utf8').trim();
+  } catch (_) {
+    return '';
+  }
+}
+
+/**
+ * Submit URLs to IndexNow (Bing, Yandex, Seznam, Naver — and ChatGPT
+ * web-search via Bing's index). One POST per sync; deduped; capped at 10000
+ * per spec. Returns { ok, status, body } for the log. Failures don't throw.
+ */
+async function submitToIndexNow(urls) {
+  if (urls.length === 0) return { ok: true, status: 0, body: 'no urls' };
+  const key = loadIndexNowKey();
+  if (!key) {
+    console.warn('  IndexNow: .indexnow-key not found, skipping ping.');
+    return { ok: false, status: 0, body: 'missing key' };
+  }
+  const body = JSON.stringify({
+    host: SITE_HOST,
+    key,
+    keyLocation: `${SITE_ORIGIN}/${key}.txt`,
+    urlList: urls.slice(0, 10000),
+  });
+
+  async function attempt() {
+    const res = await fetch('https://api.indexnow.org/indexnow', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json; charset=utf-8' },
+      body,
+    });
+    const text = await res.text().catch(() => '');
+    return { ok: res.ok, status: res.status, body: text };
+  }
+
+  let result;
+  try {
+    result = await attempt();
+    if (!result.ok) {
+      console.warn(`  IndexNow attempt 1 failed: ${result.status} ${result.body}. Retrying in 5s...`);
+      await new Promise(r => setTimeout(r, 5000));
+      result = await attempt();
+    }
+  } catch (e) {
+    console.warn(`  IndexNow network error: ${e.message}. Retrying in 5s...`);
+    await new Promise(r => setTimeout(r, 5000));
+    try {
+      result = await attempt();
+    } catch (e2) {
+      result = { ok: false, status: 0, body: `network: ${e2.message}` };
+    }
+  }
+  return result;
+}
 
 // ── string helpers ────────────────────────────────────────────────────────────
 
@@ -344,9 +433,24 @@ function mapNode(node, _offer, existingByVin) {
   };
 }
 
-// ── diff summary ──────────────────────────────────────────────────────────────
+// ── diff summary + URL event classification ──────────────────────────────────
 
-function printDiff(before, after) {
+/**
+ * Classify transitions, print a human diff, emit url-events.jsonl entries,
+ * and return the deduped list of URLs that should be pinged at IndexNow.
+ *
+ * Emits four event types per the IndexNow integration spec:
+ *   - "added"             new VIN, fresh URL
+ *   - "sold"              VIN crossed 24h tolerance, status flipped to sold
+ *   - "back_on_market"    sold (or off-market) VIN reappeared in feed
+ *   - "slug_changed_old"  VIN known, slug differs from prior — prior URL
+ *   - "slug_changed_new"  VIN known, slug differs from prior — new URL
+ *
+ * Off-market 1st-miss / continuing / price-mileage-only updates do NOT emit
+ * events — they are noise to search engines and the URL hasn't materially
+ * changed. They're still printed for operator visibility.
+ */
+function classifyAndReport(before, after, { emit = true } = {}) {
   const beforeByVin = new Map(before.map(v => [v.vin, v]));
 
   // Truly new VINs (not present before at all)
@@ -383,7 +487,16 @@ function printDiff(before, after) {
     return wasOff && nowOn;
   });
 
-  // Updates on still-live cars
+  // Slug change: VIN known, slug differs. Independent of status flips.
+  const slugChanged = after
+    .map(v => {
+      const old = beforeByVin.get(v.vin);
+      if (!old || !old.slug || old.slug === v.slug) return null;
+      return { v, oldSlug: old.slug };
+    })
+    .filter(Boolean);
+
+  // Updates on still-live cars (price/mileage). No event emitted.
   const updated = after.filter(v => {
     const old = beforeByVin.get(v.vin);
     if (!old) return false;
@@ -391,6 +504,7 @@ function printDiff(before, after) {
     return old.price !== v.price || old.mileage !== v.mileage;
   });
 
+  // ── print human diff ───────────────────────────────────────────────────
   if (added.length) {
     console.log('\nAdded:');
     added.forEach(v => console.log(`  + ${v.year} ${v.make} ${v.model} ${v.trim} [${v.vin}]`));
@@ -398,6 +512,10 @@ function printDiff(before, after) {
   if (backOnMarket.length) {
     console.log('\nBack on market (re-listed from off-market or sold):');
     backOnMarket.forEach(v => console.log(`  ↺ ${v.year} ${v.make} ${v.model} ${v.trim} [${v.vin}] → status=available`));
+  }
+  if (slugChanged.length) {
+    console.log('\nSlug changed (will ping both old and new URL):');
+    slugChanged.forEach(({ v, oldSlug }) => console.log(`  ⇄ [${v.vin}] ${oldSlug} → ${v.slug}`));
   }
   if (offMarketNew.length) {
     console.log('\nOff-market (1st miss, still showing as live):');
@@ -424,9 +542,33 @@ function printDiff(before, after) {
       console.log(`  ~ ${v.year} ${v.make} ${v.model}: ${changes.join(', ')}`);
     });
   }
-  if (!added.length && !backOnMarket.length && !offMarketNew.length && !offMarketContinuing.length && !markedSold.length && !updated.length) {
+  if (!added.length && !backOnMarket.length && !offMarketNew.length && !offMarketContinuing.length && !markedSold.length && !updated.length && !slugChanged.length) {
     console.log('\nNo changes.');
   }
+
+  // ── emit events + collect URLs ─────────────────────────────────────────
+  const urlSet = new Set();
+
+  function fire(event, vin, slug, url) {
+    if (emit) appendEvent({ event, vin, slug, url });
+    urlSet.add(url);
+  }
+
+  for (const v of added) {
+    fire('added', v.vin, v.slug, vdpUrl(v.slug));
+  }
+  for (const v of markedSold) {
+    fire('sold', v.vin, v.slug, vdpUrl(v.slug));
+  }
+  for (const v of backOnMarket) {
+    fire('back_on_market', v.vin, v.slug, vdpUrl(v.slug));
+  }
+  for (const { v, oldSlug } of slugChanged) {
+    fire('slug_changed_old', v.vin, oldSlug, vdpUrl(oldSlug));
+    fire('slug_changed_new', v.vin, v.slug, vdpUrl(v.slug));
+  }
+
+  return { urls: [...urlSet] };
 }
 
 // ── main ──────────────────────────────────────────────────────────────────────
@@ -584,16 +726,27 @@ async function main() {
     console.log(`  • ${v.year} ${v.make} ${v.model} ${v.trim} — $${v.price.toLocaleString()} — ${v.mileage.toLocaleString()} mi — ${v.photoUrls?.length ?? 0} photos`)
   );
 
-  // Diff
-  printDiff(existing, vehicles);
+  // Diff + URL event classification (events are appended, not on dry-run).
+  const { urls } = classifyAndReport(existing, vehicles, { emit: !DRY_RUN });
 
   if (DRY_RUN) {
-    console.log('\n[DRY RUN] vehicles.json not written.');
+    console.log(`\n[DRY RUN] vehicles.json not written. Would emit ${urls.length} URL event(s).`);
     return;
   }
 
   writeFileSync(VEHICLES_JSON, JSON.stringify(vehicles, null, 2) + '\n');
   console.log(`\nWrote ${vehicles.length} vehicles to:\n  ${VEHICLES_JSON}`);
+
+  // IndexNow: ping Bing/Yandex/Seznam/Naver (and ChatGPT via Bing). One POST,
+  // deduped URLs. Skipped when no transitions occurred this cycle.
+  if (urls.length === 0) {
+    console.log('\nIndexNow: no URL transitions this cycle, no ping sent.');
+  } else {
+    console.log(`\nIndexNow: pinging ${urls.length} URL(s)...`);
+    urls.forEach(u => console.log(`  → ${u}`));
+    const result = await submitToIndexNow(urls);
+    console.log(`  IndexNow response: ${result.status} ${result.ok ? 'OK' : 'FAIL'}${result.body ? ' — ' + result.body.slice(0, 200) : ''}`);
+  }
 }
 
 main().catch(err => {
