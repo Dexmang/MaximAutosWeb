@@ -5,12 +5,13 @@ import Footer from '../components/Footer.astro';
 import VehicleCard from '../components/VehicleCard.astro';
 import vehicles from '../data/vehicles.json';
 import reviews from '../data/reviews.json';
+import reviewsMeta from '../data/reviews_meta.json';
 import suburbs from '../data/suburbs.json';
 
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 const title = 'Quality Used Cars in Skokie, IL | Maxim Autos';
 const description = 'Maxim Autos: fully inspected used cars $5K–$15K in Skokie, IL. Metal plates on the spot. Skip the DMV. Financing for all credit levels. 5-star Google reviews.';
-const featured = vehicles.slice(0, 6);
+const featured = vehicles.filter(v => (v as any).status !== 'sold').slice(0, 6);
 ---
 
 <Layout title={title} description={description}>
@@ -45,8 +46,8 @@ const featured = vehicles.slice(0, 6);
       "priceRange": "$5,000 – $15,000",
       "aggregateRating": {
         "@type": "AggregateRating",
-        "ratingValue": "5.0",
-        "reviewCount": "34",
+        "ratingValue": String(reviewsMeta.rating.toFixed(1)),
+        "reviewCount": String(reviewsMeta.count),
         "bestRating": "5"
       },
       "areaServed": [
@@ -88,8 +89,8 @@ const featured = vehicles.slice(0, 6);
         <a href="https://www.google.com/search?q=Maxim+Autos+Skokie+IL+reviews" target="_blank" rel="noopener"
            class="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 text-white rounded-full px-4 py-2 mb-6 hover:bg-white/20 transition-colors">
           <span class="material-symbols-outlined text-orange text-base" style="font-variation-settings: 'FILL' 1;">star</span>
-          <span class="font-bold text-sm">5.0 Stars on Google</span>
-          <span class="text-white/60 text-xs">· 34 Reviews</span>
+          <span class="font-bold text-sm">{reviewsMeta.rating.toFixed(1)} Stars on Google</span>
+          <span class="text-white/60 text-xs">· {reviewsMeta.count} Reviews</span>
         </a>
         <h1 class="font-headline text-4xl md:text-5xl lg:text-6xl font-extrabold text-white leading-tight tracking-tight mb-4">
           Pre-Owned Cars <br/>in Skokie, IL
@@ -236,8 +237,8 @@ const featured = vehicles.slice(0, 6);
             <span class="material-symbols-outlined text-orange text-2xl" style="font-variation-settings: 'FILL' 1;">star</span>
           ))}
         </div>
-        <h2 class="font-headline text-3xl md:text-5xl font-extrabold mb-3">5.0 Stars on Google</h2>
-        <p class="text-gray-400 text-lg">34+ reviews from North Shore neighbors</p>
+        <h2 class="font-headline text-3xl md:text-5xl font-extrabold mb-3">{reviewsMeta.rating.toFixed(1)} Stars on Google</h2>
+        <p class="text-gray-400 text-lg">{reviewsMeta.count}+ reviews from North Shore neighbors</p>
       </div>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
         {reviews.map(review => (

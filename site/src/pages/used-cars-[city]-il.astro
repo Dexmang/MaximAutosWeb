@@ -6,6 +6,7 @@ import VehicleCard from '../components/VehicleCard.astro';
 import QuickAnswer from '../components/QuickAnswer.astro';
 import vehicles from '../data/vehicles.json';
 import suburbs from '../data/suburbs.json';
+import reviewsMeta from '../data/reviews_meta.json';
 
 export function getStaticPaths() {
   return suburbs.map(suburb => ({
@@ -21,7 +22,7 @@ interface Props {
 const { suburb } = Astro.props;
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 
-const available = vehicles.filter(v => v.status === 'available');
+const available = vehicles.filter(v => (v as any).status !== 'sold');
 const minPrice = Math.min(...available.map(v => v.price));
 const maxPrice = Math.max(...available.map(v => v.price));
 
@@ -61,8 +62,8 @@ const localBusinessSchema = {
   ],
   "aggregateRating": {
     "@type": "AggregateRating",
-    "ratingValue": "5.0",
-    "reviewCount": "34",
+    "ratingValue": String(reviewsMeta.rating.toFixed(1)),
+    "reviewCount": String(reviewsMeta.count),
     "bestRating": "5"
   }
 };
