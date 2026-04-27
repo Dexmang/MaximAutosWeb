@@ -1,0 +1,30 @@
+name: Update Google Reviews
+
+on:
+  schedule:
+    - cron: '0 9 * * *'    # Daily at 9am UTC
+  workflow_dispatch:        # Allow manual trigger from GitHub UI
+
+jobs:
+  update-reviews:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Use Node.js 20
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Fetch and update review count
+        run: node MaximAutosWeb/scripts/update-reviews.js
+
+      - name: Commit and push if changed
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add MaximAutosWeb/site/src/data/reviews_meta.json
+          git diff --staged --quiet || git commit -m "chore: update Google review count [skip ci]"
+          git push
