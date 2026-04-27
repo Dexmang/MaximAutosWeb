@@ -84,8 +84,8 @@ const monthlyPayment = Math.round(
         {dealBadge && (
           <div class="flex items-center gap-1 mt-1">
             <!-- CarGurus-style price-tag badge with left arrow notch -->
-            <span class="inline-flex items-center gap-1 text-xs font-bold pl-2 pr-2.5 py-0.5 relative"
-              style={`background:${dealBadge.bg};color:${dealBadge.text};clip-path:polygon(8px 0%,100% 0%,100% 100%,8px 100%,0% 50%);border-radius:0 3px 3px 0`}>
+            <span class="inline-flex items-center gap-1 text-xs font-bold px-2 py-0.5 rounded"
+              style={`background:${dealBadge.bg};color:${dealBadge.text}`}>
               {dealBadge.label}{savingsStr ? ` · ${savingsStr}` : ''}
             </span>
             <span class="text-[9px] text-gray-400 font-medium leading-none">CarGurus</span>

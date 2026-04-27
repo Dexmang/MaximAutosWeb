@@ -382,9 +382,9 @@ const faqSchema = {
               ))}
               {dealLabel && (
                 <span class="inline-flex items-center gap-2">
-                  <span class="inline-flex items-center gap-1 text-xs font-bold pl-2 pr-3 py-1 relative"
-                    style={`background:${dealBg};color:${dealText};clip-path:polygon(10px 0%,100% 0%,100% 100%,10px 100%,0% 50%);border-radius:0 4px 4px 0`}>
-                    ▼ {dealLabel}{savingsStr ? ` · ${savingsStr}` : ''}
+                  <span class="inline-flex items-center gap-1 text-xs font-bold px-2.5 py-1 rounded"
+                    style={`background:${dealBg};color:${dealText}`}>
+                    {dealLabel}{savingsStr ? ` · ${savingsStr}` : ''}
                   </span>
                   <span class="text-[10px] text-gray-400 font-medium">via CarGurus</span>
                 </span>
