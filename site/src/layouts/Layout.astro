@@ -4,6 +4,7 @@ interface Props {
   description?: string;
   ogImage?: string;
   canonicalUrl?: string;
+  noIndex?: boolean;
 }
 
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
@@ -12,6 +13,7 @@ const {
   description = 'Quality used cars in Skokie, IL. Every vehicle inspected, every price transparent. Metal plates on the spot. Skip the DMV. Financing for all credit levels. Maxim Autos.',
   ogImage,
   canonicalUrl,
+  noIndex = false,
 } = Astro.props;
 
 const siteName = 'Maxim Autos';
@@ -67,6 +69,9 @@ const ogImageAbsolute = new URL(ogImage ?? `${base}/brand/hero-family.jpg`, site
 
     <!-- Structured Data Slot -->
     <slot name="structured-data" />
+
+    <!-- Sold vehicle pages: keep URL live but exclude from search index -->
+    {noIndex && <meta name="robots" content="noindex, follow" />}
 
     <!-- Google Search Console Verification -->
     <!-- TODO: Add meta name="google-site-verification" content="YOUR_VERIFICATION_CODE" here -->

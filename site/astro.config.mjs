@@ -27,6 +27,7 @@ export default defineConfig({
               lastmod: v.sold_date ? new Date(v.sold_date).toISOString() : item.lastmod,
             };
           }
+          return { ...item, priority: 0.8, changefreq: 'weekly' };
         }
         return item;
       },

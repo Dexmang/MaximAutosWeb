@@ -144,7 +144,7 @@ const faqSchema = {
 };
 ---
 
-<Layout title={pageTitle} description={pageDesc} ogImage={allPhotos.length > 0 ? allPhotos[0] : undefined}>
+<Layout title={pageTitle} description={pageDesc} ogImage={allPhotos.length > 0 ? allPhotos[0] : undefined} noIndex={isSold}>
   <Fragment slot="structured-data">
     <script type="application/ld+json" set:html={JSON.stringify(vehicleSchema)} />
     <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />

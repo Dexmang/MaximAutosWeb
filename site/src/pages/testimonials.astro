@@ -3,6 +3,7 @@ import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import reviews from '../data/reviews.json';
+import reviewsMeta from '../data/reviews_meta.json';
 
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 const title = 'Customer Reviews | Maxim Autos Skokie IL | 5-Star Google Reviews';
@@ -26,8 +27,8 @@ const ratingSchema = {
   },
   "aggregateRating": {
     "@type": "AggregateRating",
-    "ratingValue": "5.0",
-    "reviewCount": "34",
+    "ratingValue": String(reviewsMeta.rating.toFixed(1)),
+    "reviewCount": String(reviewsMeta.count),
     "bestRating": "5",
     "worstRating": "1"
   },
@@ -72,10 +73,10 @@ const ratingSchema = {
         ))}
       </div>
       <h1 class="font-headline text-5xl md:text-6xl lg:text-7xl font-extrabold text-white leading-tight tracking-tight mb-4">
-        5.0 Stars
+        {reviewsMeta.rating.toFixed(1)} Stars
       </h1>
       <p class="text-xl text-gray-300 max-w-2xl mx-auto leading-relaxed mb-2">
-        34+ verified reviews from North Shore neighbors
+        {reviewsMeta.count}+ verified reviews from North Shore neighbors
       </p>
       <a
         href="https://www.google.com/search?q=Maxim+Autos+Skokie+IL+reviews"
@@ -138,7 +139,7 @@ const ratingSchema = {
   <section class="py-16 bg-orange">
     <div class="max-w-4xl mx-auto px-6 lg:px-8 text-center">
       <h2 class="font-headline text-3xl md:text-4xl font-extrabold text-white mb-4">Ready to Experience It Yourself?</h2>
-      <p class="text-white/90 text-lg mb-8">Join 34+ happy customers. Text Jerry to get started.</p>
+      <p class="text-white/90 text-lg mb-8">Join {reviewsMeta.count}+ happy customers. Text Jerry to get started.</p>
       <div class="flex flex-col sm:flex-row justify-center gap-4">
         <div class="hidden sm:inline-flex items-center justify-center gap-2 bg-white text-navy px-8 py-4 rounded-xl font-bold text-lg">
           <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">phone</span>

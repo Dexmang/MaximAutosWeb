@@ -1,4 +1,11 @@
 User-agent: *
-Allow: /
+Allow: /inventory$
+Disallow: /inventory?
 
-Sitemap: https://maximautos.com/sitemap-index.xml
+User-agent: ClaudeBot
+Crawl-delay: 1
+
+User-agent: barkrowler
+Crawl-delay: 1
+
+Sitemap: https://www.maximautos.com/sitemap-index.xml

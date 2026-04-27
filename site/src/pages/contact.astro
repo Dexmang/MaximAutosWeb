@@ -2,6 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import reviewsMeta from '../data/reviews_meta.json';
 
 const title = 'Contact Maxim Autos | Used Car Dealer Skokie, IL';
 const description = 'Contact Maxim Autos in Skokie, IL. Call (847) 510-8947, text Jerry, or visit us. Mon/Tue/Thu/Fri 3-7PM, Sat 10AM-3PM. After-hours appointments welcome.';
@@ -35,8 +36,8 @@ const localBusinessSchema = {
   ],
   "aggregateRating": {
     "@type": "AggregateRating",
-    "ratingValue": "5.0",
-    "reviewCount": "34",
+    "ratingValue": String(reviewsMeta.rating.toFixed(1)),
+    "reviewCount": String(reviewsMeta.count),
     "bestRating": "5"
   }
 };
