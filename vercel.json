@@ -39,8 +39,6 @@
     { "source": "/vehicle/2008-jaguar-xj-vanden-plas-l/", "destination": "/vehicle/2008-jaguar-xj-series-xj8-l-rwd", "permanent": true },
     { "source": "/inventory/subaru/crosstrek/j10187",  "destination": "/vehicle/2017-subaru-crosstrek-premium", "permanent": true },
     { "source": "/inventory/subaru/crosstrek/j10187/", "destination": "/vehicle/2017-subaru-crosstrek-premium", "permanent": true },
-    { "source": "/inventory/:make/:model/:stock", "destination": "/inventory", "permanent": true },
-    { "source": "/inventory/:make/:model/:stock/", "destination": "/inventory", "permanent": true },
     { "source": "/vehicle/2014-lexus-rx350",  "destination": "/vehicle/2014-lexus-rx-350-awd", "permanent": true },
     { "source": "/vehicle/2014-lexus-rx350/", "destination": "/vehicle/2014-lexus-rx-350-awd", "permanent": true },
     { "source": "/vehicle/2013-lexus-rx350",  "destination": "/vehicle/2014-lexus-rx-350-awd", "permanent": true },
