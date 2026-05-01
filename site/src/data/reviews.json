@@ -1,44 +1,44 @@
 [
   {
-    "name": "Maria T.",
-    "rating": 5,
-    "text": "Jerry was amazing to work with. No games, no hidden fees. Got metal plates on the spot and drove home same day.",
-    "source": "Google",
-    "date": "2026-03-15"
+    "name": "Chris S.",
+    "rating": 4,
+    "text": "Jerry was great. Very flexible, communicative and responsive to all questions. Went out of his way to drop the vehicle off. Will definitely recommend him to others.",
+    "source": "Cars.com",
+    "date": "2026-03-04"
   },
   {
-    "name": "David K.",
+    "name": "David",
     "rating": 5,
-    "text": "Best car buying experience I've ever had. Jerry inspects every car himself and the prices are honest. Highly recommend Maxim Autos.",
-    "source": "Google",
-    "date": "2026-02-20"
+    "text": "Jerry was very polite and answered all my questions. I appreciate him not being pushy at all as well.",
+    "source": "Cars.com",
+    "date": "2025-11-18"
   },
   {
-    "name": "Sandra P.",
+    "name": "Ken",
     "rating": 5,
-    "text": "Came in after a bad experience at another dealer. Jerry at Maxim was the complete opposite. Transparent pricing, no surprises.",
-    "source": "Google",
-    "date": "2026-01-10"
+    "text": "I bought an Audi Q5 for my mom from Jerry at Maxim Autos and couldn't be happier. No hidden fees, no pressure, very honest. The car is great — will definitely come back.",
+    "source": "Cars.com",
+    "date": "2025-11-18"
   },
   {
-    "name": "Mike R.",
+    "name": "Kathi Cuevas",
     "rating": 5,
-    "text": "Bought my first car here. Jerry walked me through everything, got me financed, and I left with plates same day. Couldn't ask for more.",
-    "source": "Google",
-    "date": "2026-02-05"
+    "text": "Maxim Autos is the best car dealership I have worked with. Jerry is kind, honest and trustworthy. He handles every aspect of the buying process. If you're looking for a car, start your search at Maxim Autos.",
+    "source": "Cars.com",
+    "date": "2025-11-09"
   },
   {
-    "name": "Angie L.",
+    "name": "Jim",
     "rating": 5,
-    "text": "Third car I've bought from Jerry. He is the most honest car dealer I've dealt with in 20 years. Always a fair price.",
-    "source": "Google",
-    "date": "2026-03-01"
+    "text": "Hands down the most honest and straightforward car buying experience I've ever had. Totally pressure-free, prices set clearly, and he issued my plates on the spot — no trip to the DMV needed. Highly recommended.",
+    "source": "Cars.com",
+    "date": "2025-11-03"
   },
   {
-    "name": "Carlos M.",
+    "name": "Zoey Ph.",
     "rating": 5,
-    "text": "Jerry helped me get financed when two other dealers said no. The car was fully inspected and I drove it off the lot with plates. Excellent experience.",
-    "source": "Google",
-    "date": "2025-12-18"
+    "text": "Smooth, straightforward experience with Jerry. He was so patient and not pushy, transparent about pricing and history. The process was quick. Overall, great customer service and fair pricing.",
+    "source": "Cars.com",
+    "date": "2025-11-03"
   }
 ]

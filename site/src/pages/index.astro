@@ -106,7 +106,7 @@ const featured = vehicles.filter(v => (v as any).status !== 'sold').slice(0, 6);
               <path fill="#FBBC05" d="M10.6 28.6A14.5 14.5 0 0 1 9.5 24c0-1.6.3-3.2.8-4.6L2.4 13.2A23.9 23.9 0 0 0 0 24c0 3.9.9 7.5 2.5 10.8l8.1-6.2z"/>
               <path fill="#34A853" d="M24 48c6.1 0 11.2-2 14.9-5.4l-7.5-5.8c-2 1.4-4.6 2.2-7.4 2.2-6.2 0-11.5-4.2-13.4-9.8l-8 6.2C6.5 42.5 14.6 48 24 48z"/>
             </svg>
-            <span class="text-gray-500 text-xs font-semibold">Google Review</span>
+            <span class="text-gray-500 text-xs font-semibold">Verified Review</span>
           </div>
           <div class="flex gap-0.5" aria-label="5 stars">
             {[1,2,3,4,5].map(() => <span class="text-orange text-sm leading-none">★</span>)}
@@ -195,7 +195,7 @@ const featured = vehicles.filter(v => (v as any).status !== 'sold').slice(0, 6);
     }
 
     function startTimer() {
-      timer = setInterval(() => showReview((current + 1) % heroReviews.length, true), 5000);
+      timer = setInterval(() => showReview((current + 1) % heroReviews.length, true), 6000);
     }
 
     dots.forEach((d, i) => {
