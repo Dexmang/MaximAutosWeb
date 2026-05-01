@@ -344,16 +344,17 @@ function mapNode(node, _offer, existingByVin) {
   const model = onto.modelName || '';
   const trim = onto.trimName || '';
 
-  // Price, mileage, dealRating, and priceSavings — CarGurus is authoritative
-  if (n.priceData && n.priceData.current == null) {
-    console.warn(`  WARNING: priceData present but current is null for VIN ${vin} — retaining existing price (may be stale)`);
+  // Price, priceSavings, and dealRating are one atomic unit — CarGurus is authoritative.
+  // All three update together when a live price is present, or all three hold their
+  // existing values when CarGurus returns a null price (mid-edit window).
+  const hasLivePrice = n.priceData?.current != null;
+  if (!hasLivePrice && n.priceData) {
+    console.warn(`  WARNING: priceData present but current is null for VIN ${vin} — retaining existing price/savings/rating`);
   }
-  const price = n.priceData?.current ?? existing?.price ?? 0;
+  const price       = hasLivePrice ? n.priceData.current          : (existing?.price       ?? 0);
+  const priceSavings = hasLivePrice ? (n.priceData.differential ?? 0) : (existing?.priceSavings ?? 0);
+  const dealRating  = hasLivePrice ? (n.dealRating || '')         : (existing?.dealRating  || '');
   const mileage = n.mileageData?.value ?? existing?.mileage ?? 0;
-  const dealRating = n.dealRating || existing?.dealRating || '';
-  // priceSavings: positive = below market (good), negative = above market
-  // Fall back to existing so a transient null priceData doesn't wipe a known savings value
-  const priceSavings = n.priceData?.differential ?? existing?.priceSavings ?? 0;
 
   // Body style
   const bodyStyleRaw = onto.bodyTypeName || existing?.bodyStyle || '';
