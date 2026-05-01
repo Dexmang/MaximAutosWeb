@@ -65,4 +65,4 @@ jobs:
           node-version: "24"
 
       - name: Ping IndexNow (Bing / ChatGPT indexing)
-        run: node MaximAutosWeb/scripts/ping-indexnow.js
+        run: node scripts/ping-indexnow.js

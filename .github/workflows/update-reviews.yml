@@ -19,7 +19,7 @@ jobs:
           node-version: '20'
 
       - name: Fetch and update review count
-        run: node MaximAutosWeb/scripts/update-reviews.js
+        run: node scripts/update-reviews.js
 
       - name: Commit and push if changed
         run: |
