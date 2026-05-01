@@ -37,7 +37,7 @@ const states = ['AL','AK','AZ','AR','CA','CO','CT','DE','FL','GA','HI','ID','IL'
 
       <p class="text-sm text-gray-500 mb-6">All fields marked with <span class="text-red-500 font-bold">*</span> are required.</p>
 
-      <form id="apply-form" action="https://formspree.io/f/mlgadzvp" method="POST" class="space-y-8">
+      <form id="apply-form" action="/api/credit-app" method="POST" class="space-y-8">
         <input type="hidden" name="_subject" value="Credit Application — Maxim Autos" />
         <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" />
 
@@ -696,10 +696,13 @@ const states = ['AL','AK','AZ','AR','CA','CO','CT','DE','FL','GA','HI','ID','IL'
     btn.disabled = true;
     btn.innerHTML = '<span class="material-symbols-outlined">sync</span> Submitting...';
 
+    var fd = new FormData(form);
+    var obj = {};
+    fd.forEach(function(val, key) { obj[key] = val; });
     fetch(form.action, {
       method: 'POST',
-      body: new FormData(form),
-      headers: { 'Accept': 'application/json' }
+      body: JSON.stringify(obj),
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' }
     }).then(function (res) {
       if (res.ok) {
         form.closest('section').innerHTML = '<div class="max-w-2xl mx-auto px-6 py-20 text-center"><span class="material-symbols-outlined text-6xl text-green-500 mb-6 block" style="font-variation-settings:\'FILL\' 1;">check_circle</span><h2 class="font-headline text-2xl font-extrabold text-navy mb-3">Application Submitted!</h2><p class="text-gray-600 text-lg mb-2">Jerry will review your application and follow up same day during business hours.</p><p class="text-gray-500 text-sm mb-8">Prefer a faster response? Text Jerry directly.</p><a href="sms:8475108947&body=Hi Jerry, I just submitted a credit application on your website." class="inline-flex items-center gap-2 bg-orange text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-orange-dark transition-colors"><span class="material-symbols-outlined" style="font-variation-settings:\'FILL\' 1;">sms</span>Text Jerry Now</a></div>';
