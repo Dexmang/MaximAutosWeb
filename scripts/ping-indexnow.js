@@ -14,7 +14,7 @@ import { dirname, join } from "path";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
-const KEY = "fcffbfb8b0ce72330d941855ad80fd56";
+const KEY = "76980478ce9702418ac38bb19b2d39db";
 const HOST = "www.maximautos.com";
 const KEY_LOCATION = `https://${HOST}/${KEY}.txt`;
 const BASE_URL = `https://${HOST}`;
