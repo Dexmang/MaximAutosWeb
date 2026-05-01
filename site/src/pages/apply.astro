@@ -72,6 +72,11 @@ const states = ['AL','AK','AZ','AR','CA','CO','CT','DE','FL','GA','HI','ID','IL'
                 <label class="app-label">Date of Birth <span class="text-red-500">*</span></label>
                 <input type="date" name="buyer_dob" required class="app-input" />
               </div>
+              <div class="col-span-2">
+                <label class="app-label">Social Security Number <span class="text-red-500">*</span></label>
+                <input type="text" id="buyer_ssn" name="buyer_ssn" required class="app-input" placeholder="XXX-XX-XXXX" maxlength="11" inputmode="numeric" autocomplete="off" />
+                <p class="text-xs text-gray-400 mt-1">Required to process your credit application. Submitted over an encrypted connection and never stored on our servers.</p>
+              </div>
               <div>
                 <label class="app-label">Driver's License Number</label>
                 <input type="text" name="buyer_dl_number" class="app-input" placeholder="License number" />
@@ -136,17 +141,50 @@ const states = ['AL','AK','AZ','AR','CA','CO','CT','DE','FL','GA','HI','ID','IL'
               </div>
               <div>
                 <label class="app-label">Years at Address <span class="text-red-500">*</span></label>
-                <select name="buyer_years_address" required class="app-input">
+                <select id="buyer_years_address" name="buyer_years_address" required class="app-input">
                   <option value="">Years</option>
                   {Array.from({length: 31}, (_, i) => <option value={i}>{i}</option>)}
                 </select>
               </div>
               <div>
                 <label class="app-label">Months at Address</label>
-                <select name="buyer_months_address" class="app-input">
+                <select id="buyer_months_address" name="buyer_months_address" class="app-input">
                   <option value="">Months</option>
                   {Array.from({length: 12}, (_, i) => <option value={i}>{i}</option>)}
                 </select>
+              </div>
+            </div>
+
+            <!-- Previous Address (shown if < 2 years at current) -->
+            <div id="buyer-prev-address-section" class="hidden mt-6 pt-6 border-t border-gray-100">
+              <h3 class="text-sm font-bold text-navy mb-4">Previous Address <span class="text-gray-400 font-normal">(Required — less than 2 years at current address)</span></h3>
+              <div class="app-grid">
+                <div class="col-span-2">
+                  <label class="app-label">Previous Street Address</label>
+                  <input type="text" name="buyer_prev_address" class="app-input" placeholder="123 Previous St" />
+                </div>
+                <div>
+                  <label class="app-label">City</label>
+                  <input type="text" name="buyer_prev_city" class="app-input" placeholder="City" />
+                </div>
+                <div>
+                  <label class="app-label">State</label>
+                  <select name="buyer_prev_state" class="app-input">
+                    <option value="">State</option>
+                    {states.map(s => <option value={s}>{s}</option>)}
+                  </select>
+                </div>
+                <div>
+                  <label class="app-label">Zip Code</label>
+                  <input type="text" name="buyer_prev_zip" class="app-input" placeholder="60077" maxlength="5" />
+                </div>
+                <div>
+                  <label class="app-label">Years There</label>
+                  <select name="buyer_prev_years_address" class="app-input">
+                    <option value="">Years</option>
+                    {Array.from({length: 31}, (_, i) => <option value={i}>{i}</option>)}
+                  </select>
+                </div>
               </div>
             </div>
           </div>
@@ -155,6 +193,17 @@ const states = ['AL','AK','AZ','AR','CA','CO','CT','DE','FL','GA','HI','ID','IL'
           <div class="app-section">
             <h2 class="app-section-title">Employment Information</h2>
             <div class="app-grid">
+              <div class="col-span-2">
+                <label class="app-label">Employment Status <span class="text-red-500">*</span></label>
+                <select name="buyer_employment_status" required class="app-input">
+                  <option value="">Select status</option>
+                  <option value="Employed">Employed</option>
+                  <option value="Self-Employed">Self-Employed</option>
+                  <option value="Retired">Retired</option>
+                  <option value="Student">Student</option>
+                  <option value="Other">Other</option>
+                </select>
+              </div>
               <div>
                 <label class="app-label">Employer Name <span class="text-red-500">*</span></label>
                 <input type="text" name="buyer_employer" required class="app-input" placeholder="Employer name" />
@@ -176,17 +225,46 @@ const states = ['AL','AK','AZ','AR','CA','CO','CT','DE','FL','GA','HI','ID','IL'
               </div>
               <div>
                 <label class="app-label">Years at Job <span class="text-red-500">*</span></label>
-                <select name="buyer_years_job" required class="app-input">
+                <select id="buyer_years_job" name="buyer_years_job" required class="app-input">
                   <option value="">Years</option>
                   {Array.from({length: 51}, (_, i) => <option value={i}>{i}</option>)}
                 </select>
               </div>
               <div>
                 <label class="app-label">Months at Job</label>
-                <select name="buyer_months_job" class="app-input">
+                <select id="buyer_months_job" name="buyer_months_job" class="app-input">
                   <option value="">Months</option>
                   {Array.from({length: 12}, (_, i) => <option value={i}>{i}</option>)}
                 </select>
+              </div>
+            </div>
+
+            <!-- Previous Employer (shown if < 2 years at current job) -->
+            <div id="buyer-prev-employer-section" class="hidden mt-6 pt-6 border-t border-gray-100">
+              <h3 class="text-sm font-bold text-navy mb-4">Previous Employer <span class="text-gray-400 font-normal">(Required — less than 2 years at current job)</span></h3>
+              <div class="app-grid">
+                <div>
+                  <label class="app-label">Previous Employer Name</label>
+                  <input type="text" name="buyer_prev_employer" class="app-input" placeholder="Employer name" />
+                </div>
+                <div>
+                  <label class="app-label">Title / Position</label>
+                  <input type="text" name="buyer_prev_title" class="app-input" placeholder="Your title" />
+                </div>
+                <div>
+                  <label class="app-label">Years There</label>
+                  <select name="buyer_prev_years_job" class="app-input">
+                    <option value="">Years</option>
+                    {Array.from({length: 51}, (_, i) => <option value={i}>{i}</option>)}
+                  </select>
+                </div>
+                <div>
+                  <label class="app-label">Months There</label>
+                  <select name="buyer_prev_months_job" class="app-input">
+                    <option value="">Months</option>
+                    {Array.from({length: 12}, (_, i) => <option value={i}>{i}</option>)}
+                  </select>
+                </div>
               </div>
             </div>
           </div>
@@ -219,6 +297,10 @@ const states = ['AL','AK','AZ','AR','CA','CO','CT','DE','FL','GA','HI','ID','IL'
               <div>
                 <label class="app-label">Date of Birth</label>
                 <input type="date" name="cobuyer_dob" class="app-input" />
+              </div>
+              <div>
+                <label class="app-label">Social Security Number</label>
+                <input type="text" id="cobuyer_ssn" name="cobuyer_ssn" class="app-input" placeholder="XXX-XX-XXXX" maxlength="11" inputmode="numeric" autocomplete="off" />
               </div>
               <div>
                 <label class="app-label">Driver's License Number</label>
@@ -267,6 +349,13 @@ const states = ['AL','AK','AZ','AR','CA','CO','CT','DE','FL','GA','HI','ID','IL'
                   <option value="Other">Other</option>
                 </select>
               </div>
+              <div>
+                <label class="app-label">Monthly Rent/Mortgage</label>
+                <div class="relative">
+                  <span class="absolute left-3 top-1/2 -translate-y-1/2 text-gray-500 font-semibold">$</span>
+                  <input type="number" name="cobuyer_monthly_housing" class="app-input pl-7" placeholder="0" min="0" />
+                </div>
+              </div>
             </div>
           </div>
 
@@ -283,11 +372,29 @@ const states = ['AL','AK','AZ','AR','CA','CO','CT','DE','FL','GA','HI','ID','IL'
                 <input type="text" name="cobuyer_title" class="app-input" placeholder="Your title" />
               </div>
               <div>
+                <label class="app-label">Employer Phone</label>
+                <input type="tel" name="cobuyer_employer_phone" class="app-input" placeholder="(555) 555-5555" />
+              </div>
+              <div>
                 <label class="app-label">Monthly Gross Income</label>
                 <div class="relative">
                   <span class="absolute left-3 top-1/2 -translate-y-1/2 text-gray-500 font-semibold">$</span>
                   <input type="number" name="cobuyer_monthly_income" class="app-input pl-7" placeholder="0" min="0" />
                 </div>
+              </div>
+              <div>
+                <label class="app-label">Years at Job</label>
+                <select name="cobuyer_years_job" class="app-input">
+                  <option value="">Years</option>
+                  {Array.from({length: 51}, (_, i) => <option value={i}>{i}</option>)}
+                </select>
+              </div>
+              <div>
+                <label class="app-label">Months at Job</label>
+                <select name="cobuyer_months_job" class="app-input">
+                  <option value="">Months</option>
+                  {Array.from({length: 12}, (_, i) => <option value={i}>{i}</option>)}
+                </select>
               </div>
             </div>
           </div>
@@ -339,6 +446,68 @@ const states = ['AL','AK','AZ','AR','CA','CO','CT','DE','FL','GA','HI','ID','IL'
           </div>
         </div>
 
+        <!-- ===== TRADE-IN VEHICLE ===== -->
+        <div class="app-section">
+          <h2 class="app-section-title">Trade-In Vehicle <span class="text-gray-400 font-normal text-sm">(Optional)</span></h2>
+          <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+            <div>
+              <label class="app-label">Year</label>
+              <input type="text" name="trade_year" class="app-input" placeholder="2018" maxlength="4" />
+            </div>
+            <div>
+              <label class="app-label">Make</label>
+              <input type="text" name="trade_make" class="app-input" placeholder="Toyota" />
+            </div>
+            <div>
+              <label class="app-label">Model</label>
+              <input type="text" name="trade_model" class="app-input" placeholder="Camry" />
+            </div>
+            <div>
+              <label class="app-label">Mileage</label>
+              <input type="number" name="trade_mileage" class="app-input" placeholder="85000" min="0" />
+            </div>
+            <div>
+              <label class="app-label">VIN</label>
+              <input type="text" name="trade_vin" class="app-input" placeholder="17-character VIN" maxlength="17" />
+            </div>
+            <div>
+              <label class="app-label">Payoff Balance</label>
+              <div class="relative">
+                <span class="absolute left-3 top-1/2 -translate-y-1/2 text-gray-500 font-semibold">$</span>
+                <input type="number" name="trade_payoff" class="app-input pl-7" placeholder="0" min="0" />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ===== REFERENCES ===== -->
+        <div class="app-section">
+          <h2 class="app-section-title">Personal References <span class="text-gray-400 font-normal text-sm">(Optional)</span></h2>
+          <p class="text-sm text-gray-500 mb-5">Some lenders require personal references. Providing them now can speed up approval. Please list people who are not members of your household.</p>
+          {[1, 2, 3].map(n => (
+            <div class={`app-grid${n < 3 ? ' mb-5 pb-5 border-b border-gray-100' : ''}`}>
+              <div>
+                <label class="app-label">Reference {n} — Full Name</label>
+                <input type="text" name={`ref${n}_name`} class="app-input" placeholder="Full name" />
+              </div>
+              <div>
+                <label class="app-label">Phone Number</label>
+                <input type="tel" name={`ref${n}_phone`} class="app-input" placeholder="(555) 555-5555" />
+              </div>
+              <div>
+                <label class="app-label">Relationship</label>
+                <select name={`ref${n}_relationship`} class="app-input">
+                  <option value="">Select</option>
+                  <option value="Family">Family</option>
+                  <option value="Friend">Friend</option>
+                  <option value="Co-worker">Co-worker</option>
+                  <option value="Other">Other</option>
+                </select>
+              </div>
+            </div>
+          ))}
+        </div>
+
         <!-- ===== CONSENT ===== -->
         <div class="bg-white rounded-xl border border-gray-200 p-6 space-y-4">
           <label class="flex items-start gap-3 cursor-pointer">
@@ -351,7 +520,7 @@ const states = ['AL','AK','AZ','AR','CA','CO','CT','DE','FL','GA','HI','ID','IL'
           </label>
           <p class="text-xs text-gray-400 leading-relaxed">Message frequency may vary. Message and data rates may apply. Reply HELP for help or STOP to opt out.</p>
           <p class="text-xs text-gray-500 leading-relaxed border-t border-gray-100 pt-4">
-            I, the undersigned, for the purpose of securing credit, certify that the information provided is correct; authorize financial institutions to obtain consumer credit reports periodically and to gather employment history; and understand that this application will be retained whether or not it is approved.
+            I, the undersigned, for the purpose of securing credit, certify that the information provided is correct; authorize Maxim Autos and financial institutions to obtain consumer credit reports (as permitted under the Fair Credit Reporting Act) periodically and to gather employment history; authorize verification of all information provided; and understand that this application will be retained whether or not it is approved. I also authorize the verification of my identity against applicable OFAC databases.
           </p>
           <label class="flex items-start gap-3 cursor-pointer">
             <input type="checkbox" name="privacy_consent" required value="yes" class="mt-0.5 w-4 h-4 accent-orange shrink-0" />
@@ -482,6 +651,48 @@ const states = ['AL','AK','AZ','AR','CA','CO','CT','DE','FL','GA','HI','ID','IL'
     sectionCobuyer.classList.remove('hidden');
     sectionBuyer.classList.add('hidden');
   });
+
+  // SSN auto-format (XXX-XX-XXXX)
+  function formatSSN(input) {
+    input.addEventListener('input', function () {
+      var v = this.value.replace(/\D/g, '').slice(0, 9);
+      if (v.length > 5) v = v.slice(0,3) + '-' + v.slice(3,5) + '-' + v.slice(5);
+      else if (v.length > 3) v = v.slice(0,3) + '-' + v.slice(3);
+      this.value = v;
+    });
+  }
+  var buyerSSN = document.getElementById('buyer_ssn');
+  var cobuyerSSN = document.getElementById('cobuyer_ssn');
+  if (buyerSSN) formatSSN(buyerSSN);
+  if (cobuyerSSN) formatSSN(cobuyerSSN);
+
+  // Show previous address if < 2 years at current
+  function checkPrevAddress() {
+    var years = parseInt(document.getElementById('buyer_years_address').value) || 0;
+    var months = parseInt(document.getElementById('buyer_months_address').value) || 0;
+    var totalMonths = years * 12 + months;
+    var section = document.getElementById('buyer-prev-address-section');
+    if (totalMonths < 24) section.classList.remove('hidden');
+    else section.classList.add('hidden');
+  }
+  var yAddr = document.getElementById('buyer_years_address');
+  var mAddr = document.getElementById('buyer_months_address');
+  if (yAddr) yAddr.addEventListener('change', checkPrevAddress);
+  if (mAddr) mAddr.addEventListener('change', checkPrevAddress);
+
+  // Show previous employer if < 2 years at current job
+  function checkPrevEmployer() {
+    var years = parseInt(document.getElementById('buyer_years_job').value) || 0;
+    var months = parseInt(document.getElementById('buyer_months_job').value) || 0;
+    var totalMonths = years * 12 + months;
+    var section = document.getElementById('buyer-prev-employer-section');
+    if (totalMonths < 24) section.classList.remove('hidden');
+    else section.classList.add('hidden');
+  }
+  var yJob = document.getElementById('buyer_years_job');
+  var mJob = document.getElementById('buyer_months_job');
+  if (yJob) yJob.addEventListener('change', checkPrevEmployer);
+  if (mJob) mJob.addEventListener('change', checkPrevEmployer);
 
   // Form submission
   var form = document.getElementById('apply-form');
