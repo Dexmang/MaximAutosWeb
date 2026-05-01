@@ -350,9 +350,10 @@ function mapNode(node, _offer, existingByVin) {
   }
   const price = n.priceData?.current ?? existing?.price ?? 0;
   const mileage = n.mileageData?.value ?? existing?.mileage ?? 0;
-  const dealRating = n.dealRating || '';
+  const dealRating = n.dealRating || existing?.dealRating || '';
   // priceSavings: positive = below market (good), negative = above market
-  const priceSavings = n.priceData?.differential ?? 0;
+  // Fall back to existing so a transient null priceData doesn't wipe a known savings value
+  const priceSavings = n.priceData?.differential ?? existing?.priceSavings ?? 0;
 
   // Body style
   const bodyStyleRaw = onto.bodyTypeName || existing?.bodyStyle || '';
