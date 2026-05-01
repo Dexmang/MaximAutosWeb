@@ -345,6 +345,9 @@ function mapNode(node, _offer, existingByVin) {
   const trim = onto.trimName || '';
 
   // Price, mileage, dealRating, and priceSavings — CarGurus is authoritative
+  if (n.priceData && n.priceData.current == null) {
+    console.warn(`  WARNING: priceData present but current is null for VIN ${vin} — retaining existing price (may be stale)`);
+  }
   const price = n.priceData?.current ?? existing?.price ?? 0;
   const mileage = n.mileageData?.value ?? existing?.mileage ?? 0;
   const dealRating = n.dealRating || '';
