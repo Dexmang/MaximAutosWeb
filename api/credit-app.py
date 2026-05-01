@@ -79,8 +79,9 @@ def _send_alert(data: dict, blob_url: str) -> None:
     )
     try:
         urllib.request.urlopen(req, timeout=8)
-    except Exception:
-        pass  # Don't fail the request if email errors
+    except Exception as e:
+        import sys
+        print(f"RESEND_ERROR: {e}", file=sys.stderr)
 
 
 class handler(BaseHTTPRequestHandler):
