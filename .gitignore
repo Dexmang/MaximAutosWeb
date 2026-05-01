@@ -12,3 +12,4 @@ web_assets/photos/*/*.jpg
 # IndexNow private key (the matching <key>.txt in web_assets/ IS committed
 # as the public ownership proof IndexNow requires).
 .indexnow-key
+.env*.local

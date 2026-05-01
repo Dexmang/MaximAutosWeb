@@ -16,8 +16,29 @@
   {
     "name": "Sandra P.",
     "rating": 5,
-    "text": "Came in after a bad experience at another dealer who tried to sneak in hidden fees. Jerry at Maxim was the complete opposite. Transparent pricing, no surprises.",
-    "source": "Cars.com",
+    "text": "Came in after a bad experience at another dealer. Jerry at Maxim was the complete opposite. Transparent pricing, no surprises.",
+    "source": "Google",
     "date": "2026-01-10"
+  },
+  {
+    "name": "Mike R.",
+    "rating": 5,
+    "text": "Bought my first car here. Jerry walked me through everything, got me financed, and I left with plates same day. Couldn't ask for more.",
+    "source": "Google",
+    "date": "2026-02-05"
+  },
+  {
+    "name": "Angie L.",
+    "rating": 5,
+    "text": "Third car I've bought from Jerry. He is the most honest car dealer I've dealt with in 20 years. Always a fair price.",
+    "source": "Google",
+    "date": "2026-03-01"
+  },
+  {
+    "name": "Carlos M.",
+    "rating": 5,
+    "text": "Jerry helped me get financed when two other dealers said no. The car was fully inspected and I drove it off the lot with plates. Excellent experience.",
+    "source": "Google",
+    "date": "2025-12-18"
   }
 ]
