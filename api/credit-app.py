@@ -25,6 +25,7 @@ def _store_blob(encrypted: bytes, blob_name: str) -> str:
             "Authorization": f"Bearer {token}",
             "Content-Type": "application/octet-stream",
             "x-api-version": "7",
+            "x-vercel-blob-access": "private",
         },
     )
     with urllib.request.urlopen(req) as resp:
