@@ -10,7 +10,7 @@ import suburbs from '../data/suburbs.json';
 
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 const title = 'Quality Used Cars in Skokie, IL | Maxim Autos';
-const description = 'Maxim Autos: fully inspected used cars $5K–$15K in Skokie, IL. Metal plates on the spot. Skip the DMV. Financing for all credit levels. 5-star Google reviews.';
+const description = 'Maxim Autos: fully inspected used cars from $5,000 to $15,000 in Skokie, IL. Metal plates on the spot. Skip the DMV. Financing for all credit levels. 5-star Google reviews.';
 const featured = vehicles.filter(v => (v as any).status !== 'sold').slice(0, 6);
 ---
 
@@ -36,14 +36,14 @@ const featured = vehicles.filter(v => (v as any).status !== 'sold').slice(0, 6);
       },
       "geo": {
         "@type": "GeoCoordinates",
-        "latitude": 42.0334,
-        "longitude": -87.7334
+        "latitude": 42.0464352,
+        "longitude": -87.7546134
       },
       "openingHoursSpecification": [
         { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Thursday","Friday"], "opens": "15:00", "closes": "19:00" },
         { "@type": "OpeningHoursSpecification", "dayOfWeek": "Saturday", "opens": "10:00", "closes": "15:00" }
       ],
-      "priceRange": "$5,000 – $15,000",
+      "priceRange": "$5,000 to $15,000",
       "aggregateRating": {
         "@type": "AggregateRating",
         "ratingValue": String(reviewsMeta.rating.toFixed(1)),
@@ -59,6 +59,18 @@ const featured = vehicles.filter(v => (v as any).status !== 'sold').slice(0, 6);
         { "@type": "City", "name": "Des Plaines" },
         { "@type": "City", "name": "Wilmette" },
         { "@type": "City", "name": "Glenview" }
+      ]
+    })} />
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Maxim Autos",
+      "url": "https://www.maximautos.com",
+      "logo": "https://www.maximautos.com/brand/logo.png",
+      "sameAs": [
+        "https://www.facebook.com/p/Maxim-Autos-61584813440976/",
+        "https://www.cargurus.com/Cars/m-Maxim-Autos-sp457703",
+        "https://www.cars.com/dealers/6072153/maxim-autos/"
       ]
     })} />
   </Fragment>
@@ -270,7 +282,7 @@ const featured = vehicles.filter(v => (v as any).status !== 'sold').slice(0, 6);
       <div class="flex flex-col md:flex-row items-center gap-8">
         <div class="flex-1">
           <h2 class="font-headline text-2xl md:text-3xl font-extrabold mb-3">Serving Chicago's North Shore</h2>
-          <p class="text-gray-600 mb-4">Located in Skokie. Fully inspected pre-owned cars $5K–$15K with financing for all credit levels.</p>
+          <p class="text-gray-600 mb-4">Located in Skokie. Fully inspected pre-owned cars from $5,000 to $15,000 with financing for all credit levels.</p>
           <div class="flex flex-wrap gap-2 mb-5">
             {['Skokie', 'Evanston', 'Niles', 'Morton Grove', 'Lincolnwood', 'Des Plaines', 'Wilmette', 'Glenview', 'Chicago'].map(city => (
               <span class="px-3 py-1.5 bg-surface rounded-full text-sm font-medium text-gray-700 border border-gray-200">{city}</span>

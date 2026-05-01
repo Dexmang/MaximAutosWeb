@@ -1,0 +1,215 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import QuickAnswer from '../components/QuickAnswer.astro';
+import suburbs from '../data/suburbs.json';
+import vehicles from '../data/vehicles.json';
+import reviewsMeta from '../data/reviews_meta.json';
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+
+const available = vehicles.filter(v => (v as any).status !== 'sold');
+const minPrice = Math.min(...available.map(v => v.price));
+const maxPrice = Math.max(...available.map(v => v.price));
+
+const canonicalUrl = 'https://www.maximautos.com/used-cars-chicago-north-shore';
+const title = 'Used Cars Near Chicago North Shore, IL · Maxim Autos Skokie';
+const description = 'Maxim Autos in Skokie serves all Chicago North Shore communities. Fully inspected used cars from $5,000 to $15,000. Same day metal plates. Financing for all credit levels.';
+
+const quickAnswer = `Maxim Autos is a used car dealership at 9101 Terminal Ave in Skokie, IL serving every community on Chicago's North Shore. Inventory is priced from $5,000 to $15,000. Every vehicle is independently inspected and includes a free CARFAX report. Metal Illinois plates are issued on the spot at the time of purchase. Financing is available for all credit levels, including buyers building credit for the first time. Call or text Jerry at (847) 510-8947.`;
+
+const localBusinessSchema = {
+  "@context": "https://schema.org",
+  "@type": "AutoDealer",
+  "name": "Maxim Autos",
+  "url": "https://www.maximautos.com",
+  "telephone": "+1-847-510-8947",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "9101 Terminal Ave",
+    "addressLocality": "Skokie",
+    "addressRegion": "IL",
+    "postalCode": "60077",
+    "addressCountry": "US"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 42.0464352,
+    "longitude": -87.7546134
+  },
+  "areaServed": suburbs.map(s => ({ "@type": "City", "name": s.city, "addressRegion": "IL" })),
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": String(reviewsMeta.rating.toFixed(1)),
+    "reviewCount": String(reviewsMeta.count),
+    "bestRating": "5"
+  }
+};
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.maximautos.com" },
+    { "@type": "ListItem", "position": 2, "name": "Inventory", "item": "https://www.maximautos.com/inventory" },
+    { "@type": "ListItem", "position": 3, "name": "Used Cars Chicago North Shore", "item": canonicalUrl }
+  ]
+};
+
+const faqs = [
+  {
+    q: "What towns on Chicago's North Shore does Maxim Autos serve?",
+    a: "Maxim Autos in Skokie serves the entire North Shore, including Skokie, Evanston, Niles, Morton Grove, Lincolnwood, Des Plaines, Wilmette, Glenview, and Park Ridge. Most of these communities are within a 15 minute drive of the dealership at 9101 Terminal Ave."
+  },
+  {
+    q: "What is the price range for used cars at Maxim Autos?",
+    a: `Every vehicle at Maxim Autos is priced from $5,000 to $15,000. Current inventory shows ${available.length} vehicles available, ranging from $${minPrice.toLocaleString()} to $${maxPrice.toLocaleString()}. All cars include a free CARFAX report, an independent inspection, and a 3 Month Warranty.`
+  },
+  {
+    q: "Does Maxim Autos issue metal Illinois plates the same day?",
+    a: "Yes. Maxim Autos is a licensed Illinois CVR dealer and issues metal license plates on the spot at the time of purchase. Buyers from anywhere in the North Shore drive home with real plates the same day, without a separate trip to the Illinois Secretary of State office."
+  },
+  {
+    q: "Does Maxim Autos offer financing for North Shore buyers?",
+    a: "Yes. Maxim Autos works with multiple lenders to offer financing for all credit levels, including buyers building credit for the first time and buyers rebuilding after a setback. Text Jerry at (847) 510-8947 to discuss your situation."
+  }
+];
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map(item => ({
+    "@type": "Question",
+    "name": item.q,
+    "acceptedAnswer": { "@type": "Answer", "text": item.a }
+  }))
+};
+---
+
+<Layout title={title} description={description} canonicalUrl={canonicalUrl}>
+  <Fragment slot="structured-data">
+    <script type="application/ld+json" set:html={JSON.stringify(localBusinessSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+  </Fragment>
+  <Header slot="header" />
+
+  <!-- Hero -->
+  <section class="bg-navy py-14 lg:py-20">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+      <nav class="text-sm text-gray-400 mb-8" aria-label="Breadcrumb">
+        <ol class="flex items-center gap-2 flex-wrap">
+          <li><a href={`${base}/`} class="hover:text-white transition-colors">Home</a></li>
+          <li class="text-gray-600">/</li>
+          <li><a href={`${base}/inventory`} class="hover:text-white transition-colors">Inventory</a></li>
+          <li class="text-gray-600">/</li>
+          <li class="text-gray-300">Chicago North Shore</li>
+        </ol>
+      </nav>
+
+      <div class="text-center">
+        <span class="text-orange font-bold uppercase tracking-widest text-sm mb-3 block">Chicago North Shore</span>
+        <h1 class="font-headline text-4xl md:text-5xl lg:text-6xl font-extrabold text-white leading-tight tracking-tight mb-5">
+          Used Cars for the Chicago North Shore
+        </h1>
+        <p class="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed mb-8">
+          Maxim Autos in Skokie serves the entire North Shore. Fully inspected used cars from $5,000 to $15,000. Free CARFAX, metal plates the same day, financing for all credit levels.
+        </p>
+        <div class="flex flex-col sm:flex-row justify-center gap-4">
+          <a href={`${base}/inventory`}
+             class="inline-flex items-center justify-center gap-2 bg-orange text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-orange-dark transition-colors shadow-lg">
+            View Current Inventory <span class="material-symbols-outlined">arrow_forward</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Quick Answer -->
+  <section class="py-10 bg-surface">
+    <div class="max-w-3xl mx-auto px-6 lg:px-8">
+      <QuickAnswer answer={quickAnswer} />
+    </div>
+  </section>
+
+  <!-- Suburb grid -->
+  <section class="py-14 bg-white">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+      <div class="text-center mb-10">
+        <span class="text-orange font-bold uppercase tracking-widest text-sm mb-2 block">By Community</span>
+        <h2 class="font-headline text-2xl md:text-3xl font-extrabold text-navy">Pick Your Town</h2>
+        <p class="text-gray-600 max-w-2xl mx-auto mt-2 text-sm">Each page covers driving directions, distance, and frequently asked questions for buyers in that area.</p>
+      </div>
+      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+        {suburbs.map(s => (
+          <a href={`${base}/used-cars-${s.slug}-il`}
+             class="group flex flex-col items-center justify-center text-center p-5 rounded-xl bg-surface border border-gray-200 hover:border-orange/50 hover:shadow-md transition-all">
+            <span class="font-headline font-bold text-navy text-base group-hover:text-orange transition-colors">{s.city}</span>
+            <span class="text-xs text-gray-500 mt-1">{s.distanceMiles === 0 ? 'Local' : `${s.distanceMiles} mi · ${s.driveTimeMin} min`}</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Maxim -->
+  <section class="py-14 bg-surface">
+    <div class="max-w-4xl mx-auto px-6 lg:px-8">
+      <div class="text-center mb-10">
+        <span class="text-orange font-bold uppercase tracking-widest text-sm mb-2 block">Why Buyers Drive Here</span>
+        <h2 class="font-headline text-2xl md:text-3xl font-extrabold text-navy">One Owner. One Lot. Every Car Inspected.</h2>
+      </div>
+      <p class="text-gray-700 leading-relaxed mb-6">
+        Maxim Autos is run by Jerry Franco. Jerry inspects every vehicle himself, sets every price, and signs every deal. There are no commissioned salespeople, no dealer fees, and no documentation fees. The price on the listing is the full price you pay, plus standard Illinois tax and title. North Shore buyers from Evanston to Glenview cite this transparency as the reason they drive to Skokie rather than buying at a chain lot closer to home.
+      </p>
+      <ul class="space-y-3">
+        {[
+          'Independent inspection report on every vehicle',
+          'Free CARFAX vehicle history report on every car',
+          '3 Month Warranty included on every sale',
+          'Metal Illinois plates issued on the spot at the time of purchase',
+          'Financing for all credit levels, including buyers new to credit',
+          'Direct access to the owner from first text to keys in hand'
+        ].map(text => (
+          <li class="flex items-start gap-3 text-gray-700">
+            <span class="material-symbols-outlined text-orange shrink-0 mt-0.5" style="font-variation-settings:'FILL' 1;">check_circle</span>
+            <span>{text}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="py-14 bg-white">
+    <div class="max-w-3xl mx-auto px-6 lg:px-8">
+      <div class="text-center mb-10">
+        <span class="text-orange font-bold uppercase tracking-widest text-sm mb-2 block">FAQ</span>
+        <h2 class="font-headline text-2xl md:text-3xl font-extrabold">North Shore Buyer Questions</h2>
+      </div>
+      <div class="space-y-4">
+        {faqs.map(item => (
+          <div class="bg-surface rounded-xl border border-gray-100 p-6">
+            <h3 class="font-headline font-bold text-navy mb-2">{item.q}</h3>
+            <p class="text-gray-600 leading-relaxed text-sm">{item.a}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-16 bg-navy">
+    <div class="max-w-4xl mx-auto px-6 lg:px-8 text-center">
+      <h2 class="font-headline text-3xl md:text-4xl font-extrabold text-white mb-4">Ready to Drive Home Today?</h2>
+      <p class="text-white/70 text-lg mb-8">Text Jerry your situation. He will have the right cars pulled and paperwork ready when you arrive.</p>
+      <div class="hidden sm:inline-flex items-center justify-center gap-2 bg-orange text-white px-8 py-4 rounded-xl font-bold text-lg">
+        <span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1;">phone</span>
+        (847) 510-8947
+      </div>
+    </div>
+  </section>
+
+  <Footer slot="footer" />
+</Layout>

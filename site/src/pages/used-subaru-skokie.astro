@@ -1,0 +1,223 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import VehicleCard from '../components/VehicleCard.astro';
+import vehicles from '../data/vehicles.json';
+import reviewsMeta from '../data/reviews_meta.json';
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+
+const MAKE = 'Subaru';
+const live = vehicles.filter(v => (v as any).status !== 'sold');
+const matches = live.filter(v => v.make.toLowerCase() === MAKE.toLowerCase());
+
+const canonicalUrl = `https://www.maximautos.com/used-${MAKE.toLowerCase()}-skokie`;
+const title = `Used ${MAKE} for Sale in Skokie, IL · Maxim Autos`;
+const description = `Used ${MAKE} for sale in Skokie, IL at Maxim Autos. Every vehicle independently inspected with a free CARFAX report and a 3 Month Warranty. Same day metal plates. Financing for all credit levels.`;
+
+const itemListSchema = {
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "name": `Used ${MAKE} for Sale in Skokie, IL`,
+  "itemListElement": matches.map((v, i) => ({
+    "@type": "ListItem",
+    "position": i + 1,
+    "item": {
+      "@type": "Car",
+      "name": `${v.year} ${v.make} ${v.model} ${v.trim}`,
+      "brand": { "@type": "Brand", "name": v.make },
+      "url": `https://www.maximautos.com/vehicle/${v.slug}`,
+      "offers": {
+        "@type": "Offer",
+        "price": v.price,
+        "priceCurrency": "USD",
+        "availability": "https://schema.org/InStock"
+      }
+    }
+  }))
+};
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.maximautos.com" },
+    { "@type": "ListItem", "position": 2, "name": "Inventory", "item": "https://www.maximautos.com/inventory" },
+    { "@type": "ListItem", "position": 3, "name": `Used ${MAKE}`, "item": canonicalUrl }
+  ]
+};
+
+const localBusinessSchema = {
+  "@context": "https://schema.org",
+  "@type": "AutoDealer",
+  "name": "Maxim Autos",
+  "url": "https://www.maximautos.com",
+  "telephone": "+1-847-510-8947",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "9101 Terminal Ave",
+    "addressLocality": "Skokie",
+    "addressRegion": "IL",
+    "postalCode": "60077",
+    "addressCountry": "US"
+  },
+  "geo": { "@type": "GeoCoordinates", "latitude": 42.0464352, "longitude": -87.7546134 },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": String(reviewsMeta.rating.toFixed(1)),
+    "reviewCount": String(reviewsMeta.count),
+    "bestRating": "5"
+  }
+};
+
+const faqs = [
+  {
+    q: `Does Maxim Autos sell used ${MAKE} models in Skokie?`,
+    a: `Yes. Maxim Autos in Skokie regularly carries used ${MAKE} vehicles, with current rotating inventory in the $5,000 to $15,000 range. Every ${MAKE} on the lot is independently inspected and includes a free CARFAX report. Text Jerry at (847) 510-8947 for current availability.`
+  },
+  {
+    q: `What ${MAKE} models has Maxim Autos carried?`,
+    a: `Maxim Autos has carried Outback, Crosstrek, Forester, and Legacy models among others. ${MAKE} is one of the most popular makes for Skokie and North Shore buyers because of its symmetrical all wheel drive and strong reputation for Midwest winter reliability.`
+  },
+  {
+    q: `Is financing available on used ${MAKE} models?`,
+    a: `Yes. Financing is available for all credit levels on every vehicle at Maxim Autos, including used ${MAKE} models. Multiple lenders are available and a soft pull pre qualification can be done before you visit. Text Jerry at (847) 510-8947 to discuss options.`
+  }
+];
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map(item => ({
+    "@type": "Question",
+    "name": item.q,
+    "acceptedAnswer": { "@type": "Answer", "text": item.a }
+  }))
+};
+---
+
+<Layout title={title} description={description} canonicalUrl={canonicalUrl}>
+  <Fragment slot="structured-data">
+    <script type="application/ld+json" set:html={JSON.stringify(localBusinessSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(itemListSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+  </Fragment>
+  <Header slot="header" />
+
+  <section class="bg-navy py-14 lg:py-20">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+      <nav class="text-sm text-gray-400 mb-8" aria-label="Breadcrumb">
+        <ol class="flex items-center gap-2 flex-wrap">
+          <li><a href={`${base}/`} class="hover:text-white transition-colors">Home</a></li>
+          <li class="text-gray-600">/</li>
+          <li><a href={`${base}/inventory`} class="hover:text-white transition-colors">Inventory</a></li>
+          <li class="text-gray-600">/</li>
+          <li class="text-gray-300">Used {MAKE}</li>
+        </ol>
+      </nav>
+      <div class="text-center">
+        <span class="text-orange font-bold uppercase tracking-widest text-sm mb-3 block">{MAKE}</span>
+        <h1 class="font-headline text-4xl md:text-5xl lg:text-6xl font-extrabold text-white leading-tight tracking-tight mb-5">
+          Used {MAKE} for Sale in Skokie, IL
+        </h1>
+        <p class="text-xl text-gray-300 max-w-2xl mx-auto leading-relaxed">
+          Used {MAKE} models at Maxim Autos in Skokie. Every vehicle inspected, free CARFAX, 3 Month Warranty, and metal Illinois plates the same day.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-14 bg-white">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+      <div class="flex items-center justify-between mb-8 flex-wrap gap-4">
+        <div>
+          <h2 class="font-headline text-2xl md:text-3xl font-extrabold text-navy">
+            {matches.length === 0 ? `${MAKE} Inventory Rotates Weekly` : `${matches.length} Used ${MAKE} Available`}
+          </h2>
+          <p class="text-gray-600 mt-1 text-sm">All inspected. No dealer fees. Free CARFAX.</p>
+        </div>
+        <a href={`${base}/inventory`} class="inline-flex items-center gap-2 text-orange font-semibold hover:underline text-sm">
+          Full inventory <span class="material-symbols-outlined text-base">arrow_forward</span>
+        </a>
+      </div>
+
+      {matches.length === 0 ? (
+        <div class="bg-surface border border-gray-200 rounded-xl p-8 text-center">
+          <p class="text-gray-700">We rotate inventory weekly. Check back soon or text Jerry at <a href="sms:8475108947" class="text-orange font-bold">(847) 510-8947</a> to ask about incoming {MAKE} inventory.</p>
+        </div>
+      ) : (
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+          {matches.map(v => (
+            <VehicleCard
+              slug={v.slug}
+              year={v.year}
+              make={v.make}
+              model={v.model}
+              trim={v.trim}
+              price={v.price}
+              mileage={v.mileage}
+              drivetrain={v.drivetrain}
+              engine={v.engine}
+              bodyStyle={v.bodyStyle}
+              photoPath={v.photoPath}
+              photoPrefix={v.photoPrefix}
+              inspected={v.inspected}
+              primaryPhotoUrl={v.primaryPhotoUrl}
+              photos={v.photos}
+            />
+          ))}
+        </div>
+      )}
+    </div>
+  </section>
+
+  <section class="py-14 bg-surface">
+    <div class="max-w-3xl mx-auto px-6 lg:px-8">
+      <h2 class="font-headline text-2xl md:text-3xl font-extrabold text-navy mb-6">Why {MAKE} Buyers Shop Maxim Autos in Skokie</h2>
+      <p class="text-gray-700 leading-relaxed mb-5">
+        {MAKE} is one of the most loyal followings in the used car market, and Skokie is right in the heart of {MAKE} country. Owners who already drive a {MAKE} tend to want their next car to be a {MAKE} too, and that loyalty is backed by a strong reputation for symmetrical all wheel drive, the EyeSight safety system on newer models, and resale value that holds up better than most competitors. For Chicago and North Shore buyers dealing with snow, slush, and tight side streets, a used {MAKE} is a practical choice.
+      </p>
+      <p class="text-gray-700 leading-relaxed mb-5">
+        Maxim Autos focuses on the $5,000 to $15,000 segment, which lines up well with used Outback, Crosstrek, Forester, Legacy, and Impreza inventory. Every {MAKE} that comes through goes through an independent mechanical inspection, includes a free CARFAX vehicle history report, and ships with a 3 Month Warranty. Pricing is transparent. The price you see is the price you pay, plus standard Illinois tax and title. No dealer fees. No documentation fees.
+      </p>
+      <p class="text-gray-700 leading-relaxed mb-5">
+        Inventory rotates weekly. If a specific {MAKE} model or model year is on your wish list and is not on the lot today, Jerry can keep an eye out for it at the auctions he sources from each week. Text the model, year, mileage range, and budget to (847) 510-8947 and Jerry will reach out when something fits.
+      </p>
+      <p class="text-gray-700 leading-relaxed">
+        Maxim Autos is a licensed Illinois CVR dealer at 9101 Terminal Ave in Skokie. Every Illinois buyer drives home with real metal plates the same day. No DMV trip. No temporary tags. Financing is available for all credit levels.
+      </p>
+    </div>
+  </section>
+
+  <section class="py-14 bg-white">
+    <div class="max-w-3xl mx-auto px-6 lg:px-8">
+      <div class="text-center mb-10">
+        <span class="text-orange font-bold uppercase tracking-widest text-sm mb-2 block">FAQ</span>
+        <h2 class="font-headline text-2xl md:text-3xl font-extrabold">Common Questions about Used {MAKE}</h2>
+      </div>
+      <div class="space-y-4">
+        {faqs.map(item => (
+          <div class="bg-surface rounded-xl border border-gray-100 p-6">
+            <h3 class="font-headline font-bold text-navy mb-2">{item.q}</h3>
+            <p class="text-gray-600 leading-relaxed text-sm">{item.a}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 bg-navy">
+    <div class="max-w-4xl mx-auto px-6 lg:px-8 text-center">
+      <h2 class="font-headline text-3xl md:text-4xl font-extrabold text-white mb-4">Looking for a Specific {MAKE}?</h2>
+      <p class="text-white/70 text-lg mb-8">Tell Jerry the model, year, and budget. He sources at auction every week.</p>
+      <div class="hidden sm:inline-flex items-center justify-center gap-2 bg-orange text-white px-8 py-4 rounded-xl font-bold text-lg">
+        <span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1;">phone</span>
+        (847) 510-8947
+      </div>
+    </div>
+  </section>
+
+  <Footer slot="footer" />
+</Layout>

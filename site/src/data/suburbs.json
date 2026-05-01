@@ -180,6 +180,66 @@
     ]
   },
   {
+    "city": "Wilmette",
+    "slug": "wilmette",
+    "distanceMiles": 4,
+    "driveTimeMin": 8,
+    "whyVisit": "Wilmette families regularly make the 8 minute drive south to Maxim Autos for a different kind of used car experience. Jerry Franco runs the dealership himself, personally inspects every vehicle, and stands behind every sale. Wilmette buyers shopping in the $5,000 to $15,000 range appreciate the no fee pricing, the free CARFAX on every car, and the fact that there is no salesperson in the middle. You deal with the owner directly, start to finish.",
+    "directionsBlurb": "From Wilmette, head south on Green Bay Road or Waukegan Road into Skokie. Continue south to Dempster Street, then east to Terminal Avenue and south to 9101. The drive is under 8 minutes from most parts of Wilmette. Google Maps: 9101 Terminal Ave, Skokie, IL 60077.",
+    "faq": [
+      {
+        "q": "How far is Maxim Autos from Wilmette, IL?",
+        "a": "Maxim Autos is about 4 miles from Wilmette, roughly an 8 minute drive south on Green Bay Road or Waukegan Road into Skokie. The dealership is at 9101 Terminal Ave, Skokie, IL 60077."
+      },
+      {
+        "q": "Why do Wilmette buyers shop at Maxim Autos?",
+        "a": "Wilmette buyers come to Maxim Autos for the transparent pricing, the no dealer fee policy, the free CARFAX on every vehicle, and the chance to deal directly with the owner. Jerry inspects every car personally before it goes on the lot, and there are no commissioned salespeople pushing add ons at signing."
+      },
+      {
+        "q": "Do Wilmette residents need to visit the DMV after buying a car at Maxim Autos?",
+        "a": "No. Maxim Autos is a licensed Illinois dealer that issues metal license plates on the spot at the time of purchase. Wilmette buyers drive home with plates already on the car the same day. No temporary tags, no DMV trip, no waiting."
+      },
+      {
+        "q": "What is the price range for used cars near Wilmette at Maxim Autos?",
+        "a": "Maxim Autos carries used cars priced from $5,000 to $15,000. Every vehicle is independently inspected and includes a free CARFAX report and a 3 Month Warranty. Financing is available for all credit levels. Browse current inventory online or text Jerry at (847) 510-8947."
+      },
+      {
+        "q": "Does Maxim Autos offer financing for Wilmette buyers?",
+        "a": "Yes. Maxim Autos works with multiple lenders to offer financing for all credit levels, including buyers rebuilding credit and buyers purchasing for the first time. Text Jerry at (847) 510-8947 to discuss your situation before you visit."
+      }
+    ]
+  },
+  {
+    "city": "Skokie",
+    "slug": "skokie",
+    "distanceMiles": 0,
+    "driveTimeMin": 0,
+    "whyVisit": "Maxim Autos is Skokie's own used car dealer, located at 9101 Terminal Ave just off Dempster Street. For Skokie residents, this is the local option that does not behave like the chains. Jerry Franco lives and works in the community, runs the dealership himself, and personally inspects every vehicle on the lot. Every car comes with a free CARFAX, an independent inspection report, a 3 Month Warranty, and metal Illinois plates issued the same day at no extra fee.",
+    "directionsBlurb": "Maxim Autos is at 9101 Terminal Ave, Skokie, IL 60077, just south of Dempster Street near the Edens Expressway. From most parts of Skokie the drive is under 5 minutes. Google Maps: 9101 Terminal Ave, Skokie, IL 60077.",
+    "faq": [
+      {
+        "q": "Where is Maxim Autos located in Skokie, IL?",
+        "a": "Maxim Autos is at 9101 Terminal Ave, Skokie, IL 60077, just south of Dempster Street near the Edens Expressway. From most parts of Skokie the drive is under 5 minutes. Free customer parking on site."
+      },
+      {
+        "q": "What used cars does Maxim Autos sell in Skokie?",
+        "a": "Maxim Autos carries a rotating inventory of fully inspected used cars priced from $5,000 to $15,000. Current inventory includes SUVs, sedans, and wagons. Every vehicle includes a free CARFAX report, an independent inspection report, and a 3 Month Warranty. Browse online or text Jerry at (847) 510-8947 for current availability."
+      },
+      {
+        "q": "Does Maxim Autos issue same day metal plates in Skokie?",
+        "a": "Yes. Maxim Autos is an Illinois CVR registered dealer and issues metal Illinois license plates on the spot at the time of purchase. Skokie buyers drive home with real plates the same day. No temporary tags and no separate trip to the Illinois Secretary of State office."
+      },
+      {
+        "q": "Does Maxim Autos offer financing for Skokie residents?",
+        "a": "Yes. Maxim Autos works with multiple lenders to offer financing for all credit levels in Skokie, including buyers building credit for the first time and buyers rebuilding after a setback. Text Jerry at (847) 510-8947 to discuss options before you visit."
+      },
+      {
+        "q": "Why buy from a local Skokie dealer instead of a big lot?",
+        "a": "Maxim Autos is run by the owner, Jerry Franco, with no commissioned salespeople and no dealer fees. The price you see is the price you pay, plus standard Illinois tax and title. Every vehicle is hand picked by Jerry, fully inspected, and backed by a 3 Month Warranty. For Skokie residents who want a straight transaction with someone they can talk to face to face, Maxim Autos is the local option."
+      }
+    ]
+  },
+  {
     "city": "Park Ridge",
     "slug": "park-ridge",
     "distanceMiles": 7,

@@ -1,0 +1,184 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import VehicleCard from '../components/VehicleCard.astro';
+import vehicles from '../data/vehicles.json';
+import reviewsMeta from '../data/reviews_meta.json';
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+
+const PRICE_CAP = 10000;
+const live = vehicles.filter(v => (v as any).status !== 'sold');
+const matches = live.filter(v => v.price <= PRICE_CAP);
+
+const canonicalUrl = 'https://www.maximautos.com/used-cars-under-10000-skokie';
+const title = 'Used Cars Under $10,000 in Skokie IL · Maxim Autos';
+const description = `Used cars under $10,000 in Skokie, IL at Maxim Autos. Every vehicle independently inspected with a free CARFAX report and a 3 Month Warranty. Same day metal plates. Financing for all credit levels.`;
+
+const itemListSchema = {
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "name": "Used Cars Under $10,000 in Skokie, IL",
+  "itemListElement": matches.map((v, i) => ({
+    "@type": "ListItem",
+    "position": i + 1,
+    "item": {
+      "@type": "Car",
+      "name": `${v.year} ${v.make} ${v.model} ${v.trim}`,
+      "url": `https://www.maximautos.com/vehicle/${v.slug}`,
+      "offers": {
+        "@type": "Offer",
+        "price": v.price,
+        "priceCurrency": "USD",
+        "availability": "https://schema.org/InStock"
+      }
+    }
+  }))
+};
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.maximautos.com" },
+    { "@type": "ListItem", "position": 2, "name": "Inventory", "item": "https://www.maximautos.com/inventory" },
+    { "@type": "ListItem", "position": 3, "name": "Used Cars Under $10,000 in Skokie", "item": canonicalUrl }
+  ]
+};
+
+const localBusinessSchema = {
+  "@context": "https://schema.org",
+  "@type": "AutoDealer",
+  "name": "Maxim Autos",
+  "url": "https://www.maximautos.com",
+  "telephone": "+1-847-510-8947",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "9101 Terminal Ave",
+    "addressLocality": "Skokie",
+    "addressRegion": "IL",
+    "postalCode": "60077",
+    "addressCountry": "US"
+  },
+  "geo": { "@type": "GeoCoordinates", "latitude": 42.0464352, "longitude": -87.7546134 },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": String(reviewsMeta.rating.toFixed(1)),
+    "reviewCount": String(reviewsMeta.count),
+    "bestRating": "5"
+  }
+};
+---
+
+<Layout title={title} description={description} canonicalUrl={canonicalUrl}>
+  <Fragment slot="structured-data">
+    <script type="application/ld+json" set:html={JSON.stringify(localBusinessSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(itemListSchema)} />
+  </Fragment>
+  <Header slot="header" />
+
+  <!-- Hero -->
+  <section class="bg-navy py-14 lg:py-20">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+      <nav class="text-sm text-gray-400 mb-8" aria-label="Breadcrumb">
+        <ol class="flex items-center gap-2 flex-wrap">
+          <li><a href={`${base}/`} class="hover:text-white transition-colors">Home</a></li>
+          <li class="text-gray-600">/</li>
+          <li><a href={`${base}/inventory`} class="hover:text-white transition-colors">Inventory</a></li>
+          <li class="text-gray-600">/</li>
+          <li class="text-gray-300">Under $10,000</li>
+        </ol>
+      </nav>
+      <div class="text-center">
+        <span class="text-orange font-bold uppercase tracking-widest text-sm mb-3 block">Budget Friendly</span>
+        <h1 class="font-headline text-4xl md:text-5xl lg:text-6xl font-extrabold text-white leading-tight tracking-tight mb-5">
+          Used Cars Under $10,000 in Skokie, IL
+        </h1>
+        <p class="text-xl text-gray-300 max-w-2xl mx-auto leading-relaxed">
+          Every car under $10,000 at Maxim Autos is fully inspected, comes with a free CARFAX, includes a 3 Month Warranty, and ships out with metal Illinois plates the same day.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Inventory -->
+  <section class="py-14 bg-white">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+      <div class="flex items-center justify-between mb-8 flex-wrap gap-4">
+        <div>
+          <h2 class="font-headline text-2xl md:text-3xl font-extrabold text-navy">
+            {matches.length === 0 ? 'Inventory Refreshes Weekly' : `${matches.length} Vehicles Under $10,000`}
+          </h2>
+          <p class="text-gray-600 mt-1 text-sm">All inspected. No dealer fees. Free CARFAX on every car.</p>
+        </div>
+        <a href={`${base}/inventory`} class="inline-flex items-center gap-2 text-orange font-semibold hover:underline text-sm">
+          Full inventory <span class="material-symbols-outlined text-base">arrow_forward</span>
+        </a>
+      </div>
+
+      {matches.length === 0 ? (
+        <div class="bg-surface border border-gray-200 rounded-xl p-8 text-center">
+          <p class="text-gray-700 mb-3">No vehicles in this price range right now. Inventory rotates every week.</p>
+          <p class="text-gray-700">Text Jerry at <a href="sms:8475108947" class="text-orange font-bold">(847) 510-8947</a> with what you are looking for and your budget. He sources cars at auction every week and will reach out when something fits.</p>
+        </div>
+      ) : (
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+          {matches.map(v => (
+            <VehicleCard
+              slug={v.slug}
+              year={v.year}
+              make={v.make}
+              model={v.model}
+              trim={v.trim}
+              price={v.price}
+              mileage={v.mileage}
+              drivetrain={v.drivetrain}
+              engine={v.engine}
+              bodyStyle={v.bodyStyle}
+              photoPath={v.photoPath}
+              photoPrefix={v.photoPrefix}
+              inspected={v.inspected}
+              primaryPhotoUrl={v.primaryPhotoUrl}
+              photos={v.photos}
+            />
+          ))}
+        </div>
+      )}
+    </div>
+  </section>
+
+  <!-- Copy -->
+  <section class="py-14 bg-surface">
+    <div class="max-w-3xl mx-auto px-6 lg:px-8">
+      <h2 class="font-headline text-2xl md:text-3xl font-extrabold text-navy mb-6">Quality Used Cars Under $10,000 in Skokie</h2>
+      <p class="text-gray-700 leading-relaxed mb-5">
+        Buying a used car under $10,000 does not mean settling for a beater. At Maxim Autos in Skokie, every vehicle in this price range is hand picked by Jerry Franco, the owner, and runs through an independent mechanical inspection before it goes on the lot. If a car has issues, it does not get listed. If it does get listed, it has a free CARFAX, a 3 Month Warranty, and a written inspection report you can read before you decide.
+      </p>
+      <p class="text-gray-700 leading-relaxed mb-5">
+        Skokie buyers shopping in the under $10,000 range often look for a reliable daily driver with reasonable miles, a clean title, and no surprise charges at signing. Maxim Autos is built for exactly that. The price you see is the price you pay, plus standard Illinois tax and title. No dealer fees. No documentation fees. No add ons.
+      </p>
+      <p class="text-gray-700 leading-relaxed mb-5">
+        Financing is available for all credit levels, including buyers building credit for the first time. Maxim Autos works with multiple lenders and a soft pull pre qualification is available before you visit. Text Jerry at (847) 510-8947 to talk through options.
+      </p>
+      <p class="text-gray-700 leading-relaxed">
+        Every Illinois buyer drives home with metal license plates already on the car the same day. Maxim Autos is a CVR registered Illinois dealer and processes title and registration on the spot. No DMV trip, no temporary tags, no waiting.
+      </p>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-16 bg-navy">
+    <div class="max-w-4xl mx-auto px-6 lg:px-8 text-center">
+      <h2 class="font-headline text-3xl md:text-4xl font-extrabold text-white mb-4">Looking for Something Specific?</h2>
+      <p class="text-white/70 text-lg mb-8">Tell Jerry your budget and what you need the car for. He sources at auction every week.</p>
+      <div class="hidden sm:inline-flex items-center justify-center gap-2 bg-orange text-white px-8 py-4 rounded-xl font-bold text-lg">
+        <span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1;">phone</span>
+        (847) 510-8947
+      </div>
+    </div>
+  </section>
+
+  <Footer slot="footer" />
+</Layout>
