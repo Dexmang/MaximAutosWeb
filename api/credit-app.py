@@ -61,7 +61,7 @@ def _send_alert(data: dict, blob_url: str) -> None:
 
     payload = json.dumps(
         {
-            "from": "Maxim Autos <noreply@maximautos.com>",
+            "from": "Maxim Autos <onboarding@resend.dev>",
             "to": ["frostjay1@gmail.com"],
             "subject": f"New Credit App — {name} — {phone}",
             "html": html,
