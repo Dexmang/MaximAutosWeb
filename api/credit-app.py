@@ -1,4 +1,6 @@
 from http.server import BaseHTTPRequestHandler
+import hashlib
+import hmac
 import json
 import os
 import urllib.error
@@ -8,6 +10,13 @@ from datetime import datetime, timezone
 
 # Requires: cryptography (see requirements.txt)
 from cryptography.fernet import Fernet
+
+
+def _make_view_url(blob_url: str) -> str:
+    key = os.environ["CREDIT_APP_KEY"].encode()
+    sig = hmac.new(key, blob_url.encode(), hashlib.sha256).hexdigest()
+    params = urllib.parse.urlencode({"blob": blob_url, "sig": sig})
+    return f"https://www.maximautos.com/api/credit-app-view?{params}"
 
 
 def _encrypt(data: dict) -> bytes:
@@ -34,7 +43,7 @@ def _store_blob(encrypted: bytes, blob_name: str) -> str:
     return result.get("url", blob_name)
 
 
-def _send_alert(data: dict, blob_url: str) -> None:
+def _send_alert(data: dict, blob_url: str, view_url: str) -> None:
     api_key = os.environ.get("RESEND_API_KEY", "")
     if not api_key:
         return
@@ -55,9 +64,14 @@ def _send_alert(data: dict, blob_url: str) -> None:
       <tr><td><b>Monthly Income</b></td><td>${income}</td></tr>
     </table>
     <br>
+    <p>
+      <a href="{view_url}" style="display:inline-block;background:#0a2540;color:#fff;padding:12px 24px;border-radius:6px;text-decoration:none;font-weight:700;font-size:15px">
+        View Full Application
+      </a>
+    </p>
+    <br>
     <p><b>To fill DealerCenter automatically, run:</b></p>
     <pre>python db_tools/dc_credit_fill.py --url "{blob_url}"</pre>
-    <p style="color:#888;font-size:12px">SSN and full data are encrypted. Not included in this email.</p>
     """
 
     payload = json.dumps(
@@ -117,8 +131,9 @@ class handler(BaseHTTPRequestHandler):
             encrypted = _encrypt(data)
             blob_url = _store_blob(encrypted, blob_name)
 
-            # Alert Jerry (no SSN in email)
-            _send_alert(data, blob_url)
+            # Alert Jerry with link to decrypted viewer
+            view_url = _make_view_url(blob_url)
+            _send_alert(data, blob_url, view_url)
 
             self.send_response(200)
             self._cors()
