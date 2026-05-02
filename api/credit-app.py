@@ -1,6 +1,7 @@
 from http.server import BaseHTTPRequestHandler
 import json
 import os
+import urllib.error
 import urllib.parse
 import urllib.request
 from datetime import datetime, timezone
@@ -77,10 +78,13 @@ def _send_alert(data: dict, blob_url: str) -> None:
             "Content-Type": "application/json",
         },
     )
+    import sys
     try:
-        urllib.request.urlopen(req, timeout=8)
+        with urllib.request.urlopen(req, timeout=8) as resp:
+            print(f"RESEND_OK: {resp.status} {resp.read(200)}", file=sys.stderr)
+    except urllib.error.HTTPError as e:
+        print(f"RESEND_ERROR {e.code}: {e.read(500)}", file=sys.stderr)
     except Exception as e:
-        import sys
         print(f"RESEND_ERROR: {e}", file=sys.stderr)
 
 
