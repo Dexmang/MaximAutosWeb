@@ -191,11 +191,11 @@ const states = ['AL','AK','AZ','AR','CA','CO','CT','DE','FL','GA','HI','ID','IL'
 
           <!-- Employment Information -->
           <div class="app-section">
-            <h2 class="app-section-title">Employment Information</h2>
+            <h2 class="app-section-title">Employment Information <span class="text-gray-400 font-normal text-sm">(Optional)</span></h2>
             <div class="app-grid">
               <div class="col-span-2">
-                <label class="app-label">Employment Status <span class="text-red-500">*</span></label>
-                <select name="buyer_employment_status" required class="app-input">
+                <label class="app-label">Employment Status</label>
+                <select name="buyer_employment_status" class="app-input">
                   <option value="">Select status</option>
                   <option value="Employed">Employed</option>
                   <option value="Self-Employed">Self-Employed</option>
@@ -205,27 +205,27 @@ const states = ['AL','AK','AZ','AR','CA','CO','CT','DE','FL','GA','HI','ID','IL'
                 </select>
               </div>
               <div>
-                <label class="app-label">Employer Name <span class="text-red-500">*</span></label>
-                <input type="text" name="buyer_employer" required class="app-input" placeholder="Employer name" />
+                <label class="app-label">Employer Name</label>
+                <input type="text" name="buyer_employer" class="app-input" placeholder="Employer name" />
               </div>
               <div>
-                <label class="app-label">Title / Position <span class="text-red-500">*</span></label>
-                <input type="text" name="buyer_title" required class="app-input" placeholder="Your title" />
+                <label class="app-label">Title / Position</label>
+                <input type="text" name="buyer_title" class="app-input" placeholder="Your title" />
               </div>
               <div>
-                <label class="app-label">Employer Phone <span class="text-red-500">*</span></label>
-                <input type="tel" name="buyer_employer_phone" required class="app-input" placeholder="(555) 555-5555" />
+                <label class="app-label">Employer Phone</label>
+                <input type="tel" name="buyer_employer_phone" class="app-input" placeholder="(555) 555-5555" />
               </div>
               <div>
-                <label class="app-label">Monthly Gross Income <span class="text-red-500">*</span></label>
+                <label class="app-label">Monthly Gross Income</label>
                 <div class="relative">
                   <span class="absolute left-3 top-1/2 -translate-y-1/2 text-gray-500 font-semibold">$</span>
-                  <input type="number" name="buyer_monthly_income" required class="app-input pl-7" placeholder="0" min="0" />
+                  <input type="number" name="buyer_monthly_income" class="app-input pl-7" placeholder="0" min="0" />
                 </div>
               </div>
               <div>
-                <label class="app-label">Years at Job <span class="text-red-500">*</span></label>
-                <select id="buyer_years_job" name="buyer_years_job" required class="app-input">
+                <label class="app-label">Years at Job</label>
+                <select id="buyer_years_job" name="buyer_years_job" class="app-input">
                   <option value="">Years</option>
                   {Array.from({length: 51}, (_, i) => <option value={i}>{i}</option>)}
                 </select>
@@ -705,7 +705,7 @@ const states = ['AL','AK','AZ','AR','CA','CO','CT','DE','FL','GA','HI','ID','IL'
       headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' }
     }).then(function (res) {
       if (res.ok) {
-        form.closest('section').innerHTML = '<div class="max-w-2xl mx-auto px-6 py-20 text-center"><span class="material-symbols-outlined text-6xl text-green-500 mb-6 block" style="font-variation-settings:\'FILL\' 1;">check_circle</span><h2 class="font-headline text-2xl font-extrabold text-navy mb-3">Application Submitted!</h2><p class="text-gray-600 text-lg mb-2">Jerry will review your application and follow up same day during business hours.</p><p class="text-gray-500 text-sm mb-8">Prefer a faster response? Text Jerry directly.</p><a href="sms:8475108947&body=Hi Jerry, I just submitted a credit application on your website." class="inline-flex items-center gap-2 bg-orange text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-orange-dark transition-colors"><span class="material-symbols-outlined" style="font-variation-settings:\'FILL\' 1;">sms</span>Text Jerry Now</a></div>';
+        form.closest('section').innerHTML = '<div class="max-w-2xl mx-auto px-6 py-20 text-center"><span class="material-symbols-outlined text-6xl text-green-500 mb-6 block" style="font-variation-settings:\'FILL\' 1;">check_circle</span><h2 class="font-headline text-2xl font-extrabold text-navy mb-3">Application Submitted!</h2><p class="text-gray-600 text-lg mb-2">Jerry will review your application and follow up same day during business hours.</p><p class="text-gray-600 text-base mt-4">Have questions? Text or call Jerry 847-510-8947</p></div>';
       } else {
         btn.disabled = false;
         btn.innerHTML = origHtml;
