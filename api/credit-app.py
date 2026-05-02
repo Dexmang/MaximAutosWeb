@@ -76,6 +76,7 @@ def _send_alert(data: dict, blob_url: str) -> None:
         headers={
             "Authorization": f"Bearer {api_key}",
             "Content-Type": "application/json",
+            "User-Agent": "MaximAutos/1.0",
         },
     )
     import sys
