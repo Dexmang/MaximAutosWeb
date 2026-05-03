@@ -17,14 +17,23 @@ export default defineConfig({
       lastmod: new Date(),
       serialize(item) {
         if (item.url.includes('/vehicle/')) {
+          // 14-day cutoff: sold VDPs older than this drop out of the sitemap.
+          // The page itself still renders (Google can re-crawl via the live
+          // index for up to a few weeks), but we stop actively re-submitting it.
+          const fourteenDaysAgo = Date.now() - 14 * 24 * 60 * 60 * 1000;
           const slug = item.url.match(/\/vehicle\/([^/]+)/)?.[1];
           const v = vehicles.find(x => x.slug === slug);
           if (v?.status === 'sold') {
+            const soldTs = v.sold_date ? Date.parse(v.sold_date) : NaN;
+            // If sold_date is missing or older than 14 days → exclude entirely.
+            if (!Number.isFinite(soldTs) || soldTs < fourteenDaysAgo) {
+              return undefined;
+            }
             return {
               ...item,
               changefreq: 'never',
               priority: 0.3,
-              lastmod: v.sold_date ? new Date(v.sold_date).toISOString() : item.lastmod,
+              lastmod: new Date(soldTs).toISOString(),
             };
           }
           return { ...item, priority: 0.8, changefreq: 'weekly' };

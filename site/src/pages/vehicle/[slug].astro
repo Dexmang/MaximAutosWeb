@@ -4,6 +4,13 @@ import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 import VehicleCard from '../../components/VehicleCard.astro';
 import vehicles from '../../data/vehicles.json';
+// CarGurus VIN-level stats (refreshed by scripts/sync-cargurus-vin-stats.js).
+// Optional — the placeholder JSON shipped with the repo guarantees the import
+// always resolves, so the site builds even before the first sync runs.
+let cgVinStats: any = { by_vin: {} };
+try {
+  cgVinStats = (await import('../../data/cargurus-vin-stats.json')).default;
+} catch (_) { /* placeholder fallback */ }
 
 export function getStaticPaths() {
   return vehicles.map(v => ({
@@ -16,6 +23,19 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 const { vehicle } = Astro.props;
 const v = vehicle;
 const isSold = (v as any).status === 'sold';
+
+// CarGurus VIN-level stats lookup (last 7 days).
+// Only used to render a small social-proof line when traffic is meaningful
+// (vdp_views >= 3). Returns null when no data.
+const _vinStatsRaw = (v.vin && v.vin !== 'TBD') ? (cgVinStats?.by_vin?.[v.vin] || null) : null;
+const vinStats: { impressions: number; vdp_views: number; leads: number } | null = _vinStatsRaw
+  ? {
+      impressions: Number(_vinStatsRaw.impressions) || 0,
+      vdp_views: Number(_vinStatsRaw.vdp_views) || 0,
+      leads: Number(_vinStatsRaw.leads) || 0,
+    }
+  : null;
+const showVinStats = !isSold && vinStats !== null && vinStats.vdp_views >= 3;
 const titleText = `${v.year} ${v.make} ${v.model} ${v.trim}`;
 const pageTitle = isSold
   ? `${titleText} (Sold) | Maxim Autos Skokie, IL`
@@ -281,6 +301,15 @@ const faqSchema = {
           <div class="lg:hidden mb-5 pb-5 border-b border-gray-100">
             <span class="text-3xl font-extrabold text-navy" data-vehicle-price={v.price}>${v.price.toLocaleString()}</span>
             <span class="text-sm text-gray-500 ml-2">Est. ${monthlyPayment}/mo</span>
+            {!isSold && v.vin && v.vin !== 'TBD' && (
+              <span class="cg-vin-badge ml-2 inline-block align-middle" data-cg-vin={v.vin} data-cg-price={v.price}></span>
+            )}
+            {showVinStats && vinStats && (
+              <p class="mt-1 text-xs text-gray-400">
+                <span class="material-symbols-outlined text-[12px] align-middle mr-0.5" style="font-variation-settings:'FILL' 1;">visibility</span>
+                {vinStats.vdp_views} shoppers checked this on CarGurus this week
+              </p>
+            )}
 
             <!-- Orange payment estimator callout -->
             <button id="mobile-calc-toggle"
@@ -592,7 +621,19 @@ const faqSchema = {
             <!-- Price + Payment Estimator -->
             <div class="bg-white rounded-2xl border border-gray-100 shadow-sm p-6 mb-4">
               <span class="text-4xl font-extrabold text-navy block mb-1" data-vehicle-price={v.price}>${v.price.toLocaleString()}</span>
-              <p class="text-sm text-gray-500 mb-4">Est. ${monthlyPayment}/mo</p>
+              <p class="text-sm text-gray-500 mb-1">Est. ${monthlyPayment}/mo</p>
+              {!isSold && v.vin && v.vin !== 'TBD' && (
+                <div class="mb-2">
+                  <span class="cg-vin-badge inline-block" data-cg-vin={v.vin} data-cg-price={v.price}></span>
+                </div>
+              )}
+              {showVinStats && vinStats && (
+                <p class="mb-4 text-xs text-gray-400 flex items-center gap-1">
+                  <span class="material-symbols-outlined text-[14px]" style="font-variation-settings:'FILL' 1;">visibility</span>
+                  {vinStats.vdp_views} shoppers checked this on CarGurus this week
+                </p>
+              )}
+              {!showVinStats && <div class="mb-4"></div>}
 
               <!-- Sidebar payment calculator -->
               <div class="mb-4">
@@ -981,10 +1022,13 @@ const faqSchema = {
 })();
 </script>
 
-<!-- CarGurus Deal Rating Badge -->
+<!-- CarGurus Deal Rating Badge (legacy — dealer-wide style) -->
 <script is:inline>
   window.CarGurus = window.CarGurus || {};
   window.CarGurus.DealRatingBadge = window.CarGurus.DealRatingBadge || { options: {} };
   window.CarGurus.DealRatingBadge.options = { websitePartner: 'sp457703', minRating: 'GOOD_PRICE', style: 'STYLE1' };
 </script>
 <script is:inline src="https://static.cargurus.com/js/api/en_US/1.0/dealratingbadge.js"></script>
+
+<!-- CarGurus per-VIN Deal Badge SDK (renders into [data-cg-vin][data-cg-price] spans) -->
+<script is:inline defer src="https://www.cargurus.com/Cars/badges/getBadge.action?style=STYLE2"></script>
