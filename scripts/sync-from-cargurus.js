@@ -49,9 +49,9 @@ const DRY_RUN = process.argv.includes('--dry-run');
 const DEBUG = process.argv.includes('--debug');
 
 // Tolerance: a VIN must be missing from the CarGurus feed for at least this
-// many hours before status flips to "sold". Sync runs every 6h, so 24h ≈ 4
-// consecutive misses. Tunable via env if Jerry wants to widen/narrow.
-const OFF_MARKET_TOLERANCE_HOURS = Number(process.env.OFF_MARKET_TOLERANCE_HOURS || 24);
+// many hours before status flips to "sold". Sync runs every 6h, so 12h ≈ 2
+// consecutive misses. Tunable via env if needed.
+const OFF_MARKET_TOLERANCE_HOURS = Number(process.env.OFF_MARKET_TOLERANCE_HOURS || 12);
 
 // ── URL event log + IndexNow ──────────────────────────────────────────────────
 
