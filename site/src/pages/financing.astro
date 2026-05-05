@@ -70,37 +70,45 @@ const faqSchema = {
         <div class="bg-white rounded-2xl border border-gray-100 p-8 shadow-sm">
           <div class="space-y-5">
             <div>
-              <label for="calc-price" class="block text-sm font-semibold text-gray-700 mb-2">Vehicle Price</label>
-              <div class="relative">
-                <span class="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 font-bold">$</span>
-                <input type="number" id="calc-price" value="12000" min="1000" max="50000" step="500"
-                  class="w-full pl-8 pr-4 py-3 rounded-xl border border-gray-300 focus:border-orange focus:ring-2 focus:ring-orange/20 transition-colors text-gray-900" />
+              <div class="flex justify-between items-center mb-2">
+                <label class="text-sm font-semibold text-gray-700">Vehicle Price</label>
+                <span class="text-sm font-bold text-navy" id="calc-price-display">$12,000</span>
+              </div>
+              <input type="range" id="calc-price-slider" min="3000" max="20000" step="500" value="12000"
+                class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-orange" />
+              <div class="flex justify-between text-xs text-gray-400 mt-1">
+                <span>$3,000</span><span>$20,000</span>
               </div>
             </div>
             <div>
-              <label for="calc-down" class="block text-sm font-semibold text-gray-700 mb-2">Down Payment</label>
-              <div class="relative">
-                <span class="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 font-bold">$</span>
-                <input type="number" id="calc-down" value="0" min="0" max="20000" step="500"
-                  class="w-full pl-8 pr-4 py-3 rounded-xl border border-gray-300 focus:border-orange focus:ring-2 focus:ring-orange/20 transition-colors text-gray-900" />
+              <div class="flex justify-between items-center mb-2">
+                <label class="text-sm font-semibold text-gray-700">Down Payment</label>
+                <span class="text-sm font-bold text-navy" id="calc-down-display">$1,200</span>
+              </div>
+              <input type="range" id="calc-down-slider" min="0" max="6000" step="250" value="1200"
+                class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-orange" />
+              <div class="flex justify-between text-xs text-gray-400 mt-1">
+                <span>$0</span><span id="calc-down-max-label">$6,000</span>
               </div>
             </div>
             <div>
-              <label for="calc-term" class="block text-sm font-semibold text-gray-700 mb-2">Loan Term</label>
-              <select id="calc-term"
-                class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-orange focus:ring-2 focus:ring-orange/20 transition-colors text-gray-900">
-                <option value="36">36 months (3 years)</option>
-                <option value="48">48 months (4 years)</option>
-                <option value="60" selected>60 months (5 years)</option>
-                <option value="72">72 months (6 years)</option>
-              </select>
+              <div class="flex justify-between items-center mb-2">
+                <label class="text-sm font-semibold text-gray-700">Interest Rate (APR)</label>
+                <span class="text-sm font-bold text-navy" id="calc-apr-display">9.9%</span>
+              </div>
+              <input type="range" id="calc-apr-slider" min="3.9" max="24.9" step="0.5" value="9.9"
+                class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-orange" />
+              <div class="flex justify-between text-xs text-gray-400 mt-1">
+                <span>3.9%</span><span>24.9%</span>
+              </div>
             </div>
             <div>
-              <label for="calc-apr" class="block text-sm font-semibold text-gray-700 mb-2">Est. APR</label>
-              <div class="relative">
-                <input type="number" id="calc-apr" value="9.9" min="0" max="30" step="0.1"
-                  class="w-full pl-4 pr-8 py-3 rounded-xl border border-gray-300 focus:border-orange focus:ring-2 focus:ring-orange/20 transition-colors text-gray-900" />
-                <span class="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 font-bold">%</span>
+              <label class="text-sm font-semibold text-gray-700 block mb-2">Loan Term</label>
+              <div class="flex gap-2" id="calc-term-selector">
+                <button data-term="36" class="calc-term-btn flex-1 py-2 rounded-lg text-sm font-bold border transition-all bg-white text-gray-600 border-gray-200 hover:border-navy">36mo</button>
+                <button data-term="48" class="calc-term-btn flex-1 py-2 rounded-lg text-sm font-bold border transition-all bg-white text-gray-600 border-gray-200 hover:border-navy">48mo</button>
+                <button data-term="60" class="calc-term-btn flex-1 py-2 rounded-lg text-sm font-bold border transition-all bg-navy text-white border-navy">60mo</button>
+                <button data-term="72" class="calc-term-btn flex-1 py-2 rounded-lg text-sm font-bold border transition-all bg-white text-gray-600 border-gray-200 hover:border-navy">72mo</button>
               </div>
             </div>
           </div>
@@ -306,26 +314,73 @@ const faqSchema = {
 
 <script is:inline>
 (function () {
+  var priceSlider = document.getElementById('calc-price-slider');
+  var downSlider  = document.getElementById('calc-down-slider');
+  var aprSlider   = document.getElementById('calc-apr-slider');
+  var termSel     = document.getElementById('calc-term-selector');
+  var priceDisp   = document.getElementById('calc-price-display');
+  var downDisp    = document.getElementById('calc-down-display');
+  var aprDisp     = document.getElementById('calc-apr-display');
+  var downMaxLbl  = document.getElementById('calc-down-max-label');
+  var result      = document.getElementById('calc-result');
+  var activeTerm  = 60;
+
+  function fmt(n) { return '$' + Math.round(n).toLocaleString(); }
+
   function calcPayment() {
-    var price = parseFloat(document.getElementById('calc-price').value) || 0;
-    var down = parseFloat(document.getElementById('calc-down').value) || 0;
-    var term = parseInt(document.getElementById('calc-term').value) || 60;
-    var apr = parseFloat(document.getElementById('calc-apr').value) || 0;
+    var price = parseFloat(priceSlider.value) || 0;
+    var down  = parseFloat(downSlider.value)  || 0;
+    var apr   = parseFloat(aprSlider.value)   || 0;
     var principal = Math.max(price - down, 0);
-    var result = document.getElementById('calc-result');
     if (!result) return;
     if (apr === 0) {
-      result.textContent = '$' + Math.round(principal / term).toLocaleString();
+      result.textContent = fmt(principal / activeTerm);
       return;
     }
     var r = apr / 100 / 12;
-    var payment = principal * (r * Math.pow(1 + r, term)) / (Math.pow(1 + r, term) - 1);
-    result.textContent = isFinite(payment) ? '$' + Math.round(payment).toLocaleString() : '$0';
+    var payment = principal * (r * Math.pow(1 + r, activeTerm)) / (Math.pow(1 + r, activeTerm) - 1);
+    result.textContent = isFinite(payment) ? fmt(payment) : '$0';
   }
-  ['calc-price', 'calc-down', 'calc-term', 'calc-apr'].forEach(function (id) {
-    var el = document.getElementById(id);
-    if (el) el.addEventListener('input', calcPayment);
+
+  priceSlider.addEventListener('input', function () {
+    var price = parseFloat(priceSlider.value);
+    priceDisp.textContent = fmt(price);
+    var newMax = Math.round(price * 0.5);
+    downSlider.max = newMax;
+    if (parseFloat(downSlider.value) > newMax) downSlider.value = newMax;
+    downDisp.textContent = fmt(downSlider.value);
+    downMaxLbl.textContent = fmt(newMax);
+    calcPayment();
   });
+
+  downSlider.addEventListener('input', function () {
+    downDisp.textContent = fmt(downSlider.value);
+    calcPayment();
+  });
+
+  aprSlider.addEventListener('input', function () {
+    aprDisp.textContent = parseFloat(aprSlider.value).toFixed(1) + '%';
+    calcPayment();
+  });
+
+  if (termSel) {
+    termSel.addEventListener('click', function (e) {
+      var btn = e.target.closest('.calc-term-btn');
+      if (!btn) return;
+      activeTerm = parseInt(btn.dataset.term);
+      termSel.querySelectorAll('.calc-term-btn').forEach(function (b) {
+        var active = b.dataset.term == activeTerm;
+        b.classList.toggle('bg-navy', active);
+        b.classList.toggle('text-white', active);
+        b.classList.toggle('border-navy', active);
+        b.classList.toggle('bg-white', !active);
+        b.classList.toggle('text-gray-600', !active);
+        b.classList.toggle('border-gray-200', !active);
+      });
+      calcPayment();
+    });
+  }
+
   calcPayment();
 })();
 </script>
