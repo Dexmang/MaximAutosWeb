@@ -1,7 +1,78 @@
 ---
 import suburbs from '../data/suburbs.json';
+
+interface Props {
+  lang?: 'en' | 'es';
+  t?: {
+    tagline: string;
+    hours: string;
+    days1: string; time1: string;
+    days2: string; time2: string;
+    days3: string; closed: string;
+    afterHours: string;
+    quickLinks: string;
+    browseInventory: string;
+    financing: string;
+    sellTrade: string;
+    deliveredAnywhere: string;
+    about: string;
+    reviews: string;
+    faq: string;
+    contact: string;
+    areasServed: string;
+    usedCars: string;
+    allRightsReserved: string;
+    privacy: string;
+    terms: string;
+    privateClient: string;
+    taglineShort: string;
+    mobileText: string;
+    mobileCall: string;
+    mobileDirections: string;
+    mobilePreQualify: string;
+  };
+}
+
+const { lang = 'en', t } = Astro.props;
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 const currentYear = new Date().getFullYear();
+
+const esBase = `${base}/es`;
+const invHref  = lang === 'es' ? `${esBase}/inventory`  : `${base}/inventory`;
+const finHref  = lang === 'es' ? `${esBase}/financing`  : `${base}/financing`;
+const applyHref = lang === 'es' ? `${esBase}/apply`      : `${base}/apply`;
+
+const labels = {
+  tagline:           t?.tagline           ?? 'Quality used cars in Skokie, IL. Every vehicle inspected, every price transparent, every customer protected.',
+  hours:             t?.hours             ?? 'Business Hours',
+  days1:             t?.days1             ?? 'Mon / Tue / Thu / Fri',
+  time1:             t?.time1             ?? '3:00 PM – 7:00 PM',
+  days2:             t?.days2             ?? 'Saturday',
+  time2:             t?.time2             ?? '10:00 AM – 3:00 PM',
+  days3:             t?.days3             ?? 'Wednesday / Sunday',
+  closed:            t?.closed            ?? 'Closed',
+  afterHours:        t?.afterHours        ?? 'After-hours appointments welcome. Text Jerry at (847) 510-8947',
+  quickLinks:        t?.quickLinks        ?? 'Quick Links',
+  browseInventory:   t?.browseInventory   ?? 'Browse Inventory',
+  financing:         t?.financing         ?? 'Financing',
+  sellTrade:         t?.sellTrade         ?? 'Sell / Trade',
+  deliveredAnywhere: t?.deliveredAnywhere ?? 'Delivered Anywhere in the U.S.',
+  about:             t?.about             ?? 'About Jerry',
+  reviews:           t?.reviews           ?? 'Reviews',
+  faq:               t?.faq               ?? 'FAQ',
+  contact:           t?.contact           ?? 'Contact',
+  areasServed:       t?.areasServed       ?? 'Areas We Serve',
+  usedCars:          t?.usedCars          ?? 'Used Cars',
+  allRightsReserved: t?.allRightsReserved ?? 'All rights reserved.',
+  privacy:           t?.privacy           ?? 'Privacy Policy',
+  terms:             t?.terms             ?? 'Terms of Use',
+  privateClient:     t?.privateClient     ?? 'Private Client',
+  taglineShort:      t?.taglineShort      ?? 'Fully Inspected • Used Cars Skokie IL',
+  mobileText:        t?.mobileText        ?? 'Text Jerry',
+  mobileCall:        t?.mobileCall        ?? 'Call',
+  mobileDirections:  t?.mobileDirections  ?? 'Directions',
+  mobilePreQualify:  t?.mobilePreQualify  ?? 'Pre-Qualify',
+};
 ---
 
 <footer class="bg-gray-950 text-gray-400">
@@ -9,9 +80,7 @@ const currentYear = new Date().getFullYear();
     <!-- Brand & Contact -->
     <div>
       <img src={`${base}/brand/logo-header.png`} alt="Maxim Autos" class="h-10 mb-6 brightness-0 invert" />
-      <p class="text-sm mb-6 leading-relaxed">
-        Quality used cars in Skokie, IL. Every vehicle inspected, every price transparent, every customer protected.
-      </p>
+      <p class="text-sm mb-6 leading-relaxed">{labels.tagline}</p>
       <div class="space-y-3 text-sm">
         <p class="flex items-start gap-3">
           <span class="material-symbols-outlined text-orange text-xl" style="font-variation-settings: 'FILL' 1;">location_on</span>
@@ -30,49 +99,47 @@ const currentYear = new Date().getFullYear();
 
     <!-- Hours -->
     <div>
-      <h3 class="text-white/70 font-bold mb-6 font-headline text-sm uppercase tracking-widest">Business Hours</h3>
+      <h3 class="text-white/70 font-bold mb-6 font-headline text-sm uppercase tracking-widest">{labels.hours}</h3>
       <div class="space-y-3 text-sm">
         <div class="flex justify-between border-b border-white/5 pb-2">
-          <span>Mon / Tue / Thu / Fri</span>
-          <span class="text-white">3:00 PM – 7:00 PM</span>
+          <span>{labels.days1}</span>
+          <span class="text-white">{labels.time1}</span>
         </div>
         <div class="flex justify-between border-b border-white/5 pb-2">
-          <span>Saturday</span>
-          <span class="text-white">10:00 AM – 3:00 PM</span>
+          <span>{labels.days2}</span>
+          <span class="text-white">{labels.time2}</span>
         </div>
         <div class="flex justify-between border-b border-white/5 pb-2">
-          <span>Wednesday / Sunday</span>
-          <span class="text-white font-medium">Closed</span>
+          <span>{labels.days3}</span>
+          <span class="text-white font-medium">{labels.closed}</span>
         </div>
-        <p class="mt-6 text-white/60 font-semibold italic text-sm">
-          After-hours appointments welcome. Text Jerry at (847) 510-8947
-        </p>
+        <p class="mt-6 text-white/60 font-semibold italic text-sm">{labels.afterHours}</p>
       </div>
     </div>
 
     <!-- Quick Links -->
     <div>
-      <h3 class="text-white/70 font-bold mb-6 font-headline text-sm uppercase tracking-widest">Quick Links</h3>
+      <h3 class="text-white/70 font-bold mb-6 font-headline text-sm uppercase tracking-widest">{labels.quickLinks}</h3>
       <ul class="space-y-3 text-sm">
-        <li><a class="hover:text-white transition-colors" href={`${base}/inventory`}>Browse Inventory</a></li>
-        <li><a class="hover:text-white transition-colors" href={`${base}/financing`}>Financing</a></li>
-        <li><a class="hover:text-white transition-colors" href={`${base}/sell-trade`}>Sell / Trade</a></li>
-        <li><a class="hover:text-white transition-colors" href={`${base}/ship`}>Delivered Anywhere in the U.S.</a></li>
-        <li><a class="hover:text-white transition-colors" href={`${base}/about`}>About Jerry</a></li>
-        <li><a class="hover:text-white transition-colors" href={`${base}/testimonials`}>Reviews</a></li>
-        <li><a class="hover:text-white transition-colors" href={`${base}/faq`}>FAQ</a></li>
-        <li><a class="hover:text-white transition-colors" href={`${base}/contact`}>Contact</a></li>
+        <li><a class="hover:text-white transition-colors" href={invHref}>{labels.browseInventory}</a></li>
+        <li><a class="hover:text-white transition-colors" href={finHref}>{labels.financing}</a></li>
+        <li><a class="hover:text-white transition-colors" href={`${base}/sell-trade`}>{labels.sellTrade}</a></li>
+        <li><a class="hover:text-white transition-colors" href={`${base}/ship`}>{labels.deliveredAnywhere}</a></li>
+        <li><a class="hover:text-white transition-colors" href={`${base}/about`}>{labels.about}</a></li>
+        <li><a class="hover:text-white transition-colors" href={`${base}/testimonials`}>{labels.reviews}</a></li>
+        <li><a class="hover:text-white transition-colors" href={`${base}/faq`}>{labels.faq}</a></li>
+        <li><a class="hover:text-white transition-colors" href={`${base}/contact`}>{labels.contact}</a></li>
       </ul>
     </div>
 
     <!-- Areas We Serve -->
     <div>
-      <h3 class="text-white/70 font-bold mb-6 font-headline text-sm uppercase tracking-widest">Areas We Serve</h3>
+      <h3 class="text-white/70 font-bold mb-6 font-headline text-sm uppercase tracking-widest">{labels.areasServed}</h3>
       <ul class="space-y-3 text-sm">
         {suburbs.map(s => (
           <li>
             <a class="hover:text-white transition-colors" href={`${base}/used-cars-${s.slug}-il`}>
-              {s.city} Used Cars
+              {s.city} {labels.usedCars}
             </a>
           </li>
         ))}
@@ -82,15 +149,15 @@ const currentYear = new Date().getFullYear();
 
   <div class="px-6 lg:px-8 py-6 border-t border-white/5 max-w-7xl mx-auto text-xs flex flex-col sm:flex-row justify-between items-center gap-2 opacity-60">
     <span>
-      &copy; {currentYear} Maxim Autos. Skokie, IL. All rights reserved.
+      &copy; {currentYear} Maxim Autos. Skokie, IL. {labels.allRightsReserved}
       &nbsp;&middot;&nbsp;
-      <a href={`${base}/privacy-policy`} class="hover:text-white transition-colors">Privacy Policy</a>
+      <a href={`${base}/privacy-policy`} class="hover:text-white transition-colors">{labels.privacy}</a>
       &nbsp;&middot;&nbsp;
-      <a href={`${base}/terms`} class="hover:text-white transition-colors">Terms of Use</a>
+      <a href={`${base}/terms`} class="hover:text-white transition-colors">{labels.terms}</a>
       &nbsp;&middot;&nbsp;
-      <a href="https://vault007.com" rel="nofollow noopener" target="_blank" class="hover:text-white transition-colors">Private Client</a>
+      <a href="https://vault007.com" rel="nofollow noopener" target="_blank" class="hover:text-white transition-colors">{labels.privateClient}</a>
     </span>
-    <span>Fully Inspected &bull; Used Cars Skokie IL</span>
+    <span>{labels.taglineShort}</span>
   </div>
 </footer>
 
@@ -99,19 +166,19 @@ const currentYear = new Date().getFullYear();
   <div class="flex">
     <a href="sms:8475108947&body=Hi Jerry, I'm interested in a vehicle at Maxim Autos." class="flex-1 flex flex-col items-center justify-center py-3 gap-0.5 text-navy hover:bg-gray-50 transition-colors">
       <span class="material-symbols-outlined text-xl" style="font-variation-settings:'FILL' 1;">sms</span>
-      <span class="text-xs font-bold">Text Jerry</span>
+      <span class="text-xs font-bold">{labels.mobileText}</span>
     </a>
     <a href="tel:8475108947" class="flex-1 flex flex-col items-center justify-center py-3 gap-0.5 text-navy hover:bg-gray-50 transition-colors border-x border-gray-200">
       <span class="material-symbols-outlined text-xl" style="font-variation-settings:'FILL' 1;">call</span>
-      <span class="text-xs font-bold">Call</span>
+      <span class="text-xs font-bold">{labels.mobileCall}</span>
     </a>
     <a href="https://www.google.com/maps/place/Maxim+Autos/@42.0464352,-87.7546134,17z/data=!3m1!4b1!4m6!3m5!1s0x880fcfcb0a430aed:0x4d36c77af06ce602!8m2!3d42.0464352!4d-87.7546134!16s%2Fg%2F11wmzx_p4t" target="_blank" rel="noopener noreferrer" class="flex-1 flex flex-col items-center justify-center py-3 gap-0.5 text-navy hover:bg-gray-50 transition-colors border-r border-gray-200">
       <span class="material-symbols-outlined text-xl" style="font-variation-settings:'FILL' 1;">location_on</span>
-      <span class="text-xs font-bold">Directions</span>
+      <span class="text-xs font-bold">{labels.mobileDirections}</span>
     </a>
-    <a href={`${base}/apply`} class="flex-1 flex flex-col items-center justify-center py-3 gap-0.5 bg-orange text-white hover:bg-orange-dark transition-colors">
+    <a href={applyHref} class="flex-1 flex flex-col items-center justify-center py-3 gap-0.5 bg-orange text-white hover:bg-orange-dark transition-colors">
       <span class="material-symbols-outlined text-xl" style="font-variation-settings:'FILL' 1;">payments</span>
-      <span class="text-xs font-bold">Pre-Qualify</span>
+      <span class="text-xs font-bold">{labels.mobilePreQualify}</span>
     </a>
   </div>
 </div>

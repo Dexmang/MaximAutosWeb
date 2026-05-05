@@ -1,28 +1,43 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import { es } from '../../i18n/es';
 
+const t = es;
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const esBase = `${base}/es`;
 const siteUrl = (Astro.site ?? new URL('https://www.maximautos.com/')).toString().replace(/\/$/, '');
-const title = 'Apply for Auto Financing | Maxim Autos Skokie, IL';
-const description = 'Apply for auto financing online at Maxim Autos in Skokie, IL. All credit levels welcome including first-time buyers and those rebuilding credit. Fast, easy application.';
 
 const states = ['AL','AK','AZ','AR','CA','CO','CT','DE','FL','GA','HI','ID','IL','IN','IA','KS','KY','LA','ME','MD','MA','MI','MN','MS','MO','MT','NE','NV','NH','NJ','NM','NY','NC','ND','OH','OK','OR','PA','RI','SC','SD','TN','TX','UT','VT','VA','WA','WV','WI','WY'];
+
+const successHtml = `<div class="max-w-2xl mx-auto px-6 py-20 text-center"><span class="material-symbols-outlined text-6xl text-green-500 mb-6 block" style="font-variation-settings:'FILL' 1;">check_circle</span><h2 class="font-headline text-2xl font-extrabold text-navy mb-3">${t.apply.submitBtn.replace('Enviar ', '')} ¡Enviada!</h2><p class="text-gray-600 text-lg mb-2">${t.apply.followUp}</p><p class="text-gray-600 text-base mt-4">¿Preguntas? Escríbele a Jerry 847-510-8947</p></div>`;
+const errorMsg = 'Algo salió mal. Por favor escríbele a Jerry al (847) 510-8947.';
 ---
 
-<Layout title={title} description={description} alternateLang="es" alternateUrl={`${siteUrl}/es/apply`}>
-  <Header slot="header" switcherHref={`${base}/es/apply`} />
+<Layout
+  title={t.apply.seoTitle}
+  description={t.apply.seoDescription}
+  lang="es"
+  alternateLang="en"
+  alternateUrl={`${siteUrl}/apply`}
+  canonicalUrl={`${siteUrl}/es/apply`}
+>
+  <Header slot="header" lang="es" t={t.nav} switcherHref={`${base}/apply`} />
 
   <!-- Hero -->
   <section class="bg-navy py-10 lg:py-14">
     <div class="max-w-4xl mx-auto px-6 lg:px-8 text-center">
-      <span class="text-orange font-bold uppercase tracking-widest text-sm mb-3 block">Credit Application</span>
+      <span class="text-orange font-bold uppercase tracking-widest text-sm mb-3 block">{t.apply.eyebrow}</span>
       <h1 class="font-headline text-3xl md:text-4xl lg:text-5xl font-extrabold text-white leading-tight tracking-tight mb-4">
-        Apply for Auto Financing in Skokie, IL
+        {t.apply.h1}
       </h1>
-      <p class="text-gray-300 text-lg max-w-2xl mx-auto">All credit levels welcome. First-time buyers, rebuilding credit, good or fair credit. Fill out the form below and Jerry will follow up same day.</p>
-      <p class="text-white/50 text-sm mt-3 max-w-xl mx-auto">Not ready for a full application? <a href={`${base}/financing#apply`} class="text-orange hover:underline font-semibold">Pre-qualify first</a> — soft pull, no impact to your credit score.</p>
+      <p class="text-gray-300 text-lg max-w-2xl mx-auto">{t.apply.body}</p>
+      <p class="text-white/50 text-sm mt-3 max-w-xl mx-auto">
+        {t.apply.notReady}{' '}
+        <a href={`${esBase}/financing#apply`} class="text-orange hover:underline font-semibold">{t.apply.preQualLink}</a>
+        {' '}— {t.apply.softPull}
+      </p>
     </div>
   </section>
 
@@ -32,157 +47,164 @@ const states = ['AL','AK','AZ','AR','CA','CO','CT','DE','FL','GA','HI','ID','IL'
 
       <!-- Buyer / Co-Buyer tabs -->
       <div class="flex border-b border-gray-300 mb-8">
-        <button id="tab-buyer" class="app-tab app-tab--active px-6 py-3 font-bold text-sm" type="button">Buyer</button>
-        <button id="tab-cobuyer" class="app-tab px-6 py-3 font-bold text-sm" type="button">Co-Buyer</button>
+        <button id="tab-buyer" class="app-tab app-tab--active px-6 py-3 font-bold text-sm" type="button">{t.apply.tabBuyer}</button>
+        <button id="tab-cobuyer" class="app-tab px-6 py-3 font-bold text-sm" type="button">{t.apply.tabCoBuyer}</button>
       </div>
 
-      <p class="text-sm text-gray-500 mb-6">All fields marked with <span class="text-red-500 font-bold">*</span> are required.</p>
+      <p class="text-sm text-gray-500 mb-6">{t.apply.requiredNote.replace('*', '')} <span class="text-red-500 font-bold">*</span></p>
 
-      <form id="apply-form" action="/api/credit-app" method="POST" class="space-y-8">
-        <input type="hidden" name="_subject" value="Credit Application — Maxim Autos" />
+      <form
+        id="apply-form"
+        action="/api/credit-app"
+        method="POST"
+        class="space-y-8"
+        data-success-html={successHtml}
+        data-error-msg={errorMsg}
+      >
+        <input type="hidden" name="_subject" value="Solicitud de Crédito — Maxim Autos" />
         <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" />
 
-        <!-- ===== BUYER SECTION ===== -->
+        <!-- ===== COMPRADOR ===== -->
         <div id="section-buyer">
 
-          <!-- Personal Information -->
+          <!-- Información Personal -->
           <div class="app-section">
-            <h2 class="app-section-title">Personal Information</h2>
+            <h2 class="app-section-title">{t.apply.personalInfo}</h2>
             <div class="app-grid">
               <div>
-                <label class="app-label">First Name <span class="text-red-500">*</span></label>
-                <input type="text" name="buyer_first_name" required class="app-input" placeholder="First name" />
+                <label class="app-label">{t.apply.firstName} <span class="text-red-500">*</span></label>
+                <input type="text" name="buyer_first_name" required class="app-input" placeholder={t.apply.firstName} />
               </div>
               <div>
-                <label class="app-label">Last Name <span class="text-red-500">*</span></label>
-                <input type="text" name="buyer_last_name" required class="app-input" placeholder="Last name" />
+                <label class="app-label">{t.apply.lastName} <span class="text-red-500">*</span></label>
+                <input type="text" name="buyer_last_name" required class="app-input" placeholder={t.apply.lastName} />
               </div>
               <div>
-                <label class="app-label">Email <span class="text-red-500">*</span></label>
-                <input type="email" name="buyer_email" required class="app-input" placeholder="you@email.com" />
+                <label class="app-label">{t.apply.email} <span class="text-red-500">*</span></label>
+                <input type="email" name="buyer_email" required class="app-input" placeholder="tu@correo.com" />
               </div>
               <div>
-                <label class="app-label">Cell Phone <span class="text-red-500">*</span></label>
+                <label class="app-label">{t.apply.cellPhone} <span class="text-red-500">*</span></label>
                 <input type="tel" name="buyer_cell_phone" required class="app-input" placeholder="(555) 555-5555" />
               </div>
               <div>
-                <label class="app-label">Home Phone <span class="text-gray-400 font-normal text-xs">(Optional)</span></label>
+                <label class="app-label">{t.apply.homePhone}</label>
                 <input type="tel" name="buyer_home_phone" class="app-input" placeholder="(555) 555-5555" />
               </div>
               <div>
-                <label class="app-label">Date of Birth <span class="text-red-500">*</span></label>
+                <label class="app-label">{t.apply.dob} <span class="text-red-500">*</span></label>
                 <input type="date" name="buyer_dob" required class="app-input" />
               </div>
               <div class="col-span-2">
-                <label class="app-label">Social Security Number <span class="text-red-500">*</span></label>
+                <label class="app-label">{t.apply.ssn} <span class="text-red-500">*</span></label>
                 <input type="text" id="buyer_ssn" name="buyer_ssn" required class="app-input" placeholder="XXX-XX-XXXX" maxlength="11" inputmode="numeric" autocomplete="off" />
-                <p class="text-xs text-gray-400 mt-1">Required to process your credit application. Submitted over an encrypted connection and never stored on our servers.</p>
+                <p class="text-xs text-gray-400 mt-1">{t.apply.ssnNote}</p>
               </div>
               <div>
-                <label class="app-label">Driver's License Number</label>
-                <input type="text" name="buyer_dl_number" class="app-input" placeholder="License number" />
+                <label class="app-label">{t.apply.dlNumber}</label>
+                <input type="text" name="buyer_dl_number" class="app-input" placeholder={t.apply.dlNumber} />
               </div>
               <div>
-                <label class="app-label">Driver's License State</label>
+                <label class="app-label">{t.apply.dlState}</label>
                 <select name="buyer_dl_state" class="app-input">
-                  <option value="">State</option>
+                  <option value="">{t.apply.selectState}</option>
                   {states.map(s => <option value={s}>{s}</option>)}
                 </select>
               </div>
               <div>
-                <label class="app-label">DL Issue Date</label>
+                <label class="app-label">{t.apply.dlIssue}</label>
                 <input type="date" name="buyer_dl_issue" class="app-input" />
               </div>
               <div>
-                <label class="app-label">DL Expiry Date</label>
+                <label class="app-label">{t.apply.dlExpiry}</label>
                 <input type="date" name="buyer_dl_expiry" class="app-input" />
               </div>
             </div>
           </div>
 
-          <!-- Residential Information -->
+          <!-- Información Residencial -->
           <div class="app-section">
-            <h2 class="app-section-title">Residential Information</h2>
+            <h2 class="app-section-title">{t.apply.residentialInfo}</h2>
             <div class="app-grid">
               <div class="col-span-2">
-                <label class="app-label">Street Address <span class="text-red-500">*</span></label>
+                <label class="app-label">{t.apply.streetAddress} <span class="text-red-500">*</span></label>
                 <input type="text" name="buyer_address" required class="app-input" placeholder="123 Main St" />
               </div>
               <div>
-                <label class="app-label">City <span class="text-red-500">*</span></label>
-                <input type="text" name="buyer_city" required class="app-input" placeholder="City" />
+                <label class="app-label">{t.apply.city} <span class="text-red-500">*</span></label>
+                <input type="text" name="buyer_city" required class="app-input" placeholder={t.apply.city} />
               </div>
               <div>
-                <label class="app-label">State <span class="text-red-500">*</span></label>
+                <label class="app-label">{t.apply.state} <span class="text-red-500">*</span></label>
                 <select name="buyer_state" required class="app-input">
-                  <option value="">State</option>
+                  <option value="">{t.apply.selectState}</option>
                   {states.map(s => <option value={s}>{s}</option>)}
                 </select>
               </div>
               <div>
-                <label class="app-label">Zip Code <span class="text-red-500">*</span></label>
+                <label class="app-label">{t.apply.zipCode} <span class="text-red-500">*</span></label>
                 <input type="text" name="buyer_zip" required class="app-input" placeholder="60077" maxlength="5" />
               </div>
               <div>
-                <label class="app-label">Housing Type <span class="text-red-500">*</span></label>
+                <label class="app-label">{t.apply.housingType} <span class="text-red-500">*</span></label>
                 <select name="buyer_housing_type" required class="app-input">
-                  <option value="">Select</option>
-                  <option value="Own">Own</option>
-                  <option value="Rent">Rent</option>
-                  <option value="Live with Family">Live with Family</option>
-                  <option value="Other">Other</option>
+                  <option value="">{t.apply.select}</option>
+                  <option value="Own">{t.apply.housingOwn}</option>
+                  <option value="Rent">{t.apply.housingRent}</option>
+                  <option value="Live with Family">{t.apply.housingFamily}</option>
+                  <option value="Other">{t.apply.housingOther}</option>
                 </select>
               </div>
               <div>
-                <label class="app-label">Monthly Rent/Mortgage <span class="text-red-500">*</span></label>
+                <label class="app-label">{t.apply.monthlyHousing} <span class="text-red-500">*</span></label>
                 <div class="relative">
                   <span class="absolute left-3 top-1/2 -translate-y-1/2 text-gray-500 font-semibold">$</span>
                   <input type="number" name="buyer_monthly_housing" required class="app-input pl-7" placeholder="0" min="0" />
                 </div>
               </div>
               <div>
-                <label class="app-label">Years at Address <span class="text-red-500">*</span></label>
+                <label class="app-label">{t.apply.yearsAtAddress} <span class="text-red-500">*</span></label>
                 <select id="buyer_years_address" name="buyer_years_address" required class="app-input">
-                  <option value="">Years</option>
+                  <option value="">{t.apply.selectYears}</option>
                   {Array.from({length: 31}, (_, i) => <option value={i}>{i}</option>)}
                 </select>
               </div>
               <div>
-                <label class="app-label">Months at Address</label>
+                <label class="app-label">{t.apply.monthsAtAddress}</label>
                 <select id="buyer_months_address" name="buyer_months_address" class="app-input">
-                  <option value="">Months</option>
+                  <option value="">{t.apply.selectMonths}</option>
                   {Array.from({length: 12}, (_, i) => <option value={i}>{i}</option>)}
                 </select>
               </div>
             </div>
 
-            <!-- Previous Address (shown if < 2 years at current) -->
+            <!-- Dirección Anterior -->
             <div id="buyer-prev-address-section" class="hidden mt-6 pt-6 border-t border-gray-100">
-              <h3 class="text-sm font-bold text-navy mb-4">Previous Address <span class="text-gray-400 font-normal">(Required — less than 2 years at current address)</span></h3>
+              <h3 class="text-sm font-bold text-navy mb-4">{t.apply.prevAddress} <span class="text-gray-400 font-normal">{t.apply.prevAddressNote}</span></h3>
               <div class="app-grid">
                 <div class="col-span-2">
-                  <label class="app-label">Previous Street Address</label>
+                  <label class="app-label">{t.apply.prevStreet}</label>
                   <input type="text" name="buyer_prev_address" class="app-input" placeholder="123 Previous St" />
                 </div>
                 <div>
-                  <label class="app-label">City</label>
-                  <input type="text" name="buyer_prev_city" class="app-input" placeholder="City" />
+                  <label class="app-label">{t.apply.city}</label>
+                  <input type="text" name="buyer_prev_city" class="app-input" placeholder={t.apply.city} />
                 </div>
                 <div>
-                  <label class="app-label">State</label>
+                  <label class="app-label">{t.apply.state}</label>
                   <select name="buyer_prev_state" class="app-input">
-                    <option value="">State</option>
+                    <option value="">{t.apply.selectState}</option>
                     {states.map(s => <option value={s}>{s}</option>)}
                   </select>
                 </div>
                 <div>
-                  <label class="app-label">Zip Code</label>
+                  <label class="app-label">{t.apply.zipCode}</label>
                   <input type="text" name="buyer_prev_zip" class="app-input" placeholder="60077" maxlength="5" />
                 </div>
                 <div>
-                  <label class="app-label">Years There</label>
+                  <label class="app-label">{t.apply.yearsThere}</label>
                   <select name="buyer_prev_years_address" class="app-input">
-                    <option value="">Years</option>
+                    <option value="">{t.apply.selectYears}</option>
                     {Array.from({length: 31}, (_, i) => <option value={i}>{i}</option>)}
                   </select>
                 </div>
@@ -190,79 +212,79 @@ const states = ['AL','AK','AZ','AR','CA','CO','CT','DE','FL','GA','HI','ID','IL'
             </div>
           </div>
 
-          <!-- Employment Information -->
+          <!-- Información de Empleo -->
           <div class="app-section">
-            <h2 class="app-section-title">Employment Information <span class="text-gray-400 font-normal text-sm">(Optional)</span></h2>
+            <h2 class="app-section-title">{t.apply.employmentInfo} <span class="text-gray-400 font-normal text-sm">{t.apply.employmentOptional}</span></h2>
             <div class="app-grid">
               <div class="col-span-2">
-                <label class="app-label">Employment Status</label>
+                <label class="app-label">{t.apply.employmentStatus}</label>
                 <select name="buyer_employment_status" class="app-input">
-                  <option value="">Select status</option>
-                  <option value="Employed">Employed</option>
-                  <option value="Self-Employed">Self-Employed</option>
-                  <option value="Retired">Retired</option>
-                  <option value="Student">Student</option>
-                  <option value="Other">Other</option>
+                  <option value="">{t.apply.selectStatus}</option>
+                  <option value="Employed">{t.apply.empEmployed}</option>
+                  <option value="Self-Employed">{t.apply.empSelf}</option>
+                  <option value="Retired">{t.apply.empRetired}</option>
+                  <option value="Student">{t.apply.empStudent}</option>
+                  <option value="Other">{t.apply.empOther}</option>
                 </select>
               </div>
               <div>
-                <label class="app-label">Employer Name</label>
-                <input type="text" name="buyer_employer" class="app-input" placeholder="Employer name" />
+                <label class="app-label">{t.apply.employerName}</label>
+                <input type="text" name="buyer_employer" class="app-input" placeholder={t.apply.employerName} />
               </div>
               <div>
-                <label class="app-label">Title / Position</label>
-                <input type="text" name="buyer_title" class="app-input" placeholder="Your title" />
+                <label class="app-label">{t.apply.titlePosition}</label>
+                <input type="text" name="buyer_title" class="app-input" placeholder={t.apply.titlePosition} />
               </div>
               <div>
-                <label class="app-label">Employer Phone</label>
+                <label class="app-label">{t.apply.employerPhone}</label>
                 <input type="tel" name="buyer_employer_phone" class="app-input" placeholder="(555) 555-5555" />
               </div>
               <div>
-                <label class="app-label">Monthly Gross Income</label>
+                <label class="app-label">{t.apply.monthlyIncome}</label>
                 <div class="relative">
                   <span class="absolute left-3 top-1/2 -translate-y-1/2 text-gray-500 font-semibold">$</span>
                   <input type="number" name="buyer_monthly_income" class="app-input pl-7" placeholder="0" min="0" />
                 </div>
               </div>
               <div>
-                <label class="app-label">Years at Job</label>
+                <label class="app-label">{t.apply.yearsAtJob}</label>
                 <select id="buyer_years_job" name="buyer_years_job" class="app-input">
-                  <option value="">Years</option>
+                  <option value="">{t.apply.selectYears}</option>
                   {Array.from({length: 51}, (_, i) => <option value={i}>{i}</option>)}
                 </select>
               </div>
               <div>
-                <label class="app-label">Months at Job</label>
+                <label class="app-label">{t.apply.monthsAtJob}</label>
                 <select id="buyer_months_job" name="buyer_months_job" class="app-input">
-                  <option value="">Months</option>
+                  <option value="">{t.apply.selectMonths}</option>
                   {Array.from({length: 12}, (_, i) => <option value={i}>{i}</option>)}
                 </select>
               </div>
             </div>
 
-            <!-- Previous Employer (shown if < 2 years at current job) -->
+            <!-- Empleador Anterior -->
             <div id="buyer-prev-employer-section" class="hidden mt-6 pt-6 border-t border-gray-100">
-              <h3 class="text-sm font-bold text-navy mb-4">Previous Employer <span class="text-gray-400 font-normal">(Required — less than 2 years at current job)</span></h3>
+              <h3 class="text-sm font-bold text-navy mb-4">{t.apply.prevEmployer} <span class="text-gray-400 font-normal">{t.apply.prevEmployerNote}</span></h3>
               <div class="app-grid">
                 <div>
-                  <label class="app-label">Previous Employer Name</label>
-                  <input type="text" name="buyer_prev_employer" class="app-input" placeholder="Employer name" />
+                  <label class="app-label">{t.apply.prevEmployerName}</label>
+                  <input type="text" name="buyer_prev_employer" class="app-input" placeholder={t.apply.employerName} />
                 </div>
                 <div>
-                  <label class="app-label">Title / Position</label>
-                  <input type="text" name="buyer_prev_title" class="app-input" placeholder="Your title" />
+                  <label class="app-label">{t.apply.titlePosition}</label>
+                  <input type="text" name="buyer_prev_title" class="app-input" placeholder={t.apply.titlePosition} />
                 </div>
                 <div>
-                  <label class="app-label">Years There</label>
+                  <label class="app-label">{t.apply.yearsThere}</label>
                   <select name="buyer_prev_years_job" class="app-input">
-                    <option value="">Years</option>
+                    <option value="">{t.apply.selectYears}</option>
                     {Array.from({length: 51}, (_, i) => <option value={i}>{i}</option>)}
                   </select>
                 </div>
                 <div>
-                  <label class="app-label">Months There</label>
+                  <label class="app-label">{t.apply.monthsThere}</label>
                   <select name="buyer_prev_months_job" class="app-input">
-                    <option value="">Months</option>
+                    <option value="">{t.apply.selectMonths}</option>
                     {Array.from({length: 12}, (_, i) => <option value={i}>{i}</option>)}
                   </select>
                 </div>
@@ -272,86 +294,86 @@ const states = ['AL','AK','AZ','AR','CA','CO','CT','DE','FL','GA','HI','ID','IL'
 
         </div>
 
-        <!-- ===== CO-BUYER SECTION (hidden by default) ===== -->
+        <!-- ===== CO-COMPRADOR (oculto por defecto) ===== -->
         <div id="section-cobuyer" class="hidden">
 
-          <!-- Co-Buyer Personal Information -->
+          <!-- Información Personal del Co-Comprador -->
           <div class="app-section">
-            <h2 class="app-section-title">Co-Buyer Personal Information</h2>
+            <h2 class="app-section-title">{t.apply.coBuyerPersonal}</h2>
             <div class="app-grid">
               <div>
-                <label class="app-label">First Name</label>
-                <input type="text" name="cobuyer_first_name" class="app-input" placeholder="First name" />
+                <label class="app-label">{t.apply.firstName}</label>
+                <input type="text" name="cobuyer_first_name" class="app-input" placeholder={t.apply.firstName} />
               </div>
               <div>
-                <label class="app-label">Last Name</label>
-                <input type="text" name="cobuyer_last_name" class="app-input" placeholder="Last name" />
+                <label class="app-label">{t.apply.lastName}</label>
+                <input type="text" name="cobuyer_last_name" class="app-input" placeholder={t.apply.lastName} />
               </div>
               <div>
-                <label class="app-label">Email</label>
-                <input type="email" name="cobuyer_email" class="app-input" placeholder="you@email.com" />
+                <label class="app-label">{t.apply.email}</label>
+                <input type="email" name="cobuyer_email" class="app-input" placeholder="tu@correo.com" />
               </div>
               <div>
-                <label class="app-label">Cell Phone</label>
+                <label class="app-label">{t.apply.cellPhone}</label>
                 <input type="tel" name="cobuyer_cell_phone" class="app-input" placeholder="(555) 555-5555" />
               </div>
               <div>
-                <label class="app-label">Date of Birth</label>
+                <label class="app-label">{t.apply.dob}</label>
                 <input type="date" name="cobuyer_dob" class="app-input" />
               </div>
               <div>
-                <label class="app-label">Social Security Number</label>
+                <label class="app-label">{t.apply.ssn}</label>
                 <input type="text" id="cobuyer_ssn" name="cobuyer_ssn" class="app-input" placeholder="XXX-XX-XXXX" maxlength="11" inputmode="numeric" autocomplete="off" />
               </div>
               <div>
-                <label class="app-label">Driver's License Number</label>
-                <input type="text" name="cobuyer_dl_number" class="app-input" placeholder="License number" />
+                <label class="app-label">{t.apply.dlNumber}</label>
+                <input type="text" name="cobuyer_dl_number" class="app-input" placeholder={t.apply.dlNumber} />
               </div>
               <div>
-                <label class="app-label">DL State</label>
+                <label class="app-label">{t.apply.dlState}</label>
                 <select name="cobuyer_dl_state" class="app-input">
-                  <option value="">State</option>
+                  <option value="">{t.apply.selectState}</option>
                   {states.map(s => <option value={s}>{s}</option>)}
                 </select>
               </div>
             </div>
           </div>
 
-          <!-- Co-Buyer Residential -->
+          <!-- Información Residencial del Co-Comprador -->
           <div class="app-section">
-            <h2 class="app-section-title">Co-Buyer Residential Information</h2>
+            <h2 class="app-section-title">{t.apply.coBuyerResidential}</h2>
             <div class="app-grid">
               <div class="col-span-2">
-                <label class="app-label">Street Address</label>
+                <label class="app-label">{t.apply.streetAddress}</label>
                 <input type="text" name="cobuyer_address" class="app-input" placeholder="123 Main St" />
               </div>
               <div>
-                <label class="app-label">City</label>
-                <input type="text" name="cobuyer_city" class="app-input" placeholder="City" />
+                <label class="app-label">{t.apply.city}</label>
+                <input type="text" name="cobuyer_city" class="app-input" placeholder={t.apply.city} />
               </div>
               <div>
-                <label class="app-label">State</label>
+                <label class="app-label">{t.apply.state}</label>
                 <select name="cobuyer_state" class="app-input">
-                  <option value="">State</option>
+                  <option value="">{t.apply.selectState}</option>
                   {states.map(s => <option value={s}>{s}</option>)}
                 </select>
               </div>
               <div>
-                <label class="app-label">Zip Code</label>
+                <label class="app-label">{t.apply.zipCode}</label>
                 <input type="text" name="cobuyer_zip" class="app-input" placeholder="60077" maxlength="5" />
               </div>
               <div>
-                <label class="app-label">Housing Type</label>
+                <label class="app-label">{t.apply.housingType}</label>
                 <select name="cobuyer_housing_type" class="app-input">
-                  <option value="">Select</option>
-                  <option value="Own">Own</option>
-                  <option value="Rent">Rent</option>
-                  <option value="Live with Family">Live with Family</option>
-                  <option value="Other">Other</option>
+                  <option value="">{t.apply.select}</option>
+                  <option value="Own">{t.apply.housingOwn}</option>
+                  <option value="Rent">{t.apply.housingRent}</option>
+                  <option value="Live with Family">{t.apply.housingFamily}</option>
+                  <option value="Other">{t.apply.housingOther}</option>
                 </select>
               </div>
               <div>
-                <label class="app-label">Monthly Rent/Mortgage</label>
+                <label class="app-label">{t.apply.monthlyHousing}</label>
                 <div class="relative">
                   <span class="absolute left-3 top-1/2 -translate-y-1/2 text-gray-500 font-semibold">$</span>
                   <input type="number" name="cobuyer_monthly_housing" class="app-input pl-7" placeholder="0" min="0" />
@@ -360,40 +382,40 @@ const states = ['AL','AK','AZ','AR','CA','CO','CT','DE','FL','GA','HI','ID','IL'
             </div>
           </div>
 
-          <!-- Co-Buyer Employment -->
+          <!-- Información de Empleo del Co-Comprador -->
           <div class="app-section">
-            <h2 class="app-section-title">Co-Buyer Employment Information</h2>
+            <h2 class="app-section-title">{t.apply.coBuyerEmployment}</h2>
             <div class="app-grid">
               <div>
-                <label class="app-label">Employer Name</label>
-                <input type="text" name="cobuyer_employer" class="app-input" placeholder="Employer name" />
+                <label class="app-label">{t.apply.employerName}</label>
+                <input type="text" name="cobuyer_employer" class="app-input" placeholder={t.apply.employerName} />
               </div>
               <div>
-                <label class="app-label">Title / Position</label>
-                <input type="text" name="cobuyer_title" class="app-input" placeholder="Your title" />
+                <label class="app-label">{t.apply.titlePosition}</label>
+                <input type="text" name="cobuyer_title" class="app-input" placeholder={t.apply.titlePosition} />
               </div>
               <div>
-                <label class="app-label">Employer Phone</label>
+                <label class="app-label">{t.apply.employerPhone}</label>
                 <input type="tel" name="cobuyer_employer_phone" class="app-input" placeholder="(555) 555-5555" />
               </div>
               <div>
-                <label class="app-label">Monthly Gross Income</label>
+                <label class="app-label">{t.apply.monthlyIncome}</label>
                 <div class="relative">
                   <span class="absolute left-3 top-1/2 -translate-y-1/2 text-gray-500 font-semibold">$</span>
                   <input type="number" name="cobuyer_monthly_income" class="app-input pl-7" placeholder="0" min="0" />
                 </div>
               </div>
               <div>
-                <label class="app-label">Years at Job</label>
+                <label class="app-label">{t.apply.yearsAtJob}</label>
                 <select name="cobuyer_years_job" class="app-input">
-                  <option value="">Years</option>
+                  <option value="">{t.apply.selectYears}</option>
                   {Array.from({length: 51}, (_, i) => <option value={i}>{i}</option>)}
                 </select>
               </div>
               <div>
-                <label class="app-label">Months at Job</label>
+                <label class="app-label">{t.apply.monthsAtJob}</label>
                 <select name="cobuyer_months_job" class="app-input">
-                  <option value="">Months</option>
+                  <option value="">{t.apply.selectMonths}</option>
                   {Array.from({length: 12}, (_, i) => <option value={i}>{i}</option>)}
                 </select>
               </div>
@@ -402,77 +424,77 @@ const states = ['AL','AK','AZ','AR','CA','CO','CT','DE','FL','GA','HI','ID','IL'
 
         </div>
 
-        <!-- ===== INTERESTED VEHICLE ===== -->
+        <!-- ===== VEHÍCULO DE INTERÉS ===== -->
         <div class="app-section">
-          <h2 class="app-section-title">Interested Vehicle <span class="text-gray-400 font-normal text-sm">(Optional)</span></h2>
+          <h2 class="app-section-title">{t.apply.interestedVehicle}</h2>
           <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
             <div>
-              <label class="app-label">Stock #</label>
+              <label class="app-label">{t.apply.stockNumber}</label>
               <input type="text" name="vehicle_stock" class="app-input" placeholder="Stock #" />
             </div>
             <div>
-              <label class="app-label">Year</label>
+              <label class="app-label">{t.apply.year}</label>
               <input type="text" name="vehicle_year" class="app-input" placeholder="2021" maxlength="4" />
             </div>
             <div>
-              <label class="app-label">Make</label>
+              <label class="app-label">{t.apply.make}</label>
               <input type="text" name="vehicle_make" class="app-input" placeholder="Honda" />
             </div>
             <div>
-              <label class="app-label">Model</label>
+              <label class="app-label">{t.apply.model}</label>
               <input type="text" name="vehicle_model" class="app-input" placeholder="Civic" />
             </div>
             <div>
-              <label class="app-label">Vehicle Price</label>
+              <label class="app-label">{t.apply.vehiclePrice}</label>
               <div class="relative">
                 <span class="absolute left-3 top-1/2 -translate-y-1/2 text-gray-500 font-semibold">$</span>
                 <input type="number" name="vehicle_price" class="app-input pl-7" placeholder="0" min="0" />
               </div>
             </div>
             <div>
-              <label class="app-label">Down Payment</label>
+              <label class="app-label">{t.apply.downPayment}</label>
               <div class="relative">
                 <span class="absolute left-3 top-1/2 -translate-y-1/2 text-gray-500 font-semibold">$</span>
                 <input type="number" name="vehicle_down_payment" class="app-input pl-7" placeholder="0" min="0" />
               </div>
             </div>
             <div>
-              <label class="app-label">Exterior Color</label>
-              <input type="text" name="vehicle_ext_color" class="app-input" placeholder="Silver" />
+              <label class="app-label">{t.apply.exteriorColor}</label>
+              <input type="text" name="vehicle_ext_color" class="app-input" placeholder="Plateado" />
             </div>
             <div>
-              <label class="app-label">Interior Color</label>
-              <input type="text" name="vehicle_int_color" class="app-input" placeholder="Black" />
+              <label class="app-label">{t.apply.interiorColor}</label>
+              <input type="text" name="vehicle_int_color" class="app-input" placeholder="Negro" />
             </div>
           </div>
         </div>
 
-        <!-- ===== TRADE-IN VEHICLE ===== -->
+        <!-- ===== VEHÍCULO A INTERCAMBIAR ===== -->
         <div class="app-section">
-          <h2 class="app-section-title">Trade-In Vehicle <span class="text-gray-400 font-normal text-sm">(Optional)</span></h2>
+          <h2 class="app-section-title">{t.apply.tradeIn}</h2>
           <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
             <div>
-              <label class="app-label">Year</label>
+              <label class="app-label">{t.apply.year}</label>
               <input type="text" name="trade_year" class="app-input" placeholder="2018" maxlength="4" />
             </div>
             <div>
-              <label class="app-label">Make</label>
+              <label class="app-label">{t.apply.make}</label>
               <input type="text" name="trade_make" class="app-input" placeholder="Toyota" />
             </div>
             <div>
-              <label class="app-label">Model</label>
+              <label class="app-label">{t.apply.model}</label>
               <input type="text" name="trade_model" class="app-input" placeholder="Camry" />
             </div>
             <div>
-              <label class="app-label">Mileage</label>
+              <label class="app-label">{t.apply.mileage}</label>
               <input type="number" name="trade_mileage" class="app-input" placeholder="85000" min="0" />
             </div>
             <div>
-              <label class="app-label">VIN</label>
-              <input type="text" name="trade_vin" class="app-input" placeholder="17-character VIN" maxlength="17" />
+              <label class="app-label">{t.apply.vin}</label>
+              <input type="text" name="trade_vin" class="app-input" placeholder="VIN de 17 caracteres" maxlength="17" />
             </div>
             <div>
-              <label class="app-label">Payoff Balance</label>
+              <label class="app-label">{t.apply.payoffBalance}</label>
               <div class="relative">
                 <span class="absolute left-3 top-1/2 -translate-y-1/2 text-gray-500 font-semibold">$</span>
                 <input type="number" name="trade_payoff" class="app-input pl-7" placeholder="0" min="0" />
@@ -481,54 +503,59 @@ const states = ['AL','AK','AZ','AR','CA','CO','CT','DE','FL','GA','HI','ID','IL'
           </div>
         </div>
 
-        <!-- ===== REFERENCES ===== -->
+        <!-- ===== REFERENCIAS ===== -->
         <div class="app-section">
-          <h2 class="app-section-title">Personal References <span class="text-gray-400 font-normal text-sm">(Optional)</span></h2>
-          <p class="text-sm text-gray-500 mb-5">Some lenders require personal references. Providing them now can speed up approval. Please list people who are not members of your household.</p>
+          <h2 class="app-section-title">{t.apply.references}</h2>
+          <p class="text-sm text-gray-500 mb-5">{t.apply.referencesBody}</p>
           {[1, 2, 3].map(n => (
             <div class={`app-grid${n < 3 ? ' mb-5 pb-5 border-b border-gray-100' : ''}`}>
               <div>
-                <label class="app-label">Reference {n} — Full Name</label>
-                <input type="text" name={`ref${n}_name`} class="app-input" placeholder="Full name" />
+                <label class="app-label">{t.apply.referenceLabel} {n} — {t.apply.fullName}</label>
+                <input type="text" name={`ref${n}_name`} class="app-input" placeholder={t.apply.fullName} />
               </div>
               <div>
-                <label class="app-label">Phone Number</label>
+                <label class="app-label">{t.apply.phoneNumber}</label>
                 <input type="tel" name={`ref${n}_phone`} class="app-input" placeholder="(555) 555-5555" />
               </div>
               <div>
-                <label class="app-label">Relationship</label>
+                <label class="app-label">{t.apply.relationship}</label>
                 <select name={`ref${n}_relationship`} class="app-input">
-                  <option value="">Select</option>
-                  <option value="Family">Family</option>
-                  <option value="Friend">Friend</option>
-                  <option value="Co-worker">Co-worker</option>
-                  <option value="Other">Other</option>
+                  <option value="">{t.apply.select}</option>
+                  <option value="Family">{t.apply.relFamily}</option>
+                  <option value="Friend">{t.apply.relFriend}</option>
+                  <option value="Co-worker">{t.apply.relCoworker}</option>
+                  <option value="Other">{t.apply.relOther}</option>
                 </select>
               </div>
             </div>
           ))}
         </div>
 
-        <!-- ===== CONSENT ===== -->
+        <!-- ===== CONSENTIMIENTO ===== -->
         <div class="bg-white rounded-xl border border-gray-200 p-6 space-y-4">
-          <p class="text-xs text-gray-500 leading-relaxed">
-            I, the undersigned, for the purpose of securing credit, certify that the information provided is correct; authorize Maxim Autos and financial institutions to obtain consumer credit reports (as permitted under the Fair Credit Reporting Act) periodically and to gather employment history; authorize verification of all information provided; and understand that this application will be retained whether or not it is approved. I also authorize the verification of my identity against applicable OFAC databases.
-          </p>
+          <p class="text-xs text-gray-500 leading-relaxed">{t.apply.consentText}</p>
           <label class="flex items-start gap-3 cursor-pointer">
             <input type="checkbox" name="privacy_consent" required value="yes" class="mt-0.5 w-4 h-4 accent-orange shrink-0" />
-            <span class="text-sm text-gray-600">By submitting this request, I accept the <a href={`${base}/privacy-policy`} class="text-orange hover:underline">Privacy Policy</a>. <span class="text-red-500">*</span></span>
+            <span class="text-sm text-gray-600">
+              {t.apply.consentCheckbox}{' '}
+              <a href={`${base}/privacy-policy`} class="text-orange hover:underline">{t.apply.privacyPolicy}</a>.{' '}
+              <span class="text-red-500">*</span>
+            </span>
           </label>
         </div>
 
-        <!-- Submit -->
+        <!-- Enviar -->
         <div class="text-center">
-          <p class="text-sm text-gray-500 mb-4">By submitting this application you consent to Maxim Autos contacting you by phone, text, or email. Your information is handled in accordance with our <a href={`${base}/privacy-policy`} class="text-orange hover:underline">Privacy Policy</a>.</p>
+          <p class="text-sm text-gray-500 mb-4">
+            {t.apply.submitDisclaimer}{' '}
+            <a href={`${base}/privacy-policy`} class="text-orange hover:underline">{t.apply.privacyPolicy}</a>.
+          </p>
           <button type="submit" id="apply-submit-btn"
             class="inline-flex items-center justify-center gap-2 bg-orange text-white px-12 py-4 rounded-xl font-bold text-lg hover:bg-orange-dark transition-colors shadow-lg shadow-orange/20">
             <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">send</span>
-            Submit Application
+            {t.apply.submitBtn}
           </button>
-          <p class="text-xs text-gray-400 mt-3">A team member will follow up with you same day during business hours.</p>
+          <p class="text-xs text-gray-400 mt-3">{t.apply.followUp}</p>
         </div>
 
       </form>
@@ -539,11 +566,7 @@ const states = ['AL','AK','AZ','AR','CA','CO','CT','DE','FL','GA','HI','ID','IL'
   <section class="py-10 bg-white border-t border-gray-100">
     <div class="max-w-4xl mx-auto px-6 lg:px-8">
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
-        {[
-          { icon: 'groups', title: 'All Credit Levels', text: 'Good, fair, rebuilding, or first-time buyer. We work with lenders for every situation.' },
-          { icon: 'lock', title: 'Secure Submission', text: 'Your information is submitted securely and only shared with lenders to process your application.' },
-          { icon: 'schedule', title: 'Same Day Response', text: 'Jerry reviews every application and follows up the same business day.' },
-        ].map(item => (
+        {t.apply.trust.map(item => (
           <div class="flex flex-col items-center gap-3">
             <span class="material-symbols-outlined text-3xl text-orange" style="font-variation-settings: 'FILL' 1;">{item.icon}</span>
             <h3 class="font-headline font-bold text-navy">{item.title}</h3>
@@ -554,7 +577,7 @@ const states = ['AL','AK','AZ','AR','CA','CO','CT','DE','FL','GA','HI','ID','IL'
     </div>
   </section>
 
-  <Footer slot="footer" />
+  <Footer slot="footer" lang="es" t={t.footer} />
 </Layout>
 
 <style is:inline>
@@ -691,11 +714,14 @@ const states = ['AL','AK','AZ','AR','CA','CO','CT','DE','FL','GA','HI','ID','IL'
   var btn = document.getElementById('apply-submit-btn');
   if (!form) return;
 
+  var successHtml = form.dataset.successHtml || '';
+  var errorMsg = form.dataset.errorMsg || 'Error. Please try again.';
+
   form.addEventListener('submit', function (e) {
     e.preventDefault();
     var origHtml = btn.innerHTML;
     btn.disabled = true;
-    btn.innerHTML = '<span class="material-symbols-outlined">sync</span> Submitting...';
+    btn.innerHTML = '<span class="material-symbols-outlined">sync</span> Enviando...';
 
     var fd = new FormData(form);
     var obj = {};
@@ -706,16 +732,16 @@ const states = ['AL','AK','AZ','AR','CA','CO','CT','DE','FL','GA','HI','ID','IL'
       headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' }
     }).then(function (res) {
       if (res.ok) {
-        form.closest('section').innerHTML = '<div class="max-w-2xl mx-auto px-6 py-20 text-center"><span class="material-symbols-outlined text-6xl text-green-500 mb-6 block" style="font-variation-settings:\'FILL\' 1;">check_circle</span><h2 class="font-headline text-2xl font-extrabold text-navy mb-3">Application Submitted!</h2><p class="text-gray-600 text-lg mb-2">Jerry will review your application and follow up same day during business hours.</p><p class="text-gray-600 text-base mt-4">Have questions? Text or call Jerry 847-510-8947</p></div>';
+        form.closest('section').innerHTML = successHtml;
       } else {
         btn.disabled = false;
         btn.innerHTML = origHtml;
-        alert('Something went wrong. Please text Jerry at (847) 510-8947.');
+        alert(errorMsg);
       }
     }).catch(function () {
       btn.disabled = false;
       btn.innerHTML = origHtml;
-      alert('Something went wrong. Please text Jerry at (847) 510-8947.');
+      alert(errorMsg);
     });
   });
 })();

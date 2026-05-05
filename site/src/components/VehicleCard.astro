@@ -17,6 +17,16 @@ interface Props {
   photos?: { exterior: number; interior: number; source: string };
   dealRating?: string;
   priceSavings?: number;
+  financingHref?: string;
+  t?: {
+    inspected: string;
+    freeCarfax: string;
+    financing: string;
+    photosComing: string;
+    perMonth: string;
+    fullyInspected: string;
+    viewLabel: string;
+  };
 }
 
 const DEAL_BADGE: Record<string, { label: string; bg: string; text: string }> = {
@@ -26,7 +36,17 @@ const DEAL_BADGE: Record<string, { label: string; bg: string; text: string }> = 
 };
 
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
-const { slug, year, make, model, trim, price, mileage, drivetrain, engine, bodyStyle, photoPath, photoPrefix, inspected, primaryPhotoUrl, photos, dealRating, priceSavings } = Astro.props;
+const { slug, year, make, model, trim, price, mileage, drivetrain, engine, bodyStyle, photoPath, photoPrefix, inspected, primaryPhotoUrl, photos, dealRating, priceSavings, financingHref, t } = Astro.props;
+const finLink = financingHref ?? `${base}/financing`;
+const lbl = {
+  inspected:     t?.inspected     ?? 'Inspected',
+  freeCarfax:    t?.freeCarfax    ?? 'Free CARFAX',
+  financing:     t?.financing     ?? 'Financing',
+  photosComing:  t?.photosComing  ?? 'Photos coming soon',
+  perMonth:      t?.perMonth      ?? '/mo est.',
+  fullyInspected:t?.fullyInspected ?? 'FULLY INSPECTED',
+  viewLabel:     t?.viewLabel     ?? 'View',
+};
 const dealBadge = dealRating ? (DEAL_BADGE[dealRating] || null) : null;
 const savingsStr = (priceSavings && priceSavings > 0) ? `$${priceSavings.toLocaleString()} below` : '';
 const title = `${year} ${make} ${model}`;
@@ -48,7 +68,7 @@ const monthlyPayment = Math.round(
 
 <div class="vehicle-card group relative bg-white overflow-hidden rounded-xl shadow-sm hover:shadow-lg transition-all duration-300" data-price={price} data-body={bodyStyle} data-mileage={mileage} data-year={year}>
   <!-- Stretched link covers the full card; financing link sits above it via z-index -->
-  <a href={`${base}/vehicle/${slug}`} class="absolute inset-0 z-10" aria-label={`View ${title}`}></a>
+  <a href={`${base}/vehicle/${slug}`} class="absolute inset-0 z-10" aria-label={`${lbl.viewLabel} ${title}`}></a>
 
   <div class="relative h-48 overflow-hidden bg-gray-100">
     {photoSrc ? (
@@ -63,13 +83,13 @@ const monthlyPayment = Math.round(
     ) : (
       <div class="w-full h-full flex flex-col items-center justify-center bg-gray-100 text-gray-400 gap-2">
         <span class="material-symbols-outlined text-4xl">no_photography</span>
-        <span class="text-xs font-medium">Photos coming soon</span>
+        <span class="text-xs font-medium">{lbl.photosComing}</span>
       </div>
     )}
     {inspected && (
       <div class="absolute top-2 right-2 bg-navy text-white text-xs font-bold px-2.5 py-1 rounded-md flex items-center gap-1">
         <span class="material-symbols-outlined text-xs" style="font-variation-settings: 'FILL' 1;">verified</span>
-        FULLY INSPECTED
+        {lbl.fullyInspected}
       </div>
     )}
   </div>
@@ -92,7 +112,7 @@ const monthlyPayment = Math.round(
           </div>
         )}
         <div class="flex items-center gap-1 mt-0.5">
-          <span class="text-xs font-bold text-navy">${monthlyPayment}/mo est.</span>
+          <span class="text-xs font-bold text-navy">${monthlyPayment}{lbl.perMonth}</span>
           <span class="text-xs text-gray-400 font-normal">*</span>
         </div>
       </div>
@@ -102,15 +122,15 @@ const monthlyPayment = Math.round(
     <div class="flex flex-wrap gap-1.5">
       <span class="inline-flex items-center gap-1 text-xs bg-gray-100 text-gray-500 px-2 py-1 rounded-full font-medium">
         <span class="material-symbols-outlined text-xs" style="font-variation-settings: 'FILL' 1;">search</span>
-        Inspected
+        {lbl.inspected}
       </span>
       <span class="inline-flex items-center gap-1 text-xs bg-gray-100 text-gray-500 px-2 py-1 rounded-full font-medium">
         <span class="material-symbols-outlined text-xs" style="font-variation-settings: 'FILL' 1;">description</span>
-        Free CARFAX
+        {lbl.freeCarfax}
       </span>
-      <a href={`${base}/financing`} class="relative z-20 inline-flex items-center gap-1 text-xs bg-orange/10 text-orange px-2 py-1 rounded-full font-medium">
+      <a href={finLink} class="relative z-20 inline-flex items-center gap-1 text-xs bg-orange/10 text-orange px-2 py-1 rounded-full font-medium">
         <span class="material-symbols-outlined text-xs" style="font-variation-settings: 'FILL' 1;">payments</span>
-        Financing
+        {lbl.financing}
       </a>
     </div>
   </div>
