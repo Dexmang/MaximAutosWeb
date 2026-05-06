@@ -4,7 +4,6 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
-const siteUrl = (Astro.site ?? new URL('https://www.maximautos.com/')).toString().replace(/\/$/, '');
 const title = 'Used Car Financing in Skokie, IL | All Credit Levels | Maxim Autos';
 const description = 'Financing for all credit levels at Maxim Autos in Skokie, IL. First-time buyers, rebuilding credit, all welcome. No credit check to browse. Apply in minutes.';
 
@@ -21,7 +20,7 @@ const faqSchema = {
 };
 ---
 
-<Layout title={title} description={description} alternateLang="es" alternateUrl={`${siteUrl}/es/financing`}>
+<Layout title={title} description={description}>
   <Fragment slot="structured-data">
     <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
     <script type="application/ld+json" set:html={JSON.stringify({
@@ -33,7 +32,7 @@ const faqSchema = {
       ]
     })} />
   </Fragment>
-  <Header slot="header" switcherHref={`${base}/es/financing`} />
+  <Header slot="header" />
 
   <!-- Hero -->
   <section class="bg-navy py-16 lg:py-20">

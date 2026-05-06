@@ -1,6 +1,13 @@
 {
-  "last_updated": null,
-  "period_start": null,
-  "period_end": null,
-  "by_vin": {}
+  "last_updated": "2026-05-06T17:34:55.454Z",
+  "period_start": "2026-04-29",
+  "period_end": "2026-05-06",
+  "by_vin": {},
+  "dealer_level": {
+    "success": false,
+    "error": {
+      "error_code": 102,
+      "description": "Invalid application id. Details: Invalid app id: null"
+    }
+  }
 }

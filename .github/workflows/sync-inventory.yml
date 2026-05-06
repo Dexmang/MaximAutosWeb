@@ -43,3 +43,12 @@ jobs:
           git add site/src/data/vehicles.json site/src/data/url-events.jsonl
           git commit -m "chore: sync inventory from CarGurus [${{ github.run_number }}]"
           git push
+
+      - name: Alert on sync failure
+        if: failure()
+        run: |
+          curl -s -X POST "https://ntfy.sh/maxim-autos-sync-alerts" \
+            -H "Title: maximautos.com sync FAILED" \
+            -H "Priority: high" \
+            -H "Tags: rotating_light" \
+            -d "CarGurus inventory sync failed on run #${{ github.run_number }}. Inventory may be out of sync. Check: https://github.com/Dexmang/MaximAutosWeb/actions"

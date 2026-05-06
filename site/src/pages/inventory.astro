@@ -6,7 +6,6 @@ import VehicleCard from '../components/VehicleCard.astro';
 import vehicles from '../data/vehicles.json';
 
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
-const siteUrl = (Astro.site ?? new URL('https://www.maximautos.com/')).toString().replace(/\/$/, '');
 const liveVehicles = vehicles.filter(v => (v as any).status !== 'sold');
 const title = 'Used Cars for Sale in Skokie, IL';
 const description = `Browse ${liveVehicles.length} fully inspected used cars for sale at Maxim Autos in Skokie, IL. Prices from $${Math.min(...liveVehicles.map(v => v.price)).toLocaleString()} to $${Math.max(...liveVehicles.map(v => v.price)).toLocaleString()}. Every vehicle includes an independent inspection report and same-day metal plates. Financing available for all credit levels.`;
@@ -15,7 +14,7 @@ const bodyStyles = [...new Set(liveVehicles.map(v => v.bodyStyle))].sort();
 const drivetrains = [...new Set(liveVehicles.map(v => v.drivetrain).filter(Boolean))].sort();
 ---
 
-<Layout title={title} description={description} alternateLang="es" alternateUrl={`${siteUrl}/es/inventory`}>
+<Layout title={title} description={description}>
   <Fragment slot="structured-data">
     <script type="application/ld+json" set:html={JSON.stringify({
       "@context": "https://schema.org",
@@ -73,7 +72,7 @@ const drivetrains = [...new Set(liveVehicles.map(v => v.drivetrain).filter(Boole
     })} />
   </Fragment>
 
-  <Header slot="header" switcherHref={`${base}/es/inventory`} />
+  <Header slot="header" />
 
   <!-- Compact Page Header + Filter Bar combined (keeps cars above fold) -->
   <section class="sticky top-[73px] z-40 bg-white border-b border-gray-200 shadow-sm">

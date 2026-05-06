@@ -1,77 +1,45 @@
 ---
 import suburbs from '../data/suburbs.json';
 
-interface Props {
-  lang?: 'en' | 'es';
-  t?: {
-    tagline: string;
-    hours: string;
-    days1: string; time1: string;
-    days2: string; time2: string;
-    days3: string; closed: string;
-    afterHours: string;
-    quickLinks: string;
-    browseInventory: string;
-    financing: string;
-    sellTrade: string;
-    deliveredAnywhere: string;
-    about: string;
-    reviews: string;
-    faq: string;
-    contact: string;
-    areasServed: string;
-    usedCars: string;
-    allRightsReserved: string;
-    privacy: string;
-    terms: string;
-    privateClient: string;
-    taglineShort: string;
-    mobileText: string;
-    mobileCall: string;
-    mobileDirections: string;
-    mobilePreQualify: string;
-  };
-}
+interface Props {}
 
-const { lang = 'en', t } = Astro.props;
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 const currentYear = new Date().getFullYear();
 
-const esBase = `${base}/es`;
-const invHref  = lang === 'es' ? `${esBase}/inventory`  : `${base}/inventory`;
-const finHref  = lang === 'es' ? `${esBase}/financing`  : `${base}/financing`;
-const applyHref = lang === 'es' ? `${esBase}/apply`      : `${base}/apply`;
+const invHref  = `${base}/inventory`;
+const finHref  = `${base}/financing`;
+const applyHref = `${base}/apply`;
 
 const labels = {
-  tagline:           t?.tagline           ?? 'Quality used cars in Skokie, IL. Every vehicle inspected, every price transparent, every customer protected.',
-  hours:             t?.hours             ?? 'Business Hours',
-  days1:             t?.days1             ?? 'Mon / Tue / Thu / Fri',
-  time1:             t?.time1             ?? '3:00 PM – 7:00 PM',
-  days2:             t?.days2             ?? 'Saturday',
-  time2:             t?.time2             ?? '10:00 AM – 3:00 PM',
-  days3:             t?.days3             ?? 'Wednesday / Sunday',
-  closed:            t?.closed            ?? 'Closed',
-  afterHours:        t?.afterHours        ?? 'After-hours appointments welcome. Text Jerry at (847) 510-8947',
-  quickLinks:        t?.quickLinks        ?? 'Quick Links',
-  browseInventory:   t?.browseInventory   ?? 'Browse Inventory',
-  financing:         t?.financing         ?? 'Financing',
-  sellTrade:         t?.sellTrade         ?? 'Sell / Trade',
-  deliveredAnywhere: t?.deliveredAnywhere ?? 'Delivered Anywhere in the U.S.',
-  about:             t?.about             ?? 'About Jerry',
-  reviews:           t?.reviews           ?? 'Reviews',
-  faq:               t?.faq               ?? 'FAQ',
-  contact:           t?.contact           ?? 'Contact',
-  areasServed:       t?.areasServed       ?? 'Areas We Serve',
-  usedCars:          t?.usedCars          ?? 'Used Cars',
-  allRightsReserved: t?.allRightsReserved ?? 'All rights reserved.',
-  privacy:           t?.privacy           ?? 'Privacy Policy',
-  terms:             t?.terms             ?? 'Terms of Use',
-  privateClient:     t?.privateClient     ?? 'Private Client',
-  taglineShort:      t?.taglineShort      ?? 'Fully Inspected • Used Cars Skokie IL',
-  mobileText:        t?.mobileText        ?? 'Text Jerry',
-  mobileCall:        t?.mobileCall        ?? 'Call',
-  mobileDirections:  t?.mobileDirections  ?? 'Directions',
-  mobilePreQualify:  t?.mobilePreQualify  ?? 'Pre-Qualify',
+  tagline:           'Quality used cars in Skokie, IL. Every vehicle inspected, every price transparent, every customer protected.',
+  hours:             'Business Hours',
+  days1:             'Mon / Tue / Thu / Fri',
+  time1:             '3:00 PM – 7:00 PM',
+  days2:             'Saturday',
+  time2:             '10:00 AM – 3:00 PM',
+  days3:             'Wednesday / Sunday',
+  closed:            'Closed',
+  afterHours:        'After-hours appointments welcome. Text Jerry at (847) 510-8947',
+  quickLinks:        'Quick Links',
+  browseInventory:   'Browse Inventory',
+  financing:         'Financing',
+  sellTrade:         'Sell / Trade',
+  deliveredAnywhere: 'Delivered Anywhere in the U.S.',
+  about:             'About Jerry',
+  reviews:           'Reviews',
+  faq:               'FAQ',
+  contact:           'Contact',
+  areasServed:       'Areas We Serve',
+  usedCars:          'Used Cars',
+  allRightsReserved: 'All rights reserved.',
+  privacy:           'Privacy Policy',
+  terms:             'Terms of Use',
+  privateClient:     'Private Client',
+  taglineShort:      'Fully Inspected • Used Cars Skokie IL',
+  mobileText:        'Text Jerry',
+  mobileCall:        'Call',
+  mobileDirections:  'Directions',
+  mobilePreQualify:  'Pre-Qualify',
 };
 ---
 

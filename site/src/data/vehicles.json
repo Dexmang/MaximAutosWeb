@@ -372,7 +372,9 @@
       "139,429 miles",
       "Fully inspected, 4,500-mile, 3-month warranty"
     ],
-    "status": "available",
+    "status": "sold",
+    "sold_date": "2026-05-06",
+    "manual_sold": true,
     "dateAdded": "2026-04-14",
     "featured": true,
     "sortOrder": 0,

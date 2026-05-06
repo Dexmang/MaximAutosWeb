@@ -17,16 +17,6 @@ interface Props {
   photos?: { exterior: number; interior: number; source: string };
   dealRating?: string;
   priceSavings?: number;
-  financingHref?: string;
-  t?: {
-    inspected: string;
-    freeCarfax: string;
-    financing: string;
-    photosComing: string;
-    perMonth: string;
-    fullyInspected: string;
-    viewLabel: string;
-  };
 }
 
 const DEAL_BADGE: Record<string, { label: string; bg: string; text: string }> = {
@@ -36,16 +26,16 @@ const DEAL_BADGE: Record<string, { label: string; bg: string; text: string }> = 
 };
 
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
-const { slug, year, make, model, trim, price, mileage, drivetrain, engine, bodyStyle, photoPath, photoPrefix, inspected, primaryPhotoUrl, photos, dealRating, priceSavings, financingHref, t } = Astro.props;
-const finLink = financingHref ?? `${base}/financing`;
+const { slug, year, make, model, trim, price, mileage, drivetrain, engine, bodyStyle, photoPath, photoPrefix, inspected, primaryPhotoUrl, photos, dealRating, priceSavings } = Astro.props;
+const finLink = `${base}/financing`;
 const lbl = {
-  inspected:     t?.inspected     ?? 'Inspected',
-  freeCarfax:    t?.freeCarfax    ?? 'Free CARFAX',
-  financing:     t?.financing     ?? 'Financing',
-  photosComing:  t?.photosComing  ?? 'Photos coming soon',
-  perMonth:      t?.perMonth      ?? '/mo est.',
-  fullyInspected:t?.fullyInspected ?? 'FULLY INSPECTED',
-  viewLabel:     t?.viewLabel     ?? 'View',
+  inspected:      'Inspected',
+  freeCarfax:     'Free CARFAX',
+  financing:      'Financing',
+  photosComing:   'Photos coming soon',
+  perMonth:       '/mo est.',
+  fullyInspected: 'FULLY INSPECTED',
+  viewLabel:      'View',
 };
 const dealBadge = dealRating ? (DEAL_BADGE[dealRating] || null) : null;
 const savingsStr = (priceSavings && priceSavings > 0) ? `$${priceSavings.toLocaleString()} below` : '';

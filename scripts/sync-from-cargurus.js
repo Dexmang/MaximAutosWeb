@@ -14,7 +14,7 @@
  *     and sold_date are deleted. Cars can come back from off-market.
  *   - VIN missing from feed → tolerance window before declaring sold. First miss
  *     stamps missing_since (status stays "available", site renders normally).
- *     Once a VIN has been missing ≥ OFF_MARKET_TOLERANCE_HOURS (default 24h),
+ *     Once a VIN has been missing ≥ OFF_MARKET_TOLERANCE_HOURS (default 12h),
  *     status flips to "sold" and sold_date is stamped. missing_since is kept
  *     for analytics ("how long off-market before flagged sold").
  *   - Sold VDPs render with a SOLD treatment so Google sees a 200 OK with
@@ -51,7 +51,7 @@ const DEBUG = process.argv.includes('--debug');
 // Tolerance: a VIN must be missing from the CarGurus feed for at least this
 // many hours before status flips to "sold". Sync runs every 6h, so 12h ≈ 2
 // consecutive misses. Tunable via env if needed.
-const OFF_MARKET_TOLERANCE_HOURS = Number(process.env.OFF_MARKET_TOLERANCE_HOURS || 12);
+const OFF_MARKET_TOLERANCE_HOURS = Number(process.env.OFF_MARKET_TOLERANCE_HOURS || 6);
 
 // ── URL event log + IndexNow ──────────────────────────────────────────────────
 
@@ -336,6 +336,11 @@ function mapNode(node, _offer, existingByVin) {
 
   const vin = n.vin || '';
   const existing = vin ? existingByVin[vin] : null;
+
+  // manual_sold: true = permanent site-side override. Preserves sold status even
+  // when CarGurus still shows the listing (e.g. their page caches sold cars briefly).
+  // Only cleared by removing the field from vehicles.json manually.
+  if (existing?.manual_sold) return existing;
 
   // Year / Make / Model / Trim from ontology (most reliable)
   const onto = n.ontologyData || {};
@@ -645,6 +650,20 @@ async function main() {
   const nowIso = new Date().toISOString();
   const todayDate = nowIso.slice(0, 10);
 
+  // Load VIN stats as a secondary sold-detection signal. If a VIN is both absent
+  // from the CarGurus feed AND shows zero impressions + views in the past 7 days
+  // (and the listing is older than 7 days, ruling out brand-new units), we fast-
+  // track it to sold without waiting for the full tolerance window.
+  const VIN_STATS_PATH = resolve(__dirname, '../site/src/data/cargurus-vin-stats.json');
+  let vinStats = {};
+  try {
+    const statsRaw = JSON.parse(readFileSync(VIN_STATS_PATH, 'utf8'));
+    vinStats = statsRaw?.by_vin || {};
+  } catch (_) {
+    // Stats file missing — secondary signal unavailable, tolerance window applies normally.
+  }
+  const sevenDaysAgo = new Date(Date.now() - 7 * 24 * 60 * 60 * 1000).toISOString().slice(0, 10);
+
   // Reappearance: any liveVehicle whose existing entry had missing_since or
   // was previously sold, force-clear those flags. mapNode already set
   // status='available'; we just have to NOT carry over the legacy fields.
@@ -665,6 +684,19 @@ async function main() {
         // Tolerance exceeded → mark sold. Keep missing_since for analytics.
         return { ...e, status: 'sold', sold_date: todayDate, missing_since: missingSince };
       }
+
+      // Secondary signal: zero impressions + views in the past 7 days, AND the
+      // listing is older than 7 days (rules out fresh units with no stats yet).
+      // This fast-tracks sold detection when the HTML scrape missed the removal.
+      const stat = vinStats[e.vin];
+      if (stat != null && stat.impressions === 0 && stat.vdp_views === 0) {
+        const listedBefore7Days = e.dateAdded && e.dateAdded <= sevenDaysAgo;
+        if (listedBefore7Days) {
+          console.log(`  [stats signal] ${e.year} ${e.make} ${e.model} [${e.vin}]: zero impressions/views in 7-day stats → fast-tracking to sold`);
+          return { ...e, status: 'sold', sold_date: todayDate, missing_since: missingSince };
+        }
+      }
+
       // Within tolerance → still "available", just stamp first-miss timestamp.
       return { ...e, status: 'available', missing_since: missingSince };
     });

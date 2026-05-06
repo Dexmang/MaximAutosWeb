@@ -9,13 +9,12 @@ import reviewsMeta from '../data/reviews_meta.json';
 import suburbs from '../data/suburbs.json';
 
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
-const siteUrl = (Astro.site ?? new URL('https://www.maximautos.com/')).toString().replace(/\/$/, '');
 const title = 'Quality Used Cars in Skokie, IL | Maxim Autos';
 const description = 'Maxim Autos: fully inspected used cars from $5,000 to $15,000 in Skokie, IL. Metal plates on the spot. Skip the DMV. Financing for all credit levels. 5-star Google reviews.';
 const featured = vehicles.filter(v => (v as any).status !== 'sold').slice(0, 6);
 ---
 
-<Layout title={title} description={description} alternateLang="es" alternateUrl={`${siteUrl}/es/`}>
+<Layout title={title} description={description}>
   <Fragment slot="structured-data">
     <script type="application/ld+json" set:html={JSON.stringify({
       "@context": "https://schema.org",
@@ -76,7 +75,7 @@ const featured = vehicles.filter(v => (v as any).status !== 'sold').slice(0, 6);
     })} />
   </Fragment>
 
-  <Header slot="header" switcherHref={`${base}/es/`} />
+  <Header slot="header" />
 
   <!-- Hero -->
   <section class="bg-navy overflow-hidden md:relative md:min-h-[448px] lg:min-h-[512px] md:flex md:items-center">
