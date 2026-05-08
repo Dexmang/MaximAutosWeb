@@ -24,8 +24,8 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 const OUT_PATH = resolve(__dirname, '../site/src/data/cargurus-dealer-stats.json');
 
 const API_URL = 'https://www.cargurus.com/Cars/api/2.0/dealerStatsRequest.action';
-const APP_ID = '9c072d89-dd8c-48f2-b25d-0de473c1d5ba';
-const AUTH_TOKEN = '0f3cacd3-b6ed-4182-a889-f0f63394f706';
+const APP_ID = '87fae513-516a-46c8-be26-0a53788c9612';
+const AUTH_TOKEN = 'f568b144-68e9-4911-8960-653a40efc2cb';
 
 // ── helpers ──────────────────────────────────────────────────────────────────
 
@@ -46,13 +46,15 @@ function pickNum(rec, keys) {
 }
 
 const FIELDS = {
-  impressions:  ['impressions', 'srp_impressions', 'search_impressions', 'srpImpressions'],
-  srp_views:    ['srp_views', 'srpViews', 'search_views', 'searchViews'],
-  vdp_views:    ['vdp_views', 'vdpViews', 'detail_views', 'detailViews', 'views'],
-  leads_total:  ['leads_total', 'leadsTotal', 'totalLeads', 'leads', 'lead_count'],
-  leads_email:  ['leads_email', 'emailLeads', 'email_leads'],
-  leads_phone:  ['leads_phone', 'phoneLeads', 'phone_leads', 'calls'],
-  leads_chat:   ['leads_chat', 'chatLeads', 'chat_leads'],
+  impressions:    ['impressions', 'srp_impressions', 'search_impressions', 'srpImpressions'],
+  srp_views:      ['srps', 'srp_views', 'srpViews', 'search_views', 'searchViews'],
+  vdp_views:      ['vdps', 'vdp_views', 'vdpViews', 'detail_views', 'detailViews', 'views'],
+  leads_total:    ['leads', 'leads_total', 'leadsTotal', 'totalLeads', 'lead_count'],
+  leads_email:    ['leads_email', 'emailLeads', 'email_leads'],
+  leads_phone:    ['phone_leads', 'leads_phone', 'phoneLeads', 'calls'],
+  leads_chat:     ['chat_leads', 'leads_chat', 'chatLeads'],
+  website_clicks: ['website_clicks', 'websiteClicks'],
+  map_clicks:     ['map_clicks', 'mapClicks'],
 };
 
 function mapRow(rec) {
@@ -74,6 +76,7 @@ async function main() {
   const emptyTotals = {
     impressions: 0, srp_views: 0, vdp_views: 0,
     leads_total: 0, leads_email: 0, leads_phone: 0, leads_chat: 0,
+    website_clicks: 0, map_clicks: 0,
   };
 
   const placeholder = {
@@ -83,12 +86,12 @@ async function main() {
     daily: [],
   };
 
-  const body = {
-    appId: APP_ID,
-    authToken: AUTH_TOKEN,
+  const bodyJson = JSON.stringify({
+    external_dealer_id: 'sp457703',
     start_date: periodStart,
     end_date: periodEnd,
-  };
+  });
+  const formBody = new URLSearchParams({ appId: APP_ID, authToken: AUTH_TOKEN, body: bodyJson });
 
   console.log(`[cargurus-dealer-stats] POST ${API_URL}`);
   console.log(`[cargurus-dealer-stats] period: ${periodStart} → ${periodEnd}`);
@@ -97,8 +100,8 @@ async function main() {
   try {
     res = await fetch(API_URL, {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(body),
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: formBody.toString(),
     });
   } catch (e) {
     console.error(`[cargurus-dealer-stats] network error: ${e.message}`);
@@ -129,7 +132,7 @@ async function main() {
 
   // Try to find a daily-rows array first.
   const candidateDaily = [
-    raw?.daily, raw?.dailyStats, raw?.daily_stats,
+    raw?.daily_stats, raw?.daily, raw?.dailyStats,
     raw?.byDay, raw?.by_day,
     raw?.stats, raw?.data, raw?.results,
   ].filter(Array.isArray);
@@ -142,19 +145,16 @@ async function main() {
     }
   }
 
-  // Totals: prefer an explicit totals block; otherwise sum the daily rows;
-  // otherwise try to map the top-level object directly.
+  // Totals: CarGurus returns aggregate fields at the top level of the response
+  // alongside daily_stats. Map directly from raw first; fall back to summing daily rows.
   let totals = { ...emptyTotals };
-  const totalsBlock = raw?.totals || raw?.summary || raw?.aggregate || null;
-  if (totalsBlock && typeof totalsBlock === 'object') {
-    totals = mapRow(totalsBlock);
+  const topLevelCandidate = mapRow(raw || {});
+  if (Object.values(topLevelCandidate).some(v => v > 0)) {
+    totals = topLevelCandidate;
   } else if (daily.length > 0) {
     for (const d of daily) {
       for (const k of Object.keys(totals)) totals[k] += num(d[k]);
     }
-  } else if (raw && typeof raw === 'object') {
-    const candidate = mapRow(raw);
-    if (Object.values(candidate).some(v => v > 0)) totals = candidate;
   }
 
   const out = {

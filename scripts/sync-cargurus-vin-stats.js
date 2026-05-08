@@ -23,8 +23,8 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 const OUT_PATH = resolve(__dirname, '../site/src/data/cargurus-vin-stats.json');
 
 const API_URL = 'https://www.cargurus.com/Cars/api/2.0/dealerStatsRequest.action';
-const APP_ID = 'e67a59c9-d052-425f-9c93-3f2f125bd35d';
-const AUTH_TOKEN = 'b6522852-244b-4ef9-add6-13ab544ec34f';
+const APP_ID = 'ea0e8c95-b58f-4390-a345-bb996d5361e2';
+const AUTH_TOKEN = 'aa7446f2-13e9-4c2d-9a94-9b61c1f56b88';
 
 // ── helpers ──────────────────────────────────────────────────────────────────
 
@@ -65,12 +65,12 @@ async function main() {
     by_vin: {},
   };
 
-  const body = {
-    appId: APP_ID,
-    authToken: AUTH_TOKEN,
+  const bodyJson = JSON.stringify({
+    external_dealer_id: 'sp457703',
     start_date: periodStart,
     end_date: periodEnd,
-  };
+  });
+  const formBody = new URLSearchParams({ appId: APP_ID, authToken: AUTH_TOKEN, body: bodyJson });
 
   console.log(`[cargurus-vin-stats] POST ${API_URL}`);
   console.log(`[cargurus-vin-stats] period: ${periodStart} → ${periodEnd}`);
@@ -79,8 +79,8 @@ async function main() {
   try {
     res = await fetch(API_URL, {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(body),
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: formBody.toString(),
     });
   } catch (e) {
     console.error(`[cargurus-vin-stats] network error: ${e.message}`);
@@ -111,14 +111,9 @@ async function main() {
   const sample = JSON.stringify(raw, null, 2);
   console.log(`[cargurus-vin-stats] raw response (first 2000 chars):\n${sample.slice(0, 2000)}`);
 
-  // Try to find a per-VIN array. Common shapes seen in the wild:
-  //   { vinStats: [{ vin, impressions, vdp_views, leads }, ...] }
-  //   { stats: [{ vin, ... }] }
-  //   { data: [{ vin, ... }] }
-  //   { results: [{ vin, ... }] }
-  //   { byVin: { VIN: { ... } } }
+  // CarGurus VIN-level stats response: { vin_stats: [{ vin, srps, vdps, leads_email, phone_leads, chat_leads, website_clicks, ... }] }
   const candidateArrays = [
-    raw?.vinStats, raw?.vin_stats,
+    raw?.vin_stats, raw?.vinStats,
     raw?.stats, raw?.data, raw?.results,
     raw?.listings, raw?.vehicles,
   ].filter(Array.isArray);
@@ -133,18 +128,26 @@ async function main() {
       if (!vin) continue;
       foundVinData = true;
       by_vin[vin] = {
-        impressions: pickNum(rec, ['impressions', 'srp_impressions', 'search_impressions', 'srpImpressions']),
-        vdp_views: pickNum(rec, ['vdp_views', 'vdpViews', 'detail_views', 'detailViews', 'views']),
-        leads: pickNum(rec, ['leads', 'leads_total', 'leadsTotal', 'totalLeads', 'lead_count']),
+        srp_views:      pickNum(rec, ['srps', 'srp_views', 'srpViews', 'impressions']),
+        vdp_views:      pickNum(rec, ['vdps', 'vdp_views', 'vdpViews', 'detail_views', 'views']),
+        leads_email:    pickNum(rec, ['leads_email', 'emailLeads']),
+        leads_phone:    pickNum(rec, ['phone_leads', 'leads_phone', 'phoneLeads']),
+        leads_chat:     pickNum(rec, ['chat_leads', 'leads_chat', 'chatLeads']),
+        website_clicks: pickNum(rec, ['website_clicks', 'websiteClicks']),
+        map_clicks:     pickNum(rec, ['map_clicks', 'mapClicks']),
       };
     }
   } else if (raw?.byVin && typeof raw.byVin === 'object') {
     for (const [vin, rec] of Object.entries(raw.byVin)) {
       foundVinData = true;
       by_vin[vin] = {
-        impressions: pickNum(rec, ['impressions', 'srp_impressions', 'search_impressions']),
-        vdp_views: pickNum(rec, ['vdp_views', 'vdpViews', 'detail_views', 'views']),
-        leads: pickNum(rec, ['leads', 'leads_total', 'totalLeads']),
+        srp_views:      pickNum(rec, ['srps', 'srp_views', 'srpViews', 'impressions']),
+        vdp_views:      pickNum(rec, ['vdps', 'vdp_views', 'vdpViews', 'detail_views', 'views']),
+        leads_email:    pickNum(rec, ['leads_email', 'emailLeads']),
+        leads_phone:    pickNum(rec, ['phone_leads', 'leads_phone', 'phoneLeads']),
+        leads_chat:     pickNum(rec, ['chat_leads', 'leads_chat', 'chatLeads']),
+        website_clicks: pickNum(rec, ['website_clicks', 'websiteClicks']),
+        map_clicks:     pickNum(rec, ['map_clicks', 'mapClicks']),
       };
     }
   }

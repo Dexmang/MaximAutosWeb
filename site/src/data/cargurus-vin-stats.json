@@ -1,13 +1,61 @@
 {
-  "last_updated": "2026-05-06T17:34:55.454Z",
-  "period_start": "2026-04-29",
-  "period_end": "2026-05-06",
-  "by_vin": {},
-  "dealer_level": {
-    "success": false,
-    "error": {
-      "error_code": 102,
-      "description": "Invalid application id. Details: Invalid app id: null"
+  "last_updated": "2026-05-08T13:42:56.694Z",
+  "period_start": "2026-05-01",
+  "period_end": "2026-05-08",
+  "by_vin": {
+    "WA1L2AFP8GA046658": {
+      "srp_views": 1207,
+      "vdp_views": 45,
+      "leads_email": 3,
+      "leads_phone": 0,
+      "leads_chat": 0,
+      "website_clicks": 4,
+      "map_clicks": 1
+    },
+    "JF2GPABC4HH264053": {
+      "srp_views": 1008,
+      "vdp_views": 37,
+      "leads_email": 1,
+      "leads_phone": 1,
+      "leads_chat": 0,
+      "website_clicks": 0,
+      "map_clicks": 0
+    },
+    "4S4BSANC1H3317349": {
+      "srp_views": 477,
+      "vdp_views": 38,
+      "leads_email": 0,
+      "leads_phone": 0,
+      "leads_chat": 0,
+      "website_clicks": 0,
+      "map_clicks": 0
+    },
+    "SAJWA79B58SH23092": {
+      "srp_views": 1444,
+      "vdp_views": 197,
+      "leads_email": 2,
+      "leads_phone": 0,
+      "leads_chat": 0,
+      "website_clicks": 9,
+      "map_clicks": 1
+    },
+    "4T1B11HK5KU764662": {
+      "srp_views": 5303,
+      "vdp_views": 522,
+      "leads_email": 6,
+      "leads_phone": 2,
+      "leads_chat": 1,
+      "website_clicks": 13,
+      "map_clicks": 5
+    },
+    "5J6RM4H73FL051496": {
+      "srp_views": 1158,
+      "vdp_views": 28,
+      "leads_email": 0,
+      "leads_phone": 0,
+      "leads_chat": 0,
+      "website_clicks": 0,
+      "map_clicks": 0
     }
   }
 }
