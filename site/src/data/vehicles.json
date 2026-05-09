@@ -340,7 +340,8 @@
     "dealRating": "GREAT_PRICE",
     "priceSavings": 1641,
     "missing_since": "2026-05-09T13:00:21.052Z",
-    "manual_sold": true
+    "manual_sold": true,
+    "sold_date": "2026-05-09"
   },
   {
     "slug": "2017-subaru-crosstrek-premium",
