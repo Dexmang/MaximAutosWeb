@@ -1,0 +1,267 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const title = 'Return Policy | Maxim Autos Skokie, IL';
+const description = 'Maxim Autos vehicle return and sale policy. Most vehicles are sold AS IS with the Illinois 15 day or 500 mile statutory powertrain protection on qualifying units. No exchange program, no buyer remorse refunds.';
+const effectiveDate = 'May 9, 2026';
+---
+
+<Layout title={title} description={description}>
+  <Header slot="header" />
+
+  <!-- Hero -->
+  <section class="bg-[#0a2540] py-16 lg:py-20">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8 text-center">
+      <span class="text-orange-500 font-bold uppercase tracking-widest text-sm mb-3 block">Legal</span>
+      <h1 class="font-headline text-4xl md:text-5xl font-extrabold text-white leading-tight tracking-tight mb-6">
+        Return Policy
+      </h1>
+      <p class="text-lg text-gray-300 max-w-2xl mx-auto leading-relaxed">
+        Effective Date: {effectiveDate}
+      </p>
+    </div>
+  </section>
+
+  <!-- Content -->
+  <section class="py-20 bg-white">
+    <div class="max-w-3xl mx-auto px-6 lg:px-8">
+      <div class="space-y-12 text-gray-700 leading-relaxed text-base">
+
+        <!-- Intro -->
+        <div>
+          <p class="text-lg">
+            Most used cars at Maxim Autos are sold AS IS, with the protections Illinois law builds in for every retail buyer. We do not offer a 3 day, 7 day, or 30 day money back return window. We are not Carvana. We are a local Skokie dealership that puts five star reviews on the line with every sale, and we want every customer to leave with the right car the first time.
+          </p>
+          <p class="mt-4">
+            That is why our entire policy is built around what happens <strong>before you sign</strong>, not after.
+          </p>
+        </div>
+
+        <!-- Section 1: AS-IS Standard -->
+        <div>
+          <h2 class="font-headline text-2xl font-extrabold text-[#0a2540] mb-4 pb-2 border-b border-gray-100">
+            1. Our Standard: AS IS Sales With Statutory Protections Built In
+          </h2>
+          <p class="mb-4">
+            Every used vehicle at Maxim Autos is offered for sale with an FTC Buyer's Guide displayed in the window. The Buyer's Guide tells you whether that specific vehicle is being sold AS IS or with a written warranty. The default at Maxim Autos is AS IS.
+          </p>
+          <p class="mb-4">
+            AS IS means you accept the vehicle in its current condition once the sale closes. It does not mean you have no protection at all.
+          </p>
+          <div class="p-4 bg-amber-50 rounded-xl border border-amber-200 mb-4">
+            <p class="font-bold text-amber-900 mb-1">Illinois Statutory Powertrain Protection</p>
+            <p class="text-amber-800 text-sm">
+              Illinois law gives every qualifying retail buyer a statutory <strong>15 day or 500 mile</strong> powertrain protection on the major drivetrain components. This protection applies automatically when you buy a qualifying used vehicle from a licensed Illinois dealer, even on an AS IS sale. It is part of every contract we write for a covered vehicle, and it is printed in conspicuous boldface text on the agreement itself.
+            </p>
+          </div>
+          <p class="mb-4">
+            The covered components are: engine block, head, all internal engine parts, oil pan and gaskets, water pump, intake manifold, transmission and all internal transmission parts, torque converter, drive shaft, universal joints, rear axle and all internal rear axle parts, and rear wheel bearings.
+          </p>
+          <p class="mb-4">
+            If a covered component fails within the 15 day or 500 mile window, the customer is responsible for a deductible per repair as set by Illinois statute. We handle the rest at our authorized repair facility.
+          </p>
+          <p class="mb-4">Vehicles <strong>exempt</strong> from the statutory protection (sold pure AS IS):</p>
+          <ul class="space-y-3 pl-4">
+            <li class="flex gap-3">
+              <span class="material-symbols-outlined text-orange-500 shrink-0 mt-0.5" style="font-variation-settings:'FILL' 1; font-size:1.1rem;">chevron_right</span>
+              <span>Vehicles with more than 150,000 miles at the time of sale</span>
+            </li>
+            <li class="flex gap-3">
+              <span class="material-symbols-outlined text-orange-500 shrink-0 mt-0.5" style="font-variation-settings:'FILL' 1; font-size:1.1rem;">chevron_right</span>
+              <span>Vehicles with a rebuilt or flood branded title</span>
+            </li>
+            <li class="flex gap-3">
+              <span class="material-symbols-outlined text-orange-500 shrink-0 mt-0.5" style="font-variation-settings:'FILL' 1; font-size:1.1rem;">chevron_right</span>
+              <span>Vehicles with a Gross Vehicle Weight Rating of 8,000 pounds or more</span>
+            </li>
+            <li class="flex gap-3">
+              <span class="material-symbols-outlined text-orange-500 shrink-0 mt-0.5" style="font-variation-settings:'FILL' 1; font-size:1.1rem;">chevron_right</span>
+              <span>Antique or collector vehicles as defined by the Illinois Vehicle Code</span>
+            </li>
+          </ul>
+          <p class="mt-4">
+            When a vehicle is exempt, the FTC Buyer's Guide and the sales contract both say so plainly. There is no surprise.
+          </p>
+        </div>
+
+        <!-- Section 2: Written Warranty (conditional only) -->
+        <div>
+          <h2 class="font-headline text-2xl font-extrabold text-[#0a2540] mb-4 pb-2 border-b border-gray-100">
+            2. When a Written Warranty Applies
+          </h2>
+          <p class="mb-4">
+            We do not promise blanket warranty coverage on our inventory. When a written warranty does apply to a specific vehicle, the exact terms (what is covered, the time and mileage window, any deductible, and the authorized repair facility) appear on that vehicle's FTC Buyer's Guide and on the sales contract you sign.
+          </p>
+          <p>
+            If the Buyer's Guide for a specific unit is checked AS IS, the unit is sold AS IS plus the Illinois statutory floor described in Section 1 (when not exempt). We do not offer a separate Maxim Autos branded warranty product, and we do not certify vehicles. Any vehicle described as "certified" anywhere on this site or in any listing is incorrect and should be reported to us so we can correct it.
+          </p>
+        </div>
+
+        <!-- Section 3: Spot Delivery -->
+        <div>
+          <h2 class="font-headline text-2xl font-extrabold text-[#0a2540] mb-4 pb-2 border-b border-gray-100">
+            3. Spot Delivery and Financing Contingency
+          </h2>
+          <p class="mb-4">
+            If you take a vehicle home before financing is fully finalized, that is called spot delivery. The sale is conditioned on the lender approving the financing at the contracted terms.
+          </p>
+          <p class="mb-4">If financing is not approved at the contracted rate and term, Illinois law is clear:</p>
+          <ul class="space-y-3 pl-4">
+            <li class="flex gap-3">
+              <span class="material-symbols-outlined text-orange-500 shrink-0 mt-0.5" style="font-variation-settings:'FILL' 1; font-size:1.1rem;">chevron_right</span>
+              <span>The sale unwinds.</span>
+            </li>
+            <li class="flex gap-3">
+              <span class="material-symbols-outlined text-orange-500 shrink-0 mt-0.5" style="font-variation-settings:'FILL' 1; font-size:1.1rem;">chevron_right</span>
+              <span>We return your full down payment.</span>
+            </li>
+            <li class="flex gap-3">
+              <span class="material-symbols-outlined text-orange-500 shrink-0 mt-0.5" style="font-variation-settings:'FILL' 1; font-size:1.1rem;">chevron_right</span>
+              <span>We return your trade in vehicle, or its value if it has already been sold or wholesaled.</span>
+            </li>
+            <li class="flex gap-3">
+              <span class="material-symbols-outlined text-orange-500 shrink-0 mt-0.5" style="font-variation-settings:'FILL' 1; font-size:1.1rem;">chevron_right</span>
+              <span>You are not required to bring more money to the closing.</span>
+            </li>
+            <li class="flex gap-3">
+              <span class="material-symbols-outlined text-orange-500 shrink-0 mt-0.5" style="font-variation-settings:'FILL' 1; font-size:1.1rem;">chevron_right</span>
+              <span>You are not required to accept a higher rate or longer term.</span>
+            </li>
+            <li class="flex gap-3">
+              <span class="material-symbols-outlined text-orange-500 shrink-0 mt-0.5" style="font-variation-settings:'FILL' 1; font-size:1.1rem;">chevron_right</span>
+              <span>You are not required to find a cosigner.</span>
+            </li>
+          </ul>
+          <p class="mt-4">
+            This is the only scenario in which a Maxim Autos sale unwinds under Illinois law. If your financing is approved at the original contracted terms, the sale is final.
+          </p>
+        </div>
+
+        <!-- Section 4: What We Do Not Offer -->
+        <div>
+          <h2 class="font-headline text-2xl font-extrabold text-[#0a2540] mb-4 pb-2 border-b border-gray-100">
+            4. What We Do Not Offer
+          </h2>
+          <p class="mb-4">To make sure no customer is confused about what they are buying:</p>
+          <ul class="space-y-3 pl-4">
+            <li class="flex gap-3">
+              <span class="material-symbols-outlined text-orange-500 shrink-0 mt-0.5" style="font-variation-settings:'FILL' 1; font-size:1.1rem;">chevron_right</span>
+              <span><strong>No 3 day, 7 day, or 30 day money back returns.</strong> Once a sale is finalized at the contracted terms, the vehicle is yours.</span>
+            </li>
+            <li class="flex gap-3">
+              <span class="material-symbols-outlined text-orange-500 shrink-0 mt-0.5" style="font-variation-settings:'FILL' 1; font-size:1.1rem;">chevron_right</span>
+              <span><strong>No test drive at home return window.</strong> All test drives happen on or near the lot, before purchase.</span>
+            </li>
+            <li class="flex gap-3">
+              <span class="material-symbols-outlined text-orange-500 shrink-0 mt-0.5" style="font-variation-settings:'FILL' 1; font-size:1.1rem;">chevron_right</span>
+              <span><strong>No exchange or swap program.</strong> We are not a national online retailer. We do not maintain swap inventory.</span>
+            </li>
+            <li class="flex gap-3">
+              <span class="material-symbols-outlined text-orange-500 shrink-0 mt-0.5" style="font-variation-settings:'FILL' 1; font-size:1.1rem;">chevron_right</span>
+              <span><strong>No buyer remorse refunds.</strong> Illinois has no statutory cooling off period for vehicle purchases at a dealer's place of business. Federal cooling off rules do not apply to vehicle sales at a dealership.</span>
+            </li>
+          </ul>
+          <p class="mt-4">
+            We tell you this up front because it is the truth, and because customers who understand it before signing have a better experience than customers who do not.
+          </p>
+        </div>
+
+        <!-- Section 5: Pre-Purchase Inspection Right -->
+        <div>
+          <h2 class="font-headline text-2xl font-extrabold text-[#0a2540] mb-4 pb-2 border-b border-gray-100">
+            5. Your Pre Purchase Inspection Right (Use It)
+          </h2>
+          <p class="mb-4">
+            Every customer is welcome to have any Maxim Autos vehicle inspected by an independent mechanic of their choice <strong>before</strong> signing the purchase agreement. We encourage it. We will hold the vehicle for a reasonable inspection appointment.
+          </p>
+          <p class="mb-4">
+            This is the strongest consumer protection available in any used vehicle purchase, anywhere. A pre purchase inspection from a third party mechanic will tell you more about a specific vehicle than any return policy ever could.
+          </p>
+          <p>
+            If you want to use this option, ask any sales associate or call <a href="tel:8475108947" class="text-orange-500 hover:underline">(847) 510-8947</a> and we will coordinate.
+          </p>
+        </div>
+
+        <!-- Section 6: Issues After Purchase -->
+        <div>
+          <h2 class="font-headline text-2xl font-extrabold text-[#0a2540] mb-4 pb-2 border-b border-gray-100">
+            6. Issues After Purchase
+          </h2>
+          <p class="mb-4">
+            If something on the vehicle does not feel right after you take delivery, contact us first. Call <a href="tel:8475108947" class="text-orange-500 hover:underline">(847) 510-8947</a> or stop by the lot. Many concerns are quickly resolved when we have the chance to look at the vehicle ourselves.
+          </p>
+          <p class="mb-4">
+            If the issue falls within the Illinois 15 day or 500 mile statutory powertrain protection and the vehicle is not exempt, we follow the statutory process and bring the vehicle into compliance. If the issue is outside that scope, we will tell you honestly whether it is something we can help with as a courtesy, what it would cost, or whether it is the kind of normal ownership cost that comes with a used vehicle.
+          </p>
+          <p>
+            What we will not do is ignore the call. The five star reputation Maxim Autos has built is not an accident, and it does not get protected by avoiding hard conversations.
+          </p>
+        </div>
+
+        <!-- Section 7: FTC Disclaimer -->
+        <div>
+          <h2 class="font-headline text-2xl font-extrabold text-[#0a2540] mb-4 pb-2 border-b border-gray-100">
+            7. Implied Warranty Disclaimer (Required FTC Language)
+          </h2>
+          <p class="mb-4">
+            The information you see on the FTC Buyer's Guide for each vehicle is part of the sale contract. Spoken promises by any salesperson are difficult to enforce. <strong>Get all promises in writing.</strong>
+          </p>
+          <p class="mb-4">
+            For vehicles sold AS IS that are not subject to the Illinois 815 ILCS 505/2L statutory protection, the following applies as required by federal regulation (16 CFR Part 455):
+          </p>
+          <div class="p-4 bg-surface rounded-xl border border-gray-200 mb-4">
+            <p class="font-bold text-gray-900 text-sm uppercase tracking-wide">
+              AS IS &mdash; NO DEALER WARRANTY. THE DEALER DOES NOT PROVIDE A WARRANTY FOR ANY REPAIRS AFTER SALE.
+            </p>
+          </div>
+          <p class="mb-4">
+            For vehicles where Illinois law provides the 15 day or 500 mile statutory powertrain protection, the implied warranty of merchantability <strong>cannot</strong> be disclaimed during that window, and the contract will say so in conspicuous boldface text.
+          </p>
+          <p>
+            For all vehicles, we disclaim every other implied warranty to the maximum extent permitted by Illinois law and the Uniform Commercial Code.
+          </p>
+        </div>
+
+        <!-- Section 8: Contact -->
+        <div>
+          <h2 class="font-headline text-2xl font-extrabold text-[#0a2540] mb-4 pb-2 border-b border-gray-100">
+            8. Contact
+          </h2>
+          <p class="mb-4">
+            If you have a question about this policy or a specific vehicle, please call before you visit so we can have everything ready.
+          </p>
+          <div class="p-5 bg-surface rounded-xl border border-gray-100">
+            <p class="font-bold text-gray-900 mb-1">Maxim Autos</p>
+            <p class="text-gray-600">9101 Terminal Ave, Skokie, IL 60077</p>
+            <p class="text-gray-600">Phone: <a href="tel:8475108947" class="text-orange-500 hover:underline">(847) 510-8947</a></p>
+            <p class="text-gray-600">Email: <a href="mailto:jerryf@maximautos.com" class="text-orange-500 hover:underline">jerryf@maximautos.com</a></p>
+          </div>
+          <p class="mt-6">Thanks,<br/>The Maxim Autos Team</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-16 bg-surface">
+    <div class="max-w-3xl mx-auto px-6 lg:px-8 text-center">
+      <h2 class="font-headline text-2xl md:text-3xl font-extrabold mb-4">Questions Before You Buy?</h2>
+      <p class="text-gray-600 text-lg mb-8">Call us first. We answer the phone and we tell you the truth.</p>
+      <div class="flex flex-col sm:flex-row justify-center gap-4">
+        <div class="hidden sm:inline-flex items-center justify-center gap-2 bg-[#0a2540] text-white px-8 py-4 rounded-xl font-bold text-lg">
+          <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">phone</span>
+          (847) 510-8947
+        </div>
+        <a href={`${base}/contact`} class="inline-flex items-center justify-center gap-2 bg-orange-500 text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-orange-600 transition-colors">
+          Contact Page
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <Footer slot="footer" />
+</Layout>
