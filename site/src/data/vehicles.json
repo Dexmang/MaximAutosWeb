@@ -290,7 +290,7 @@
       "134,477 miles",
       "Fully inspected, 3-Month Warranty"
     ],
-    "status": "available",
+    "status": "sold",
     "dateAdded": "2026-05-02",
     "featured": true,
     "sortOrder": 0,
@@ -339,7 +339,8 @@
     "description": "A 2015 Honda CR-V EX-L AWD with 134,477 miles driven over 11 years comes out to just under 12,300 miles per year. Honda CR-Vs at this mileage with basic maintenance regularly run past 200,000 miles. This one is the top EX-L trim, fully loaded, and presents well throughout.The 2.4L four-cylinder gets 33 MPG on the highway. With AWD, leather seats, a moonroof, and heated front seats, you are getting a lot of truck for the money at a time when fuel costs add up fast.Backup camera, Bluetooth, and alloy wheels all come standard on this trim. Every purchase includes an independent inspection report, a free Carfax, and a 3-month warranty. Metal plates issued same day. Financing available for all credit levels.Call or text (847) 510-8947.[!@@Additional Info@@!]Leather,Air Conditioning,ABS (4-Wheel),AWD,Tilt  0026 Telescoping Wheel,Motion Electric Pwr Steering,SiriusXM Satellite,Moon Roof,Traction Control,HondaLink,Backup Camera,Side Air Bags,Cruise Control,Automatic CVT,Power Windows,Daytime Running Lights,Power Seat,Alloy Wheels,Alarm System,Bluetooth Wireless,F 0026R Head Curtain Air Bags,Keyless Start,Fog Lights,Keyless Entry,Hill Start Assist Control,AM/FM Stereo,CD/MP3 (Single Disc),Dual Air Bags,4-Cyl i-VTEC 2.4 Liter,Power Door Locks,Heated Seats,LaneWatch,Electronic Stability Control",
     "dealRating": "GREAT_PRICE",
     "priceSavings": 1641,
-    "missing_since": "2026-05-09T13:00:21.052Z"
+    "missing_since": "2026-05-09T13:00:21.052Z",
+    "manual_sold": true
   },
   {
     "slug": "2017-subaru-crosstrek-premium",
