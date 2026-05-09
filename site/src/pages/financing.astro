@@ -20,7 +20,12 @@ const faqSchema = {
 };
 ---
 
-<Layout title={title} description={description}>
+<Layout
+  title={title}
+  description={description}
+  hreflangEn="https://www.maximautos.com/financing"
+  hreflangEs="https://www.maximautos.com/es/financiamiento"
+>
   <Fragment slot="structured-data">
     <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
     <script type="application/ld+json" set:html={JSON.stringify({

@@ -53,7 +53,12 @@ const hours = [
 ];
 ---
 
-<Layout title={title} description={description}>
+<Layout
+  title={title}
+  description={description}
+  hreflangEn="https://www.maximautos.com/contact"
+  hreflangEs="https://www.maximautos.com/es/contacto"
+>
   <Fragment slot="structured-data">
     <script type="application/ld+json" set:html={JSON.stringify(localBusinessSchema)} />
     <script type="application/ld+json" set:html={JSON.stringify({

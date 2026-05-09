@@ -5,6 +5,9 @@ interface Props {
   ogImage?: string;
   canonicalUrl?: string;
   noIndex?: boolean;
+  lang?: string;
+  hreflangEn?: string;
+  hreflangEs?: string;
 }
 
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
@@ -14,6 +17,9 @@ const {
   ogImage,
   canonicalUrl,
   noIndex = false,
+  lang = 'en',
+  hreflangEn,
+  hreflangEs,
 } = Astro.props;
 
 const siteName = 'Maxim Autos';
@@ -28,7 +34,7 @@ const ogImageAbsolute = new URL(ogImage ?? `${base}/brand/hero-family.jpg`, site
 ---
 
 <!doctype html>
-<html lang="en" class="scroll-smooth">
+<html lang={lang} class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -39,6 +45,11 @@ const ogImageAbsolute = new URL(ogImage ?? `${base}/brand/hero-family.jpg`, site
 
     <link rel="canonical" href={canonical} />
     <link rel="icon" href={`${base}/brand/logo-header.png`} type="image/png" />
+
+    <!-- hreflang alternate links for i18n -->
+    {hreflangEn && <link rel="alternate" hreflang="en" href={hreflangEn} />}
+    {hreflangEs && <link rel="alternate" hreflang="es" href={hreflangEs} />}
+    {hreflangEn && hreflangEs && <link rel="alternate" hreflang="x-default" href={hreflangEn} />}
 
     <!-- Open Graph -->
     <meta property="og:type" content="website" />

@@ -14,7 +14,12 @@ const bodyStyles = [...new Set(liveVehicles.map(v => v.bodyStyle))].sort();
 const drivetrains = [...new Set(liveVehicles.map(v => v.drivetrain).filter(Boolean))].sort();
 ---
 
-<Layout title={title} description={description}>
+<Layout
+  title={title}
+  description={description}
+  hreflangEn="https://www.maximautos.com/inventory"
+  hreflangEs="https://www.maximautos.com/es/inventario"
+>
   <Fragment slot="structured-data">
     <script type="application/ld+json" set:html={JSON.stringify({
       "@context": "https://schema.org",

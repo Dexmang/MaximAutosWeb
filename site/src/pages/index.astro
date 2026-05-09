@@ -14,7 +14,12 @@ const description = 'Maxim Autos: fully inspected used cars from $5,000 to $15,0
 const featured = vehicles.filter(v => (v as any).status !== 'sold').slice(0, 6);
 ---
 
-<Layout title={title} description={description}>
+<Layout
+  title={title}
+  description={description}
+  hreflangEn="https://www.maximautos.com/"
+  hreflangEs="https://www.maximautos.com/es/"
+>
   <Fragment slot="structured-data">
     <script type="application/ld+json" set:html={JSON.stringify({
       "@context": "https://schema.org",

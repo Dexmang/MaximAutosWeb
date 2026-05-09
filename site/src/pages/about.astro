@@ -28,7 +28,12 @@ const personSchema = {
 };
 ---
 
-<Layout title={title} description={description}>
+<Layout
+  title={title}
+  description={description}
+  hreflangEn="https://www.maximautos.com/about"
+  hreflangEs="https://www.maximautos.com/es/sobre-nosotros"
+>
   <Fragment slot="structured-data">
     <script type="application/ld+json" set:html={JSON.stringify(personSchema)} />
     <script type="application/ld+json" set:html={JSON.stringify({

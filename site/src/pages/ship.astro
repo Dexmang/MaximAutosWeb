@@ -22,7 +22,12 @@ const faqSchema = {
 };
 ---
 
-<Layout title={title} description={description}>
+<Layout
+  title={title}
+  description={description}
+  hreflangEn="https://www.maximautos.com/ship"
+  hreflangEs="https://www.maximautos.com/es/compra-en-linea"
+>
   <Fragment slot="structured-data">
     <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
     <script type="application/ld+json" set:html={JSON.stringify({
