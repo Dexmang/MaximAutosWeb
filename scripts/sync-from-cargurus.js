@@ -288,7 +288,16 @@ function extractDealerDescription(html) {
 /**
  * Fetch all full-size (1024x768) photo URLs and the dealer description
  * from a CarGurus listing detail page.
- * Filters photos to only those matching the vehicle's year and make.
+ *
+ * STRICT prefix filter: photos are kept only if their filename starts with
+ * `<year>_<make>`. CarGurus detail pages embed a "more from this dealer"
+ * carousel containing other vehicles' thumbnails, so an unfiltered scrape
+ * leaks neighbor photos into a listing's gallery. If the prefix filter
+ * finds zero matches (e.g. a freshly listed unit whose gallery hasn't been
+ * populated server-side yet), return an empty photos array and let the
+ * caller fall back to the tile's hero pictureData.url, which is always
+ * correctly tied to the listing.
+ *
  * Returns { photos: string[], description: string }.
  */
 async function fetchListingDetail(listingId, year, make) {
@@ -299,12 +308,17 @@ async function fetchListingDetail(listingId, year, make) {
     // Photos
     const matches = [...html.matchAll(/https?:\/\/static\.cargurus\.com\/images\/forsale\/[^\s"'<>&]+?-1024x768\.jpeg/g)];
     const unique = [...new Set(matches.map(m => m[0]))];
-    let photos = unique;
+    let photos = [];
     if (year && make) {
       const makeKey = make.toLowerCase().replace(/\s+/g, '_');
       const prefix = `${year}_${makeKey}`;
-      const filtered = unique.filter(u => (u.split('/').pop() || '').startsWith(prefix));
-      if (filtered.length > 0) photos = filtered;
+      photos = unique.filter(u => (u.split('/').pop() || '').startsWith(prefix));
+      if (photos.length === 0 && unique.length > 0) {
+        console.warn(`  WARN: detail page for listing ${listingId} (${year} ${make}) had ${unique.length} CarGurus photo URL(s) but none matched prefix "${prefix}" — skipping to avoid neighbor-photo leak`);
+      }
+    } else {
+      // No year/make to filter by — refuse to assign untagged photos.
+      photos = [];
     }
 
     // Dealer description

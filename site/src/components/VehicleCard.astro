@@ -106,7 +106,7 @@ const monthlyPayment = Math.round(
           <span class="text-xs text-gray-400 font-normal">*</span>
         </div>
       </div>
-      <span class="text-sm text-gray-500">{mileage.toLocaleString()} mi</span>
+      <span class="text-sm text-gray-500">{mileage > 0 ? `${mileage.toLocaleString()} mi` : 'Mileage TBD'}</span>
     </div>
 
     <div class="flex flex-wrap gap-1.5">
