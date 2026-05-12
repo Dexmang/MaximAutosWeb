@@ -440,7 +440,7 @@
       "84,058 miles",
       "Fully inspected, 3-Month Warranty"
     ],
-    "status": "available",
+    "status": "sold",
     "dateAdded": "2026-05-02",
     "featured": true,
     "sortOrder": 0,
@@ -486,7 +486,8 @@
     "description": "At 84,058 miles on a 2019 model, this Camry has been driven less than 12,000 miles per year since new. Stunning condition inside and out, brand new tires, and the kind of overall presentation that is hard to find at this price point.The 2.5L four-cylinder gets 39 MPG on the highway. At current gas prices, that is real money saved every week compared to most cars in this price range. This engine is known for going well past 200,000 miles with basic maintenance.Apple CarPlay, Bluetooth, and a backup camera all come standard. Every purchase includes an independent third-party inspection report and a 3-month warranty. Metal plates issued same day. Financing available for all credit levels.Call or text (847) 510-8947[!@@Additional Info@@!]Power Trunk Release,ABS (4-Wheel),Bluetooth Wireless,4-Cyl 2.5 Liter,Hill Assist Control,Power Door Locks,F 0026R Head Curtain Air Bags,Power Seat,Alarm System,Tilt  0026 Telescoping Wheel,Dual Air Bags,Air Conditioning,CD/MP3 (Single Disc),Lane Departure Warning System,Entune,AM/FM Stereo,Dynamic Cruise Control,Daytime Running Lights,F 0026R Side Air Bags,Alloy Wheels,Enhanced Stability Control,FWD,Automatic 8-Spd w/Sequential Shift,Power Steering,Knee Air Bags,Backup Camera,Keyless Entry,Power Windows,LED Headlamps,Traction Control",
     "dealRating": "GREAT_PRICE",
     "priceSavings": 2232,
-    "missing_since": "2026-05-11T14:33:57.352Z"
+    "missing_since": "2026-05-11T14:33:57.352Z",
+    "sold_date": "2026-05-12"
   },
   {
     "slug": "2015-honda-cr-v-ex-l-awd",
