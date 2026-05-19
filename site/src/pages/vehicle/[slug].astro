@@ -1033,3 +1033,16 @@ const faqSchema = {
 
 <!-- CarGurus per-VIN Deal Badge SDK (renders into [data-cg-vin][data-cg-price] spans) -->
 <script is:inline defer src="https://www.cargurus.com/Cars/badges/getBadge.action?style=STYLE2"></script>
+
+<!-- Fix CarGurus bug: their badge script builds /maps/undefined&cid=... instead of /maps?cid=... -->
+<script is:inline>
+  (function () {
+    function fixMapLinks() {
+      document.querySelectorAll('a[href*="/maps/undefined"]').forEach(function (a) {
+        a.href = a.href.replace('/maps/undefined&', '/maps?');
+      });
+    }
+    fixMapLinks();
+    new MutationObserver(fixMapLinks).observe(document.body, { childList: true, subtree: true });
+  })();
+</script>
