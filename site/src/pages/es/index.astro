@@ -1,22 +1,23 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
-import VehicleCard from '../components/VehicleCard.astro';
-import vehicles from '../data/vehicles.json';
-import reviews from '../data/reviews.json';
-import reviewsMeta from '../data/reviews_meta.json';
-import suburbs from '../data/suburbs.json';
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import VehicleCard from '../../components/VehicleCard.astro';
+import vehicles from '../../data/vehicles.json';
+import reviews from '../../data/reviews.json';
+import reviewsMeta from '../../data/reviews_meta.json';
+import suburbs from '../../data/suburbs.json';
 
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
-const title = 'Used Cars in Skokie, IL | 5-Star Rated | Maxim Autos';
-const description = 'Maxim Autos: fully inspected used cars from $5,000 to $15,000 in Skokie, IL. Metal plates on the spot. Skip the DMV. Financing for all credit levels. 5-star Google reviews.';
+const title = 'Autos Usados en Skokie, IL | Maxim Autos';
+const description = 'Maxim Autos: autos usados completamente inspeccionados de $5,000 a $15,000 en Skokie, IL. Placas el mismo dia. Sin tramites del DMV. Financiamiento para todos los niveles de credito. Resenas de 5 estrellas en Google.';
 const featured = vehicles.filter(v => (v as any).status !== 'sold').slice(0, 6);
 ---
 
 <Layout
   title={title}
   description={description}
+  lang="es"
   hreflangEn="https://www.maximautos.com/"
   hreflangEs="https://www.maximautos.com/es/"
 >
@@ -29,7 +30,7 @@ const featured = vehicles.filter(v => (v as any).status !== 'sold').slice(0, 6);
         "https://www.google.com/maps/place/Maxim+Autos/@42.0464352,-87.7546134,17z/data=!3m1!4b1!4m6!3m5!1s0x880fcfcb0a430aed:0x4d36c77af06ce602!8m2!3d42.0464352!4d-87.7546134!16s%2Fg%2F11wmzx_p4t"
       ],
       "description": description,
-      "url": "https://www.maximautos.com",
+      "url": "https://www.maximautos.com/es/",
       "telephone": "+1-847-510-8947",
       "email": "jerryf@maximautos.com",
       "address": {
@@ -48,39 +49,17 @@ const featured = vehicles.filter(v => (v as any).status !== 'sold').slice(0, 6);
         { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Thursday","Friday"], "opens": "15:00", "closes": "19:00" },
         { "@type": "OpeningHoursSpecification", "dayOfWeek": "Saturday", "opens": "10:00", "closes": "15:00" }
       ],
-      "priceRange": "$5,000 to $15,000",
+      "priceRange": "$5,000 a $15,000",
       "aggregateRating": {
         "@type": "AggregateRating",
         "ratingValue": String(reviewsMeta.rating.toFixed(1)),
         "reviewCount": String(reviewsMeta.count),
         "bestRating": "5"
-      },
-      "areaServed": [
-        { "@type": "City", "name": "Skokie" },
-        { "@type": "City", "name": "Evanston" },
-        { "@type": "City", "name": "Niles" },
-        { "@type": "City", "name": "Morton Grove" },
-        { "@type": "City", "name": "Lincolnwood" },
-        { "@type": "City", "name": "Des Plaines" },
-        { "@type": "City", "name": "Wilmette" },
-        { "@type": "City", "name": "Glenview" }
-      ]
-    })} />
-    <script type="application/ld+json" set:html={JSON.stringify({
-      "@context": "https://schema.org",
-      "@type": "Organization",
-      "name": "Maxim Autos",
-      "url": "https://www.maximautos.com",
-      "logo": "https://www.maximautos.com/brand/logo.png",
-      "sameAs": [
-        "https://www.facebook.com/p/Maxim-Autos-61584813440976/",
-        "https://www.cargurus.com/Cars/m-Maxim-Autos-sp457703",
-        "https://www.cars.com/dealers/6072153/maxim-autos/"
-      ]
+      }
     })} />
   </Fragment>
 
-  <Header slot="header" />
+  <Header slot="header" lang="es" />
 
   <!-- Hero -->
   <section class="bg-navy overflow-hidden md:relative md:min-h-[448px] lg:min-h-[512px] md:flex md:items-center">
@@ -89,16 +68,14 @@ const featured = vehicles.filter(v => (v as any).status !== 'sold').slice(0, 6);
         <source srcset={`${base}/brand/hero-family.webp`} type="image/webp" />
         <img
           src={`${base}/brand/hero-family.jpg`}
-          alt="Family enjoying their car purchased from Maxim Autos in Skokie IL"
+          alt="Familia disfrutando su auto comprado en Maxim Autos en Skokie IL"
           width="1024"
           height="572"
           class="w-full h-auto md:h-full md:object-cover md:object-center"
           loading="eager"
         />
       </picture>
-      <!-- Mobile: fade bottom of photo into navy content area -->
       <div class="md:hidden absolute inset-0 bg-gradient-to-b from-navy/20 to-navy"></div>
-      <!-- Desktop: left-to-right overlay -->
       <div class="hidden md:block absolute inset-0 bg-gradient-to-r from-navy/90 via-navy/70 to-navy/20"></div>
 
       <!-- Rotating review card — lower right, desktop only -->
@@ -111,9 +88,9 @@ const featured = vehicles.filter(v => (v as any).status !== 'sold').slice(0, 6);
               <path fill="#FBBC05" d="M10.6 28.6A14.5 14.5 0 0 1 9.5 24c0-1.6.3-3.2.8-4.6L2.4 13.2A23.9 23.9 0 0 0 0 24c0 3.9.9 7.5 2.5 10.8l8.1-6.2z"/>
               <path fill="#34A853" d="M24 48c6.1 0 11.2-2 14.9-5.4l-7.5-5.8c-2 1.4-4.6 2.2-7.4 2.2-6.2 0-11.5-4.2-13.4-9.8l-8 6.2C6.5 42.5 14.6 48 24 48z"/>
             </svg>
-            <span class="text-gray-500 text-xs font-semibold">Verified Review</span>
+            <span class="text-gray-500 text-xs font-semibold">Resena Verificada</span>
           </div>
-          <div class="flex gap-0.5" aria-label="5 stars">
+          <div class="flex gap-0.5" aria-label="5 estrellas">
             {[1,2,3,4,5].map(() => <span class="text-orange text-sm leading-none">★</span>)}
           </div>
         </div>
@@ -125,7 +102,7 @@ const featured = vehicles.filter(v => (v as any).status !== 'sold').slice(0, 6);
               class="hero-review-dot rounded-full border-0 cursor-pointer bg-gray-300"
               style="width:6px;height:6px;transition:all 0.3s ease;"
               data-index={String(i)}
-              aria-label={'Show review ' + (i + 1)}
+              aria-label={'Mostrar resena ' + (i + 1)}
             ></button>
           ))}
         </div>
@@ -137,22 +114,22 @@ const featured = vehicles.filter(v => (v as any).status !== 'sold').slice(0, 6);
         <a href="https://www.google.com/search?q=Maxim+Autos+Skokie+IL+reviews" target="_blank" rel="noopener"
            class="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 text-white rounded-full px-4 py-2 mb-6 hover:bg-white/20 transition-colors">
           <span class="material-symbols-outlined text-orange text-base" style="font-variation-settings: 'FILL' 1;">star</span>
-          <span class="font-bold text-sm">{reviewsMeta.rating.toFixed(1)} Stars on Google</span>
-          <span class="text-white/60 text-xs">· {reviewsMeta.count} Reviews</span>
+          <span class="font-bold text-sm">{reviewsMeta.rating.toFixed(1)} Estrellas en Google</span>
+          <span class="text-white/60 text-xs">· {reviewsMeta.count} Resenas</span>
         </a>
         <h1 class="font-headline text-4xl md:text-5xl lg:text-6xl font-extrabold text-white leading-tight tracking-tight mb-4">
-          Used Cars <br/>in Skokie, IL
+          Autos Usados <br/>en Skokie, IL
         </h1>
-        <p class="font-headline text-lg md:text-2xl lg:text-3xl font-bold text-white mb-3">5-Star Rated. Same-Day Metal Plates.</p>
+        <p class="font-headline text-lg md:text-2xl lg:text-3xl font-bold text-white mb-3">Autos Usados en los que Puedes Confiar.</p>
         <p class="text-lg md:text-xl text-white/80 mb-7 leading-relaxed">
-          $5K to $15K, hand-picked by the owner. Drive home the same day.
+          De $5K a $15K, seleccionados personalmente por el dueno. Lleva tu auto el mismo dia.
         </p>
         <div class="flex flex-wrap gap-2 mb-8">
           {[
-            { label: 'Under $10K', href: `${base}/inventory?price=under10k` },
+            { label: 'Menos de $10K', href: `${base}/inventory?price=under10k` },
             { label: 'SUVs', href: `${base}/inventory?body=SUV` },
-            { label: 'Sedans', href: `${base}/inventory?body=Sedan` },
-            { label: 'View All', href: `${base}/inventory` },
+            { label: 'Sedanes', href: `${base}/inventory?body=Sedan` },
+            { label: 'Ver Todo', href: `${base}/es/inventario` },
           ].map(chip => (
             <a href={chip.href}
                class="bg-white/15 backdrop-blur-sm border border-white/25 text-white text-sm font-semibold px-4 py-2 rounded-full hover:bg-white/30 transition-all">
@@ -161,9 +138,9 @@ const featured = vehicles.filter(v => (v as any).status !== 'sold').slice(0, 6);
           ))}
         </div>
         <div class="flex flex-col sm:flex-row gap-3">
-          <a href={`${base}/inventory`}
+          <a href={`${base}/es/inventario`}
              class="inline-flex items-center justify-center gap-2 bg-orange text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-orange-dark transition-colors shadow-lg">
-            Browse Inventory <span class="material-symbols-outlined">arrow_forward</span>
+            Ver Inventario <span class="material-symbols-outlined">arrow_forward</span>
           </a>
         </div>
       </div>
@@ -215,17 +192,17 @@ const featured = vehicles.filter(v => (v as any).status !== 'sold').slice(0, 6);
     startTimer();
   </script>
 
-  <!-- Featured Vehicles -->
+  <!-- Vehiculos Destacados -->
   <section class="py-10 bg-surface">
     <div class="max-w-7xl mx-auto px-6 lg:px-8">
       <div class="flex justify-between items-center mb-6">
         <div>
-          <span class="text-orange font-bold uppercase tracking-widest text-sm mb-1 block">Current Inventory</span>
-          <h2 class="font-headline text-2xl md:text-3xl font-extrabold">Hand-Picked. Every One.</h2>
-          <p class="text-gray-500 text-sm mt-1">We don't carry 200 cars. We carry the right ones.</p>
+          <span class="text-orange font-bold uppercase tracking-widest text-sm mb-1 block">Inventario Actual</span>
+          <h2 class="font-headline text-2xl md:text-3xl font-extrabold">Seleccionados a Mano. Cada Uno.</h2>
+          <p class="text-gray-500 text-sm mt-1">No vendemos 200 autos. Vendemos los correctos.</p>
         </div>
-        <a href={`${base}/inventory`} class="flex items-center gap-1 text-navy font-bold hover:text-orange transition-colors text-sm">
-          View All <span class="material-symbols-outlined text-lg">arrow_forward</span>
+        <a href={`${base}/es/inventario`} class="flex items-center gap-1 text-navy font-bold hover:text-orange transition-colors text-sm">
+          Ver Todo <span class="material-symbols-outlined text-lg">arrow_forward</span>
         </a>
       </div>
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -252,22 +229,22 @@ const featured = vehicles.filter(v => (v as any).status !== 'sold').slice(0, 6);
         ))}
       </div>
       <div class="text-center mt-10 md:hidden">
-        <a href={`${base}/inventory`} class="inline-flex items-center gap-2 bg-navy text-white px-8 py-4 rounded-xl font-bold hover:bg-navy-light transition-colors">
-          View All Inventory <span class="material-symbols-outlined">arrow_forward</span>
+        <a href={`${base}/es/inventario`} class="inline-flex items-center gap-2 bg-navy text-white px-8 py-4 rounded-xl font-bold hover:bg-navy-light transition-colors">
+          Ver Todo el Inventario <span class="material-symbols-outlined">arrow_forward</span>
         </a>
       </div>
-      <!-- Shipping callout -->
+      <!-- Entrega nacional -->
       <div class="mt-8 flex items-center justify-center gap-3 bg-navy/5 border border-navy/10 rounded-xl px-6 py-4">
         <span class="material-symbols-outlined text-2xl text-navy shrink-0" style="font-variation-settings:'FILL' 1;">local_shipping</span>
         <p class="text-sm text-gray-700">
-          <span class="font-bold text-navy">Rather buy from home?</span> Complete the entire purchase online — local or nationwide. Pick up or get it delivered.
-          <a href={`${base}/ship`} class="text-orange font-bold hover:underline ml-1">How it works →</a>
+          <span class="font-bold text-navy">Prefiero comprar desde casa?</span> Completa toda la compra en linea, local o a nivel nacional. Recoge en Skokie o pide entrega a domicilio.
+          <a href={`${base}/es/compra-en-linea`} class="text-orange font-bold hover:underline ml-1">Como funciona →</a>
         </p>
       </div>
     </div>
   </section>
 
-  <!-- Three Pillars -->
+  <!-- Tres Pilares -->
   <section class="py-10 bg-white">
     <div class="max-w-7xl mx-auto px-6 lg:px-8">
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -276,8 +253,8 @@ const featured = vehicles.filter(v => (v as any).status !== 'sold').slice(0, 6);
             <span class="material-symbols-outlined text-2xl text-navy" style="font-variation-settings: 'FILL' 1;">verified_user</span>
           </div>
           <div class="min-w-0">
-            <h3 class="font-headline text-base font-bold mb-1">Total Protection</h3>
-            <p class="text-gray-500 text-sm">Independent inspection report included · 3-Month Warranty · Free CARFAX</p>
+            <h3 class="font-headline text-base font-bold mb-1">Proteccion Total</h3>
+            <p class="text-gray-500 text-sm">Reporte de inspeccion independiente incluido · Garantia de 3 meses · CARFAX gratis</p>
           </div>
         </div>
         <div class="flex items-start gap-4 p-4 md:p-6 rounded-xl border border-gray-100 hover:border-orange/20 hover:shadow-md transition-all">
@@ -285,8 +262,8 @@ const featured = vehicles.filter(v => (v as any).status !== 'sold').slice(0, 6);
             <span class="material-symbols-outlined text-2xl text-navy" style="font-variation-settings: 'FILL' 1;">directions_car</span>
           </div>
           <div class="min-w-0">
-            <h3 class="font-headline text-base font-bold mb-1">Skip the DMV</h3>
-            <p class="text-gray-500 text-sm">Metal plates on the spot. Skip the DMV. Drive home today.</p>
+            <h3 class="font-headline text-base font-bold mb-1">Placas el Mismo Dia</h3>
+            <p class="text-gray-500 text-sm">Placas de metal en el momento. Sin tramites del DMV. Maneja a casa hoy.</p>
           </div>
         </div>
         <div class="flex items-start gap-4 p-4 md:p-6 rounded-xl border border-gray-100 hover:border-orange/20 hover:shadow-md transition-all">
@@ -294,15 +271,15 @@ const featured = vehicles.filter(v => (v as any).status !== 'sold').slice(0, 6);
             <span class="material-symbols-outlined text-2xl text-navy" style="font-variation-settings: 'FILL' 1;">sell</span>
           </div>
           <div class="min-w-0">
-            <h3 class="font-headline text-base font-bold mb-1">Transparent Pricing</h3>
-            <p class="text-gray-500 text-sm">No hidden fees · Upfront pricing · Financing for all credit levels</p>
+            <h3 class="font-headline text-base font-bold mb-1">Precios Transparentes</h3>
+            <p class="text-gray-500 text-sm">Sin cargos ocultos · Precios claros · Financiamiento para todos los niveles de credito</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- We Buy Cars -->
+  <!-- Compramos Tu Auto -->
   <section class="py-10 bg-white border-t border-gray-100">
     <div class="max-w-7xl mx-auto px-6 lg:px-8">
       <div class="bg-navy rounded-2xl p-8 md:p-10 flex flex-col md:flex-row items-center gap-6 md:gap-10">
@@ -310,8 +287,8 @@ const featured = vehicles.filter(v => (v as any).status !== 'sold').slice(0, 6);
           <span class="material-symbols-outlined text-4xl text-orange" style="font-variation-settings: 'FILL' 1;">monetization_on</span>
         </div>
         <div class="flex-1 text-center md:text-left">
-          <h2 class="font-headline text-2xl md:text-3xl font-extrabold text-white mb-2">Selling Your Car? We Buy Private Party.</h2>
-          <p class="text-gray-300 text-base">Get a fast, fair cash offer. No dealer games, no lowball tricks. Text Jerry a photo and your asking price.</p>
+          <h2 class="font-headline text-2xl md:text-3xl font-extrabold text-white mb-2">Vendes Tu Auto? Te Compramos Directamente.</h2>
+          <p class="text-gray-300 text-base">Recibe una oferta rapida y justa. Sin juegos de concesionario, sin ofertas bajas. Manda una foto a Jerry con tu precio.</p>
         </div>
         <div class="hidden sm:inline-flex shrink-0 items-center gap-2 bg-white/10 border border-white/20 text-white px-8 py-4 rounded-xl font-bold text-lg whitespace-nowrap">
           <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">phone</span>
@@ -321,7 +298,7 @@ const featured = vehicles.filter(v => (v as any).status !== 'sold').slice(0, 6);
     </div>
   </section>
 
-  <!-- Reviews -->
+  <!-- Resenas -->
   <section class="py-12 bg-navy text-white">
     <div class="max-w-7xl mx-auto px-6 lg:px-8">
       <div class="text-center mb-10">
@@ -330,8 +307,8 @@ const featured = vehicles.filter(v => (v as any).status !== 'sold').slice(0, 6);
             <span class="material-symbols-outlined text-orange text-2xl" style="font-variation-settings: 'FILL' 1;">star</span>
           ))}
         </div>
-        <h2 class="font-headline text-3xl md:text-5xl font-extrabold mb-3">{reviewsMeta.rating.toFixed(1)} Stars on Google</h2>
-        <p class="text-gray-400 text-lg">{reviewsMeta.count}+ reviews from North Shore neighbors</p>
+        <h2 class="font-headline text-3xl md:text-5xl font-extrabold mb-3">{reviewsMeta.rating.toFixed(1)} Estrellas en Google</h2>
+        <p class="text-gray-400 text-lg">{reviewsMeta.count}+ resenas de vecinos del North Shore</p>
       </div>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
         {reviews.map(review => (
@@ -351,19 +328,19 @@ const featured = vehicles.filter(v => (v as any).status !== 'sold').slice(0, 6);
       </div>
       <div class="text-center mt-10">
         <a href={`${base}/testimonials`} class="inline-flex items-center gap-2 text-orange font-bold hover:underline">
-          Read All Reviews <span class="material-symbols-outlined">arrow_forward</span>
+          Leer Todas las Resenas <span class="material-symbols-outlined">arrow_forward</span>
         </a>
       </div>
     </div>
   </section>
 
-  <!-- Serving North Shore -->
+  <!-- Servicio en el North Shore -->
   <section class="py-10 bg-white">
     <div class="max-w-7xl mx-auto px-6 lg:px-8">
       <div class="flex flex-col md:flex-row items-center gap-8">
         <div class="flex-1">
-          <h2 class="font-headline text-2xl md:text-3xl font-extrabold mb-3">Serving Chicago's North Shore</h2>
-          <p class="text-gray-600 mb-4">Located in Skokie. Fully inspected pre-owned cars from $5,000 to $15,000 with financing for all credit levels.</p>
+          <h2 class="font-headline text-2xl md:text-3xl font-extrabold mb-3">Servicio en el North Shore de Chicago</h2>
+          <p class="text-gray-600 mb-4">Ubicados en Skokie. Autos usados completamente inspeccionados de $5,000 a $15,000 con financiamiento para todos los niveles de credito.</p>
           <div class="flex flex-wrap gap-2 mb-5">
             {['Skokie', 'Evanston', 'Niles', 'Morton Grove', 'Lincolnwood', 'Des Plaines', 'Wilmette', 'Glenview', 'Chicago'].map(city => (
               <span class="px-3 py-1.5 bg-surface rounded-full text-sm font-medium text-gray-700 border border-gray-200">{city}</span>
@@ -371,38 +348,16 @@ const featured = vehicles.filter(v => (v as any).status !== 'sold').slice(0, 6);
           </div>
           <a href="https://www.google.com/search?q=Maxim+Autos+9101+Terminal+Ave+Skokie+IL+60077+directions" target="_blank" rel="noopener" class="inline-flex items-center gap-2 bg-navy text-white px-6 py-3 rounded-xl font-bold hover:bg-navy-light transition-colors">
             <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">location_on</span>
-            Get Directions
+            Como Llegar
           </a>
         </div>
-        <div class="w-full h-44 md:w-72 md:h-48 bg-surface rounded-2xl overflow-hidden border border-gray-200">
+        <div class="hidden md:block w-72 h-48 bg-surface rounded-2xl overflow-hidden border border-gray-200">
           <iframe
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2970!2d-87.7546134!3d42.0464352!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x880fcfcb0a430aed%3A0x4d36c77af06ce602!2sMaxim%20Autos!5e0!3m2!1sen!2sus!4v1747612800000!5m2!1sen!2sus"
             width="100%" height="100%" style="border:0;" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
-            title="Maxim Autos location map Skokie IL"
+            title="Ubicacion de Maxim Autos en Skokie IL"
           ></iframe>
         </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Areas We Serve -->
-  <section class="py-12 bg-surface border-t border-gray-100">
-    <div class="max-w-7xl mx-auto px-6 lg:px-8">
-      <div class="text-center mb-8">
-        <span class="text-orange font-bold uppercase tracking-widest text-sm mb-2 block">Service Area</span>
-        <h2 class="font-headline text-2xl md:text-3xl font-extrabold text-navy mb-3">We Bring the Dealership to Your Neighborhood</h2>
-        <p class="text-gray-600 text-base max-w-2xl mx-auto">Serving Skokie, Evanston, Niles, and all surrounding communities on Chicago's North Shore.</p>
-      </div>
-      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-3">
-        {suburbs.map(s => (
-          <a
-            href={`${base}/used-cars-${s.slug}-il`}
-            class="group flex flex-col items-center justify-center text-center p-4 rounded-xl bg-white border border-gray-200 hover:border-orange/40 hover:shadow-md transition-all"
-          >
-            <span class="font-headline font-bold text-navy text-sm group-hover:text-orange transition-colors">{s.city}</span>
-            <span class="text-xs text-gray-400 mt-0.5">Used Cars</span>
-          </a>
-        ))}
       </div>
     </div>
   </section>
@@ -410,15 +365,15 @@ const featured = vehicles.filter(v => (v as any).status !== 'sold').slice(0, 6);
   <!-- CTA Banner -->
   <section class="py-12 bg-navy">
     <div class="max-w-4xl mx-auto px-6 lg:px-8 text-center">
-      <h2 class="font-headline text-3xl md:text-4xl font-extrabold text-white mb-4">Ready to Find Your Next Car?</h2>
-      <p class="text-white/70 text-lg mb-8">Every car hand-picked and personally inspected. Call or text Jerry for a quick response.</p>
+      <h2 class="font-headline text-3xl md:text-4xl font-extrabold text-white mb-4">Listo para Encontrar Tu Proximo Auto?</h2>
+      <p class="text-white/70 text-lg mb-8">Cada auto seleccionado e inspeccionado personalmente. Llama o manda un mensaje de texto a Jerry para una respuesta rapida.</p>
       <div class="flex flex-col sm:flex-row justify-center gap-4">
         <div class="hidden sm:inline-flex items-center justify-center gap-2 bg-orange text-white px-8 py-4 rounded-xl font-bold text-lg">
           <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">phone</span>
           (847) 510-8947
         </div>
-        <a href={`${base}/inventory`} class="inline-flex items-center justify-center gap-2 bg-white/10 text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-white/20 transition-colors border border-white/20">
-          Browse Inventory
+        <a href={`${base}/es/inventario`} class="inline-flex items-center justify-center gap-2 bg-white/10 text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-white/20 transition-colors border border-white/20">
+          Ver Inventario
         </a>
       </div>
     </div>

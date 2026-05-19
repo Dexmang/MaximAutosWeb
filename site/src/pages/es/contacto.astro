@@ -1,86 +1,41 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
-import reviewsMeta from '../data/reviews_meta.json';
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import reviewsMeta from '../../data/reviews_meta.json';
 
-const title = 'Contact Maxim Autos | Used Car Dealer Skokie, IL';
-const description = 'Contact Maxim Autos in Skokie, IL. Call (847) 510-8947, text Jerry, or visit us. Mon/Tue/Thu/Fri 3-7PM, Sat 10AM-3PM. After-hours appointments welcome.';
-
-const localBusinessSchema = {
-  "@context": "https://schema.org",
-  "@type": "AutoDealer",
-  "name": "Maxim Autos",
-  "sameAs": [
-    "https://www.google.com/maps/place/Maxim+Autos/@42.0464352,-87.7546134,17z/data=!3m1!4b1!4m6!3m5!1s0x880fcfcb0a430aed:0x4d36c77af06ce602!8m2!3d42.0464352!4d-87.7546134!16s%2Fg%2F11wmzx_p4t"
-  ],
-  "url": "https://www.maximautos.com",
-  "telephone": "+1-847-510-8947",
-  "email": "jerryf@maximautos.com",
-  "address": {
-    "@type": "PostalAddress",
-    "streetAddress": "9101 Terminal Ave",
-    "addressLocality": "Skokie",
-    "addressRegion": "IL",
-    "postalCode": "60077",
-    "addressCountry": "US"
-  },
-  "geo": {
-    "@type": "GeoCoordinates",
-    "latitude": 42.0334,
-    "longitude": -87.7334
-  },
-  "openingHoursSpecification": [
-    { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Thursday","Friday"], "opens": "15:00", "closes": "19:00" },
-    { "@type": "OpeningHoursSpecification", "dayOfWeek": "Saturday", "opens": "10:00", "closes": "15:00" }
-  ],
-  "aggregateRating": {
-    "@type": "AggregateRating",
-    "ratingValue": String(reviewsMeta.rating.toFixed(1)),
-    "reviewCount": String(reviewsMeta.count),
-    "bestRating": "5"
-  }
-};
+const title = 'Contacto | Maxim Autos Skokie, IL';
+const description = 'Contacta a Maxim Autos en Skokie, IL. Llama al (847) 510-8947, envia un mensaje a Jerry, o visitanos. Lun/Mar/Jue/Vie 3-7PM, Sab 10AM-3PM. Citas fuera de horario bienvenidas.';
 
 const hours = [
-  { days: 'Monday', time: '3:00 PM – 7:00 PM' },
-  { days: 'Tuesday', time: '3:00 PM – 7:00 PM' },
-  { days: 'Wednesday', time: 'Closed' },
-  { days: 'Thursday', time: '3:00 PM – 7:00 PM' },
-  { days: 'Friday', time: '3:00 PM – 7:00 PM' },
-  { days: 'Saturday', time: '10:00 AM – 3:00 PM' },
-  { days: 'Sunday', time: 'Closed' },
+  { days: 'Lunes', time: '3:00 PM – 7:00 PM' },
+  { days: 'Martes', time: '3:00 PM – 7:00 PM' },
+  { days: 'Miercoles', time: 'Cerrado' },
+  { days: 'Jueves', time: '3:00 PM – 7:00 PM' },
+  { days: 'Viernes', time: '3:00 PM – 7:00 PM' },
+  { days: 'Sabado', time: '10:00 AM – 3:00 PM' },
+  { days: 'Domingo', time: 'Cerrado' },
 ];
 ---
 
 <Layout
   title={title}
   description={description}
+  lang="es"
   hreflangEn="https://www.maximautos.com/contact"
   hreflangEs="https://www.maximautos.com/es/contacto"
 >
-  <Fragment slot="structured-data">
-    <script type="application/ld+json" set:html={JSON.stringify(localBusinessSchema)} />
-    <script type="application/ld+json" set:html={JSON.stringify({
-      "@context": "https://schema.org",
-      "@type": "BreadcrumbList",
-      "itemListElement": [
-        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.maximautos.com/" },
-        { "@type": "ListItem", "position": 2, "name": "Contact", "item": "https://www.maximautos.com/contact" }
-      ]
-    })} />
-  </Fragment>
-  <Header slot="header" />
+  <Header slot="header" lang="es" />
 
   <!-- Hero -->
   <section class="bg-navy py-16 lg:py-20">
     <div class="max-w-7xl mx-auto px-6 lg:px-8 text-center">
-      <span class="text-orange font-bold uppercase tracking-widest text-sm mb-3 block">Get in Touch</span>
+      <span class="text-orange font-bold uppercase tracking-widest text-sm mb-3 block">Contáctanos</span>
       <h1 class="font-headline text-4xl md:text-5xl lg:text-6xl font-extrabold text-white leading-tight tracking-tight mb-6">
-        Contact Maxim Autos
+        Contacta a Maxim Autos
       </h1>
       <p class="text-xl text-gray-300 max-w-2xl mx-auto leading-relaxed">
-        Text Jerry for the fastest response. Walk-ins and after-hours appointments always welcome.
+        Envia un mensaje de texto a Jerry para la respuesta mas rapida. Las visitas sin cita y las citas fuera de horario son siempre bienvenidas.
       </p>
     </div>
   </section>
@@ -95,49 +50,47 @@ const hours = [
     </div>
   </section>
 
-  <!-- Two Column: Info + Form -->
+  <!-- Informacion + Formulario -->
   <section class="py-20 bg-white">
     <div class="max-w-7xl mx-auto px-6 lg:px-8">
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
 
-        <!-- Left: Contact Info + Map -->
+        <!-- Izquierda: Informacion + Mapa -->
         <div>
-          <h2 class="font-headline text-2xl font-extrabold mb-8">Dealership Information</h2>
+          <h2 class="font-headline text-2xl font-extrabold mb-8">Informacion del Concesionario</h2>
 
-          <!-- Contact Details -->
           <div class="space-y-4 mb-10">
             <div class="flex items-start gap-4">
               <span class="material-symbols-outlined text-orange text-2xl mt-0.5" style="font-variation-settings: 'FILL' 1;">location_on</span>
               <div>
-                <p class="font-bold text-gray-900">Address</p>
+                <p class="font-bold text-gray-900">Direccion</p>
                 <p class="text-gray-600">9101 Terminal Ave<br/>Skokie, IL 60077</p>
               </div>
             </div>
             <div class="flex items-start gap-4">
               <span class="material-symbols-outlined text-orange text-2xl mt-0.5" style="font-variation-settings: 'FILL' 1;">phone</span>
               <div>
-                <p class="font-bold text-gray-900">Phone</p>
+                <p class="font-bold text-gray-900">Telefono</p>
                 <a href="tel:8475108947" class="text-gray-600 hover:text-navy transition-colors">(847) 510-8947</a>
               </div>
             </div>
             <div class="flex items-start gap-4">
               <span class="material-symbols-outlined text-orange text-2xl mt-0.5" style="font-variation-settings: 'FILL' 1;">mail</span>
               <div>
-                <p class="font-bold text-gray-900">Email</p>
+                <p class="font-bold text-gray-900">Correo</p>
                 <a href="mailto:jerryf@maximautos.com" class="text-gray-600 hover:text-navy transition-colors">jerryf@maximautos.com</a>
               </div>
             </div>
           </div>
 
-          <!-- Business Hours -->
-          <h3 class="font-headline text-xl font-bold mb-4">Business Hours</h3>
+          <h3 class="font-headline text-xl font-bold mb-4">Horario de Atencion</h3>
           <div class="bg-surface rounded-xl border border-gray-200 overflow-hidden mb-6">
             <table class="w-full text-sm">
               <tbody>
                 {hours.map(row => (
                   <tr class="border-b border-gray-100 last:border-0">
                     <td class="px-5 py-3 font-medium text-gray-900">{row.days}</td>
-                    <td class:list={['px-5 py-3 text-right', row.time === 'Closed' ? 'text-gray-400 font-medium' : 'text-gray-700']}>
+                    <td class:list={['px-5 py-3 text-right', row.time === 'Cerrado' ? 'text-gray-400 font-medium' : 'text-gray-700']}>
                       {row.time}
                     </td>
                   </tr>
@@ -146,10 +99,9 @@ const hours = [
             </table>
           </div>
           <p class="text-orange font-semibold italic text-sm mb-10">
-            After-hours appointments welcome. Text Jerry at (847) 510-8947
+            Citas fuera de horario bienvenidas. Envia un mensaje a Jerry al (847) 510-8947
           </p>
 
-          <!-- Google Maps Embed -->
           <div class="rounded-xl overflow-hidden border border-gray-200 aspect-video">
             <iframe
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2970!2d-87.7546134!3d42.0464352!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x880fcfcb0a430aed%3A0x4d36c77af06ce602!2sMaxim%20Autos!5e0!3m2!1sen!2sus!4v1747612800000!5m2!1sen!2sus"
@@ -159,41 +111,41 @@ const hours = [
               allowfullscreen=""
               loading="lazy"
               referrerpolicy="no-referrer-when-downgrade"
-              title="Maxim Autos location, 9101 Terminal Ave, Skokie IL"
+              title="Ubicacion de Maxim Autos, 9101 Terminal Ave, Skokie IL"
             ></iframe>
           </div>
         </div>
 
-        <!-- Right: Contact Form -->
+        <!-- Derecha: Formulario -->
         <div>
-          <h2 class="font-headline text-2xl font-extrabold mb-8">Send a Message</h2>
+          <h2 class="font-headline text-2xl font-extrabold mb-8">Envianos un Mensaje</h2>
           <form id="contact-form" action="https://formspree.io/f/xvzdgvan" method="POST" class="space-y-6">
-            <input type="hidden" name="_subject" value="Contact Form — Maxim Autos" />
+            <input type="hidden" name="_subject" value="Formulario de Contacto — Maxim Autos (ES)" />
             <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" />
             <div>
-              <label for="contact-name" class="block text-sm font-medium text-gray-700 mb-2">Name</label>
+              <label for="contact-name" class="block text-sm font-medium text-gray-700 mb-2">Nombre</label>
               <input
                 type="text"
                 id="contact-name"
                 name="name"
                 required
                 class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-orange focus:ring-2 focus:ring-orange/20 transition-colors text-gray-900"
-                placeholder="Your name"
+                placeholder="Tu nombre"
               />
             </div>
             <div>
-              <label for="contact-email" class="block text-sm font-medium text-gray-700 mb-2">Email</label>
+              <label for="contact-email" class="block text-sm font-medium text-gray-700 mb-2">Correo Electronico</label>
               <input
                 type="email"
                 id="contact-email"
                 name="email"
                 required
                 class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-orange focus:ring-2 focus:ring-orange/20 transition-colors text-gray-900"
-                placeholder="you@email.com"
+                placeholder="tu@correo.com"
               />
             </div>
             <div>
-              <label for="contact-phone" class="block text-sm font-medium text-gray-700 mb-2">Phone</label>
+              <label for="contact-phone" class="block text-sm font-medium text-gray-700 mb-2">Telefono</label>
               <input
                 type="tel"
                 id="contact-phone"
@@ -203,26 +155,26 @@ const hours = [
               />
             </div>
             <div>
-              <label for="contact-preferred" class="block text-sm font-medium text-gray-700 mb-2">Preferred Contact Method</label>
+              <label for="contact-preferred" class="block text-sm font-medium text-gray-700 mb-2">Metodo de Contacto Preferido</label>
               <select
                 id="contact-preferred"
                 name="preferred_contact"
                 class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-orange focus:ring-2 focus:ring-orange/20 transition-colors text-gray-900"
               >
-                <option value="text">Text</option>
-                <option value="call">Call</option>
-                <option value="email">Email</option>
+                <option value="text">Mensaje de texto</option>
+                <option value="call">Llamada</option>
+                <option value="email">Correo electronico</option>
               </select>
             </div>
             <div>
-              <label for="contact-message" class="block text-sm font-medium text-gray-700 mb-2">Message</label>
+              <label for="contact-message" class="block text-sm font-medium text-gray-700 mb-2">Mensaje</label>
               <textarea
                 id="contact-message"
                 name="message"
                 rows="5"
                 required
                 class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-orange focus:ring-2 focus:ring-orange/20 transition-colors text-gray-900 resize-none"
-                placeholder="Tell us what you're looking for..."
+                placeholder="Dinos lo que estas buscando..."
               ></textarea>
             </div>
             <button
@@ -230,7 +182,7 @@ const hours = [
               class="w-full bg-orange text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-orange-dark transition-colors flex items-center justify-center gap-2"
             >
               <span class="material-symbols-outlined">send</span>
-              Send Message
+              Enviar Mensaje
             </button>
           </form>
         </div>
@@ -248,34 +200,33 @@ const hours = [
   if (!form) return;
   form.addEventListener('submit', function (e) {
     e.preventDefault();
-    // Formspree not yet configured — route to SMS
     if (form.action.includes('YOUR_')) {
       var name = (document.getElementById('contact-name').value || '').trim();
       var msg = (document.getElementById('contact-message').value || '').trim();
-      var body = encodeURIComponent('Hi Jerry, I\'m ' + (name || 'a visitor') + '. ' + msg);
+      var body = encodeURIComponent('Hola Jerry, soy ' + (name || 'un visitante') + '. ' + msg);
       window.location.href = 'sms:8475108947&body=' + body;
       return;
     }
     var btn = form.querySelector('button[type="submit"]');
     var origText = btn.innerHTML;
     btn.disabled = true;
-    btn.innerHTML = '<span class="material-symbols-outlined animate-spin">sync</span> Sending...';
+    btn.innerHTML = '<span class="material-symbols-outlined animate-spin">sync</span> Enviando...';
     fetch(form.action, {
       method: 'POST',
       body: new FormData(form),
       headers: { 'Accept': 'application/json' }
     }).then(function (res) {
       if (res.ok) {
-        form.innerHTML = '<div class="text-center py-12"><span class="material-symbols-outlined text-5xl text-green-500 mb-4 block" style="font-variation-settings:\'FILL\' 1;">check_circle</span><h3 class="font-headline text-xl font-bold text-navy mb-2">Message Sent!</h3><p class="text-gray-600">Jerry will follow up shortly. After hours? He checks texts too.</p></div>';
+        form.innerHTML = '<div class="text-center py-12"><span class="material-symbols-outlined text-5xl text-green-500 mb-4 block" style="font-variation-settings:\'FILL\' 1;">check_circle</span><h3 class="font-headline text-xl font-bold text-navy mb-2">Mensaje Enviado!</h3><p class="text-gray-600">Jerry te respondera pronto. Fuera de horario? El revisa mensajes de texto tambien.</p></div>';
       } else {
         btn.disabled = false;
         btn.innerHTML = origText;
-        alert('Something went wrong. Please text Jerry directly at (847) 510-8947.');
+        alert('Algo salio mal. Por favor envia un mensaje de texto a Jerry directamente al (847) 510-8947.');
       }
     }).catch(function () {
       btn.disabled = false;
       btn.innerHTML = origText;
-      alert('Something went wrong. Please text Jerry directly at (847) 510-8947.');
+      alert('Algo salio mal. Por favor envia un mensaje de texto a Jerry directamente al (847) 510-8947.');
     });
   });
 })();
