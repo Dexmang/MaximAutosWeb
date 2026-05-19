@@ -44,7 +44,17 @@ const ogImageAbsolute = new URL(ogImage ?? `${base}/brand/hero-family.jpg`, site
     <title>{fullTitle}</title>
 
     <link rel="canonical" href={canonical} />
-    <link rel="icon" href={`${base}/brand/logo-header.png`} type="image/png" />
+
+    <!-- Favicons (full asset set) -->
+    <link rel="icon" type="image/x-icon" href={`${base}/favicon.ico`} />
+    <link rel="icon" type="image/png" sizes="16x16" href={`${base}/favicon-16x16.png`} />
+    <link rel="icon" type="image/png" sizes="32x32" href={`${base}/favicon-32x32.png`} />
+    <link rel="icon" type="image/png" sizes="48x48" href={`${base}/favicon-48x48.png`} />
+    <link rel="apple-touch-icon" sizes="180x180" href={`${base}/apple-touch-icon.png`} />
+    <link rel="manifest" href={`${base}/site.webmanifest`} />
+    <meta name="theme-color" content="#f08010" />
+    <meta name="msapplication-TileColor" content="#f08010" />
+    <meta name="msapplication-TileImage" content={`${base}/mstile-150x150.png`} />
 
     <!-- hreflang alternate links for i18n -->
     {hreflangEn && <link rel="alternate" hreflang="en" href={hreflangEn} />}
@@ -78,6 +88,20 @@ const ogImageAbsolute = new URL(ogImage ?? `${base}/brand/hero-family.jpg`, site
         font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
       }
     </style>
+
+    <!-- Organization schema — emitted on every page so SERP/knowledge-panel logo signal is universal -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Maxim Autos",
+      "url": "https://www.maximautos.com",
+      "logo": "https://www.maximautos.com/brand/logo-512.png",
+      "sameAs": [
+        "https://www.facebook.com/p/Maxim-Autos-61584813440976/",
+        "https://www.cargurus.com/Cars/m-Maxim-Autos-sp457703",
+        "https://www.cars.com/dealers/6072153/maxim-autos/"
+      ]
+    })} />
 
     <!-- Structured Data Slot -->
     <slot name="structured-data" />

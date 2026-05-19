@@ -25,6 +25,7 @@ const featured = vehicles.filter(v => (v as any).status !== 'sold').slice(0, 6);
       "@context": "https://schema.org",
       "@type": "AutoDealer",
       "name": "Maxim Autos",
+      "logo": "https://www.maximautos.com/brand/logo-512.png",
       "sameAs": [
         "https://www.google.com/maps/place/Maxim+Autos/@42.0464352,-87.7546134,17z/data=!3m1!4b1!4m6!3m5!1s0x880fcfcb0a430aed:0x4d36c77af06ce602!8m2!3d42.0464352!4d-87.7546134!16s%2Fg%2F11wmzx_p4t"
       ],
@@ -64,18 +65,6 @@ const featured = vehicles.filter(v => (v as any).status !== 'sold').slice(0, 6);
         { "@type": "City", "name": "Des Plaines" },
         { "@type": "City", "name": "Wilmette" },
         { "@type": "City", "name": "Glenview" }
-      ]
-    })} />
-    <script type="application/ld+json" set:html={JSON.stringify({
-      "@context": "https://schema.org",
-      "@type": "Organization",
-      "name": "Maxim Autos",
-      "url": "https://www.maximautos.com",
-      "logo": "https://www.maximautos.com/brand/logo.png",
-      "sameAs": [
-        "https://www.facebook.com/p/Maxim-Autos-61584813440976/",
-        "https://www.cargurus.com/Cars/m-Maxim-Autos-sp457703",
-        "https://www.cars.com/dealers/6072153/maxim-autos/"
       ]
     })} />
   </Fragment>
