@@ -436,7 +436,7 @@
       "42,848 miles",
       "Fully inspected, 3-Month Warranty"
     ],
-    "status": "available",
+    "status": "sold",
     "dateAdded": "2026-05-19",
     "featured": true,
     "sortOrder": 0,
@@ -458,7 +458,8 @@
     "description": "2014 Volkswagen Jetta SE with 42,848 miles. Fully inspected, 3-Month Warranty. Same-day metal plates. Financing available. Located at Maxim Autos in Skokie, IL.",
     "dealRating": "FAIR_PRICE",
     "priceSavings": 425,
-    "missing_since": "2026-05-22T08:51:45.594Z"
+    "missing_since": "2026-05-22T08:51:45.594Z",
+    "sold_date": "2026-05-22"
   },
   {
     "slug": "2008-jaguar-xj-series-xj8-l-rwd",
