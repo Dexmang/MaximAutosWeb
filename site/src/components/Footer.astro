@@ -1,47 +1,95 @@
 ---
 import suburbs from '../data/suburbs.json';
 
-interface Props {}
+interface Props {
+  lang?: string;
+}
+
+const { lang = 'en' } = Astro.props;
+const isSpanish = lang === 'es';
 
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 const currentYear = new Date().getFullYear();
 
-const invHref  = `${base}/inventory`;
-const finHref  = `${base}/financing`;
-const applyHref = `${base}/apply`;
+const invHref      = isSpanish ? `${base}/es/inventario`            : `${base}/inventory`;
+const finHref      = isSpanish ? `${base}/es/financiamiento`        : `${base}/financing`;
+const applyHref    = isSpanish ? `${base}/es/aplicacion-de-credito` : `${base}/apply`;
+const sellHref     = isSpanish ? `${base}/es/vender-intercambiar`   : `${base}/sell-trade`;
+const shipHref     = isSpanish ? `${base}/es/compra-en-linea`       : `${base}/ship`;
+const aboutHref    = isSpanish ? `${base}/es/sobre-nosotros`        : `${base}/about`;
+const contactHref  = isSpanish ? `${base}/es/contacto`              : `${base}/contact`;
+// English-only fallback (no Spanish equivalents per scope)
+const reviewsHref      = `${base}/testimonials`;
+const faqHref          = `${base}/faq`;
+const privacyHref      = `${base}/privacy-policy`;
+const termsHref        = `${base}/terms`;
+const returnPolicyHref = `${base}/return-policy`;
 
-const labels = {
-  tagline:           'Quality used cars in Skokie, IL. Every vehicle inspected, every price transparent, every customer protected.',
-  hours:             'Business Hours',
-  days1:             'Mon / Tue / Thu / Fri',
-  time1:             '3:00 PM – 7:00 PM',
-  days2:             'Saturday',
-  time2:             '10:00 AM – 3:00 PM',
-  days3:             'Wednesday / Sunday',
-  closed:            'Closed',
-  afterHours:        'After-hours appointments welcome. Text Jerry at (847) 510-8947',
-  quickLinks:        'Quick Links',
-  browseInventory:   'Browse Inventory',
-  financing:         'Financing',
-  sellTrade:         'Sell / Trade',
-  deliveredAnywhere: 'Delivered Anywhere in the U.S.',
-  about:             'About Jerry',
-  reviews:           'Reviews',
-  faq:               'FAQ',
-  contact:           'Contact',
-  areasServed:       'Areas We Serve',
-  usedCars:          'Used Cars',
-  allRightsReserved: 'All rights reserved.',
-  privacy:           'Privacy Policy',
-  terms:             'Terms of Use',
-  returnPolicy:      'Return Policy',
-  privateClient:     'Private Client',
-  taglineShort:      'Fully Inspected • Used Cars Skokie IL',
-  mobileText:        'Text Jerry',
-  mobileCall:        'Call',
-  mobileDirections:  'Directions',
-  mobilePreQualify:  'Pre-Qualify',
-};
+const labels = isSpanish
+  ? {
+      tagline:           'Autos usados de calidad en Skokie, IL. Cada vehiculo inspeccionado, cada precio transparente, cada cliente protegido.',
+      hours:             'Horario',
+      days1:             'Lun / Mar / Jue / Vie',
+      time1:             '3:00 PM – 7:00 PM',
+      days2:             'Sabado',
+      time2:             '10:00 AM – 3:00 PM',
+      days3:             'Miercoles / Domingo',
+      closed:            'Cerrado',
+      afterHours:        'Citas fuera de horario bienvenidas. Escribe a Jerry al (847) 510-8947',
+      quickLinks:        'Enlaces',
+      browseInventory:   'Ver Inventario',
+      financing:         'Financiamiento',
+      sellTrade:         'Vender / Cambiar',
+      deliveredAnywhere: 'Entrega en Todo EE.UU.',
+      about:             'Sobre Jerry',
+      reviews:           'Resenas',
+      faq:               'Preguntas',
+      contact:           'Contacto',
+      areasServed:       'Areas que Servimos',
+      usedCars:          'Autos Usados',
+      allRightsReserved: 'Todos los derechos reservados.',
+      privacy:           'Politica de Privacidad',
+      terms:             'Terminos de Uso',
+      returnPolicy:      'Politica de Devolucion',
+      privateClient:     'Cliente Privado',
+      taglineShort:      'Totalmente Inspeccionados • Autos Usados Skokie IL',
+      mobileText:        'Escribe',
+      mobileCall:        'Llamar',
+      mobileDirections:  'Direcciones',
+      mobilePreQualify:  'Pre-Califica',
+    }
+  : {
+      tagline:           'Quality used cars in Skokie, IL. Every vehicle inspected, every price transparent, every customer protected.',
+      hours:             'Business Hours',
+      days1:             'Mon / Tue / Thu / Fri',
+      time1:             '3:00 PM – 7:00 PM',
+      days2:             'Saturday',
+      time2:             '10:00 AM – 3:00 PM',
+      days3:             'Wednesday / Sunday',
+      closed:            'Closed',
+      afterHours:        'After-hours appointments welcome. Text Jerry at (847) 510-8947',
+      quickLinks:        'Quick Links',
+      browseInventory:   'Browse Inventory',
+      financing:         'Financing',
+      sellTrade:         'Sell / Trade',
+      deliveredAnywhere: 'Delivered Anywhere in the U.S.',
+      about:             'About Jerry',
+      reviews:           'Reviews',
+      faq:               'FAQ',
+      contact:           'Contact',
+      areasServed:       'Areas We Serve',
+      usedCars:          'Used Cars',
+      allRightsReserved: 'All rights reserved.',
+      privacy:           'Privacy Policy',
+      terms:             'Terms of Use',
+      returnPolicy:      'Return Policy',
+      privateClient:     'Private Client',
+      taglineShort:      'Fully Inspected • Used Cars Skokie IL',
+      mobileText:        'Text Jerry',
+      mobileCall:        'Call',
+      mobileDirections:  'Directions',
+      mobilePreQualify:  'Pre-Qualify',
+    };
 ---
 
 <footer class="bg-gray-950 text-gray-400">
@@ -92,12 +140,12 @@ const labels = {
       <ul class="space-y-3 text-sm">
         <li><a class="hover:text-white transition-colors" href={invHref}>{labels.browseInventory}</a></li>
         <li><a class="hover:text-white transition-colors" href={finHref}>{labels.financing}</a></li>
-        <li><a class="hover:text-white transition-colors" href={`${base}/sell-trade`}>{labels.sellTrade}</a></li>
-        <li><a class="hover:text-white transition-colors" href={`${base}/ship`}>{labels.deliveredAnywhere}</a></li>
-        <li><a class="hover:text-white transition-colors" href={`${base}/about`}>{labels.about}</a></li>
-        <li><a class="hover:text-white transition-colors" href={`${base}/testimonials`}>{labels.reviews}</a></li>
-        <li><a class="hover:text-white transition-colors" href={`${base}/faq`}>{labels.faq}</a></li>
-        <li><a class="hover:text-white transition-colors" href={`${base}/contact`}>{labels.contact}</a></li>
+        <li><a class="hover:text-white transition-colors" href={sellHref}>{labels.sellTrade}</a></li>
+        <li><a class="hover:text-white transition-colors" href={shipHref}>{labels.deliveredAnywhere}</a></li>
+        <li><a class="hover:text-white transition-colors" href={aboutHref}>{labels.about}</a></li>
+        <li><a class="hover:text-white transition-colors" href={reviewsHref}>{labels.reviews}</a></li>
+        <li><a class="hover:text-white transition-colors" href={faqHref}>{labels.faq}</a></li>
+        <li><a class="hover:text-white transition-colors" href={contactHref}>{labels.contact}</a></li>
       </ul>
     </div>
 
@@ -120,11 +168,11 @@ const labels = {
     <span>
       &copy; {currentYear} Maxim Autos. Skokie, IL. {labels.allRightsReserved}
       &nbsp;&middot;&nbsp;
-      <a href={`${base}/privacy-policy`} class="hover:text-white transition-colors">{labels.privacy}</a>
+      <a href={privacyHref} class="hover:text-white transition-colors">{labels.privacy}</a>
       &nbsp;&middot;&nbsp;
-      <a href={`${base}/terms`} class="hover:text-white transition-colors">{labels.terms}</a>
+      <a href={termsHref} class="hover:text-white transition-colors">{labels.terms}</a>
       &nbsp;&middot;&nbsp;
-      <a href={`${base}/return-policy`} class="hover:text-white transition-colors">{labels.returnPolicy}</a>
+      <a href={returnPolicyHref} class="hover:text-white transition-colors">{labels.returnPolicy}</a>
       &nbsp;&middot;&nbsp;
       <a href="https://vault007.com" rel="nofollow noopener" target="_blank" class="hover:text-white transition-colors">{labels.privateClient}</a>
     </span>

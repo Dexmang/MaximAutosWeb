@@ -13,7 +13,7 @@ interface Props {
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 const {
   title,
-  description = 'Quality used cars in Skokie, IL. Every vehicle inspected, every price transparent. Metal plates on the spot. Skip the DMV. Financing for all credit levels. Maxim Autos.',
+  description,
   ogImage,
   canonicalUrl,
   noIndex = false,
@@ -21,6 +21,36 @@ const {
   hreflangEn,
   hreflangEs,
 } = Astro.props;
+
+const isSpanish = lang === 'es';
+const defaultDescription = isSpanish
+  ? 'Maxim Autos: autos usados completamente inspeccionados de $5,000 a $15,000 en Skokie, IL. Placas el mismo dia. Sin tramites del DMV. Financiamiento para todos los niveles de credito. Resenas de 5 estrellas en Google.'
+  : 'Quality used cars in Skokie, IL. Every vehicle inspected, every price transparent. Metal plates on the spot. Skip the DMV. Financing for all credit levels. Maxim Autos.';
+const resolvedDescription = description ?? defaultDescription;
+
+const trust = isSpanish
+  ? {
+      heading: 'Por que confian en nosotros',
+      protection: 'Proteccion Total',
+      protectionDetail: 'Inspeccion · Garantia 3 Meses · CARFAX',
+      protectionHref: `${base}/es/sobre-nosotros`,
+      skipDmv: 'Sin tramites del DMV',
+      skipDmvDetail: 'Placas el mismo dia',
+      pricing: 'Precios Transparentes',
+      pricingDetail: 'Sin cargos ocultos · Todos los creditos bienvenidos',
+      pricingHref: `${base}/es/financiamiento`,
+    }
+  : {
+      heading: 'Why Buyers Trust Us',
+      protection: 'Total Protection',
+      protectionDetail: 'Inspection · 3-Mo Warranty · CARFAX',
+      protectionHref: `${base}/about`,
+      skipDmv: 'Skip the DMV',
+      skipDmvDetail: 'Metal plates on the spot',
+      pricing: 'Transparent Pricing',
+      pricingDetail: 'No hidden fees · All credit welcome',
+      pricingHref: `${base}/financing`,
+    };
 
 const siteName = 'Maxim Autos';
 // Dedupe: if title already contains siteName, don't append it again
@@ -38,7 +68,7 @@ const ogImageAbsolute = new URL(ogImage ?? `${base}/brand/hero-family.jpg`, site
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content={description} />
+    <meta name="description" content={resolvedDescription} />
     <meta name="generator" content={Astro.generator} />
 
     <title>{fullTitle}</title>
@@ -65,7 +95,7 @@ const ogImageAbsolute = new URL(ogImage ?? `${base}/brand/hero-family.jpg`, site
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content={siteName} />
     <meta property="og:title" content={fullTitle} />
-    <meta property="og:description" content={description} />
+    <meta property="og:description" content={resolvedDescription} />
     <meta property="og:image" content={ogImageAbsolute} />
     <meta property="og:url" content={canonical} />
 
@@ -73,7 +103,7 @@ const ogImageAbsolute = new URL(ogImage ?? `${base}/brand/hero-family.jpg`, site
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:site" content="@MaximAutosSkokie" />
     <meta name="twitter:title" content={fullTitle} />
-    <meta name="twitter:description" content={description} />
+    <meta name="twitter:description" content={resolvedDescription} />
     <meta name="twitter:image" content={ogImageAbsolute} />
 
     <!-- Fonts -->
@@ -128,24 +158,24 @@ const ogImageAbsolute = new URL(ogImage ?? `${base}/brand/hero-family.jpg`, site
     <div class="bg-orange text-white py-2">
       <div class="max-w-7xl mx-auto px-4">
         <div class="flex flex-wrap items-center gap-x-3 gap-y-1 text-xs">
-          <span class="font-bold uppercase tracking-widest text-white/80 shrink-0">Why Buyers Trust Us</span>
+          <span class="font-bold uppercase tracking-widest text-white/80 shrink-0">{trust.heading}</span>
           <span class="text-white/40 hidden sm:block">|</span>
-          <a href={`${base}/about`} class="flex items-center gap-1 hover:underline shrink-0">
+          <a href={trust.protectionHref} class="flex items-center gap-1 hover:underline shrink-0">
             <span class="material-symbols-outlined text-sm" style="font-variation-settings:'FILL' 1;">verified_user</span>
-            <span class="font-bold">Total Protection</span>
-            <span class="text-white/70 hidden lg:inline">· Inspection · 3-Mo Warranty · CARFAX</span>
+            <span class="font-bold">{trust.protection}</span>
+            <span class="text-white/70 hidden lg:inline">· {trust.protectionDetail}</span>
           </a>
           <span class="text-white/40 hidden sm:block">·</span>
           <div class="flex items-center gap-1 shrink-0">
             <span class="material-symbols-outlined text-sm" style="font-variation-settings:'FILL' 1;">directions_car</span>
-            <span class="font-bold">Skip the DMV</span>
-            <span class="text-white/70 hidden lg:inline">· Metal plates on the spot</span>
+            <span class="font-bold">{trust.skipDmv}</span>
+            <span class="text-white/70 hidden lg:inline">· {trust.skipDmvDetail}</span>
           </div>
           <span class="text-white/40 hidden sm:block">·</span>
-          <a href={`${base}/financing`} class="flex items-center gap-1 hover:underline shrink-0">
+          <a href={trust.pricingHref} class="flex items-center gap-1 hover:underline shrink-0">
             <span class="material-symbols-outlined text-sm" style="font-variation-settings:'FILL' 1;">sell</span>
-            <span class="font-bold">Transparent Pricing</span>
-            <span class="text-white/70 hidden lg:inline">· No hidden fees · All credit welcome</span>
+            <span class="font-bold">{trust.pricing}</span>
+            <span class="text-white/70 hidden lg:inline">· {trust.pricingDetail}</span>
           </a>
         </div>
       </div>

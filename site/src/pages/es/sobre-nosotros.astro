@@ -1,0 +1,158 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const title = 'Sobre Nosotros | Maxim Autos Skokie, IL';
+const description = 'Conoce a Jerry, dueno de Maxim Autos. Cada vehiculo inspeccionado personalmente, cada precio transparente, cada cliente protegido. Resenas de 5 estrellas en Google. Skokie, IL.';
+---
+
+<Layout
+  title={title}
+  description={description}
+  lang="es"
+  hreflangEn="https://www.maximautos.com/about"
+  hreflangEs="https://www.maximautos.com/es/sobre-nosotros"
+>
+  <Header slot="header" lang="es" />
+
+  <!-- Hero -->
+  <section class="bg-navy py-16 lg:py-20">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8 text-center">
+      <span class="text-orange font-bold uppercase tracking-widest text-sm mb-3 block">Sobre Nosotros</span>
+      <h1 class="font-headline text-4xl md:text-5xl lg:text-6xl font-extrabold text-white leading-tight tracking-tight mb-6">
+        Dirigido por el Dueno. <br class="hidden md:block" />Inspeccionado Personalmente.
+      </h1>
+      <p class="text-xl text-gray-300 max-w-2xl mx-auto leading-relaxed">
+        Cada auto inspeccionado. Cada precio transparente. Cada cliente protegido.
+      </p>
+    </div>
+  </section>
+
+  <!-- Conoce a Jerry -->
+  <section class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div class="rounded-2xl overflow-hidden shadow-lg">
+          <img
+            src={`${base}/brand/jerry.jpg`}
+            alt="Jerry Franco, dueno de Maxim Autos, inspeccionando un vehiculo con un cliente en Skokie IL"
+            class="w-full h-full object-cover"
+            loading="eager"
+          />
+        </div>
+
+        <div>
+          <span class="text-orange font-bold uppercase tracking-widest text-sm mb-3 block">Conoce al Dueno</span>
+          <h2 class="font-headline text-3xl md:text-4xl font-extrabold mb-6">Jerry</h2>
+          <div class="space-y-4 text-gray-600 text-lg leading-relaxed">
+            <p>
+              Jerry fundo Maxim Autos con una idea clara: vender buenos autos a precios justos y tratar a cada comprador como le gustaria ser tratado.
+            </p>
+            <p>
+              Cada vehiculo en el lote fue seleccionado personalmente por Jerry. El revisa cada reporte de inspeccion, cada CARFAX y fija cada precio. Cuando tienes una pregunta, hablas con el dueno. La misma persona que eligio el auto y lo respalda.
+            </p>
+            <p>
+              Sin presion. Sin cargos ocultos. Sin juegos. Precios transparentes con atencion personal de principio a fin.
+            </p>
+            <p class="text-navy font-semibold italic border-l-4 border-orange pl-4">
+              "Cada auto inspeccionado. Cada precio transparente. Cada cliente protegido." - Jerry
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tres Pilares -->
+  <section class="py-20 bg-surface">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+      <div class="text-center mb-14">
+        <span class="text-orange font-bold uppercase tracking-widest text-sm mb-3 block">La Diferencia de Maxim Autos</span>
+        <h2 class="font-headline text-3xl md:text-4xl font-extrabold">Tres Pilares de Confianza</h2>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="text-center p-8 rounded-xl bg-white border border-gray-100 hover:border-orange/20 hover:shadow-md transition-all">
+          <div class="w-16 h-16 bg-navy/5 rounded-2xl flex items-center justify-center mx-auto mb-6">
+            <span class="material-symbols-outlined text-4xl text-navy" style="font-variation-settings: 'FILL' 1;">verified_user</span>
+          </div>
+          <h3 class="font-headline text-xl font-bold mb-3">Proteccion Total</h3>
+          <ul class="text-gray-600 text-sm space-y-2">
+            <li>Reporte de inspeccion independiente incluido</li>
+            <li>Reporte CARFAX gratis incluido</li>
+            <li>Vehiculos completamente inspeccionados</li>
+          </ul>
+        </div>
+        <div class="text-center p-8 rounded-xl bg-white border border-gray-100 hover:border-orange/20 hover:shadow-md transition-all">
+          <div class="w-16 h-16 bg-navy/5 rounded-2xl flex items-center justify-center mx-auto mb-6">
+            <span class="material-symbols-outlined text-4xl text-navy" style="font-variation-settings: 'FILL' 1;">directions_car</span>
+          </div>
+          <h3 class="font-headline text-xl font-bold mb-3">Placas el Mismo Dia</h3>
+          <ul class="text-gray-600 text-sm space-y-2">
+            <li>Placas de metal en el momento. Sin tramites del DMV.</li>
+            <li>Maneja a casa hoy</li>
+          </ul>
+        </div>
+        <div class="text-center p-8 rounded-xl bg-white border border-gray-100 hover:border-orange/20 hover:shadow-md transition-all">
+          <div class="w-16 h-16 bg-navy/5 rounded-2xl flex items-center justify-center mx-auto mb-6">
+            <span class="material-symbols-outlined text-4xl text-navy" style="font-variation-settings: 'FILL' 1;">sell</span>
+          </div>
+          <h3 class="font-headline text-xl font-bold mb-3">Precios Transparentes</h3>
+          <ul class="text-gray-600 text-sm space-y-2">
+            <li>Sin cargos ni sorpresas ocultas</li>
+            <li>Precios competitivos y claros</li>
+            <li>Financiamiento para todos los niveles de credito</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Por que elegirnos -->
+  <section class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+      <div class="max-w-3xl mx-auto">
+        <div class="text-center mb-12">
+          <span class="text-orange font-bold uppercase tracking-widest text-sm mb-3 block">Por que Elegirnos</span>
+          <h2 class="font-headline text-3xl md:text-4xl font-extrabold">Por que Elegir Maxim Autos</h2>
+        </div>
+        <ul class="space-y-4">
+          {[
+            { icon: 'person', text: 'Trato directo con Jerry, el dueno. Sin vendedores a comision.' },
+            { icon: 'star', text: 'Resenas de 5 estrellas en Google (36 y contando)' },
+            { icon: 'fact_check', text: 'Reporte de inspeccion independiente incluido con cada vehiculo' },
+            { icon: 'shield', text: 'Cada vehiculo completamente inspeccionado por un mecanico independiente' },
+            { icon: 'credit_card', text: 'Placas de metal en el momento. Sin tramites del DMV.' },
+            { icon: 'visibility', text: 'Sin cargos ocultos, sin honorarios de concesionario, sin cargos de documentacion' },
+            { icon: 'account_balance', text: 'Financiamiento para todos los niveles de credito, incluyendo primeros compradores' },
+          ].map(item => (
+            <li class="flex items-start gap-4 p-4 rounded-xl bg-surface border border-gray-100">
+              <span class="material-symbols-outlined text-orange text-2xl mt-0.5 shrink-0" style="font-variation-settings: 'FILL' 1;">{item.icon}</span>
+              <span class="text-gray-700 text-lg">{item.text}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Banner -->
+  <section class="py-16 bg-orange">
+    <div class="max-w-4xl mx-auto px-6 lg:px-8 text-center">
+      <h2 class="font-headline text-3xl md:text-4xl font-extrabold text-white mb-4">Listo para Ver la Diferencia?</h2>
+      <p class="text-white/90 text-lg mb-8">Envia un mensaje a Jerry para una respuesta rapida, o explora el inventario completo en linea.</p>
+      <div class="flex flex-col sm:flex-row justify-center gap-4">
+        <div class="hidden sm:inline-flex items-center justify-center gap-2 bg-white text-navy px-8 py-4 rounded-xl font-bold text-lg">
+          <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">phone</span>
+          (847) 510-8947
+        </div>
+        <a href={`${base}/es/inventario`} class="inline-flex items-center justify-center gap-2 bg-navy text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-navy-light transition-colors">
+          Ver Inventario
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <Footer slot="footer" lang="es" />
+</Layout>

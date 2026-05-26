@@ -1,0 +1,191 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const title = 'Compra en Linea | Sin Tramites de Concesionario | Maxim Autos';
+const description = 'Compra un auto en Maxim Autos 100% en linea desde cualquier lugar. Video personal del vehiculo, tramites digitales, pago seguro. Recoge en Skokie o entrega a domicilio en todo EE.UU.';
+---
+
+<Layout
+  title={title}
+  description={description}
+  lang="es"
+  hreflangEn="https://www.maximautos.com/ship"
+  hreflangEs="https://www.maximautos.com/es/compra-en-linea"
+>
+  <Header slot="header" lang="es" />
+
+  <!-- Hero -->
+  <section class="bg-navy py-16 lg:py-20">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8 text-center">
+      <span class="text-orange font-bold uppercase tracking-widest text-sm mb-3 block">Compra en Linea</span>
+      <h1 class="font-headline text-4xl md:text-5xl lg:text-6xl font-extrabold text-white leading-tight tracking-tight mb-6">
+        Compra el Auto.<br class="hidden md:block" /> Sin Tramites de Concesionario.
+      </h1>
+      <p class="text-xl text-gray-300 max-w-2xl mx-auto leading-relaxed mb-8">
+        Explora, negocia y cierra el trato completamente en linea desde cualquier lugar. Recoge en Skokie o pidelo entregado en tu puerta, en cualquier parte de EE.UU.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <div class="hidden sm:inline-flex items-center justify-center gap-2 bg-orange text-white px-8 py-4 rounded-xl font-bold text-lg">
+          <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">phone</span>
+          (847) 510-8947
+        </div>
+        <a href={`${base}/es/inventario`}
+           class="inline-flex items-center justify-center gap-2 bg-white/10 text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-white/20 transition-colors border border-white/20">
+          Ver Inventario
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Como Funciona -->
+  <section class="py-14 bg-surface">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+      <div class="text-center mb-10">
+        <span class="text-orange font-bold uppercase tracking-widest text-sm mb-2 block">El Proceso</span>
+        <h2 class="font-headline text-3xl md:text-4xl font-extrabold">Como Funciona</h2>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+        {[
+          { step: '1', icon: 'search', title: 'Explora en Linea', text: 'Encuentra un vehiculo que te guste. Llama o envia un mensaje a Jerry con cualquier pregunta. Hablas directamente con el dueno, no con un call center.' },
+          { step: '2', icon: 'videocam', title: 'Video Personal', text: 'Jerry graba un video del auto para ti. Cada rayonado, cada detalle de desgaste. CARFAX completo y reporte de condicion escrito incluidos.' },
+          { step: '3', icon: 'payments', title: 'Pago Seguro', text: 'Tramites por via digital. Pago seguro. No entregamos el auto hasta que todo este completo y tu estes listo.' },
+          { step: '4', icon: 'fork_right', title: 'Recoge o Pide Entrega', text: 'Ven a recogerlo a nuestro lote en Skokie, o coordinamos entrega a domicilio en cualquier parte de EE.UU. Transportista certificado, con seguro y seguimiento.' },
+        ].map(s => (
+          <div class="flex flex-col items-start gap-3 bg-white rounded-2xl p-6 border border-gray-100 shadow-sm">
+            <div class="flex items-center gap-3">
+              <span class="w-7 h-7 bg-orange text-white text-xs font-extrabold rounded-full flex items-center justify-center shrink-0">{s.step}</span>
+              <span class="material-symbols-outlined text-2xl text-navy" style="font-variation-settings:'FILL' 1;">{s.icon}</span>
+            </div>
+            <h3 class="font-headline text-base font-bold">{s.title}</h3>
+            <p class="text-gray-500 text-sm leading-relaxed">{s.text}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Dos formas de recibir tu auto -->
+  <section class="py-14 bg-white">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+      <div class="text-center mb-10">
+        <span class="text-orange font-bold uppercase tracking-widest text-sm mb-2 block">Tu Eleccion</span>
+        <h2 class="font-headline text-3xl md:text-4xl font-extrabold">Dos Formas de Recibir Tu Auto</h2>
+        <p class="text-gray-500 mt-3 max-w-xl mx-auto">Todo el proceso es en linea de cualquier manera. La entrega queda a tu eleccion.</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+        <!-- Recoger -->
+        <div class="bg-surface rounded-2xl p-8 border border-gray-200">
+          <div class="w-14 h-14 bg-navy/5 rounded-2xl flex items-center justify-center mb-5">
+            <span class="material-symbols-outlined text-3xl text-navy" style="font-variation-settings:'FILL' 1;">directions_car</span>
+          </div>
+          <h3 class="font-headline text-xl font-extrabold mb-3">Recoger en Skokie</h3>
+          <p class="text-gray-600 text-sm leading-relaxed mb-5">
+            Ven por el a 9101 Terminal Ave. Tendremos todo listo: placas, documentos, llaves. En menos de 30 minutos. Sin esperas, sin sorpresas.
+          </p>
+          <div class="space-y-2">
+            {['Sin costo de entrega', 'Placas listas al recoger', 'El trato ya esta cerrado cuando llegas'].map(item => (
+              <div class="flex items-center gap-2 text-sm text-gray-700">
+                <span class="material-symbols-outlined text-sm text-orange" style="font-variation-settings:'FILL' 1;">check_circle</span>
+                {item}
+              </div>
+            ))}
+          </div>
+          <a href="https://www.google.com/search?q=Maxim+Autos+9101+Terminal+Ave+Skokie+IL+60077+directions"
+             target="_blank" rel="noopener"
+             class="inline-flex items-center gap-1.5 mt-5 text-sm font-bold text-navy hover:text-orange transition-colors">
+            <span class="material-symbols-outlined text-sm" style="font-variation-settings:'FILL' 1;">location_on</span>
+            9101 Terminal Ave, Skokie IL
+          </a>
+        </div>
+
+        <!-- Entrega a domicilio -->
+        <div class="bg-navy rounded-2xl p-8 text-white">
+          <div class="w-14 h-14 bg-white/10 rounded-2xl flex items-center justify-center mb-5">
+            <span class="material-symbols-outlined text-3xl text-orange" style="font-variation-settings:'FILL' 1;">local_shipping</span>
+          </div>
+          <h3 class="font-headline text-xl font-extrabold mb-3">Entrega a Domicilio</h3>
+          <p class="text-gray-300 text-sm leading-relaxed mb-5">
+            Coordinamos un transportista certificado con seguro. Recibes los datos de la empresa de transporte y el certificado de seguro antes de que carguen el auto. Funciona para cualquier direccion en EE.UU.
+          </p>
+          <div class="space-y-2 mb-5">
+            {['Solo transportistas certificados FMCSA', 'Certificado de seguro antes de cargar', 'Seguimiento del vehiculo desde la entrega'].map(item => (
+              <div class="flex items-center gap-2 text-sm text-gray-300">
+                <span class="material-symbols-outlined text-sm text-orange" style="font-variation-settings:'FILL' 1;">check_circle</span>
+                {item}
+              </div>
+            ))}
+          </div>
+          <div class="bg-white/10 rounded-xl p-4 text-xs text-gray-300 space-y-1.5">
+            <p class="font-bold text-white text-sm mb-2">Envio estimado desde Chicago</p>
+            {[
+              { to: 'Indiana / Wisconsin / Missouri', cost: '$350 a $500' },
+              { to: 'New York / Atlanta / Charlotte', cost: '$700 a $900' },
+              { to: 'Dallas / Miami / Nashville', cost: '$850 a $1,075' },
+              { to: 'Phoenix / Denver / LA / Seattle', cost: '$950 a $1,225' },
+            ].map(row => (
+              <div class="flex justify-between">
+                <span>{row.to}</span>
+                <span class="font-semibold text-white">{row.cost}</span>
+              </div>
+            ))}
+            <p class="text-white/50 pt-1">Transporte abierto. Sin margen extra. Jerry da cotizacion exacta antes de finalizar.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Lo que incluye -->
+  <section class="py-14 bg-surface">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+      <div class="text-center mb-10">
+        <span class="text-orange font-bold uppercase tracking-widest text-sm mb-2 block">Lo que Recibes</span>
+        <h2 class="font-headline text-3xl md:text-4xl font-extrabold">Sabes Exactamente lo que Compras</h2>
+        <p class="text-gray-500 mt-3 max-w-2xl mx-auto">Antes de comprometer nada, tendras un video personal, reporte completo de historial y declaracion escrita de condicion. Preferimos perder una venta que tener un cliente frustrado.</p>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
+        {[
+          { icon: 'videocam', title: 'Video Personal del Auto', sub: 'Jerry lo graba para ti. Cada golpe, cada desgaste, nombrado y mostrado en camara.' },
+          { icon: 'description', title: 'Reporte CARFAX Completo', sub: 'Historial de accidentes, estado del titulo, registros de servicio, duenos anteriores.' },
+          { icon: 'fact_check', title: 'Declaracion Escrita de Condicion', sub: 'Cada problema cosmetico y mecanico anotado por escrito antes de la compra.' },
+          { icon: 'draw', title: 'Tramites Digitales', sub: 'DocuSign. Sin ir a un notario, sin necesitar impresora. Firma desde cualquier lugar.' },
+          { icon: 'verified_user', title: 'Certificado de Seguro del Transportista', sub: 'Transportista certificado FMCSA. Recibes los documentos de seguro antes de que carguen el auto.' },
+          { icon: 'gavel', title: 'Apoyo para Titulacion Fuera de Illinois', sub: 'Proporcionamos el contrato de compraventa y te orientamos en el proceso de registro de tu estado.' },
+        ].map(item => (
+          <div class="flex items-start gap-4 bg-white rounded-2xl p-6 border border-gray-100">
+            <div class="w-10 h-10 bg-navy/5 rounded-xl flex items-center justify-center shrink-0">
+              <span class="material-symbols-outlined text-xl text-navy" style="font-variation-settings:'FILL' 1;">{item.icon}</span>
+            </div>
+            <div>
+              <p class="font-bold text-sm text-gray-900 mb-1">{item.title}</p>
+              <p class="text-gray-500 text-sm">{item.sub}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-12 bg-navy">
+    <div class="max-w-4xl mx-auto px-6 lg:px-8 text-center">
+      <h2 class="font-headline text-3xl md:text-4xl font-extrabold text-white mb-4">Listo para Empezar?</h2>
+      <p class="text-white/70 text-lg mb-8">Envia a Jerry el enlace del vehiculo que te interesa. El te manda un video personal el mismo dia.</p>
+      <div class="flex flex-col sm:flex-row justify-center gap-4">
+        <div class="hidden sm:inline-flex items-center justify-center gap-2 bg-orange text-white px-8 py-4 rounded-xl font-bold text-lg">
+          <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">phone</span>
+          (847) 510-8947
+        </div>
+        <a href={`${base}/es/inventario`}
+           class="inline-flex items-center justify-center gap-2 bg-white/10 text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-white/20 transition-colors border border-white/20">
+          Ver Inventario
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <Footer slot="footer" lang="es" />
+</Layout>

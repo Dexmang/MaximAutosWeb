@@ -1,0 +1,110 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const title = 'Financiamiento para Autos en Skokie, IL | Todos los Niveles de Credito | Maxim Autos';
+const description = 'Financiamiento para todos los niveles de credito en Maxim Autos en Skokie, IL. Primeros compradores, reconstruyendo credito, todos bienvenidos. Sin revision de credito para explorar. Aplica en minutos.';
+---
+
+<Layout
+  title={title}
+  description={description}
+  lang="es"
+  hreflangEn="https://www.maximautos.com/financing"
+  hreflangEs="https://www.maximautos.com/es/financiamiento"
+>
+  <Header slot="header" lang="es" />
+
+  <!-- Hero -->
+  <section class="bg-navy py-16 lg:py-20">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8 text-center">
+      <span class="text-orange font-bold uppercase tracking-widest text-sm mb-3 block">Financiamiento</span>
+      <h1 class="font-headline text-4xl md:text-5xl lg:text-6xl font-extrabold text-white leading-tight tracking-tight mb-6">
+        Financiamiento para Todos los Niveles de Credito
+      </h1>
+      <p class="text-xl text-gray-300 max-w-2xl mx-auto leading-relaxed">
+        Primer auto? Reconstruyendo credito? Sin problema. Maxim Autos trabaja con multiples prestamistas para encontrarte la mejor tasa.
+      </p>
+      <div class="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
+        <a href={`${base}/es/aplicacion-de-credito`} class="inline-flex items-center justify-center gap-2 bg-orange text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-orange-dark transition-colors shadow-lg shadow-orange/20">
+          <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">payments</span>
+          Solicitud Completa de Credito
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Por que financiar con nosotros -->
+  <section class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+      <div class="text-center mb-14">
+        <span class="text-orange font-bold uppercase tracking-widest text-sm mb-3 block">Por que Elegirnos</span>
+        <h2 class="font-headline text-3xl md:text-4xl font-extrabold">Financiamiento Sin Complicaciones</h2>
+        <p class="text-gray-500 mt-3 max-w-xl mx-auto">Sin tramites innecesarios. Sin sorpresas. Financiamiento directo con una respuesta rapida.</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        {[
+          { icon: 'credit_score', title: 'Todos los Creditos Bienvenidos', text: 'Buen credito, credito regular, reconstruyendo o primer comprador. Trabajamos con prestamistas para cada perfil.' },
+          { icon: 'speed', title: 'Aprobacion Rapida', text: 'Aplica en minutos. La mayoria de las respuestas llegan el mismo dia. Sin esperas innecesarias.' },
+          { icon: 'visibility', title: 'Sin Sorpresas', text: 'Los terminos quedan claros desde el principio. Sin tarifas ocultas. Sin cambios de ultimo momento.' },
+        ].map(item => (
+          <div class="text-center p-8 rounded-xl bg-surface border border-gray-100 hover:border-orange/20 hover:shadow-md transition-all">
+            <div class="w-16 h-16 bg-navy/5 rounded-2xl flex items-center justify-center mx-auto mb-6">
+              <span class="material-symbols-outlined text-4xl text-navy" style="font-variation-settings: 'FILL' 1;">{item.icon}</span>
+            </div>
+            <h3 class="font-headline text-xl font-bold mb-3">{item.title}</h3>
+            <p class="text-gray-600 text-sm">{item.text}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ de Financiamiento -->
+  <section class="py-14 bg-surface">
+    <div class="max-w-3xl mx-auto px-6 lg:px-8">
+      <div class="text-center mb-10">
+        <span class="text-orange font-bold uppercase tracking-widest text-sm mb-2 block">Preguntas Frecuentes</span>
+        <h2 class="font-headline text-3xl md:text-4xl font-extrabold">Preguntas Sobre Financiamiento</h2>
+      </div>
+      <div class="space-y-4">
+        {[
+          { q: 'Puedo obtener financiamiento con mal credito?', a: 'Si. Maxim Autos trabaja con multiples prestamistas para encontrar financiamiento para todos los niveles de credito, incluyendo quienes estan reconstruyendo su historial. Damos la bienvenida a primeros compradores y compradores con credito limitado.' },
+          { q: 'Cuanto enganche necesito?', a: 'Los requisitos de enganche varian segun el prestamista y la situacion crediticia. Envia un mensaje a Jerry al (847) 510-8947 para hablar de tu caso especifico. Sin compromiso.' },
+          { q: 'Afecta mi puntaje de credito al solicitar?', a: 'Explorar el inventario no afecta tu puntaje. Una solicitud formal de credito puede implicar una consulta suave o dura segun el prestamista. El formulario de precalificacion en esta pagina no es una solicitud de credito.' },
+          { q: 'Que tasas de interes estan disponibles?', a: 'Las tasas varian segun el prestamista, el perfil de credito y el plazo del prestamo. Maxim Autos trabaja con multiples prestamistas para encontrar la mejor tasa disponible para tu situacion.' },
+          { q: 'Puedo obtener financiamiento si es mi primer auto?', a: 'Si. Maxim Autos trabaja especificamente con prestamistas que aprueban a primeros compradores. No se requiere historial crediticio para aplicar.' },
+        ].map(item => (
+          <details class="bg-white rounded-xl border border-gray-200 group">
+            <summary class="flex items-center justify-between px-6 py-4 cursor-pointer font-bold text-sm text-gray-900 list-none">
+              {item.q}
+              <span class="material-symbols-outlined text-orange text-lg shrink-0 group-open:rotate-180 transition-transform">expand_more</span>
+            </summary>
+            <p class="px-6 pb-5 text-gray-500 text-sm leading-relaxed">{item.a}</p>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-16 bg-navy">
+    <div class="max-w-4xl mx-auto px-6 lg:px-8 text-center">
+      <h2 class="font-headline text-3xl md:text-4xl font-extrabold text-white mb-4">Listo para Empezar?</h2>
+      <p class="text-white/70 text-lg mb-8">Envia un mensaje a Jerry o aplica en linea. Sin presion, sin compromiso.</p>
+      <div class="flex flex-col sm:flex-row justify-center gap-4">
+        <a href={`${base}/es/aplicacion-de-credito`} class="inline-flex items-center justify-center gap-2 bg-orange text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-orange-dark transition-colors">
+          <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">payments</span>
+          Aplicar Ahora
+        </a>
+        <a href={`${base}/es/inventario`} class="inline-flex items-center justify-center gap-2 bg-white/10 text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-white/20 transition-colors border border-white/20">
+          Ver Inventario
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <Footer slot="footer" lang="es" />
+</Layout>

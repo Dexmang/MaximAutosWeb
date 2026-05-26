@@ -17,28 +17,51 @@ interface Props {
   photos?: { exterior: number; interior: number; source: string };
   dealRating?: string;
   priceSavings?: number;
+  lang?: string;
 }
 
-const DEAL_BADGE: Record<string, { label: string; bg: string; text: string }> = {
-  GREAT_PRICE: { label: 'Great Deal', bg: '#1a9b3b', text: '#fff' },
-  GOOD_PRICE:  { label: 'Good Deal',  bg: '#2ecc71', text: '#fff' },
-  FAIR_PRICE:  { label: 'Fair Deal',  bg: '#3498db', text: '#fff' },
-};
-
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
-const { slug, year, make, model, trim, price, mileage, drivetrain, engine, bodyStyle, photoPath, photoPrefix, inspected, primaryPhotoUrl, photos, dealRating, priceSavings } = Astro.props;
-const finLink = `${base}/financing`;
-const lbl = {
-  inspected:      'Inspected',
-  freeCarfax:     'Free CARFAX',
-  financing:      'Financing',
-  photosComing:   'Photos coming soon',
-  perMonth:       '/mo est.',
-  fullyInspected: 'FULLY INSPECTED',
-  viewLabel:      'View',
-};
+const { slug, year, make, model, trim, price, mileage, drivetrain, engine, bodyStyle, photoPath, photoPrefix, inspected, primaryPhotoUrl, photos, dealRating, priceSavings, lang = 'en' } = Astro.props;
+const isSpanish = lang === 'es';
+
+const DEAL_BADGE: Record<string, { label: string; bg: string; text: string }> = isSpanish
+  ? {
+      GREAT_PRICE: { label: 'Gran Oferta',   bg: '#1a9b3b', text: '#fff' },
+      GOOD_PRICE:  { label: 'Buena Oferta',  bg: '#2ecc71', text: '#fff' },
+      FAIR_PRICE:  { label: 'Oferta Justa',  bg: '#3498db', text: '#fff' },
+    }
+  : {
+      GREAT_PRICE: { label: 'Great Deal', bg: '#1a9b3b', text: '#fff' },
+      GOOD_PRICE:  { label: 'Good Deal',  bg: '#2ecc71', text: '#fff' },
+      FAIR_PRICE:  { label: 'Fair Deal',  bg: '#3498db', text: '#fff' },
+    };
+
+const finLink = isSpanish ? `${base}/es/financiamiento` : `${base}/financing`;
+const lbl = isSpanish
+  ? {
+      inspected:      'Inspeccionado',
+      freeCarfax:     'CARFAX Gratis',
+      financing:      'Financiamiento',
+      photosComing:   'Fotos proximamente',
+      perMonth:       '/mes est.',
+      fullyInspected: 'TOTALMENTE INSPECCIONADO',
+      viewLabel:      'Ver',
+      mileageTbd:     'Millaje por confirmar',
+    }
+  : {
+      inspected:      'Inspected',
+      freeCarfax:     'Free CARFAX',
+      financing:      'Financing',
+      photosComing:   'Photos coming soon',
+      perMonth:       '/mo est.',
+      fullyInspected: 'FULLY INSPECTED',
+      viewLabel:      'View',
+      mileageTbd:     'Mileage TBD',
+    };
 const dealBadge = dealRating ? (DEAL_BADGE[dealRating] || null) : null;
-const savingsStr = (priceSavings && priceSavings > 0) ? `$${priceSavings.toLocaleString()} below` : '';
+const savingsStr = (priceSavings && priceSavings > 0)
+  ? (isSpanish ? `$${priceSavings.toLocaleString()} menos` : `$${priceSavings.toLocaleString()} below`)
+  : '';
 const title = `${year} ${make} ${model}`;
 
 // Use CDN URL if available, fall back to local path, or null if no valid source
@@ -106,7 +129,7 @@ const monthlyPayment = Math.round(
           <span class="text-xs text-gray-400 font-normal">*</span>
         </div>
       </div>
-      <span class="text-sm text-gray-500">{mileage > 0 ? `${mileage.toLocaleString()} mi` : 'Mileage TBD'}</span>
+      <span class="text-sm text-gray-500">{mileage > 0 ? `${mileage.toLocaleString()} mi` : lbl.mileageTbd}</span>
     </div>
 
     <div class="flex flex-wrap gap-1.5">

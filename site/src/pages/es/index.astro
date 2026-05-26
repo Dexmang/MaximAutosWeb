@@ -126,9 +126,9 @@ const featured = vehicles.filter(v => (v as any).status !== 'sold').slice(0, 6);
         </p>
         <div class="flex flex-wrap gap-2 mb-8">
           {[
-            { label: 'Menos de $10K', href: `${base}/inventory?price=under10k` },
-            { label: 'SUVs', href: `${base}/inventory?body=SUV` },
-            { label: 'Sedanes', href: `${base}/inventory?body=Sedan` },
+            { label: 'Menos de $10K', href: `${base}/es/inventario?price=under10k` },
+            { label: 'SUVs', href: `${base}/es/inventario?body=SUV` },
+            { label: 'Sedanes', href: `${base}/es/inventario?body=Sedan` },
             { label: 'Ver Todo', href: `${base}/es/inventario` },
           ].map(chip => (
             <a href={chip.href}
@@ -208,6 +208,7 @@ const featured = vehicles.filter(v => (v as any).status !== 'sold').slice(0, 6);
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {featured.map(v => (
           <VehicleCard
+            lang="es"
             slug={v.slug}
             year={v.year}
             make={v.make}
@@ -379,5 +380,5 @@ const featured = vehicles.filter(v => (v as any).status !== 'sold').slice(0, 6);
     </div>
   </section>
 
-  <Footer slot="footer" />
+  <Footer slot="footer" lang="es" />
 </Layout>
