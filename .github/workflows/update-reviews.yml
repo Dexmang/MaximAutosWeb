@@ -1,9 +1,11 @@
 name: Update Google Reviews
 
+# DISABLED 2026-05-25: scraper went blind (Google blocks the request, parses null,
+# exits 0 silently). MaxGoogle daily-gbp-check skill now owns reviews_meta.json —
+# it reads the count directly from the GBP UI via Chrome MCP and commits if changed.
+# Kept for manual trigger only in case the scraper is ever fixed.
 on:
-  schedule:
-    - cron: '0 9 * * *'    # Daily at 9am UTC
-  workflow_dispatch:        # Allow manual trigger from GitHub UI
+  workflow_dispatch:        # Manual trigger only
 
 permissions:
   contents: write
