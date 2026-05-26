@@ -175,12 +175,19 @@ function buildItem(v) {
   item += tag("title", title);
   item += tag("description", description);
   item += tag("link", link);
+  // link_template is required by Vehicle ads. We re-use the same VDP URL with
+  // a UTM tag so click attribution lands in GA4 under source=google/medium=vehicle_ads.
+  item += tag("link_template", `${link}?utm_source=google&utm_medium=vehicle_ads&utm_campaign=maxim_autos_inventory`);
   item += tag("image_link", imageLink);
   item += extraImages;
   item += tag("condition", mapCondition(v));
   item += tag("price", `${v.price} USD`);
   item += tag("availability", v.status === "sold" ? "out_of_stock" : "in_stock");
   item += tag("brand", v.make);
+  // google_product_category — required for Vehicle ads. ID 916 = Vehicles & Parts >
+  // Vehicles > Motor Vehicles > Cars, Trucks & Vans. Pass the path string; Google
+  // accepts either the numeric ID or the slash-delimited taxonomy path.
+  item += tag("google_product_category", "Vehicles & Parts > Vehicles > Motor Vehicles > Cars, Trucks & Vans");
 
   // Required vehicle attributes
   item += tag("vehicle_fulfillment", "own_inventory");
@@ -190,8 +197,18 @@ function buildItem(v) {
   item += tag("make", v.make);
   item += tag("model", v.model);
   item += tag("trim", v.trim);
-  item += tag("mileage", `${v.mileage} MI`);
+  // mileage as a numeric value with explicit unit. Google parses "84058 MI" as
+  // mileage=84058, unit=MI. Skip the tag entirely when we have no value rather
+  // than emit a malformed " MI" that trips Missing-value rejection.
+  if (Number(v.mileage) > 0) item += tag("mileage", `${v.mileage} MI`);
   item += tag("body_style", mapBodyStyle(v));
+  // Vehicle ads canonical color field is `color`, not `vehicle_color`. Emit both
+  // for forward compatibility — Vehicle ads reads `color`, Shopping ads quirks
+  // sometimes still consult `vehicle_color`.
+  if (v.exteriorColor) {
+    item += tag("color", v.exteriorColor);
+    item += tag("vehicle_color", v.exteriorColor);
+  }
 
   // Recommended
   const dt = mapDrivetrain(v);
@@ -199,7 +216,6 @@ function buildItem(v) {
   const trans = mapTransmission(v);
   if (trans) item += tag("transmission", trans);
   item += tag("fuel_type", mapFuelType(v));
-  item += tag("vehicle_color", v.exteriorColor);
 
   // Dealer location — strictly speaking Google reads this from MC settings,
   // but echoing it here makes the feed self-describing and easier to debug.
