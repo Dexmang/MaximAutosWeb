@@ -223,11 +223,12 @@ function buildItem(v) {
   if (trans) item += tag("transmission", trans);
   item += tag("fuel_type", mapFuelType(v));
 
-  // store_code — must match a Physical Store registered in Merchant Center
-  // (Settings → Physical Stores). Maxim Autos Skokie is registered with code
-  // "maxim-autos-skokie". Without a matching registered store, link_template's
-  // {store_code} can't resolve and Google rejects with "Invalid store".
-  item += tag("store_code", "maxim-autos-skokie");
+  // store_code — must match the Business Profile store code. Maxim Autos's
+  // GBP location auto-assigned code 08861907241419503398 (visible at
+  // business.google.com/locations). Without a matching code, Google rejects
+  // with "Missing valid store code" / "Invalid store". To change to a friendly
+  // slug like "maxim-autos-skokie", edit the store code in GBP first.
+  item += tag("store_code", "08861907241419503398");
 
   item += "  </item>\n";
   return item;
