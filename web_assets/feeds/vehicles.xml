@@ -4,7 +4,7 @@
   <title>Maxim Autos — Vehicle Inventory</title>
   <link>https://www.maximautos.com/</link>
   <description>Used vehicles for sale at Maxim Autos in Skokie, IL 60077. Phone +18475108947.</description>
-  <lastBuildDate>2026-05-27T12:48:58.458Z</lastBuildDate>
+  <lastBuildDate>2026-05-27T13:05:10.997Z</lastBuildDate>
   <item>
     <g:id>5N1AR2MM9GC630607</g:id>
     <g:title>2016 Nissan Pathfinder SL 4WD</g:title>
@@ -34,7 +34,7 @@
     <g:make>Nissan</g:make>
     <g:model>Pathfinder</g:model>
     <g:trim>SL 4WD</g:trim>
-    <g:mileage>63140 MI</g:mileage>
+    <g:mileage>63140 Miles</g:mileage>
     <g:body_style>suv</g:body_style>
     <g:color>Brown</g:color>
     <g:vehicle_color>Brown</g:vehicle_color>
@@ -72,7 +72,7 @@
     <g:make>Nissan</g:make>
     <g:model>Sentra</g:model>
     <g:trim>S</g:trim>
-    <g:mileage>75665 MI</g:mileage>
+    <g:mileage>75665 Miles</g:mileage>
     <g:body_style>sedan</g:body_style>
     <g:color>Black</g:color>
     <g:vehicle_color>Black</g:vehicle_color>
@@ -110,7 +110,7 @@
     <g:make>Audi</g:make>
     <g:model>Q5</g:model>
     <g:trim>2.0T Premium Plus</g:trim>
-    <g:mileage>96174 MI</g:mileage>
+    <g:mileage>96174 Miles</g:mileage>
     <g:body_style>suv</g:body_style>
     <g:color>Black</g:color>
     <g:vehicle_color>Black</g:vehicle_color>
@@ -148,7 +148,7 @@
     <g:make>Volvo</g:make>
     <g:model>C70</g:model>
     <g:trim>T5</g:trim>
-    <g:mileage>106087 MI</g:mileage>
+    <g:mileage>106087 Miles</g:mileage>
     <g:body_style>convertible</g:body_style>
     <g:color>Silver</g:color>
     <g:vehicle_color>Silver</g:vehicle_color>
@@ -186,7 +186,7 @@
     <g:make>Honda</g:make>
     <g:model>CR-V</g:model>
     <g:trim>EX AWD</g:trim>
-    <g:mileage>118033 MI</g:mileage>
+    <g:mileage>118033 Miles</g:mileage>
     <g:body_style>suv</g:body_style>
     <g:color>Black</g:color>
     <g:vehicle_color>Black</g:vehicle_color>

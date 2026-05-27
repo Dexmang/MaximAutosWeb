@@ -206,7 +206,7 @@ function buildItem(v) {
   // Per https://support.google.com/merchants/answer/14156166 acceptable units:
   // "Km/KM/km" for kilometers, "Miles/MILES/miles" for miles. Tried splitting
   // into mileage + mileage_unit fields — Google rejected as Missing value.
-  if (Number(v.mileage) > 0) item += tag("mileage", `${v.mileage} MI`);
+  if (Number(v.mileage) > 0) item += tag("mileage", `${v.mileage} Miles`);
   item += tag("body_style", mapBodyStyle(v));
   // Vehicle ads canonical color field is `color`, not `vehicle_color`. Emit both
   // for forward compatibility — Vehicle ads reads `color`, Shopping ads quirks
