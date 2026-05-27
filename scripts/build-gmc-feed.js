@@ -175,12 +175,14 @@ function buildItem(v) {
   item += tag("title", title);
   item += tag("description", description);
   item += tag("link", link);
-  // link_template uses Google Ads ValueTrack syntax: {lpurl} is replaced at
-  // serve time with the actual landing page URL. A hardcoded URL here was
-  // rejected as "missing required attribute" because Google requires the
-  // template tokens — that's what distinguishes a "tracking template" from a
-  // plain link.
-  item += tag("link_template", `{lpurl}?utm_source=google&utm_medium=vehicle_ads&utm_campaign=maxim_autos_inventory`);
+  // link_template — REQUIRED for vehicle ads per
+  // https://support.google.com/merchants/answer/13871172. Must be a full URL
+  // that includes the {store_code} ValueTrack placeholder. At serve time
+  // Google replaces {store_code} with the matching store's code from the
+  // registered Physical Stores list, sending the user to a store-specific
+  // landing page. The earlier {lpurl} attempt was rejected because {lpurl}
+  // is a Google Ads tracking-template token, not a Merchant Center one.
+  item += tag("link_template", `${link}?store={store_code}`);
   item += tag("image_link", imageLink);
   item += extraImages;
   item += tag("condition", mapCondition(v));
@@ -200,13 +202,11 @@ function buildItem(v) {
   item += tag("make", v.make);
   item += tag("model", v.model);
   item += tag("trim", v.trim);
-  // Vehicle ads spec: split mileage into separate value + unit. Combined
-  // "63140 MI" format was rejected as "Missing value [mileage]" because the
-  // parser expects mileage to be a pure integer.
-  if (Number(v.mileage) > 0) {
-    item += tag("mileage", `${v.mileage}`);
-    item += tag("mileage_unit", "MI");
-  }
+  // Vehicle ads spec: mileage is value + unit in the same field.
+  // Per https://support.google.com/merchants/answer/14156166 acceptable units:
+  // "Km/KM/km" for kilometers, "Miles/MILES/miles" for miles. Tried splitting
+  // into mileage + mileage_unit fields — Google rejected as Missing value.
+  if (Number(v.mileage) > 0) item += tag("mileage", `${v.mileage} MI`);
   item += tag("body_style", mapBodyStyle(v));
   // Vehicle ads canonical color field is `color`, not `vehicle_color`. Emit both
   // for forward compatibility — Vehicle ads reads `color`, Shopping ads quirks
@@ -223,11 +223,11 @@ function buildItem(v) {
   if (trans) item += tag("transmission", trans);
   item += tag("fuel_type", mapFuelType(v));
 
-  // NOTE: store_code intentionally omitted. Maxim Autos runs National vehicle
-  // ads, not Local Inventory ads. Including store_code without a registered
-  // physical store in Merchant Center → "Invalid store" + "Missing valid store
-  // code" rejections. Re-add only after a Physical Store entity is created
-  // under Settings → Physical Stores.
+  // store_code — must match a Physical Store registered in Merchant Center
+  // (Settings → Physical Stores). Maxim Autos Skokie is registered with code
+  // "maxim-autos-skokie". Without a matching registered store, link_template's
+  // {store_code} can't resolve and Google rejects with "Invalid store".
+  item += tag("store_code", "maxim-autos-skokie");
 
   item += "  </item>\n";
   return item;
