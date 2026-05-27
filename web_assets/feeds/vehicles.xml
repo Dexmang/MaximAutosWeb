@@ -4,7 +4,7 @@
   <title>Maxim Autos — Vehicle Inventory</title>
   <link>https://www.maximautos.com/</link>
   <description>Used vehicles for sale at Maxim Autos in Skokie, IL 60077. Phone +18475108947.</description>
-  <lastBuildDate>2026-05-27T13:06:41.535Z</lastBuildDate>
+  <lastBuildDate>2026-05-27T13:13:20.490Z</lastBuildDate>
   <item>
     <g:id>5N1AR2MM9GC630607</g:id>
     <g:title>2016 Nissan Pathfinder SL 4WD</g:title>
@@ -25,23 +25,18 @@
     <g:condition>used</g:condition>
     <g:price>12950 USD</g:price>
     <g:availability>in_stock</g:availability>
-    <g:brand>Nissan</g:brand>
-    <g:google_product_category>Vehicles &amp; Parts &gt; Vehicles &gt; Motor Vehicles &gt; Cars, Trucks &amp; Vans</g:google_product_category>
-    <g:vehicle_fulfillment>own_inventory</g:vehicle_fulfillment>
-    <g:vehicle_id>5N1AR2MM9GC630607</g:vehicle_id>
     <g:vin>5N1AR2MM9GC630607</g:vin>
     <g:year>2016</g:year>
     <g:make>Nissan</g:make>
     <g:model>Pathfinder</g:model>
-    <g:trim>SL 4WD</g:trim>
     <g:mileage>63140 Miles</g:mileage>
+    <g:store_code>08861907241419503398</g:store_code>
+    <g:vehicle_fulfillment>
+      <g:option>in_store</g:option>
+    </g:vehicle_fulfillment>
+    <g:trim>SL 4WD</g:trim>
     <g:body_style>suv</g:body_style>
     <g:color>Brown</g:color>
-    <g:vehicle_color>Brown</g:vehicle_color>
-    <g:drivetrain>4WD</g:drivetrain>
-    <g:transmission>automatic</g:transmission>
-    <g:fuel_type>gasoline</g:fuel_type>
-    <g:store_code>08861907241419503398</g:store_code>
   </item>
   <item>
     <g:id>3N1AB7AP9HL658114</g:id>
@@ -63,23 +58,18 @@
     <g:condition>used</g:condition>
     <g:price>8915 USD</g:price>
     <g:availability>in_stock</g:availability>
-    <g:brand>Nissan</g:brand>
-    <g:google_product_category>Vehicles &amp; Parts &gt; Vehicles &gt; Motor Vehicles &gt; Cars, Trucks &amp; Vans</g:google_product_category>
-    <g:vehicle_fulfillment>own_inventory</g:vehicle_fulfillment>
-    <g:vehicle_id>3N1AB7AP9HL658114</g:vehicle_id>
     <g:vin>3N1AB7AP9HL658114</g:vin>
     <g:year>2017</g:year>
     <g:make>Nissan</g:make>
     <g:model>Sentra</g:model>
-    <g:trim>S</g:trim>
     <g:mileage>75665 Miles</g:mileage>
+    <g:store_code>08861907241419503398</g:store_code>
+    <g:vehicle_fulfillment>
+      <g:option>in_store</g:option>
+    </g:vehicle_fulfillment>
+    <g:trim>S</g:trim>
     <g:body_style>sedan</g:body_style>
     <g:color>Black</g:color>
-    <g:vehicle_color>Black</g:vehicle_color>
-    <g:drivetrain>FWD</g:drivetrain>
-    <g:transmission>automatic</g:transmission>
-    <g:fuel_type>gasoline</g:fuel_type>
-    <g:store_code>08861907241419503398</g:store_code>
   </item>
   <item>
     <g:id>WA1L2AFP8GA046658</g:id>
@@ -101,23 +91,18 @@
     <g:condition>used</g:condition>
     <g:price>10650 USD</g:price>
     <g:availability>in_stock</g:availability>
-    <g:brand>Audi</g:brand>
-    <g:google_product_category>Vehicles &amp; Parts &gt; Vehicles &gt; Motor Vehicles &gt; Cars, Trucks &amp; Vans</g:google_product_category>
-    <g:vehicle_fulfillment>own_inventory</g:vehicle_fulfillment>
-    <g:vehicle_id>WA1L2AFP8GA046658</g:vehicle_id>
     <g:vin>WA1L2AFP8GA046658</g:vin>
     <g:year>2016</g:year>
     <g:make>Audi</g:make>
     <g:model>Q5</g:model>
-    <g:trim>2.0T Premium Plus</g:trim>
     <g:mileage>96174 Miles</g:mileage>
+    <g:store_code>08861907241419503398</g:store_code>
+    <g:vehicle_fulfillment>
+      <g:option>in_store</g:option>
+    </g:vehicle_fulfillment>
+    <g:trim>2.0T Premium Plus</g:trim>
     <g:body_style>suv</g:body_style>
     <g:color>Black</g:color>
-    <g:vehicle_color>Black</g:vehicle_color>
-    <g:drivetrain>AWD</g:drivetrain>
-    <g:transmission>automatic</g:transmission>
-    <g:fuel_type>ethanol_flex_fuel</g:fuel_type>
-    <g:store_code>08861907241419503398</g:store_code>
   </item>
   <item>
     <g:id>YV1672MC7DJ138991</g:id>
@@ -139,23 +124,18 @@
     <g:condition>used</g:condition>
     <g:price>9945 USD</g:price>
     <g:availability>in_stock</g:availability>
-    <g:brand>Volvo</g:brand>
-    <g:google_product_category>Vehicles &amp; Parts &gt; Vehicles &gt; Motor Vehicles &gt; Cars, Trucks &amp; Vans</g:google_product_category>
-    <g:vehicle_fulfillment>own_inventory</g:vehicle_fulfillment>
-    <g:vehicle_id>YV1672MC7DJ138991</g:vehicle_id>
     <g:vin>YV1672MC7DJ138991</g:vin>
     <g:year>2013</g:year>
     <g:make>Volvo</g:make>
     <g:model>C70</g:model>
-    <g:trim>T5</g:trim>
     <g:mileage>106087 Miles</g:mileage>
+    <g:store_code>08861907241419503398</g:store_code>
+    <g:vehicle_fulfillment>
+      <g:option>in_store</g:option>
+    </g:vehicle_fulfillment>
+    <g:trim>T5</g:trim>
     <g:body_style>convertible</g:body_style>
     <g:color>Silver</g:color>
-    <g:vehicle_color>Silver</g:vehicle_color>
-    <g:drivetrain>FWD</g:drivetrain>
-    <g:transmission>automatic</g:transmission>
-    <g:fuel_type>gasoline</g:fuel_type>
-    <g:store_code>08861907241419503398</g:store_code>
   </item>
   <item>
     <g:id>2HKRM4H52GH634023</g:id>
@@ -177,23 +157,18 @@
     <g:condition>used</g:condition>
     <g:price>13950 USD</g:price>
     <g:availability>in_stock</g:availability>
-    <g:brand>Honda</g:brand>
-    <g:google_product_category>Vehicles &amp; Parts &gt; Vehicles &gt; Motor Vehicles &gt; Cars, Trucks &amp; Vans</g:google_product_category>
-    <g:vehicle_fulfillment>own_inventory</g:vehicle_fulfillment>
-    <g:vehicle_id>2HKRM4H52GH634023</g:vehicle_id>
     <g:vin>2HKRM4H52GH634023</g:vin>
     <g:year>2016</g:year>
     <g:make>Honda</g:make>
     <g:model>CR-V</g:model>
-    <g:trim>EX AWD</g:trim>
     <g:mileage>118033 Miles</g:mileage>
+    <g:store_code>08861907241419503398</g:store_code>
+    <g:vehicle_fulfillment>
+      <g:option>in_store</g:option>
+    </g:vehicle_fulfillment>
+    <g:trim>EX AWD</g:trim>
     <g:body_style>suv</g:body_style>
     <g:color>Black</g:color>
-    <g:vehicle_color>Black</g:vehicle_color>
-    <g:drivetrain>AWD</g:drivetrain>
-    <g:transmission>automatic</g:transmission>
-    <g:fuel_type>gasoline</g:fuel_type>
-    <g:store_code>08861907241419503398</g:store_code>
   </item>
 </channel>
 </rss>

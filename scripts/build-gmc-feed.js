@@ -86,46 +86,20 @@ function mapCondition(v) {
   return "used";
 }
 
-/**
- * Map drivetrain string to Google's drivetrain enum.
- * Google accepts: 2WD, 4WD, AWD, FWD, RWD.
- */
-function mapDrivetrain(v) {
-  const d = (v.drivetrain || "").toUpperCase();
-  if (["FWD", "RWD", "AWD", "4WD", "2WD"].includes(d)) return d;
-  return undefined;
-}
+// Note: drivetrain, transmission, and fuel_type mappers were removed —
+// none of those attributes are in the Vehicle Ads feed spec. Google was
+// rejecting them as "unrecognized attributes". The closest Vehicle Ads
+// attribute is `<g:engine>` (gasoline|diesel|electric|hybrid) but it's only
+// required for DE/IT/ES, optional for US, so we don't emit it.
 
 /**
- * Map transmission to Google's enum: automatic | manual | other.
- */
-function mapTransmission(v) {
-  const t = (v.transmission || "").toLowerCase();
-  if (t.includes("manual")) return "manual";
-  if (t.includes("auto") || t.includes("cvt") || t.includes("dct") || t.includes("dual-clutch")) return "automatic";
-  return undefined;
-}
-
-/**
- * Map fuel type string to Google's enum.
- * Google accepts: gasoline | diesel | biodiesel | ethanol_flex_fuel |
- *                 natural_gas | hydrogen | hybrid | plugin_hybrid | electric.
- */
-function mapFuelType(v) {
-  const f = (v.fuelType || "").toLowerCase();
-  if (f.includes("electric") && !f.includes("hybrid")) return "electric";
-  if (f.includes("plug")) return "plugin_hybrid";
-  if (f.includes("hybrid")) return "hybrid";
-  if (f.includes("diesel")) return "diesel";
-  if (f.includes("flex")) return "ethanol_flex_fuel";
-  if (f.includes("natural")) return "natural_gas";
-  if (f.includes("hydrogen")) return "hydrogen";
-  return "gasoline";
-}
-
-/**
- * Body style → Google enum.
- * Accepts: convertible | coupe | hatchback | minivan | suv | sedan | truck | wagon | crossover | van | other
+ * Body style → Vehicle Ads spec enum.
+ * Per https://support.google.com/merchants/answer/11190480 accepted values are:
+ *   convertible | coupe | crossover | full size van | hatchback | minivan |
+ *   sedan | station wagon | suv | truck
+ * Anything outside this list is rejected as "Invalid value" by Vehicle Ads parser.
+ * Returns null when no spec value fits → caller omits the tag rather than
+ * emitting an unknown value.
  */
 function mapBodyStyle(v) {
   const b = (v.bodyStyle || "").toLowerCase();
@@ -136,10 +110,10 @@ function mapBodyStyle(v) {
   if (b.includes("crossover")) return "crossover";
   if (b.includes("suv")) return "suv";
   if (b.includes("truck") || b.includes("pickup")) return "truck";
-  if (b.includes("wagon")) return "wagon";
-  if (b.includes("van")) return "van";
+  if (b.includes("wagon")) return "station wagon";
+  if (b.includes("van")) return "full size van";
   if (b.includes("sedan")) return "sedan";
-  return "other";
+  return null;
 }
 
 /**
@@ -170,65 +144,65 @@ function buildItem(v) {
     .map((u) => `    <g:additional_image_link>${xmlEscape(u)}</g:additional_image_link>\n`)
     .join("");
 
+  // -------------------------------------------------------------------------
+  // VEHICLE ADS SPEC — only emit attributes that are listed in the Vehicle Ads
+  // feed spec. Anything else (drivetrain, fuel_type, transmission, vehicle_id,
+  // vehicle_color) was shown by Google as "unrecognized attributes" and just
+  // creates noise without helping.
+  // Refs:
+  //   - Vehicle Ads attribute spec: https://support.google.com/merchants/answer/11190480
+  //   - link_template: https://support.google.com/merchants/answer/13871172
+  //   - mileage:       https://support.google.com/google-ads/answer/14156166
+  //   - vehicle_fulfillment: https://support.google.com/google-ads/answer/14154094
+  //   - store_code:    https://support.google.com/merchants/answer/13869896
+  //   - VIN:           https://support.google.com/google-ads/answer/14154510
+  // -------------------------------------------------------------------------
   let item = "  <item>\n";
-  item += tag("id", v.vin); // VIN is the natural unique id for vehicle feeds
+
+  // Universal product fields (also used by Vehicle Ads)
+  item += tag("id", v.vin); // unique offer id; VIN is naturally unique
   item += tag("title", title);
   item += tag("description", description);
   item += tag("link", link);
-  // link_template — REQUIRED for vehicle ads per
-  // https://support.google.com/merchants/answer/13871172. Must be a full URL
-  // that includes the {store_code} ValueTrack placeholder. At serve time
-  // Google replaces {store_code} with the matching store's code from the
-  // registered Physical Stores list, sending the user to a store-specific
-  // landing page. The earlier {lpurl} attempt was rejected because {lpurl}
-  // is a Google Ads tracking-template token, not a Merchant Center one.
+  // link_template MUST include {store_code} ValueTrack placeholder, must start
+  // with http(s)://. At serve time {store_code} is replaced with the actual
+  // store_code value for the matching Business Profile location.
   item += tag("link_template", `${link}?store={store_code}`);
   item += tag("image_link", imageLink);
   item += extraImages;
   item += tag("condition", mapCondition(v));
   item += tag("price", `${v.price} USD`);
   item += tag("availability", v.status === "sold" ? "out_of_stock" : "in_stock");
-  item += tag("brand", v.make);
-  // google_product_category — required for Vehicle ads. ID 916 = Vehicles & Parts >
-  // Vehicles > Motor Vehicles > Cars, Trucks & Vans. Pass the path string; Google
-  // accepts either the numeric ID or the slash-delimited taxonomy path.
-  item += tag("google_product_category", "Vehicles & Parts > Vehicles > Motor Vehicles > Cars, Trucks & Vans");
 
-  // Required vehicle attributes
-  item += tag("vehicle_fulfillment", "own_inventory");
-  item += tag("vehicle_id", v.vin);
+  // Vehicle Ads required attributes
   item += tag("vin", v.vin);
   item += tag("year", v.year);
   item += tag("make", v.make);
   item += tag("model", v.model);
-  item += tag("trim", v.trim);
-  // Vehicle ads spec: mileage is value + unit in the same field.
-  // Per https://support.google.com/merchants/answer/14156166 acceptable units:
-  // "Km/KM/km" for kilometers, "Miles/MILES/miles" for miles. Tried splitting
-  // into mileage + mileage_unit fields — Google rejected as Missing value.
+  // mileage: value+unit in same field. Only "Miles/MILES/miles" or
+  // "Km/KM/km" accepted as units — "MI" is rejected.
   if (Number(v.mileage) > 0) item += tag("mileage", `${v.mileage} Miles`);
-  item += tag("body_style", mapBodyStyle(v));
-  // Vehicle ads canonical color field is `color`, not `vehicle_color`. Emit both
-  // for forward compatibility — Vehicle ads reads `color`, Shopping ads quirks
-  // sometimes still consult `vehicle_color`.
-  if (v.exteriorColor) {
-    item += tag("color", v.exteriorColor);
-    item += tag("vehicle_color", v.exteriorColor);
-  }
 
-  // Recommended
-  const dt = mapDrivetrain(v);
-  if (dt) item += tag("drivetrain", dt);
-  const trans = mapTransmission(v);
-  if (trans) item += tag("transmission", trans);
-  item += tag("fuel_type", mapFuelType(v));
-
-  // store_code — must match the Business Profile store code. Maxim Autos's
-  // GBP location auto-assigned code 08861907241419503398 (visible at
-  // business.google.com/locations). Without a matching code, Google rejects
-  // with "Missing valid store code" / "Invalid store". To change to a friendly
-  // slug like "maxim-autos-skokie", edit the store code in GBP first.
+  // store_code — must match the Business Profile location's code. The GBP
+  // for Maxim Autos auto-assigned 08861907241419503398 (visible at
+  // business.google.com/locations). Top-level store_code is sufficient when
+  // vehicle_fulfillment uses option=in_store (per spec the inner store_code
+  // sub-attribute is optional in that case).
   item += tag("store_code", "08861907241419503398");
+
+  // vehicle_fulfillment is a STRUCTURED/nested field, not a simple string.
+  // Accepted option values: in_store | ship_to_store | online.
+  // "own_inventory" (which I had before) is NOT a valid value — that was
+  // confused with the Performance Max for Vehicle Ads fulfillment_type field.
+  item += `    <g:vehicle_fulfillment>\n`;
+  item += `      <g:option>in_store</g:option>\n`;
+  item += `    </g:vehicle_fulfillment>\n`;
+
+  // Vehicle Ads optional but recommended attributes
+  if (v.trim) item += tag("trim", v.trim);
+  const bodyStyle = mapBodyStyle(v);
+  if (bodyStyle) item += tag("body_style", bodyStyle);
+  if (v.exteriorColor) item += tag("color", v.exteriorColor);
 
   item += "  </item>\n";
   return item;
