@@ -175,9 +175,12 @@ function buildItem(v) {
   item += tag("title", title);
   item += tag("description", description);
   item += tag("link", link);
-  // link_template is required by Vehicle ads. We re-use the same VDP URL with
-  // a UTM tag so click attribution lands in GA4 under source=google/medium=vehicle_ads.
-  item += tag("link_template", `${link}?utm_source=google&utm_medium=vehicle_ads&utm_campaign=maxim_autos_inventory`);
+  // link_template uses Google Ads ValueTrack syntax: {lpurl} is replaced at
+  // serve time with the actual landing page URL. A hardcoded URL here was
+  // rejected as "missing required attribute" because Google requires the
+  // template tokens — that's what distinguishes a "tracking template" from a
+  // plain link.
+  item += tag("link_template", `{lpurl}?utm_source=google&utm_medium=vehicle_ads&utm_campaign=maxim_autos_inventory`);
   item += tag("image_link", imageLink);
   item += extraImages;
   item += tag("condition", mapCondition(v));
@@ -197,10 +200,13 @@ function buildItem(v) {
   item += tag("make", v.make);
   item += tag("model", v.model);
   item += tag("trim", v.trim);
-  // mileage as a numeric value with explicit unit. Google parses "84058 MI" as
-  // mileage=84058, unit=MI. Skip the tag entirely when we have no value rather
-  // than emit a malformed " MI" that trips Missing-value rejection.
-  if (Number(v.mileage) > 0) item += tag("mileage", `${v.mileage} MI`);
+  // Vehicle ads spec: split mileage into separate value + unit. Combined
+  // "63140 MI" format was rejected as "Missing value [mileage]" because the
+  // parser expects mileage to be a pure integer.
+  if (Number(v.mileage) > 0) {
+    item += tag("mileage", `${v.mileage}`);
+    item += tag("mileage_unit", "MI");
+  }
   item += tag("body_style", mapBodyStyle(v));
   // Vehicle ads canonical color field is `color`, not `vehicle_color`. Emit both
   // for forward compatibility — Vehicle ads reads `color`, Shopping ads quirks
@@ -217,9 +223,11 @@ function buildItem(v) {
   if (trans) item += tag("transmission", trans);
   item += tag("fuel_type", mapFuelType(v));
 
-  // Dealer location — strictly speaking Google reads this from MC settings,
-  // but echoing it here makes the feed self-describing and easier to debug.
-  item += tag("store_code", "maxim-autos-skokie");
+  // NOTE: store_code intentionally omitted. Maxim Autos runs National vehicle
+  // ads, not Local Inventory ads. Including store_code without a registered
+  // physical store in Merchant Center → "Invalid store" + "Missing valid store
+  // code" rejections. Re-add only after a Physical Store entity is created
+  // under Settings → Physical Stores.
 
   item += "  </item>\n";
   return item;
