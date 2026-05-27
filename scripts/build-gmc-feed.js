@@ -173,6 +173,12 @@ function buildItem(v) {
   item += tag("condition", mapCondition(v));
   item += tag("price", `${v.price} USD`);
   item += tag("availability", v.status === "sold" ? "out_of_stock" : "in_stock");
+  // brand and google_product_category — Google's per-product evaluator
+  // flagged BOTH as required after I removed them. The Vehicle Ads attribute
+  // spec table I read didn't list them but the actual Vehicle Ads policy
+  // checker treats them as required. Re-added.
+  item += tag("brand", v.make);
+  item += tag("google_product_category", "Vehicles & Parts > Vehicles > Motor Vehicles > Cars, Trucks & Vans");
 
   // Vehicle Ads required attributes
   item += tag("vin", v.vin);
