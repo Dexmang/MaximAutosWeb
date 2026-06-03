@@ -1,5 +1,80 @@
 [
   {
+    "slug": "2019-hyundai-tucson-se-awd",
+    "year": 2019,
+    "make": "Hyundai",
+    "model": "Tucson",
+    "trim": "SE AWD",
+    "price": 13495,
+    "mileage": 70524,
+    "exteriorColor": "Gray",
+    "interiorColor": "Beige",
+    "engine": "164 hp 2L I4",
+    "transmission": "Automatic",
+    "drivetrain": "AWD",
+    "fuelType": "Gasoline",
+    "bodyStyle": "SUV",
+    "vin": "KM8J2CA43KU844574",
+    "condition": "Used",
+    "inspected": true,
+    "warranty": "3-Month Warranty",
+    "carfax": true,
+    "inspection": true,
+    "features": [
+      "Power Mirror Package",
+      "Navigation System",
+      "SE Package",
+      "Alloy Wheels",
+      "Bluetooth",
+      "Backup Camera",
+      "Blind Spot Monitoring",
+      "Parking Sensors",
+      "Heated Seats",
+      "CarPlay"
+    ],
+    "highlights": [
+      "SE AWD trim",
+      "70,524 miles",
+      "Fully inspected, 3-Month Warranty"
+    ],
+    "status": "available",
+    "dateAdded": "2026-06-02",
+    "featured": true,
+    "sortOrder": 0,
+    "stockNumber": "J10204",
+    "dealerCenterUrl": "",
+    "primaryPhotoUrl": "https://static.cargurus.com/images/forsale/2026/05/30/06/01/2019_hyundai_tucson-pic-8638429925467923271-1024x768.jpeg",
+    "photoUrls": [
+      "https://static.cargurus.com/images/forsale/2026/05/30/06/01/2019_hyundai_tucson-pic-8638429925467923271-1024x768.jpeg",
+      "https://static.cargurus.com/images/forsale/2026/05/30/06/01/2019_hyundai_tucson-pic-686231393265563985-1024x768.jpeg",
+      "https://static.cargurus.com/images/forsale/2026/05/30/06/01/2019_hyundai_tucson-pic-2529468717602411406-1024x768.jpeg",
+      "https://static.cargurus.com/images/forsale/2026/05/30/06/01/2019_hyundai_tucson-pic-94131953391469181-1024x768.jpeg",
+      "https://static.cargurus.com/images/forsale/2026/05/30/06/01/2019_hyundai_tucson-pic-2761719343514600363-1024x768.jpeg",
+      "https://static.cargurus.com/images/forsale/2026/05/30/06/01/2019_hyundai_tucson-pic-8738130699644781807-1024x768.jpeg",
+      "https://static.cargurus.com/images/forsale/2026/05/30/06/01/2019_hyundai_tucson-pic-922175512435560784-1024x768.jpeg",
+      "https://static.cargurus.com/images/forsale/2026/05/30/06/01/2019_hyundai_tucson-pic-1614426911256927616-1024x768.jpeg",
+      "https://static.cargurus.com/images/forsale/2026/05/30/06/01/2019_hyundai_tucson-pic-2332601559214333191-1024x768.jpeg",
+      "https://static.cargurus.com/images/forsale/2026/05/30/06/01/2019_hyundai_tucson-pic-5581571990227034588-1024x768.jpeg",
+      "https://static.cargurus.com/images/forsale/2026/05/30/06/01/2019_hyundai_tucson-pic-1465112832320169892-1024x768.jpeg",
+      "https://static.cargurus.com/images/forsale/2026/05/30/06/01/2019_hyundai_tucson-pic-8736011008184870034-1024x768.jpeg",
+      "https://static.cargurus.com/images/forsale/2026/05/30/06/01/2019_hyundai_tucson-pic-8315751502304574747-1024x768.jpeg",
+      "https://static.cargurus.com/images/forsale/2026/05/30/06/01/2019_hyundai_tucson-pic-4093439671264455060-1024x768.jpeg",
+      "https://static.cargurus.com/images/forsale/2026/05/30/06/01/2019_hyundai_tucson-pic-9188700492613456004-1024x768.jpeg"
+    ],
+    "photos": {
+      "exterior": 15,
+      "interior": 0,
+      "source": "cargurus"
+    },
+    "photoPath": "",
+    "photoPrefix": "2019-hyundai-tucson-se-awd",
+    "makeSlug": "hyundai",
+    "bodyStyleSlug": "suvs",
+    "description": "2019 Hyundai Tucson SE 4WD, 70,524 miles, gray on gray. Compact SUV with all-wheel drive, ready for Chicago winters and family duty.2.0L 4-cylinder, automatic transmission, AWD. Backup camera, Bluetooth, alloy wheels, USB input, cruise control. Roomy cabin, comfortable ride, easy on gas for a small SUV. Verify all features against actual car when it arrives.The Maxim Autos DifferenceIndependent inspection report included with every vehicle3-Month 'Peace of Mind' Warranty (extended coverage available)Metal plates issued on the spot, drive home todayTransparent pricing, no hidden feesFinancing for all credit levelsSkokie, IL. Serving Evanston, Niles, Morton Grove, Lincolnwood, Des Plaines, North Shore Chicago. Call (847) 510-8947 for a same-day appointment.Every car inspected. Every price transparent. Every customer protected.[!@@Additional Info@@!]Power Door Locks,Alarm System,4-Cyl 2.0 Liter,Backup Camera,Hill Start Assist Control,Traction Control,Power Windows,Alloy Wheels,ABS (4-Wheel),Power Steering,Bluetooth Wireless,Electronic Stability Control,F 0026R Head Curtain Air Bags,Cruise Control,Rear Spoiler,Tilt  0026 Telescoping Wheel,Dual Air Bags,Lane Keeping Assist,Keyless Entry,AM/FM Stereo,Automatic 6-Spd w/Shiftronic,AWD,CD/MP3 (Single Disc),Air Conditioning,Side Air Bags",
+    "dealRating": "GOOD_PRICE",
+    "priceSavings": 900
+  },
+  {
     "slug": "2017-nissan-sentra-s",
     "year": 2017,
     "make": "Nissan",
@@ -67,7 +142,7 @@
     "bodyStyleSlug": "sedans",
     "description": "2017 Nissan Sentra S  clean, well-kept commuter sedan in black on black with 75,665 miles. Proven Nissan reliability with the practical 1.8L engine and smooth automatic transmission.Strong fuel economy makes this a smart pick for the daily commute, a first car, or a dependable second vehicle. Features include Bluetooth, satellite-ready audio, power windows and locks, cruise control, and keyless entry.The Maxim Autos DifferenceIndependent inspection report included with every vehicle3-Month 'Peace of Mind' Warranty (extended coverage available)Metal plates issued on-the-spot  drive home todayTransparent pricing, no hidden feesFinancing for all credit levelsLocated in Skokie, IL  serving Evanston, Niles, Morton Grove, Lincolnwood, Des Plaines, and the entire North Shore Chicago corridor. Call or visit for a same-day appointment.Every car inspected. Every price transparent. Every customer protected.[!@@Additional Info@@!]FWD,Vehicle Dynamic Control,Cruise Control,Power Trunk Release,Power Door Locks,Keyless Entry,Power Windows,Tilt  0026 Telescoping Wheel,AM/FM Stereo,Auto CVT w/Xtronic,CD/MP3 (Single Disc),Bluetooth Wireless,Side Air Bags,ABS (4-Wheel),Dual Air Bags,4-Cyl 1.8 Liter,Traction Control,Air Conditioning,Power Steering,F 0026R Head Curtain Air Bags",
     "dealRating": "GOOD_PRICE",
-    "priceSavings": 1280
+    "priceSavings": 1085
   },
   {
     "slug": "2016-audi-q5-2-0t-premium-plus",
@@ -155,7 +230,7 @@
     "bodyStyleSlug": "suvs",
     "description": "2016 Audi Q5 2.0T Premium Plus  luxury German engineering in black with beige leather. quattro all-wheel drive, turbocharged 2.0T performance, and the premium fit-and-finish that puts Audi a class above most compact SUVs.Premium Plus trim includes panoramic sunroof, heated leather seats, Audi MMI navigation, Bose audio, blind-spot monitoring, power liftgate, and 19-inch alloy wheels. A confident Chicago winter cruiser that still delivers refined daily driving when the snow melts.The Maxim Autos DifferenceIndependent inspection report included with every vehicle3-Month 'Peace of Mind' Warranty (extended coverage available)Metal plates issued on-the-spot  drive home todayTransparent pricing, no hidden feesFinancing for all credit levelsLocated in Skokie, IL  serving Evanston, Niles, Morton Grove, Lincolnwood, Des Plaines, and the entire North Shore Chicago corridor. Call or visit for a same-day appointment.Every car inspected. Every price transparent. Every customer protected.[!@@Additional Info@@!]Keyless Start,Alarm System,Air Conditioning,Power Steering,Fog Lights,AWD,Electronic Stability Control,Parking System Plus,Dual Air Bags,Bluetooth Wireless,Leather,F 0026R Parking Sensors,4-Cyl Turbo 2.0 Liter,Auto 8-Spd Tiptronic Spt,Air Conditioning Rear,Bang  0026 Olufsen Sound,Dual Power Seats,Tilt  0026 Telescoping Wheel,Audi connect,Daytime Running Lights,Side Air Bags,Rollover Protection,Backup Camera,Panorama Sun Roof,Heated Seats,Xenon Headlamps,Power Tailgate Release,Technology Pkg,SiriusXM Satellite,ABS (4-Wheel),AM/FM Stereo,Power Door Locks,Premium Wheels,Hill Descent Control,Cruise Control,Power Windows,F 0026R Head Curtain Air Bags,Traction Control,Blind-Spot Alert,Navigation System,CD/MP3 (Single Disc),Keyless Entry",
     "dealRating": "GOOD_PRICE",
-    "priceSavings": 564
+    "priceSavings": 779
   },
   {
     "slug": "2016-nissan-pathfinder-sl-4wd",
@@ -166,7 +241,7 @@
     "price": 12950,
     "mileage": 63140,
     "exteriorColor": "Brown",
-    "interiorColor": "",
+    "interiorColor": "Beige",
     "engine": "260 hp 3.5L V6",
     "transmission": "CVT",
     "drivetrain": "4WD",
@@ -240,7 +315,7 @@
     "bodyStyleSlug": "suvs",
     "description": "2016 Nissan Pathfinder SL 4WD  only 63,140 miles. Brown exterior with cream interior. Clean title. Powerful 3.5L V6, smooth automatic transmission, and full-time 4-wheel drive  built for Chicago winters and Midwest summer road trips alike.Loaded SL trim features include heated leather seats, dual-zone climate control, panoramic moonroof, Bose premium audio, navigation, rearview camera, power liftgate, 18-inch alloy wheels, and 3-row seating for 7. Excellent family hauler with full towing capability.The Maxim Autos DifferenceIndependent inspection report included with every vehicle3-Month 'Peace of Mind' Warranty (extended coverage available)Metal plates issued on-the-spot  drive home todayTransparent pricing, no hidden feesFinancing for all credit levelsLocated in Skokie, IL  serving Evanston, Niles, Morton Grove, Lincolnwood, Des Plaines, and the entire North Shore Chicago corridor. Visit or call for a same-day appointment.Every car inspected. Every price transparent. Every customer protected.[!@@Additional Info@@!]Dual Power Seats,Keyless Start,Air Conditioning,F 0026R Head Curtain Air Bags,Vehicle Dynamic Control,Third Row Seat,ABS (4-Wheel),Power Steering,Traction Control,Blind-Spot Info System,Hill Start Assist,Heated Seats,Keyless Entry,Rear Spoiler,Power Liftgate Release,Navigation System,Air Conditioning Rear,Tilt Wheel,SiriusXM Satellite,AM/FM Stereo,Power Windows,CD/MP3 (Single Disc),Fog Lights,V6 3.5 Liter,Dual Air Bags,Alloy Wheels,Bluetooth Wireless,Towing Pkg,Cruise Control,Hill Descent Control,Anti-Theft System,Leather,Power Door Locks,Parking Sensors,4WD,Side Air Bags,Premium Sound,Roof Rack,Automatic CVT,Backup Camera",
     "dealRating": "FAIR_PRICE",
-    "priceSavings": 194
+    "priceSavings": 1044
   },
   {
     "slug": "2013-volvo-c70-t5",
@@ -324,7 +399,7 @@
     "bodyStyleSlug": "convertibles",
     "description": "2013 Volvo C70 T5  power retractable hardtop convertible in silver with beige leather. Just in time for Chicago summer cruising season. The C70 combines genuine convertible thrill with Volvo's signature safety and the security of a true hardtop in winter.T5 turbocharged 2.5L 5-cylinder, automatic, heated leather seats, premium audio, alloy wheels, and that one-of-a-kind retractable hardtop that gives you sedan comfort or open-air freedom at the push of a button. Memorial Day, lakefront drives, and summer evenings are calling.The Maxim Autos DifferenceIndependent inspection report included with every vehicle3-Month 'Peace of Mind' Warranty (extended coverage available)Metal plates issued on-the-spot  drive home todayTransparent pricing, no hidden feesFinancing for all credit levelsLocated in Skokie, IL  serving Evanston, Niles, Morton Grove, Lincolnwood, Des Plaines, and the entire North Shore Chicago corridor. Call or visit for a same-day appointment.Every car inspected. Every price transparent. Every customer protected.[!@@Additional Info@@!]Alloy Wheels,Power Windows,5-Cyl Light Pressure Turbo 2.5 Liter,Dynamic Stability Control,Sirius Satellite,FWD,Tilt  0026 Telescoping Wheel,Anti-Theft System,Air Conditioning,Fog Lights,Automatic 5-Spd Geartronic,Keyless Entry,AM/FM Stereo,Power Door Locks,Power Steering,CD/MP3 (Single Disc),Traction Control,Dual Air Bags,Cruise Control,Bluetooth Wireless,ABS (4-Wheel),Side Air Bags",
     "dealRating": "FAIR_PRICE",
-    "priceSavings": 243
+    "priceSavings": -154
   },
   {
     "slug": "2016-honda-cr-v-ex-awd",
@@ -403,6 +478,75 @@
     "description": "2016 Honda CR-V EX  dependable AWD compact SUV in black on black. The CR-V is famous for going the long haul, and this one's the well-equipped EX trim with full all-wheel-drive capability for Chicago winters.EX features include power sunroof, heated front seats, backup camera, Bluetooth, push-button start, alloy wheels, and dual-zone climate. Comfortable family hauler, smart commuter, and proven Honda reliability all in one.The Maxim Autos DifferenceIndependent inspection report included with every vehicle3-Month 'Peace of Mind' Warranty (extended coverage available)Metal plates issued on-the-spot  drive home todayTransparent pricing, no hidden feesFinancing for all credit levelsLocated in Skokie, IL  serving Evanston, Niles, Morton Grove, Lincolnwood, Des Plaines, and the entire North Shore Chicago corridor. Call or visit for a same-day appointment.Every car inspected. Every price transparent. Every customer protected.[!@@Additional Info@@!]Heated Seats,Power Steering,Power Windows,Alloy Wheels,Bluetooth Wireless,CD/MP3 (Single Disc),ABS (4-Wheel),Stability Control,Traction Control,Keyless Entry,AWD,LaneWatch,Daytime Running Lights,Power Seat,Automatic CVT,Cruise Control,Hill Start Assist,Fog Lights,Moon Roof,Backup Camera,Tilt Wheel,Keyless Start,Side Air Bags,Dual Air Bags,Alarm System,Power Door Locks,4-Cyl i-VTEC 2.4 Liter,Air Conditioning,AM/FM Stereo,F 0026R Head Curtain Air Bags",
     "dealRating": "NA",
     "priceSavings": 0
+  },
+  {
+    "slug": "2015-honda-civic-se",
+    "year": 2015,
+    "make": "Honda",
+    "model": "Civic",
+    "trim": "SE",
+    "price": 9995,
+    "mileage": 116719,
+    "exteriorColor": "Black",
+    "interiorColor": "Black",
+    "engine": "143 hp 1.8L I4",
+    "transmission": "CVT",
+    "drivetrain": "FWD",
+    "fuelType": "Gasoline",
+    "bodyStyle": "Sedan",
+    "vin": "19XFB2F71FE281181",
+    "condition": "Used",
+    "inspected": true,
+    "warranty": "3-Month Warranty",
+    "carfax": true,
+    "inspection": true,
+    "features": [
+      "Alloy Wheels",
+      "Bluetooth",
+      "Backup Camera",
+      "Blind Spot Monitoring"
+    ],
+    "highlights": [
+      "SE trim",
+      "116,719 miles",
+      "Fully inspected, 3-Month Warranty"
+    ],
+    "status": "sold",
+    "dateAdded": "2026-06-02",
+    "featured": true,
+    "sortOrder": 0,
+    "stockNumber": "J10203",
+    "dealerCenterUrl": "",
+    "primaryPhotoUrl": "https://static.cargurus.com/images/forsale/2026/05/30/06/01/2015_honda_civic-pic-942022030530590319-1024x768.jpeg",
+    "photoUrls": [
+      "https://static.cargurus.com/images/forsale/2026/05/30/06/01/2015_honda_civic-pic-942022030530590319-1024x768.jpeg",
+      "https://static.cargurus.com/images/forsale/2026/05/30/06/01/2015_honda_civic-pic-1726650300612311019-1024x768.jpeg",
+      "https://static.cargurus.com/images/forsale/2026/05/30/06/01/2015_honda_civic-pic-5747106253053774101-1024x768.jpeg",
+      "https://static.cargurus.com/images/forsale/2026/05/30/06/01/2015_honda_civic-pic-3547194278553308478-1024x768.jpeg",
+      "https://static.cargurus.com/images/forsale/2026/05/30/06/01/2015_honda_civic-pic-8054322711715308223-1024x768.jpeg",
+      "https://static.cargurus.com/images/forsale/2026/05/30/06/01/2015_honda_civic-pic-371750993381305695-1024x768.jpeg",
+      "https://static.cargurus.com/images/forsale/2026/05/30/06/01/2015_honda_civic-pic-6621434876980847417-1024x768.jpeg",
+      "https://static.cargurus.com/images/forsale/2026/05/30/06/01/2015_honda_civic-pic-9091136952144043441-1024x768.jpeg",
+      "https://static.cargurus.com/images/forsale/2026/05/30/06/01/2015_honda_civic-pic-4226542555219683775-1024x768.jpeg",
+      "https://static.cargurus.com/images/forsale/2026/05/30/06/01/2015_honda_civic-pic-3458203916148180280-1024x768.jpeg",
+      "https://static.cargurus.com/images/forsale/2026/05/30/06/01/2015_honda_civic-pic-3465441847799534587-1024x768.jpeg",
+      "https://static.cargurus.com/images/forsale/2026/05/30/06/01/2015_honda_civic-pic-5715661433344466392-1024x768.jpeg",
+      "https://static.cargurus.com/images/forsale/2026/05/30/06/01/2015_honda_civic-pic-78848618615926224-1024x768.jpeg"
+    ],
+    "photos": {
+      "exterior": 13,
+      "interior": 0,
+      "source": "cargurus"
+    },
+    "photoPath": "",
+    "photoPrefix": "2015-honda-civic-se",
+    "makeSlug": "honda",
+    "bodyStyleSlug": "sedans",
+    "description": "2015 Honda Civic SE Sedan, 116,719 miles, all black inside and out. Easy on gas, easy to drive, perfect first car or daily commuter for the North Shore.1.8L 4-cylinder, automatic transmission, front-wheel drive. Bluetooth, backup camera, cruise control, alloy wheels, USB input. Reliable Honda powertrain, great for fuel economy on the daily commute or longer trips. Verify all features against actual car when it arrives.The Maxim Autos DifferenceIndependent inspection report included with every vehicle3-Month 'Peace of Mind' Warranty (extended coverage available)Metal plates issued on the spot, drive home todayTransparent pricing, no hidden feesFinancing for all credit levelsSkokie, IL. Serving Evanston, Niles, Morton Grove, Lincolnwood, Des Plaines, North Shore Chicago. Call (847) 510-8947 for a same-day appointment.Every car inspected. Every price transparent. Every customer protected.[!@@Additional Info@@!]Traction Control,Power Door Locks,Stability Control,Keyless Entry,F 0026R Head Curtain Air Bags,AM/FM Stereo,Automatic CVT,Power Steering,LaneWatch Blind-Spot,ABS (4-Wheel),Bluetooth Wireless,Air Conditioning,Alloy Wheels,Daytime Running Lights,Side Air Bags,Tilt  0026 Telescoping Wheel,FWD,CD/MP3 (Single Disc),Cruise Control,Backup Camera,Power Windows,4-Cyl i-VTEC 1.8 Liter,Dual Air Bags,Alarm System",
+    "dealRating": "GOOD_PRICE",
+    "priceSavings": 1662,
+    "missing_since": "2026-06-03T01:03:34.333Z",
+    "sold_date": "2026-06-03"
   },
   {
     "slug": "2014-volkswagen-jetta-se",
