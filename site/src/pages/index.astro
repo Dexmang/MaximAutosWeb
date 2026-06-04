@@ -11,7 +11,7 @@ import suburbs from '../data/suburbs.json';
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 const title = 'Used Cars in Skokie, IL | 5-Star Rated | Maxim Autos';
 const description = 'Maxim Autos: fully inspected used cars from $5,000 to $15,000 in Skokie, IL. Metal plates on the spot. Skip the DMV. Financing for all credit levels. 5-star Google reviews.';
-const featured = vehicles.filter(v => (v as any).status !== 'sold').slice(0, 6);
+const featured = vehicles.filter(v => (v as any).status !== 'sold');
 ---
 
 <Layout
