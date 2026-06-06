@@ -595,6 +595,58 @@ function classifyAndReport(before, after, { emit = true } = {}) {
   return { urls: [...urlSet] };
 }
 
+/**
+ * Cross-listing photo ownership pass.
+ *
+ * A CarGurus photo URL belongs to exactly one listing. Detail pages embed a
+ * "more from this dealer" carousel, and the year_make prefix filter in
+ * fetchListingDetail() cannot distinguish two units of the same make — e.g.
+ * two 2016 Honda CR-Vs both produce prefix "2016_honda" — so a neighbor's hero
+ * photo can leak into a gallery. Once leaked it goes sticky, because the
+ * detail-fetch loop skips re-fetching photos for any car that already has >1.
+ *
+ * Invariant enforced here: a photo that is some OTHER vehicle's authoritative
+ * hero (photoUrls[0] / primaryPhotoUrl) is stripped from every gallery but its
+ * owner's. Runs on the final array every sync, so it also self-heals galleries
+ * whose leak predates this fix. Keeps primaryPhotoUrl and photos.exterior in
+ * sync with the cleaned array.
+ */
+function dedupePhotosAcrossListings(vehicles) {
+  // Map each authoritative CarGurus hero URL → its owning vehicle key.
+  const heroOwner = new Map();
+  for (const v of vehicles) {
+    const hero = (v.photoUrls && v.photoUrls[0]) || v.primaryPhotoUrl || '';
+    if (hero.includes('static.cargurus.com')) {
+      heroOwner.set(hero, v.vin || v.slug);
+    }
+  }
+
+  let removed = 0;
+  for (const v of vehicles) {
+    if (!Array.isArray(v.photoUrls) || v.photoUrls.length === 0) continue;
+    const me = v.vin || v.slug;
+    const before = v.photoUrls.length;
+    // Keep a URL unless it is a DIFFERENT vehicle's hero.
+    v.photoUrls = v.photoUrls.filter(u => {
+      const owner = heroOwner.get(u);
+      return !owner || owner === me;
+    });
+    const dropped = before - v.photoUrls.length;
+    if (dropped > 0) {
+      removed += dropped;
+      v.primaryPhotoUrl = v.photoUrls[0] || v.primaryPhotoUrl;
+      if (v.photos && typeof v.photos === 'object') {
+        v.photos = { ...v.photos, exterior: v.photoUrls.length };
+      }
+      console.log(`  Photo de-dupe: removed ${dropped} leaked photo(s) from ${v.year} ${v.make} ${v.model} ${v.trim} [${me}]`);
+    }
+  }
+  console.log(removed > 0
+    ? `  Photo ownership pass: removed ${removed} cross-listing leak(s) total.`
+    : '  Photo ownership pass: no cross-listing leaks found.');
+  return vehicles;
+}
+
 // ── main ──────────────────────────────────────────────────────────────────────
 
 async function main() {
@@ -771,6 +823,11 @@ async function main() {
       }
     })
   );
+
+  // Strip any photo that is another listing's hero (carousel leak between
+  // same-make units — see dedupePhotosAcrossListings). Self-heals every sync.
+  console.log(`\nPhoto ownership check...`);
+  dedupePhotosAcrossListings(vehicles);
 
   console.log(`\nMapped ${vehicles.length} vehicles:`);
   vehicles.forEach(v =>
