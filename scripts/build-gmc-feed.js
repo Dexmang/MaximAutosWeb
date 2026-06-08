@@ -183,7 +183,6 @@ function buildItem(v) {
   // Vehicle Ads required attributes
   item += tag("vin", v.vin);
   item += tag("year", v.year);
-  item += tag("make", v.make);
   item += tag("model", v.model);
   // mileage: value+unit in same field. Only "Miles/MILES/miles" or
   // "Km/KM/km" accepted as units — "MI" is rejected.
