@@ -32,7 +32,7 @@ const featured = vehicles.filter(v => (v as any).status !== 'sold');
       "description": description,
       "url": "https://www.maximautos.com",
       "telephone": "+1-847-510-8947",
-      "email": "jerryf@maximautos.com",
+      "email": "jfranco@maximautos.com",
       "address": {
         "@type": "PostalAddress",
         "addressLocality": "Skokie",
@@ -90,7 +90,7 @@ const featured = vehicles.filter(v => (v as any).status !== 'sold');
       <!-- Desktop: left-to-right overlay -->
       <div class="hidden md:block absolute inset-0 bg-gradient-to-r from-navy/90 via-navy/70 to-navy/20"></div>
 
-      <!-- Rotating review card — lower right, desktop only -->
+      <!-- Rotating review card â€” lower right, desktop only -->
       <div class="hidden md:block absolute bottom-6 right-6 lg:bottom-8 lg:right-8 w-72 lg:w-80 bg-white/95 backdrop-blur-sm rounded-xl shadow-2xl p-4">
         <div class="flex items-center justify-between mb-3">
           <div class="flex items-center gap-1.5">
@@ -103,7 +103,7 @@ const featured = vehicles.filter(v => (v as any).status !== 'sold');
             <span class="text-gray-500 text-xs font-semibold">Verified Review</span>
           </div>
           <div class="flex gap-0.5" aria-label="5 stars">
-            {[1,2,3,4,5].map(() => <span class="text-orange text-sm leading-none">★</span>)}
+            {[1,2,3,4,5].map(() => <span class="text-orange text-sm leading-none">â˜…</span>)}
           </div>
         </div>
         <blockquote id="hero-review-text" class="text-gray-800 text-sm leading-relaxed mb-2" style="transition: opacity 0.3s ease; min-height: 64px;"></blockquote>
@@ -127,7 +127,7 @@ const featured = vehicles.filter(v => (v as any).status !== 'sold');
            class="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 text-white rounded-full px-4 py-2 mb-6 hover:bg-white/20 transition-colors">
           <span class="material-symbols-outlined text-orange text-base" style="font-variation-settings: 'FILL' 1;">star</span>
           <span class="font-bold text-sm">{reviewsMeta.rating.toFixed(1)} Stars on Google</span>
-          <span class="text-white/60 text-xs">· {reviewsMeta.count} Reviews</span>
+          <span class="text-white/60 text-xs">Â· {reviewsMeta.count} Reviews</span>
         </a>
         <h1 class="font-headline text-4xl md:text-5xl lg:text-6xl font-extrabold text-white leading-tight tracking-tight mb-4">
           Used Cars <br/>in Skokie, IL
@@ -254,8 +254,8 @@ const featured = vehicles.filter(v => (v as any).status !== 'sold');
       <div class="mt-8 flex items-center justify-center gap-3 bg-navy/5 border border-navy/10 rounded-xl px-6 py-4">
         <span class="material-symbols-outlined text-2xl text-navy shrink-0" style="font-variation-settings:'FILL' 1;">local_shipping</span>
         <p class="text-sm text-gray-700">
-          <span class="font-bold text-navy">Rather buy from home?</span> Complete the entire purchase online — local or nationwide. Pick up or get it delivered.
-          <a href={`${base}/ship`} class="text-orange font-bold hover:underline ml-1">How it works →</a>
+          <span class="font-bold text-navy">Rather buy from home?</span> Complete the entire purchase online â€” local or nationwide. Pick up or get it delivered.
+          <a href={`${base}/ship`} class="text-orange font-bold hover:underline ml-1">How it works â†’</a>
         </p>
       </div>
     </div>
@@ -271,7 +271,7 @@ const featured = vehicles.filter(v => (v as any).status !== 'sold');
           </div>
           <div class="min-w-0">
             <h3 class="font-headline text-base font-bold mb-1">Total Protection</h3>
-            <p class="text-gray-500 text-sm">Independent inspection report included · 3-Month Warranty · Free CARFAX</p>
+            <p class="text-gray-500 text-sm">Independent inspection report included Â· 3-Month Warranty Â· Free CARFAX</p>
           </div>
         </div>
         <div class="flex items-start gap-4 p-4 md:p-6 rounded-xl border border-gray-100 hover:border-orange/20 hover:shadow-md transition-all">
@@ -289,7 +289,7 @@ const featured = vehicles.filter(v => (v as any).status !== 'sold');
           </div>
           <div class="min-w-0">
             <h3 class="font-headline text-base font-bold mb-1">Transparent Pricing</h3>
-            <p class="text-gray-500 text-sm">No hidden fees · Upfront pricing · Financing for all credit levels</p>
+            <p class="text-gray-500 text-sm">No hidden fees Â· Upfront pricing Â· Financing for all credit levels</p>
           </div>
         </div>
       </div>
