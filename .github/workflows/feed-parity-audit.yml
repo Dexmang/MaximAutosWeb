@@ -1,0 +1,58 @@
+name: Feed-VDP Parity Audit
+
+on:
+  schedule:
+    # Daily at 14:30 UTC (after the 12:00 UTC sync has long settled)
+    - cron: '30 14 * * *'
+  workflow_dispatch:
+  workflow_run:
+    workflows: ["Sync Inventory from CarGurus"]
+    types: [completed]
+
+permissions:
+  contents: read
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+
+      - name: Wait for live feed to match checkout
+        run: |
+          # After a sync commit, Vercel needs 1-2 min to deploy. Poll until the
+          # live feed byte-matches the checked-out feed so we audit the same
+          # data that just shipped. On schedule runs this matches immediately.
+          for i in $(seq 1 10); do
+            curl -sf https://www.maximautos.com/feeds/vehicles.xml -o /tmp/live-feed.xml || true
+            if cmp -s /tmp/live-feed.xml web_assets/feeds/vehicles.xml; then
+              echo "Live feed matches checkout (attempt $i)."
+              exit 0
+            fi
+            echo "Attempt $i/10: live feed differs from checkout; waiting 60s for deploy..."
+            sleep 60
+          done
+          echo "Live feed never matched checkout after 10 minutes." >&2
+          exit 1
+
+      - name: Run parity audit
+        # Explicit `shell: bash` gives -o pipefail, so node's exit code is not
+        # masked by tee.
+        shell: bash
+        run: node scripts/audit-feed-vdp-parity.js 2>&1 | tee /tmp/audit-output.txt
+
+      - name: Alert on audit failure
+        if: failure()
+        run: |
+          FAILS=$(grep 'FAIL' /tmp/audit-output.txt 2>/dev/null | head -10 || true)
+          curl -s -X POST "https://ntfy.sh/maxim-autos-sync-alerts" \
+            -H "Title: maximautos.com feed-VDP parity audit FAILED" \
+            -H "Priority: high" \
+            -H "Tags: rotating_light" \
+            -d "Feed-VDP parity audit failed. ${FAILS:-No audit output captured (feed wait or fetch failed).} Run: https://github.com/Dexmang/MaximAutosWeb/actions/runs/${{ github.run_id }}"
