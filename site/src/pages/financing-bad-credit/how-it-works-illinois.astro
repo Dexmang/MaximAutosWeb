@@ -1,0 +1,115 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import QuickAnswer from '../../components/QuickAnswer.astro';
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const title = 'How Buying a Used Car with Bad Credit Works in Illinois | Maxim Autos';
+const description = 'Step by step: how bad credit used car buying works in Illinois, from application to same day metal plates. Maxim Autos in Skokie, IL. Call or text (847) 510-8947.';
+
+const quickAnswer = 'In Illinois, buying a used car with bad credit follows the same legal process as any other purchase: you pick a vehicle, a lender reviews your application, and once the loan is finalized the dealer handles tax, title, and registration. At Maxim Autos in Skokie, financing is available for all credit levels through established lenders, every application is reviewed individually, and metal Illinois plates are issued on the spot so there is no DMV trip. Call or text (847) 510-8947 with questions.';
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "Is bad credit car buying different in Illinois than other states?", "acceptedAnswer": { "@type": "Answer", "text": "The lending side is similar everywhere, but Illinois has a convenience advantage at dealers like Maxim Autos that participate in the state CVR electronic registration program: title, registration, and metal plates are processed at the dealership the same day, so there is no separate Secretary of State visit." } },
+    { "@type": "Question", "name": "How long does the process take?", "acceptedAnswer": { "@type": "Answer", "text": "When the paperwork is in order, a bad credit purchase at Maxim Autos can be completed in a single visit: application, lender review, signing, and metal plates on the car before you leave. Texting Jerry at (847) 510-8947 ahead of time speeds everything up." } },
+    { "@type": "Question", "name": "Do I need to know my credit score before applying?", "acceptedAnswer": { "@type": "Answer", "text": "No. You can apply without knowing your exact score. Lenders pull the information they need and review the whole picture, including income and stability, not just the number." } }
+  ]
+};
+---
+
+<Layout
+  title={title}
+  description={description}
+  canonicalUrl="https://www.maximautos.com/financing-bad-credit/how-it-works-illinois"
+>
+  <Fragment slot="structured-data">
+    <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.maximautos.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Bad Credit Financing", "item": "https://www.maximautos.com/financing-bad-credit" },
+        { "@type": "ListItem", "position": 3, "name": "How It Works in Illinois", "item": "https://www.maximautos.com/financing-bad-credit/how-it-works-illinois" }
+      ]
+    })} />
+  </Fragment>
+  <Header slot="header" />
+
+  <!-- Hero -->
+  <section class="bg-navy py-14 lg:py-16">
+    <div class="max-w-4xl mx-auto px-6 lg:px-8 text-center">
+      <a href={`${base}/financing-bad-credit`} class="text-orange font-bold uppercase tracking-widest text-sm mb-3 inline-block hover:underline">Bad Credit Financing Guides</a>
+      <h1 class="font-headline text-3xl md:text-4xl lg:text-5xl font-extrabold text-white leading-tight tracking-tight mb-5">
+        How Buying a Used Car with Bad Credit Works in Illinois
+      </h1>
+      <p class="text-lg text-gray-300 max-w-2xl mx-auto leading-relaxed">
+        The whole process, start to finish, with nothing left mysterious.
+      </p>
+    </div>
+  </section>
+
+  <!-- Quick Answer -->
+  <section class="py-10 bg-surface">
+    <div class="max-w-3xl mx-auto px-6 lg:px-8">
+      <QuickAnswer answer={quickAnswer} />
+    </div>
+  </section>
+
+  <!-- Article -->
+  <section class="py-14 bg-white">
+    <div class="max-w-3xl mx-auto px-6 lg:px-8">
+      <div class="space-y-5 text-gray-600 leading-relaxed">
+        <p>
+          Bad credit changes who finances the car and on what terms. It does not change the basic steps of buying one in Illinois, and knowing those steps ahead of time removes most of the stress.
+        </p>
+        <h2 class="font-headline text-xl font-extrabold text-navy pt-2">Step 1: Pick the car before you panic about the loan</h2>
+        <p>
+          Start with a vehicle that fits your budget, not the other way around. At Maxim Autos every car is priced between $5,000 and $15,000, has passed an independent mechanical inspection, and comes with a CARFAX history report and a 3 month warranty. A modest, documented car keeps the loan request small, and small requests are the easiest ones for lenders to work with.
+        </p>
+        <h2 class="font-headline text-xl font-extrabold text-navy pt-2">Step 2: Apply and let a human review it</h2>
+        <p>
+          You fill out one application, online at the <a href={`${base}/apply`} class="text-orange font-semibold hover:underline">credit application page</a> or in person. Maxim Autos sends it to established lenders who handle every credit level, and each application is reviewed individually. Lenders look at income, work history, residence stability, and down payment alongside the score itself. Nobody here will promise you an approval, because honest dealers do not, but a low score by itself is not the end of the conversation.
+        </p>
+        <h2 class="font-headline text-xl font-extrabold text-navy pt-2">Step 3: Review the numbers in plain sight</h2>
+        <p>
+          When a lender comes back with terms, you see the price, the payment, and the total before anything is signed. The advertised vehicle price is the full price at Maxim Autos, with no dealer fee or documentation charge stacked on. The only additions are Illinois tax, title, and license, which every buyer in the state pays. If you want help preparing, read the guide on <a href={`${base}/financing-bad-credit/income-and-documents`} class="text-orange font-semibold hover:underline">what income and documents lenders ask for</a>.
+        </p>
+        <h2 class="font-headline text-xl font-extrabold text-navy pt-2">Step 4: Sign and drive home registered</h2>
+        <p>
+          This is where Illinois buyers at Maxim Autos get a real advantage. As a CVR electronic registration dealer, Maxim Autos processes your title and registration at the desk and bolts metal Illinois plates on the car before you pull out. No temporary tag, no waiting on paperwork by mail, no line at a Secretary of State facility. You leave owning a registered car, the same day, even with bad credit.
+        </p>
+        <h2 class="font-headline text-xl font-extrabold text-navy pt-2">Step 5: Use the loan to climb</h2>
+        <p>
+          A financed purchase reported to the credit bureaus is also a tool. Payments made on time, month after month, build a record that can raise your score over the life of the loan. The guide on <a href={`${base}/financing-bad-credit/rebuild-credit`} class="text-orange font-semibold hover:underline">rebuilding credit with an auto loan</a> covers how that works.
+        </p>
+      </div>
+
+      <!-- CTA -->
+      <div class="mt-10 bg-navy rounded-2xl p-8 text-center">
+        <h2 class="font-headline text-2xl font-extrabold text-white mb-3">Ready to See What Is Possible?</h2>
+        <p class="text-gray-300 mb-6">Call or text Jerry at (847) 510-8947, or start your application online.</p>
+        <a href={`${base}/apply`} class="inline-flex items-center justify-center gap-2 bg-orange text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-orange-dark transition-colors">
+          <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">payments</span>
+          Apply Online
+        </a>
+      </div>
+
+      <!-- Related -->
+      <div class="mt-10 border-t border-gray-100 pt-8">
+        <p class="text-sm font-semibold text-gray-500 uppercase tracking-widest mb-4">Keep Reading</p>
+        <ul class="space-y-2 text-sm">
+          <li><a href={`${base}/financing-bad-credit/income-and-documents`} class="text-orange font-semibold hover:underline">What Income and Documents Lenders Ask For</a></li>
+          <li><a href={`${base}/financing-bad-credit/down-payment`} class="text-orange font-semibold hover:underline">How Much a Down Payment Helps</a></li>
+          <li><a href={`${base}/financing-bad-credit`} class="text-orange font-semibold hover:underline">All Bad Credit Financing Guides</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <Footer slot="footer" />
+</Layout>

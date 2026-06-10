@@ -1,0 +1,111 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import QuickAnswer from '../../components/QuickAnswer.astro';
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const title = 'Buying a Car After Repossession or Bankruptcy | Maxim Autos';
+const description = 'Yes, people buy cars after a repo or bankruptcy. What lenders look at, what helps, and how it works at Maxim Autos in Skokie, IL. Call or text (847) 510-8947.';
+
+const quickAnswer = 'A repossession or bankruptcy makes financing harder, not impossible. Lenders look at how much time has passed, what your income and stability look like now, and how much you can put down. At Maxim Autos in Skokie, financing is available for all credit levels through established lenders and every application is reviewed individually, including applications after a repo or a discharged bankruptcy. Call or text (847) 510-8947 for a straight answer about your situation.';
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "Can I finance a car after a repossession?", "acceptedAnswer": { "@type": "Answer", "text": "Often yes, especially as time passes and your income stabilizes. Lenders weigh how long ago the repo happened, whether the balance was resolved, and what your situation looks like today. Every application at Maxim Autos is reviewed individually, and approval is never guaranteed, but a past repo by itself does not close the door." } },
+    { "@type": "Question", "name": "Can I buy a car after bankruptcy in Illinois?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Many lenders will consider applicants after a bankruptcy is discharged, and some consider open Chapter 13 cases with court or trustee permission, which your attorney can explain. Bring your discharge paperwork; it answers the questions lenders will ask anyway." } },
+    { "@type": "Question", "name": "Will I be stuck with a terrible deal because of my history?", "acceptedAnswer": { "@type": "Answer", "text": "Your loan terms will reflect your credit, but the car deal itself does not have to. At Maxim Autos the advertised price is the full price with no dealer fees, every vehicle is independently inspected with a CARFAX report and a 3 month warranty, and the inventory runs $5,000 to $15,000 so the loan stays small." } }
+  ]
+};
+---
+
+<Layout
+  title={title}
+  description={description}
+  canonicalUrl="https://www.maximautos.com/financing-bad-credit/after-repossession-bankruptcy"
+>
+  <Fragment slot="structured-data">
+    <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.maximautos.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Bad Credit Financing", "item": "https://www.maximautos.com/financing-bad-credit" },
+        { "@type": "ListItem", "position": 3, "name": "After Repossession or Bankruptcy", "item": "https://www.maximautos.com/financing-bad-credit/after-repossession-bankruptcy" }
+      ]
+    })} />
+  </Fragment>
+  <Header slot="header" />
+
+  <!-- Hero -->
+  <section class="bg-navy py-14 lg:py-16">
+    <div class="max-w-4xl mx-auto px-6 lg:px-8 text-center">
+      <a href={`${base}/financing-bad-credit`} class="text-orange font-bold uppercase tracking-widest text-sm mb-3 inline-block hover:underline">Bad Credit Financing Guides</a>
+      <h1 class="font-headline text-3xl md:text-4xl lg:text-5xl font-extrabold text-white leading-tight tracking-tight mb-5">
+        Buying a Car After Repossession or Bankruptcy
+      </h1>
+      <p class="text-lg text-gray-300 max-w-2xl mx-auto leading-relaxed">
+        The worst chapter of your credit file does not have to be the last one.
+      </p>
+    </div>
+  </section>
+
+  <!-- Quick Answer -->
+  <section class="py-10 bg-surface">
+    <div class="max-w-3xl mx-auto px-6 lg:px-8">
+      <QuickAnswer answer={quickAnswer} />
+    </div>
+  </section>
+
+  <!-- Article -->
+  <section class="py-14 bg-white">
+    <div class="max-w-3xl mx-auto px-6 lg:px-8">
+      <div class="space-y-5 text-gray-600 leading-relaxed">
+        <p>
+          A repossession or bankruptcy is the kind of credit event people assume disqualifies them for years. The reality in the lending world is more nuanced: these events weigh heavily, but lenders who specialize in challenged credit see them every day and still write loans. What changes is what they ask about and what they want to see.
+        </p>
+        <h2 class="font-headline text-xl font-extrabold text-navy pt-2">After a repossession</h2>
+        <p>
+          The questions a lender cares about: how long ago it happened, whether the remaining balance was resolved or is still being collected, and whether the problem that caused it, usually a job loss or a payment that never fit, has actually changed. A repo from last month is a hard conversation. A repo from two years ago, followed by steady work and a clean rent record, is a very different file. Time and stability are your allies, and a down payment speaks louder here than anywhere else, as explained in <a href={`${base}/financing-bad-credit/down-payment`} class="text-orange font-semibold hover:underline">how much a down payment helps</a>.
+        </p>
+        <h2 class="font-headline text-xl font-extrabold text-navy pt-2">After a bankruptcy</h2>
+        <p>
+          A discharged bankruptcy can actually simplify a lender's view, because the old debts are legally resolved and cannot compete with a new car payment. Many lenders will consider applicants once a Chapter 7 is discharged, and some will look at open Chapter 13 cases when the court or trustee permits new debt; that permission question belongs to your attorney, not a car dealer. Bring your discharge paperwork to the dealership, since it answers most of what the lender needs to verify.
+        </p>
+        <h2 class="font-headline text-xl font-extrabold text-navy pt-2">What honesty looks like in this process</h2>
+        <p>
+          Be direct about your history on the application. Lenders see the file anyway, and a story that matches the paperwork builds trust while a surprise destroys it. Expect the loan terms to reflect the history; that is the honest cost of the event. What you should not accept is a bad car deal stacked on top of a hard loan. The vehicle price, the fees, and the condition of the car are all within your control when you choose where to shop.
+        </p>
+        <h2 class="font-headline text-xl font-extrabold text-navy pt-2">Why the car matters more than ever</h2>
+        <p>
+          Coming back from a repo or bankruptcy, you cannot afford a gamble vehicle. Every car at Maxim Autos passes an independent mechanical inspection, includes its CARFAX history, and carries a 3 month warranty, with the full price posted and no dealer fees at signing. Metal Illinois plates go on the car the day you buy. Handled well, this loan becomes the first strong entry in your new file; the guide on <a href={`${base}/financing-bad-credit/rebuild-credit`} class="text-orange font-semibold hover:underline">rebuilding credit with an auto loan</a> shows how to make it count.
+        </p>
+      </div>
+
+      <!-- CTA -->
+      <div class="mt-10 bg-navy rounded-2xl p-8 text-center">
+        <h2 class="font-headline text-2xl font-extrabold text-white mb-3">Your History Is Not a Verdict</h2>
+        <p class="text-gray-300 mb-6">Call or text Jerry at (847) 510-8947, describe your situation, and get an honest read. Or apply online.</p>
+        <a href={`${base}/apply`} class="inline-flex items-center justify-center gap-2 bg-orange text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-orange-dark transition-colors">
+          <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">payments</span>
+          Apply Online
+        </a>
+      </div>
+
+      <!-- Related -->
+      <div class="mt-10 border-t border-gray-100 pt-8">
+        <p class="text-sm font-semibold text-gray-500 uppercase tracking-widest mb-4">Keep Reading</p>
+        <ul class="space-y-2 text-sm">
+          <li><a href={`${base}/financing-bad-credit/rebuild-credit`} class="text-orange font-semibold hover:underline">Rebuilding Credit with an Auto Loan</a></li>
+          <li><a href={`${base}/financing-bad-credit/how-it-works-illinois`} class="text-orange font-semibold hover:underline">How Buying a Used Car with Bad Credit Works in Illinois</a></li>
+          <li><a href={`${base}/financing-bad-credit`} class="text-orange font-semibold hover:underline">All Bad Credit Financing Guides</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <Footer slot="footer" />
+</Layout>

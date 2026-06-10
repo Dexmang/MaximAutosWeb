@@ -1,0 +1,114 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import QuickAnswer from '../../components/QuickAnswer.astro';
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const title = 'How Much a Down Payment Helps with Bad Credit | Maxim Autos';
+const description = 'Why a down payment matters more when your credit is rough: smaller loan, lower payment, stronger application. Maxim Autos in Skokie, IL. Call or text (847) 510-8947.';
+
+const quickAnswer = 'A down payment helps a bad credit application three ways: it shrinks the loan amount, lowers the monthly payment, and shows the lender you have skin in the game. There is no universal required amount; lenders set their own standards and every application at Maxim Autos is reviewed individually. Because inventory runs $5,000 to $15,000, even a modest amount down makes a visible difference. Call or text (847) 510-8947 to talk numbers.';
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "How much down payment do I need with bad credit?", "acceptedAnswer": { "@type": "Answer", "text": "There is no fixed amount. Requirements vary by lender and by the rest of your application, which is why every application at Maxim Autos is reviewed individually. As a rule of thumb, more down strengthens the application, but text Jerry at (847) 510-8947 to discuss what makes sense for your situation rather than guessing." } },
+    { "@type": "Question", "name": "Can a trade vehicle count as my down payment?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Maxim Autos buys vehicles and accepts trades, and the value of your current car can serve as some or all of your down payment. Text the VIN to (847) 510-8947 for a quick offer." } },
+    { "@type": "Question", "name": "Is it better to put more down or keep cash for repairs?", "acceptedAnswer": { "@type": "Answer", "text": "Keeping an emergency cushion is wise, but the repair worry is smaller here than at a typical lot: every Maxim Autos vehicle passes an independent mechanical inspection and carries a 3 month warranty, so you are not choosing between a down payment and an immediate repair fund." } }
+  ]
+};
+---
+
+<Layout
+  title={title}
+  description={description}
+  canonicalUrl="https://www.maximautos.com/financing-bad-credit/down-payment"
+>
+  <Fragment slot="structured-data">
+    <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.maximautos.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Bad Credit Financing", "item": "https://www.maximautos.com/financing-bad-credit" },
+        { "@type": "ListItem", "position": 3, "name": "Down Payment", "item": "https://www.maximautos.com/financing-bad-credit/down-payment" }
+      ]
+    })} />
+  </Fragment>
+  <Header slot="header" />
+
+  <!-- Hero -->
+  <section class="bg-navy py-14 lg:py-16">
+    <div class="max-w-4xl mx-auto px-6 lg:px-8 text-center">
+      <a href={`${base}/financing-bad-credit`} class="text-orange font-bold uppercase tracking-widest text-sm mb-3 inline-block hover:underline">Bad Credit Financing Guides</a>
+      <h1 class="font-headline text-3xl md:text-4xl lg:text-5xl font-extrabold text-white leading-tight tracking-tight mb-5">
+        How Much a Down Payment Helps
+      </h1>
+      <p class="text-lg text-gray-300 max-w-2xl mx-auto leading-relaxed">
+        When credit is the weak spot, cash down is the strongest card you hold.
+      </p>
+    </div>
+  </section>
+
+  <!-- Quick Answer -->
+  <section class="py-10 bg-surface">
+    <div class="max-w-3xl mx-auto px-6 lg:px-8">
+      <QuickAnswer answer={quickAnswer} />
+    </div>
+  </section>
+
+  <!-- Article -->
+  <section class="py-14 bg-white">
+    <div class="max-w-3xl mx-auto px-6 lg:px-8">
+      <div class="space-y-5 text-gray-600 leading-relaxed">
+        <p>
+          Lenders reviewing a bad credit application are asking one question: will this loan get repaid? Your credit history answers it imperfectly, which is exactly why the down payment carries so much weight. It changes the math and it changes the psychology, both in your favor.
+        </p>
+        <h2 class="font-headline text-xl font-extrabold text-navy pt-2">It shrinks the loan itself</h2>
+        <p>
+          Every dollar you put down is a dollar you do not borrow. On a $9,000 car, $1,500 down means the lender is being asked for $7,500 instead of the full amount. Smaller loans are simply easier for a lender to approve, and at Maxim Autos the starting numbers are already small because the whole inventory sits between $5,000 and $15,000.
+        </p>
+        <h2 class="font-headline text-xl font-extrabold text-navy pt-2">It lowers the monthly payment</h2>
+        <p>
+          A lender has to believe your income supports the payment. Money down pulls that payment toward a number that fits comfortably inside your budget, which strengthens the application and makes your life easier for every month of the loan afterward. The payment calculator on the <a href={`${base}/financing`} class="text-orange font-semibold hover:underline">financing page</a> shows the effect instantly: slide the down payment up and watch the monthly number fall.
+        </p>
+        <h2 class="font-headline text-xl font-extrabold text-navy pt-2">It signals commitment</h2>
+        <p>
+          A borrower with cash invested in the car has a reason to protect it. Lenders know that borrowers with real money down complete loans more often, so a down payment functions as evidence about you that no credit report can provide. It will not erase your history, and it does not guarantee approval, but it reliably improves the conversation.
+        </p>
+        <h2 class="font-headline text-xl font-extrabold text-navy pt-2">It does not have to be cash</h2>
+        <p>
+          A trade can do the same job. If you have a vehicle now, its value can cover some or all of the down payment. Maxim Autos buys cars directly, so text the VIN to (847) 510-8947 and you will have a number to work with before you visit.
+        </p>
+        <p>
+          So how much should you bring? Honestly: whatever you can manage without draining your safety net. There is no magic threshold, requirements differ by lender, and every application is reviewed individually. The useful move is a short conversation about your actual numbers before you fall in love with a specific car. For the documents that pair with a down payment, read <a href={`${base}/financing-bad-credit/income-and-documents`} class="text-orange font-semibold hover:underline">what income and documents lenders ask for</a>, and see <a href={`${base}/financing-bad-credit/rebuild-credit`} class="text-orange font-semibold hover:underline">rebuilding credit with an auto loan</a> for the payoff after the purchase.
+        </p>
+      </div>
+
+      <!-- CTA -->
+      <div class="mt-10 bg-navy rounded-2xl p-8 text-center">
+        <h2 class="font-headline text-2xl font-extrabold text-white mb-3">Talk Numbers Before You Shop</h2>
+        <p class="text-gray-300 mb-6">Call or text Jerry at (847) 510-8947 with what you have down, or start the application online.</p>
+        <a href={`${base}/apply`} class="inline-flex items-center justify-center gap-2 bg-orange text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-orange-dark transition-colors">
+          <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">payments</span>
+          Apply Online
+        </a>
+      </div>
+
+      <!-- Related -->
+      <div class="mt-10 border-t border-gray-100 pt-8">
+        <p class="text-sm font-semibold text-gray-500 uppercase tracking-widest mb-4">Keep Reading</p>
+        <ul class="space-y-2 text-sm">
+          <li><a href={`${base}/financing-bad-credit/income-and-documents`} class="text-orange font-semibold hover:underline">What Income and Documents Lenders Ask For</a></li>
+          <li><a href={`${base}/financing-bad-credit/rebuild-credit`} class="text-orange font-semibold hover:underline">Rebuilding Credit with an Auto Loan</a></li>
+          <li><a href={`${base}/financing-bad-credit`} class="text-orange font-semibold hover:underline">All Bad Credit Financing Guides</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <Footer slot="footer" />
+</Layout>

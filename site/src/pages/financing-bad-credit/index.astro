@@ -1,0 +1,185 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import QuickAnswer from '../../components/QuickAnswer.astro';
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const title = 'Bad Credit Car Financing in Skokie, IL | Maxim Autos';
+const description = 'Bad credit car financing at Maxim Autos in Skokie, IL. Financing available for all credit levels through established lenders. Every application reviewed individually. Call or text (847) 510-8947.';
+
+const quickAnswer = 'Maxim Autos in Skokie, IL offers used car financing for all credit levels, including buyers with bad credit, no credit, past repossession, or bankruptcy. Financing is arranged through established lenders and every application is reviewed individually, so a low score does not automatically end the conversation. Vehicles are priced from $5,000 to $15,000, which keeps loan amounts and payments manageable. Every car includes an independent inspection report, a CARFAX history, and a 3 month warranty, and metal Illinois plates are issued on the spot. Call or text (847) 510-8947 or apply online.';
+
+const articles = [
+  {
+    slug: 'how-it-works-illinois',
+    icon: 'map',
+    title: 'How Buying a Used Car with Bad Credit Works in Illinois',
+    blurb: 'The full process from application to metal plates, explained step by step for Illinois buyers.',
+  },
+  {
+    slug: 'income-and-documents',
+    icon: 'description',
+    title: 'What Income and Documents Lenders Ask For',
+    blurb: 'The paperwork that actually matters: proof of income, residence, identity, and insurance.',
+  },
+  {
+    slug: 'down-payment',
+    icon: 'savings',
+    title: 'How Much a Down Payment Helps',
+    blurb: 'Why money down changes what lenders can do for you, and how much is worth bringing.',
+  },
+  {
+    slug: 'rebuild-credit',
+    icon: 'trending_up',
+    title: 'Rebuilding Credit with an Auto Loan',
+    blurb: 'How an installment loan reported to the bureaus can move your score in the right direction.',
+  },
+  {
+    slug: 'after-repossession-bankruptcy',
+    icon: 'restart_alt',
+    title: 'Buying a Car After Repossession or Bankruptcy',
+    blurb: 'What changes after a repo or bankruptcy, and how buyers get back on the road.',
+  },
+];
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "Can I buy a car at Maxim Autos with bad credit?", "acceptedAnswer": { "@type": "Answer", "text": "Yes, you can apply. Maxim Autos arranges financing for all credit levels through established lenders, and every application is reviewed individually. A low credit score does not automatically disqualify you, because lenders also weigh income, stability, and down payment." } },
+    { "@type": "Question", "name": "Is approval guaranteed at Maxim Autos?", "acceptedAnswer": { "@type": "Answer", "text": "No dealer can honestly guarantee approval, and Maxim Autos does not. What we do is work with established lenders who serve every credit level and review each application individually, then tell you honestly what is possible for your situation." } },
+    { "@type": "Question", "name": "Does a bad credit application hurt my credit score?", "acceptedAnswer": { "@type": "Answer", "text": "Browsing inventory has no impact on your credit. A formal credit application involves a soft or hard inquiry depending on the lender. Text Jerry at (847) 510-8947 first if you want to understand the steps before anything is submitted." } },
+    { "@type": "Question", "name": "Why does the $5,000 to $15,000 price range matter for bad credit buyers?", "acceptedAnswer": { "@type": "Answer", "text": "Smaller loans are easier to finance and easier to pay off. Because every Maxim Autos vehicle is priced between $5,000 and $15,000, the amounts requested from lenders stay modest, payments stay realistic, and the loan is more likely to fit a tight monthly budget." } }
+  ]
+};
+---
+
+<Layout
+  title={title}
+  description={description}
+  canonicalUrl="https://www.maximautos.com/financing-bad-credit"
+>
+  <Fragment slot="structured-data">
+    <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.maximautos.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Financing", "item": "https://www.maximautos.com/financing" },
+        { "@type": "ListItem", "position": 3, "name": "Bad Credit Financing", "item": "https://www.maximautos.com/financing-bad-credit" }
+      ]
+    })} />
+  </Fragment>
+  <Header slot="header" />
+
+  <!-- Hero -->
+  <section class="bg-navy py-16 lg:py-20">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8 text-center">
+      <span class="text-orange font-bold uppercase tracking-widest text-sm mb-3 block">Bad Credit Financing</span>
+      <h1 class="font-headline text-4xl md:text-5xl lg:text-6xl font-extrabold text-white leading-tight tracking-tight mb-6">
+        Bad Credit? You Can Still Buy a Good Car.
+      </h1>
+      <p class="text-xl text-gray-300 max-w-2xl mx-auto leading-relaxed">
+        Financing for all credit levels through established lenders. Every application reviewed individually. No judgment, no games.
+      </p>
+      <div class="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
+        <a href={`${base}/apply`} class="inline-flex items-center justify-center gap-2 bg-orange text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-orange-dark transition-colors shadow-lg shadow-orange/20">
+          <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">payments</span>
+          Apply Online
+        </a>
+        <a href="sms:8475108947&body=Hi Jerry, I have a credit question. I saw the bad credit financing page on your website." class="hidden sm:inline-flex items-center justify-center gap-2 bg-white/10 border border-white/30 text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-white/20 transition-colors">
+          <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">sms</span>
+          Text Jerry First
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Quick Answer -->
+  <section class="py-10 bg-surface">
+    <div class="max-w-3xl mx-auto px-6 lg:px-8">
+      <QuickAnswer answer={quickAnswer} />
+    </div>
+  </section>
+
+  <!-- Main copy -->
+  <section class="py-16 bg-white">
+    <div class="max-w-3xl mx-auto px-6 lg:px-8">
+      <h2 class="font-headline text-2xl md:text-3xl font-extrabold mb-6">How Bad Credit Financing Works Here</h2>
+      <div class="space-y-5 text-gray-600 leading-relaxed">
+        <p>
+          A credit score is one number. It does not say whether you show up to work, whether your income is steady, or whether you have cash to put down. The established lenders Maxim Autos works with understand that, which is why every application is reviewed individually instead of being filtered out by a score cutoff. Buyers with bad credit, thin credit, a past repossession, or a discharged bankruptcy get a real look, not an automatic no.
+        </p>
+        <p>
+          The inventory itself works in your favor. Every vehicle on the lot is priced between $5,000 and $15,000, so the loan you are asking for is modest by auto lending standards. Smaller amounts mean smaller payments, and smaller payments are easier for a lender to say yes to. You will not be pushed toward a $30,000 vehicle to inflate the deal.
+        </p>
+        <p>
+          You also get the same protection as every other buyer. Each car has passed an independent mechanical inspection, comes with a CARFAX history report, and is backed by a 3 month warranty. The advertised price is the full price, with no dealer fees or document charges added at signing. And when the loan is finalized, Maxim Autos issues metal Illinois plates on the spot, so you drive home registered the same day with no DMV trip.
+        </p>
+        <p>
+          One honest note: nobody can promise approval, and you should be skeptical of any lot that does. What we can promise is a straight answer. Text or call Jerry at (847) 510-8947, describe your situation, and you will know quickly what is realistic.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Article guides -->
+  <section class="py-16 bg-surface">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+      <div class="text-center mb-10">
+        <span class="text-orange font-bold uppercase tracking-widest text-sm mb-3 block">Guides</span>
+        <h2 class="font-headline text-2xl md:text-3xl font-extrabold">Bad Credit Buying, Explained</h2>
+        <p class="text-gray-500 mt-2">Five short guides that answer the questions buyers actually ask.</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+        {articles.map(a => (
+          <a href={`${base}/financing-bad-credit/${a.slug}`} class="block bg-white rounded-xl border border-gray-100 p-6 hover:border-orange/30 hover:shadow-md transition-all">
+            <div class="w-12 h-12 bg-orange/10 rounded-xl flex items-center justify-center mb-4">
+              <span class="material-symbols-outlined text-2xl text-orange" style="font-variation-settings:'FILL' 1;">{a.icon}</span>
+            </div>
+            <h3 class="font-headline text-lg font-bold text-navy mb-2">{a.title}</h3>
+            <p class="text-gray-600 text-sm leading-relaxed">{a.blurb}</p>
+            <span class="mt-4 inline-flex items-center gap-1 text-orange font-semibold text-sm">
+              Read the guide
+              <span class="material-symbols-outlined text-base">arrow_forward</span>
+            </span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="py-16 bg-white">
+    <div class="max-w-3xl mx-auto px-6 lg:px-8">
+      <div class="text-center mb-10">
+        <span class="text-orange font-bold uppercase tracking-widest text-sm mb-3 block">FAQ</span>
+        <h2 class="font-headline text-2xl md:text-3xl font-extrabold">Bad Credit Financing Questions</h2>
+      </div>
+      <div class="space-y-5">
+        {faqSchema.mainEntity.map(item => (
+          <div class="bg-surface rounded-xl border border-gray-100 p-6">
+            <h3 class="font-headline font-bold text-navy mb-2">{item.name}</h3>
+            <p class="text-gray-600 leading-relaxed text-sm">{item.acceptedAnswer.text}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-16 bg-orange">
+    <div class="max-w-4xl mx-auto px-6 lg:px-8 text-center">
+      <h2 class="font-headline text-3xl md:text-4xl font-extrabold text-white mb-4">Get a Straight Answer Today</h2>
+      <p class="text-white/90 text-lg mb-8">Call or text Jerry at (847) 510-8947, or start your application online. No pressure, no obligation.</p>
+      <a href={`${base}/apply`} class="inline-flex items-center justify-center gap-2 bg-navy text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-navy-light transition-colors">
+        <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">payments</span>
+        Start Your Application
+      </a>
+    </div>
+  </section>
+
+  <Footer slot="footer" />
+</Layout>

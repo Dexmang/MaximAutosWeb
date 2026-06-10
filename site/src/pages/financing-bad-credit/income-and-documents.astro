@@ -1,0 +1,118 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import QuickAnswer from '../../components/QuickAnswer.astro';
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const title = 'What Income and Documents Lenders Ask For | Bad Credit Car Buying | Maxim Autos';
+const description = 'The income proof and documents lenders typically ask for on a bad credit auto loan: pay stubs, ID, proof of residence, insurance. Maxim Autos, Skokie IL. (847) 510-8947.';
+
+const quickAnswer = 'For a bad credit auto loan, lenders typically ask for proof of identity, proof of income such as recent pay stubs or bank statements, proof of residence such as a utility bill, references, and proof of insurance before you drive off. Requirements vary by lender and every application at Maxim Autos is reviewed individually. Bring what you have; Jerry will tell you if anything is missing. Call or text (847) 510-8947.';
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "How much income do I need for a used car loan?", "acceptedAnswer": { "@type": "Answer", "text": "There is no single number; each lender sets its own standards and reviews applications individually. Steady, documentable income matters more than a high figure, and the modest $5,000 to $15,000 price range at Maxim Autos keeps the payment a lender needs to see supported relatively small." } },
+    { "@type": "Question", "name": "Can I use income that is not from a regular paycheck?", "acceptedAnswer": { "@type": "Answer", "text": "Often yes. Many lenders consider documented income from benefits, retirement, or work for yourself, usually shown through bank statements or tax records. Which sources count varies by lender, so ask before you apply." } },
+    { "@type": "Question", "name": "What if I cannot find one of the documents?", "acceptedAnswer": { "@type": "Answer", "text": "Text Jerry at (847) 510-8947 and explain what you have. Lenders differ on what they accept, and there is often an alternative document that satisfies the same requirement." } }
+  ]
+};
+---
+
+<Layout
+  title={title}
+  description={description}
+  canonicalUrl="https://www.maximautos.com/financing-bad-credit/income-and-documents"
+>
+  <Fragment slot="structured-data">
+    <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.maximautos.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Bad Credit Financing", "item": "https://www.maximautos.com/financing-bad-credit" },
+        { "@type": "ListItem", "position": 3, "name": "Income and Documents", "item": "https://www.maximautos.com/financing-bad-credit/income-and-documents" }
+      ]
+    })} />
+  </Fragment>
+  <Header slot="header" />
+
+  <!-- Hero -->
+  <section class="bg-navy py-14 lg:py-16">
+    <div class="max-w-4xl mx-auto px-6 lg:px-8 text-center">
+      <a href={`${base}/financing-bad-credit`} class="text-orange font-bold uppercase tracking-widest text-sm mb-3 inline-block hover:underline">Bad Credit Financing Guides</a>
+      <h1 class="font-headline text-3xl md:text-4xl lg:text-5xl font-extrabold text-white leading-tight tracking-tight mb-5">
+        What Income and Documents Lenders Ask For
+      </h1>
+      <p class="text-lg text-gray-300 max-w-2xl mx-auto leading-relaxed">
+        Walk in with the right paperwork and the whole deal moves faster.
+      </p>
+    </div>
+  </section>
+
+  <!-- Quick Answer -->
+  <section class="py-10 bg-surface">
+    <div class="max-w-3xl mx-auto px-6 lg:px-8">
+      <QuickAnswer answer={quickAnswer} />
+    </div>
+  </section>
+
+  <!-- Article -->
+  <section class="py-14 bg-white">
+    <div class="max-w-3xl mx-auto px-6 lg:px-8">
+      <div class="space-y-5 text-gray-600 leading-relaxed">
+        <p>
+          When your credit score is low, lenders lean harder on everything else. Documents are how you prove the rest of your story: that you earn steadily, live where you say you live, and can be reached. Every lender has its own checklist and every application is reviewed individually, but the categories below cover what established lenders typically want to see.
+        </p>
+        <h2 class="font-headline text-xl font-extrabold text-navy pt-2">Proof of identity</h2>
+        <p>
+          A valid driver's license is the standard here, since you also need it to drive the car off the lot legally. Make sure it is current and the address is reasonably accurate.
+        </p>
+        <h2 class="font-headline text-xl font-extrabold text-navy pt-2">Proof of income</h2>
+        <p>
+          This is the document set that matters most on a bad credit application. Recent pay stubs are the cleanest evidence for anyone with a regular employer. Buyers who work for themselves, drive for app platforms, or receive benefits or retirement income can usually document it with bank statements or tax records instead. Lenders are not looking for a fortune; they are looking for consistency that comfortably covers a payment. With Maxim Autos inventory priced between $5,000 and $15,000, that payment stays modest.
+        </p>
+        <h2 class="font-headline text-xl font-extrabold text-navy pt-2">Proof of residence</h2>
+        <p>
+          A recent utility bill, lease, or bank statement showing your name and address typically satisfies this. It tells the lender where you and the vehicle will actually be.
+        </p>
+        <h2 class="font-headline text-xl font-extrabold text-navy pt-2">References and contact information</h2>
+        <p>
+          Some lenders ask for a few personal references with phone numbers. Have names ready so this does not stall the deal at the desk.
+        </p>
+        <h2 class="font-headline text-xl font-extrabold text-navy pt-2">Proof of insurance</h2>
+        <p>
+          Illinois requires insurance before you drive away, and lenders require coverage on a financed vehicle. Calling your insurer from the dealership usually handles this in minutes; many buyers add the new car to an existing policy on the spot.
+        </p>
+        <p>
+          Two honest reminders. First, no document stack guarantees an approval, and no honest dealer will tell you otherwise. Second, do not let a missing paper keep you home. Bring what you have, and if a lender needs something else, you will know exactly what to fetch. Pairing solid documents with money down helps even more; see <a href={`${base}/financing-bad-credit/down-payment`} class="text-orange font-semibold hover:underline">how much a down payment helps</a>, or review <a href={`${base}/financing-bad-credit/how-it-works-illinois`} class="text-orange font-semibold hover:underline">the full Illinois process</a> before you visit.
+        </p>
+      </div>
+
+      <!-- CTA -->
+      <div class="mt-10 bg-navy rounded-2xl p-8 text-center">
+        <h2 class="font-headline text-2xl font-extrabold text-white mb-3">Not Sure What to Bring?</h2>
+        <p class="text-gray-300 mb-6">Call or text Jerry at (847) 510-8947 and run through your list before you drive over.</p>
+        <a href={`${base}/apply`} class="inline-flex items-center justify-center gap-2 bg-orange text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-orange-dark transition-colors">
+          <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">payments</span>
+          Apply Online
+        </a>
+      </div>
+
+      <!-- Related -->
+      <div class="mt-10 border-t border-gray-100 pt-8">
+        <p class="text-sm font-semibold text-gray-500 uppercase tracking-widest mb-4">Keep Reading</p>
+        <ul class="space-y-2 text-sm">
+          <li><a href={`${base}/financing-bad-credit/how-it-works-illinois`} class="text-orange font-semibold hover:underline">How Buying a Used Car with Bad Credit Works in Illinois</a></li>
+          <li><a href={`${base}/financing-bad-credit/after-repossession-bankruptcy`} class="text-orange font-semibold hover:underline">Buying a Car After Repossession or Bankruptcy</a></li>
+          <li><a href={`${base}/financing-bad-credit`} class="text-orange font-semibold hover:underline">All Bad Credit Financing Guides</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <Footer slot="footer" />
+</Layout>

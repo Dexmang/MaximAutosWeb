@@ -1,0 +1,111 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import QuickAnswer from '../../components/QuickAnswer.astro';
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const title = 'Rebuilding Credit with an Auto Loan | Maxim Autos Skokie IL';
+const description = 'How a used car loan can rebuild your credit: payment history, credit mix, and a finish line. Practical guide from Maxim Autos in Skokie, IL. Call or text (847) 510-8947.';
+
+const quickAnswer = 'An auto loan reported to the credit bureaus can rebuild credit because payment history is the largest factor in most scoring models, and an installment loan adds variety to your credit mix. Make every payment on time and the loan builds a positive record month after month. Maxim Autos in Skokie arranges financing for all credit levels through established lenders, with vehicles priced $5,000 to $15,000 so the payment stays manageable. Call or text (847) 510-8947.';
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "Does a car loan really improve a credit score?", "acceptedAnswer": { "@type": "Answer", "text": "It can, if the lender reports to the credit bureaus and you make every payment on time. Payment history is the largest component of most scoring models, so a year or more of clean payments on an installment loan builds real positive history. Results depend on your overall credit file, and no specific score change can be promised." } },
+    { "@type": "Question", "name": "How long before payments start helping?", "acceptedAnswer": { "@type": "Answer", "text": "Reporting typically begins within the first month or two of the loan. The benefit compounds with time: six months of on time payments says something, and two years says much more. The key is never missing." } },
+    { "@type": "Question", "name": "What happens if I pay late while rebuilding?", "acceptedAnswer": { "@type": "Answer", "text": "Late payments are reported and work against the rebuild, which is why the payment needs to fit your real budget from day one. Choosing a modest vehicle, like the $5,000 to $15,000 inventory at Maxim Autos, keeps the monthly number at a level you can defend in a bad month." } }
+  ]
+};
+---
+
+<Layout
+  title={title}
+  description={description}
+  canonicalUrl="https://www.maximautos.com/financing-bad-credit/rebuild-credit"
+>
+  <Fragment slot="structured-data">
+    <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.maximautos.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Bad Credit Financing", "item": "https://www.maximautos.com/financing-bad-credit" },
+        { "@type": "ListItem", "position": 3, "name": "Rebuilding Credit", "item": "https://www.maximautos.com/financing-bad-credit/rebuild-credit" }
+      ]
+    })} />
+  </Fragment>
+  <Header slot="header" />
+
+  <!-- Hero -->
+  <section class="bg-navy py-14 lg:py-16">
+    <div class="max-w-4xl mx-auto px-6 lg:px-8 text-center">
+      <a href={`${base}/financing-bad-credit`} class="text-orange font-bold uppercase tracking-widest text-sm mb-3 inline-block hover:underline">Bad Credit Financing Guides</a>
+      <h1 class="font-headline text-3xl md:text-4xl lg:text-5xl font-extrabold text-white leading-tight tracking-tight mb-5">
+        Rebuilding Credit with an Auto Loan
+      </h1>
+      <p class="text-lg text-gray-300 max-w-2xl mx-auto leading-relaxed">
+        The car gets you to work. The loan, handled right, gets your score back.
+      </p>
+    </div>
+  </section>
+
+  <!-- Quick Answer -->
+  <section class="py-10 bg-surface">
+    <div class="max-w-3xl mx-auto px-6 lg:px-8">
+      <QuickAnswer answer={quickAnswer} />
+    </div>
+  </section>
+
+  <!-- Article -->
+  <section class="py-14 bg-white">
+    <div class="max-w-3xl mx-auto px-6 lg:px-8">
+      <div class="space-y-5 text-gray-600 leading-relaxed">
+        <p>
+          Credit damage feels permanent, but scoring models are surprisingly forgiving of people who start stacking up good months. An auto loan is one of the most practical rebuilding tools there is, because it solves a daily problem and repairs your file at the same time.
+        </p>
+        <h2 class="font-headline text-xl font-extrabold text-navy pt-2">Why an installment loan moves the needle</h2>
+        <p>
+          Most scoring models lean heavily on two things an auto loan feeds directly. The first is payment history, the single largest factor: every month the lender reports an on time payment, you add a positive entry that slowly outweighs the old negatives. The second is credit mix. If your file is all credit cards, or mostly collections, an installment loan with fixed payments adds a type of account that models treat favorably. None of this is instant, and nobody can promise a specific score jump, but the direction is reliable when the payments are clean.
+        </p>
+        <h2 class="font-headline text-xl font-extrabold text-navy pt-2">The rebuild only works if the payment fits</h2>
+        <p>
+          Here is the part many lots will not say out loud: an unaffordable loan rebuilds nothing. One late payment gets reported just as faithfully as twelve good ones, and it hurts more when your file is thin. The single most important decision is choosing a payment you can make in your worst month, not your best one. This is where shopping at a lot with $5,000 to $15,000 inventory is a structural advantage; the loan stays small, so the payment stays survivable. Putting money down shrinks it further, as covered in <a href={`${base}/financing-bad-credit/down-payment`} class="text-orange font-semibold hover:underline">how much a down payment helps</a>.
+        </p>
+        <h2 class="font-headline text-xl font-extrabold text-navy pt-2">Protect the rebuild from the car itself</h2>
+        <p>
+          A breakdown is the silent killer of credit rebuilds: a $1,200 repair bill in month four is how good intentions become a missed payment. You cannot eliminate that risk, but you can shrink it by buying a documented car. Every vehicle at Maxim Autos passes an independent mechanical inspection before it is listed, comes with its CARFAX history, and carries a 3 month warranty, so you start the loan with evidence instead of hope.
+        </p>
+        <h2 class="font-headline text-xl font-extrabold text-navy pt-2">Habits that finish the job</h2>
+        <p>
+          Set the payment on autopay the day you sign. Keep insurance current, since a lapse creates expensive problems on a financed car. And resist new debt while the loan seasons; the goal is a file where the strongest recent story is this loan, paid perfectly. Buyers coming back from a repo or bankruptcy have extra considerations, covered in <a href={`${base}/financing-bad-credit/after-repossession-bankruptcy`} class="text-orange font-semibold hover:underline">buying a car after repossession or bankruptcy</a>.
+        </p>
+      </div>
+
+      <!-- CTA -->
+      <div class="mt-10 bg-navy rounded-2xl p-8 text-center">
+        <h2 class="font-headline text-2xl font-extrabold text-white mb-3">Start the Rebuild with the Right Car</h2>
+        <p class="text-gray-300 mb-6">Call or text Jerry at (847) 510-8947 to talk through a payment that fits, or apply online.</p>
+        <a href={`${base}/apply`} class="inline-flex items-center justify-center gap-2 bg-orange text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-orange-dark transition-colors">
+          <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">payments</span>
+          Apply Online
+        </a>
+      </div>
+
+      <!-- Related -->
+      <div class="mt-10 border-t border-gray-100 pt-8">
+        <p class="text-sm font-semibold text-gray-500 uppercase tracking-widest mb-4">Keep Reading</p>
+        <ul class="space-y-2 text-sm">
+          <li><a href={`${base}/financing-bad-credit/down-payment`} class="text-orange font-semibold hover:underline">How Much a Down Payment Helps</a></li>
+          <li><a href={`${base}/financing-bad-credit/after-repossession-bankruptcy`} class="text-orange font-semibold hover:underline">Buying a Car After Repossession or Bankruptcy</a></li>
+          <li><a href={`${base}/financing-bad-credit`} class="text-orange font-semibold hover:underline">All Bad Credit Financing Guides</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <Footer slot="footer" />
+</Layout>
