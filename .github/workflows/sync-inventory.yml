@@ -26,10 +26,15 @@ jobs:
       - name: Run inventory sync
         run: node scripts/sync-from-cargurus.js
 
+      - name: Rebuild GMC feed
+        run: node scripts/build-gmc-feed.js --strict
+
       - name: Check for changes
         id: diff
         run: |
-          if git diff --quiet site/src/data/vehicles.json site/src/data/url-events.jsonl; then
+          # -I'<lastBuildDate>' ignores the feed's timestamp-only churn so we
+          # don't create a commit every 6h when nothing real changed.
+          if git diff --quiet -I'<lastBuildDate>' site/src/data/vehicles.json site/src/data/url-events.jsonl web_assets/feeds/vehicles.xml; then
             echo "changed=false" >> $GITHUB_OUTPUT
           else
             echo "changed=true" >> $GITHUB_OUTPUT
@@ -40,7 +45,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add site/src/data/vehicles.json site/src/data/url-events.jsonl
+          git add site/src/data/vehicles.json site/src/data/url-events.jsonl web_assets/feeds/vehicles.xml
           git commit -m "chore: sync inventory from CarGurus [${{ github.run_number }}]"
           git push
 

@@ -28,6 +28,11 @@
  *   - Condition mismatch (used inventory must declare condition=used)
  *
  * Run: node scripts/build-gmc-feed.js
+ *      node scripts/build-gmc-feed.js --strict
+ *
+ * --strict: exit 2 when any active (non-sold) vehicle is skipped or when the
+ * feed would be empty. Used by CI so a partial/empty feed never gets
+ * committed silently — the workflow's failure alert fires instead.
  */
 
 import { readFileSync, writeFileSync, mkdirSync, existsSync } from "fs";
@@ -36,6 +41,8 @@ import { dirname, join } from "path";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
+
+const STRICT = process.argv.includes("--strict");
 
 const SITE_HOST = "https://www.maximautos.com";
 const DEALER_NAME = "Maxim Autos";
@@ -221,10 +228,17 @@ function buildFeed() {
   const available = vehicles.filter((v) => v.status !== "sold");
 
   const now = new Date().toISOString();
-  const itemsXml = available
-    .map(buildItem)
-    .filter((x) => x !== null)
-    .join("");
+  const skippedRows = [];
+  const items = [];
+  for (const v of available) {
+    const item = buildItem(v);
+    if (item === null) {
+      skippedRows.push(v.slug || v.vin || v.stockNumber || "(unidentified row)");
+    } else {
+      items.push(item);
+    }
+  }
+  const itemsXml = items.join("");
 
   const feed = `<?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:g="http://base.google.com/ns/1.0">
@@ -243,11 +257,23 @@ ${itemsXml}</channel>
   writeFileSync(FEED_PATH, feed, "utf-8");
 
   const skipped = vehicles.length - available.length;
-  const written = (feed.match(/<item>/g) || []).length;
+  const written = items.length;
   console.log(`GMC feed written to ${FEED_PATH}`);
   console.log(`  total vehicles in vehicles.json: ${vehicles.length}`);
   console.log(`  excluded (sold): ${skipped}`);
+  console.log(`  active (non-sold): ${available.length}`);
   console.log(`  written to feed: ${written}`);
+
+  if (STRICT && (written === 0 || written < available.length)) {
+    console.error(
+      `STRICT FAILURE: wrote ${written} of ${available.length} active vehicles` +
+        (written === 0 ? " (feed is empty)" : "")
+    );
+    if (skippedRows.length > 0) {
+      console.error(`  skipped rows: ${skippedRows.join(", ")}`);
+    }
+    process.exit(2);
+  }
 }
 
 try {
