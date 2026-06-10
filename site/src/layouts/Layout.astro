@@ -150,6 +150,41 @@ const ogImageAbsolute = new URL(ogImage ?? `${base}/brand/hero-family.jpg`, site
       gtag('js', new Date());
       gtag('config', 'G-H05CD3EHE9');
     </script>
+
+    <!-- GA4 lead events — tel:/sms: clicks, lead form submits, chat (future).
+         Capture phase so AJAX forms (preventDefault in bubble phase) and
+         dynamically rendered links are still counted. -->
+    <script is:inline>
+      (function () {
+        function lead(channel) {
+          if (typeof gtag === 'function') {
+            gtag('event', 'generate_lead', { lead_channel: channel, transport_type: 'beacon' });
+          }
+        }
+        document.addEventListener('click', function (e) {
+          var t = e.target;
+          if (!t || typeof t.closest !== 'function') return;
+          var a = t.closest('a[href^="tel:"], a[href^="sms:"]');
+          if (!a) return;
+          lead(a.getAttribute('href').indexOf('sms:') === 0 ? 'sms' : 'phone');
+        }, true);
+        var FORM_CHANNELS = {
+          'contact-form': 'contact_form',
+          'financing-form': 'financing_form',
+          'apply-form': 'credit_app',
+          'sell-trade-form': 'sell_trade_form'
+        };
+        document.addEventListener('submit', function (e) {
+          var f = e.target;
+          if (!f || !f.tagName || f.tagName !== 'FORM') return;
+          lead(FORM_CHANNELS[f.id] || 'form');
+        }, true);
+        // Tawk.to is NOT installed today — this is a defensive no-op hook so
+        // chat leads start counting automatically if it ever gets added.
+        window.Tawk_API = window.Tawk_API || {};
+        window.Tawk_API.onChatStarted = function () { lead('chat'); };
+      })();
+    </script>
   </head>
   <body class="bg-surface font-body text-gray-900 antialiased">
     <slot name="header" />

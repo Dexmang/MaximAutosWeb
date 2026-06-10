@@ -34,7 +34,7 @@ Other data files:
 
 ## Page & Component Structure
 
-`src/layouts/Layout.astro` — the universal shell. Handles `<head>`, GA4, Tawk.to chat widget, and the orange trust strip that appears on every page. Accepts named slots: `header`, `footer`, `structured-data`.
+`src/layouts/Layout.astro` — the universal shell. Handles `<head>`, GA4 (pageview + `generate_lead` events), and the orange trust strip that appears on every page. Accepts named slots: `header`, `footer`, `structured-data`.
 
 `src/components/Header.astro` — sticky nav with mobile menu. Nav links are defined as arrays (`primaryLinks`, `secondaryLinks`) at the top of the frontmatter.
 
@@ -61,7 +61,7 @@ Sold VDPs older than 14 days are excluded from the sitemap (see `astro.config.mj
 
 ## Integrations
 
-- **Tawk.to** — live chat, loaded in Layout.astro body. Widget ID: `69dfdfcf38b4681c3225155b`.
-- **GA4** — Measurement ID `G-H05CD3EHE9`, loaded in every page `<head>` via Layout.
+- **Live chat** — NOT installed. Tawk.to was never added (a GHL widget is present but commented out in Layout.astro). Layout.astro ships a defensive `Tawk_API.onChatStarted` hook that fires a `generate_lead` chat event if a Tawk widget is ever installed.
+- **GA4** — Measurement ID `G-H05CD3EHE9`, loaded in every page `<head>` via Layout. Layout also fires `generate_lead` events (lead_channel: phone / sms / contact_form / financing_form / credit_app / sell_trade_form / form / chat).
 - **Formspree** — pre-qual form endpoint on the financing and apply pages.
 - **CarGurus** — deal ratings and VIN badge widget (`cg-vin-badge`) on VDPs.
