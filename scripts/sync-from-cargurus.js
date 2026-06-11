@@ -189,6 +189,61 @@ function generateVehicleSlug(year, make, model, trim) {
   return slugify([year, make, model, trim].filter(Boolean).join('-'));
 }
 
+// ── trim fallback ─────────────────────────────────────────────────────────────
+// CarGurus normalizes dealer-supplied trims against its own catalog and blanks
+// any that don't match (e.g. "T6 R-Design Platinum" → ""). When that happens we
+// fall back, in order: VIN → trim snapshot exported from ma_vehicles in the PKA
+// hub DB (scripts/export-vin-trims.js — the DB itself isn't reachable from CI),
+// then the trim parsed out of the dealer description (which CarGurus passes
+// through intact), then the last value we already had.
+
+const VIN_TRIMS_PATH = resolve(__dirname, '../site/src/data/vin-trims.json');
+
+function loadVinTrims() {
+  try {
+    const raw = JSON.parse(readFileSync(VIN_TRIMS_PATH, 'utf8'));
+    return raw?.by_vin || {};
+  } catch (_) {
+    console.warn('  vin-trims.json not found — DB trim fallback unavailable this run.');
+    return {};
+  }
+}
+
+const VIN_TRIMS = loadVinTrims();
+
+function escapeRegExp(s) {
+  return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+}
+
+/**
+ * Pull the trim out of a dealer description that starts with
+ * "<year> <make> <model> <trim>" — our listing copy always leads with the
+ * full vehicle name, and the trim runs until a double space or punctuation
+ * ("2015 Volvo XC60 T6 R-Design Platinum  325 HP Turbo, ..."). Requires the
+ * candidate to start with an uppercase letter or digit so generated filler
+ * like "... XC60 with 115,181 miles" is never mistaken for a trim.
+ */
+function parseTrimFromDescription(description, year, make, model) {
+  if (!description || !year || !make || !model) return '';
+  const re = new RegExp(
+    '^\\s*' + escapeRegExp(`${year} ${make} ${model}`) +
+    "[ \\t]+([A-Z0-9][A-Za-z0-9 ./&+'-]{0,39}?)(?=\\s{2,}|[,.:;!?|]|$)"
+  );
+  const m = description.match(re);
+  if (!m) return '';
+  const candidate = m[1].trim();
+  if (!candidate || candidate.split(/\s+/).length > 5) return '';
+  return candidate;
+}
+
+function resolveTrim(cgTrim, vin, existing, year, make, model) {
+  return cgTrim
+    || VIN_TRIMS[vin]
+    || parseTrimFromDescription(existing?.description, year, make, model)
+    || existing?.trim
+    || '';
+}
+
 function generateHighlights(year, make, model, trim, mileage) {
   const h = [];
   if (trim) h.push(`${trim} trim`);
@@ -361,7 +416,8 @@ function mapNode(node, _offer, existingByVin) {
   const year = parseInt(onto.carYear || n.carYear || '') || 0;
   const make = onto.makeName || '';
   const model = onto.modelName || '';
-  const trim = onto.trimName || '';
+  // CarGurus blanks trims its catalog doesn't recognize — see resolveTrim.
+  const trim = resolveTrim(onto.trimName || '', vin, existing, year, make, model);
 
   // Price, priceSavings, and dealRating are one atomic unit — CarGurus is authoritative.
   // All three update together when a live price is present, or all three hold their
@@ -823,6 +879,24 @@ async function main() {
       }
     })
   );
+
+  // Late trim resolution: a unit with a blanked CarGurus trim and no entry in
+  // vin-trims.json can still recover its trim from the dealer description we
+  // just fetched. For units that are NEW this run the slug isn't public yet,
+  // so it's safe to regenerate slug/photoPrefix/highlights with the trim in;
+  // existing units keep their slug (URL stability) and only get the field.
+  for (const v of liveVehicles) {
+    if (v.trim || !v.vin || v.vin === 'TBD') continue;
+    const parsed = parseTrimFromDescription(v.description, v.year, v.make, v.model);
+    if (!parsed) continue;
+    v.trim = parsed;
+    if (!existingByVin[v.vin]) {
+      v.slug = generateVehicleSlug(v.year, v.make, v.model, v.trim);
+      v.photoPrefix = slugify(`${v.year}-${v.make}-${v.model}-${v.trim}`);
+      v.highlights = generateHighlights(v.year, v.make, v.model, v.trim, v.mileage);
+    }
+    console.log(`  Trim recovered from description: ${v.year} ${v.make} ${v.model} → "${v.trim}" [${v.vin}]`);
+  }
 
   // Strip any photo that is another listing's hero (carousel leak between
   // same-make units — see dedupePhotosAcrossListings). Self-heals every sync.
