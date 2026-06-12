@@ -78,7 +78,7 @@ const featured = vehicles.filter(v => (v as any).status !== 'sold').slice(0, 6);
       <div class="md:hidden absolute inset-0 bg-gradient-to-b from-navy/20 to-navy"></div>
       <div class="hidden md:block absolute inset-0 bg-gradient-to-r from-navy/90 via-navy/70 to-navy/20"></div>
 
-      <!-- Rotating review card â€” lower right, desktop only -->
+      <!-- Rotating review card - lower right, desktop only -->
       <div class="hidden md:block absolute bottom-6 right-6 lg:bottom-8 lg:right-8 w-72 lg:w-80 bg-white/95 backdrop-blur-sm rounded-xl shadow-2xl p-4">
         <div class="flex items-center justify-between mb-3">
           <div class="flex items-center gap-1.5">
@@ -91,7 +91,7 @@ const featured = vehicles.filter(v => (v as any).status !== 'sold').slice(0, 6);
             <span class="text-gray-500 text-xs font-semibold">Resena Verificada</span>
           </div>
           <div class="flex gap-0.5" aria-label="5 estrellas">
-            {[1,2,3,4,5].map(() => <span class="text-orange text-sm leading-none">â˜…</span>)}
+            {[1,2,3,4,5].map(() => <span class="text-orange text-sm leading-none">★</span>)}
           </div>
         </div>
         <blockquote id="hero-review-text" class="text-gray-800 text-sm leading-relaxed mb-2" style="transition: opacity 0.3s ease; min-height: 64px;"></blockquote>
@@ -115,7 +115,7 @@ const featured = vehicles.filter(v => (v as any).status !== 'sold').slice(0, 6);
            class="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 text-white rounded-full px-4 py-2 mb-6 hover:bg-white/20 transition-colors">
           <span class="material-symbols-outlined text-orange text-base" style="font-variation-settings: 'FILL' 1;">star</span>
           <span class="font-bold text-sm">{reviewsMeta.rating.toFixed(1)} Estrellas en Google</span>
-          <span class="text-white/60 text-xs">Â· {reviewsMeta.count} Resenas</span>
+          <span class="text-white/60 text-xs">· {reviewsMeta.count} Resenas</span>
         </a>
         <h1 class="font-headline text-4xl md:text-5xl lg:text-6xl font-extrabold text-white leading-tight tracking-tight mb-4">
           Autos Usados <br/>en Skokie, IL
@@ -239,7 +239,7 @@ const featured = vehicles.filter(v => (v as any).status !== 'sold').slice(0, 6);
         <span class="material-symbols-outlined text-2xl text-navy shrink-0" style="font-variation-settings:'FILL' 1;">local_shipping</span>
         <p class="text-sm text-gray-700">
           <span class="font-bold text-navy">Prefiero comprar desde casa?</span> Completa toda la compra en linea, local o a nivel nacional. Recoge en Skokie o pide entrega a domicilio.
-          <a href={`${base}/es/compra-en-linea`} class="text-orange font-bold hover:underline ml-1">Como funciona â†’</a>
+          <a href={`${base}/es/compra-en-linea`} class="text-orange font-bold hover:underline ml-1">Como funciona →</a>
         </p>
       </div>
     </div>
@@ -255,7 +255,7 @@ const featured = vehicles.filter(v => (v as any).status !== 'sold').slice(0, 6);
           </div>
           <div class="min-w-0">
             <h3 class="font-headline text-base font-bold mb-1">Proteccion Total</h3>
-            <p class="text-gray-500 text-sm">Reporte de inspeccion independiente incluido Â· Garantia de 3 meses Â· CARFAX gratis</p>
+            <p class="text-gray-500 text-sm">Reporte de inspeccion independiente incluido · Garantia de 3 meses · CARFAX gratis</p>
           </div>
         </div>
         <div class="flex items-start gap-4 p-4 md:p-6 rounded-xl border border-gray-100 hover:border-orange/20 hover:shadow-md transition-all">
@@ -273,7 +273,7 @@ const featured = vehicles.filter(v => (v as any).status !== 'sold').slice(0, 6);
           </div>
           <div class="min-w-0">
             <h3 class="font-headline text-base font-bold mb-1">Precios Transparentes</h3>
-            <p class="text-gray-500 text-sm">Sin cargos ocultos Â· Precios claros Â· Financiamiento para todos los niveles de credito</p>
+            <p class="text-gray-500 text-sm">Sin cargos ocultos · Precios claros · Financiamiento para todos los niveles de credito</p>
           </div>
         </div>
       </div>

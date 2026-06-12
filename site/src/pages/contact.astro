@@ -43,12 +43,12 @@ const localBusinessSchema = {
 };
 
 const hours = [
-  { days: 'Monday', time: '3:00 PM â€“ 7:00 PM' },
-  { days: 'Tuesday', time: '3:00 PM â€“ 7:00 PM' },
+  { days: 'Monday', time: '3:00 PM - 7:00 PM' },
+  { days: 'Tuesday', time: '3:00 PM - 7:00 PM' },
   { days: 'Wednesday', time: 'Closed' },
-  { days: 'Thursday', time: '3:00 PM â€“ 7:00 PM' },
-  { days: 'Friday', time: '3:00 PM â€“ 7:00 PM' },
-  { days: 'Saturday', time: '10:00 AM â€“ 3:00 PM' },
+  { days: 'Thursday', time: '3:00 PM - 7:00 PM' },
+  { days: 'Friday', time: '3:00 PM - 7:00 PM' },
+  { days: 'Saturday', time: '10:00 AM - 3:00 PM' },
   { days: 'Sunday', time: 'Closed' },
 ];
 ---
@@ -168,7 +168,7 @@ const hours = [
         <div>
           <h2 class="font-headline text-2xl font-extrabold mb-8">Send a Message</h2>
           <form id="contact-form" action="https://formspree.io/f/xvzdgvan" method="POST" class="space-y-6">
-            <input type="hidden" name="_subject" value="Contact Form â€” Maxim Autos" />
+            <input type="hidden" name="_subject" value="Contact Form: Maxim Autos" />
             <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" />
             <div>
               <label for="contact-name" class="block text-sm font-medium text-gray-700 mb-2">Name</label>
@@ -248,7 +248,7 @@ const hours = [
   if (!form) return;
   form.addEventListener('submit', function (e) {
     e.preventDefault();
-    // Formspree not yet configured â€” route to SMS
+    // Formspree not yet configured, route to SMS
     if (form.action.includes('YOUR_')) {
       var name = (document.getElementById('contact-name').value || '').trim();
       var msg = (document.getElementById('contact-message').value || '').trim();
