@@ -62,7 +62,7 @@ const dealBadge = dealRating ? (DEAL_BADGE[dealRating] || null) : null;
 const savingsStr = (priceSavings && priceSavings > 0)
   ? (isSpanish ? `$${priceSavings.toLocaleString()} menos` : `$${priceSavings.toLocaleString()} below`)
   : '';
-const title = `${year} ${make} ${model}`;
+const title = [year, make, model, trim].filter(Boolean).join(' ');
 
 // Use CDN URL if available, fall back to local path, or null if no valid source
 const localThumb = photoPath ? `${base}/${photoPath}/thumb/${photoPrefix}-photo-exterior-maxim-autos-skokie-il-01.jpg` : null;
@@ -108,7 +108,7 @@ const monthlyPayment = Math.round(
   </div>
   <div class="px-3 py-4 sm:px-4">
     <h3 class="font-headline text-base font-bold text-gray-900 mb-0.5">{title}</h3>
-    <p class="text-xs text-gray-500 mb-3">{trim} &bull; {engine} &bull; {drivetrain}</p>
+    <p class="text-xs text-gray-500 mb-3">{engine} &bull; {drivetrain}</p>
 
     <!-- Price + Payment -->
     <div class="flex flex-wrap justify-between items-end mb-3 gap-y-1">
