@@ -744,17 +744,21 @@ async function main() {
     process.exit(1);
   }
 
-  // Map to schema (live cars from CarGurus)
-  const liveVehicles = vehicleNodes
+  // Map to schema (live cars from CarGurus). Keep each vehicle paired with its
+  // source node so the detail-page fetch below can't misalign when a node is
+  // skipped (index-based lookup would shift every later vehicle).
+  const mappedPairs = vehicleNodes
     .map(({ node, offer }) => {
       try {
-        return mapNode(node, offer, existingByVin);
+        return { node, vehicle: mapNode(node, offer, existingByVin) };
       } catch (e) {
         console.warn(`Skipped a node: ${e.message}`);
         return null;
       }
     })
-    .filter(v => v && v.year && v.make);
+    .filter(p => p && p.vehicle && p.vehicle.year && p.vehicle.make);
+
+  const liveVehicles = mappedPairs.map(p => p.vehicle);
 
   // ─── Tolerance-window merge ────────────────────────────────────────────────
   // CarGurus is source of truth for live vs sold. A VIN can flip back and
@@ -850,9 +854,8 @@ async function main() {
   // Fetch detail pages for photos + dealer description (in parallel)
   console.log(`\nFetching detail pages (photos + description)...`);
   await Promise.all(
-    vehicleNodes.map(async ({ node }, i) => {
+    mappedPairs.map(async ({ node, vehicle: v }) => {
       const listingId = node.id;
-      const v = vehicles[i];
       if (!v || !listingId) return;
 
       const skipPhotos = (v.photoUrls?.length ?? 0) > 1;

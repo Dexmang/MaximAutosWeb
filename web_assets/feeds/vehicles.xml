@@ -4,7 +4,7 @@
   <title>Maxim Autos — Vehicle Inventory</title>
   <link>https://www.maximautos.com/</link>
   <description>Used vehicles for sale at Maxim Autos in Skokie, IL 60077. Phone +18475108947.</description>
-  <lastBuildDate>2026-06-16T10:59:04.681Z</lastBuildDate>
+  <lastBuildDate>2026-06-16T13:28:46.438Z</lastBuildDate>
   <item>
     <g:id>5N1AR2MM9GC630607</g:id>
     <g:title>2016 Nissan Pathfinder SL 4WD</g:title>
@@ -27,6 +27,8 @@
     <g:availability>in_stock</g:availability>
     <g:brand>Nissan</g:brand>
     <g:google_product_category>Vehicles &amp; Parts &gt; Vehicles &gt; Motor Vehicles &gt; Cars, Trucks &amp; Vans</g:google_product_category>
+    <g:excluded_destination>Shopping_ads</g:excluded_destination>
+    <g:excluded_destination>Free_listings</g:excluded_destination>
     <g:vin>5N1AR2MM9GC630607</g:vin>
     <g:year>2016</g:year>
     <g:model>Pathfinder</g:model>
@@ -61,6 +63,8 @@
     <g:availability>in_stock</g:availability>
     <g:brand>Audi</g:brand>
     <g:google_product_category>Vehicles &amp; Parts &gt; Vehicles &gt; Motor Vehicles &gt; Cars, Trucks &amp; Vans</g:google_product_category>
+    <g:excluded_destination>Shopping_ads</g:excluded_destination>
+    <g:excluded_destination>Free_listings</g:excluded_destination>
     <g:vin>WA1L2AFP8GA046658</g:vin>
     <g:year>2016</g:year>
     <g:model>Q5</g:model>
@@ -95,6 +99,8 @@
     <g:availability>in_stock</g:availability>
     <g:brand>Honda</g:brand>
     <g:google_product_category>Vehicles &amp; Parts &gt; Vehicles &gt; Motor Vehicles &gt; Cars, Trucks &amp; Vans</g:google_product_category>
+    <g:excluded_destination>Shopping_ads</g:excluded_destination>
+    <g:excluded_destination>Free_listings</g:excluded_destination>
     <g:vin>5J6RM4H3XGL120098</g:vin>
     <g:year>2016</g:year>
     <g:model>CR-V</g:model>
@@ -129,6 +135,8 @@
     <g:availability>in_stock</g:availability>
     <g:brand>Hyundai</g:brand>
     <g:google_product_category>Vehicles &amp; Parts &gt; Vehicles &gt; Motor Vehicles &gt; Cars, Trucks &amp; Vans</g:google_product_category>
+    <g:excluded_destination>Shopping_ads</g:excluded_destination>
+    <g:excluded_destination>Free_listings</g:excluded_destination>
     <g:vin>KM8J2CA43KU844574</g:vin>
     <g:year>2019</g:year>
     <g:model>Tucson</g:model>
@@ -163,6 +171,8 @@
     <g:availability>in_stock</g:availability>
     <g:brand>Honda</g:brand>
     <g:google_product_category>Vehicles &amp; Parts &gt; Vehicles &gt; Motor Vehicles &gt; Cars, Trucks &amp; Vans</g:google_product_category>
+    <g:excluded_destination>Shopping_ads</g:excluded_destination>
+    <g:excluded_destination>Free_listings</g:excluded_destination>
     <g:vin>19XFB2F71FE281181</g:vin>
     <g:year>2015</g:year>
     <g:model>Civic</g:model>
@@ -197,6 +207,8 @@
     <g:availability>in_stock</g:availability>
     <g:brand>Volvo</g:brand>
     <g:google_product_category>Vehicles &amp; Parts &gt; Vehicles &gt; Motor Vehicles &gt; Cars, Trucks &amp; Vans</g:google_product_category>
+    <g:excluded_destination>Shopping_ads</g:excluded_destination>
+    <g:excluded_destination>Free_listings</g:excluded_destination>
     <g:vin>YV4902RS0F2652862</g:vin>
     <g:year>2015</g:year>
     <g:model>XC60</g:model>

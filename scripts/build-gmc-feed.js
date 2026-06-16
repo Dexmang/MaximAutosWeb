@@ -187,6 +187,17 @@ function buildItem(v) {
   item += tag("brand", v.make);
   item += tag("google_product_category", "Vehicles & Parts > Vehicles > Motor Vehicles > Cars, Trucks & Vans");
 
+  // Destination targeting — vehicles MUST target the Vehicle ads program ONLY.
+  // Google bans cars from standard Shopping ads + Free listings ("Unsupported
+  // Shopping content (vehicles)"), which triggered the Jun 2026 suspension
+  // warning (account 5555218279, deadline 2026-06-21). Explicitly excluding
+  // these destinations at the feed level keeps the vehicles out of Shopping/Free
+  // listings even if the MC data source defaults back to all destinations on a
+  // refetch. Ref: support.google.com/merchants/answer/6150006 (Unsupported
+  // Shopping content) + answer/11189169 (Vehicle ads overview).
+  item += `    <g:excluded_destination>Shopping_ads</g:excluded_destination>\n`;
+  item += `    <g:excluded_destination>Free_listings</g:excluded_destination>\n`;
+
   // Vehicle Ads required attributes
   item += tag("vin", v.vin);
   item += tag("year", v.year);
