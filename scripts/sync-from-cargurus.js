@@ -211,6 +211,26 @@ function loadVinTrims() {
 
 const VIN_TRIMS = loadVinTrims();
 
+// ── DealerCenter photo overlay ────────────────────────────────────────────────
+// maximautos.com serves DealerCenter's own CDN photos, not CarGurus images. The DC
+// photo URLs live in pka_hub.db (ma_vehicles), unreachable from CI, so they are
+// exported to dc-photos.json (scripts/export-dc-photos.js) and committed. Any VIN
+// present here uses DC photos — including brand-new arrivals CarGurus still shows
+// with its own pictures. Falls back to existing DC photos, then CarGurus.
+const DC_PHOTOS_PATH = resolve(__dirname, '../site/src/data/dc-photos.json');
+
+function loadDcPhotos() {
+  try {
+    const raw = JSON.parse(readFileSync(DC_PHOTOS_PATH, 'utf8'));
+    return raw?.by_vin || {};
+  } catch (_) {
+    console.warn('  dc-photos.json not found — DealerCenter photo overlay unavailable this run.');
+    return {};
+  }
+}
+
+const DC_PHOTOS = loadDcPhotos();
+
 function escapeRegExp(s) {
   return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 }
@@ -448,17 +468,29 @@ function mapNode(node, _offer, existingByVin) {
   // Stock number
   const stockNumber = n.stockNumber || existing?.stockNumber || '';
 
-  // Photos — prefer DealerCenter CDN if already in existing (more photos, better quality)
+  // Photos — DealerCenter is the photo source. Priority: the committed DC snapshot
+  // (authoritative, covers new arrivals) → DC photos already on the existing record
+  // → CarGurus image as a last resort. VehicleCard reads photos.source ('dealercenter'
+  // vs 'cargurus') to choose the CDN vs local path.
   const cgPhotoUrl = n.pictureData?.url || '';
   const cgPhotoCount = n.pictureCount || 0;
-  const hasDcPhotos = existing?.primaryPhotoUrl?.includes('dealercenter') && (existing?.photoUrls?.length ?? 0) > 0;
-  const primaryPhotoUrl = hasDcPhotos ? existing.primaryPhotoUrl : (cgPhotoUrl || existing?.primaryPhotoUrl || '');
-  const photoUrls = hasDcPhotos ? existing.photoUrls : ([cgPhotoUrl].filter(Boolean));
-  // Derive source from actual URL — VehicleCard uses 'dealercenter' to decide CDN vs local path
-  const photoSource = primaryPhotoUrl.includes('dealercenter') ? 'dealercenter' : 'cargurus';
-  const photos = hasDcPhotos
-    ? { ...existing.photos, source: photoSource }
-    : { exterior: cgPhotoCount || (cgPhotoUrl ? 1 : 0), interior: 0, source: photoSource };
+  const dcSnap = DC_PHOTOS[vin] || DC_PHOTOS[(vin || '').toUpperCase()];
+  const hasExistingDc = existing?.primaryPhotoUrl?.includes('dealercenter') && (existing?.photoUrls?.length ?? 0) > 0;
+  let primaryPhotoUrl, photoUrls, photos;
+  if (dcSnap && dcSnap.photoUrls?.length) {
+    primaryPhotoUrl = dcSnap.primaryPhotoUrl;
+    photoUrls = dcSnap.photoUrls;
+    photos = { exterior: dcSnap.count ?? dcSnap.photoUrls.length, interior: 0, source: 'dealercenter' };
+  } else if (hasExistingDc) {
+    primaryPhotoUrl = existing.primaryPhotoUrl;
+    photoUrls = existing.photoUrls;
+    photos = { ...existing.photos, source: 'dealercenter' };
+  } else {
+    primaryPhotoUrl = cgPhotoUrl || existing?.primaryPhotoUrl || '';
+    photoUrls = [cgPhotoUrl].filter(Boolean);
+    photos = { exterior: cgPhotoCount || (cgPhotoUrl ? 1 : 0), interior: 0,
+               source: primaryPhotoUrl.includes('dealercenter') ? 'dealercenter' : 'cargurus' };
+  }
 
   // Features — use CarGurus if we don't have them, otherwise keep existing
   const features = (existing?.features?.length > 0)
