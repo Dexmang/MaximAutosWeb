@@ -24,12 +24,26 @@ Dev server is launched from the PKA root via `.claude/launch.json` config named 
 
 ## Data Layer
 
-All vehicle data lives in `src/data/vehicles.json` — this is the single source of truth for inventory. Key fields: `slug`, `status` (`active`/`sold`), `price`, `photoPath`, `photoPrefix`, `primaryPhotoUrl`, `dealRating`, `priceSavings`, `stockNumber`.
+`src/data/vehicles.json` is the data file the site renders, but it is GENERATED, not
+hand-edited. **DealerCenter is the source of truth** (cars + photos); CarGurus is a
+deal-rating/stats overlay. `scripts/sync-from-cargurus.js` writes `vehicles.json` by
+scraping CarGurus for the active list + `dealRating`/`priceSavings`, then overlaying
+DealerCenter photos and adding DC-only cars from the snapshots below. Full pipeline:
+`businesses/maxim-autos/operations/inventory-pipeline.md`. Key vehicle fields: `slug`,
+`status` (`available`/`sold`), `price`, `photoPath`, `photoPrefix`, `primaryPhotoUrl`,
+`dealRating`, `priceSavings`, `stockNumber`.
+
+DealerCenter snapshot files (exported from `pka_hub.db` by the OAP pull, read by the
+sync — `pka_hub.db` is unreachable from CI, hence the committed snapshots):
+- `dc-photos.json` — VIN → DealerCenter CDN photo URLs (photos for cars CarGurus knows)
+- `dc-inventory.json` — VIN → full DC record + VIN-decoded specs (adds new cars)
+- `vin-trims.json` — VIN → cleaned trim fallback
+- `inventory-meta.json` — `lastUpdated` heartbeat; the footer's `IUlive`/`IUverify` code
 
 Other data files:
 - `reviews.json` / `reviews_meta.json` — Google review content and aggregate rating
 - `suburbs.json` — powers the `used-cars-[city]-il.astro` dynamic SEO pages
-- `cargurus-vin-stats.json` — VDP view counts shown on vehicle detail pages
+- `cargurus-vin-stats.json` / `cargurus-dealer-stats.json` — VDP view counts + dealer stats
 - `faq.json` — FAQ page content
 
 ## Page & Component Structure
