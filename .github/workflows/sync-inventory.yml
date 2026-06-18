@@ -23,6 +23,16 @@ jobs:
         with:
           node-version: '24'
 
+      # CarGurus dealer + VIN stats (7-day rolling; token is embedded in the
+      # scripts, so they run in CI). Self-healing: an API failure writes a
+      # placeholder and exits 0, so the sync still proceeds. Moved here from the
+      # retired local maxim-cargurus-sync routine so this Action is the single
+      # CarGurus enrichment job.
+      - name: Refresh CarGurus stats
+        run: |
+          node scripts/sync-cargurus-dealer-stats.js || true
+          node scripts/sync-cargurus-vin-stats.js || true
+
       - name: Run inventory sync
         run: node scripts/sync-from-cargurus.js
 
@@ -34,7 +44,10 @@ jobs:
         run: |
           # -I'<lastBuildDate>' ignores the feed's timestamp-only churn so we
           # don't create a commit every 6h when nothing real changed.
-          if git diff --quiet -I'<lastBuildDate>' site/src/data/vehicles.json site/src/data/url-events.jsonl web_assets/feeds/vehicles.xml; then
+          if git diff --quiet -I'<lastBuildDate>' \
+              site/src/data/vehicles.json site/src/data/url-events.jsonl \
+              site/src/data/cargurus-dealer-stats.json site/src/data/cargurus-vin-stats.json \
+              web_assets/feeds/vehicles.xml; then
             echo "changed=false" >> $GITHUB_OUTPUT
           else
             echo "changed=true" >> $GITHUB_OUTPUT
@@ -45,8 +58,10 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add site/src/data/vehicles.json site/src/data/url-events.jsonl web_assets/feeds/vehicles.xml
-          git commit -m "chore: sync inventory from CarGurus [${{ github.run_number }}]"
+          git add site/src/data/vehicles.json site/src/data/url-events.jsonl \
+            site/src/data/cargurus-dealer-stats.json site/src/data/cargurus-vin-stats.json \
+            web_assets/feeds/vehicles.xml
+          git commit -m "chore: sync CarGurus inventory + stats [${{ github.run_number }}]"
           git push
 
       - name: Alert on sync failure
