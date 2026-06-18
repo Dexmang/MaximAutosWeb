@@ -1,5 +1,6 @@
 ---
 import suburbs from '../data/suburbs.json';
+import inventoryMeta from '../data/inventory-meta.json';
 
 interface Props {
   lang?: string;
@@ -10,6 +11,17 @@ const isSpanish = lang === 'es';
 
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 const currentYear = new Date().getFullYear();
+
+// Subtle "inventory last updated" stamp. inventory-meta.json is re-stamped by the
+// sync Action whenever inventory data actually changes, so this reflects the real
+// last refresh — glance at the footer to see how fresh the listings are.
+const inventoryUpdatedStr = (inventoryMeta as any)?.lastUpdated
+  ? new Intl.DateTimeFormat(isSpanish ? 'es-US' : 'en-US', {
+      timeZone: 'America/Chicago',
+      month: 'short', day: 'numeric', year: 'numeric',
+      hour: 'numeric', minute: '2-digit',
+    }).format(new Date((inventoryMeta as any).lastUpdated)) + ' CT'
+  : '';
 
 const invHref      = isSpanish ? `${base}/es/inventario`            : `${base}/inventory`;
 const finHref      = isSpanish ? `${base}/es/financiamiento`        : `${base}/financing`;
@@ -52,6 +64,7 @@ const labels = isSpanish
       terms:             'Terminos de Uso',
       returnPolicy:      'Politica de Devolucion',
       privateClient:     'Cliente Privado',
+      invUpdated:        'Inventario actualizado',
       taglineShort:      'Totalmente Inspeccionados • Autos Usados Skokie IL',
       mobileText:        'Escribe',
       mobileCall:        'Llamar',
@@ -84,6 +97,7 @@ const labels = isSpanish
       terms:             'Terms of Use',
       returnPolicy:      'Return Policy',
       privateClient:     'Private Client',
+      invUpdated:        'Inventory updated',
       taglineShort:      'Fully Inspected • Used Cars Skokie IL',
       mobileText:        'Text Jerry',
       mobileCall:        'Call',
@@ -176,7 +190,14 @@ const labels = isSpanish
       &nbsp;&middot;&nbsp;
       <a href="https://vault007.com" rel="nofollow noopener" target="_blank" class="hover:text-white transition-colors">{labels.privateClient}</a>
     </span>
-    <span>{labels.taglineShort}</span>
+    <span class="flex items-center gap-x-2 flex-wrap justify-center sm:justify-end">
+      {inventoryUpdatedStr && (
+        <span class="opacity-70" title="When the inventory was last refreshed">
+          {labels.invUpdated} {inventoryUpdatedStr}
+        </span>
+      )}
+      <span>{labels.taglineShort}</span>
+    </span>
   </div>
 </footer>
 

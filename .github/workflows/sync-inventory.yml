@@ -56,11 +56,16 @@ jobs:
       - name: Commit updated inventory
         if: steps.diff.outputs.changed == 'true'
         run: |
+          # Stamp the "inventory updated" time (shown subtly in the site footer).
+          # Only written here, inside the change-gated commit step, so it reflects
+          # the real last change — not every 6h run.
+          printf '{\n  "lastUpdated": "%s",\n  "note": "Stamped by sync-inventory.yml on real inventory changes; shown in the site footer."\n}\n' \
+            "$(date -u +%Y-%m-%dT%H:%M:%SZ)" > site/src/data/inventory-meta.json
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add site/src/data/vehicles.json site/src/data/url-events.jsonl \
             site/src/data/cargurus-dealer-stats.json site/src/data/cargurus-vin-stats.json \
-            web_assets/feeds/vehicles.xml
+            site/src/data/inventory-meta.json web_assets/feeds/vehicles.xml
           git commit -m "chore: sync CarGurus inventory + stats [${{ github.run_number }}]"
           git push
 
