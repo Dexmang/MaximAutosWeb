@@ -56,24 +56,12 @@ jobs:
       - name: Commit updated inventory
         if: steps.diff.outputs.changed == 'true'
         run: |
-          # Stamp the "inventory updated" time (shown subtly in the site footer).
-          # Only written here, inside the change-gated commit step, so it reflects
-          # the real last change — not every 6h run.
-          printf '{\n  "lastUpdated": "%s",\n  "note": "Stamped by sync-inventory.yml on real inventory changes; shown in the site footer."\n}\n' \
-            "$(date -u +%Y-%m-%dT%H:%M:%SZ)" > site/src/data/inventory-meta.json
+          # Note: inventory-meta.json (the IUlive/IUverify footer heartbeat) is owned
+          # by the DealerCenter pull, not this Action — don't touch it here.
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add site/src/data/vehicles.json site/src/data/url-events.jsonl \
             site/src/data/cargurus-dealer-stats.json site/src/data/cargurus-vin-stats.json \
-            site/src/data/inventory-meta.json web_assets/feeds/vehicles.xml
+            web_assets/feeds/vehicles.xml
           git commit -m "chore: sync CarGurus inventory + stats [${{ github.run_number }}]"
           git push
-
-      - name: Alert on sync failure
-        if: failure()
-        run: |
-          curl -s -X POST "https://ntfy.sh/maxim-autos-sync-alerts" \
-            -H "Title: maximautos.com sync FAILED" \
-            -H "Priority: high" \
-            -H "Tags: rotating_light" \
-            -d "CarGurus inventory sync failed on run #${{ github.run_number }}. Inventory may be out of sync. Check: https://github.com/Dexmang/MaximAutosWeb/actions"

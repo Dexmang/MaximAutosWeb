@@ -12,15 +12,18 @@ const isSpanish = lang === 'es';
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 const currentYear = new Date().getFullYear();
 
-// Subtle "inventory last updated" stamp. inventory-meta.json is re-stamped by the
-// sync Action whenever inventory data actually changes, so this reflects the real
-// last refresh — glance at the footer to see how fresh the listings are.
-const inventoryUpdatedStr = (inventoryMeta as any)?.lastUpdated
+// Compact feed-health stamp. inventory-meta.json carries lastUpdated = when the
+// DealerCenter feed was last successfully pulled. The footer shows "IU" + that time;
+// an inline script flips it to "IUlive" (feed current) or "IUverify" (feed stale —
+// go check) by comparing the timestamp to the visitor's clock, so it self-flags even
+// if the pipeline stops deploying. This is the single place to check feed health.
+const inventoryIso = (inventoryMeta as any)?.lastUpdated || '';
+const inventoryUpdatedStr = inventoryIso
   ? new Intl.DateTimeFormat(isSpanish ? 'es-US' : 'en-US', {
       timeZone: 'America/Chicago',
       month: 'short', day: 'numeric', year: 'numeric',
       hour: 'numeric', minute: '2-digit',
-    }).format(new Date((inventoryMeta as any).lastUpdated)) + ' CT'
+    }).format(new Date(inventoryIso)) + ' CT'
   : '';
 
 const invHref      = isSpanish ? `${base}/es/inventario`            : `${base}/inventory`;
@@ -191,14 +194,27 @@ const labels = isSpanish
       <a href="https://vault007.com" rel="nofollow noopener" target="_blank" class="hover:text-white transition-colors">{labels.privateClient}</a>
     </span>
     <span class="flex items-center gap-x-2 flex-wrap justify-center sm:justify-end">
-      {inventoryUpdatedStr && (
-        <span class="opacity-70" title="When the inventory was last refreshed">
-          {labels.invUpdated} {inventoryUpdatedStr}
+      {inventoryIso && (
+        <span class="opacity-70" title="Feed status — IUlive: DealerCenter feed current; IUverify: feed stale, check it">
+          <span id="iu-status" data-ts={inventoryIso}>IU</span> · {inventoryUpdatedStr}
         </span>
       )}
       <span>{labels.taglineShort}</span>
     </span>
   </div>
+  <script is:inline>
+    (function () {
+      var el = document.getElementById('iu-status');
+      if (!el) return;
+      var t = Date.parse(el.getAttribute('data-ts') || '');
+      // DealerCenter feed pulls run ~3x/day; flag for a check if no successful
+      // pull in 18h (more than two missed cycles = something's off).
+      var fresh = !isNaN(t) && (Date.now() - t) < 18 * 3600 * 1000;
+      el.textContent = fresh ? 'IUlive' : 'IUverify';
+      el.style.color = fresh ? '#34d399' : '#f59e0b';
+      el.style.fontWeight = '600';
+    })();
+  </script>
 </footer>
 
 <!-- Sticky Mobile CTA - 3-button bar consistent across all pages -->
