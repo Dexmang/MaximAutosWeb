@@ -1,15 +1,15 @@
 {
-  "last_updated": "2026-06-19T14:47:48.935Z",
+  "last_updated": "2026-06-19T19:29:09.562Z",
   "period": {
     "start": "2026-06-12",
     "end": "2026-06-19"
   },
   "totals": {
     "impressions": 0,
-    "srp_views": 5041,
-    "vdp_views": 275,
+    "srp_views": 5215,
+    "vdp_views": 293,
     "leads_total": 0,
-    "leads_email": 7,
+    "leads_email": 8,
     "leads_phone": 2,
     "leads_chat": 0,
     "website_clicks": 4,
@@ -18,10 +18,10 @@
   "daily": [
     {
       "date": "2026-06-19",
-      "impressions": 263,
+      "impressions": 437,
       "srp_views": 0,
       "vdp_views": 0,
-      "leads_total": 0,
+      "leads_total": 1,
       "leads_email": 0,
       "leads_phone": 0,
       "leads_chat": 0,
@@ -116,9 +116,9 @@
   "raw": {
     "daily_stats": [
       {
-        "impressions": 263,
-        "leads": 0,
-        "clicks": 14,
+        "impressions": 437,
+        "leads": 1,
+        "clicks": 32,
         "date": "2026-06-19"
       },
       {
@@ -164,9 +164,9 @@
         "date": "2026-06-12"
       }
     ],
-    "leads_email": 7,
-    "srps": 5041,
-    "vdps": 275,
+    "leads_email": 8,
+    "srps": 5215,
+    "vdps": 293,
     "chat_leads": 0,
     "sms_leads": 0,
     "phone_leads": 2,
