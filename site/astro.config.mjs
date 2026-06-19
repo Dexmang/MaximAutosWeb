@@ -9,6 +9,22 @@ const isVercel = process.env.VERCEL === '1';
 export default defineConfig({
   site: isVercel ? 'https://www.maximautos.com' : 'https://dexmang.github.io',
   base: isVercel ? '/' : '/MaximAutosWeb',
+  trailingSlash: 'never',
+  redirects: {
+    '/inventory/hyundai/tucson/j10175': '/inventory',
+    '/inventory/hyundai/tucson/j10175/': '/inventory',
+    '/es/financing': '/es',
+    '/es/financing/': '/es',
+    '/inventory/honda/cr-v/J10198': '/inventory',
+    '/inventory/honda/cr-v/J10198/': '/inventory',
+    '/maps': '/contact',
+    '/maps/': '/contact',
+    '/vehicle-specials': '/inventory',
+    '/vehicle-specials/': '/inventory',
+    '/inventory/': '/inventory',
+    '/apply-online': '/apply',
+    '/apply-online/': '/apply',
+  },
   publicDir: '../web_assets',
   integrations: [
     sitemap({
