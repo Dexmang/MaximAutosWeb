@@ -21,6 +21,21 @@ const featured = vehicles.filter(v => (v as any).status !== 'sold');
   hreflangEs="https://www.maximautos.com/es/"
 >
   <Fragment slot="structured-data">
+    {reviews.slice(0, 3).map(r => (
+      <script type="application/ld+json" set:html={JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "Review",
+        "itemReviewed": {
+          "@type": "AutoDealer",
+          "name": "Maxim Autos",
+          "url": "https://www.maximautos.com"
+        },
+        "author": { "@type": "Person", "name": r.name },
+        "reviewBody": r.text,
+        "reviewRating": { "@type": "Rating", "ratingValue": String(r.rating), "bestRating": "5" },
+        "datePublished": r.date
+      })} />
+    ))}
     <script type="application/ld+json" set:html={JSON.stringify({
       "@context": "https://schema.org",
       "@type": "AutoDealer",
@@ -35,6 +50,7 @@ const featured = vehicles.filter(v => (v as any).status !== 'sold');
       "email": "jfranco@maximautos.com",
       "address": {
         "@type": "PostalAddress",
+        "streetAddress": "9101 Terminal Ave",
         "addressLocality": "Skokie",
         "addressRegion": "IL",
         "postalCode": "60077",
