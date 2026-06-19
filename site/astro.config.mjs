@@ -21,7 +21,6 @@ export default defineConfig({
     '/maps/': '/contact',
     '/vehicle-specials': '/inventory',
     '/vehicle-specials/': '/inventory',
-    '/inventory/': '/inventory',
     '/apply-online': '/apply',
     '/apply-online/': '/apply',
   },
