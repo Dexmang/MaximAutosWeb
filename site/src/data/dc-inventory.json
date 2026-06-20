@@ -1,6 +1,6 @@
 {
   "source": "pka_hub.db ma_vehicles + vPIC",
-  "generated_at": "2026-06-19",
+  "generated_at": "2026-06-20",
   "by_vin": {
     "19XFB2F71FE281181": {
       "slug": "2015-honda-civic-se",
@@ -75,7 +75,7 @@
       "make": "Honda",
       "model": "CR-V",
       "trim": "LX AWD",
-      "price": 11450,
+      "price": 11580,
       "mileage": 141079,
       "exteriorColor": "Silver",
       "interiorColor": "charcoal",
@@ -145,7 +145,7 @@
       "make": "Nissan",
       "model": "Pathfinder",
       "trim": "SL 4WD",
-      "price": 12950,
+      "price": 11490,
       "mileage": 63140,
       "exteriorColor": "Brown",
       "interiorColor": "Beige",
@@ -230,7 +230,7 @@
       "make": "Hyundai",
       "model": "Tucson",
       "trim": "SE AWD",
-      "price": 13495,
+      "price": 12950,
       "mileage": 70524,
       "exteriorColor": "Brown",
       "interiorColor": "Beige",
@@ -305,7 +305,7 @@
       "make": "Hyundai",
       "model": "Venue",
       "trim": "SE FWD",
-      "price": 12950,
+      "price": 13450,
       "mileage": 51100,
       "exteriorColor": "White",
       "interiorColor": "Black",
@@ -376,7 +376,7 @@
       "make": "Audi",
       "model": "Q5",
       "trim": "2.0T Premium Plus",
-      "price": 10650,
+      "price": 10450,
       "mileage": 96174,
       "exteriorColor": "Black",
       "interiorColor": "Beige",
@@ -464,7 +464,7 @@
       "make": "Volvo",
       "model": "V60",
       "trim": "Cross Country",
-      "price": 9950,
+      "price": 9450,
       "mileage": 122491,
       "exteriorColor": "Black",
       "interiorColor": "Black",
@@ -529,7 +529,7 @@
       "bodyStyleSlug": "wagons",
       "description": "2016 Volvo V60 Cross Country T5, Adventure ready and great everyday driver. An AWD wagon with a turbocharged 2.5L engine, heated leather seats, a heated steering wheel, and a sunroof. Yakima RoofRacks and extras. Black on a black leather interior with a smooth automatic. Built for drivers who want all weather grip and real wagon space without stepping up to a full size SUV. Even with standard all wheel drive, it stays easy on gas at up to 28 mpg on the highway.Key features: AWD with a turbocharged 2.5L engine, leather seating, heated front seats and heated steering wheel, sunroof, navigation, blind spot monitor, lane departure warning, memory driver seat, power seats, rear parking sensors, full roof rack, backup camera, smart key entry, Bluetooth, and alloy wheels. The Cross Country trim adds raised ground clearance and rugged body cladding, so you get confident traction through Chicago winters with the cargo room and ride comfort of a wagon.The Maxim Autos DifferenceIndependent inspection report included with every vehicle3 Month Peace of Mind Warranty, with extended coverage availableMetal plates issued same day so you can drive home todayTransparent pricing with no hidden feesFinancing for all credit levelsLocated in Skokie, IL, serving Evanston, Niles, Morton Grove, Lincolnwood, Des Plaines, and the North Shore Chicago area. Same day appointments available, call us to set up a time to see this Volvo.Every car inspected. Every price transparent. Every customer protected.[!@@Additional Info@@!]Dual Power Seats,Power Door Locks,Navigation System,High Performance Radio,5-Cyl Turbo 2.5 Liter,Keyless Entry,Side Air Bags,Traction Control,Rear Spoiler,Dual Air Bags,Cruise Control,Alarm System,SiriusXM Satellite,Backup Camera,Power Steering,Hill Descent Control,Keyless Drive,Rear Park Assist,ABS (4-Wheel),Moon Roof,Daytime Running Lights,Air Conditioning,Bluetooth Wireless,F 0026R Head Curtain Air Bags,Power Windows,Leather,AWD,Volvo Sensus,Tilt  0026 Telescoping Wheel,CD/MP3 (Single Disc),Alloy Wheels,Dynamic Stability Control,AM/FM Stereo,Auto 6-Spd Gtrnc Adpshft",
       "dealRating": "GOOD_PRICE",
-      "priceSavings": 1591
+      "priceSavings": 2057
     },
     "YV4902RS0F2652862": {
       "slug": "2015-volvo-xc60",
