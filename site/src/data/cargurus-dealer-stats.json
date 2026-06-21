@@ -1,24 +1,36 @@
 {
-  "last_updated": "2026-06-20T19:13:44.645Z",
+  "last_updated": "2026-06-21T02:58:08.177Z",
   "period": {
-    "start": "2026-06-13",
-    "end": "2026-06-20"
+    "start": "2026-06-14",
+    "end": "2026-06-21"
   },
   "totals": {
     "impressions": 0,
-    "srp_views": 5652,
-    "vdp_views": 318,
+    "srp_views": 5583,
+    "vdp_views": 323,
     "leads_total": 0,
-    "leads_email": 7,
+    "leads_email": 6,
     "leads_phone": 2,
     "leads_chat": 0,
     "website_clicks": 6,
-    "map_clicks": 10
+    "map_clicks": 8
   },
   "daily": [
     {
+      "date": "2026-06-21",
+      "impressions": 0,
+      "srp_views": 0,
+      "vdp_views": 0,
+      "leads_total": 0,
+      "leads_email": 0,
+      "leads_phone": 0,
+      "leads_chat": 0,
+      "website_clicks": 0,
+      "map_clicks": 0
+    },
+    {
       "date": "2026-06-20",
-      "impressions": 422,
+      "impressions": 1050,
       "srp_views": 0,
       "vdp_views": 0,
       "leads_total": 0,
@@ -99,26 +111,20 @@
       "leads_chat": 0,
       "website_clicks": 0,
       "map_clicks": 0
-    },
-    {
-      "date": "2026-06-13",
-      "impressions": 697,
-      "srp_views": 0,
-      "vdp_views": 0,
-      "leads_total": 1,
-      "leads_email": 0,
-      "leads_phone": 0,
-      "leads_chat": 0,
-      "website_clicks": 0,
-      "map_clicks": 0
     }
   ],
   "raw": {
     "daily_stats": [
       {
-        "impressions": 422,
+        "impressions": 0,
         "leads": 0,
-        "clicks": 27,
+        "clicks": 0,
+        "date": "2026-06-21"
+      },
+      {
+        "impressions": 1050,
+        "leads": 0,
+        "clicks": 58,
         "date": "2026-06-20"
       },
       {
@@ -156,17 +162,11 @@
         "leads": 1,
         "clicks": 31,
         "date": "2026-06-14"
-      },
-      {
-        "impressions": 697,
-        "leads": 1,
-        "clicks": 26,
-        "date": "2026-06-13"
       }
     ],
-    "leads_email": 7,
-    "srps": 5652,
-    "vdps": 318,
+    "leads_email": 6,
+    "srps": 5583,
+    "vdps": 323,
     "chat_leads": 0,
     "sms_leads": 0,
     "phone_leads": 2,
@@ -175,7 +175,7 @@
     "instagram_clicks": 0,
     "printouts": 0,
     "website_clicks": 6,
-    "map_clicks": 10,
+    "map_clicks": 8,
     "you_tube_clicks": 0,
     "success": true
   }
