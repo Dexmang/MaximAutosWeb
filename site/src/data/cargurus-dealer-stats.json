@@ -1,27 +1,39 @@
 {
-  "last_updated": "2026-06-22T20:36:15.476Z",
+  "last_updated": "2026-06-23T02:35:49.314Z",
   "period": {
-    "start": "2026-06-15",
-    "end": "2026-06-22"
+    "start": "2026-06-16",
+    "end": "2026-06-23"
   },
   "totals": {
     "impressions": 0,
-    "srp_views": 8102,
-    "vdp_views": 394,
+    "srp_views": 8424,
+    "vdp_views": 374,
     "leads_total": 0,
-    "leads_email": 10,
-    "leads_phone": 2,
+    "leads_email": 9,
+    "leads_phone": 0,
     "leads_chat": 0,
     "website_clicks": 7,
-    "map_clicks": 9
+    "map_clicks": 5
   },
   "daily": [
     {
-      "date": "2026-06-22",
-      "impressions": 1135,
+      "date": "2026-06-23",
+      "impressions": 0,
       "srp_views": 0,
       "vdp_views": 0,
-      "leads_total": 3,
+      "leads_total": 0,
+      "leads_email": 0,
+      "leads_phone": 0,
+      "leads_chat": 0,
+      "website_clicks": 0,
+      "map_clicks": 0
+    },
+    {
+      "date": "2026-06-22",
+      "impressions": 1967,
+      "srp_views": 0,
+      "vdp_views": 0,
+      "leads_total": 4,
       "leads_email": 0,
       "leads_phone": 0,
       "leads_chat": 0,
@@ -99,26 +111,20 @@
       "leads_chat": 0,
       "website_clicks": 0,
       "map_clicks": 0
-    },
-    {
-      "date": "2026-06-15",
-      "impressions": 510,
-      "srp_views": 0,
-      "vdp_views": 0,
-      "leads_total": 2,
-      "leads_email": 0,
-      "leads_phone": 0,
-      "leads_chat": 0,
-      "website_clicks": 0,
-      "map_clicks": 0
     }
   ],
   "raw": {
     "daily_stats": [
       {
-        "impressions": 1135,
-        "leads": 3,
-        "clicks": 27,
+        "impressions": 0,
+        "leads": 0,
+        "clicks": 0,
+        "date": "2026-06-23"
+      },
+      {
+        "impressions": 1967,
+        "leads": 4,
+        "clicks": 42,
         "date": "2026-06-22"
       },
       {
@@ -156,26 +162,20 @@
         "leads": 1,
         "clicks": 47,
         "date": "2026-06-16"
-      },
-      {
-        "impressions": 510,
-        "leads": 2,
-        "clicks": 35,
-        "date": "2026-06-15"
       }
     ],
-    "leads_email": 10,
-    "srps": 8102,
-    "vdps": 394,
+    "leads_email": 9,
+    "srps": 8424,
+    "vdps": 374,
     "chat_leads": 0,
     "sms_leads": 0,
-    "phone_leads": 2,
+    "phone_leads": 0,
     "facebook_clicks": 0,
     "twitter_clicks": 0,
     "instagram_clicks": 0,
     "printouts": 0,
     "website_clicks": 7,
-    "map_clicks": 9,
+    "map_clicks": 5,
     "you_tube_clicks": 0,
     "success": true
   }
