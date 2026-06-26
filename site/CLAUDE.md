@@ -41,6 +41,12 @@ sync — `pka_hub.db` is unreachable from CI, hence the committed snapshots):
 - `inventory-meta.json` — `lastUpdated` heartbeat; the footer's `IUlive`/`IUverify` code
 
 Other data files:
+- `hold-vins.json` — "web hold" list. VINs here are OMITTED from `vehicles.json`
+  entirely (no card, no SOLD VDP, absent from the Google feed) instead of being
+  marked sold when they leave the DC feed. For DealerCenter "Inbound" units: the OAP
+  feed has no status, so a pulled car looks identical to a sold one. The hold
+  auto-releases when the VIN returns to the DC feed. Maintain with
+  `operations/hold_unit.py`; full rationale in `operations/inventory-pipeline.md`.
 - `reviews.json` / `reviews_meta.json` — Google review content and aggregate rating
 - `suburbs.json` — powers the `used-cars-[city]-il.astro` dynamic SEO pages
 - `cargurus-vin-stats.json` / `cargurus-dealer-stats.json` — VDP view counts + dealer stats

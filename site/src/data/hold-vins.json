@@ -1,0 +1,16 @@
+{
+  "note": "Web hold list — VINs to hide from the public site. DealerCenter's OAP feed carries no status column, so a unit set to 'Inbound' (recon / not for sale yet) simply drops out of the feed, which is indistinguishable from a SOLD car. Left alone, sync-from-cargurus.js would mark it SOLD after the off-market tolerance window. Any VIN listed here is instead omitted from vehicles.json entirely (no card, no SOLD VDP, absent from the Google Merchant feed). The hold is honored ONLY while the car is out of the DC feed — the moment it returns to dc-inventory.json (front-lined again in DC) it reappears automatically, so a stale entry can never permanently hide a relisted car. Maintain with operations/hold_unit.py.",
+  "by_vin": {
+    "19XFB2F71FE281181": {
+      "stock": "J10203",
+      "reason": "inbound",
+      "since": "2026-06-25"
+    },
+    "19XFB2F73FE078163": {
+      "stock": "J10210?",
+      "reason": "review-conflict",
+      "note": "CarGurus advertises this VIN as stock J10210 ($9,995) but pka_hub.db has it is_archived=1 / reconciled-invalid with no stock number, and it is not in the DC feed. Held as a safe default so conflicting data does not auto-publish to the site + Google feed. Jerry to confirm: real new unit (reconcile DB, then --release) or ghost CarGurus listing (delete it at the source).",
+      "since": "2026-06-25"
+    }
+  }
+}

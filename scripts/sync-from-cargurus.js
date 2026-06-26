@@ -252,6 +252,30 @@ function loadDcInventory() {
 const DC_INVENTORY = loadDcInventory();
 const dcInvHas = (vin) => Boolean(DC_INVENTORY[(vin || '').toUpperCase()]);
 
+// ── Web hold list (DealerCenter "Inbound" / off-web units) ──────────────────────
+// The OAP feed carries no status, so a unit Jerry sets to Inbound (in recon, not for
+// sale yet) just drops out of the feed — indistinguishable from a sold car. The
+// off-market logic below would therefore mark it SOLD. Any VIN in hold-vins.json is
+// instead hidden QUIETLY: omitted from vehicles.json entirely (no card, no SOLD VDP,
+// absent from the Google feed). Maintained by operations/hold_unit.py.
+const HOLD_VINS_PATH = resolve(__dirname, '../site/src/data/hold-vins.json');
+
+function loadHoldVins() {
+  try {
+    const raw = JSON.parse(readFileSync(HOLD_VINS_PATH, 'utf8'));
+    const vins = Array.isArray(raw?.vins) ? raw.vins : Object.keys(raw?.by_vin || {});
+    return new Set(vins.map(v => String(v).toUpperCase()));
+  } catch (_) {
+    return new Set();
+  }
+}
+
+const HOLD_VINS = loadHoldVins();
+// A hold is honored ONLY while the car is genuinely out of the DC feed. If it is back
+// in dc-inventory.json, Jerry front-lined it again → the feed wins and the car shows,
+// so a stale hold entry can never permanently hide a relisted unit (auto-release).
+const isHeld = (vin) => HOLD_VINS.has((vin || '').toUpperCase()) && !dcInvHas(vin);
+
 function escapeRegExp(s) {
   return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 }
@@ -853,7 +877,9 @@ async function main() {
     // A car still in the DealerCenter feed is live by definition, even if CarGurus
     // hasn't (re)indexed it — never let the CarGurus tolerance window mark it sold.
     // It is re-added below from dc-inventory.json with fresh DC data.
-    .filter(e => e.vin && e.vin !== 'TBD' && !liveVins.has(e.vin) && !dcInvHas(e.vin))
+    // Held (Inbound / off-web) units are excluded entirely: they must never go down
+    // the sold path — the web-hold filter omits them below, quietly, not as SOLD.
+    .filter(e => e.vin && e.vin !== 'TBD' && !liveVins.has(e.vin) && !dcInvHas(e.vin) && !isHeld(e.vin))
     .map(e => {
       // Already declared sold — leave as-is (preserve sold_date and
       // missing_since for analytics; VDP keeps rendering SOLD).
@@ -984,26 +1010,39 @@ async function main() {
     console.log(`  Trim recovered from description: ${v.year} ${v.make} ${v.model} → "${v.trim}" [${v.vin}]`);
   }
 
+  // ── Apply the web hold ──────────────────────────────────────────────────────
+  // Drop held (Inbound / off-web) units BEFORE classify + write, so they are simply
+  // absent — never soldified and never emitting a "sold" URL event. They return
+  // automatically once back in the DC feed (see isHeld). vehicles.json is the source
+  // for both the inventory grid (VDP getStaticPaths) and the Google Merchant feed, so
+  // omitting here hides the unit everywhere at once.
+  const heldNow = vehicles.filter(v => isHeld(v.vin));
+  if (heldNow.length) {
+    console.log(`\nWeb hold — hiding ${heldNow.length} inbound/off-web unit(s) (omitted, NOT marked sold):`);
+    heldNow.forEach(v => console.log(`  ⊘ ${v.year} ${v.make} ${v.model} ${v.trim} [${v.vin}] stock ${v.stockNumber || '—'}`));
+  }
+  const visible = vehicles.filter(v => !isHeld(v.vin));
+
   // Strip any photo that is another listing's hero (carousel leak between
   // same-make units — see dedupePhotosAcrossListings). Self-heals every sync.
   console.log(`\nPhoto ownership check...`);
-  dedupePhotosAcrossListings(vehicles);
+  dedupePhotosAcrossListings(visible);
 
-  console.log(`\nMapped ${vehicles.length} vehicles:`);
-  vehicles.forEach(v =>
+  console.log(`\nMapped ${visible.length} vehicles:`);
+  visible.forEach(v =>
     console.log(`  • ${v.year} ${v.make} ${v.model} ${v.trim} — $${v.price.toLocaleString()} — ${v.mileage.toLocaleString()} mi — ${v.photoUrls?.length ?? 0} photos`)
   );
 
   // Diff + URL event classification (events are appended, not on dry-run).
-  const { urls } = classifyAndReport(existing, vehicles, { emit: !DRY_RUN });
+  const { urls } = classifyAndReport(existing, visible, { emit: !DRY_RUN });
 
   if (DRY_RUN) {
     console.log(`\n[DRY RUN] vehicles.json not written. Would emit ${urls.length} URL event(s).`);
     return;
   }
 
-  writeFileSync(VEHICLES_JSON, JSON.stringify(vehicles, null, 2) + '\n');
-  console.log(`\nWrote ${vehicles.length} vehicles to:\n  ${VEHICLES_JSON}`);
+  writeFileSync(VEHICLES_JSON, JSON.stringify(visible, null, 2) + '\n');
+  console.log(`\nWrote ${visible.length} vehicles to:\n  ${VEHICLES_JSON}`);
 
   // IndexNow: ping Bing/Yandex/Seznam/Naver (and ChatGPT via Bing). One POST,
   // deduped URLs. Skipped when no transitions occurred this cycle.
