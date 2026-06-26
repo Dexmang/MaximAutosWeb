@@ -7,9 +7,9 @@
       "since": "2026-06-25"
     },
     "19XFB2F73FE078163": {
-      "stock": "J10210?",
-      "reason": "review-conflict",
-      "note": "CarGurus advertises this VIN as stock J10210 ($9,995) but pka_hub.db has it is_archived=1 / reconciled-invalid with no stock number, and it is not in the DC feed. Held as a safe default so conflicting data does not auto-publish to the site + Google feed. Jerry to confirm: real new unit (reconcile DB, then --release) or ghost CarGurus listing (delete it at the source).",
+      "stock": "J10210",
+      "reason": "awaiting-dc-feed",
+      "note": "Confirmed real new unit (Jerry, 2026-06-25). It is on CarGurus (stock J10210, $9,995) but NOT in the DC OAP feed yet — it was set to syndicate to CarGurus but not to the feed. Held so it does not go live via the CarGurus-only side door ahead of the source of truth. Auto-releases the moment it appears in the DC feed (dc-inventory.json), so once the DC syndication is fixed it shows on its own through the proper pipeline (DC photos, etc.). No --release needed.",
       "since": "2026-06-25"
     }
   }
