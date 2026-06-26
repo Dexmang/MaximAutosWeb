@@ -780,6 +780,39 @@ function dedupePhotosAcrossListings(vehicles) {
   return vehicles;
 }
 
+/**
+ * Guarantee slug uniqueness across the written vehicle set.
+ *
+ * Slugs come from year/make/model/trim, so two units of the same trim (e.g. two
+ * 2015 Honda Civic SEs) generate the SAME slug. getStaticPaths would then emit
+ * duplicate routes and the Astro build would fail. This pass keeps the slug for
+ * any VIN that already owned it last run (URL stability — never move a live URL)
+ * and appends the stock number (then a numeric counter, as a last resort) to
+ * disambiguate any remaining collision. Every change is logged so a shifted URL
+ * is never silent; classifyAndReport picks the change up as a slug_changed event.
+ */
+function ensureUniqueSlugs(vehicles, existingByVin) {
+  const taken = new Set();
+  // Lock in slugs a VIN already had last run — those URLs must not move.
+  for (const v of vehicles) {
+    const prior = existingByVin[v.vin];
+    if (prior?.slug && prior.slug === v.slug) taken.add(v.slug);
+  }
+  for (const v of vehicles) {
+    const prior = existingByVin[v.vin];
+    if (prior?.slug && prior.slug === v.slug) continue;   // established → keeps it
+    if (!taken.has(v.slug)) { taken.add(v.slug); continue; } // no collision
+    const tag = slugify(v.stockNumber || (v.vin && v.vin !== 'TBD' ? v.vin.slice(-6) : '')) || 'x';
+    let next = `${v.slug}-${tag}`, n = 2;
+    while (taken.has(next)) next = `${v.slug}-${tag}-${n++}`;
+    console.log(`  Slug de-dupe: ${v.year} ${v.make} ${v.model} ${v.trim} [${v.vin}] "${v.slug}" -> "${next}"`);
+    v.slug = next;
+    v.photoPrefix = v.photoPrefix || next;
+    taken.add(next);
+  }
+  return vehicles;
+}
+
 // ── main ──────────────────────────────────────────────────────────────────────
 
 async function main() {
@@ -1022,6 +1055,10 @@ async function main() {
     heldNow.forEach(v => console.log(`  ⊘ ${v.year} ${v.make} ${v.model} ${v.trim} [${v.vin}] stock ${v.stockNumber || '—'}`));
   }
   const visible = vehicles.filter(v => !isHeld(v.vin));
+
+  // Guarantee unique slugs so two same-trim units (e.g. two 2015 Civic SEs)
+  // never collide on the VDP route and break the build.
+  ensureUniqueSlugs(visible, existingByVin);
 
   // Strip any photo that is another listing's hero (carousel leak between
   // same-make units — see dedupePhotosAcrossListings). Self-heals every sync.
