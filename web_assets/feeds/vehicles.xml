@@ -4,7 +4,7 @@
   <title>Maxim Autos — Vehicle Inventory</title>
   <link>https://www.maximautos.com/</link>
   <description>Used vehicles for sale at Maxim Autos in Skokie, IL 60077. Phone +18475108947.</description>
-  <lastBuildDate>2026-06-26T08:53:39.232Z</lastBuildDate>
+  <lastBuildDate>2026-06-26T14:08:37.781Z</lastBuildDate>
   <item>
     <g:id>KMHRB8A30MU097803</g:id>
     <g:title>2021 Hyundai Venue SE FWD</g:title>
@@ -220,6 +220,42 @@
     <g:trim>LX AWD</g:trim>
     <g:body_style>suv</g:body_style>
     <g:color>Silver</g:color>
+  </item>
+  <item>
+    <g:id>19XFB2F73FE078163</g:id>
+    <g:title>2015 Honda Civic SE</g:title>
+    <g:description>2015 Honda Civic SE Sedan, 130,772 miles, all black inside and out. The SE was Honda&apos;s Special Edition, slotted right between the base LX and the higher EX, and it is the trim Civic shoppers hunt for. It bundles roughly $1,100 in added equipment over the LX, which is why clean SE models hold value and move fast. Easy on gas, easy to drive, a perfect first car or daily commuter for the North Shore.The standout is Honda LaneWatch. Flip your right turn signal and a camera in the passenger mirror shows your entire blind spot on the 7 inch touchscreen, so lane changes feel a lot safer. That same screen runs Display Audio with Bluetooth and smartphone integration, plus a backup camera. The SE also adds automatic climate control, cruise control, push button start, smart entry, USB input, and alloy wheels. Under the hood is Honda&apos;s proven 1.8 liter four cylinder paired with a smooth automatic CVT and front wheel drive, EPA rated 30 city and 39 highway. These engines routinely run past 300,000 miles on basic maintenance, so at 130,772 miles this one is barely broken in, and the 2015 Civic earned an IIHS Top Safety Pick.The Maxim Autos DifferenceIndependent inspection report included with every vehicle3 month Peace of Mind warranty (extended coverage available)Metal plates issued on the spot, drive home todayTransparent pricing, no hidden feesFinancing for all credit levelsSkokie, IL. Serving Evanston, Niles, Morton Grove, Lincolnwood, Des Plaines, North Shore Chicago. Call (847) 510-8947 for a same day appointment.Every car inspected. Every price transparent. Every customer protected.[!@@Additional Info@@!]Alarm System,Daytime Running Lights,Alloy Wheels,Dual Air Bags,ABS (4-Wheel),Side Air Bags,Power Windows,AM/FM Stereo,Traction Control,F 0026R Head Curtain Air Bags,Automatic CVT,Power Steering,Stability Control,CD/MP3 (Single Disc),4-Cyl i-VTEC 1.8 Liter,LaneWatch Blind-Spot,Power Door Locks,Backup Camera,Tilt  0026 Telescoping Wheel,Air Conditioning,Keyless Entry,Cruise Control,FWD,Bluetooth Wireless</g:description>
+    <g:link>https://www.maximautos.com/vehicle/2015-honda-civic-se/</g:link>
+    <g:link_template>https://www.maximautos.com/vehicle/2015-honda-civic-se/?store={store_code}</g:link_template>
+    <g:image_link>https://imagesdl.dealercenter.net/1289/856/202606-0147a67804224f9a8a81578b2758466b.jpg</g:image_link>
+    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202606-df7e46bea8854f05b7cbb795b0ed31d1.jpg</g:additional_image_link>
+    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202606-0cf0b5f7f2b8494cbb8839318fef84ed.jpg</g:additional_image_link>
+    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202606-4643b74446d34562bdaa306b7a5ec451.jpg</g:additional_image_link>
+    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202606-1f876f4972d04dc4a0d1e47566ba59d9.jpg</g:additional_image_link>
+    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202606-2d5b4001239c4dbfbfd3eb6f6f41fb6d.jpg</g:additional_image_link>
+    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202606-1d9a7204639a44faa95a16167aa3e7c1.jpg</g:additional_image_link>
+    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202606-61f5fa7a54904ffa83a603c987db6f6a.jpg</g:additional_image_link>
+    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202606-4aa9d6eca6894bb5953b1e2832462def.jpg</g:additional_image_link>
+    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202606-aa24538e6c8c4c738d2bbfcd83d9cf0a.jpg</g:additional_image_link>
+    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202606-3730ba431bb74de68c2cec36d40907ca.jpg</g:additional_image_link>
+    <g:condition>used</g:condition>
+    <g:price>9995 USD</g:price>
+    <g:availability>in_stock</g:availability>
+    <g:brand>Honda</g:brand>
+    <g:google_product_category>Vehicles &amp; Parts &gt; Vehicles &gt; Motor Vehicles &gt; Cars, Trucks &amp; Vans</g:google_product_category>
+    <g:excluded_destination>Shopping_ads</g:excluded_destination>
+    <g:excluded_destination>Free_listings</g:excluded_destination>
+    <g:vin>19XFB2F73FE078163</g:vin>
+    <g:year>2015</g:year>
+    <g:model>Civic</g:model>
+    <g:mileage>130772 Miles</g:mileage>
+    <g:store_code>08861907241419503398</g:store_code>
+    <g:vehicle_fulfillment>
+      <g:option>in_store</g:option>
+    </g:vehicle_fulfillment>
+    <g:trim>SE</g:trim>
+    <g:body_style>sedan</g:body_style>
+    <g:color>Black</g:color>
   </item>
   <item>
     <g:id>WA1L2AFP8GA046658</g:id>

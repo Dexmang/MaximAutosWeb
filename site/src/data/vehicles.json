@@ -451,6 +451,74 @@
     "priceSavings": 711
   },
   {
+    "slug": "2015-honda-civic-se",
+    "year": 2015,
+    "make": "Honda",
+    "model": "Civic",
+    "trim": "SE",
+    "price": 9995,
+    "mileage": 130772,
+    "exteriorColor": "Black",
+    "interiorColor": "Black",
+    "engine": "143 hp 1.8L I4",
+    "transmission": "CVT",
+    "drivetrain": "FWD",
+    "fuelType": "Gasoline",
+    "bodyStyle": "Sedan",
+    "vin": "19XFB2F73FE078163",
+    "condition": "Used",
+    "inspected": true,
+    "warranty": "3-Month Warranty",
+    "carfax": true,
+    "inspection": true,
+    "features": [
+      "Alloy Wheels",
+      "Bluetooth",
+      "Backup Camera",
+      "Blind Spot Monitoring",
+      "Premium Package"
+    ],
+    "highlights": [
+      "SE trim",
+      "130,772 miles",
+      "Fully inspected, 3-Month Warranty"
+    ],
+    "status": "available",
+    "dateAdded": "2026-06-26",
+    "featured": true,
+    "sortOrder": 0,
+    "stockNumber": "J10210",
+    "dealerCenterUrl": "",
+    "primaryPhotoUrl": "https://imagesdl.dealercenter.net/1289/856/202606-0147a67804224f9a8a81578b2758466b.jpg",
+    "photoUrls": [
+      "https://imagesdl.dealercenter.net/1289/856/202606-0147a67804224f9a8a81578b2758466b.jpg",
+      "https://imagesdl.dealercenter.net/1289/856/202606-df7e46bea8854f05b7cbb795b0ed31d1.jpg",
+      "https://imagesdl.dealercenter.net/1289/856/202606-0cf0b5f7f2b8494cbb8839318fef84ed.jpg",
+      "https://imagesdl.dealercenter.net/1289/856/202606-4643b74446d34562bdaa306b7a5ec451.jpg",
+      "https://imagesdl.dealercenter.net/1289/856/202606-1f876f4972d04dc4a0d1e47566ba59d9.jpg",
+      "https://imagesdl.dealercenter.net/1289/856/202606-2d5b4001239c4dbfbfd3eb6f6f41fb6d.jpg",
+      "https://imagesdl.dealercenter.net/1289/856/202606-1d9a7204639a44faa95a16167aa3e7c1.jpg",
+      "https://imagesdl.dealercenter.net/1289/856/202606-61f5fa7a54904ffa83a603c987db6f6a.jpg",
+      "https://imagesdl.dealercenter.net/1289/856/202606-4aa9d6eca6894bb5953b1e2832462def.jpg",
+      "https://imagesdl.dealercenter.net/1289/856/202606-aa24538e6c8c4c738d2bbfcd83d9cf0a.jpg",
+      "https://imagesdl.dealercenter.net/1289/856/202606-3730ba431bb74de68c2cec36d40907ca.jpg",
+      "https://imagesdl.dealercenter.net/1289/856/202606-381f8e4ccca8472da82a229dc3abe73f.jpg",
+      "https://imagesdl.dealercenter.net/1289/856/202606-75f956163a5d4e1380dd2ccc2f50051f.jpg"
+    ],
+    "photos": {
+      "exterior": 13,
+      "interior": 0,
+      "source": "dealercenter"
+    },
+    "photoPath": "",
+    "photoPrefix": "2015-honda-civic-se",
+    "makeSlug": "honda",
+    "bodyStyleSlug": "sedans",
+    "description": "2015 Honda Civic SE Sedan, 130,772 miles, all black inside and out. The SE was Honda's Special Edition, slotted right between the base LX and the higher EX, and it is the trim Civic shoppers hunt for. It bundles roughly $1,100 in added equipment over the LX, which is why clean SE models hold value and move fast. Easy on gas, easy to drive, a perfect first car or daily commuter for the North Shore.The standout is Honda LaneWatch. Flip your right turn signal and a camera in the passenger mirror shows your entire blind spot on the 7 inch touchscreen, so lane changes feel a lot safer. That same screen runs Display Audio with Bluetooth and smartphone integration, plus a backup camera. The SE also adds automatic climate control, cruise control, push button start, smart entry, USB input, and alloy wheels. Under the hood is Honda's proven 1.8 liter four cylinder paired with a smooth automatic CVT and front wheel drive, EPA rated 30 city and 39 highway. These engines routinely run past 300,000 miles on basic maintenance, so at 130,772 miles this one is barely broken in, and the 2015 Civic earned an IIHS Top Safety Pick.The Maxim Autos DifferenceIndependent inspection report included with every vehicle3 month Peace of Mind warranty (extended coverage available)Metal plates issued on the spot, drive home todayTransparent pricing, no hidden feesFinancing for all credit levelsSkokie, IL. Serving Evanston, Niles, Morton Grove, Lincolnwood, Des Plaines, North Shore Chicago. Call (847) 510-8947 for a same day appointment.Every car inspected. Every price transparent. Every customer protected.[!@@Additional Info@@!]Alarm System,Daytime Running Lights,Alloy Wheels,Dual Air Bags,ABS (4-Wheel),Side Air Bags,Power Windows,AM/FM Stereo,Traction Control,F 0026R Head Curtain Air Bags,Automatic CVT,Power Steering,Stability Control,CD/MP3 (Single Disc),4-Cyl i-VTEC 1.8 Liter,LaneWatch Blind-Spot,Power Door Locks,Backup Camera,Tilt  0026 Telescoping Wheel,Air Conditioning,Keyless Entry,Cruise Control,FWD,Bluetooth Wireless",
+    "dealRating": "FAIR_PRICE",
+    "priceSavings": 283
+  },
+  {
     "slug": "2013-volvo-c70-t5",
     "year": 2013,
     "make": "Volvo",
@@ -1569,6 +1637,7 @@
     "bodyStyleSlug": "suvs",
     "description": "2016 Audi Q5 2.0T Premium Plus  luxury German engineering in black with beige leather. quattro all-wheel drive, turbocharged 2.0T performance, and the premium fit-and-finish that puts Audi a class above most compact SUVs. Good on gas for a luxury AWD SUV, with up to 28 mpg on the highway.Premium Plus trim includes panoramic sunroof, heated leather seats, Audi MMI navigation, Bose audio, blind-spot monitoring, power liftgate, and 19-inch alloy wheels. A confident Chicago winter cruiser that still delivers refined daily driving when the snow melts.The Maxim Autos DifferenceIndependent inspection report included with every vehicle3-Month 'Peace of Mind' Warranty (extended coverage available)Metal plates issued on-the-spot  drive home todayTransparent pricing, no hidden feesFinancing for all credit levelsLocated in Skokie, IL  serving Evanston, Niles, Morton Grove, Lincolnwood, Des Plaines, and the entire North Shore Chicago corridor. Call or visit for a same-day appointment.Every car inspected. Every price transparent. Every customer protected.[!@@Additional Info@@!]Keyless Start,Alarm System,Air Conditioning,Power Steering,Fog Lights,AWD,Electronic Stability Control,Parking System Plus,Dual Air Bags,Bluetooth Wireless,Leather,F 0026R Parking Sensors,4-Cyl Turbo 2.0 Liter,Auto 8-Spd Tiptronic Spt,Air Conditioning Rear,Bang  0026 Olufsen Sound,Dual Power Seats,Tilt  0026 Telescoping Wheel,Audi connect,Daytime Running Lights,Side Air Bags,Rollover Protection,Backup Camera,Panorama Sun Roof,Heated Seats,Xenon Headlamps,Power Tailgate Release,Technology Pkg,SiriusXM Satellite,ABS (4-Wheel),AM/FM Stereo,Power Door Locks,Premium Wheels,Hill Descent Control,Cruise Control,Power Windows,F 0026R Head Curtain Air Bags,Traction Control,Blind-Spot Alert,Navigation System,CD/MP3 (Single Disc),Keyless Entry",
     "dealRating": "GOOD_PRICE",
-    "priceSavings": 844
+    "priceSavings": 844,
+    "missing_since": "2026-06-26T14:08:37.377Z"
   }
 ]
