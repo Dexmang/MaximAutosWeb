@@ -81,6 +81,20 @@ const description: string = (v as any).description || '';
 const stockNumber: string = (v as any).stockNumber || '';
 const mpg: string = (v as any).mpg || '';
 
+// CARFAX "Show Me The CARFAX" per-VIN report link.
+// partner=DVW_1 is Maxim Autos' CARFAX Advantage link code (from the dealer portal's
+// "Link Reports" tool). IMPORTANT: the public report only renders FREE (no paywall)
+// when the VIN is in Maxim's CARFAX "Hot Listings" — i.e. inventory syndicated to
+// CARFAX.com. That inventory feed is not enabled yet (pending CARFAX rep), so today
+// these links would hit the paid consumer paywall. Keep CARFAX_LINKS_LIVE = false
+// until inventory is confirmed in Hot Listings and a DVW_1 link resolves to a free
+// report; then flip to true to surface the button on every VDP that has a VIN.
+const CARFAX_PARTNER = 'DVW_1';
+const CARFAX_LINKS_LIVE = false;
+const carfaxLink = (CARFAX_LINKS_LIVE && v.vin && v.vin !== 'TBD')
+  ? `https://www.carfax.com/VehicleHistory/p/Report.cfx?partner=${CARFAX_PARTNER}&vin=${v.vin}`
+  : null;
+
 // Deal badge — sourced from CarGurus dealRating + priceSavings fields
 const dealRatingRaw: string = (v as any).dealRating || '';
 const priceSavingsRaw: number = (v as any).priceSavings || 0;
@@ -584,6 +598,11 @@ const faqSchema = {
               <div>
                 <h3 class="font-headline font-bold text-blue-900 mb-1">CARFAX Report Included</h3>
                 <p class="text-blue-800 text-sm mb-2">Full vehicle history report included with purchase at no extra cost. Accident history, service records, number of owners.</p>
+                {carfaxLink && (
+                  <a href={carfaxLink} target="_blank" rel="noopener noreferrer" class="inline-block mb-2">
+                    <img src={`${base}/brand/carfax/show-me-the-carfax.jpg`} alt={`Show me the free CARFAX report for this ${v.year} ${v.make} ${v.model}`} width="156" height="56" loading="lazy" />
+                  </a>
+                )}
                 {v.vin && v.vin !== 'TBD' && (
                   <p class="text-xs text-blue-700 font-mono bg-blue-100 inline-block px-2 py-0.5 rounded">VIN: {v.vin}</p>
                 )}
