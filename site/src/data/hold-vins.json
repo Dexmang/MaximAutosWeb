@@ -11,6 +11,11 @@
       "reason": "awaiting-dc-feed",
       "note": "Confirmed real new unit (Jerry, 2026-06-25). It is on CarGurus (stock J10210, $9,995) but NOT in the DC OAP feed yet — it was set to syndicate to CarGurus but not to the feed. Held so it does not go live via the CarGurus-only side door ahead of the source of truth. Auto-releases the moment it appears in the DC feed (dc-inventory.json), so once the DC syndication is fixed it shows on its own through the proper pipeline (DC photos, etc.). No --release needed.",
       "since": "2026-06-25"
+    },
+    "5N1AR2MM9GC630607": {
+      "stock": "J10202",
+      "reason": "sold",
+      "since": "2026-07-01"
     }
   }
 }
