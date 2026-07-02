@@ -1,6 +1,6 @@
 {
   "source": "pka_hub.db ma_vehicles",
-  "generated_at": "2026-07-02T12:45:06.403Z",
+  "generated_at": "2026-07-02T18:45:06.615Z",
   "by_vin": {
     "JTJBK1BA4E2462410": "350",
     "1FMCU0J95HUE21095": "Titanium",
@@ -111,6 +111,7 @@
     "2C3CDXBG3PH530705": "SXT",
     "YV4902RS0F2652862": "T6 R-Design Platinum",
     "YV4612HK5G1013479": "T5 Cross Country",
-    "KMHRB8A30MU097803": "SE"
+    "KMHRB8A30MU097803": "SE",
+    "3VWH17AU6HM534619": "TSI S"
   }
 }

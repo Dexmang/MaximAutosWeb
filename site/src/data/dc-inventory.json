@@ -141,6 +141,7 @@
       "priceSavings": 207
     },
     "JM3KFACL4H0167208": {
+      "slug": "2017-mazda-cx-5-touring",
       "year": 2017,
       "make": "Mazda",
       "model": "CX-5",
@@ -151,18 +152,34 @@
       "interiorColor": "Beige",
       "engine": "187 hp 2.5L I4",
       "transmission": "Automatic",
-      "drivetrain": "4x2",
+      "drivetrain": "FWD",
       "fuelType": "Gasoline",
       "bodyStyle": "SUV",
-      "bodyStyleSlug": "suvs",
-      "makeSlug": "mazda",
       "vin": "JM3KFACL4H0167208",
       "condition": "Used",
       "inspected": true,
-      "inspection": true,
-      "carfax": true,
       "warranty": "3-Month Warranty",
+      "carfax": true,
+      "inspection": true,
+      "features": [
+        "Alloy Wheels",
+        "Bluetooth",
+        "Backup Camera",
+        "Blind Spot Monitoring",
+        "Heated Seats",
+        "Multi Zone Climate Control"
+      ],
+      "highlights": [
+        "Touring trim",
+        "78,609 miles",
+        "Fully inspected, 3-Month Warranty"
+      ],
+      "status": "available",
+      "dateAdded": "2026-07-02",
+      "featured": true,
+      "sortOrder": 0,
       "stockNumber": "J10192",
+      "dealerCenterUrl": "",
       "primaryPhotoUrl": "https://imagesdl.dealercenter.net/1024/768/202607-f9292be32ddd441a81f7152d82133e1d.jpg",
       "photoUrls": [
         "https://imagesdl.dealercenter.net/1024/768/202607-f9292be32ddd441a81f7152d82133e1d.jpg",
@@ -188,23 +205,13 @@
         "interior": 0,
         "source": "dealercenter"
       },
-      "status": "available",
-      "slug": "2017-mazda-cx-5-touring",
-      "dateAdded": "2026-07-02",
-      "featured": true,
-      "sortOrder": 0,
-      "dealRating": "",
-      "priceSavings": 0,
-      "description": "2017 Mazda CX-5 Touring, a sharp handling compact SUV with one of the most engaging drives in its class. Powered by the fuel efficient 2.5L SKYACTIV four cylinder with a smooth automatic, backup camera, blind spot monitoring, rear cross traffic alert, and dual zone climate control. White on a beige interior with just 78,609 miles. This one is a southern car that was never driven in a Chicago winter, so there is no road salt history and no rust. Built for drivers who want Mazda reliability and a polished ride without stepping up to a bigger SUV. It stays easy on gas at up to 31 mpg on the highway. The AC blows ice cold to keep you cool through hot Chicago summers. Key features: fuel efficient 2.5L SKYACTIV engine, smooth automatic transmission, backup camera, blind spot monitoring, rear cross traffic alert, dual zone climate control, alloy wheels, keyless entry, push button start, cruise control, power windows and locks, Bluetooth, and full power accessories. The Touring trim adds the comfort and safety features most buyers actually want, so you get a well equipped SUV that handles Chicago roads with ease. The Maxim Autos Difference Independent inspection report included with every vehicle 3 Month Peace of Mind Warranty, with extended coverage available Metal plates issued same day so you can drive home today Transparent pricing with no hidden fees Financing for all credit levels Located in Skokie, IL, serving Evanston, Niles, Morton Grove, Lincolnwood, Des Plaines, and the North Shore Chicago area. Same day appointments available, call us to set up a time to see this Mazda. Every car inspected. Every price transparent. Every customer protected.",
-      "highlights": [
-        "Touring trim",
-        "78,609 miles",
-        "Fully inspected, 3-Month Warranty"
-      ],
-      "features": [],
-      "photoPrefix": "2017-mazda-cx-5-touring",
       "photoPath": "",
-      "dealerCenterUrl": ""
+      "photoPrefix": "2017-mazda-cx-5-touring",
+      "makeSlug": "mazda",
+      "bodyStyleSlug": "suvs",
+      "description": "2017 Mazda CX-5 Touring, a sharp handling compact SUV with one of the most engaging drives in its class. Powered by the fuel efficient 2.5L SKYACTIV four cylinder with a smooth automatic, backup camera, blind spot monitoring, rear cross traffic alert, and dual zone climate control. White on a beige interior with just 78,609 miles. This one is a southern car that was never driven in a Chicago winter, so there is no road salt history and no rust. Built for drivers who want Mazda reliability and a polished ride without stepping up to a bigger SUV. It stays easy on gas at up to 31 mpg on the highway. The AC blows ice cold to keep you cool through hot Chicago summers.Key features: fuel efficient 2.5L SKYACTIV engine, smooth automatic transmission, backup camera, blind spot monitoring, rear cross traffic alert, dual zone climate control, alloy wheels, keyless entry, push button start, cruise control, power windows and locks, Bluetooth, and full power accessories. The Touring trim adds the comfort and safety features most buyers actually want, so you get a well equipped SUV that handles Chicago roads with ease.The Maxim Autos DifferenceIndependent inspection report included with every vehicle3 Month Peace of Mind Warranty, with extended coverage availableMetal plates issued same day so you can drive home todayTransparent pricing with no hidden feesFinancing for all credit levelsLocated in Skokie, IL, serving Evanston, Niles, Morton Grove, Lincolnwood, Des Plaines, and the North Shore Chicago area. Same day appointments available, call us to set up a time to see this Mazda.Every car inspected. Every price transparent. Every customer protected.[!@@Additional Info@@!]MAZDA CONNECT,Power Windows,Hill Launch Assist,4-Cyl SKYACTIV-G 2.5L,Auto 6-Spd Manual Spt,Daytime Running Lights,Push Button Start,FWD,AM/FM/HD Radio,Dual Air Bags,F 0026R Head Curtain Air Bags,Cruise Control,ABS (4-Wheel),Keyless Entry,Alloy Wheels,Bluetooth Wireless,Power Door Locks,Backup Camera,Tilt  0026 Telescoping Wheel,Heated Seats,Side Air Bags,Traction Control,Power Seat,Blind-Spot Monitor,Roof Spoiler,LED Headlamps,Power Steering,Air Conditioning,Dynamic Stability Control",
+      "dealRating": "GREAT_PRICE",
+      "priceSavings": 2693
     },
     "KM8J2CA43KU844574": {
       "slug": "2019-hyundai-tucson-se-awd",
