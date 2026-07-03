@@ -239,10 +239,15 @@ const faqSchema = {
               )}
               {carfaxLink && (
                 <a href={carfaxLink} target="_blank" rel="noopener noreferrer"
-                   class="absolute top-11 left-3 z-10 rounded-md overflow-hidden shadow-md hover:shadow-lg transition-shadow"
+                   class="absolute top-11 left-3 z-10 block bg-black/90 rounded-lg px-3 py-2 shadow-md hover:shadow-lg transition-shadow"
                    onclick="event.stopPropagation()"
-                   aria-label={`Show me the free CARFAX report for this ${v.year} ${v.make} ${v.model}`}>
-                  <img src={`${base}/brand/carfax/show-me-the-carfax.jpg`} alt="Show Me The CARFAX" width="156" height="56" loading="eager" />
+                   aria-label={`Free CARFAX report for this ${v.year} ${v.make} ${v.model}`}>
+                  <span class="flex gap-[2px] justify-center">
+                    {'CARFAX'.split('').map(ch => (
+                      <span class="bg-white text-black font-black text-[13px] leading-none w-[18px] h-[18px] flex items-center justify-center rounded-[3px]">{ch}</span>
+                    ))}
+                  </span>
+                  <span class="block text-white font-headline font-bold text-[11px] tracking-widest text-center mt-1.5">FREE REPORT</span>
                 </a>
               )}
               <div class="absolute bottom-3 left-3 bg-black/60 text-white text-sm font-semibold px-3 py-1.5 rounded-md flex items-center gap-1.5">
@@ -282,10 +287,15 @@ const faqSchema = {
               )}
               {carfaxLink && (
                 <a href={carfaxLink} target="_blank" rel="noopener noreferrer"
-                   class="absolute top-11 left-3 z-10 rounded-md overflow-hidden shadow-md"
+                   class="absolute top-11 left-3 z-10 block bg-black/90 rounded-lg px-2.5 py-1.5 shadow-md"
                    onclick="event.stopPropagation()"
-                   aria-label={`Show me the free CARFAX report for this ${v.year} ${v.make} ${v.model}`}>
-                  <img src={`${base}/brand/carfax/show-me-the-carfax.jpg`} alt="Show Me The CARFAX" width="130" height="47" loading="eager" />
+                   aria-label={`Free CARFAX report for this ${v.year} ${v.make} ${v.model}`}>
+                  <span class="flex gap-[2px] justify-center">
+                    {'CARFAX'.split('').map(ch => (
+                      <span class="bg-white text-black font-black text-[11px] leading-none w-4 h-4 flex items-center justify-center rounded-[3px]">{ch}</span>
+                    ))}
+                  </span>
+                  <span class="block text-white font-headline font-bold text-[10px] tracking-widest text-center mt-1">FREE REPORT</span>
                 </a>
               )}
               {allPhotos.length > 1 && (
