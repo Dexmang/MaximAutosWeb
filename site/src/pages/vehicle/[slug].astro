@@ -82,16 +82,18 @@ const stockNumber: string = (v as any).stockNumber || '';
 const mpg: string = (v as any).mpg || '';
 
 // CARFAX "Show Me The CARFAX" per-VIN report link.
-// partner=DVW_1 is Maxim Autos' CARFAX Advantage link code (from the dealer portal's
-// "Link Reports" tool). IMPORTANT: the public report only renders FREE (no paywall)
-// when the VIN is in Maxim's CARFAX "Hot Listings" — i.e. inventory syndicated to
-// CARFAX.com. That inventory feed is not enabled yet (pending CARFAX rep), so today
-// these links would hit the paid consumer paywall. Keep CARFAX_LINKS_LIVE = false
-// until inventory is confirmed in Hot Listings and a DVW_1 link resolves to a free
-// report; then flip to true to surface the button on every VDP that has a VIN.
+// partner=DVW_1 is Maxim Autos' CARFAX Advantage link code (dealer portal →
+// Resources → Marketing Materials → Link Your Reports). The public link renders
+// the FREE report only while the VIN is in Maxim's Hot Listings: run its report
+// at carfaxonline.com (1 of 50 monthly VHRs) and leave "Display CARFAX in Online
+// Listings" toggled ON (Vehicle History → History of Reports Run). The free link
+// lasts up to 2 months from the report run while the car is still for sale, so
+// every newly front-lined unit needs its report run + toggle checked.
+// Ops steps: businesses/maxim-autos/operations/inventory-pipeline.md ("CARFAX").
+// Sold VDPs never render the button — their links revert to the consumer paywall.
 const CARFAX_PARTNER = 'DVW_1';
-const CARFAX_LINKS_LIVE = false;
-const carfaxLink = (CARFAX_LINKS_LIVE && v.vin && v.vin !== 'TBD')
+const CARFAX_LINKS_LIVE = true;
+const carfaxLink = (CARFAX_LINKS_LIVE && !isSold && v.vin && v.vin !== 'TBD')
   ? `https://www.carfax.com/VehicleHistory/p/Report.cfx?partner=${CARFAX_PARTNER}&vin=${v.vin}`
   : null;
 
