@@ -123,7 +123,7 @@ const chrome = isSpanish
 <nav class="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-100">
   <div class="flex justify-between items-center w-full px-4 sm:px-6 lg:px-8 py-3 max-w-7xl mx-auto">
     <!-- Logo + Rating -->
-    <div class="flex items-center gap-2.5 sm:gap-4 shrink-0">
+    <div class="flex items-center gap-2 sm:gap-4 shrink-0">
       <a href={`${base}/`}>
         <img src={`${base}/brand/logo-header.png`} alt="Maxim Autos" class="h-8 sm:h-9 md:h-10 w-auto" />
       </a>
@@ -144,7 +144,7 @@ const chrome = isSpanish
         </span>
       </a>
       <img src={`${base}/brand/carfax/advantage-dealer.png`} alt="CARFAX Advantage Dealer"
-           class="hidden sm:block h-9 md:h-10 w-auto shrink-0" loading="eager" />
+           class="h-8 sm:h-9 md:h-10 w-auto shrink-0" loading="eager" />
     </div>
 
     <!-- Desktop Nav -->
@@ -187,9 +187,11 @@ const chrome = isSpanish
           <p class="text-xs text-gray-400 mt-0.5">{chrome.callOrText}</p>
         </div>
       </div>
-      <!-- Mobile: directions icon — always visible, links to Google Maps pin -->
+      <!-- Tablet: directions icon, links to Google Maps pin. Hidden on phones —
+           the bottom tab bar covers Directions there and the row needs the width
+           for the CARFAX Advantage shield. -->
       <a href={directionsUrl} target="_blank" rel="noopener"
-         class="lg:hidden flex items-center p-2 text-gray-500 hover:text-orange transition-colors"
+         class="hidden sm:flex lg:hidden items-center p-2 text-gray-500 hover:text-orange transition-colors"
          aria-label={chrome.directionsAria}>
         <span class="material-symbols-outlined text-2xl" style="font-variation-settings:'FILL' 1;">location_on</span>
       </a>
