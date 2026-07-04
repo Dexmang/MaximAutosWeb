@@ -141,7 +141,7 @@ const faqs = [
   { q: `Can I get pre-approved for financing on this ${v.make} ${v.model}?`, a: `Yes. Maxim Autos offers financing for all credit levels, including first-time buyers and those rebuilding credit. Get pre-approved quickly with no impact to your credit score. Contact Jerry directly to discuss your options.` },
   { q: `Does this used ${v.make} ${v.model} come with a CARFAX report?`, a: `Yes. A CARFAX vehicle history report is included with every used vehicle at Maxim Autos at no extra cost. Review the full history of this ${titleText} before making a decision.` },
   { q: `Can I drive this ${v.make} ${v.model} home the same day?`, a: `Yes. Maxim Autos is an authorized Illinois CVR (Computer Vehicle Registration) electronic registration dealer. We process your title and registration on the spot and issue real metal plates the same day. No waiting for temporary plates, no trip to the DMV.` },
-  { q: `Are there any hidden fees on this used ${v.make} ${v.model}?`, a: `No. Maxim Autos charges zero dealer fees. No doc fee, no processing fee, no surprise extras at signing. The listed price of $${v.price.toLocaleString()} is what you pay plus standard state tax, title and license.` },
+  { q: `Are there any hidden fees on this used ${v.make} ${v.model}?`, a: `No. Maxim Autos never charges dealer fees. No doc fee, no processing fee, no surprise extras at signing. The listed price of $${v.price.toLocaleString()} is what you pay plus standard state tax, title and license.` },
 ];
 
 // Structured data
@@ -376,7 +376,7 @@ const faqSchema = {
             <!-- Zero dealer fees callout -->
             <div class="mt-3 flex items-start gap-2 bg-green-50 border border-green-100 rounded-lg px-3 py-2">
               <span class="material-symbols-outlined text-base text-green-700 shrink-0" style="font-variation-settings:'FILL' 1;">price_check</span>
-              <p class="text-xs text-gray-700 leading-snug"><span class="font-bold text-green-700">Zero dealer fees.</span> The price you see is the price you pay plus tax, title and license.</p>
+              <p class="text-xs text-gray-700 leading-snug"><span class="font-bold text-green-700">No dealer fees. Ever.</span> The price you see is the price you pay plus tax, title and license.</p>
             </div>
 
             <!-- Orange payment estimator callout -->
@@ -713,7 +713,7 @@ const faqSchema = {
               <!-- Zero dealer fees callout -->
               <div class="mb-4 flex items-start gap-2 bg-green-50 border border-green-100 rounded-lg px-3 py-2">
                 <span class="material-symbols-outlined text-base text-green-700 shrink-0" style="font-variation-settings:'FILL' 1;">price_check</span>
-                <p class="text-xs text-gray-700 leading-snug"><span class="font-bold text-green-700">Zero dealer fees.</span> The price you see is the price you pay plus tax, title and license.</p>
+                <p class="text-xs text-gray-700 leading-snug"><span class="font-bold text-green-700">No dealer fees. Ever.</span> The price you see is the price you pay plus tax, title and license.</p>
               </div>
 
               <!-- Sidebar payment calculator -->
@@ -773,7 +773,7 @@ const faqSchema = {
                   { icon: 'shield', color: 'text-green-600', label: 'Independent Inspection Included' },
                   { icon: 'description', color: 'text-blue-600', label: 'Free CARFAX Report' },
                   { icon: 'directions_car', color: 'text-orange', label: 'Metal Plates — Skip the DMV' },
-                  { icon: 'price_check', color: 'text-green-700', label: 'Zero Dealer Fees' },
+                  { icon: 'price_check', color: 'text-green-700', label: 'No Dealer Fees Ever' },
                 ].map(item => (
                   <div class="flex items-center gap-3">
                     <span class:list={['material-symbols-outlined text-xl shrink-0', item.color]} style="font-variation-settings:'FILL' 1;">{item.icon}</span>
