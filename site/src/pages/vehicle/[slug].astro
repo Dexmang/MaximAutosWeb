@@ -304,14 +304,18 @@ const faqSchema = {
         <div class="flex-1 flex items-center justify-center py-2.5 px-2">
           {carfaxLink ? (
             <a href={carfaxLink} target="_blank" rel="noopener noreferrer"
-               class="flex items-center gap-2 bg-black rounded-md px-3 py-1.5 shadow-sm hover:shadow-md transition-shadow"
-               aria-label={`Free CARFAX report for this ${v.year} ${v.make} ${v.model}`}>
-              <span class="flex gap-[2px]">
-                {'CARFAX'.split('').map(ch => (
-                  <span class="bg-white text-black font-black text-[11px] leading-none w-4 h-4 flex items-center justify-center rounded-[2px]">{ch}</span>
-                ))}
+               class="flex flex-col items-center leading-none hover:opacity-75 transition-opacity"
+               aria-label={`Show me the free CARFAX report for this ${v.year} ${v.make} ${v.model}`}>
+              <span class="text-[9px] font-extrabold tracking-[0.14em] text-gray-900">SHOW ME THE</span>
+              <span class="flex items-start mt-[3px]">
+                <span class="flex gap-[2px] border-2 border-black rounded-[5px] p-[2px] bg-white">
+                  {'CARFA'.split('').map(ch => (
+                    <span class="bg-black text-white font-black text-[12px] leading-none w-[17px] h-[17px] flex items-center justify-center rounded-[2px]">{ch}</span>
+                  ))}
+                  <span class="bg-black text-white font-black text-[12px] leading-none w-[17px] h-[17px] flex items-end justify-center rounded-[2px] pb-[2px]">x</span>
+                </span>
+                <span class="text-[7px] font-bold text-gray-900 ml-[2px]">®</span>
               </span>
-              <span class="text-white font-headline font-bold text-[11px] tracking-widest whitespace-nowrap">FREE REPORT ›</span>
             </a>
           ) : (
             <span class="flex items-center gap-1.5">
