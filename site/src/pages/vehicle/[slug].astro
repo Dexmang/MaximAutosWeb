@@ -237,19 +237,6 @@ const faqSchema = {
                   FULLY INSPECTED
                 </div>
               )}
-              {carfaxLink && (
-                <a href={carfaxLink} target="_blank" rel="noopener noreferrer"
-                   class="absolute top-11 left-3 z-10 block bg-black/90 rounded-lg px-3 py-2 shadow-md hover:shadow-lg transition-shadow"
-                   onclick="event.stopPropagation()"
-                   aria-label={`Free CARFAX report for this ${v.year} ${v.make} ${v.model}`}>
-                  <span class="flex gap-[2px] justify-center">
-                    {'CARFAX'.split('').map(ch => (
-                      <span class="bg-white text-black font-black text-[13px] leading-none w-[18px] h-[18px] flex items-center justify-center rounded-[3px]">{ch}</span>
-                    ))}
-                  </span>
-                  <span class="block text-white font-headline font-bold text-[11px] tracking-widest text-center mt-1.5">FREE REPORT</span>
-                </a>
-              )}
               <div class="absolute bottom-3 left-3 bg-black/60 text-white text-sm font-semibold px-3 py-1.5 rounded-md flex items-center gap-1.5">
                 <span class="material-symbols-outlined text-base">photo_camera</span>
                 {allPhotos.length} photos · Click to view all
@@ -285,19 +272,6 @@ const faqSchema = {
                   FULLY INSPECTED
                 </div>
               )}
-              {carfaxLink && (
-                <a href={carfaxLink} target="_blank" rel="noopener noreferrer"
-                   class="absolute top-11 left-3 z-10 block bg-black/90 rounded-lg px-2.5 py-1.5 shadow-md"
-                   onclick="event.stopPropagation()"
-                   aria-label={`Free CARFAX report for this ${v.year} ${v.make} ${v.model}`}>
-                  <span class="flex gap-[2px] justify-center">
-                    {'CARFAX'.split('').map(ch => (
-                      <span class="bg-white text-black font-black text-[11px] leading-none w-4 h-4 flex items-center justify-center rounded-[3px]">{ch}</span>
-                    ))}
-                  </span>
-                  <span class="block text-white font-headline font-bold text-[10px] tracking-widest text-center mt-1">FREE REPORT</span>
-                </a>
-              )}
               {allPhotos.length > 1 && (
                 <button id="view-all-btn"
                   class="absolute bottom-3 right-3 bg-black/70 text-white text-sm font-semibold px-3 py-1.5 rounded-md flex items-center gap-1.5">
@@ -318,6 +292,41 @@ const faqSchema = {
       )}
     </div>
   </section>
+
+  <!-- ===== TRUST BAR: Inspected · CARFAX free report · Warranty ===== -->
+  {!isSold && (
+    <section class="bg-white border-b border-gray-200 shadow-sm">
+      <div class="max-w-7xl mx-auto flex divide-x divide-gray-200">
+        <div class="flex-1 flex items-center justify-center gap-1.5 py-3 px-2 text-center">
+          <span class="material-symbols-outlined text-lg text-green-600 hidden sm:inline" style="font-variation-settings:'FILL' 1;">verified</span>
+          <span class="text-xs sm:text-sm font-bold text-gray-700">Fully Inspected</span>
+        </div>
+        <div class="flex-1 flex items-center justify-center py-2.5 px-2">
+          {carfaxLink ? (
+            <a href={carfaxLink} target="_blank" rel="noopener noreferrer"
+               class="flex items-center gap-2 bg-black rounded-md px-3 py-1.5 shadow-sm hover:shadow-md transition-shadow"
+               aria-label={`Free CARFAX report for this ${v.year} ${v.make} ${v.model}`}>
+              <span class="flex gap-[2px]">
+                {'CARFAX'.split('').map(ch => (
+                  <span class="bg-white text-black font-black text-[11px] leading-none w-4 h-4 flex items-center justify-center rounded-[2px]">{ch}</span>
+                ))}
+              </span>
+              <span class="text-white font-headline font-bold text-[11px] tracking-widest whitespace-nowrap">FREE REPORT ›</span>
+            </a>
+          ) : (
+            <span class="flex items-center gap-1.5">
+              <span class="material-symbols-outlined text-lg text-blue-700 hidden sm:inline" style="font-variation-settings:'FILL' 1;">description</span>
+              <span class="text-xs sm:text-sm font-bold text-gray-700">CARFAX Included</span>
+            </span>
+          )}
+        </div>
+        <div class="flex-1 flex items-center justify-center gap-1.5 py-3 px-2 text-center">
+          <span class="material-symbols-outlined text-lg text-navy hidden sm:inline" style="font-variation-settings:'FILL' 1;">security</span>
+          <span class="text-xs sm:text-sm font-bold text-gray-700">3 Month / 4,500 Miles Warranty</span>
+        </div>
+      </div>
+    </section>
+  )}
 
   <!-- ===== MAIN 2-COLUMN LAYOUT ===== -->
   <section class="bg-white">
@@ -627,8 +636,10 @@ const faqSchema = {
                 <h3 class="font-headline font-bold text-blue-900 mb-1">CARFAX Report Included</h3>
                 <p class="text-blue-800 text-sm mb-2">Full vehicle history report included with purchase at no extra cost. Accident history, service records, number of owners.</p>
                 {carfaxLink && (
-                  <a href={carfaxLink} target="_blank" rel="noopener noreferrer" class="inline-block mb-2">
-                    <img src={`${base}/brand/carfax/show-me-the-carfax.jpg`} alt={`Show me the free CARFAX report for this ${v.year} ${v.make} ${v.model}`} width="156" height="56" loading="lazy" />
+                  <a href={carfaxLink} target="_blank" rel="noopener noreferrer"
+                     class="inline-flex items-center gap-1 text-sm font-bold text-blue-700 hover:underline mb-2">
+                    View the free CARFAX report
+                    <span class="material-symbols-outlined text-sm">open_in_new</span>
                   </a>
                 )}
                 {v.vin && v.vin !== 'TBD' && (
