@@ -8,6 +8,7 @@ on:
 
 permissions:
   contents: write
+  actions: write  # to dispatch deploy.yml after committing (see last step)
 
 jobs:
   sync:
@@ -65,3 +66,12 @@ jobs:
             web_assets/feeds/vehicles.xml
           git commit -m "chore: sync CarGurus inventory + stats [${{ github.run_number }}]"
           git push
+
+      # A push made with GITHUB_TOKEN never fires `on: push` workflows (GitHub's
+      # anti-recursion rule), so without this the fresh vehicles.json would sit
+      # undeployed until the next local push. Dispatch the Pages deploy explicitly.
+      - name: Trigger site deploy
+        if: steps.diff.outputs.changed == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh workflow run deploy.yml --ref main
