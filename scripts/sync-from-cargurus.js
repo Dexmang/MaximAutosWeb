@@ -5,9 +5,14 @@
  * Fetches the live Maxim Autos inventory from CarGurus and updates
  * site/src/data/vehicles.json.
  *
- * Merge rules (CarGurus is the source of truth for live/sold):
- *   - CarGurus is source of truth for: which cars exist, price, mileage, dealRating
- *   - Description is always regenerated from current data (stays fresh with price/mileage)
+ * Merge rules:
+ *   - DealerCenter (via the committed dc-inventory.json snapshot) is source of
+ *     truth for: price and description (ad copy) — the OAP pull sees a DC edit
+ *     hours before CarGurus re-indexes it. CarGurus fills price only for VINs
+ *     absent from the DC snapshot.
+ *   - CarGurus is source of truth for: mileage, dealRating/priceSavings (its
+ *     proprietary badge), and live/sold state.
+ *   - Description falls back to generated text only when the DC feed carries none.
  *   - Existing vehicles.json data is preserved for: photos (DealerCenter CDN),
  *     features, highlights, stockNumber, dealerCenterUrl, slug
  *   - VIN re-appears in feed → status auto-flips to "available", missing_since
@@ -484,14 +489,22 @@ function mapNode(node, _offer, existingByVin) {
   // CarGurus blanks trims its catalog doesn't recognize — see resolveTrim.
   const trim = resolveTrim(onto.trimName || '', vin, existing, year, make, model);
 
-  // Price, priceSavings, and dealRating are one atomic unit — CarGurus is authoritative.
-  // All three update together when a live price is present, or all three hold their
-  // existing values when CarGurus returns a null price (mid-edit window).
+  // DealerCenter feed overlay — DC is the book of record and our OAP pull sees a
+  // reprice or copy edit hours before CarGurus re-indexes it, so the committed DC
+  // snapshot (dc-inventory.json) wins for price + description whenever it has this VIN.
+  const dcRec = DC_INVENTORY[vin] || DC_INVENTORY[(vin || '').toUpperCase()];
+
+  // priceSavings and dealRating stay CarGurus-authoritative (its proprietary badge);
+  // both update when a live CarGurus price is present, or hold their existing values
+  // when CarGurus returns a null price (mid-edit window). During the brief window
+  // where DC has repriced but CarGurus hasn't re-rated, the badge reflects the prior
+  // price — it self-corrects on CarGurus's next index pass.
   const hasLivePrice = n.priceData?.current != null;
   if (!hasLivePrice && n.priceData) {
     console.warn(`  WARNING: priceData present but current is null for VIN ${vin} — retaining existing price/savings/rating`);
   }
-  const price       = hasLivePrice ? n.priceData.current          : (existing?.price       ?? 0);
+  const cgPrice     = hasLivePrice ? n.priceData.current          : (existing?.price       ?? 0);
+  const price       = (dcRec?.price > 0) ? dcRec.price : cgPrice;
   const priceSavings = hasLivePrice ? (n.priceData.differential ?? 0) : (existing?.priceSavings ?? 0);
   const dealRating  = hasLivePrice ? (n.dealRating || '')         : (existing?.dealRating  || '');
   const mileage = n.mileageData?.value ?? existing?.mileage ?? 0;
@@ -584,7 +597,9 @@ function mapNode(node, _offer, existingByVin) {
     photoPrefix: existing?.photoPrefix || slugify(`${year}-${make}-${model}-${trim}`),
     makeSlug: slugify(make),
     bodyStyleSlug: toBodyStyleSlug(bodyStyle),
-    description: generateDescription(year, make, model, trim, mileage),
+    // Description — the DC feed ad copy (via dc-inventory.json) is authoritative so
+    // copy edits in DealerCenter reach the VDP; generated text is the fallback only.
+    description: dcRec?.description || generateDescription(year, make, model, trim, mileage),
     dealRating,
     priceSavings,
   };
