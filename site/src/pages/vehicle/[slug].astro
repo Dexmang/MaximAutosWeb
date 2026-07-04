@@ -231,12 +231,6 @@ const faqSchema = {
             <div class="relative overflow-hidden cursor-pointer group" id="gallery-hero" data-index="0">
               <img src={allPhotos[0]} alt={`${titleText} for sale at Maxim Autos Skokie IL`}
                    class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-[1.02]" />
-              {v.inspected && (
-                <div class="absolute top-3 left-3 bg-green-600 text-white text-xs font-bold px-2.5 py-1 rounded-md flex items-center gap-1">
-                  <span class="material-symbols-outlined text-xs" style="font-variation-settings:'FILL' 1;">verified</span>
-                  FULLY INSPECTED
-                </div>
-              )}
               <div class="absolute bottom-3 left-3 bg-black/60 text-white text-sm font-semibold px-3 py-1.5 rounded-md flex items-center gap-1.5">
                 <span class="material-symbols-outlined text-base">photo_camera</span>
                 {allPhotos.length} photos · Click to view all
@@ -266,12 +260,6 @@ const faqSchema = {
             <div class="relative cursor-pointer" id="gallery-hero-mobile">
               <img src={allPhotos[0]} alt={`${titleText} for sale at Maxim Autos Skokie IL`}
                    class="w-full aspect-video object-cover" />
-              {v.inspected && (
-                <div class="absolute top-3 left-3 bg-green-600 text-white text-xs font-bold px-2.5 py-1 rounded-md flex items-center gap-1">
-                  <span class="material-symbols-outlined text-xs" style="font-variation-settings:'FILL' 1;">verified</span>
-                  FULLY INSPECTED
-                </div>
-              )}
               {allPhotos.length > 1 && (
                 <button id="view-all-btn"
                   class="absolute bottom-3 right-3 bg-black/70 text-white text-sm font-semibold px-3 py-1.5 rounded-md flex items-center gap-1.5">
