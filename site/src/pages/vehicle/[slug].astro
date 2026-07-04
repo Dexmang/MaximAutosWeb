@@ -281,10 +281,14 @@ const faqSchema = {
     </div>
   </section>
 
-  <!-- ===== TRUST BAR: CARFAX free report · Warranty ===== -->
+  <!-- ===== TRUST BAR: Inspected · CARFAX free report · Warranty ===== -->
   {!isSold && (
     <section class="bg-white border-b border-gray-200 shadow-sm">
       <div class="max-w-7xl mx-auto flex divide-x divide-gray-200">
+        <div class="flex-1 flex items-center justify-center gap-1.5 py-3 px-2 text-center">
+          <span class="material-symbols-outlined text-lg text-green-600 hidden sm:inline" style="font-variation-settings:'FILL' 1;">verified</span>
+          <span class="text-xs sm:text-sm font-bold text-gray-700">Fully Inspected</span>
+        </div>
         <div class="flex-1 flex items-center justify-center py-2.5 px-2">
           {carfaxLink ? (
             <a href={carfaxLink} target="_blank" rel="noopener noreferrer"
