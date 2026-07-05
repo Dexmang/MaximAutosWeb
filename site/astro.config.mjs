@@ -2,15 +2,31 @@ import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
 import tailwind from '@astrojs/tailwind';
 import vehicles from './src/data/vehicles.json' with { type: 'json' };
+import retiredSlugs from './src/data/retired-slugs.json' with { type: 'json' };
 
 // Vercel sets VERCEL=1 automatically during builds
 const isVercel = process.env.VERCEL === '1';
+
+// Retired VDP slugs (pages that were built once but whose VIN left
+// vehicles.json, or whose slug changed) 301 instead of soft-404ing.
+// Ledger maintained by scripts/sync-from-cargurus.js; vercel.json mirrors it
+// for real 301s in production, these entries cover dev/GH Pages builds.
+// A slug currently in vehicles.json is skipped — a redirect must never
+// shadow a built page.
+const liveSlugs = new Set(vehicles.map(v => v.slug));
+const retiredRedirects = {};
+for (const [slug, info] of Object.entries(retiredSlugs.retired ?? {})) {
+  if (liveSlugs.has(slug)) continue;
+  retiredRedirects[`/vehicle/${slug}`] = info.redirect_to || '/inventory';
+  retiredRedirects[`/vehicle/${slug}/`] = info.redirect_to || '/inventory';
+}
 
 export default defineConfig({
   site: isVercel ? 'https://www.maximautos.com' : 'https://dexmang.github.io',
   base: isVercel ? '/' : '/MaximAutosWeb',
   trailingSlash: 'never',
   redirects: {
+    ...retiredRedirects,
     '/inventory/hyundai/tucson/j10175': '/inventory',
     '/inventory/hyundai/tucson/j10175/': '/inventory',
     '/es/financing': '/financing',

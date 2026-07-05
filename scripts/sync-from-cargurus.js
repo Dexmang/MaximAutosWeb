@@ -29,13 +29,17 @@
  * Side effects (each sync run, in order):
  *   1. Writes site/src/data/vehicles.json
  *   2. Appends one line per URL transition to site/src/data/url-events.jsonl
- *      (events: added / sold / back_on_market / slug_changed_old / _new)
- *   3. POSTs the deduped URL list to IndexNow (Bing, Yandex, Seznam, Naver,
- *      ChatGPT-via-Bing). Failures retry once after 5s; never throw.
+ *      (events: added / sold / removed / back_on_market / slug_changed_old / _new)
+ *   3. Maintains site/src/data/retired-slugs.json (every slug whose VDP is no
+ *      longer built gets a 301: removed VIN -> /inventory, slug change -> the
+ *      new VDP) and regenerates the matching redirects in vercel.json.
+ *   4. IndexNow submission is NOT done here — it happens AFTER a successful
+ *      deploy (.github/workflows/deploy.yml -> scripts/ping-indexnow.js),
+ *      which reads url-events.jsonl + retired-slugs.json for changed URLs.
  *
  * Usage:
- *   node scripts/sync-from-cargurus.js           # writes vehicles.json + pings
- *   node scripts/sync-from-cargurus.js --dry-run  # prints diff, no write, no ping
+ *   node scripts/sync-from-cargurus.js            # writes vehicles.json + ledger/redirects
+ *   node scripts/sync-from-cargurus.js --dry-run  # prints diff, no writes
  *   node scripts/sync-from-cargurus.js --debug    # dumps raw JSON-LD blocks
  */
 
@@ -47,7 +51,8 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 const CARGURUS_URL = 'https://www.cargurus.com/Cars/m-Maxim-Autos-sp457703';
 const VEHICLES_JSON = resolve(__dirname, '../site/src/data/vehicles.json');
 const URL_EVENTS_PATH = resolve(__dirname, '../site/src/data/url-events.jsonl');
-const INDEXNOW_KEY_PATH = resolve(__dirname, '../.indexnow-key');
+const RETIRED_SLUGS_PATH = resolve(__dirname, '../site/src/data/retired-slugs.json');
+const VERCEL_JSON_PATH = resolve(__dirname, '../vercel.json');
 const SITE_HOST = 'www.maximautos.com';
 const SITE_ORIGIN = `https://${SITE_HOST}`;
 const DRY_RUN = process.argv.includes('--dry-run');
@@ -75,65 +80,123 @@ function appendEvent({ event, vin, slug, url }) {
   appendFileSync(URL_EVENTS_PATH, line, 'utf8');
 }
 
+// Canonical VDP URL — no trailing slash (matches trailingSlash: 'never',
+// <link rel=canonical> and the JSON-LD Offer.url / Vehicle.url).
 function vdpUrl(slug) {
-  return `${SITE_ORIGIN}/vehicle/${slug}/`;
+  return `${SITE_ORIGIN}/vehicle/${slug}`;
 }
 
-function loadIndexNowKey() {
+// ── Retired-slug ledger + redirect regeneration ──────────────────────────────
+// Every slug whose VDP page is no longer built (VIN dropped from vehicles.json,
+// e.g. web-held or pruned, or the slug changed) is recorded permanently in
+// retired-slugs.json so the old URL 301s instead of soft-404ing:
+//   removed VIN  -> /inventory
+//   slug change  -> /vehicle/<new-slug>
+// astro.config.mjs consumes the ledger at build time (dev/GH Pages), and
+// syncVercelRedirects() mirrors it into vercel.json (real 301s in production).
+// A slug that comes back into service (re-listed car) is un-retired and its
+// redirect removed so it can never shadow a live page.
+
+function updateRetiredSlugs(before, after) {
+  let data;
   try {
-    return readFileSync(INDEXNOW_KEY_PATH, 'utf8').trim();
+    data = JSON.parse(readFileSync(RETIRED_SLUGS_PATH, 'utf8'));
   } catch (_) {
-    return '';
+    data = {
+      note: 'Ledger of VDP slugs that were built once but are no longer in vehicles.json. Maintained by scripts/sync-from-cargurus.js — do not hand-edit casually. astro.config.mjs and vercel.json generate 301 redirects from it.',
+      retired: {},
+    };
   }
+  if (!data.retired || typeof data.retired !== 'object') data.retired = {};
+
+  const liveSlugs = new Set(after.map(v => v.slug));
+  const afterByVin = new Map(after.filter(v => v.vin && v.vin !== 'TBD').map(v => [v.vin, v]));
+  const today = new Date().toISOString().slice(0, 10);
+  let changed = false;
+
+  for (const old of before) {
+    if (!old.slug || liveSlugs.has(old.slug)) continue;   // still built → nothing to do
+    const nv = afterByVin.get(old.vin);
+    const redirectTo = nv ? `/vehicle/${nv.slug}` : '/inventory';
+    const cur = data.retired[old.slug];
+    if (!cur || cur.redirect_to !== redirectTo) {
+      data.retired[old.slug] = {
+        vin: old.vin || '',
+        stockNumber: old.stockNumber || '',
+        retired_at: cur?.retired_at || today,
+        redirect_to: redirectTo,
+      };
+      changed = true;
+      console.log(`  Retired slug: /vehicle/${old.slug} → ${redirectTo}`);
+    }
+  }
+
+  // Un-retire any slug that is being built again (re-listed / slug reused).
+  for (const slug of Object.keys(data.retired)) {
+    if (liveSlugs.has(slug)) {
+      delete data.retired[slug];
+      changed = true;
+      console.log(`  Un-retired slug (back in service): /vehicle/${slug}`);
+    }
+  }
+
+  if (changed) {
+    writeFileSync(RETIRED_SLUGS_PATH, JSON.stringify(data, null, 2) + '\n');
+    console.log(`  Wrote ${Object.keys(data.retired).length} retired slug(s) to retired-slugs.json`);
+  }
+  return data.retired;
 }
 
 /**
- * Submit URLs to IndexNow (Bing, Yandex, Seznam, Naver — and ChatGPT
- * web-search via Bing's index). One POST per sync; deduped; capped at 10000
- * per spec. Returns { ok, status, body } for the log. Failures don't throw.
+ * Mirror the retired-slug ledger into vercel.json's redirects array so
+ * production serves real 301s. Idempotent: upserts one entry per retired slug
+ * (with and without trailing slash) and removes any /vehicle/<slug> redirect
+ * whose slug is live again (a redirect must never shadow a built page).
+ * Non-fatal: an unreadable vercel.json logs a warning and skips.
  */
-async function submitToIndexNow(urls) {
-  if (urls.length === 0) return { ok: true, status: 0, body: 'no urls' };
-  const key = loadIndexNowKey();
-  if (!key) {
-    console.warn('  IndexNow: .indexnow-key not found, skipping ping.');
-    return { ok: false, status: 0, body: 'missing key' };
-  }
-  const body = JSON.stringify({
-    host: SITE_HOST,
-    key,
-    keyLocation: `${SITE_ORIGIN}/${key}.txt`,
-    urlList: urls.slice(0, 10000),
-  });
-
-  async function attempt() {
-    const res = await fetch('https://api.indexnow.org/indexnow', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json; charset=utf-8' },
-      body,
-    });
-    const text = await res.text().catch(() => '');
-    return { ok: res.ok, status: res.status, body: text };
-  }
-
-  let result;
+function syncVercelRedirects(retired, after) {
+  let cfg;
   try {
-    result = await attempt();
-    if (!result.ok) {
-      console.warn(`  IndexNow attempt 1 failed: ${result.status} ${result.body}. Retrying in 5s...`);
-      await new Promise(r => setTimeout(r, 5000));
-      result = await attempt();
-    }
+    cfg = JSON.parse(readFileSync(VERCEL_JSON_PATH, 'utf8'));
   } catch (e) {
-    console.warn(`  IndexNow network error: ${e.message}. Retrying in 5s...`);
-    await new Promise(r => setTimeout(r, 5000));
-    try {
-      result = await attempt();
-    } catch (e2) {
-      result = { ok: false, status: 0, body: `network: ${e2.message}` };
+    console.warn(`  vercel.json unreadable — skipping redirect regeneration: ${e.message}`);
+    return;
+  }
+  if (!Array.isArray(cfg.redirects)) cfg.redirects = [];
+  const liveSlugs = new Set(after.map(v => v.slug));
+  let changed = false;
+
+  const beforeLen = cfg.redirects.length;
+  cfg.redirects = cfg.redirects.filter(r => {
+    const m = /^\/vehicle\/([^/]+?)\/?$/.exec(r.source || '');
+    if (m && liveSlugs.has(m[1])) {
+      console.log(`  vercel.json: removed redirect shadowing live page ${r.source}`);
+      return false;
+    }
+    return true;
+  });
+  if (cfg.redirects.length !== beforeLen) changed = true;
+
+  for (const [slug, info] of Object.entries(retired)) {
+    for (const source of [`/vehicle/${slug}`, `/vehicle/${slug}/`]) {
+      const entry = cfg.redirects.find(r => r.source === source);
+      if (!entry) {
+        cfg.redirects.push({ source, destination: info.redirect_to, permanent: true });
+        changed = true;
+      } else if (entry.destination !== info.redirect_to || entry.permanent !== true) {
+        entry.destination = info.redirect_to;
+        entry.permanent = true;
+        changed = true;
+      }
     }
   }
-  return result;
+
+  if (changed) {
+    writeFileSync(VERCEL_JSON_PATH, JSON.stringify(cfg, null, 2) + '\n');
+    console.log('  vercel.json redirects updated from retired-slug ledger.');
+  } else {
+    console.log('  vercel.json redirects already in sync.');
+  }
 }
 
 // ── string helpers ────────────────────────────────────────────────────────────
@@ -190,8 +253,13 @@ function normalizeTransmission(raw) {
   return 'Automatic';
 }
 
-function generateVehicleSlug(year, make, model, trim) {
-  return slugify([year, make, model, trim].filter(Boolean).join('-'));
+// New-vehicle slug format (since 2026-07-04): {year}-{make}-{model}-{trim}-{stock},
+// stock number lowercased. The stock suffix makes every slug unique from birth
+// (two same-trim units can never collide) and survives trim corrections.
+// EXISTING slugs are never regenerated — the VIN-sticky rule in mapNode()
+// (existing?.slug wins) keeps every already-published URL frozen.
+function generateVehicleSlug(year, make, model, trim, stockNumber) {
+  return slugify([year, make, model, trim, stockNumber].filter(Boolean).join('-'));
 }
 
 // ── trim fallback ─────────────────────────────────────────────────────────────
@@ -384,9 +452,23 @@ function extractTilesFromHtml(html) {
 }
 
 function extractVehicleNodes(tiles) {
-  return tiles
+  const nodes = tiles
     .filter(t => t.type === 'LISTING_USED_STANDARD' && t.data)
     .map(t => ({ node: t.data, offer: null }));
+  // CarGurus sometimes serves the same listing in multiple tiles (spotlight +
+  // standard). Keep the first tile per VIN — duplicates would otherwise write
+  // duplicate cars and force junk de-dupe slugs.
+  const seen = new Set();
+  return nodes.filter(({ node }) => {
+    const vin = (node.vin || '').toUpperCase();
+    if (!vin) return true;
+    if (seen.has(vin)) {
+      console.log(`  Skipping duplicate CarGurus tile for VIN ${vin}`);
+      return false;
+    }
+    seen.add(vin);
+    return true;
+  });
 }
 
 /**
@@ -556,7 +638,7 @@ function mapNode(node, _offer, existingByVin) {
     : (n.vehicleFeatures || []);
 
   // Slug — always preserve existing to avoid breaking VDP URLs
-  const slug = existing?.slug || generateVehicleSlug(year, make, model, trim);
+  const slug = existing?.slug || generateVehicleSlug(year, make, model, trim, stockNumber);
 
   return {
     slug,
@@ -611,9 +693,11 @@ function mapNode(node, _offer, existingByVin) {
  * Classify transitions, print a human diff, emit url-events.jsonl entries,
  * and return the deduped list of URLs that should be pinged at IndexNow.
  *
- * Emits four event types per the IndexNow integration spec:
+ * Emits these event types per the IndexNow integration spec:
  *   - "added"             new VIN, fresh URL
  *   - "sold"              VIN crossed 24h tolerance, status flipped to sold
+ *   - "removed"           VIN dropped from vehicles.json entirely (web hold /
+ *                         prune) — page no longer built, URL now 301s
  *   - "back_on_market"    sold (or off-market) VIN reappeared in feed
  *   - "slug_changed_old"  VIN known, slug differs from prior — prior URL
  *   - "slug_changed_new"  VIN known, slug differs from prior — new URL
@@ -624,9 +708,15 @@ function mapNode(node, _offer, existingByVin) {
  */
 function classifyAndReport(before, after, { emit = true } = {}) {
   const beforeByVin = new Map(before.map(v => [v.vin, v]));
+  const afterByVin = new Map(after.map(v => [v.vin, v]));
 
   // Truly new VINs (not present before at all)
   const added = after.filter(v => !beforeByVin.has(v.vin));
+
+  // Removed VINs (dropped from vehicles.json entirely — web hold or prune).
+  // Their VDPs stop being built; the retired-slug ledger 301s the old URL,
+  // and the post-deploy IndexNow ping tells engines to recrawl it.
+  const removed = before.filter(v => v.vin && !afterByVin.has(v.vin));
 
   // Off-market 1st miss: previously available, now still available but with
   // a missing_since stamp it didn't have before.
@@ -704,6 +794,10 @@ function classifyAndReport(before, after, { emit = true } = {}) {
     console.log(`\nMarked sold (after ${OFF_MARKET_TOLERANCE_HOURS}h off-market, kept VDP for SEO):`);
     markedSold.forEach(v => console.log(`  ~ ${v.year} ${v.make} ${v.model} ${v.trim} [${v.vin}] → status=sold, sold_date=${v.sold_date}`));
   }
+  if (removed.length) {
+    console.log('\nRemoved from vehicles.json (VDP no longer built — slug retires to a 301):');
+    removed.forEach(v => console.log(`  ✕ ${v.year} ${v.make} ${v.model} ${v.trim} [${v.vin}] slug=${v.slug}`));
+  }
   if (updated.length) {
     console.log('\nUpdated (price / mileage):');
     updated.forEach(v => {
@@ -714,7 +808,7 @@ function classifyAndReport(before, after, { emit = true } = {}) {
       console.log(`  ~ ${v.year} ${v.make} ${v.model}: ${changes.join(', ')}`);
     });
   }
-  if (!added.length && !backOnMarket.length && !offMarketNew.length && !offMarketContinuing.length && !markedSold.length && !updated.length && !slugChanged.length) {
+  if (!added.length && !backOnMarket.length && !offMarketNew.length && !offMarketContinuing.length && !markedSold.length && !updated.length && !slugChanged.length && !removed.length) {
     console.log('\nNo changes.');
   }
 
@@ -731,6 +825,9 @@ function classifyAndReport(before, after, { emit = true } = {}) {
   }
   for (const v of markedSold) {
     fire('sold', v.vin, v.slug, vdpUrl(v.slug));
+  }
+  for (const v of removed) {
+    fire('removed', v.vin, v.slug, vdpUrl(v.slug));
   }
   for (const v of backOnMarket) {
     fire('back_on_market', v.vin, v.slug, vdpUrl(v.slug));
@@ -817,7 +914,12 @@ function ensureUniqueSlugs(vehicles, existingByVin) {
     const prior = existingByVin[v.vin];
     if (prior?.slug && prior.slug === v.slug) continue;   // established → keeps it
     if (!taken.has(v.slug)) { taken.add(v.slug); continue; } // no collision
-    const tag = slugify(v.stockNumber || (v.vin && v.vin !== 'TBD' ? v.vin.slice(-6) : '')) || 'x';
+    // Slugs now end in the stock number by default — never re-append the same
+    // tag; fall back to the VIN tail for a genuinely distinct suffix.
+    let tag = slugify(v.stockNumber || (v.vin && v.vin !== 'TBD' ? v.vin.slice(-6) : '')) || 'x';
+    if (tag !== 'x' && v.slug.endsWith(`-${tag}`)) {
+      tag = (v.vin && v.vin !== 'TBD' ? slugify(v.vin.slice(-6)) : '') || 'x';
+    }
     let next = `${v.slug}-${tag}`, n = 2;
     while (taken.has(next)) next = `${v.slug}-${tag}-${n++}`;
     console.log(`  Slug de-dupe: ${v.year} ${v.make} ${v.model} ${v.trim} [${v.vin}] "${v.slug}" -> "${next}"`);
@@ -1051,7 +1153,7 @@ async function main() {
     if (!parsed) continue;
     v.trim = parsed;
     if (!existingByVin[v.vin]) {
-      v.slug = generateVehicleSlug(v.year, v.make, v.model, v.trim);
+      v.slug = generateVehicleSlug(v.year, v.make, v.model, v.trim, v.stockNumber);
       v.photoPrefix = slugify(`${v.year}-${v.make}-${v.model}-${v.trim}`);
       v.highlights = generateHighlights(v.year, v.make, v.model, v.trim, v.mileage);
     }
@@ -1096,15 +1198,21 @@ async function main() {
   writeFileSync(VEHICLES_JSON, JSON.stringify(visible, null, 2) + '\n');
   console.log(`\nWrote ${visible.length} vehicles to:\n  ${VEHICLES_JSON}`);
 
-  // IndexNow: ping Bing/Yandex/Seznam/Naver (and ChatGPT via Bing). One POST,
-  // deduped URLs. Skipped when no transitions occurred this cycle.
+  // Retired-slug ledger + redirect regeneration (301s for URLs no longer built).
+  console.log('\nRetired-slug ledger...');
+  const retired = updateRetiredSlugs(existing, visible);
+  syncVercelRedirects(retired, visible);
+
+  // IndexNow: submission deliberately does NOT happen here — pinging before
+  // the commit/deploy would invite a recrawl of the OLD content. The ping runs
+  // after the deploy succeeds (.github/workflows/deploy.yml, ping-indexnow
+  // job → scripts/ping-indexnow.js), which picks these URLs up from
+  // url-events.jsonl and retired-slugs.json.
   if (urls.length === 0) {
-    console.log('\nIndexNow: no URL transitions this cycle, no ping sent.');
+    console.log('\nIndexNow: no URL transitions this cycle.');
   } else {
-    console.log(`\nIndexNow: pinging ${urls.length} URL(s)...`);
+    console.log(`\nIndexNow: ${urls.length} changed URL(s) logged for the post-deploy ping (deploy.yml → scripts/ping-indexnow.js):`);
     urls.forEach(u => console.log(`  → ${u}`));
-    const result = await submitToIndexNow(urls);
-    console.log(`  IndexNow response: ${result.status} ${result.ok ? 'OK' : 'FAIL'}${result.body ? ' — ' + result.body.slice(0, 200) : ''}`);
   }
 }
 

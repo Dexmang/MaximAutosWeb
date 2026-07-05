@@ -54,7 +54,11 @@
     { "source": "/vehicle/2013-lexus-rx350",  "destination": "/vehicle/2014-lexus-rx-350-awd", "permanent": true },
     { "source": "/vehicle/2013-lexus-rx350/", "destination": "/vehicle/2014-lexus-rx-350-awd", "permanent": true },
     { "source": "/vehicle/2016-subaru-outback-36r",  "destination": "/vehicle/2017-subaru-outback-2-5i-limited-awd", "permanent": true },
-    { "source": "/vehicle/2016-subaru-outback-36r/", "destination": "/vehicle/2017-subaru-outback-2-5i-limited-awd", "permanent": true }
+    { "source": "/vehicle/2016-subaru-outback-36r/", "destination": "/vehicle/2017-subaru-outback-2-5i-limited-awd", "permanent": true },
+    { "source": "/vehicle/2016-nissan-pathfinder-sl-4wd",  "destination": "/inventory", "permanent": true },
+    { "source": "/vehicle/2016-nissan-pathfinder-sl-4wd/", "destination": "/inventory", "permanent": true },
+    { "source": "/vehicle/2016-volvo-v60-sv33-premier",  "destination": "/vehicle/2016-volvo-v60-cross-country-j10208", "permanent": true },
+    { "source": "/vehicle/2016-volvo-v60-sv33-premier/", "destination": "/vehicle/2016-volvo-v60-cross-country-j10208", "permanent": true }
   ],
   "headers": [
     {

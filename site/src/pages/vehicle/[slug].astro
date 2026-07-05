@@ -62,6 +62,21 @@ if (v.photoUrls?.length > 0) {
   allPhotos = [...ext, ...intr];
 }
 
+// Responsive image variants — the DealerCenter CDN resizes on the fly via the
+// /{width}/{height}/ path segments (verified 2026-07-04: 400/300 ≈ 32KB,
+// 640/480 ≈ 73KB, 1024/768 ≈ 178KB for the same photo). CarGurus static URLs
+// are fixed-size files and get no srcset.
+const DC_DIMS_RE = /\/(\d{2,4})\/(\d{2,4})\//;
+const isDcPhoto = (u: string) => u.includes('dealercenter.net') && DC_DIMS_RE.test(u);
+const dcResize = (u: string, w: number, h: number) => u.replace(DC_DIMS_RE, `/${w}/${h}/`);
+const heroSrcset = allPhotos.length > 0 && isDcPhoto(allPhotos[0])
+  ? `${dcResize(allPhotos[0], 640, 480)} 640w, ${dcResize(allPhotos[0], 1024, 768)} 1024w`
+  : undefined;
+const heroSizes = heroSrcset ? '(min-width: 1280px) 768px, (min-width: 768px) 60vw, 100vw' : undefined;
+const thumbSrcset = (u: string) =>
+  isDcPhoto(u) ? `${dcResize(u, 400, 300)} 400w, ${dcResize(u, 640, 480)} 640w` : undefined;
+const thumbSizes = '(min-width: 1280px) 256px, 20vw';
+
 const otherVehicles = vehicles.filter(o => o.slug !== v.slug && (o as any).status !== 'sold').slice(0, 3);
 const smsBody = encodeURIComponent(`Hi Jerry, I'm interested in the ${titleText} listed on MaximAutos.com.`);
 
@@ -149,7 +164,9 @@ const faqs = [
 // at least weekly (every CarGurus sync commit redeploys), so the 60-day window
 // never comes close to expiring on a live page.
 const priceValidUntil = new Date(Date.now() + 60 * 24 * 60 * 60 * 1000).toISOString().split('T')[0];
-const canonicalVdpUrl = `https://www.maximautos.com/vehicle/${v.slug}/`;
+// No trailing slash — must exactly match <link rel=canonical> (Layout.astro,
+// trailingSlash 'never') and Vehicle.url below.
+const canonicalVdpUrl = `https://www.maximautos.com/vehicle/${v.slug}`;
 const vehicleSchema = {
   "@context": "https://schema.org",
   "@type": ["Car", "Vehicle"],
@@ -180,7 +197,7 @@ const vehicleSchema = {
     "seller": { "@type": "AutoDealer", "name": "Maxim Autos", "telephone": "+1-847-510-8947", "address": { "@type": "PostalAddress", "addressLocality": "Skokie", "addressRegion": "IL", "postalCode": "60077", "addressCountry": "US" } }
   },
   "image": allPhotos.length > 0 ? allPhotos.slice(0, 5) : undefined,
-  "url": `https://www.maximautos.com/vehicle/${v.slug}`
+  "url": canonicalVdpUrl
 };
 if (v.vin && v.vin !== 'TBD') (vehicleSchema as any).vehicleIdentificationNumber = v.vin;
 
@@ -230,6 +247,8 @@ const faqSchema = {
           <div class="gallery-desktop hidden md:grid">
             <div class="relative overflow-hidden cursor-pointer group" id="gallery-hero" data-index="0">
               <img src={allPhotos[0]} alt={`${titleText} for sale at Maxim Autos Skokie IL`}
+                   srcset={heroSrcset} sizes={heroSizes}
+                   width="1024" height="768" fetchpriority="high"
                    class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-[1.02]" />
               <div class="absolute bottom-3 left-3 bg-black/60 text-white text-sm font-semibold px-3 py-1.5 rounded-md flex items-center gap-1.5">
                 <span class="material-symbols-outlined text-base">photo_camera</span>
@@ -243,6 +262,8 @@ const faqSchema = {
                 return (
                   <div class="relative overflow-hidden cursor-pointer group gallery-thumb" data-index={idx}>
                     <img src={src} alt={`${titleText} photo ${idx + 1}`}
+                         srcset={thumbSrcset(src)} sizes={thumbSizes}
+                         width="1024" height="768"
                          class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-[1.04]" loading="lazy" />
                     {showOverlay && (
                       <div class="absolute inset-0 bg-black/65 flex flex-col items-center justify-center text-white pointer-events-none">
@@ -259,6 +280,8 @@ const faqSchema = {
           <div class="md:hidden relative">
             <div class="relative cursor-pointer" id="gallery-hero-mobile">
               <img src={allPhotos[0]} alt={`${titleText} for sale at Maxim Autos Skokie IL`}
+                   srcset={heroSrcset} sizes="100vw"
+                   width="1024" height="768" fetchpriority="high"
                    class="w-full aspect-video object-cover" />
               {allPhotos.length > 1 && (
                 <button id="view-all-btn"
@@ -1106,15 +1129,38 @@ const faqSchema = {
 <!-- CarGurus per-VIN Deal Badge SDK (renders into [data-cg-vin][data-cg-price] spans) -->
 <script is:inline defer src="https://www.cargurus.com/Cars/badges/getBadge.action?style=STYLE2"></script>
 
-<!-- Fix CarGurus bug: their badge script builds /maps/undefined&cid=... instead of /maps?cid=... -->
+<!-- Fix CarGurus bug: their badge script builds /maps/undefined&cid=... instead of /maps?cid=...
+     Bounded: observes ONLY the .cg-vin-badge containers (never document.body),
+     disconnects as soon as the patch lands, hard-stops after 30s regardless. -->
 <script is:inline>
   (function () {
-    function fixMapLinks() {
-      document.querySelectorAll('a[href*="/maps/undefined"]').forEach(function (a) {
+    function fixMapLinks(root) {
+      var fixed = 0;
+      (root || document).querySelectorAll('a[href*="/maps/undefined"]').forEach(function (a) {
         a.href = a.href.replace('/maps/undefined&', '/maps?');
+        fixed++;
       });
+      return fixed;
     }
-    fixMapLinks();
-    new MutationObserver(fixMapLinks).observe(document.body, { childList: true, subtree: true });
+    fixMapLinks(document);
+
+    var containers = document.querySelectorAll('.cg-vin-badge');
+    if (!containers.length) return;
+
+    var observers = [];
+    var timeoutId = null;
+    function stop() {
+      observers.forEach(function (o) { o.disconnect(); });
+      observers = [];
+      if (timeoutId) { clearTimeout(timeoutId); timeoutId = null; }
+    }
+    containers.forEach(function (el) {
+      var obs = new MutationObserver(function () {
+        if (fixMapLinks(el) > 0) stop(); // patch applied — done observing
+      });
+      obs.observe(el, { childList: true, subtree: true });
+      observers.push(obs);
+    });
+    timeoutId = setTimeout(stop, 30000); // badge never rendered (or already clean) — give up
   })();
 </script>

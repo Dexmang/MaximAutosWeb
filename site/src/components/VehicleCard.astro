@@ -70,6 +70,17 @@ const title = [year, make, model, trim].filter(Boolean).join(' ');
 const localThumb = photoPath ? `${base}/${photoPath}/thumb/${photoPrefix}-photo-exterior-maxim-autos-skokie-il-01.jpg` : null;
 const photoSrc = primaryPhotoUrl || localThumb;
 
+// Responsive variants — the DealerCenter CDN resizes on the fly via the
+// /{width}/{height}/ path segments (400/300 ≈ 32KB vs 1024/768 ≈ 178KB).
+// CarGurus static URLs and local thumbs are fixed-size; they get no srcset.
+const DC_DIMS_RE = /\/(\d{2,4})\/(\d{2,4})\//;
+const isDcPhoto = photoSrc ? (photoSrc.includes('dealercenter.net') && DC_DIMS_RE.test(photoSrc)) : false;
+const dcResize = (u: string, w: number, h: number) => u.replace(DC_DIMS_RE, `/${w}/${h}/`);
+const cardSrcset = isDcPhoto && photoSrc
+  ? `${dcResize(photoSrc, 400, 300)} 400w, ${dcResize(photoSrc, 640, 480)} 640w, ${dcResize(photoSrc, 1024, 768)} 1024w`
+  : undefined;
+const cardSizes = cardSrcset ? '(min-width: 1024px) 390px, (min-width: 640px) 46vw, 92vw' : undefined;
+
 // Payment estimate: 10% down, 9.9% APR, 60 months
 const downPayment = Math.round(price * 0.10);
 const principal = price - downPayment;
@@ -89,6 +100,8 @@ const monthlyPayment = Math.round(
     {photoSrc ? (
       <img
         src={photoSrc}
+        srcset={cardSrcset}
+        sizes={cardSizes}
         alt={`${title} for sale at Maxim Autos Skokie IL`}
         class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
         loading="lazy"

@@ -47,6 +47,7 @@ jobs:
           # don't create a commit every 6h when nothing real changed.
           if git diff --quiet -I'<lastBuildDate>' \
               site/src/data/vehicles.json site/src/data/url-events.jsonl \
+              site/src/data/retired-slugs.json vercel.json \
               site/src/data/cargurus-dealer-stats.json site/src/data/cargurus-vin-stats.json \
               web_assets/feeds/vehicles.xml; then
             echo "changed=false" >> $GITHUB_OUTPUT
@@ -62,6 +63,7 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add site/src/data/vehicles.json site/src/data/url-events.jsonl \
+            site/src/data/retired-slugs.json vercel.json \
             site/src/data/cargurus-dealer-stats.json site/src/data/cargurus-vin-stats.json \
             web_assets/feeds/vehicles.xml
           git commit -m "chore: sync CarGurus inventory + stats [${{ github.run_number }}]"

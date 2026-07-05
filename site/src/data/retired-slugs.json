@@ -1,0 +1,17 @@
+{
+  "note": "Ledger of VDP slugs that were built once but are no longer in vehicles.json. Maintained by scripts/sync-from-cargurus.js — do not hand-edit casually. astro.config.mjs and vercel.json generate 301 redirects from it.",
+  "retired": {
+    "2016-nissan-pathfinder-sl-4wd": {
+      "vin": "5N1AR2MM9GC630607",
+      "stockNumber": "J10202",
+      "retired_at": "2026-07-04",
+      "redirect_to": "/inventory"
+    },
+    "2016-volvo-v60-sv33-premier": {
+      "vin": "YV4612HK5G1013479",
+      "stockNumber": "J10208",
+      "retired_at": "2026-07-04",
+      "redirect_to": "/vehicle/2016-volvo-v60-cross-country-j10208"
+    }
+  }
+}
