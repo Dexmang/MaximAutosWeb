@@ -386,14 +386,14 @@ function generateHighlights(year, make, model, trim, mileage) {
   const h = [];
   if (trim) h.push(`${trim} trim`);
   if (mileage) h.push(`${Number(mileage).toLocaleString()} miles`);
-  h.push('Fully inspected, 3-Month Warranty');
+  h.push('Fully inspected, free CARFAX');
   return h.slice(0, 3);
 }
 
 function generateDescription(year, make, model, trim, mileage) {
   const miStr = mileage ? `${Number(mileage).toLocaleString()} miles` : 'low miles';
   const trimStr = trim ? ` ${trim}` : '';
-  return `${year} ${make} ${model}${trimStr} with ${miStr}. Fully inspected, 3-Month Warranty. Same-day metal plates. Financing available. Located at Maxim Autos in Skokie, IL.`;
+  return `${year} ${make} ${model}${trimStr} with ${miStr}. Fully inspected, free CARFAX. Same-day metal plates. Financing available. Located at Maxim Autos in Skokie, IL.`;
 }
 
 // ── fetch + parse ─────────────────────────────────────────────────────────────
@@ -658,7 +658,7 @@ function mapNode(node, _offer, existingByVin) {
     vin: vin || 'TBD',
     condition: 'Used',
     inspected: true,
-    warranty: '3-Month Warranty',
+    warranty: '15 Day / 500 Mile Powertrain Protection',
     carfax: true,
     inspection: true,
     features,
