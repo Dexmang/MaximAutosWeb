@@ -71,28 +71,45 @@
       "priceSavings": 432
     },
     "3VWH17AU6HM534619": {
+      "slug": "2017-volkswagen-golf-alltrack-s-4motion-awd-j10211",
       "year": 2017,
       "make": "Volkswagen",
       "model": "Golf Alltrack",
-      "trim": "Alltrack S, SE",
+      "trim": "S 4Motion AWD",
       "price": 13995,
       "mileage": 76398,
       "exteriorColor": "White",
       "interiorColor": "Beige",
       "engine": "170 hp 1.8L I4",
       "transmission": "Automatic",
-      "drivetrain": "",
+      "drivetrain": "AWD",
       "fuelType": "Gasoline",
       "bodyStyle": "Wagon",
-      "bodyStyleSlug": "wagons",
-      "makeSlug": "volkswagen",
       "vin": "3VWH17AU6HM534619",
       "condition": "Used",
       "inspected": true,
-      "inspection": true,
-      "carfax": true,
       "warranty": "15 Day / 500 Mile Powertrain Protection",
+      "carfax": true,
+      "inspection": true,
+      "features": [
+        "Alloy Wheels",
+        "Bluetooth",
+        "Backup Camera",
+        "Heated Seats",
+        "Android Auto",
+        "CarPlay"
+      ],
+      "highlights": [
+        "S 4Motion AWD trim",
+        "76,398 miles",
+        "Fully inspected, free CARFAX"
+      ],
+      "status": "available",
+      "dateAdded": "2026-07-05",
+      "featured": true,
+      "sortOrder": 0,
       "stockNumber": "J10211",
+      "dealerCenterUrl": "",
       "primaryPhotoUrl": "https://imagesdl.dealercenter.net/1289/856/202607-9385cdf0e4f24b07880ee1a987b53ea5.jpg",
       "photoUrls": [
         "https://imagesdl.dealercenter.net/1289/856/202607-9385cdf0e4f24b07880ee1a987b53ea5.jpg",
@@ -118,23 +135,13 @@
         "interior": 0,
         "source": "dealercenter"
       },
-      "status": "available",
-      "slug": "2017-volkswagen-golf-alltrack-alltrack-s-se-j10211",
-      "dateAdded": "2026-07-05",
-      "featured": true,
-      "sortOrder": 0,
-      "dealRating": "",
-      "priceSavings": 0,
-      "description": "2017 Volkswagen Golf Alltrack TSI S — 4Motion AWD, heated seats, Apple CarPlay and Android Auto. White on gray leatherette, 1.8L turbo engine, 6 speed DSG automatic. The wagon that hauls like a crossover and drives like a Golf, ready for Chicago in every season. Key features: standard 4Motion AWD, 170 hp 1.8L turbo engine, heated front seats, leatherette seating, touchscreen with Apple CarPlay and Android Auto, rearview camera, Bluetooth, cruise control, alloy wheels, rear spoiler, and a 5 star NHTSA safety rating. With 6.9 inches of ground clearance and a deep, unobstructed cargo bay, it carries bikes, strollers, or a full airport run without breaking a sweat. The Maxim Autos Difference Independent inspection report included with every vehicle 3-Month \"Peace of Mind\" Warranty (extended coverage available) Metal plates issued on-the-spot — drive home today Transparent pricing, no hidden fees Financing for all credit levels Located in Skokie, IL, minutes from Evanston, Niles, Morton Grove, Lincolnwood, and Des Plaines, serving the North Shore Chicago area. Call (847) 510-8947 to schedule a same day appointment. Every car inspected. Every price transparent. Every customer protected.",
-      "highlights": [
-        "Alltrack S, SE trim",
-        "76,398 miles",
-        "Fully inspected, free CARFAX"
-      ],
-      "features": [],
-      "photoPrefix": "2017-volkswagen-golf-alltrack-alltrack-s-se",
       "photoPath": "",
-      "dealerCenterUrl": ""
+      "photoPrefix": "2017-volkswagen-golf-alltrack-s-4motion-awd",
+      "makeSlug": "volkswagen",
+      "bodyStyleSlug": "wagons",
+      "description": "2017 Volkswagen Golf Alltrack TSI S — 4Motion AWD, heated seats, Apple CarPlay and Android Auto. White on gray leatherette, 1.8L turbo engine, 6 speed DSG automatic. The wagon that hauls like a crossover and drives like a Golf, ready for Chicago in every season. Key features: standard 4Motion AWD, 170 hp 1.8L turbo engine, heated front seats, leatherette seating, touchscreen with Apple CarPlay and Android Auto, rearview camera, Bluetooth, cruise control, alloy wheels, rear spoiler, and a 5 star NHTSA safety rating. With 6.9 inches of ground clearance and a deep, unobstructed cargo bay, it carries bikes, strollers, or a full airport run without breaking a sweat. The Maxim Autos Difference Independent inspection report included with every vehicle 3-Month \"Peace of Mind\" Warranty (extended coverage available) Metal plates issued on-the-spot — drive home today Transparent pricing, no hidden fees Financing for all credit levels Located in Skokie, IL, minutes from Evanston, Niles, Morton Grove, Lincolnwood, and Des Plaines, serving the North Shore Chicago area. Call (847) 510-8947 to schedule a same day appointment. Every car inspected. Every price transparent. Every customer protected.",
+      "dealRating": "GOOD_PRICE",
+      "priceSavings": 1596
     },
     "5J6RM4H3XGL120098": {
       "slug": "2016-honda-cr-v-lx-awd",
@@ -246,9 +253,9 @@
       "sortOrder": 0,
       "stockNumber": "J10192",
       "dealerCenterUrl": "",
-      "primaryPhotoUrl": "https://imagesdl.dealercenter.net/1024/768/202607-f9292be32ddd441a81f7152d82133e1d.jpg",
+      "primaryPhotoUrl": "https://imagesdl.dealercenter.net/1289/856/202607-a576f8cf4bbc48fc8a82c9cd42f63223.jpg",
       "photoUrls": [
-        "https://imagesdl.dealercenter.net/1024/768/202607-f9292be32ddd441a81f7152d82133e1d.jpg",
+        "https://imagesdl.dealercenter.net/1289/856/202607-a576f8cf4bbc48fc8a82c9cd42f63223.jpg",
         "https://imagesdl.dealercenter.net/1289/856/202607-1c357cdae8414206b5a8e3138b1d40dd.jpg",
         "https://imagesdl.dealercenter.net/1289/856/202607-aafe0025a4e34f45b40563473d684e36.jpg",
         "https://imagesdl.dealercenter.net/1289/856/202607-766fc3acade54abfbbae940472773362.jpg",
@@ -277,7 +284,7 @@
       "bodyStyleSlug": "suvs",
       "description": "2017 Mazda CX-5 Touring, a sharp handling compact SUV with one of the most engaging drives in its class. Powered by the fuel efficient 2.5L SKYACTIV four cylinder with a smooth automatic, backup camera, blind spot monitoring, rear cross traffic alert, and dual zone climate control. White on a beige interior with just 78,609 miles. This one is a southern car that was never driven in a Chicago winter, so there is no road salt history and no rust. Built for drivers who want Mazda reliability and a polished ride without stepping up to a bigger SUV. It stays easy on gas at up to 31 mpg on the highway. The AC blows ice cold to keep you cool through hot Chicago summers. Key features: fuel efficient 2.5L SKYACTIV engine, smooth automatic transmission, backup camera, blind spot monitoring, rear cross traffic alert, dual zone climate control, alloy wheels, keyless entry, push button start, cruise control, power windows and locks, Bluetooth, and full power accessories. The Touring trim adds the comfort and safety features most buyers actually want, so you get a well equipped SUV that handles Chicago roads with ease. The Maxim Autos Difference Independent inspection report included with every vehicle 3 Month Peace of Mind Warranty, with extended coverage available Metal plates issued same day so you can drive home today Transparent pricing with no hidden fees Financing for all credit levels Located in Skokie, IL, serving Evanston, Niles, Morton Grove, Lincolnwood, Des Plaines, and the North Shore Chicago area. Same day appointments available, call us to set up a time to see this Mazda. Every car inspected. Every price transparent. Every customer protected.",
       "dealRating": "GREAT_PRICE",
-      "priceSavings": 1499
+      "priceSavings": 1699
     },
     "KM8J2CA43KU844574": {
       "slug": "2019-hyundai-tucson-se-awd",
@@ -352,7 +359,7 @@
       "bodyStyleSlug": "suvs",
       "description": "2019 Hyundai Tucson SE 4WD, 70,524 miles, champagne metallic on beautiful light beige leather interior. Good on gas for an all wheel drive SUV, with up to 25 mpg on the highway. The AC blows ice cold to keep you comfortable through the hottest Chicago summer days. The Tucson SE brings premium safety and tech into an affordable, easy to own compact SUV, which is why it punches above its price. The right size for the city, comfortable and quiet on the highway, and simple to park, it makes a smart daily driver for the North Shore. What sets the SE apart is how much comes standard. Hyundai's safety suite includes Forward Collision Avoidance Assist with automatic emergency braking, Lane Keeping Assist, and Driver Attention Warning, so the tech is watching the road with you. The 7 inch touchscreen runs Apple CarPlay and Android Auto with Bluetooth, and you also get 17 inch alloy wheels, automatic headlights, a backup camera, and a 60/40 split folding rear seat for flexible cargo space. Power comes from a 2.0 liter four cylinder with 161 horsepower and a smooth 6 speed automatic, EPA rated 25 mpg. The ride soaks up rough roads, the cabin stays quiet, and Hyundai's strong reliability reputation means it just keeps going. The Maxim Autos Difference Independent inspection report included with every vehicle 3 month Peace of Mind warranty (extended coverage available) Metal plates issued on the spot, drive home today Transparent pricing, no hidden fees Financing for all credit levels Skokie, IL. Serving Evanston, Niles, Morton Grove, Lincolnwood, Des Plaines, North Shore Chicago. Call (847) 510-8947 for a same day appointment. Every car inspected. Every price transparent. Every customer protected.",
       "dealRating": "GOOD_PRICE",
-      "priceSavings": 1426
+      "priceSavings": 1381
     },
     "KMHRB8A30MU097803": {
       "slug": "2021-hyundai-venue-se",
@@ -426,28 +433,45 @@
       "priceSavings": 1727
     },
     "WVGBV7AX5GW002523": {
+      "slug": "2016-volkswagen-tiguan-se-4motion-j10212",
       "year": 2016,
       "make": "Volkswagen",
       "model": "Tiguan",
-      "trim": "4Motion S, R-Line, SE, SEL",
+      "trim": "SE 4Motion",
       "price": 9995,
       "mileage": 73645,
       "exteriorColor": "Burgundy",
       "interiorColor": "Beige",
       "engine": "200 hp 2L I4",
       "transmission": "Automatic",
-      "drivetrain": "",
+      "drivetrain": "AWD",
       "fuelType": "Gasoline",
       "bodyStyle": "SUV",
-      "bodyStyleSlug": "suvs",
-      "makeSlug": "volkswagen",
       "vin": "WVGBV7AX5GW002523",
       "condition": "Used",
       "inspected": true,
-      "inspection": true,
-      "carfax": true,
       "warranty": "15 Day / 500 Mile Powertrain Protection",
+      "carfax": true,
+      "inspection": true,
+      "features": [
+        "Sunroof/Moonroof",
+        "Navigation System",
+        "Alloy Wheels",
+        "Bluetooth",
+        "Backup Camera",
+        "Heated Seats"
+      ],
+      "highlights": [
+        "SE 4Motion trim",
+        "73,645 miles",
+        "Fully inspected, 3-Month Warranty"
+      ],
+      "status": "available",
+      "dateAdded": "2026-07-05",
+      "featured": true,
+      "sortOrder": 0,
       "stockNumber": "J10212",
+      "dealerCenterUrl": "",
       "primaryPhotoUrl": "https://imagesdl.dealercenter.net/1289/856/202607-75a1c50739cd42c1a33c16834237970f.jpg",
       "photoUrls": [
         "https://imagesdl.dealercenter.net/1289/856/202607-75a1c50739cd42c1a33c16834237970f.jpg",
@@ -470,23 +494,13 @@
         "interior": 0,
         "source": "dealercenter"
       },
-      "status": "available",
-      "slug": "2016-volkswagen-tiguan-4motion-s-r-line-se-sel-j10212",
-      "dateAdded": "2026-07-05",
-      "featured": true,
-      "sortOrder": 0,
-      "dealRating": "",
-      "priceSavings": 0,
-      "description": "The 2016 Volkswagen Tiguan SE 4Motion offers turbocharged AWD performance, near luxury cabin quality, and confident German engineered handling. Burgundy exterior, automatic transmission, 2.0L turbo four cylinder. This Tiguan delivers a genuinely sporty ride with a fit and finish that punches above its price point. Key features: 2.0L TSI turbocharged engine making 200 horsepower, 6 speed automatic Tiptronic transmission, 4Motion all wheel drive for confident handling in Chicago winters, sliding and reclining second row seats for flexible cargo and passenger space, V Tex leatherette seating, heated front seats, dual zone climate control, panoramic sunroof, and VW's MIB II touchscreen infotainment with Bluetooth and smartphone integration. A practical, well equipped compact SUV built for year round driving. The Maxim Autos Difference Independent inspection report included with every vehicle 3-Month \"Peace of Mind\" Warranty (extended coverage available) Metal plates issued on-the-spot — drive home today Transparent pricing, no hidden fees Financing for all credit levels Located in Skokie, IL, minutes from Evanston, Niles, Morton Grove, Lincolnwood, Des Plaines, and the greater North Shore Chicago area. Call today to schedule a same-day appointment. Every car inspected. Every price transparent. Every customer protected.",
-      "highlights": [
-        "4Motion S, R-Line, SE, SEL trim",
-        "73,645 miles",
-        "Fully inspected, free CARFAX"
-      ],
-      "features": [],
-      "photoPrefix": "2016-volkswagen-tiguan-4motion-s-r-line-se-sel",
       "photoPath": "",
-      "dealerCenterUrl": ""
+      "photoPrefix": "2016-volkswagen-tiguan-se-4motion",
+      "makeSlug": "volkswagen",
+      "bodyStyleSlug": "suvs",
+      "description": "The 2016 Volkswagen Tiguan SE 4Motion offers turbocharged AWD performance, near luxury cabin quality, and confident German engineered handling. Burgundy exterior, automatic transmission, 2.0L turbo four cylinder. This Tiguan delivers a genuinely sporty ride with a fit and finish that punches above its price point. Key features: 2.0L TSI turbocharged engine making 200 horsepower, 6 speed automatic Tiptronic transmission, 4Motion all wheel drive for confident handling in Chicago winters, sliding and reclining second row seats for flexible cargo and passenger space, V Tex leatherette seating, heated front seats, dual zone climate control, panoramic sunroof, and VW's MIB II touchscreen infotainment with Bluetooth and smartphone integration. A practical, well equipped compact SUV built for year round driving. The Maxim Autos Difference Independent inspection report included with every vehicle 3-Month \"Peace of Mind\" Warranty (extended coverage available) Metal plates issued on-the-spot — drive home today Transparent pricing, no hidden fees Financing for all credit levels Located in Skokie, IL, minutes from Evanston, Niles, Morton Grove, Lincolnwood, Des Plaines, and the greater North Shore Chicago area. Call today to schedule a same-day appointment. Every car inspected. Every price transparent. Every customer protected.",
+      "dealRating": "GOOD_PRICE",
+      "priceSavings": 1545
     },
     "YV4612HK5G1013479": {
       "slug": "2016-volvo-v60-cross-country-j10208",
