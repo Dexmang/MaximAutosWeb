@@ -1,6 +1,6 @@
 {
   "source": "pka_hub.db ma_vehicles + vPIC",
-  "generated_at": "2026-07-07",
+  "generated_at": "2026-07-08",
   "by_vin": {
     "19XFB2F73FE078163": {
       "slug": "2015-honda-civic-se",
@@ -573,7 +573,7 @@
       "bodyStyleSlug": "wagons",
       "description": "2016 Volvo V60 Cross Country T5, Adventure ready and great everyday driver. An AWD wagon with a turbocharged 2.5L engine, heated leather seats, a heated steering wheel, and a sunroof. Yakima RoofRacks and extras. Black on a black leather interior with a smooth automatic. Built for drivers who want all weather grip and real wagon space without stepping up to a full size SUV. Even with standard all wheel drive, it stays easy on gas at up to 28 mpg on the highway. The AC blows ice cold to keep you cool through hot Chicago summers. Key features: AWD with a turbocharged 2.5L engine, leather seating, heated front seats and heated steering wheel, sunroof, navigation, blind spot monitor, lane departure warning, memory driver seat, power seats, rear parking sensors, full roof rack, backup camera, smart key entry, Bluetooth, and alloy wheels. The Cross Country trim adds raised ground clearance and rugged body cladding, so you get confident traction through Chicago winters with the cargo room and ride comfort of a wagon. The Maxim Autos Difference Independent inspection report included with every vehicle 15 day / 500 mile Illinois powertrain protection, extended coverage available Metal plates issued same day so you can drive home today Transparent pricing with no hidden fees Financing for all credit levels Located in Skokie, IL, serving Evanston, Niles, Morton Grove, Lincolnwood, Des Plaines, and the North Shore Chicago area. Same day appointments available, call us to set up a time to see this Volvo. Every car inspected. Every price transparent. Every customer protected.",
       "dealRating": "GOOD_PRICE",
-      "priceSavings": 1813
+      "priceSavings": 1620
     },
     "YV4902RS0F2652862": {
       "slug": "2015-volvo-xc60",
@@ -581,7 +581,7 @@
       "make": "Volvo",
       "model": "XC60",
       "trim": "2015.5 T6 R-Design Platinum",
-      "price": 9950,
+      "price": 10450,
       "mileage": 115181,
       "exteriorColor": "Gray",
       "interiorColor": "Black",
@@ -649,8 +649,8 @@
       "makeSlug": "volvo",
       "bodyStyleSlug": "suvs",
       "description": "2015 Volvo XC60 T6 R-Design Platinum. 325 HP Turbo, AWD, Paddle Shifters, Harman Kardon Audio, Panoramic Sunroof, Navigation, Adaptive Cruise Control, Full Safety Package. Gray on black, automatic, 3.0L Turbo. A Scandinavian performance crossover that looks refined and drives like a sports car, 0 to 60 in roughly 6 seconds. Surprisingly easy on gas for a 325 horsepower all wheel drive performance SUV, returning up to 24 mpg on the highway. Dual zone climate control blows ice cold, so the cabin stays comfortable through the hottest Chicago summer. Key features: turbocharged 3.0L inline six with 325 HP and 365 lb-ft of torque, all wheel drive, paddle shifters, R-Design sport package with 20 inch alloy wheels, aggressive front grille, rear diffuser and dual exhausts, sport leather seats with heat front and rear, heated steering wheel, panoramic sunroof, Harman Kardon 12 speaker premium audio, navigation, power tailgate, proximity keyless entry, Adaptive Cruise Control with queue assist, Collision Warning with auto brake, Pedestrian Detection, Blind Spot Information System, and Lane Departure Warning. Nearly 9 inches of ground clearance and over 67 cubic feet of cargo with rear seats folded. The Maxim Autos Difference Independent inspection report included with every vehicle 15 day / 500 mile Illinois powertrain protection, extended coverage available Metal plates issued on the spot, drive home today Transparent pricing, no hidden fees Financing for all credit levels Located in Skokie, IL, serving Evanston, Niles, Morton Grove, Lincolnwood, Des Plaines, and the entire North Shore Chicago area. Same day appointments available, call or stop by today. Every car inspected. Every price transparent. Every customer protected.",
-      "dealRating": "FAIR_PRICE",
-      "priceSavings": -504
+      "dealRating": "GOOD_PRICE",
+      "priceSavings": -4
     }
   }
 }
