@@ -1,6 +1,6 @@
 {
   "source": "pka_hub.db ma_vehicles + vPIC",
-  "generated_at": "2026-07-09",
+  "generated_at": "2026-07-10",
   "by_vin": {
     "19XFB2F73FE078163": {
       "slug": "2015-honda-civic-se",
@@ -212,79 +212,6 @@
       "description": "2016 Honda CR-V LX. Remote start, cooled down by the time you enter, AWD, backup cam, and legendary reliability. Silver on charcoal, automatic, 2.4L. A family SUV ready for Chicago summer road trips and year round commuting in the suburbs. The AC blows ice cold, and it is great on gas for an SUV, returning up to 31 mpg on the highway. Key features: 4WD, Honda's bulletproof 2.4L engine, automatic transmission, sport utility 4 door configuration, A/C, power windows and locks, cruise control. Practical cargo space and rear seat room, perfect first family car or commuter. The Maxim Autos Difference Independent inspection report included with every vehicle 15 day / 500 mile Illinois powertrain protection, extended coverage available Metal plates issued on the spot, drive home today Transparent pricing, no hidden fees Financing for all credit levels Located in Skokie, IL, serving Evanston, Niles, Morton Grove, Lincolnwood, Des Plaines, and the entire North Shore Chicago area. Same day appointments available, call or stop by today. Every car inspected. Every price transparent. Every customer protected.",
       "dealRating": "FAIR_PRICE",
       "priceSavings": 207
-    },
-    "JM3KFACL4H0167208": {
-      "slug": "2017-mazda-cx-5-touring",
-      "year": 2017,
-      "make": "Mazda",
-      "model": "CX-5",
-      "trim": "Touring",
-      "price": 14350,
-      "mileage": 78609,
-      "exteriorColor": "Pearl White",
-      "interiorColor": "Beige",
-      "engine": "187 hp 2.5L I4",
-      "transmission": "Automatic",
-      "drivetrain": "FWD",
-      "fuelType": "Gasoline",
-      "bodyStyle": "SUV",
-      "vin": "JM3KFACL4H0167208",
-      "condition": "Used",
-      "inspected": true,
-      "warranty": "15 Day / 500 Mile Powertrain Protection",
-      "carfax": true,
-      "inspection": true,
-      "features": [
-        "Alloy Wheels",
-        "Bluetooth",
-        "Backup Camera",
-        "Blind Spot Monitoring",
-        "Heated Seats",
-        "Multi Zone Climate Control"
-      ],
-      "highlights": [
-        "Touring trim",
-        "78,609 miles",
-        "Fully inspected, free CARFAX"
-      ],
-      "status": "available",
-      "dateAdded": "2026-07-02",
-      "featured": true,
-      "sortOrder": 0,
-      "stockNumber": "J10192",
-      "dealerCenterUrl": "",
-      "primaryPhotoUrl": "https://imagesdl.dealercenter.net/1289/856/202607-7f250eeb6c1d4073893d7471a6c5c687.jpg",
-      "photoUrls": [
-        "https://imagesdl.dealercenter.net/1289/856/202607-7f250eeb6c1d4073893d7471a6c5c687.jpg",
-        "https://imagesdl.dealercenter.net/1289/856/202607-1c357cdae8414206b5a8e3138b1d40dd.jpg",
-        "https://imagesdl.dealercenter.net/1289/856/202607-aafe0025a4e34f45b40563473d684e36.jpg",
-        "https://imagesdl.dealercenter.net/1289/856/202607-766fc3acade54abfbbae940472773362.jpg",
-        "https://imagesdl.dealercenter.net/1289/856/202607-c4514bfd727c4518a862c295f181c25a.jpg",
-        "https://imagesdl.dealercenter.net/1289/856/202607-298d68f1a9684fadbbb0d173148f99f5.jpg",
-        "https://imagesdl.dealercenter.net/1289/856/202607-cfe25244bc47492491429afb4b8c2d4d.jpg",
-        "https://imagesdl.dealercenter.net/1289/856/202607-3961b58faca24395aab4f64b4fe07db3.jpg",
-        "https://imagesdl.dealercenter.net/1289/856/202607-88b0d907eada49398f79285de817479b.jpg",
-        "https://imagesdl.dealercenter.net/1289/856/202607-3e0d2c5980db428f98b4b64c2ce3633e.jpg",
-        "https://imagesdl.dealercenter.net/1289/856/202607-70f99670416545f8b7feff5b8de2ce01.jpg",
-        "https://imagesdl.dealercenter.net/1289/856/202607-ffe210fe09444f9e9054ec36de8d805b.jpg",
-        "https://imagesdl.dealercenter.net/1289/856/202607-d04e255fc27148e0ab89d422f318729e.jpg",
-        "https://imagesdl.dealercenter.net/1289/856/202607-03f17a452045459db13b11d03ab36c55.jpg",
-        "https://imagesdl.dealercenter.net/1289/856/202607-c95eef73d07a436aa400624f5346a0c3.jpg",
-        "https://imagesdl.dealercenter.net/1289/856/202607-4ba6b6d023054ff4abdaab86d4f208bb.jpg",
-        "https://imagesdl.dealercenter.net/1289/856/202607-7c397bb48b724f8d98cd145e67a5d039.jpg"
-      ],
-      "photos": {
-        "exterior": 17,
-        "interior": 0,
-        "source": "dealercenter"
-      },
-      "photoPath": "",
-      "photoPrefix": "2017-mazda-cx-5-touring",
-      "makeSlug": "mazda",
-      "bodyStyleSlug": "suvs",
-      "description": "2017 Mazda CX-5 Touring, a sharp handling compact SUV with one of the most engaging drives in its class. Powered by the fuel efficient 2.5L SKYACTIV four cylinder with a smooth automatic, backup camera, blind spot monitoring, rear cross traffic alert, and dual zone climate control. White on a beige interior with just 78,609 miles. This one is a southern car that was never driven in a Chicago winter, so there is no road salt history and no rust. Built for drivers who want Mazda reliability and a polished ride without stepping up to a bigger SUV. It stays easy on gas at up to 31 mpg on the highway. The AC blows ice cold to keep you cool through hot Chicago summers. Key features: fuel efficient 2.5L SKYACTIV engine, smooth automatic transmission, backup camera, blind spot monitoring, rear cross traffic alert, dual zone climate control, alloy wheels, keyless entry, push button start, cruise control, power windows and locks, Bluetooth, and full power accessories. The Touring trim adds the comfort and safety features most buyers actually want, so you get a well equipped SUV that handles Chicago roads with ease. The Maxim Autos Difference Independent inspection report included with every vehicle 15 day / 500 mile Illinois powertrain protection, extended coverage available Metal plates issued same day so you can drive home today Transparent pricing with no hidden fees Financing for all credit levels Located in Skokie, IL, serving Evanston, Niles, Morton Grove, Lincolnwood, Des Plaines, and the North Shore Chicago area. Same day appointments available, call us to set up a time to see this Mazda. Every car inspected. Every price transparent. Every customer protected.",
-      "dealRating": "GREAT_PRICE",
-      "priceSavings": 1699
     },
     "KM8J2CA43KU844574": {
       "slug": "2019-hyundai-tucson-se-awd",
