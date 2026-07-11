@@ -1,11 +1,11 @@
 {
-  "last_updated": "2026-07-11T07:43:18.583Z",
+  "last_updated": "2026-07-11T13:01:20.355Z",
   "period_start": "2026-07-04",
   "period_end": "2026-07-11",
   "by_vin": {
     "KMHRB8A30MU097803": {
-      "srp_views": 2463,
-      "vdp_views": 76,
+      "srp_views": 2483,
+      "vdp_views": 77,
       "leads_email": 1,
       "leads_phone": 0,
       "leads_chat": 0,
@@ -16,31 +16,31 @@
       "srp_views": 2378,
       "vdp_views": 319,
       "leads_email": 4,
-      "leads_phone": 1,
+      "leads_phone": 0,
       "leads_chat": 0,
-      "website_clicks": 9,
-      "map_clicks": 3
+      "website_clicks": 0,
+      "map_clicks": 0
     },
     "WVGBV7AX5GW002523": {
-      "srp_views": 2106,
-      "vdp_views": 75,
+      "srp_views": 2134,
+      "vdp_views": 76,
+      "leads_email": 0,
+      "leads_phone": 0,
+      "leads_chat": 0,
+      "website_clicks": 0,
+      "map_clicks": 0
+    },
+    "YV4902RS0F2652862": {
+      "srp_views": 981,
+      "vdp_views": 34,
       "leads_email": 0,
       "leads_phone": 0,
       "leads_chat": 0,
       "website_clicks": 1,
       "map_clicks": 0
     },
-    "YV4902RS0F2652862": {
-      "srp_views": 966,
-      "vdp_views": 33,
-      "leads_email": 1,
-      "leads_phone": 0,
-      "leads_chat": 0,
-      "website_clicks": 1,
-      "map_clicks": 0
-    },
     "5J6RM4H3XGL120098": {
-      "srp_views": 871,
+      "srp_views": 882,
       "vdp_views": 32,
       "leads_email": 0,
       "leads_phone": 1,
@@ -49,7 +49,7 @@
       "map_clicks": 0
     },
     "YV4612HK5G1013479": {
-      "srp_views": 831,
+      "srp_views": 836,
       "vdp_views": 60,
       "leads_email": 0,
       "leads_phone": 0,
@@ -58,12 +58,12 @@
       "map_clicks": 0
     },
     "19XFB2F73FE078163": {
-      "srp_views": 2261,
+      "srp_views": 2281,
       "vdp_views": 119,
-      "leads_email": 4,
+      "leads_email": 0,
       "leads_phone": 0,
       "leads_chat": 0,
-      "website_clicks": 2,
+      "website_clicks": 0,
       "map_clicks": 1
     },
     "3VWH17AU6HM534619": {
