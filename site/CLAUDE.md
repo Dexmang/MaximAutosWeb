@@ -2,6 +2,17 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
+> ## ⚠️ COMPLIANCE HARD RULES — read before ANY change
+> Anything touching maximautos.com, the Google Business Profile, or Maxim ad copy MUST follow
+> **`businesses/maxim-autos/operations/compliance-guardrails.md`**. Non-negotiables:
+> - **Never render a `VehicleCard` payment ("$X/mo est.") without the Reg Z footnote on that page**
+>   (down payment + APR + term). Canonical text is in the guardrails doc §D3.
+> - **Never imply guaranteed financing/approval.** Keep "all credit levels" conditional.
+> - **Never call a car "certified"** (no CPO program). **Keep the all-in zero-doc-fee price.**
+> - **NAP must match exactly:** Maxim Autos · 9101 Terminal Ave, Skokie, IL 60077 · (847) 510-8947 · lic. DL7667.
+> - **GBP is frozen** (suspension appeal pending, verdict ~Jul 17–18): no profile edits/posts/photos; no badge-graphic images ever.
+> If a change would break a rule, STOP and flag it.
+
 ## Commands
 
 ```bash
