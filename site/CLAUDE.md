@@ -9,6 +9,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 >   (down payment + APR + term). Canonical text is in the guardrails doc §D3.
 > - **Never imply guaranteed financing/approval.** Keep "all credit levels" conditional.
 > - **Never call a car "certified"** (no CPO program). **Keep the all-in zero-doc-fee price.**
+> - **No overpromise:** never "Total Protection"/"total/complete/full protection"/"guaranteed" (cars are AS-IS). Powertrain claims must always say **"qualifying"** — never "on every sale" or unqualified.
 > - **NAP must match exactly:** Maxim Autos · 9101 Terminal Ave, Skokie, IL 60077 · (847) 510-8947 · lic. DL7667.
 > - **GBP is frozen** (suspension appeal pending, verdict ~Jul 17–18): no profile edits/posts/photos; no badge-graphic images ever.
 > If a change would break a rule, STOP and flag it.
