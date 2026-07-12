@@ -48,7 +48,9 @@ const labels = isSpanish
       time1:             '3:00 PM - 7:00 PM',
       days2:             'Sabado',
       time2:             '10:00 AM - 3:00 PM',
-      days3:             'Miercoles / Domingo',
+      days3:             'Miercoles',
+      byAppt:            'Con Cita Previa',
+      days4:             'Domingo',
       closed:            'Cerrado',
       afterHours:        'Citas fuera de horario bienvenidas. Escribe a Jerry al (847) 510-8947',
       quickLinks:        'Enlaces',
@@ -66,7 +68,6 @@ const labels = isSpanish
       privacy:           'Politica de Privacidad',
       terms:             'Terminos de Uso',
       returnPolicy:      'Politica de Devolucion',
-      privateClient:     'Cliente Privado',
       invUpdated:        'Inventario actualizado',
       taglineShort:      'Totalmente Inspeccionados • Autos Usados Skokie IL',
       mobileText:        'Escribe',
@@ -81,7 +82,9 @@ const labels = isSpanish
       time1:             '3:00 PM - 7:00 PM',
       days2:             'Saturday',
       time2:             '10:00 AM - 3:00 PM',
-      days3:             'Wednesday / Sunday',
+      days3:             'Wednesday',
+      byAppt:            'By Appointment',
+      days4:             'Sunday',
       closed:            'Closed',
       afterHours:        'After-hours appointments welcome. Text Jerry at (847) 510-8947',
       quickLinks:        'Quick Links',
@@ -99,7 +102,6 @@ const labels = isSpanish
       privacy:           'Privacy Policy',
       terms:             'Terms of Use',
       returnPolicy:      'Return Policy',
-      privateClient:     'Private Client',
       invUpdated:        'Inventory updated',
       taglineShort:      'Fully Inspected • Used Cars Skokie IL',
       mobileText:        'Text Jerry',
@@ -155,6 +157,10 @@ const labels = isSpanish
         </div>
         <div class="flex justify-between border-b border-white/5 pb-2">
           <span>{labels.days3}</span>
+          <span class="text-white font-medium">{labels.byAppt}</span>
+        </div>
+        <div class="flex justify-between border-b border-white/5 pb-2">
+          <span>{labels.days4}</span>
           <span class="text-white font-medium">{labels.closed}</span>
         </div>
         <p class="mt-6 text-white/60 font-semibold italic text-sm">{labels.afterHours}</p>
@@ -200,8 +206,6 @@ const labels = isSpanish
       <a href={termsHref} class="hover:text-white transition-colors">{labels.terms}</a>
       &nbsp;&middot;&nbsp;
       <a href={returnPolicyHref} class="hover:text-white transition-colors">{labels.returnPolicy}</a>
-      &nbsp;&middot;&nbsp;
-      <a href="https://vault007.com" rel="nofollow noopener" target="_blank" class="hover:text-white transition-colors">{labels.privateClient}</a>
     </span>
     <span class="flex items-center gap-x-2 flex-wrap justify-center sm:justify-end">
       {inventoryIso && (
