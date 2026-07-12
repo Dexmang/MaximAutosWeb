@@ -168,6 +168,7 @@ const faqSchema = {
           <p class="text-gray-700">We rotate inventory weekly. Check back soon or text Jerry at <a href="sms:8475108947" class="text-orange font-bold">(847) 510-8947</a> to ask about incoming SUV inventory.</p>
         </div>
       ) : (
+        <Fragment>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
           {matches.map(v => (
             <VehicleCard
@@ -189,6 +190,8 @@ const faqSchema = {
             />
           ))}
         </div>
+        <p class="text-xs text-gray-400 mt-4">* Est. payment based on 10% down, 9.9% APR, 60-month term. For illustrative purposes only. Actual terms vary by credit.</p>
+        </Fragment>
       )}
     </div>
   </section>

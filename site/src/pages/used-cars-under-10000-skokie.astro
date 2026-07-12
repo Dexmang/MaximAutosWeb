@@ -124,6 +124,7 @@ const localBusinessSchema = {
           <p class="text-gray-700">Text Jerry at <a href="sms:8475108947" class="text-orange font-bold">(847) 510-8947</a> with what you are looking for and your budget. He sources cars at auction every week and will reach out when something fits.</p>
         </div>
       ) : (
+        <Fragment>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
           {matches.map(v => (
             <VehicleCard
@@ -145,6 +146,8 @@ const localBusinessSchema = {
             />
           ))}
         </div>
+        <p class="text-xs text-gray-400 mt-4">* Est. payment based on 10% down, 9.9% APR, 60-month term. For illustrative purposes only. Actual terms vary by credit.</p>
+        </Fragment>
       )}
     </div>
   </section>
