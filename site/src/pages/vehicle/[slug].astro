@@ -304,7 +304,7 @@ const faqSchema = {
     </div>
   </section>
 
-  <!-- ===== TRUST BAR: Inspected · CARFAX free report · Powertrain protection ===== -->
+  <!-- ===== TRUST BAR: Inspected · CARFAX free report ===== -->
   {!isSold && (
     <section class="bg-white border-b border-gray-200 shadow-sm">
       <div class="max-w-7xl mx-auto flex divide-x divide-gray-200">
@@ -317,7 +317,7 @@ const faqSchema = {
             <a href={carfaxLink} target="_blank" rel="noopener noreferrer"
                class="flex flex-col items-center leading-none hover:opacity-75 transition-opacity"
                aria-label={`Show me the free CARFAX report for this ${v.year} ${v.make} ${v.model}`}>
-              <span class="text-sm font-extrabold tracking-[0.14em] text-gray-900">SHOW ME THE</span>
+              <span class="text-sm font-extrabold tracking-[0.14em] text-orange">SHOW ME THE</span>
               <span class="flex items-start mt-[3px]">
                 <span class="flex gap-[2px] border-2 border-black rounded-[5px] p-[2px] bg-white">
                   {'CARFA'.split('').map(ch => (
@@ -334,10 +334,6 @@ const faqSchema = {
               <span class="text-xs sm:text-sm font-bold text-gray-700">CARFAX Included</span>
             </span>
           )}
-        </div>
-        <div class="flex-1 flex items-center justify-center gap-1.5 py-3 px-2 text-center">
-          <span class="material-symbols-outlined text-lg text-navy hidden sm:inline" style="font-variation-settings:'FILL' 1;">security</span>
-          <span class="text-xs sm:text-sm font-bold text-gray-700">15 Day / 500 Mile Powertrain Protection</span>
         </div>
       </div>
     </section>
@@ -630,7 +626,7 @@ const faqSchema = {
             )}
           </div>
 
-          <!-- Inspection + CARFAX + Powertrain protection -->
+          <!-- Inspection + CARFAX -->
           <div class="mb-8 space-y-4">
             <div class="bg-green-50 border border-green-200 rounded-xl p-5 flex items-start gap-4">
               <div class="w-10 h-10 bg-green-100 rounded-xl flex items-center justify-center shrink-0">
@@ -666,16 +662,6 @@ const faqSchema = {
                 {v.vin && v.vin !== 'TBD' && (
                   <p class="text-xs text-blue-700 font-mono bg-blue-100 inline-block px-2 py-0.5 rounded">VIN: {v.vin}</p>
                 )}
-              </div>
-            </div>
-
-            <div class="bg-surface border border-gray-200 rounded-xl p-5 flex items-start gap-4">
-              <div class="w-10 h-10 bg-navy/5 rounded-xl flex items-center justify-center shrink-0">
-                <span class="material-symbols-outlined text-2xl text-navy" style="font-variation-settings:'FILL' 1;">security</span>
-              </div>
-              <div>
-                <h3 class="font-headline font-bold text-navy mb-1">15 Day / 500 Mile Powertrain Protection</h3>
-                <p class="text-gray-600 text-sm">Every qualifying used car is backed by Illinois' 15 day / 500 mile statutory powertrain protection. Extended coverage is available as an option at signing, ask Jerry for pricing when you visit.</p>
               </div>
             </div>
           </div>
