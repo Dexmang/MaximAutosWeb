@@ -1,6 +1,6 @@
 {
   "source": "pka_hub.db ma_vehicles + vPIC",
-  "generated_at": "2026-07-11",
+  "generated_at": "2026-07-12",
   "by_vin": {
     "19XFB2F73FE078163": {
       "slug": "2015-honda-civic-se",
@@ -290,77 +290,6 @@
       "description": "2019 Hyundai Tucson SE 4WD, 70,524 miles, champagne metallic on beautiful light beige leather interior. Good on gas for an all wheel drive SUV, with up to 25 mpg on the highway. The AC blows ice cold to keep you comfortable through the hottest Chicago summer days. The Tucson SE brings premium safety and tech into an affordable, easy to own compact SUV, which is why it punches above its price. The right size for the city, comfortable and quiet on the highway, and simple to park, it makes a smart daily driver for the North Shore. What sets the SE apart is how much comes standard. Hyundai's safety suite includes Forward Collision Avoidance Assist with automatic emergency braking, Lane Keeping Assist, and Driver Attention Warning, so the tech is watching the road with you. The 7 inch touchscreen runs Apple CarPlay and Android Auto with Bluetooth, and you also get 17 inch alloy wheels, automatic headlights, a backup camera, and a 60/40 split folding rear seat for flexible cargo space. Power comes from a 2.0 liter four cylinder with 161 horsepower and a smooth 6 speed automatic, EPA rated 25 mpg. The ride soaks up rough roads, the cabin stays quiet, and Hyundai's strong reliability reputation means it just keeps going. The Maxim Autos Difference Independent inspection report included with every vehicle 15 day / 500 mile Illinois powertrain protection, extended coverage available Metal plates issued on the spot, drive home today Transparent pricing, no hidden fees Financing for all credit levels Skokie, IL. Serving Evanston, Niles, Morton Grove, Lincolnwood, Des Plaines, North Shore Chicago. Call (847) 510-8947 for a same day appointment. Every car inspected. Every price transparent. Every customer protected.",
       "dealRating": "GOOD_PRICE",
       "priceSavings": 1381
-    },
-    "KMHRB8A30MU097803": {
-      "slug": "2021-hyundai-venue-se",
-      "year": 2021,
-      "make": "Hyundai",
-      "model": "Venue",
-      "trim": "SE FWD",
-      "price": 13750,
-      "mileage": 51100,
-      "exteriorColor": "White",
-      "interiorColor": "Black",
-      "engine": "121 hp 1.6L I4",
-      "transmission": "Automatic",
-      "drivetrain": "FWD",
-      "fuelType": "Gasoline",
-      "bodyStyle": "SUV",
-      "vin": "KMHRB8A30MU097803",
-      "condition": "Used",
-      "inspected": true,
-      "warranty": "15 Day / 500 Mile Powertrain Protection",
-      "carfax": true,
-      "inspection": true,
-      "features": [
-        "Alloy Wheels",
-        "Bluetooth",
-        "Backup Camera",
-        "Android Auto",
-        "CarPlay"
-      ],
-      "highlights": [
-        "SE trim",
-        "51,100 miles",
-        "Fully inspected, free CARFAX"
-      ],
-      "status": "available",
-      "dateAdded": "2026-06-18",
-      "featured": true,
-      "sortOrder": 0,
-      "stockNumber": "J10209",
-      "dealerCenterUrl": "",
-      "primaryPhotoUrl": "https://imagesdl.dealercenter.net/1289/856/202607-fda8ca05706f49eda96e0db17b888a87.jpg",
-      "photoUrls": [
-        "https://imagesdl.dealercenter.net/1289/856/202607-fda8ca05706f49eda96e0db17b888a87.jpg",
-        "https://imagesdl.dealercenter.net/1289/856/202606-2bfb232bd2134910adf9fc896178f838.jpg",
-        "https://imagesdl.dealercenter.net/1289/856/202606-8d7479485c0e475cbacd0ae39f999c49.jpg",
-        "https://imagesdl.dealercenter.net/1289/856/202606-99dc59cf763f434d9f2cf3eb60001e2b.jpg",
-        "https://imagesdl.dealercenter.net/1289/856/202606-a2031be75f4e42278a89d55798ed91f0.jpg",
-        "https://imagesdl.dealercenter.net/1289/856/202606-a0707b247f294ef899a44fd4686dbc00.jpg",
-        "https://imagesdl.dealercenter.net/1289/856/202606-0ee1cff2666c43e49a4ce5b64b101d32.jpg",
-        "https://imagesdl.dealercenter.net/1289/856/202606-e1289f00abd745e69d07ab2224f2d2b2.jpg",
-        "https://imagesdl.dealercenter.net/1289/856/202606-b220d9e563104c6b8372e5d48e729a60.jpg",
-        "https://imagesdl.dealercenter.net/1289/856/202606-1bc8384f8b6e41e79c50dd3dc1fdf65c.jpg",
-        "https://imagesdl.dealercenter.net/1289/856/202606-e7adcfce14494831820df1b361eeb2a5.jpg",
-        "https://imagesdl.dealercenter.net/1289/856/202606-ae2469dc836741798f4032e8711053be.jpg",
-        "https://imagesdl.dealercenter.net/1289/856/202606-6229dd2d1fd4456cae83b9ab32de2871.jpg",
-        "https://imagesdl.dealercenter.net/1289/856/202606-5df75c3410d94b78a5a9970821dcb941.jpg",
-        "https://imagesdl.dealercenter.net/1289/856/202606-2291a8d4598148a3ba6121edd31226b4.jpg",
-        "https://imagesdl.dealercenter.net/1289/856/202606-2dc1523cb7d04c2287116981496cd0a5.jpg"
-      ],
-      "photos": {
-        "exterior": 16,
-        "interior": 0,
-        "source": "dealercenter"
-      },
-      "photoPath": "",
-      "photoPrefix": "2021-hyundai-venue-se",
-      "makeSlug": "hyundai",
-      "bodyStyleSlug": "suvs",
-      "description": "2021 Hyundai Venue SE with just 51,100 miles, a fuel efficient 1.6L engine, Apple CarPlay and Android Auto, and a backup camera. White on a black cloth interior with a smooth automatic. A practical, easy to park compact SUV that is light on gas and loaded with the tech most buyers actually use every day. Great on gas too, returning up to 33 mpg on the highway, so your daily driving stays cheap. The AC blows ice cold, perfect for beating the Chicago summer heat on your daily drive. Key features: Fuel efficient 1.6L engine, Apple CarPlay and Android Auto, backup camera, alloy wheels, lane departure warning, cruise control, Bluetooth, and power windows and locks. At just over 51,000 miles this is a genuinely low mileage 2021 that slips into tight city parking while still giving you the higher seating position and cargo room of an SUV. An ideal first car, commuter, or second vehicle for the family. The Maxim Autos Difference Independent inspection report included with every vehicle 15 day / 500 mile Illinois powertrain protection, extended coverage available Metal plates issued same day so you can drive home today Transparent pricing with no hidden fees Financing for all credit levels Located in Skokie, IL, serving Evanston, Niles, Morton Grove, Lincolnwood, Des Plaines, and the North Shore Chicago area. Same day appointments available, call us to set up a time to see this Hyundai. Every car inspected. Every price transparent. Every customer protected.",
-      "dealRating": "GOOD_PRICE",
-      "priceSavings": 1727
     },
     "WVGBV7AX5GW002523": {
       "slug": "2016-volkswagen-tiguan-se-4motion-j10212",
