@@ -681,7 +681,12 @@ function mapNode(node, _offer, existingByVin) {
     bodyStyleSlug: toBodyStyleSlug(bodyStyle),
     // Description — the DC feed ad copy (via dc-inventory.json) is authoritative so
     // copy edits in DealerCenter reach the VDP; generated text is the fallback only.
-    description: dcRec?.description || generateDescription(year, make, model, trim, mileage),
+    // Compliance sanitizer: Illinois powertrain protection (815 ILCS 505/2L) must always
+    // be stated as applying to qualifying vehicles, since the statute exempts high-mileage,
+    // rebuilt/flood, heavy (GVWR >= 8,000 lb), and antique units. DealerCenter ad copy that
+    // omits the qualifier is corrected here so it cannot reach a live VDP unqualified.
+    description: (dcRec?.description || generateDescription(year, make, model, trim, mileage))
+      .replace(/Illinois powertrain protection(?! on qualifying)/g, 'Illinois powertrain protection on qualifying vehicles'),
     dealRating,
     priceSavings,
   };

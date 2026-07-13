@@ -7,7 +7,7 @@ import reviewsMeta from '../data/reviews_meta.json';
 
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 const title = 'Customer Reviews | Maxim Autos Skokie IL | 5-Star Google Reviews';
-const description = 'Read 5-star customer reviews for Maxim Autos in Skokie, IL. 36 verified reviews on Google. No games, no hidden fees. Just honest cars and personal service from Jerry Franco.';
+const description = 'Read 5-star customer reviews for Maxim Autos in Skokie, IL. Rated 5 stars on Google. No games, no hidden fees. Just honest cars and personal service from Jerry Franco.';
 
 const ratingSchema = {
   "@context": "https://schema.org",
@@ -20,6 +20,7 @@ const ratingSchema = {
   "telephone": "+1-847-510-8947",
   "address": {
     "@type": "PostalAddress",
+    "streetAddress": "9101 Terminal Ave",
     "addressLocality": "Skokie",
     "addressRegion": "IL",
     "postalCode": "60077",
@@ -76,7 +77,7 @@ const ratingSchema = {
         {reviewsMeta.rating.toFixed(1)} Stars
       </h1>
       <p class="text-xl text-gray-300 max-w-2xl mx-auto leading-relaxed mb-2">
-        {reviewsMeta.count}+ verified reviews from North Shore neighbors
+        {reviewsMeta.count}+ reviews from North Shore neighbors
       </p>
       <a
         href="https://www.google.com/search?q=Maxim+Autos+Skokie+IL+reviews"
@@ -89,6 +90,7 @@ const ratingSchema = {
     </div>
   </section>
 
+  {reviews.length > 0 && (
   <!-- Review Cards -->
   <section class="py-20 bg-white">
     <div class="max-w-7xl mx-auto px-6 lg:px-8">
@@ -117,6 +119,7 @@ const ratingSchema = {
       </div>
     </div>
   </section>
+  )}
 
   <!-- Google Reviews CTA -->
   <section class="py-16 bg-surface">

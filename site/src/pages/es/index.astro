@@ -79,6 +79,7 @@ const featured = vehicles.filter(v => (v as any).status !== 'sold').slice(0, 6);
       <div class="hidden md:block absolute inset-0 bg-gradient-to-r from-navy/90 via-navy/70 to-navy/20"></div>
 
       <!-- Rotating review card - lower right, desktop only -->
+      {reviews.length > 0 && (
       <div class="hidden md:block absolute bottom-6 right-6 lg:bottom-8 lg:right-8 w-72 lg:w-80 bg-white/95 backdrop-blur-sm rounded-xl shadow-2xl p-4">
         <div class="flex items-center justify-between mb-3">
           <div class="flex items-center gap-1.5">
@@ -88,7 +89,7 @@ const featured = vehicles.filter(v => (v as any).status !== 'sold').slice(0, 6);
               <path fill="#FBBC05" d="M10.6 28.6A14.5 14.5 0 0 1 9.5 24c0-1.6.3-3.2.8-4.6L2.4 13.2A23.9 23.9 0 0 0 0 24c0 3.9.9 7.5 2.5 10.8l8.1-6.2z"/>
               <path fill="#34A853" d="M24 48c6.1 0 11.2-2 14.9-5.4l-7.5-5.8c-2 1.4-4.6 2.2-7.4 2.2-6.2 0-11.5-4.2-13.4-9.8l-8 6.2C6.5 42.5 14.6 48 24 48z"/>
             </svg>
-            <span class="text-gray-500 text-xs font-semibold">Resena Verificada</span>
+            <span class="text-gray-500 text-xs font-semibold">Resena de Google</span>
           </div>
           <div class="flex gap-0.5" aria-label="5 estrellas">
             {[1,2,3,4,5].map(() => <span class="text-orange text-sm leading-none">★</span>)}
@@ -107,6 +108,7 @@ const featured = vehicles.filter(v => (v as any).status !== 'sold').slice(0, 6);
           ))}
         </div>
       </div>
+      )}
     </div>
 
     <div class="relative z-10 w-full max-w-7xl mx-auto px-6 lg:px-8 pt-4 pb-8 md:py-10">
@@ -188,8 +190,10 @@ const featured = vehicles.filter(v => (v as any).status !== 'sold').slice(0, 6);
       });
     });
 
-    showReview(0, false);
-    startTimer();
+    if (heroReviews.length && textEl) {
+      showReview(0, false);
+      startTimer();
+    }
   </script>
 
   <!-- Vehiculos Destacados -->
@@ -312,6 +316,7 @@ const featured = vehicles.filter(v => (v as any).status !== 'sold').slice(0, 6);
         <h2 class="font-headline text-3xl md:text-5xl font-extrabold mb-3">{reviewsMeta.rating.toFixed(1)} Estrellas en Google</h2>
         <p class="text-gray-400 text-lg">{reviewsMeta.count}+ resenas de vecinos del North Shore</p>
       </div>
+      {reviews.length > 0 && (
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
         {reviews.map(review => (
           <div class="bg-white/5 p-8 rounded-xl border border-white/10">
@@ -333,6 +338,7 @@ const featured = vehicles.filter(v => (v as any).status !== 'sold').slice(0, 6);
           Leer Todas las Resenas <span class="material-symbols-outlined">arrow_forward</span>
         </a>
       </div>
+      )}
     </div>
   </section>
 

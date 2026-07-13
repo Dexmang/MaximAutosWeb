@@ -194,7 +194,7 @@ const vehicleSchema = {
     "itemCondition": "https://schema.org/UsedCondition",
     "url": canonicalVdpUrl,
     "availability": isSold ? "https://schema.org/SoldOut" : "https://schema.org/InStock",
-    "seller": { "@type": "AutoDealer", "name": "Maxim Autos", "telephone": "+1-847-510-8947", "address": { "@type": "PostalAddress", "addressLocality": "Skokie", "addressRegion": "IL", "postalCode": "60077", "addressCountry": "US" } }
+    "seller": { "@type": "AutoDealer", "name": "Maxim Autos", "telephone": "+1-847-510-8947", "address": { "@type": "PostalAddress", "streetAddress": "9101 Terminal Ave", "addressLocality": "Skokie", "addressRegion": "IL", "postalCode": "60077", "addressCountry": "US" } }
   },
   "image": allPhotos.length > 0 ? allPhotos.slice(0, 5) : undefined,
   "url": canonicalVdpUrl
@@ -824,6 +824,7 @@ const faqSchema = {
             />
           ))}
         </div>
+        <p class="text-xs text-gray-400 mt-4">* Est. payment based on 10% down, 9.9% APR, 60-month term. For illustrative purposes only. Actual terms vary by credit.</p>
       </div>
     </section>
   )}
