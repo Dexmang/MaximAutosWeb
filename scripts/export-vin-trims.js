@@ -7,7 +7,7 @@
  *
  * Why this exists: CarGurus normalizes dealer-supplied trims against its own
  * catalog and blanks any that don't match, so the inventory sync sometimes
- * receives an empty trim. sync-from-cargurus.js falls back to this snapshot
+ * receives an empty trim. build-inventory.js falls back to this snapshot
  * (matched on VIN). The sync runs in GitHub Actions where pka_hub.db is not
  * available, so the snapshot must be generated locally and committed.
  *

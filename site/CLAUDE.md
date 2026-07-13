@@ -37,10 +37,12 @@ Dev server is launched from the PKA root via `.claude/launch.json` config named 
 ## Data Layer
 
 `src/data/vehicles.json` is the data file the site renders, but it is GENERATED, not
-hand-edited. **DealerCenter is the source of truth** (cars + photos); CarGurus is a
-deal-rating/stats overlay. `scripts/sync-from-cargurus.js` writes `vehicles.json` by
-scraping CarGurus for the active list + `dealRating`/`priceSavings`, then overlaying
-DealerCenter photos and adding DC-only cars from the snapshots below. Full pipeline:
+hand-edited. **DealerCenter is the single source of truth** (cars + price + photos +
+copy): the committed `dc-inventory.json` snapshot of the latest OAP feed IS the
+in-stock list. `scripts/build-inventory.js` writes `vehicles.json` from that snapshot;
+CarGurus is only a VIN-keyed `dealRating`/`priceSavings` overlay (best-effort scrape)
+and can never add or remove a car. Feed-absent = sold immediately (VDP kept for SEO),
+guarded so a bad feed can't wipe the lot. Full pipeline:
 `businesses/maxim-autos/operations/inventory-pipeline.md`. Key vehicle fields: `slug`,
 `status` (`available`/`sold`), `price`, `photoPath`, `photoPrefix`, `primaryPhotoUrl`,
 `dealRating`, `priceSavings`, `stockNumber`.

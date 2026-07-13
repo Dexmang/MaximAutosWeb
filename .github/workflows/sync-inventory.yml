@@ -1,4 +1,4 @@
-name: Sync Inventory from CarGurus
+name: Build Inventory (DealerCenter feed = source of truth)
 
 on:
   schedule:
@@ -24,18 +24,21 @@ jobs:
         with:
           node-version: '24'
 
-      # CarGurus dealer + VIN stats (7-day rolling; token is embedded in the
-      # scripts, so they run in CI). Self-healing: an API failure writes a
-      # placeholder and exits 0, so the sync still proceeds. Moved here from the
-      # retired local maxim-cargurus-sync routine so this Action is the single
-      # CarGurus enrichment job.
+      # CarGurus dealer + VIN stats via the CarGurus dealer API (7-day rolling;
+      # token embedded in the scripts, so they run in CI). Self-healing: an API
+      # failure writes a placeholder and exits 0. These feed the VDP "X shoppers
+      # viewed" overlay (site reads cargurus-vin-stats.json directly).
       - name: Refresh CarGurus stats
         run: |
           node scripts/sync-cargurus-dealer-stats.js || true
           node scripts/sync-cargurus-vin-stats.js || true
 
-      - name: Run inventory sync
-        run: node scripts/sync-from-cargurus.js
+      # Build vehicles.json from the DealerCenter OAP feed snapshot (dc-inventory.json)
+      # — the single source of truth for what's in stock. CarGurus is only a VIN-keyed
+      # deal-rating overlay here and can never add or remove a car. (Replaces the old
+      # sync-from-cargurus.js, which scraped CarGurus to decide the list.)
+      - name: Build inventory (DealerCenter = source of truth)
+        run: node scripts/build-inventory.js
 
       - name: Rebuild GMC feed
         run: node scripts/build-gmc-feed.js --strict

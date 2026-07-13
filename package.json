@@ -3,7 +3,9 @@
   "type": "module",
   "private": true,
   "scripts": {
-    "sync": "node scripts/sync-from-cargurus.js",
-    "sync:dry": "node scripts/sync-from-cargurus.js --dry-run"
+    "build:inventory": "node scripts/build-inventory.js",
+    "build:inventory:dry": "node scripts/build-inventory.js --dry-run",
+    "sync": "node scripts/build-inventory.js",
+    "sync:dry": "node scripts/build-inventory.js --dry-run"
   }
 }

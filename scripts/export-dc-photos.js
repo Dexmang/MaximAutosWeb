@@ -7,7 +7,7 @@
  *
  * Why this exists: maximautos.com uses DealerCenter's own CDN photos (the dealer's
  * uploads, pushed via the OAP SFTP feed) instead of CarGurus-scraped images. The
- * inventory sync (sync-from-cargurus.js) runs in GitHub Actions where pka_hub.db is
+ * inventory build (build-inventory.js) runs in GitHub Actions where pka_hub.db is
  * NOT reachable, so the DC photo URLs must be exported locally and committed, then
  * the sync reads this snapshot (matched on VIN) and applies DC photos to every car
  * -- including brand-new arrivals CarGurus is still showing with its own photos.
