@@ -1,6 +1,6 @@
 {
   "source": "pka_hub.db ma_vehicles + vPIC",
-  "generated_at": "2026-07-13",
+  "generated_at": "2026-07-14",
   "by_vin": {
     "19XFB2F73FE078163": {
       "slug": "2015-honda-civic-se",
@@ -76,7 +76,7 @@
       "make": "Honda",
       "model": "HR-V",
       "trim": "LX AWD",
-      "price": 14495,
+      "price": 15950,
       "mileage": 79083,
       "exteriorColor": "Black",
       "interiorColor": "Black",
@@ -290,7 +290,7 @@
       "model": "Tiguan",
       "trim": "SE 4Motion",
       "price": 9995,
-      "mileage": 73645,
+      "mileage": 73717,
       "exteriorColor": "Burgundy",
       "interiorColor": "Beige",
       "engine": "200 hp 2L I4",
