@@ -33,7 +33,7 @@ const ratingSchema = {
     "bestRating": "5",
     "worstRating": "1"
   },
-  "review": reviews.map(r => ({
+  "review": reviews.filter(r => r.source === 'Google').map(r => ({
     "@type": "Review",
     "reviewRating": {
       "@type": "Rating",
