@@ -1,0 +1,129 @@
+---
+// Rotating review card. Used more than once per page (desktop hero + mobile hero),
+// so everything is scoped to the card element via data-attributes rather than ids.
+//
+// COMPLIANCE (guardrails A9/D2): attribution is driven by each review's `source`.
+// The Google logo + "Google Review" label render ONLY for source === 'Google';
+// any other platform shows its own name with the logo hidden. Never hardcode a
+// platform label here. Star glyphs come from each review's `rating`, so a 4-star
+// review is never painted as 5.
+interface Review {
+  name: string;
+  rating: number;
+  text: string;
+  source: string;
+  date: string;
+}
+interface Props {
+  reviews: Review[];
+  lang?: 'en' | 'es';
+  class?: string;
+}
+const { reviews, lang = 'en', class: className = '' } = Astro.props;
+
+const copy = lang === 'es'
+  ? { googleLabel: 'Resena de Google', otherTpl: 'Resena de {s}', starsLabel: 'estrellas', showTpl: 'Mostrar resena {n}' }
+  : { googleLabel: 'Google Review', otherTpl: '{s} Review', starsLabel: 'stars', showTpl: 'Show review {n}' };
+---
+
+{reviews.length > 0 && (
+<div
+  class={`bg-white/95 backdrop-blur-sm rounded-xl shadow-2xl p-4 ${className}`}
+  data-review-rotator
+  data-reviews={JSON.stringify(reviews)}
+  data-google-label={copy.googleLabel}
+  data-other-tpl={copy.otherTpl}
+  data-stars-label={copy.starsLabel}
+>
+  <div class="flex items-center justify-between mb-3">
+    <div class="flex items-center gap-1.5">
+      <svg data-google-logo width="16" height="16" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="display:none;">
+        <path fill="#EA4335" d="M24 9.5c3.5 0 6.6 1.2 9.1 3.2l6.8-6.8C35.6 2.4 30.1 0 24 0 14.7 0 6.7 5.5 2.7 13.5l7.9 6.1C12.5 13.1 17.8 9.5 24 9.5z"/>
+        <path fill="#4285F4" d="M46.5 24.5c0-1.6-.1-3.1-.4-4.5H24v8.5h12.7c-.6 3-2.3 5.5-4.8 7.2l7.5 5.8c4.4-4.1 7.1-10.1 7.1-17z"/>
+        <path fill="#FBBC05" d="M10.6 28.6A14.5 14.5 0 0 1 9.5 24c0-1.6.3-3.2.8-4.6L2.4 13.2A23.9 23.9 0 0 0 0 24c0 3.9.9 7.5 2.5 10.8l8.1-6.2z"/>
+        <path fill="#34A853" d="M24 48c6.1 0 11.2-2 14.9-5.4l-7.5-5.8c-2 1.4-4.6 2.2-7.4 2.2-6.2 0-11.5-4.2-13.4-9.8l-8 6.2C6.5 42.5 14.6 48 24 48z"/>
+      </svg>
+      <span data-source class="text-gray-500 text-xs font-semibold"></span>
+    </div>
+    <div data-stars class="flex gap-0.5 text-orange text-sm leading-none"></div>
+  </div>
+  <blockquote data-text class="text-gray-800 text-sm leading-relaxed mb-2" style="transition: opacity 0.3s ease; min-height: 64px;"></blockquote>
+  <p data-name class="font-bold text-gray-700 text-xs mb-3" style="transition: opacity 0.3s ease;"></p>
+  <div class="flex items-center justify-center gap-1.5">
+    {reviews.map((_, i) => (
+      <button
+        data-dot
+        class="rounded-full border-0 cursor-pointer bg-gray-300"
+        style="width:6px;height:6px;transition:all 0.3s ease;"
+        aria-label={copy.showTpl.replace('{n}', String(i + 1))}
+      ></button>
+    ))}
+  </div>
+</div>
+)}
+
+<script>
+  // Astro hoists and dedupes this, so it is emitted once no matter how many
+  // rotators the page renders. Each card wires itself from its own dataset.
+  document.querySelectorAll('[data-review-rotator]').forEach((card) => {
+    const el = card as HTMLElement;
+    const data = JSON.parse(el.dataset.reviews || '[]');
+    if (!data.length) return;
+
+    const googleLabel = el.dataset.googleLabel || 'Google Review';
+    const otherTpl = el.dataset.otherTpl || '{s} Review';
+    const starsLabel = el.dataset.starsLabel || 'stars';
+
+    const textEl = el.querySelector('[data-text]') as HTMLElement;
+    const nameEl = el.querySelector('[data-name]') as HTMLElement;
+    const sourceEl = el.querySelector('[data-source]') as HTMLElement;
+    const logoEl = el.querySelector('[data-google-logo]') as HTMLElement;
+    const starsEl = el.querySelector('[data-stars]') as HTMLElement;
+    const dots = Array.from(el.querySelectorAll('[data-dot]')) as HTMLElement[];
+
+    let current = 0;
+    let timer: ReturnType<typeof setInterval>;
+    let pending: ReturnType<typeof setTimeout>;
+
+    function render(i: number, animate: boolean) {
+      const r = data[i];
+      if (animate) {
+        textEl.style.opacity = '0';
+        nameEl.style.opacity = '0';
+      }
+      clearTimeout(pending);
+      pending = setTimeout(() => {
+        textEl.textContent = '"' + r.text + '"';
+        nameEl.textContent = r.name;
+        // Google branding only for genuinely Google-sourced reviews.
+        const isGoogle = r.source === 'Google';
+        logoEl.style.display = isGoogle ? '' : 'none';
+        sourceEl.textContent = isGoogle ? googleLabel : otherTpl.replace('{s}', r.source);
+        starsEl.textContent = '★'.repeat(r.rating);
+        starsEl.setAttribute('aria-label', r.rating + ' ' + starsLabel);
+        textEl.style.opacity = '1';
+        nameEl.style.opacity = '1';
+      }, animate ? 300 : 0);
+      dots.forEach((d, j) => {
+        d.style.width = j === i ? '20px' : '6px';
+        d.style.background = j === i ? '#E85D26' : '#D1D5DB';
+      });
+      current = i;
+    }
+
+    function start() {
+      timer = setInterval(() => render((current + 1) % data.length, true), 6000);
+    }
+
+    dots.forEach((d, i) =>
+      d.addEventListener('click', () => {
+        clearInterval(timer);
+        render(i, true);
+        start();
+      })
+    );
+
+    render(0, false);
+    start();
+  });
+</script>

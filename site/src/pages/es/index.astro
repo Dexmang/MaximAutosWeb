@@ -3,6 +3,7 @@ import Layout from '../../layouts/Layout.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 import VehicleCard from '../../components/VehicleCard.astro';
+import ReviewRotator from '../../components/ReviewRotator.astro';
 import vehicles from '../../data/vehicles.json';
 import reviews from '../../data/reviews.json';
 import reviewsMeta from '../../data/reviews_meta.json';
@@ -12,6 +13,9 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 const title = 'Autos Usados en Skokie, IL | Maxim Autos';
 const description = 'Maxim Autos: autos usados completamente inspeccionados de $5,000 a $15,000 en Skokie, IL. Placas el mismo dia. Sin tramites del DMV. Financiamiento para todos los niveles de credito. Resenas de 5 estrellas en Google.';
 const featured = vehicles.filter(v => (v as any).status !== 'sold').slice(0, 6);
+// Ver index.astro: etiqueta de origen solo cuando NO todas las resenas son de Google.
+const offGoogleSources = [...new Set(reviews.filter(r => r.source !== 'Google').map(r => r.source))];
+const heroReviews = reviews.slice(0, 6);
 ---
 
 <Layout
@@ -78,35 +82,8 @@ const featured = vehicles.filter(v => (v as any).status !== 'sold').slice(0, 6);
       <div class="md:hidden absolute inset-0 bg-gradient-to-b from-navy/20 to-navy"></div>
       <div class="hidden md:block absolute inset-0 bg-gradient-to-r from-navy/90 via-navy/70 to-navy/20"></div>
 
-      <!-- Rotating review card - lower right, desktop only -->
-      {reviews.length > 0 && (
-      <div class="hidden md:block absolute bottom-6 right-6 lg:bottom-8 lg:right-8 w-72 lg:w-80 bg-white/95 backdrop-blur-sm rounded-xl shadow-2xl p-4">
-        <div class="flex items-center justify-between mb-3">
-          <div class="flex items-center gap-1.5">
-            <svg id="hero-review-google-logo" width="16" height="16" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="display:none;">
-              <path fill="#EA4335" d="M24 9.5c3.5 0 6.6 1.2 9.1 3.2l6.8-6.8C35.6 2.4 30.1 0 24 0 14.7 0 6.7 5.5 2.7 13.5l7.9 6.1C12.5 13.1 17.8 9.5 24 9.5z"/>
-              <path fill="#4285F4" d="M46.5 24.5c0-1.6-.1-3.1-.4-4.5H24v8.5h12.7c-.6 3-2.3 5.5-4.8 7.2l7.5 5.8c4.4-4.1 7.1-10.1 7.1-17z"/>
-              <path fill="#FBBC05" d="M10.6 28.6A14.5 14.5 0 0 1 9.5 24c0-1.6.3-3.2.8-4.6L2.4 13.2A23.9 23.9 0 0 0 0 24c0 3.9.9 7.5 2.5 10.8l8.1-6.2z"/>
-              <path fill="#34A853" d="M24 48c6.1 0 11.2-2 14.9-5.4l-7.5-5.8c-2 1.4-4.6 2.2-7.4 2.2-6.2 0-11.5-4.2-13.4-9.8l-8 6.2C6.5 42.5 14.6 48 24 48z"/>
-            </svg>
-            <span id="hero-review-source" class="text-gray-500 text-xs font-semibold"></span>
-          </div>
-          <div id="hero-review-stars" class="flex gap-0.5"></div>
-        </div>
-        <blockquote id="hero-review-text" class="text-gray-800 text-sm leading-relaxed mb-2" style="transition: opacity 0.3s ease; min-height: 64px;"></blockquote>
-        <p id="hero-review-name" class="font-bold text-gray-700 text-xs mb-3" style="transition: opacity 0.3s ease;"></p>
-        <div class="flex items-center justify-center gap-1.5">
-          {reviews.map((_, i) => (
-            <button
-              class="hero-review-dot rounded-full border-0 cursor-pointer bg-gray-300"
-              style="width:6px;height:6px;transition:all 0.3s ease;"
-              data-index={String(i)}
-              aria-label={'Mostrar resena ' + (i + 1)}
-            ></button>
-          ))}
-        </div>
-      </div>
-      )}
+      <!-- Tarjeta de resena rotativa: escritorio abajo a la derecha; movil tiene la suya bajo los CTA -->
+      <ReviewRotator reviews={heroReviews} lang="es" class="hidden md:block absolute bottom-6 right-6 lg:bottom-8 lg:right-8 w-72 lg:w-80" />
     </div>
 
     <div class="relative z-10 w-full max-w-7xl mx-auto px-6 lg:px-8 pt-4 pb-8 md:py-10">
@@ -143,70 +120,12 @@ const featured = vehicles.filter(v => (v as any).status !== 'sold').slice(0, 6);
             Ver Inventario <span class="material-symbols-outlined">arrow_forward</span>
           </a>
         </div>
+
+        <!-- Tarjeta de resena para movil (la de escritorio va sobre la foto del hero) -->
+        <ReviewRotator reviews={heroReviews} lang="es" class="md:hidden mt-8 w-full" />
       </div>
     </div>
   </section>
-
-  <div id="hero-reviews-data" data-reviews={JSON.stringify(reviews)} hidden aria-hidden="true"></div>
-
-  <script is:inline>
-    const heroReviews = JSON.parse(document.getElementById('hero-reviews-data').dataset.reviews);
-    const textEl = document.getElementById('hero-review-text');
-    const nameEl = document.getElementById('hero-review-name');
-    const sourceEl = document.getElementById('hero-review-source');
-    const googleLogo = document.getElementById('hero-review-google-logo');
-    const starsEl = document.getElementById('hero-review-stars');
-    const dots = Array.from(document.querySelectorAll('.hero-review-dot'));
-    let current = 0;
-    let timer;
-
-    // La marca de Google se muestra solo en resenas cuyo origen es Google.
-    function renderAttribution(review) {
-      const isGoogle = review.source === 'Google';
-      googleLogo.style.display = isGoogle ? '' : 'none';
-      sourceEl.textContent = isGoogle ? 'Resena de Google' : 'Resena de ' + review.source;
-      starsEl.textContent = '★'.repeat(review.rating);
-      starsEl.className = 'flex gap-0.5 text-orange text-sm leading-none';
-      starsEl.setAttribute('aria-label', review.rating + ' estrellas');
-    }
-
-    function showReview(i, animate) {
-      if (animate) {
-        textEl.style.opacity = '0';
-        nameEl.style.opacity = '0';
-      }
-      setTimeout(() => {
-        textEl.textContent = '"' + heroReviews[i].text + '"';
-        nameEl.textContent = heroReviews[i].name;
-        renderAttribution(heroReviews[i]);
-        textEl.style.opacity = '1';
-        nameEl.style.opacity = '1';
-      }, animate ? 300 : 0);
-      dots.forEach((d, j) => {
-        d.style.width  = j === i ? '20px' : '6px';
-        d.style.height = '6px';
-        d.style.background = j === i ? '#E85D26' : '#D1D5DB';
-      });
-      current = i;
-    }
-
-    function startTimer() {
-      timer = setInterval(() => showReview((current + 1) % heroReviews.length, true), 6000);
-    }
-
-    dots.forEach((d, i) => {
-      d.addEventListener('click', () => {
-        clearInterval(timer);
-        showReview(i, true);
-        startTimer();
-      });
-    });
-
-    if (heroReviews.length && textEl) {
-      showReview(0, false);
-      startTimer();
-    }
-  </script>
 
   <!-- Vehiculos Destacados -->
   <section class="py-10 bg-surface">
@@ -327,13 +246,16 @@ const featured = vehicles.filter(v => (v as any).status !== 'sold').slice(0, 6);
         </div>
         <h2 class="font-headline text-3xl md:text-5xl font-extrabold mb-3">{reviewsMeta.rating.toFixed(1)} Estrellas en Google</h2>
         <p class="text-gray-400 text-lg">{reviewsMeta.count}+ resenas de vecinos del North Shore</p>
+        {offGoogleSources.length > 0 && (
+          <p class="text-gray-400 text-sm mt-4">Resenas recientes de {offGoogleSources.join(' y ')}</p>
+        )}
       </div>
       {reviews.length > 0 && (
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div class="flex gap-6 overflow-x-auto snap-x snap-mandatory pb-4 -mx-6 px-6 md:mx-0 md:px-0 md:pb-0 md:grid md:grid-cols-3 md:overflow-x-visible">
         {reviews.map(review => (
-          <div class="bg-white/5 p-8 rounded-xl border border-white/10">
-            <div class="flex items-center gap-1 mb-4">
-              {[1,2,3,4,5].map(() => (
+          <div class="bg-white/5 p-8 rounded-xl border border-white/10 shrink-0 w-[85vw] snap-center md:w-auto md:shrink">
+            <div class="flex items-center gap-1 mb-4" aria-label={review.rating + ' estrellas'}>
+              {Array.from({ length: review.rating }).map(() => (
                 <span class="material-symbols-outlined text-orange text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
               ))}
             </div>
