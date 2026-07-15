@@ -1,6 +1,6 @@
 {
   "source": "pka_hub.db ma_vehicles",
-  "generated_at": "2026-07-14T19:00:04.748Z",
+  "generated_at": "2026-07-15T07:00:05.487Z",
   "by_vin": {
     "JTJBK1BA4E2462410": "350",
     "1FMCU0J95HUE21095": "Titanium",
@@ -114,6 +114,7 @@
     "KMHRB8A30MU097803": "SE",
     "3VWH17AU6HM534619": "TSI S",
     "WVGBV7AX5GW002523": "2.0T SE 4Motion",
-    "3CZRU6H34KG719886": "LX"
+    "3CZRU6H34KG719886": "LX",
+    "2A4RR8DG6BR759189": "Touring-L"
   }
 }

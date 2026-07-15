@@ -1,6 +1,6 @@
 {
   "source": "pka_hub.db ma_vehicles + vPIC",
-  "generated_at": "2026-07-14",
+  "generated_at": "2026-07-15",
   "by_vin": {
     "19XFB2F73FE078163": {
       "slug": "2015-honda-civic-se",
@@ -280,78 +280,8 @@
       "makeSlug": "honda",
       "bodyStyleSlug": "suvs",
       "description": "2016 Honda CR-V LX. Remote start, cooled down by the time you enter, AWD, backup cam, and legendary reliability. Silver on charcoal, automatic, 2.4L. A family SUV ready for Chicago summer road trips and year round commuting in the suburbs. The AC blows ice cold, and it is great on gas for an SUV, returning up to 31 mpg on the highway. Key features: 4WD, Honda's bulletproof 2.4L engine, automatic transmission, sport utility 4 door configuration, A/C, power windows and locks, cruise control. Practical cargo space and rear seat room, perfect first family car or commuter. The Maxim Autos Difference Independent inspection report included with every vehicle Metal plates issued on the spot, drive home today Transparent pricing, no hidden fees Financing for all credit levels Located in Skokie, IL, serving Evanston, Niles, Morton Grove, Lincolnwood, Des Plaines, and the entire North Shore Chicago area. Same day appointments available, call or stop by today. Every car inspected. Every price transparent. Every customer protected.",
-      "dealRating": "FAIR_PRICE",
-      "priceSavings": 207
-    },
-    "WVGBV7AX5GW002523": {
-      "slug": "2016-volkswagen-tiguan-se-4motion-j10212",
-      "year": 2016,
-      "make": "Volkswagen",
-      "model": "Tiguan",
-      "trim": "SE 4Motion",
-      "price": 9995,
-      "mileage": 73717,
-      "exteriorColor": "Burgundy",
-      "interiorColor": "Beige",
-      "engine": "200 hp 2L I4",
-      "transmission": "Automatic",
-      "drivetrain": "AWD",
-      "fuelType": "Gasoline",
-      "bodyStyle": "SUV",
-      "vin": "WVGBV7AX5GW002523",
-      "condition": "Used",
-      "inspected": true,
-      "warranty": "15 Day / 500 Mile Powertrain Protection",
-      "carfax": true,
-      "inspection": true,
-      "features": [
-        "Sunroof/Moonroof",
-        "Navigation System",
-        "Alloy Wheels",
-        "Bluetooth",
-        "Backup Camera",
-        "Heated Seats"
-      ],
-      "highlights": [
-        "SE 4Motion trim",
-        "73,645 miles",
-        "Fully inspected, free CARFAX"
-      ],
-      "status": "available",
-      "dateAdded": "2026-07-05",
-      "featured": true,
-      "sortOrder": 0,
-      "stockNumber": "J10212",
-      "dealerCenterUrl": "",
-      "primaryPhotoUrl": "https://imagesdl.dealercenter.net/1289/856/202607-b1332f81a5a04cc5ba71a0fa883a63d2.jpg",
-      "photoUrls": [
-        "https://imagesdl.dealercenter.net/1289/856/202607-b1332f81a5a04cc5ba71a0fa883a63d2.jpg",
-        "https://imagesdl.dealercenter.net/1289/856/202607-d6e8c637108d4702a507b1bb646ed8a7.jpg",
-        "https://imagesdl.dealercenter.net/1289/856/202607-7727569b8c5442db83cbd53c524b0555.jpg",
-        "https://imagesdl.dealercenter.net/1289/856/202607-2135d3701a134b60807a5acadd9e618e.jpg",
-        "https://imagesdl.dealercenter.net/1289/856/202607-17a8912e5b8441f38b839a00098ac1d1.jpg",
-        "https://imagesdl.dealercenter.net/1289/856/202607-b5b8809888f3495c825f93efc14366c7.jpg",
-        "https://imagesdl.dealercenter.net/1289/856/202607-bcc14b43950a4a469b13720e5bb0234d.jpg",
-        "https://imagesdl.dealercenter.net/1289/856/202607-282e096d79414cb9b0795045dcf14536.jpg",
-        "https://imagesdl.dealercenter.net/1289/856/202607-a69449e9f1fe4f7b8a96569f2c1b6570.jpg",
-        "https://imagesdl.dealercenter.net/1289/856/202607-065b5436d75f4dedb160d4f20854c768.jpg",
-        "https://imagesdl.dealercenter.net/1289/856/202607-58c70136df7a4e4e952c94ad8b813867.jpg",
-        "https://imagesdl.dealercenter.net/1289/856/202607-d33d2f9d5a3849068ffdf4408175db50.jpg",
-        "https://imagesdl.dealercenter.net/1289/856/202607-9a9159e87b8c4cbfaa395f2f365370cc.jpg",
-        "https://imagesdl.dealercenter.net/1289/856/202607-c862593dd001403aac901d03ef52fdd3.jpg"
-      ],
-      "photos": {
-        "exterior": 14,
-        "interior": 0,
-        "source": "dealercenter"
-      },
-      "photoPath": "",
-      "photoPrefix": "2016-volkswagen-tiguan-se-4motion",
-      "makeSlug": "volkswagen",
-      "bodyStyleSlug": "suvs",
-      "description": "The 2016 Volkswagen Tiguan SE 4Motion offers turbocharged AWD performance, near luxury cabin quality, and confident German engineered handling. Burgundy exterior, automatic transmission, 2.0L turbo four cylinder. This Tiguan delivers a genuinely sporty ride with a fit and finish that punches above its price point. Key features: 2.0L TSI turbocharged engine making 200 horsepower, 6 speed automatic Tiptronic transmission, 4Motion all wheel drive for confident handling in Chicago winters, sliding and reclining second row seats for flexible cargo and passenger space, V Tex leatherette seating, heated front seats, dual zone climate control, panoramic sunroof, and VW's MIB II touchscreen infotainment with Bluetooth and smartphone integration. A practical, well equipped compact SUV built for year round driving. The Maxim Autos Difference Independent inspection report included with every vehicle Metal plates issued on the spot, drive home today Transparent pricing, no hidden fees Financing for all credit levels Located in Skokie, IL, minutes from Evanston, Niles, Morton Grove, Lincolnwood, Des Plaines, and the greater North Shore Chicago area. Call today to schedule a same-day appointment. Every car inspected. Every price transparent. Every customer protected.",
       "dealRating": "GOOD_PRICE",
-      "priceSavings": 1545
+      "priceSavings": 837
     },
     "YV4612HK5G1013479": {
       "slug": "2016-volvo-v60-cross-country-j10208",
