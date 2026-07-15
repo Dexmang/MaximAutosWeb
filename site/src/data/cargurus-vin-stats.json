@@ -1,6 +1,88 @@
 {
-  "last_updated": "2026-07-15T13:19:47.306Z",
+  "last_updated": "2026-07-15T18:59:25.297Z",
   "period_start": "2026-07-08",
   "period_end": "2026-07-15",
-  "by_vin": {}
+  "by_vin": {
+    "KMHRB8A30MU097803": {
+      "srp_views": 898,
+      "vdp_views": 44,
+      "leads_email": 0,
+      "leads_phone": 0,
+      "leads_chat": 0,
+      "website_clicks": 0,
+      "map_clicks": 0
+    },
+    "3CZRU6H34KG719886": {
+      "srp_views": 410,
+      "vdp_views": 61,
+      "leads_email": 4,
+      "leads_phone": 1,
+      "leads_chat": 0,
+      "website_clicks": 0,
+      "map_clicks": 0
+    },
+    "JM3KFACL4H0167208": {
+      "srp_views": 858,
+      "vdp_views": 115,
+      "leads_email": 3,
+      "leads_phone": 0,
+      "leads_chat": 0,
+      "website_clicks": 7,
+      "map_clicks": 2
+    },
+    "WVGBV7AX5GW002523": {
+      "srp_views": 2562,
+      "vdp_views": 88,
+      "leads_email": 2,
+      "leads_phone": 1,
+      "leads_chat": 0,
+      "website_clicks": 1,
+      "map_clicks": 0
+    },
+    "YV4902RS0F2652862": {
+      "srp_views": 1066,
+      "vdp_views": 65,
+      "leads_email": 2,
+      "leads_phone": 1,
+      "leads_chat": 0,
+      "website_clicks": 1,
+      "map_clicks": 0
+    },
+    "5J6RM4H3XGL120098": {
+      "srp_views": 876,
+      "vdp_views": 29,
+      "leads_email": 1,
+      "leads_phone": 0,
+      "leads_chat": 0,
+      "website_clicks": 0,
+      "map_clicks": 0
+    },
+    "YV4612HK5G1013479": {
+      "srp_views": 853,
+      "vdp_views": 51,
+      "leads_email": 0,
+      "leads_phone": 0,
+      "leads_chat": 0,
+      "website_clicks": 2,
+      "map_clicks": 0
+    },
+    "19XFB2F73FE078163": {
+      "srp_views": 2217,
+      "vdp_views": 107,
+      "leads_email": 2,
+      "leads_phone": 0,
+      "leads_chat": 0,
+      "website_clicks": 1,
+      "map_clicks": 2
+    },
+    "3VWH17AU6HM534619": {
+      "srp_views": 738,
+      "vdp_views": 47,
+      "leads_email": 0,
+      "leads_phone": 0,
+      "leads_chat": 0,
+      "website_clicks": 1,
+      "map_clicks": 0
+    }
+  }
 }
