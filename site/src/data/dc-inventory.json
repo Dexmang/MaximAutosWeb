@@ -1,6 +1,6 @@
 {
   "source": "pka_hub.db ma_vehicles + vPIC",
-  "generated_at": "2026-07-15",
+  "generated_at": "2026-07-16",
   "by_vin": {
     "19XFB2F73FE078163": {
       "slug": "2015-honda-civic-se",
@@ -76,7 +76,7 @@
       "make": "Honda",
       "model": "HR-V",
       "trim": "LX AWD",
-      "price": 15950,
+      "price": 14995,
       "mileage": 79083,
       "exteriorColor": "Black",
       "interiorColor": "Black",
@@ -146,7 +146,7 @@
       "make": "Volkswagen",
       "model": "Golf Alltrack",
       "trim": "S 4Motion AWD",
-      "price": 13995,
+      "price": 12950,
       "mileage": 76398,
       "exteriorColor": "White",
       "interiorColor": "Beige",
@@ -283,79 +283,6 @@
       "dealRating": "FAIR_PRICE",
       "priceSavings": 27
     },
-    "YV4612HK5G1013479": {
-      "slug": "2016-volvo-v60-cross-country-j10208",
-      "year": 2016,
-      "make": "Volvo",
-      "model": "V60",
-      "trim": "Cross Country",
-      "price": 9750,
-      "mileage": 122491,
-      "exteriorColor": "Black",
-      "interiorColor": "Black",
-      "engine": "250 hp 2.5L I5",
-      "transmission": "Automatic",
-      "drivetrain": "AWD",
-      "fuelType": "Gasoline",
-      "bodyStyle": "Wagon",
-      "vin": "YV4612HK5G1013479",
-      "condition": "Used",
-      "inspected": true,
-      "warranty": "15 Day / 500 Mile Powertrain Protection",
-      "carfax": true,
-      "inspection": true,
-      "features": [
-        "Leather Seats",
-        "Sunroof/Moonroof",
-        "Navigation System",
-        "Alloy Wheels",
-        "Bluetooth",
-        "Backup Camera",
-        "Blind Spot Monitoring",
-        "Parking Sensors",
-        "Heated Seats"
-      ],
-      "highlights": [
-        "SV33 Premier trim",
-        "122,491 miles",
-        "Fully inspected, free CARFAX"
-      ],
-      "status": "available",
-      "dateAdded": "2026-06-18",
-      "featured": true,
-      "sortOrder": 0,
-      "stockNumber": "J10208",
-      "dealerCenterUrl": "",
-      "primaryPhotoUrl": "https://imagesdl.dealercenter.net/1289/856/202607-ca7572fd1c264dbd94a7b302100b08a7.jpg",
-      "photoUrls": [
-        "https://imagesdl.dealercenter.net/1289/856/202607-ca7572fd1c264dbd94a7b302100b08a7.jpg",
-        "https://imagesdl.dealercenter.net/1289/856/202606-54828c2133b24f42bf89bad00d3da4c5.jpg",
-        "https://imagesdl.dealercenter.net/1289/856/202606-7f3082d12ea2406a9bcdd9e255584189.jpg",
-        "https://imagesdl.dealercenter.net/1289/856/202606-f41809d50aac40548bd1ca17c6f423e4.jpg",
-        "https://imagesdl.dealercenter.net/1289/856/202606-325e3cc8041c4bd3969ef0619c51e276.jpg",
-        "https://imagesdl.dealercenter.net/1289/856/202606-1d862a74374946fd9443c6f0cb7ff5ab.jpg",
-        "https://imagesdl.dealercenter.net/1289/856/202606-30019db81671403aa9e0532bc36b19b5.jpg",
-        "https://imagesdl.dealercenter.net/1289/856/202606-a2d0ed79897c4c4c943012fb47deb0a3.jpg",
-        "https://imagesdl.dealercenter.net/1289/856/202606-6495ca0dee344f2f8c650d868097bf90.jpg",
-        "https://imagesdl.dealercenter.net/1289/856/202606-f9f7449fc43840d0a6de9643b5c2bc71.jpg",
-        "https://imagesdl.dealercenter.net/1289/856/202606-aad124408cc94b43b425f86cd3f68dc6.jpg",
-        "https://imagesdl.dealercenter.net/1289/856/202606-b37c3de3d8ee45a2ba2df238d7d5509b.jpg",
-        "https://imagesdl.dealercenter.net/1289/856/202606-1bc6079d76eb4d59b6f905bd2ebbc888.jpg",
-        "https://imagesdl.dealercenter.net/1289/856/202606-a7f15af5e38a4f2eb9f8270b4c0af59a.jpg"
-      ],
-      "photos": {
-        "exterior": 14,
-        "interior": 0,
-        "source": "dealercenter"
-      },
-      "photoPath": "",
-      "photoPrefix": "2016-volvo-v60-sv33-premier",
-      "makeSlug": "volvo",
-      "bodyStyleSlug": "wagons",
-      "description": "2016 Volvo V60 Cross Country T5, Adventure ready and great everyday driver. An AWD wagon with a turbocharged 2.5L engine, heated leather seats, a heated steering wheel, and a sunroof. Yakima RoofRacks and extras. Black on a black leather interior with a smooth automatic. Built for drivers who want all weather grip and real wagon space without stepping up to a full size SUV. Even with standard all wheel drive, it stays easy on gas at up to 28 mpg on the highway. The AC blows ice cold to keep you cool through hot Chicago summers. Key features: AWD with a turbocharged 2.5L engine, leather seating, heated front seats and heated steering wheel, sunroof, navigation, blind spot monitor, lane departure warning, memory driver seat, power seats, rear parking sensors, full roof rack, backup camera, smart key entry, Bluetooth, and alloy wheels. The Cross Country trim adds raised ground clearance and rugged body cladding, so you get confident traction through Chicago winters with the cargo room and ride comfort of a wagon. The Maxim Autos Difference Independent inspection report included with every vehicle Metal plates issued same day so you can drive home today Transparent pricing with no hidden fees Financing for all credit levels Located in Skokie, IL, serving Evanston, Niles, Morton Grove, Lincolnwood, Des Plaines, and the North Shore Chicago area. Same day appointments available, call us to set up a time to see this Volvo. Every car inspected. Every price transparent. Every customer protected.",
-      "dealRating": "GOOD_PRICE",
-      "priceSavings": 1299
-    },
     "YV4902RS0F2652862": {
       "slug": "2015-volvo-xc60",
       "year": 2015,
@@ -431,7 +358,7 @@
       "bodyStyleSlug": "suvs",
       "description": "2015 Volvo XC60 T6 R-Design Platinum. 325 HP Turbo, AWD, Paddle Shifters, Harman Kardon Audio, Panoramic Sunroof, Navigation, Adaptive Cruise Control, Full Safety Package. Gray on black, automatic, 3.0L Turbo. A Scandinavian performance crossover that looks refined and drives like a sports car, 0 to 60 in roughly 6 seconds. Surprisingly easy on gas for a 325 horsepower all wheel drive performance SUV, returning up to 24 mpg on the highway. Dual zone climate control blows ice cold, so the cabin stays comfortable through the hottest Chicago summer. Key features: turbocharged 3.0L inline six with 325 HP and 365 lb-ft of torque, all wheel drive, paddle shifters, R-Design sport package with 20 inch alloy wheels, aggressive front grille, rear diffuser and dual exhausts, sport leather seats with heat front and rear, heated steering wheel, panoramic sunroof, Harman Kardon 12 speaker premium audio, navigation, power tailgate, proximity keyless entry, Adaptive Cruise Control with queue assist, Collision Warning with auto brake, Pedestrian Detection, Blind Spot Information System, and Lane Departure Warning. Nearly 9 inches of ground clearance and over 67 cubic feet of cargo with rear seats folded. The Maxim Autos Difference Independent inspection report included with every vehicle Metal plates issued on the spot, drive home today Transparent pricing, no hidden fees Financing for all credit levels Located in Skokie, IL, serving Evanston, Niles, Morton Grove, Lincolnwood, Des Plaines, and the entire North Shore Chicago area. Same day appointments available, call or stop by today. Every car inspected. Every price transparent. Every customer protected.",
       "dealRating": "FAIR_PRICE",
-      "priceSavings": -4
+      "priceSavings": 375
     }
   }
 }
