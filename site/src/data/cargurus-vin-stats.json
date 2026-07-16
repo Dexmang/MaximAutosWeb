@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-07-16T13:26:39.912Z",
+  "last_updated": "2026-07-16T18:59:37.087Z",
   "period_start": "2026-07-09",
   "period_end": "2026-07-16",
   "by_vin": {
@@ -12,23 +12,23 @@
       "website_clicks": 0,
       "map_clicks": 0
     },
-    "JM3KFACL4H0167208": {
-      "srp_views": 373,
-      "vdp_views": 42,
-      "leads_email": 0,
-      "leads_phone": 0,
-      "leads_chat": 0,
-      "website_clicks": 2,
-      "map_clicks": 0
-    },
     "3CZRU6H34KG719886": {
-      "srp_views": 543,
-      "vdp_views": 66,
+      "srp_views": 608,
+      "vdp_views": 76,
       "leads_email": 4,
       "leads_phone": 1,
       "leads_chat": 0,
       "website_clicks": 0,
       "map_clicks": 0
+    },
+    "JM3KFACL4H0167208": {
+      "srp_views": 373,
+      "vdp_views": 42,
+      "leads_email": 3,
+      "leads_phone": 0,
+      "leads_chat": 0,
+      "website_clicks": 2,
+      "map_clicks": 2
     },
     "WVGBV7AX5GW002523": {
       "srp_views": 2181,
@@ -40,25 +40,16 @@
       "map_clicks": 0
     },
     "YV4902RS0F2652862": {
-      "srp_views": 1061,
-      "vdp_views": 62,
+      "srp_views": 1105,
+      "vdp_views": 68,
       "leads_email": 1,
       "leads_phone": 1,
-      "leads_chat": 0,
-      "website_clicks": 0,
-      "map_clicks": 0
-    },
-    "YV4612HK5G1013479": {
-      "srp_views": 811,
-      "vdp_views": 49,
-      "leads_email": 0,
-      "leads_phone": 0,
       "leads_chat": 0,
       "website_clicks": 2,
       "map_clicks": 0
     },
     "5J6RM4H3XGL120098": {
-      "srp_views": 819,
+      "srp_views": 843,
       "vdp_views": 31,
       "leads_email": 1,
       "leads_phone": 0,
@@ -66,23 +57,32 @@
       "website_clicks": 0,
       "map_clicks": 0
     },
+    "YV4612HK5G1013479": {
+      "srp_views": 812,
+      "vdp_views": 49,
+      "leads_email": 0,
+      "leads_phone": 0,
+      "leads_chat": 0,
+      "website_clicks": 2,
+      "map_clicks": 0
+    },
+    "19XFB2F73FE078163": {
+      "srp_views": 2098,
+      "vdp_views": 104,
+      "leads_email": 2,
+      "leads_phone": 0,
+      "leads_chat": 0,
+      "website_clicks": 0,
+      "map_clicks": 1
+    },
     "3VWH17AU6HM534619": {
-      "srp_views": 687,
-      "vdp_views": 46,
+      "srp_views": 720,
+      "vdp_views": 48,
       "leads_email": 0,
       "leads_phone": 0,
       "leads_chat": 0,
       "website_clicks": 1,
       "map_clicks": 0
-    },
-    "19XFB2F73FE078163": {
-      "srp_views": 2069,
-      "vdp_views": 103,
-      "leads_email": 0,
-      "leads_phone": 0,
-      "leads_chat": 0,
-      "website_clicks": 0,
-      "map_clicks": 1
     }
   }
 }
