@@ -4,7 +4,7 @@
   <title>Maxim Autos — Vehicle Inventory</title>
   <link>https://www.maximautos.com/</link>
   <description>Used vehicles for sale at Maxim Autos in Skokie, IL 60077. Phone +18475108947.</description>
-  <lastBuildDate>2026-07-16T01:56:09.905Z</lastBuildDate>
+  <lastBuildDate>2026-07-16T07:59:33.209Z</lastBuildDate>
   <item>
     <g:id>19XFB2F73FE078163</g:id>
     <g:title>2015 Honda Civic SE</g:title>
@@ -59,7 +59,7 @@
     <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202607-550ee4aa0d8c45ba9833f7bc25a18a78.jpg</g:additional_image_link>
     <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202607-fb4a1080552f4c708148ff87d3c5698d.jpg</g:additional_image_link>
     <g:condition>used</g:condition>
-    <g:price>15950 USD</g:price>
+    <g:price>14995 USD</g:price>
     <g:availability>in_stock</g:availability>
     <g:brand>Honda</g:brand>
     <g:google_product_category>Vehicles &amp; Parts &gt; Vehicles &gt; Motor Vehicles &gt; Cars, Trucks &amp; Vans</g:google_product_category>
@@ -95,7 +95,7 @@
     <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202607-74b1bdaede1e418ca630db89a1099c84.jpg</g:additional_image_link>
     <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202607-9e883bbc0f694323b784c6b1bdd77d8b.jpg</g:additional_image_link>
     <g:condition>used</g:condition>
-    <g:price>13995 USD</g:price>
+    <g:price>12950 USD</g:price>
     <g:availability>in_stock</g:availability>
     <g:brand>Volkswagen</g:brand>
     <g:google_product_category>Vehicles &amp; Parts &gt; Vehicles &gt; Motor Vehicles &gt; Cars, Trucks &amp; Vans</g:google_product_category>
@@ -148,42 +148,6 @@
     <g:trim>LX AWD</g:trim>
     <g:body_style>suv</g:body_style>
     <g:color>Silver</g:color>
-  </item>
-  <item>
-    <g:id>YV4612HK5G1013479</g:id>
-    <g:title>2016 Volvo V60 Cross Country</g:title>
-    <g:description>2016 Volvo V60 Cross Country T5, Adventure ready and great everyday driver. An AWD wagon with a turbocharged 2.5L engine, heated leather seats, a heated steering wheel, and a sunroof. Yakima RoofRacks and extras. Black on a black leather interior with a smooth automatic. Built for drivers who want all weather grip and real wagon space without stepping up to a full size SUV. Even with standard all wheel drive, it stays easy on gas at up to 28 mpg on the highway. The AC blows ice cold to keep you cool through hot Chicago summers. Key features: AWD with a turbocharged 2.5L engine, leather seating, heated front seats and heated steering wheel, sunroof, navigation, blind spot monitor, lane departure warning, memory driver seat, power seats, rear parking sensors, full roof rack, backup camera, smart key entry, Bluetooth, and alloy wheels. The Cross Country trim adds raised ground clearance and rugged body cladding, so you get confident traction through Chicago winters with the cargo room and ride comfort of a wagon. The Maxim Autos Difference Independent inspection report included with every vehicle Metal plates issued same day so you can drive home today Transparent pricing with no hidden fees Financing for all credit levels Located in Skokie, IL, serving Evanston, Niles, Morton Grove, Lincolnwood, Des Plaines, and the North Shore Chicago area. Same day appointments available, call us to set up a time to see this Volvo. Every car inspected. Every price transparent. Every customer protected.</g:description>
-    <g:link>https://www.maximautos.com/vehicle/2016-volvo-v60-cross-country-j10208/</g:link>
-    <g:link_template>https://www.maximautos.com/vehicle/2016-volvo-v60-cross-country-j10208/?store={store_code}</g:link_template>
-    <g:image_link>https://imagesdl.dealercenter.net/1289/856/202607-ca7572fd1c264dbd94a7b302100b08a7.jpg</g:image_link>
-    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202606-54828c2133b24f42bf89bad00d3da4c5.jpg</g:additional_image_link>
-    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202606-7f3082d12ea2406a9bcdd9e255584189.jpg</g:additional_image_link>
-    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202606-f41809d50aac40548bd1ca17c6f423e4.jpg</g:additional_image_link>
-    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202606-325e3cc8041c4bd3969ef0619c51e276.jpg</g:additional_image_link>
-    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202606-1d862a74374946fd9443c6f0cb7ff5ab.jpg</g:additional_image_link>
-    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202606-30019db81671403aa9e0532bc36b19b5.jpg</g:additional_image_link>
-    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202606-a2d0ed79897c4c4c943012fb47deb0a3.jpg</g:additional_image_link>
-    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202606-6495ca0dee344f2f8c650d868097bf90.jpg</g:additional_image_link>
-    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202606-f9f7449fc43840d0a6de9643b5c2bc71.jpg</g:additional_image_link>
-    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202606-aad124408cc94b43b425f86cd3f68dc6.jpg</g:additional_image_link>
-    <g:condition>used</g:condition>
-    <g:price>9750 USD</g:price>
-    <g:availability>in_stock</g:availability>
-    <g:brand>Volvo</g:brand>
-    <g:google_product_category>Vehicles &amp; Parts &gt; Vehicles &gt; Motor Vehicles &gt; Cars, Trucks &amp; Vans</g:google_product_category>
-    <g:excluded_destination>Shopping_ads</g:excluded_destination>
-    <g:excluded_destination>Free_listings</g:excluded_destination>
-    <g:vin>YV4612HK5G1013479</g:vin>
-    <g:year>2016</g:year>
-    <g:model>V60</g:model>
-    <g:mileage>122491 Miles</g:mileage>
-    <g:store_code>08861907241419503398</g:store_code>
-    <g:vehicle_fulfillment>
-      <g:option>in_store</g:option>
-    </g:vehicle_fulfillment>
-    <g:trim>Cross Country</g:trim>
-    <g:body_style>station wagon</g:body_style>
-    <g:color>Black</g:color>
   </item>
   <item>
     <g:id>YV4902RS0F2652862</g:id>
