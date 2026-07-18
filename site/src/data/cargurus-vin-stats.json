@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-07-18T07:37:45.593Z",
+  "last_updated": "2026-07-18T12:57:45.421Z",
   "period_start": "2026-07-11",
   "period_end": "2026-07-18",
   "by_vin": {
@@ -13,8 +13,8 @@
       "map_clicks": 0
     },
     "3CZRU6H34KG719886": {
-      "srp_views": 1744,
-      "vdp_views": 142,
+      "srp_views": 1802,
+      "vdp_views": 144,
       "leads_email": 6,
       "leads_phone": 1,
       "leads_chat": 0,
@@ -31,7 +31,7 @@
       "map_clicks": 0
     },
     "YV4902RS0F2652862": {
-      "srp_views": 1079,
+      "srp_views": 1108,
       "vdp_views": 65,
       "leads_email": 1,
       "leads_phone": 1,
@@ -40,7 +40,7 @@
       "map_clicks": 0
     },
     "5J6RM4H3XGL120098": {
-      "srp_views": 700,
+      "srp_views": 702,
       "vdp_views": 35,
       "leads_email": 1,
       "leads_phone": 0,
@@ -58,7 +58,7 @@
       "map_clicks": 0
     },
     "19XFB2F73FE078163": {
-      "srp_views": 1739,
+      "srp_views": 1752,
       "vdp_views": 90,
       "leads_email": 1,
       "leads_phone": 0,
@@ -67,7 +67,7 @@
       "map_clicks": 2
     },
     "3VWH17AU6HM534619": {
-      "srp_views": 608,
+      "srp_views": 612,
       "vdp_views": 45,
       "leads_email": 0,
       "leads_phone": 0,
