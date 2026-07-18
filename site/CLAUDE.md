@@ -11,7 +11,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 > - **Never call a car "certified"** (no CPO program). **Keep the all-in zero-doc-fee price.**
 > - **No overpromise:** never "Total Protection"/"total/complete/full protection"/"guaranteed" (cars are AS-IS). Powertrain claims must always say **"qualifying"** — never "on every sale" or unqualified.
 > - **NAP must match exactly:** Maxim Autos · 9101 Terminal Ave, Skokie, IL 60077 · (847) 510-8947 · lic. DL7667.
-> - **GBP is frozen** (suspension appeal pending, verdict ~Jul 17–18): no profile edits/posts/photos; no badge-graphic images ever.
+> - **GBP is frozen** (reinstated 7/14 but still UNVERIFIED — edits don't publish; support case 3-6365000041662 open): no profile edits/posts/photos until verification clears; no badge-graphic images ever.
 > If a change would break a rule, STOP and flag it.
 
 ## Commands
@@ -61,7 +61,13 @@ Other data files:
   feed has no status, so a pulled car looks identical to a sold one. The hold
   auto-releases when the VIN returns to the DC feed. Maintain with
   `operations/hold_unit.py`; full rationale in `operations/inventory-pipeline.md`.
-- `reviews.json` / `reviews_meta.json` — Google review content and aggregate rating
+- `reviews.json` — on-page review content, MIXED platforms, newest first. Every entry needs a
+  `source` (`"Google"`, `"Cars.com"`, ...) and a real `rating`; both drive rendering (see
+  `ReviewRotator.astro`). Hero rotators take `slice(0, 6)`; the grids and testimonials show all.
+  Hand-curated, not scraped — the scraper was retired 2026-05-25.
+- `reviews_meta.json` — aggregate rating + count. **Must equal the LIVE Google figure**
+  (guardrail A9/D2), Google-only regardless of what platforms `reviews.json` mixes in.
+  Also mirrored in prose in `web_assets/llms.txt` — update both together.
 - `suburbs.json` — powers the `used-cars-[city]-il.astro` dynamic SEO pages
 - `cargurus-vin-stats.json` / `cargurus-dealer-stats.json` — VDP view counts + dealer stats
 - `faq.json` — FAQ page content
@@ -71,6 +77,8 @@ Other data files:
 `src/layouts/Layout.astro` — the universal shell. Handles `<head>`, GA4 (pageview + `generate_lead` events), and the orange trust strip that appears on every page. Accepts named slots: `header`, `footer`, `structured-data`.
 
 `src/components/Header.astro` — sticky nav with mobile menu. Nav links are defined as arrays (`primaryLinks`, `secondaryLinks`) at the top of the frontmatter.
+
+`src/components/ReviewRotator.astro` — rotating review card, rendered TWICE per homepage (desktop card absolutely positioned over the hero photo, plus a mobile card in the hero content flow — the desktop one can't just be unhidden because on mobile the photo is a clipped 176px strip). Because it renders more than once, everything is scoped via `data-*` on the card, never ids; one hoisted script self-wires every `[data-review-rotator]`. `lang` prop switches EN/ES copy. **Compliance: attribution is driven by each review's `source` — the Google logo + "Google Review" label render ONLY for `source === 'Google'`. Never hardcode a platform label, and never emit non-Google reviews as `Review` JSON-LD.**
 
 `src/components/VehicleCard.astro` — inventory card used on the inventory page and homepage. Computes an estimated monthly payment inline (10% down, 9.9% APR, 60 months). Uses a stretched `<a>` link pattern with a `z-20` financing link layered on top.
 
