@@ -1,6 +1,6 @@
 {
   "source": "pka_hub.db ma_vehicles + vPIC",
-  "generated_at": "2026-07-18",
+  "generated_at": "2026-07-19",
   "by_vin": {
     "19XFB2F73FE078163": {
       "slug": "2015-honda-civic-se",
@@ -139,79 +139,6 @@
       "description": "2019 Honda HR-V LX AWD, the small SUV that lives bigger than its footprint. Black on black, CVT automatic, 1.8L i-VTEC engine with Real Time AWD. Easy to park in the city, easy on gas on the highway, and ready for four seasons of Chicago weather. Key features: Real Time AWD with Intelligent Control, Honda's Magic Seat second row that folds flat or flips up for tall cargo, multi angle rearview camera, Bluetooth audio and phone, cruise control, alloy wheels, and an EPA rated 27 city and 31 highway MPG. Fold the rear seats and the HR-V opens up 57.6 cubic feet of cargo room, among the best of any small SUV. The Maxim Autos Difference Independent inspection report included with every vehicle Metal plates issued on the spot, drive home today Transparent pricing, no hidden fees Financing for all credit levels Located in Skokie, IL, minutes from Evanston, Niles, Morton Grove, Lincolnwood, and Des Plaines, serving the entire North Shore Chicago area. Call (847) 510-8947 to set up a same day appointment. Every car inspected. Every price transparent. Every customer protected.",
       "dealRating": "GOOD_PRICE",
       "priceSavings": 1247
-    },
-    "3VWH17AU6HM534619": {
-      "slug": "2017-volkswagen-golf-alltrack-s-4motion-awd-j10211",
-      "year": 2017,
-      "make": "Volkswagen",
-      "model": "Golf Alltrack",
-      "trim": "S 4Motion AWD",
-      "price": 12950,
-      "mileage": 76398,
-      "exteriorColor": "White",
-      "interiorColor": "Beige",
-      "engine": "170 hp 1.8L I4",
-      "transmission": "Automatic",
-      "drivetrain": "AWD",
-      "fuelType": "Gasoline",
-      "bodyStyle": "Wagon",
-      "vin": "3VWH17AU6HM534619",
-      "condition": "Used",
-      "inspected": true,
-      "warranty": "15 Day / 500 Mile Powertrain Protection",
-      "carfax": true,
-      "inspection": true,
-      "features": [
-        "Alloy Wheels",
-        "Bluetooth",
-        "Backup Camera",
-        "Heated Seats",
-        "Android Auto",
-        "CarPlay"
-      ],
-      "highlights": [
-        "S 4Motion AWD trim",
-        "76,398 miles",
-        "Fully inspected, free CARFAX"
-      ],
-      "status": "available",
-      "dateAdded": "2026-07-05",
-      "featured": true,
-      "sortOrder": 0,
-      "stockNumber": "J10211",
-      "dealerCenterUrl": "",
-      "primaryPhotoUrl": "https://imagesdl.dealercenter.net/1289/856/202607-4ba6bdacedae4439871766e3f7d27fe9.jpg",
-      "photoUrls": [
-        "https://imagesdl.dealercenter.net/1289/856/202607-4ba6bdacedae4439871766e3f7d27fe9.jpg",
-        "https://imagesdl.dealercenter.net/1289/856/202607-254f7e9658044e859d507d339bd93c9a.jpg",
-        "https://imagesdl.dealercenter.net/1289/856/202607-4cd21465266f46e39f73261fcd7ad9c1.jpg",
-        "https://imagesdl.dealercenter.net/1289/856/202607-dc57c3820eb94b38ab59cfe4fc720520.jpg",
-        "https://imagesdl.dealercenter.net/1289/856/202607-fbe898d5f4bf4127bcbe4adc51db7ace.jpg",
-        "https://imagesdl.dealercenter.net/1289/856/202607-4735696c6e8e4668b95f367872151f7f.jpg",
-        "https://imagesdl.dealercenter.net/1289/856/202607-5615384cfa3b4cb4a14ccdc4fbcb6803.jpg",
-        "https://imagesdl.dealercenter.net/1289/856/202607-f68ecdbe01d745b3b5be9a14d69b0153.jpg",
-        "https://imagesdl.dealercenter.net/1289/856/202607-99dd9125060647f886e8705e6ae928c6.jpg",
-        "https://imagesdl.dealercenter.net/1289/856/202607-74b1bdaede1e418ca630db89a1099c84.jpg",
-        "https://imagesdl.dealercenter.net/1289/856/202607-9e883bbc0f694323b784c6b1bdd77d8b.jpg",
-        "https://imagesdl.dealercenter.net/1289/856/202607-d227ab111e154f08aad41db782d4e246.jpg",
-        "https://imagesdl.dealercenter.net/1289/856/202607-b6158d7ea96e456c923c3e5126c7daa2.jpg",
-        "https://imagesdl.dealercenter.net/1289/856/202607-30dbf613a9024f7bbe9eab815014c672.jpg",
-        "https://imagesdl.dealercenter.net/1289/856/202607-6086ad2b9a4a438d8dca5db6b98a4c3c.jpg",
-        "https://imagesdl.dealercenter.net/1289/856/202607-6976814b07df48e9a215818dd8ba0fef.jpg",
-        "https://imagesdl.dealercenter.net/1289/856/202607-ab2b2005916d4720aa88e7de6fc2dbe2.jpg"
-      ],
-      "photos": {
-        "exterior": 17,
-        "interior": 0,
-        "source": "dealercenter"
-      },
-      "photoPath": "",
-      "photoPrefix": "2017-volkswagen-golf-alltrack-s-4motion-awd",
-      "makeSlug": "volkswagen",
-      "bodyStyleSlug": "wagons",
-      "description": "2017 Volkswagen Golf Alltrack TSI S, 4Motion AWD, heated seats, Apple CarPlay and Android Auto. White on gray leatherette, 1.8L turbo engine, 6 speed DSG automatic. The wagon that hauls like a crossover and drives like a Golf, ready for Chicago in every season. Key features: standard 4Motion AWD, 170 hp 1.8L turbo engine, heated front seats, leatherette seating, touchscreen with Apple CarPlay and Android Auto, rearview camera, Bluetooth, cruise control, alloy wheels, rear spoiler, and a 5 star NHTSA safety rating. With 6.9 inches of ground clearance and a deep, unobstructed cargo bay, it carries bikes, strollers, or a full airport run without breaking a sweat. The Maxim Autos Difference Independent inspection report included with every vehicle Metal plates issued on the spot, drive home today Transparent pricing, no hidden fees Financing for all credit levels Located in Skokie, IL, minutes from Evanston, Niles, Morton Grove, Lincolnwood, and Des Plaines, serving the North Shore Chicago area. Call (847) 510-8947 to schedule a same day appointment. Every car inspected. Every price transparent. Every customer protected.",
-      "dealRating": "GREAT_PRICE",
-      "priceSavings": 2484
     },
     "5J6RM4H3XGL120098": {
       "slug": "2016-honda-cr-v-lx-awd",
