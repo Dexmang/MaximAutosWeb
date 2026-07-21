@@ -5,6 +5,7 @@ import json
 import os
 import urllib.parse
 import urllib.request
+from datetime import datetime
 
 from cryptography.fernet import Fernet
 
@@ -25,6 +26,16 @@ def _fetch_and_decrypt(blob_url: str) -> dict:
         raw = resp.read()
     key = os.environ["CREDIT_APP_KEY"].encode()
     return json.loads(Fernet(key).decrypt(raw))
+
+
+def _fmt_dob(value) -> str:
+    # Blob stores ISO YYYY-MM-DD (dc_credit_fill.py depends on it); Jerry reads MMDDYYYY.
+    if not value:
+        return value
+    try:
+        return datetime.strptime(str(value), "%Y-%m-%d").strftime("%m%d%Y")
+    except ValueError:
+        return value
 
 
 def _row(label: str, value) -> str:
@@ -55,7 +66,7 @@ def _render(data: dict) -> str:
         _row("Email", data.get("buyer_email")),
         _row("Cell Phone", data.get("buyer_cell_phone")),
         _row("Home Phone", data.get("buyer_home_phone")),
-        _row("Date of Birth", data.get("buyer_dob")),
+        _row("Date of Birth", _fmt_dob(data.get("buyer_dob"))),
         _row("SSN", ssn or data.get("buyer_ssn")),
         _row("DL Number", data.get("buyer_dl_number")),
         _row("DL State", data.get("buyer_dl_state")),
@@ -93,7 +104,7 @@ def _render(data: dict) -> str:
             _row("First Name", data.get("cobuyer_first_name")),
             _row("Last Name", data.get("cobuyer_last_name")),
             _row("Cell Phone", data.get("cobuyer_cell_phone")),
-            _row("Date of Birth", data.get("cobuyer_dob")),
+            _row("Date of Birth", _fmt_dob(data.get("cobuyer_dob"))),
             _row("Employer", data.get("cobuyer_employer")),
             _row("Monthly Income", data.get("cobuyer_monthly_income")),
         ]

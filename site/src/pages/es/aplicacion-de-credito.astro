@@ -38,10 +38,14 @@ const states = ['AL','AK','AZ','AR','CA','CO','CT','DE','FL','GA','HI','ID','IL'
       <!-- Buyer / Co-Buyer tabs -->
       <div class="flex border-b border-gray-300 mb-8">
         <button id="tab-buyer" class="app-tab app-tab--active px-6 py-3 font-bold text-sm" type="button">Titular</button>
-        <button id="tab-cobuyer" class="app-tab px-6 py-3 font-bold text-sm" type="button">Co-Titular</button>
+        <button id="tab-cobuyer" class="app-tab px-6 py-3 font-bold text-sm" type="button">Co-Titular <span class="font-normal text-xs text-gray-400">(Opcional)</span></button>
       </div>
 
-      <p class="text-sm text-gray-500 mb-6">Todos los campos marcados con <span class="text-red-500 font-bold">*</span> son obligatorios.</p>
+      <div class="bg-white border border-gray-200 rounded-xl px-5 py-4 mb-6 text-sm text-gray-600 flex flex-wrap items-center gap-x-6 gap-y-2">
+        <span><span class="text-red-500 font-bold">*</span> Campo obligatorio</span>
+        <span><span class="app-badge app-badge--req">Obligatorio</span> Seccion que debes completar</span>
+        <span><span class="app-badge app-badge--opt">Opcional</span> Omite lo que no aplique</span>
+      </div>
 
       <form id="apply-form" action="/api/credit-app" method="POST" class="space-y-8">
         <input type="hidden" name="_subject" value="Solicitud de Credito — Maxim Autos" />
@@ -52,7 +56,7 @@ const states = ['AL','AK','AZ','AR','CA','CO','CT','DE','FL','GA','HI','ID','IL'
 
           <!-- Informacion Personal -->
           <div class="app-section">
-            <h2 class="app-section-title">Informacion Personal</h2>
+            <h2 class="app-section-title">Informacion Personal <span class="app-badge app-badge--req">Obligatorio</span></h2>
             <div class="app-grid">
               <div>
                 <label class="app-label">Nombre <span class="text-red-500">*</span></label>
@@ -84,22 +88,22 @@ const states = ['AL','AK','AZ','AR','CA','CO','CT','DE','FL','GA','HI','ID','IL'
                 <p class="text-xs text-gray-400 mt-1">Requerido para procesar tu solicitud de credito. Enviado por conexion cifrada y nunca almacenado en nuestros servidores.</p>
               </div>
               <div>
-                <label class="app-label">Numero de Licencia de Conducir</label>
+                <label class="app-label">Numero de Licencia de Conducir <span class="text-gray-400 font-normal text-xs">(Opcional)</span></label>
                 <input type="text" name="buyer_dl_number" class="app-input" placeholder="Numero de licencia" />
               </div>
               <div>
-                <label class="app-label">Estado de la Licencia</label>
+                <label class="app-label">Estado de la Licencia <span class="text-gray-400 font-normal text-xs">(Opcional)</span></label>
                 <select name="buyer_dl_state" class="app-input">
                   <option value="">Estado</option>
                   {states.map(s => <option value={s}>{s}</option>)}
                 </select>
               </div>
               <div>
-                <label class="app-label">Fecha de Emision de Licencia</label>
+                <label class="app-label">Fecha de Emision de Licencia <span class="text-gray-400 font-normal text-xs">(Opcional)</span></label>
                 <input type="date" name="buyer_dl_issue" class="app-input" />
               </div>
               <div>
-                <label class="app-label">Fecha de Vencimiento de Licencia</label>
+                <label class="app-label">Fecha de Vencimiento de Licencia <span class="text-gray-400 font-normal text-xs">(Opcional)</span></label>
                 <input type="date" name="buyer_dl_expiry" class="app-input" />
               </div>
             </div>
@@ -107,7 +111,7 @@ const states = ['AL','AK','AZ','AR','CA','CO','CT','DE','FL','GA','HI','ID','IL'
 
           <!-- Informacion de Residencia -->
           <div class="app-section">
-            <h2 class="app-section-title">Informacion de Residencia</h2>
+            <h2 class="app-section-title">Informacion de Residencia <span class="app-badge app-badge--req">Obligatorio</span></h2>
             <div class="app-grid">
               <div class="col-span-2">
                 <label class="app-label">Direccion <span class="text-red-500">*</span></label>
@@ -153,7 +157,7 @@ const states = ['AL','AK','AZ','AR','CA','CO','CT','DE','FL','GA','HI','ID','IL'
                 </select>
               </div>
               <div>
-                <label class="app-label">Meses en Esta Direccion</label>
+                <label class="app-label">Meses en Esta Direccion <span class="text-gray-400 font-normal text-xs">(Opcional)</span></label>
                 <select id="buyer_months_address" name="buyer_months_address" class="app-input">
                   <option value="">Meses</option>
                   {Array.from({length: 12}, (_, i) => <option value={i}>{i}</option>)}
@@ -163,7 +167,7 @@ const states = ['AL','AK','AZ','AR','CA','CO','CT','DE','FL','GA','HI','ID','IL'
 
             <!-- Direccion Anterior (mostrada si < 2 anos en la actual) -->
             <div id="buyer-prev-address-section" class="hidden mt-6 pt-6 border-t border-gray-100">
-              <h3 class="text-sm font-bold text-navy mb-4">Direccion Anterior <span class="text-gray-400 font-normal">(Requerida si tiene menos de 2 anos en la direccion actual)</span></h3>
+              <h3 class="text-sm font-bold text-navy mb-4">Direccion Anterior <span class="app-badge app-badge--req">Obligatorio</span> <span class="text-gray-400 font-normal">(menos de 2 anos en la direccion actual)</span></h3>
               <div class="app-grid">
                 <div class="col-span-2">
                   <label class="app-label">Direccion Anterior</label>
@@ -197,7 +201,7 @@ const states = ['AL','AK','AZ','AR','CA','CO','CT','DE','FL','GA','HI','ID','IL'
 
           <!-- Informacion de Empleo -->
           <div class="app-section">
-            <h2 class="app-section-title">Informacion de Empleo <span class="text-gray-400 font-normal text-sm">(Opcional)</span></h2>
+            <h2 class="app-section-title">Informacion de Empleo <span class="app-badge app-badge--opt">Opcional</span></h2>
             <div class="app-grid">
               <div class="col-span-2">
                 <label class="app-label">Situacion Laboral</label>
@@ -247,7 +251,7 @@ const states = ['AL','AK','AZ','AR','CA','CO','CT','DE','FL','GA','HI','ID','IL'
 
             <!-- Empleador Anterior (mostrado si < 2 anos en el trabajo actual) -->
             <div id="buyer-prev-employer-section" class="hidden mt-6 pt-6 border-t border-gray-100">
-              <h3 class="text-sm font-bold text-navy mb-4">Empleador Anterior <span class="text-gray-400 font-normal">(Requerido si tiene menos de 2 anos en el trabajo actual)</span></h3>
+              <h3 class="text-sm font-bold text-navy mb-4">Empleador Anterior <span class="text-gray-400 font-normal">(si tiene menos de 2 anos en el trabajo actual)</span></h3>
               <div class="app-grid">
                 <div>
                   <label class="app-label">Nombre del Empleador Anterior</label>
@@ -280,9 +284,11 @@ const states = ['AL','AK','AZ','AR','CA','CO','CT','DE','FL','GA','HI','ID','IL'
         <!-- ===== CO-BUYER SECTION (oculto por defecto) ===== -->
         <div id="section-cobuyer" class="hidden">
 
+          <p class="text-sm text-gray-500 mb-6 -mt-2">Llena esta pestana solo si aplicas con un co-titular. Si no, todos estos campos son opcionales.</p>
+
           <!-- Informacion Personal del Co-Titular -->
           <div class="app-section">
-            <h2 class="app-section-title">Informacion Personal del Co-Titular</h2>
+            <h2 class="app-section-title">Informacion Personal del Co-Titular <span class="app-badge app-badge--opt">Opcional</span></h2>
             <div class="app-grid">
               <div>
                 <label class="app-label">Nombre</label>
@@ -324,7 +330,7 @@ const states = ['AL','AK','AZ','AR','CA','CO','CT','DE','FL','GA','HI','ID','IL'
 
           <!-- Residencia del Co-Titular -->
           <div class="app-section">
-            <h2 class="app-section-title">Informacion de Residencia del Co-Titular</h2>
+            <h2 class="app-section-title">Informacion de Residencia del Co-Titular <span class="app-badge app-badge--opt">Opcional</span></h2>
             <div class="app-grid">
               <div class="col-span-2">
                 <label class="app-label">Direccion</label>
@@ -367,7 +373,7 @@ const states = ['AL','AK','AZ','AR','CA','CO','CT','DE','FL','GA','HI','ID','IL'
 
           <!-- Empleo del Co-Titular -->
           <div class="app-section">
-            <h2 class="app-section-title">Informacion de Empleo del Co-Titular</h2>
+            <h2 class="app-section-title">Informacion de Empleo del Co-Titular <span class="app-badge app-badge--opt">Opcional</span></h2>
             <div class="app-grid">
               <div>
                 <label class="app-label">Nombre del Empleador</label>
@@ -409,7 +415,7 @@ const states = ['AL','AK','AZ','AR','CA','CO','CT','DE','FL','GA','HI','ID','IL'
 
         <!-- ===== VEHICULO DE INTERES ===== -->
         <div class="app-section">
-          <h2 class="app-section-title">Vehiculo de Interes <span class="text-gray-400 font-normal text-sm">(Opcional)</span></h2>
+          <h2 class="app-section-title">Vehiculo de Interes <span class="app-badge app-badge--opt">Opcional</span></h2>
           <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
             <div>
               <label class="app-label">No. de Stock</label>
@@ -454,7 +460,7 @@ const states = ['AL','AK','AZ','AR','CA','CO','CT','DE','FL','GA','HI','ID','IL'
 
         <!-- ===== VEHICULO DE INTERCAMBIO ===== -->
         <div class="app-section">
-          <h2 class="app-section-title">Vehiculo para Intercambio <span class="text-gray-400 font-normal text-sm">(Opcional)</span></h2>
+          <h2 class="app-section-title">Vehiculo para Intercambio <span class="app-badge app-badge--opt">Opcional</span></h2>
           <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
             <div>
               <label class="app-label">Ano</label>
@@ -488,7 +494,7 @@ const states = ['AL','AK','AZ','AR','CA','CO','CT','DE','FL','GA','HI','ID','IL'
 
         <!-- ===== REFERENCIAS ===== -->
         <div class="app-section">
-          <h2 class="app-section-title">Referencias Personales <span class="text-gray-400 font-normal text-sm">(Opcional)</span></h2>
+          <h2 class="app-section-title">Referencias Personales <span class="app-badge app-badge--opt">Opcional</span></h2>
           <p class="text-sm text-gray-500 mb-5">Algunos prestamistas piden referencias personales. Incluirlas puede acelerar tu aprobacion. Por favor lista personas que no vivan en tu hogar.</p>
           {[1, 2, 3].map(n => (
             <div class={`app-grid${n < 3 ? ' mb-5 pb-5 border-b border-gray-100' : ''}`}>
@@ -591,6 +597,19 @@ const states = ['AL','AK','AZ','AR','CA','CO','CT','DE','FL','GA','HI','ID','IL'
     padding-bottom: 0.75rem;
     border-bottom: 1px solid #f3f4f6;
   }
+  .app-badge {
+    display: inline-block;
+    font-size: 0.6875rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 0.1875rem 0.625rem;
+    border-radius: 9999px;
+    vertical-align: middle;
+  }
+  .app-badge--req { background: rgba(240,128,16,0.14); color: #b45309; }
+  .app-badge--opt { background: #f3f4f6; color: #6b7280; }
+  .app-section-title .app-badge { margin-left: 0.375rem; }
   .app-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
