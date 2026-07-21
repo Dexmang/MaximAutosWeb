@@ -1,29 +1,20 @@
 {
-  "last_updated": "2026-07-20T19:28:47.147Z",
-  "period_start": "2026-07-13",
-  "period_end": "2026-07-20",
+  "last_updated": "2026-07-21T01:58:23.553Z",
+  "period_start": "2026-07-14",
+  "period_end": "2026-07-21",
   "by_vin": {
     "3CZRU6H34KG719886": {
-      "srp_views": 3365,
-      "vdp_views": 239,
-      "leads_email": 0,
+      "srp_views": 3466,
+      "vdp_views": 223,
+      "leads_email": 8,
       "leads_phone": 0,
       "leads_chat": 0,
       "website_clicks": 0,
       "map_clicks": 1
     },
-    "WVGBV7AX5GW002523": {
-      "srp_views": 536,
-      "vdp_views": 15,
-      "leads_email": 2,
-      "leads_phone": 1,
-      "leads_chat": 0,
-      "website_clicks": 0,
-      "map_clicks": 0
-    },
     "YV4902RS0F2652862": {
-      "srp_views": 1328,
-      "vdp_views": 68,
+      "srp_views": 1307,
+      "vdp_views": 63,
       "leads_email": 0,
       "leads_phone": 0,
       "leads_chat": 0,
@@ -31,35 +22,35 @@
       "map_clicks": 0
     },
     "5J6RM4H3XGL120098": {
-      "srp_views": 698,
-      "vdp_views": 36,
-      "leads_email": 1,
+      "srp_views": 614,
+      "vdp_views": 38,
+      "leads_email": 0,
       "leads_phone": 0,
       "leads_chat": 0,
       "website_clicks": 0,
       "map_clicks": 0
     },
     "YV4612HK5G1013479": {
-      "srp_views": 351,
-      "vdp_views": 15,
+      "srp_views": 214,
+      "vdp_views": 12,
       "leads_email": 0,
       "leads_phone": 0,
       "leads_chat": 0,
-      "website_clicks": 1,
+      "website_clicks": 0,
       "map_clicks": 0
     },
     "19XFB2F73FE078163": {
-      "srp_views": 1637,
-      "vdp_views": 85,
-      "leads_email": 0,
+      "srp_views": 1395,
+      "vdp_views": 70,
+      "leads_email": 2,
       "leads_phone": 0,
       "leads_chat": 0,
       "website_clicks": 0,
       "map_clicks": 1
     },
     "3VWH17AU6HM534619": {
-      "srp_views": 546,
-      "vdp_views": 51,
+      "srp_views": 432,
+      "vdp_views": 41,
       "leads_email": 0,
       "leads_phone": 1,
       "leads_chat": 0,
