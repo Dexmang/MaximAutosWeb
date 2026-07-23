@@ -1,15 +1,15 @@
 {
-  "last_updated": "2026-07-22T19:01:11.456Z",
+  "last_updated": "2026-07-23T02:04:59.843Z",
   "period": {
-    "start": "2026-07-15",
-    "end": "2026-07-22"
+    "start": "2026-07-16",
+    "end": "2026-07-23"
   },
   "totals": {
     "impressions": 0,
-    "srp_views": 8895,
-    "vdp_views": 503,
+    "srp_views": 8435,
+    "vdp_views": 475,
     "leads_total": 0,
-    "leads_email": 9,
+    "leads_email": 8,
     "leads_phone": 2,
     "leads_chat": 0,
     "website_clicks": 6,
@@ -17,8 +17,20 @@
   },
   "daily": [
     {
+      "date": "2026-07-23",
+      "impressions": 0,
+      "srp_views": 0,
+      "vdp_views": 0,
+      "leads_total": 0,
+      "leads_email": 0,
+      "leads_phone": 0,
+      "leads_chat": 0,
+      "website_clicks": 0,
+      "map_clicks": 0
+    },
+    {
       "date": "2026-07-22",
-      "impressions": 719,
+      "impressions": 1114,
       "srp_views": 0,
       "vdp_views": 0,
       "leads_total": 0,
@@ -99,26 +111,20 @@
       "leads_chat": 0,
       "website_clicks": 0,
       "map_clicks": 0
-    },
-    {
-      "date": "2026-07-15",
-      "impressions": 855,
-      "srp_views": 0,
-      "vdp_views": 0,
-      "leads_total": 1,
-      "leads_email": 0,
-      "leads_phone": 0,
-      "leads_chat": 0,
-      "website_clicks": 0,
-      "map_clicks": 0
     }
   ],
   "raw": {
     "daily_stats": [
       {
-        "impressions": 719,
+        "impressions": 0,
         "leads": 0,
-        "clicks": 34,
+        "clicks": 0,
+        "date": "2026-07-23"
+      },
+      {
+        "impressions": 1114,
+        "leads": 0,
+        "clicks": 48,
         "date": "2026-07-22"
       },
       {
@@ -156,17 +162,11 @@
         "leads": 1,
         "clicks": 71,
         "date": "2026-07-16"
-      },
-      {
-        "impressions": 855,
-        "leads": 1,
-        "clicks": 42,
-        "date": "2026-07-15"
       }
     ],
-    "leads_email": 9,
-    "srps": 8895,
-    "vdps": 503,
+    "leads_email": 8,
+    "srps": 8435,
+    "vdps": 475,
     "chat_leads": 0,
     "sms_leads": 0,
     "phone_leads": 2,
