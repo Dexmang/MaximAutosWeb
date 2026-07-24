@@ -34,7 +34,8 @@ const drivetrains = [...new Set(liveVehicles.map(v => v.drivetrain).filter(Boole
       "@type": "AutoDealer",
       "name": "Maxim Autos",
       "sameAs": [
-        "https://www.google.com/maps/place/Maxim+Autos/@42.0464352,-87.7546134,17z/data=!3m1!4b1!4m6!3m5!1s0x880fcfcb0a430aed:0x4d36c77af06ce602!8m2!3d42.0464352!4d-87.7546134!16s%2Fg%2F11wmzx_p4t"
+        "https://www.google.com/maps/place/Maxim+Autos/@42.0464352,-87.7546134,17z/data=!3m1!4b1!4m6!3m5!1s0x880fcfcb0a430aed:0x4d36c77af06ce602!8m2!3d42.0464352!4d-87.7546134!16s%2Fg%2F11wmzx_p4t",
+        "https://www.mapquest.com/us/illinois/maxim-autos-814974890"
       ],
       "url": "https://www.maximautos.com/inventory",
       "telephone": "+1-847-510-8947",
@@ -74,6 +75,33 @@ const drivetrains = [...new Set(liveVehicles.map(v => v.drivetrain).filter(Boole
         "priceCurrency": "USD",
         "availability": "https://schema.org/InStock",
         "seller": { "@type": "AutoDealer", "name": "Maxim Autos" }
+      }))
+    })} />
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "ItemList",
+      "name": "Used Cars for Sale at Maxim Autos in Skokie, IL",
+      "numberOfItems": liveVehicles.length,
+      "itemListElement": liveVehicles.map((v, i) => ({
+        "@type": "ListItem",
+        "position": i + 1,
+        "item": {
+          "@type": "Car",
+          "name": `${v.year} ${v.make} ${v.model} ${v.trim}`,
+          "url": `https://www.maximautos.com/vehicle/${v.slug}`,
+          "brand": { "@type": "Brand", "name": v.make },
+          "model": v.model,
+          "vehicleModelDate": String(v.year),
+          "itemCondition": "https://schema.org/UsedCondition",
+          "offers": {
+            "@type": "Offer",
+            "price": v.price,
+            "priceCurrency": "USD",
+            "availability": "https://schema.org/InStock",
+            "url": `https://www.maximautos.com/vehicle/${v.slug}`,
+            "seller": { "@type": "AutoDealer", "name": "Maxim Autos" }
+          }
+        }
       }))
     })} />
   </Fragment>

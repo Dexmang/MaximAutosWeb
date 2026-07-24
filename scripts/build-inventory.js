@@ -197,10 +197,20 @@ function generateVehicleSlug(year, make, model, trim, stockNumber) {
 // vehicles. DealerCenter ad copy that omits the qualifier is corrected here so it
 // can never reach a live VDP unqualified. Mirrors the rule in compliance-guardrails.md.
 function sanitizeDescription(text) {
-  return String(text || '').replace(
-    /Illinois powertrain protection(?! on qualifying)/g,
-    'Illinois powertrain protection on qualifying vehicles'
-  );
+  return String(text || '')
+    .replace(
+      /Illinois powertrain protection(?! on qualifying)/g,
+      'Illinois powertrain protection on qualifying vehicles'
+    )
+    // Strip any free-"warranty" claim DealerCenter ad copy may carry (e.g. a
+    // "3-Month Peace of Mind Warranty"). Maxim sells AS-IS: the only warranty
+    // language allowed is the Illinois statutory powertrain protection above.
+    // This guard runs on every build so DC copy can never leak a non-statutory
+    // warranty promise onto a live VDP. Mirrors compliance-guardrails.md.
+    .replace(
+      /\d+[-\s]*Month\s+["“”]?Peace of Mind["“”]?\s+Warranty(?:\s*\(extended coverage available\))?/gi,
+      'Illinois statutory powertrain protection on qualifying vehicles, optional extended coverage available at signing'
+    );
 }
 
 // ── Web hold list (DealerCenter "Inbound" / off-web units) ──────────────────────

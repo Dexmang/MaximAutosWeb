@@ -41,6 +41,13 @@ export default defineConfig({
     '/apply-online/': '/apply',
   },
   publicDir: '../web_assets',
+  // Authorize the DealerCenter CDN so Astro/Sharp can reencode the VDP hero JPG
+  // to WebP at build time (task #202 LCP). Only the in-stock VDP hero is
+  // optimized (see vehicle/[slug].astro); the reencode is wrapped so a CDN
+  // failure falls back to the hotlinked JPG and never breaks the build.
+  image: {
+    remotePatterns: [{ protocol: 'https', hostname: '**.dealercenter.net' }],
+  },
   integrations: [
     sitemap({
       changefreq: 'weekly',

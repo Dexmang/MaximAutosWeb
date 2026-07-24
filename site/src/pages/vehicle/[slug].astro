@@ -1,4 +1,5 @@
 ---
+import { getImage } from 'astro:assets';
 import Layout from '../../layouts/Layout.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
@@ -76,6 +77,25 @@ const heroSizes = heroSrcset ? '(min-width: 1280px) 768px, (min-width: 768px) 60
 const thumbSrcset = (u: string) =>
   isDcPhoto(u) ? `${dcResize(u, 400, 300)} 400w, ${dcResize(u, 640, 480)} 640w` : undefined;
 const thumbSizes = '(min-width: 1280px) 256px, 20vw';
+
+// WebP hero for LCP (task #202). The DC CDN serves JPG only (no WebP variant in
+// its path scheme), so Astro/Sharp reencodes the hero to self-hosted WebP at
+// build time. Only the in-stock hero is optimized — sold VDPs are noIndex and
+// their DC photos may be purged. Wrapped so a transient CDN 503 or a missing
+// remote image can never break the build: on any failure heroWebpSrcset stays
+// undefined and the markup falls back to the hotlinked JPG <img> (prior behavior).
+let heroWebpSrcset: string | undefined;
+if (!isSold && allPhotos.length > 0 && isDcPhoto(allPhotos[0])) {
+  try {
+    const [w640, w1024] = await Promise.all([
+      getImage({ src: dcResize(allPhotos[0], 640, 480), width: 640, height: 480, format: 'webp' }),
+      getImage({ src: dcResize(allPhotos[0], 1024, 768), width: 1024, height: 768, format: 'webp' }),
+    ]);
+    heroWebpSrcset = `${w640.src} 640w, ${w1024.src} 1024w`;
+  } catch (_) {
+    heroWebpSrcset = undefined;
+  }
+}
 
 const otherVehicles = vehicles.filter(o => o.slug !== v.slug && (o as any).status !== 'sold').slice(0, 3);
 const smsBody = encodeURIComponent(`Hi Jerry, I'm interested in the ${titleText} listed on MaximAutos.com.`);
@@ -246,10 +266,13 @@ const faqSchema = {
           {/* Desktop: 60/40 split */}
           <div class="gallery-desktop hidden md:grid">
             <div class="relative overflow-hidden cursor-pointer group" id="gallery-hero" data-index="0">
-              <img src={allPhotos[0]} alt={`${titleText} for sale at Maxim Autos Skokie IL`}
-                   srcset={heroSrcset} sizes={heroSizes}
-                   width="1024" height="768" fetchpriority="high"
-                   class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-[1.02]" />
+              <picture class="block w-full h-full">
+                {heroWebpSrcset && <source type="image/webp" srcset={heroWebpSrcset} sizes={heroSizes} />}
+                <img src={allPhotos[0]} alt={`${titleText} for sale at Maxim Autos Skokie IL`}
+                     srcset={heroSrcset} sizes={heroSizes}
+                     width="1024" height="768" fetchpriority="high"
+                     class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-[1.02]" />
+              </picture>
               <div class="absolute bottom-3 left-3 bg-black/60 text-white text-sm font-semibold px-3 py-1.5 rounded-md flex items-center gap-1.5">
                 <span class="material-symbols-outlined text-base">photo_camera</span>
                 {allPhotos.length} photos · Click to view all
@@ -279,10 +302,13 @@ const faqSchema = {
           {/* Mobile: single hero */}
           <div class="md:hidden relative">
             <div class="relative cursor-pointer" id="gallery-hero-mobile">
-              <img src={allPhotos[0]} alt={`${titleText} for sale at Maxim Autos Skokie IL`}
-                   srcset={heroSrcset} sizes="100vw"
-                   width="1024" height="768" fetchpriority="high"
-                   class="w-full aspect-video object-cover" />
+              <picture class="block w-full">
+                {heroWebpSrcset && <source type="image/webp" srcset={heroWebpSrcset} sizes="100vw" />}
+                <img src={allPhotos[0]} alt={`${titleText} for sale at Maxim Autos Skokie IL`}
+                     srcset={heroSrcset} sizes="100vw"
+                     width="1024" height="768" fetchpriority="high"
+                     class="w-full aspect-video object-cover" />
+              </picture>
               {allPhotos.length > 1 && (
                 <button id="view-all-btn"
                   class="absolute bottom-3 right-3 bg-black/70 text-white text-sm font-semibold px-3 py-1.5 rounded-md flex items-center gap-1.5">
