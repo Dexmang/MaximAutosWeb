@@ -4,7 +4,7 @@
   <title>Maxim Autos — Vehicle Inventory</title>
   <link>https://www.maximautos.com/</link>
   <description>Used vehicles for sale at Maxim Autos in Skokie, IL 60077. Phone +18475108947.</description>
-  <lastBuildDate>2026-07-24T02:00:00.819Z</lastBuildDate>
+  <lastBuildDate>2026-07-24T08:12:08.327Z</lastBuildDate>
   <item>
     <g:id>19XFB2F73FE078163</g:id>
     <g:title>2015 Honda Civic SE</g:title>
@@ -76,6 +76,42 @@
     <g:trim>LX AWD</g:trim>
     <g:body_style>suv</g:body_style>
     <g:color>Silver</g:color>
+  </item>
+  <item>
+    <g:id>KNAFK4A61E5187089</g:id>
+    <g:title>2014 Kia Forte LX</g:title>
+    <g:description>2014 Kia Forte LX — standard Bluetooth, strong fuel economy, roomy cabin with a class above feel. Gray on gray, 6 speed automatic, 1.8L 4 cylinder. A practical commuter sedan that is easy on gas and easy to own. Key features: 148 hp 1.8L engine, EPA estimated 25 city / 36 highway mpg, standard Bluetooth connectivity, air conditioning, power locks and mirrors, tilt and telescoping steering wheel, generous passenger volume for a compact. The 14.9 cubic foot trunk rivals many midsize sedans. The Maxim Autos Difference Independent inspection report included with every vehicle 3-Month &quot;Peace of Mind&quot; Warranty (extended coverage available) Metal plates issued on-the-spot — drive home today Transparent pricing, no hidden fees Financing for all credit levels Located in Skokie, IL — minutes from Evanston, Niles, Morton Grove, Lincolnwood, Des Plaines, and the North Shore Chicago corridor. Call to set up a same day appointment. Every car inspected. Every price transparent. Every customer protected.</g:description>
+    <g:link>https://www.maximautos.com/vehicle/2014-kia-forte-lx-j10215/</g:link>
+    <g:link_template>https://www.maximautos.com/vehicle/2014-kia-forte-lx-j10215/?store={store_code}</g:link_template>
+    <g:image_link>https://imagesdl.dealercenter.net/1289/856/202607-4b4a288aa13f417b8d75dc0494f566b5.jpg</g:image_link>
+    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202607-bd08e50658d1461f81c10fbf0bfc0ae0.jpg</g:additional_image_link>
+    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202607-0b994996903340fe9fa8168c5bb7657e.jpg</g:additional_image_link>
+    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202607-53e450cc972a46239b01827007ada33f.jpg</g:additional_image_link>
+    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202607-ae917f96d134449191535068f0efa1cf.jpg</g:additional_image_link>
+    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202607-8cf8e91f8514434f8d1d40e1ccbfc981.jpg</g:additional_image_link>
+    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202607-77c62f1bf86b48c6bd3bc2f2b851cd90.jpg</g:additional_image_link>
+    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202607-74616eabf93d43f9b2c770ce1ed045f4.jpg</g:additional_image_link>
+    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202607-9490f58c7b7f47ddab3fd4fec765dddd.jpg</g:additional_image_link>
+    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202607-0c0e8b0fff63430a9e388d7a69f8c8d8.jpg</g:additional_image_link>
+    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202607-b40e6a1c1a2247bb96232ddac09c5f0e.jpg</g:additional_image_link>
+    <g:condition>used</g:condition>
+    <g:price>9495 USD</g:price>
+    <g:availability>in_stock</g:availability>
+    <g:brand>Kia</g:brand>
+    <g:google_product_category>Vehicles &amp; Parts &gt; Vehicles &gt; Motor Vehicles &gt; Cars, Trucks &amp; Vans</g:google_product_category>
+    <g:excluded_destination>Shopping_ads</g:excluded_destination>
+    <g:excluded_destination>Free_listings</g:excluded_destination>
+    <g:vin>KNAFK4A61E5187089</g:vin>
+    <g:year>2014</g:year>
+    <g:model>Forte</g:model>
+    <g:mileage>42323 Miles</g:mileage>
+    <g:store_code>08861907241419503398</g:store_code>
+    <g:vehicle_fulfillment>
+      <g:option>in_store</g:option>
+    </g:vehicle_fulfillment>
+    <g:trim>LX</g:trim>
+    <g:body_style>sedan</g:body_style>
+    <g:color>Gray</g:color>
   </item>
   <item>
     <g:id>YV4902RS0F2652862</g:id>
