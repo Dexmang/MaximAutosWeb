@@ -1,6 +1,6 @@
 {
   "source": "pka_hub.db ma_vehicles + vPIC",
-  "generated_at": "2026-07-24",
+  "generated_at": "2026-07-25",
   "by_vin": {
     "19XFB2F73FE078163": {
       "slug": "2015-honda-civic-se",
@@ -126,8 +126,8 @@
       "dateAdded": "2026-07-24",
       "featured": true,
       "sortOrder": 0,
-      "dealRating": "",
-      "priceSavings": 0,
+      "dealRating": "GOOD_PRICE",
+      "priceSavings": 966,
       "description": "2015 Subaru Legacy 2.5i — standard symmetrical all wheel drive, up to 36 mpg highway, roomy and quiet cabin. Blue on black, smooth CVT automatic, 2.5L boxer 4 cylinder. The all weather sedan Chicago winters were made for, without giving up fuel economy. Key features: 175 hp 2.5L boxer engine, standard symmetrical all wheel drive with superior traction in rain and snow, EPA estimated 26 city / 36 highway mpg, spacious cabin with generous rear legroom that rivals larger family sedans, enhanced sound insulation for a quiet ride. Rear legroom and passenger space compete with midsize sedans a class up. The Maxim Autos Difference Independent inspection report included with every vehicle 3-Month \"Peace of Mind\" Warranty (extended coverage available) Metal plates issued on-the-spot — drive home today Transparent pricing, no hidden fees Financing for all credit levels Located in Skokie, IL — minutes from Evanston, Niles, Morton Grove, Lincolnwood, Des Plaines, and the North Shore Chicago corridor. Call to set up a same day appointment. Every car inspected. Every price transparent. Every customer protected.",
       "highlights": [
         "Base trim",
@@ -264,8 +264,8 @@
       "dateAdded": "2026-07-24",
       "featured": true,
       "sortOrder": 0,
-      "dealRating": "",
-      "priceSavings": 0,
+      "dealRating": "GOOD_PRICE",
+      "priceSavings": 440,
       "description": "2018 Subaru Crosstrek Premium — standard symmetrical all wheel drive, 8.7 inches of ground clearance, rugged and comfortable. Blue on black, automatic, 2.0L boxer 4 cylinder. Built for anyone who wants real all weather capability with the comfort and value of a daily driver. Key features: standard symmetrical all wheel drive for exceptional grip in rain, snow, and rough terrain, 8.7 inches of ground clearance that matches true SUVs, All Weather Package with heated front seats, heated mirrors, and windshield wiper de icer, leather wrapped steering wheel, smartphone integration, and precise handling on Subaru's rigid global platform. Ready for winter roads and weekend trips alike. The Maxim Autos Difference Independent inspection report included with every vehicle 3-Month \"Peace of Mind\" Warranty (extended coverage available) Metal plates issued on-the-spot — drive home today Transparent pricing, no hidden fees Financing for all credit levels Located in Skokie, IL — minutes from Evanston, Niles, Morton Grove, Lincolnwood, Des Plaines, and the North Shore Chicago corridor. Call to set up a same day appointment. Every car inspected. Every price transparent. Every customer protected.",
       "highlights": [
         "Premium trim",
@@ -334,8 +334,8 @@
       "dateAdded": "2026-07-24",
       "featured": true,
       "sortOrder": 0,
-      "dealRating": "",
-      "priceSavings": 0,
+      "dealRating": "FAIR_PRICE",
+      "priceSavings": 97,
       "description": "2018 Chevrolet Trax LT AWD — confident all wheel drive, peppy turbo engine, easy to park compact SUV. Silver on black, automatic, 1.4L turbo 4 cylinder. A right sized crossover that handles Chicago winters and tight city spots with ease. Key features: 138 hp 1.4L turbo engine, all wheel drive for extra grip in rain and snow, standard Apple CarPlay and Android Auto on a 7 inch touchscreen, built in 4G LTE Wi-Fi hotspot, remote start, light and easy steering for simple parking. Flexible rear seating opens up generous cargo room when you need it. The Maxim Autos Difference Independent inspection report included with every vehicle 3-Month \"Peace of Mind\" Warranty (extended coverage available) Metal plates issued on-the-spot — drive home today Transparent pricing, no hidden fees Financing for all credit levels Located in Skokie, IL — minutes from Evanston, Niles, Morton Grove, Lincolnwood, Des Plaines, and the North Shore Chicago corridor. Call to set up a same day appointment. Every car inspected. Every price transparent. Every customer protected.",
       "highlights": [
         "1LT trim",
@@ -370,9 +370,9 @@
       "carfax": true,
       "warranty": "15 Day / 500 Mile Powertrain Protection",
       "stockNumber": "J10215",
-      "primaryPhotoUrl": "https://imagesdl.dealercenter.net/1289/856/202607-4b4a288aa13f417b8d75dc0494f566b5.jpg",
+      "primaryPhotoUrl": "https://imagesdl.dealercenter.net/1289/856/202607-6748518f7b214da28d9b1c03bb29e0dc.jpg",
       "photoUrls": [
-        "https://imagesdl.dealercenter.net/1289/856/202607-4b4a288aa13f417b8d75dc0494f566b5.jpg",
+        "https://imagesdl.dealercenter.net/1289/856/202607-6748518f7b214da28d9b1c03bb29e0dc.jpg",
         "https://imagesdl.dealercenter.net/1289/856/202607-bd08e50658d1461f81c10fbf0bfc0ae0.jpg",
         "https://imagesdl.dealercenter.net/1289/856/202607-0b994996903340fe9fa8168c5bb7657e.jpg",
         "https://imagesdl.dealercenter.net/1289/856/202607-53e450cc972a46239b01827007ada33f.jpg",
