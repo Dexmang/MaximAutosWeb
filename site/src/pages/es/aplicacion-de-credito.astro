@@ -48,7 +48,7 @@ const states = ['AL','AK','AZ','AR','CA','CO','CT','DE','FL','GA','HI','ID','IL'
       </div>
 
       <form id="apply-form" action="/api/credit-app" method="POST" class="space-y-8">
-        <input type="hidden" name="_subject" value="Solicitud de Credito — Maxim Autos" />
+        <input type="hidden" name="_subject" value="Solicitud de Credito, Maxim Autos" />
         <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" />
 
         <!-- ===== BUYER SECTION ===== -->
@@ -499,7 +499,7 @@ const states = ['AL','AK','AZ','AR','CA','CO','CT','DE','FL','GA','HI','ID','IL'
           {[1, 2, 3].map(n => (
             <div class={`app-grid${n < 3 ? ' mb-5 pb-5 border-b border-gray-100' : ''}`}>
               <div>
-                <label class="app-label">Referencia {n} — Nombre Completo</label>
+                <label class="app-label">Referencia {n}, Nombre Completo</label>
                 <input type="text" name={`ref${n}_name`} class="app-input" placeholder="Nombre completo" />
               </div>
               <div>
@@ -730,6 +730,7 @@ const states = ['AL','AK','AZ','AR','CA','CO','CT','DE','FL','GA','HI','ID','IL'
       headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' }
     }).then(function (res) {
       if (res.ok) {
+        if (window.maximLead) window.maximLead('credit_app');  /* fires only on a confirmed successful submission */
         form.closest('section').innerHTML = '<div class="max-w-2xl mx-auto px-6 py-20 text-center"><span class="material-symbols-outlined text-6xl text-green-500 mb-6 block" style="font-variation-settings:\'FILL\' 1;">check_circle</span><h2 class="font-headline text-2xl font-extrabold text-navy mb-3">Solicitud Enviada!</h2><p class="text-gray-600 text-lg mb-2">Jerry revisara tu solicitud y te dara seguimiento el mismo dia durante el horario de atencion.</p><p class="text-gray-600 text-base mt-4">Tienes preguntas? Envia un texto o llama a Jerry al 847-510-8947</p></div>';
       } else {
         btn.disabled = false;

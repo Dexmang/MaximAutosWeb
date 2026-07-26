@@ -1,0 +1,238 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Maxim Autos Legal Pages Compliance Rebuild Recap</title>
+<style>
+  :root{
+    --bg:#f4f6f9; --panel:#ffffff; --ink:#0a2540; --muted:#5b6b7d; --line:#e3e8ef;
+    --navy:#0a2540; --orange:#f08010; --orange-soft:#fff2e4;
+    --crit:#b91c1c; --crit-bg:#fdeaea; --high:#c2410c; --high-bg:#fdefe6;
+    --med:#b45309; --med-bg:#fbf3e3; --low:#3f6212; --low-bg:#eef5e6;
+    --ok:#0f7a4d; --ok-bg:#e6f5ee; --open:#9a3412; --open-bg:#fdece0;
+    --chip:#eef2f7;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --bg:#0b1219; --panel:#131c26; --ink:#e8eef5; --muted:#9fb0c2; --line:#243343;
+      --navy:#0a2540; --orange:#ff9836; --orange-soft:#2a1c0d;
+      --crit:#ff6b6b; --crit-bg:#2a1414; --high:#ff9a5c; --high-bg:#2a1a10;
+      --med:#f0b657; --med-bg:#282011; --low:#9fd06a; --low-bg:#17240f;
+      --ok:#54d199; --ok-bg:#0f241b; --open:#ffb27a; --open-bg:#2a1a0f;
+      --chip:#1c2836;
+    }
+  }
+  :root[data-theme="light"]{
+    --bg:#f4f6f9; --panel:#ffffff; --ink:#0a2540; --muted:#5b6b7d; --line:#e3e8ef;
+    --orange-soft:#fff2e4;
+    --crit:#b91c1c; --crit-bg:#fdeaea; --high:#c2410c; --high-bg:#fdefe6;
+    --med:#b45309; --med-bg:#fbf3e3; --low:#3f6212; --low-bg:#eef5e6;
+    --ok:#0f7a4d; --ok-bg:#e6f5ee; --open:#9a3412; --open-bg:#fdece0; --chip:#eef2f7;
+  }
+  :root[data-theme="dark"]{
+    --bg:#0b1219; --panel:#131c26; --ink:#e8eef5; --muted:#9fb0c2; --line:#243343;
+    --orange-soft:#2a1c0d;
+    --crit:#ff6b6b; --crit-bg:#2a1414; --high:#ff9a5c; --high-bg:#2a1a10;
+    --med:#f0b657; --med-bg:#282011; --low:#9fd06a; --low-bg:#17240f;
+    --ok:#54d199; --ok-bg:#0f241b; --open:#ffb27a; --open-bg:#2a1a0f; --chip:#1c2836;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    line-height:1.55;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:1040px;margin:0 auto;padding:32px 20px 72px}
+  header.hero{background:linear-gradient(135deg,#0a2540,#123a5e);border-radius:20px;padding:34px 30px;color:#fff;
+    box-shadow:0 10px 30px rgba(10,37,64,.25)}
+  header.hero .tag{display:inline-block;background:var(--orange);color:#fff;font-weight:700;letter-spacing:.12em;
+    text-transform:uppercase;font-size:11px;padding:5px 11px;border-radius:999px;margin-bottom:14px}
+  header.hero h1{margin:0 0 10px;font-size:28px;line-height:1.2;font-weight:800}
+  header.hero p{margin:0;color:#cfe0f0;font-size:15px;max-width:70ch}
+  .verdict{margin-top:18px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16);
+    border-radius:12px;padding:14px 16px;font-size:15px}
+  .verdict b{color:#fff}
+  .metarow{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+  .metarow .m{background:rgba(255,255,255,.10);border-radius:9px;padding:8px 12px;font-size:13px;color:#e8f0f8}
+  .metarow .m b{color:#fff}
+  h2.sec{font-size:19px;margin:38px 0 14px;display:flex;align-items:center;gap:10px}
+  h2.sec:before{content:"";width:5px;height:20px;background:var(--orange);border-radius:3px;display:inline-block}
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:15px;padding:18px 18px 16px;
+    box-shadow:0 2px 8px rgba(10,37,64,.05)}
+  .card h3{margin:0 0 4px;font-size:16px;display:flex;align-items:center;gap:8px}
+  .card .file{font-size:12px;color:var(--muted);font-family:ui-monospace,SFMono-Regular,Menlo,monospace;
+    word-break:break-all;margin-bottom:12px}
+  .card ul{margin:0;padding-left:0;list-style:none}
+  .card li{position:relative;padding:7px 0 7px 26px;font-size:14px;border-top:1px dashed var(--line)}
+  .card li:first-child{border-top:none}
+  .card li:before{content:"\2713";position:absolute;left:2px;top:7px;color:var(--ok);font-weight:800}
+  .pill{display:inline-block;font-size:11px;font-weight:700;padding:2px 9px;border-radius:999px;
+    text-transform:uppercase;letter-spacing:.04em}
+  .p-crit{background:var(--crit-bg);color:var(--crit)}
+  .p-high{background:var(--high-bg);color:var(--high)}
+  .p-med{background:var(--med-bg);color:var(--med)}
+  .p-low{background:var(--low-bg);color:var(--low)}
+  .p-ok{background:var(--ok-bg);color:var(--ok)}
+  .p-open{background:var(--open-bg);color:var(--open)}
+  .tablewrap{overflow-x:auto;border:1px solid var(--line);border-radius:14px;background:var(--panel)}
+  table{border-collapse:collapse;width:100%;min-width:720px;font-size:13.5px}
+  thead th{background:var(--chip);text-align:left;padding:11px 12px;font-size:12px;text-transform:uppercase;
+    letter-spacing:.05em;color:var(--muted);position:sticky;top:0}
+  tbody td{padding:10px 12px;border-top:1px solid var(--line);vertical-align:top}
+  tbody tr:hover{background:var(--orange-soft)}
+  td.sev{white-space:nowrap}
+  .facts{background:var(--panel);border:1px solid var(--line);border-radius:15px;padding:6px 20px}
+  .facts dl{display:grid;grid-template-columns:180px 1fr;gap:0;margin:0}
+  .facts dt{font-weight:700;padding:11px 0;border-top:1px solid var(--line);font-size:13.5px}
+  .facts dd{padding:11px 0;border-top:1px solid var(--line);margin:0;color:var(--muted);font-size:13.5px}
+  .facts dt:first-of-type,.facts dd:first-of-type{border-top:none}
+  .locked{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px}
+  .lock{background:var(--panel);border:1px solid var(--line);border-left:4px solid var(--orange);
+    border-radius:12px;padding:14px 16px}
+  .lock h4{margin:0 0 5px;font-size:14px;display:flex;align-items:center;gap:7px}
+  .lock p{margin:0;font-size:13px;color:var(--muted)}
+  .lock .ico{color:var(--orange)}
+  .open-card{background:var(--open-bg);border:1px solid var(--open);border-radius:14px;padding:16px 18px;margin-bottom:14px}
+  .open-card h4{margin:0 0 6px;color:var(--open);font-size:15px}
+  .open-card p{margin:6px 0 0;font-size:14px;color:var(--ink)}
+  .open-card code{background:rgba(0,0,0,.06);padding:1px 5px;border-radius:5px;font-size:12px;word-break:break-all}
+  @media (prefers-color-scheme:dark){.open-card code{background:rgba(255,255,255,.08)}}
+  .note{font-size:12.5px;color:var(--muted);margin-top:10px}
+  footer{margin-top:40px;text-align:center;color:var(--muted);font-size:12px}
+  @media (max-width:520px){.facts dl{grid-template-columns:1fr}.facts dt{padding-bottom:0;border-top:1px solid var(--line)}.facts dd{padding-top:2px;border-top:none}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="hero">
+    <span class="tag">Legal Compliance Rebuild</span>
+    <h1>Maxim Autos legal pages: privacy, terms, return</h1>
+    <p>Surgical compliance revision of three already-strong pages. Every drafted change was red-teamed, and every critical and high finding is now closed on the pages themselves.</p>
+    <div class="verdict"><b>Verdict:</b> All three legal pages are compliance-clean and publish-ready. The one remaining risk is not on these pages: a Spanish marketing strip elsewhere on the site still advertises a "3 month warranty" that does not exist. That must be softened before or right after publish, and an attorney should review before go-live.</div>
+    <div class="metarow">
+      <span class="m"><b>3</b> pages hardened</span>
+      <span class="m"><b>25</b> red-team findings triaged</span>
+      <span class="m"><b>2</b> critical + <b>4</b> high resolved</span>
+      <span class="m"><b>Effective</b> July 12, 2026</span>
+      <span class="m"><b>Scope:</b> local files only, nothing deployed</span>
+    </div>
+  </header>
+
+  <h2 class="sec">Top defects fixed, per page</h2>
+  <div class="grid">
+    <div class="card">
+      <h3>Privacy Policy <span class="pill p-crit">was critical</span></h3>
+      <div class="file">src/pages/privacy-policy.astro</div>
+      <ul>
+        <li><b>Killed the false "no cookies, analytics, or pixels" claim.</b> Replaced with a truthful Google Analytics 4 disclosure (ID G-H05CD3EHE9), the GA cookies, the generate_lead events, and opt-out choices. This was the number one fix.</li>
+        <li>Disclosed the real credit-app pipeline: <b>Vercel Blob</b> (encrypted storage) and <b>Resend</b> (alert email) as processors of financial data, plus Formspree for the other forms.</li>
+        <li>Effective date moved to July 12, 2026 and the 30 vs 45 day response window reconciled to 45 days.</li>
+        <li>Fixed wrong agency: "IDOT" corrected to Illinois Secretary of State dealer regulations.</li>
+        <li>Reframed Illinois "rights" as a voluntary courtesy, not statutory rights wrongly attributed to ICFA / PIPA / BIPA.</li>
+        <li>Disclosed Google Fonts, noted credit data can enter DealerCenter, softened the SMS STOP language, and named <b>Maxim Autos LLC</b> as controller.</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>Terms of Use <span class="pill p-med">was medium</span></h3>
+      <div class="file">src/pages/terms.astro</div>
+      <ul>
+        <li><b>Added the 815 ILCS 505/2L carve-out</b> to the blanket implied-warranty disclaimer, so the box no longer overstates that all implied warranties are disclaimed during the 15 day / 500 mile statutory window.</li>
+        <li>Corrected the Illinois Attorney General consumer fraud hotline to the Chicago line <b>1-800-386-5438</b> (right regional number for a Skokie dealer).</li>
+        <li>Standardized "AS IS" (unhyphenated, FTC-correct) and fixed copy-rule hyphens: "Third Party Links", "Buyers who live outside Illinois", "free of errors".</li>
+        <li>Named <b>Maxim Autos LLC</b> in the intro and contact block; effective date already July 12, 2026.</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>Return Policy <span class="pill p-med">was medium</span></h3>
+      <div class="file">src/pages/return-policy.astro</div>
+      <ul>
+        <li><b>Corrected the statutory deductible.</b> The old "a deductible per repair" implied an uncapped, every-repair charge. Now: one half of the cost of each of the first two covered repairs, up to $100 per repair, per 815 ILCS 505/2L.</li>
+        <li>Fixed the FTC box em dash to a hyphen to match the official Buyer's Guide punctuation. (Text itself is the complete current FTC box; see note below.)</li>
+        <li>Added <b>Maxim Autos LLC</b> and the Class D dealer license DL7667 to the contact block for enforceability.</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2 class="sec">Every red-team finding and its status</h2>
+  <div class="tablewrap">
+    <table>
+      <thead>
+        <tr><th>Page</th><th>Severity</th><th>Finding</th><th>Status</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Privacy</td><td class="sev"><span class="pill p-crit">Critical</span></td><td>False "no cookies / analytics / pixels" claim while GA4 is live</td><td><span class="pill p-ok">Resolved</span></td></tr>
+        <tr><td>Privacy</td><td class="sev"><span class="pill p-crit">Critical</span></td><td>Stale effective date (was April 15, 2026)</td><td><span class="pill p-ok">Resolved</span></td></tr>
+        <tr><td>Privacy</td><td class="sev"><span class="pill p-high">High</span></td><td>Undisclosed GLBA processors (Vercel Blob, Resend); false "only to lenders" claim</td><td><span class="pill p-ok">Resolved</span></td></tr>
+        <tr><td>Privacy</td><td class="sev"><span class="pill p-med">Medium</span></td><td>"only info you choose to give us" false given passive GA4 collection</td><td><span class="pill p-ok">Resolved</span></td></tr>
+        <tr><td>Privacy</td><td class="sev"><span class="pill p-med">Medium</span></td><td>Wrong agency: "IDOT regulations" for dealer licensing</td><td><span class="pill p-ok">Resolved</span></td></tr>
+        <tr><td>Privacy</td><td class="sev"><span class="pill p-med">Medium</span></td><td>Access / correction / deletion rights misattributed to ICFA / PIPA / BIPA</td><td><span class="pill p-ok">Resolved</span></td></tr>
+        <tr><td>Privacy</td><td class="sev"><span class="pill p-low">Low</span></td><td>Google Fonts third-party data flow undisclosed</td><td><span class="pill p-ok">Resolved</span></td></tr>
+        <tr><td>Privacy</td><td class="sev"><span class="pill p-low">Low</span></td><td>Credit-app data also flows into DealerCenter, understated</td><td><span class="pill p-ok">Resolved</span></td></tr>
+        <tr><td>Privacy</td><td class="sev"><span class="pill p-low">Low</span></td><td>CarGurus VIN badge embed undisclosed</td><td><span class="pill p-ok">Resolved</span></td></tr>
+        <tr><td>Privacy</td><td class="sev"><span class="pill p-low">Low</span></td><td>Response window 30 vs 45 days contradiction</td><td><span class="pill p-ok">Resolved</span></td></tr>
+        <tr><td>Privacy</td><td class="sev"><span class="pill p-low">Low</span></td><td>Copy-rule hyphens: pre-qualification, non-transactional, non-discrimination</td><td><span class="pill p-ok">Resolved</span></td></tr>
+        <tr><td>Privacy</td><td class="sev"><span class="pill p-low">Low</span></td><td>"chat" listed as active lead channel (no chat widget installed)</td><td><span class="pill p-ok">Resolved</span></td></tr>
+        <tr><td>Privacy</td><td class="sev"><span class="pill p-low">Low</span></td><td>SMS STOP keyword implied an autoresponder</td><td><span class="pill p-ok">Resolved</span></td></tr>
+        <tr><td>Privacy / Terms / Return</td><td class="sev"><span class="pill p-low">Low</span></td><td>Legal entity "Maxim Autos LLC" never named</td><td><span class="pill p-ok">Resolved</span></td></tr>
+        <tr><td>Terms</td><td class="sev"><span class="pill p-med">Medium</span></td><td>Implied-warranty disclaimer missing the 815 ILCS 505/2L carve-out</td><td><span class="pill p-ok">Resolved</span></td></tr>
+        <tr><td>Terms</td><td class="sev"><span class="pill p-low">Low</span></td><td>Wrong IL Attorney General consumer fraud number for region</td><td><span class="pill p-ok">Resolved</span></td></tr>
+        <tr><td>Terms</td><td class="sev"><span class="pill p-low">Low</span></td><td>Copy-rule hyphens: Out-of-state, Third-Party, AS-IS, error-free</td><td><span class="pill p-ok">Resolved</span></td></tr>
+        <tr><td>Return</td><td class="sev"><span class="pill p-med">Medium</span></td><td>Statutory deductible overstated ("a deductible per repair")</td><td><span class="pill p-ok">Resolved</span></td></tr>
+        <tr><td>Return</td><td class="sev"><span class="pill p-med">Medium</span></td><td>FTC box labeled verbatim but claimed truncated</td><td><span class="pill p-ok">Verified complete + em dash fixed</span></td></tr>
+        <tr><td>Return</td><td class="sev"><span class="pill p-low">Low</span></td><td>Em dash inside FTC box (official uses a hyphen)</td><td><span class="pill p-ok">Resolved</span></td></tr>
+        <tr><td>Return</td><td class="sev"><span class="pill p-low">Low</span></td><td>Return page omitted LLC name and dealer license</td><td><span class="pill p-ok">Resolved</span></td></tr>
+        <tr><td>Sitewide</td><td class="sev"><span class="pill p-high">High</span></td><td>Spanish trust strip advertises "Garantia 3 Meses" (free 3 month warranty)</td><td><span class="pill p-open">Open, out of scope</span></td></tr>
+        <tr><td>Sitewide</td><td class="sev"><span class="pill p-high">High</span></td><td>es/index.astro advertises "Garantia de 3 meses"</td><td><span class="pill p-open">Open, out of scope</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="note">Several findings the terms and return red-teamers raised against the privacy page were already fixed by the privacy drafter (they read a pre-fix copy). Those are shown as Resolved and were re-verified in the live file. The two Open items sit in <code>Layout.astro</code> and <code>es/index.astro</code>, which are outside the three-page scope of this pass.</p>
+
+  <h2 class="sec">Confirmed identity and legal facts used</h2>
+  <div class="facts">
+    <dl>
+      <dt>Legal entity</dt><dd>Maxim Autos LLC (owner Jerry Franco)</dd>
+      <dt>Dealer license</dt><dd>Illinois Secretary of State, Class D Used Vehicle Dealer, license DL7667</dd>
+      <dt>Address</dt><dd>9101 Terminal Ave, Skokie, IL 60077</dd>
+      <dt>Phone (only)</dt><dd>(847) 510-8947 &mdash; tel:8475108947</dd>
+      <dt>Email / site</dt><dd>jfranco@maximautos.com &middot; www.maximautos.com</dd>
+      <dt>Effective date</dt><dd>July 12, 2026 on all three pages</dd>
+      <dt>GA4</dt><dd>Measurement ID G-H05CD3EHE9, loaded on every page</dd>
+      <dt>Statutory floor</dt><dd>815 ILCS 505/2L: 15 days or 500 miles powertrain protection; consumer pays one half of each of the first two repairs, capped at $100 per repair</dd>
+    </dl>
+  </div>
+
+  <h2 class="sec">Locked decisions honored</h2>
+  <div class="locked">
+    <div class="lock"><h4><span class="ico">&#9679;</span> Publish-ready</h4><p>These are strong pages made accurate, not regenerated. Correct legal language (GLBA notice, statute citations, FTC box) preserved verbatim.</p></div>
+    <div class="lock"><h4><span class="ico">&#9679;</span> AS IS default</h4><p>All sales final, AS IS. No cooling-off period in Illinois. The only unwind path is the spot-delivery financing contingency.</p></div>
+    <div class="lock"><h4><span class="ico">&#9679;</span> Statutory floor is the warranty</h4><p>The 15 day / 500 mile 2L powertrain protection is the "peace of mind." No free Maxim warranty, no CPO, the word "certified" is never used as a claim.</p></div>
+    <div class="lock"><h4><span class="ico">&#9679;</span> Copy rules</h4><p>No em dashes, no hyphenated compounds in prose. Exceptions kept only for the FTC box and formal statute names. Voice is "we", warm and direct.</p></div>
+  </div>
+
+  <h2 class="sec">Open items for the human</h2>
+  <div class="open-card">
+    <h4>1. Attorney review recommended before go-live</h4>
+    <p>These pages are now factually accurate and internally consistent, but a licensed Illinois attorney should give a final read before publish. The content covers GLBA, ICFA, CCPA/CPRA, FTC disclosures, and the 2L statutory warranty, which is the kind of surface where a lawyer's sign-off is worth it.</p>
+  </div>
+  <div class="open-card">
+    <h4>2. Sitewide "free 3 month warranty" wording still needs softening (out of this scope)</h4>
+    <p>The Spanish trust strip in <code>src/layouts/Layout.astro</code> renders <code>Inspeccion &middot; Garantia 3 Meses &middot; CARFAX</code>, and <code>src/pages/es/index.astro</code> shows <code>Garantia de 3 meses</code>. Both advertise a free three month warranty that does not exist under the locked stance and contradict the very return and terms pages under review. This is a deceptive-warranty exposure under ICFA and FTC Act Section 5. Suggested fix, mirroring the clean English strip: <code>Inspeccion &middot; CARFAX Gratis &middot; Sin Cargos de Dealer</code>. These files were outside the three-legal-page scope, so they were intentionally not edited here.</p>
+  </div>
+  <div class="open-card">
+    <h4>3. One red-team finding was verified rather than applied</h4>
+    <p>The return page FTC "As Is" box was flagged as a truncated verbatim quote. Verification against the current FTC Buyer's Guide (revised 2018, 16 CFR Part 455) confirmed the box text on the page is the complete, current wording. The red-team was comparing against the pre-2018 version. Adding those old sentences would have made the box wrong, so only the em dash was corrected to a hyphen.</p>
+  </div>
+  <div class="open-card">
+    <h4>4. Ops note, not a page change</h4>
+    <p>The credit-app alert email currently sends from a shared Resend sandbox sender. Moving to a verified maximautos.com sending domain would help deliverability and brand trust. No policy wording change needed.</p>
+  </div>
+
+  <footer>
+    Maxim Autos legal compliance rebuild &middot; July 12, 2026 &middot; Local files only, nothing deployed.
+  </footer>
+
+</div>
+</body>
+</html>

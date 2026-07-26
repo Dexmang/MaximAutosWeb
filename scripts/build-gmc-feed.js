@@ -52,6 +52,9 @@ const DEALER_ADDRESS_REGION = "IL";
 const DEALER_POSTAL = "60077";
 
 const VEHICLES_PATH = join(__dirname, "../site/src/data/vehicles.json");
+// dc-inventory.json is the committed snapshot of the NEWEST DealerCenter OAP
+// (SFTP) feed. It is the book of record for what is for sale.
+const DC_INVENTORY_PATH = join(__dirname, "../site/src/data/dc-inventory.json");
 const FEED_DIR = join(__dirname, "../web_assets/feeds");
 const FEED_PATH = join(FEED_DIR, "vehicles.xml");
 
@@ -101,9 +104,17 @@ function mapCondition(v) {
 
 /**
  * Body style → Vehicle Ads spec enum.
- * Per https://support.google.com/merchants/answer/11190480 accepted values are:
- *   convertible | coupe | crossover | full size van | hatchback | minivan |
- *   sedan | station wagon | suv | truck
+ * Accepted passenger-car values, verified against the live attribute table at
+ * https://support.google.com/merchants/answer/11192663 on 2026-07-25:
+ *   city_car | compact_suv | convertible | coupe | crossover | full_size_van |
+ *   hatchback | limousine | minivan | notchback | sedan | station_wagon | suv |
+ *   truck | ute
+ * (the table also carries ATV/UTV/RV values we never emit).
+ *
+ * NOTE: multi-word values are UNDERSCORE separated. This function previously
+ * emitted "station wagon" and "full size van" with spaces, which the Vehicle Ads
+ * parser rejects as "Invalid value".
+ *
  * Anything outside this list is rejected as "Invalid value" by Vehicle Ads parser.
  * Returns null when no spec value fits → caller omits the tag rather than
  * emitting an unknown value.
@@ -117,8 +128,8 @@ function mapBodyStyle(v) {
   if (b.includes("crossover")) return "crossover";
   if (b.includes("suv")) return "suv";
   if (b.includes("truck") || b.includes("pickup")) return "truck";
-  if (b.includes("wagon")) return "station wagon";
-  if (b.includes("van")) return "full size van";
+  if (b.includes("wagon")) return "station_wagon";
+  if (b.includes("van")) return "full_size_van";
   if (b.includes("sedan")) return "sedan";
   return null;
 }
@@ -130,15 +141,68 @@ function mapBodyStyle(v) {
 function buildItem(v) {
   // Required field gate. Any of these missing → skip the row to avoid
   // tripping account-level disapproval.
+  // mileage and color are REQUIRED by the Vehicle Ads spec, not recommended —
+  // the older note in google-vehicle-ads-ops.md listing them as recommended was
+  // wrong. Emitting an item without them ships a spec-incomplete offer, and
+  // item-level rejections escalate to account-level issues. Skipping the row is
+  // strictly safer than shipping it incomplete.
+  // Ref: https://support.google.com/merchants/answer/11192663
   if (!v.slug || !v.vin || v.vin === "TBD" || !v.year || !v.make || !v.model) {
     console.warn(`SKIP ${v.slug || "(no slug)"} — missing required field (vin/year/make/model)`);
     return null;
   }
+  if (!(Number(v.mileage) > 0)) {
+    console.warn(`SKIP ${v.slug} — missing required field (mileage)`);
+    return null;
+  }
+  if (!v.exteriorColor) {
+    console.warn(`SKIP ${v.slug} — missing required field (color)`);
+    return null;
+  }
 
-  const link = `${SITE_HOST}/vehicle/${v.slug}/`;
-  const imageLink = (v.photoUrls && v.photoUrls[0]) || v.primaryPhotoUrl;
+  // NO TRAILING SLASH. astro.config.mjs sets trailingSlash: 'never', so the VDP
+  // canonical and the Offer.url both read /vehicle/<slug> with no slash. Both forms
+  // return 200 (verified live 2026-07-26), so a slashed g:link sends Merchant Center to
+  // a duplicate URL whose canonical points somewhere else. That landing page versus
+  // canonical mismatch is the disapproval pattern behind DB tasks #114, #132 and #154.
+  // This string must stay byte identical to the canonical the VDP emits.
+  const link = `${SITE_HOST}/vehicle/${v.slug}`;
+
+  // ---------------------------------------------------------------------------
+  // IMAGES — the feed must never carry the branded lead photo.
+  //
+  // DealerCenter burns a promotional overlay into the FIRST photo of every unit:
+  // the Maxim Autos logo, feature callout pills, "NO DEALER FEES. EVER.", a
+  // "CALL / TEXT 847-510-8947" button, a CARFAX Advantage Dealer badge, and a
+  // Google 5.0/5 stars graphic (which also reuses Google's own logo).
+  //
+  // Google's Vehicle Ads image guidelines disapprove images with overlaid
+  // watermarks or superimposed logos/text, and promotional-overlay images are
+  // the CONFIRMED trigger of the 2026-07-11 GBP suspension (guardrail A2).
+  // Ref: https://support.google.com/merchants/answer/11190670
+  //
+  // Verified 2026-07-25 by downloading every image_link in the live feed (7/7
+  // branded) plus all 10 additional_image_link entries for two units (20/20
+  // clean). The overlay is applied to photo[0] only; photos[1..] are genuine
+  // unedited photographs.
+  //
+  // So Google gets the clean set only. The website and Facebook Marketplace keep
+  // the branded lead, where overlays are permitted and convert well — do not
+  // propagate this change to those surfaces.
+  //
+  // Hero angle: DealerCenter's shoot order is consistent across all 7 units —
+  // [0] branded lead, [1] straight-on front, [2] front-to-side ~45°. Google
+  // recommends a front-to-side ~45° main image and explicitly warns against a
+  // rear angle, so the hero is photo[2] when it exists. Verified by eye on all
+  // 7 units. Falls back to the first clean photo for short galleries.
+  // ---------------------------------------------------------------------------
+  const BRANDED_LEAD_PHOTOS = 1; // photo[0] carries the promotional overlay
+  const HERO_OFFSET = 1; // within cleanPhotos: the front-to-side ~45° shot
+  const cleanPhotos = (v.photoUrls || []).slice(BRANDED_LEAD_PHOTOS);
+  const heroIndex = cleanPhotos.length > HERO_OFFSET ? HERO_OFFSET : 0;
+  const imageLink = cleanPhotos[heroIndex];
   if (!imageLink) {
-    console.warn(`SKIP ${v.slug} — no image_link`);
+    console.warn(`SKIP ${v.slug} — no unbranded image available for image_link`);
     return null;
   }
 
@@ -146,8 +210,10 @@ function buildItem(v) {
   const description = (v.description || `${title} — ${v.mileage > 0 ? v.mileage.toLocaleString() + " miles" : ""} ${v.engine || ""} ${v.transmission || ""} ${v.drivetrain || ""}. Fully inspected. CARFAX included. Maxim Autos, Skokie IL.`).slice(0, 5000);
 
   // Extra image_link entries (Google accepts up to 10 additional images).
-  const extraImages = (v.photoUrls || [])
-    .slice(1, 11)
+  // Drawn from the same clean set, skipping the one already used as image_link.
+  const extraImages = cleanPhotos
+    .filter((_, i) => i !== heroIndex)
+    .slice(0, 10)
     .map((u) => `    <g:additional_image_link>${xmlEscape(u)}</g:additional_image_link>\n`)
     .join("");
 
@@ -179,7 +245,11 @@ function buildItem(v) {
   item += extraImages;
   item += tag("condition", mapCondition(v));
   item += tag("price", `${v.price} USD`);
-  item += tag("availability", v.status === "sold" ? "out_of_stock" : "in_stock");
+  // Membership is decided by presence in the newest DC feed (see buildFeed), and
+  // a VIN in that feed is for sale by definition — so every row written here is
+  // in_stock. Deriving this from the local status flag would let a stale flag
+  // advertise a live car as out_of_stock.
+  item += tag("availability", "in_stock");
   // brand and google_product_category — Google's per-product evaluator
   // flagged BOTH as required after I removed them. The Vehicle Ads attribute
   // spec table I read didn't list them but the actual Vehicle Ads policy
@@ -204,7 +274,7 @@ function buildItem(v) {
   item += tag("model", v.model);
   // mileage: value+unit in same field. Only "Miles/MILES/miles" or
   // "Km/KM/km" accepted as units — "MI" is rejected.
-  if (Number(v.mileage) > 0) item += tag("mileage", `${v.mileage} Miles`);
+  item += tag("mileage", `${v.mileage} Miles`);
 
   // store_code — must match the Business Profile location's code. The GBP
   // for Maxim Autos auto-assigned 08861907241419503398 (visible at
@@ -221,11 +291,13 @@ function buildItem(v) {
   item += `      <g:option>in_store</g:option>\n`;
   item += `    </g:vehicle_fulfillment>\n`;
 
+  // color is REQUIRED (gated above), so emit unconditionally.
+  item += tag("color", v.exteriorColor);
+
   // Vehicle Ads optional but recommended attributes
   if (v.trim) item += tag("trim", v.trim);
   const bodyStyle = mapBodyStyle(v);
   if (bodyStyle) item += tag("body_style", bodyStyle);
-  if (v.exteriorColor) item += tag("color", v.exteriorColor);
 
   item += "  </item>\n";
   return item;
@@ -236,7 +308,39 @@ function buildItem(v) {
 // ---------------------------------------------------------------------------
 function buildFeed() {
   const vehicles = JSON.parse(readFileSync(VEHICLES_PATH, "utf-8"));
-  const available = vehicles.filter((v) => v.status !== "sold");
+
+  // ---------------------------------------------------------------------------
+  // MEMBERSHIP RULE (owner's standing instruction, 2026-07-25):
+  // "The Google feed units should always match the latest FTP from DealerCenter,
+  //  no matter sold or not."
+  //
+  // So membership is decided by PRESENCE IN THE NEWEST DC OAP FEED — never by a
+  // status flag we keep on our side. DealerCenter is the book of record: a VIN in
+  // the feed is for sale, a VIN that drops out is gone. Selecting on
+  // `status !== "sold"` (the previous behaviour) let any stale or erroneous local
+  // flag silently add or drop a car. That is exactly how J10210 ended up marked
+  // sold in ma_vehicles while sitting live in tonight's feed and on the site.
+  //
+  // Anything not in the newest DC feed is excluded, which keeps the 20 sold VDPs
+  // (kept live for SEO) out of the feed automatically.
+  // ---------------------------------------------------------------------------
+  const dcRaw = JSON.parse(readFileSync(DC_INVENTORY_PATH, "utf-8"));
+  const dcByVin = dcRaw.by_vin || dcRaw;
+  const dcVins = new Set(Object.keys(dcByVin).map((k) => k.toUpperCase()));
+  if (dcVins.size === 0) {
+    throw new Error("dc-inventory.json carries zero VINs — refusing to build an empty feed");
+  }
+  const available = vehicles.filter((v) => dcVins.has((v.vin || "").toUpperCase()));
+
+  // Every VIN in the DC feed is for sale by definition, so nothing here can be
+  // out_of_stock. A row whose local status still says sold is a local-flag bug,
+  // not a signal — report it rather than letting it change the feed.
+  const staleSold = available.filter((v) => v.status === "sold");
+
+  // Parity check in the other direction: a DC VIN we cannot represent (no row in
+  // vehicles.json yet) would silently shrink the feed.
+  const vehicleVins = new Set(vehicles.map((v) => (v.vin || "").toUpperCase()));
+  const dcMissingFromSite = [...dcVins].filter((vin) => !vehicleVins.has(vin));
 
   const now = new Date().toISOString();
   const skippedRows = [];
@@ -254,7 +358,7 @@ function buildFeed() {
   const feed = `<?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:g="http://base.google.com/ns/1.0">
 <channel>
-  <title>${xmlEscape(DEALER_NAME)} — Vehicle Inventory</title>
+  <title>${xmlEscape(DEALER_NAME)} Vehicle Inventory</title>
   <link>${SITE_HOST}/</link>
   <description>Used vehicles for sale at ${xmlEscape(DEALER_NAME)} in ${xmlEscape(DEALER_ADDRESS_LOCALITY)}, ${xmlEscape(DEALER_ADDRESS_REGION)} ${xmlEscape(DEALER_POSTAL)}. Phone ${xmlEscape(DEALER_PHONE)}.</description>
   <lastBuildDate>${now}</lastBuildDate>
@@ -267,15 +371,34 @@ ${itemsXml}</channel>
   }
   writeFileSync(FEED_PATH, feed, "utf-8");
 
-  const skipped = vehicles.length - available.length;
   const written = items.length;
   console.log(`GMC feed written to ${FEED_PATH}`);
-  console.log(`  total vehicles in vehicles.json: ${vehicles.length}`);
-  console.log(`  excluded (sold): ${skipped}`);
-  console.log(`  active (non-sold): ${available.length}`);
+  console.log(`  VINs in newest DC feed (book of record): ${dcVins.size}`);
+  console.log(`  total rows in vehicles.json: ${vehicles.length}`);
+  console.log(`  matched to a DC VIN: ${available.length}`);
   console.log(`  written to feed: ${written}`);
 
-  if (STRICT && (written === 0 || written < available.length)) {
+  // Parity must be exact: feed VINs == DC feed VINs. Anything else is drift.
+  if (dcMissingFromSite.length) {
+    console.warn(
+      `  WARNING: ${dcMissingFromSite.length} DC VIN(s) have no row in vehicles.json ` +
+        `and are therefore missing from the Google feed: ${dcMissingFromSite.join(", ")}`
+    );
+  }
+  if (staleSold.length) {
+    console.warn(
+      `  WARNING: ${staleSold.length} row(s) are in the DC feed but flagged sold locally ` +
+        `(local-flag bug; included anyway per the DC-is-authoritative rule): ` +
+        staleSold.map((v) => `${v.stockNumber || v.vin}`).join(", ")
+    );
+  }
+  if (written === dcVins.size) {
+    console.log(`  PARITY OK: feed matches the newest DC feed exactly (${written}/${dcVins.size})`);
+  } else {
+    console.warn(`  PARITY DRIFT: feed has ${written} of ${dcVins.size} DC VINs`);
+  }
+
+  if (STRICT && (written === 0 || written < available.length || dcMissingFromSite.length)) {
     console.error(
       `STRICT FAILURE: wrote ${written} of ${available.length} active vehicles` +
         (written === 0 ? " (feed is empty)" : "")

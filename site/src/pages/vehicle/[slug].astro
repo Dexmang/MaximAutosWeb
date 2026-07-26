@@ -44,7 +44,7 @@ const pageTitle = isSold
 const mileageStr = v.mileage > 0 ? `${v.mileage.toLocaleString()} mi` : 'Mileage TBD';
 const pageDesc = isSold
   ? `${titleText} previously listed at Maxim Autos in Skokie, IL has sold. Browse our current Pre-Owned inventory or text Jerry to source a similar one.`
-  : `${titleText}${v.mileage > 0 ? ` with ${v.mileage.toLocaleString()} miles` : ''} for $${v.price.toLocaleString()} at Maxim Autos in Skokie, IL. ${v.engine}, ${v.transmission}, ${v.drivetrain}. Fully inspected with free CARFAX. Same-day metal plates.`;
+  : `${titleText}${v.mileage > 0 ? ` with ${v.mileage.toLocaleString()} miles` : ''} for $${v.price.toLocaleString()} at Maxim Autos in Skokie, IL. ${v.engine}, ${v.transmission}, ${v.drivetrain}. Fully inspected with free CARFAX. Same day metal plates.`;
 const seoSuffix = 'maxim-autos-skokie-il';
 
 // Build photo arrays
@@ -173,7 +173,11 @@ const hasCategories = featureCats.safety.length > 0 || featureCats.comfort.lengt
 const faqs = [
   { q: `Is the ${v.year} ${v.make} ${v.model} reliable?`, a: `The ${v.year} ${v.make} ${v.model} is well-regarded for reliability. This used vehicle has been fully inspected by an independent mechanic and the report is included with your purchase.` },
   { q: `Is this used ${v.make} ${v.model} inspected before sale?`, a: `Yes. This ${titleText} has been inspected by an independent mechanic. The full inspection report is included with purchase so you can review every detail before buying.` },
-  { q: `Can I get pre-approved for financing on this ${v.make} ${v.model}?`, a: `Yes. Maxim Autos offers financing for all credit levels, including first-time buyers and those rebuilding credit. Get pre-approved quickly with no impact to your credit score. Contact Jerry directly to discuss your options.` },
+  // "Get pre-approved quickly with no impact to your credit score" was live here on all
+  // 27 VDPs, in the visible FAQ and in the FAQPage JSON-LD Google ingests. It is false:
+  // a pre-approval is a credit pull. What genuinely costs nothing is TALKING to Jerry and
+  // the soft prequalifier form, which asks four questions and no SSN. Corrected 2026-07-26.
+  { q: `Can I get pre-approved for financing on this ${v.make} ${v.model}?`, a: `Yes. Maxim Autos offers financing for all credit levels, including first time buyers and those rebuilding credit. Start with the short financing form or a call to Jerry: neither touches your credit. A full application does include a credit check, and approval is never guaranteed.` },
   { q: `Does this used ${v.make} ${v.model} come with a CARFAX report?`, a: `Yes. A CARFAX vehicle history report is included with every used vehicle at Maxim Autos at no extra cost. Review the full history of this ${titleText} before making a decision.` },
   { q: `Can I drive this ${v.make} ${v.model} home the same day?`, a: `Yes. Maxim Autos is an authorized Illinois CVR (Computer Vehicle Registration) electronic registration dealer. We process your title and registration on the spot and issue real metal plates the same day. No waiting for temporary plates, no trip to the DMV.` },
   { q: `Are there any hidden fees on this used ${v.make} ${v.model}?`, a: `No. Maxim Autos never charges dealer fees. No doc fee, no processing fee, no surprise extras at signing. The listed price of $${v.price.toLocaleString()} is what you pay plus standard state tax, title and license.` },
@@ -183,7 +187,16 @@ const faqs = [
 // priceValidUntil freezes at build time; acceptable because the site rebuilds
 // at least weekly (every CarGurus sync commit redeploys), so the 60-day window
 // never comes close to expiring on a live page.
-const priceValidUntil = new Date(Date.now() + 60 * 24 * 60 * 60 * 1000).toISOString().split('T')[0];
+//
+// SOLD cars are the exception. Until 2026-07-26 every sold VDP also advertised a price
+// valid 60 days into the FUTURE, so the markup said "this price is good until September"
+// on a car that was gone. The Offer already carries availability SoldOut; the validity
+// window has to agree with it. Falls back to the build date when sold_date is missing
+// rather than emitting a future date.
+const soldOnDate = (v as any).sold_date || null;
+const priceValidUntil = isSold
+  ? (soldOnDate || new Date().toISOString().split('T')[0])
+  : new Date(Date.now() + 60 * 24 * 60 * 60 * 1000).toISOString().split('T')[0];
 // No trailing slash — must exactly match <link rel=canonical> (Layout.astro,
 // trailingSlash 'never') and Vehicle.url below.
 const canonicalVdpUrl = `https://www.maximautos.com/vehicle/${v.slug}`;
@@ -471,10 +484,13 @@ const faqSchema = {
                   <p class="text-white/50 text-xs mt-1">Financed: <span id="m-fin-principal">--</span></p>
                 </div>
                 <p class="text-xs text-gray-400 mb-3">Estimates for illustration only. Actual terms depend on credit approval.</p>
-                <a href={`${base}/apply`}
+                <a href={`${base}/financing?vehicle=${v.slug}#apply`}
                    class="w-full flex items-center justify-center gap-2 bg-orange text-white py-3 rounded-xl font-bold text-sm hover:bg-orange-dark transition-colors">
                   <span class="material-symbols-outlined text-base" style="font-variation-settings:'FILL' 1;">payments</span>
-                  Get Pre-Approved
+                  Check my financing options
+                </a>
+                <a href={`${base}/apply`} class="block text-center text-xs text-gray-400 hover:text-orange mt-2 underline">
+                  Ready now? Full application
                 </a>
               </div>
             </div>
@@ -786,10 +802,13 @@ const faqSchema = {
                 <p class="text-xs text-gray-400 leading-relaxed">Estimates only. Actual terms depend on credit approval.</p>
               </div>
 
-              <a href={`${base}/apply`}
+              <a href={`${base}/financing?vehicle=${v.slug}#apply`}
                  class="w-full flex items-center justify-center gap-2 bg-orange text-white py-3 rounded-xl font-bold text-base hover:bg-orange-dark transition-colors">
                 <span class="material-symbols-outlined text-lg" style="font-variation-settings:'FILL' 1;">payments</span>
-                Get Pre-Approved
+                Check my financing options
+              </a>
+              <a href={`${base}/apply`} class="block text-center text-xs text-gray-400 hover:text-orange mt-2 underline">
+                Ready now? Full application
               </a>
             </div>
 
@@ -799,7 +818,7 @@ const faqSchema = {
                 {[
                   { icon: 'shield', color: 'text-green-600', label: 'Independent Inspection Included' },
                   { icon: 'description', color: 'text-blue-600', label: 'Free CARFAX Report' },
-                  { icon: 'directions_car', color: 'text-orange', label: 'Metal Plates — Skip the DMV' },
+                  { icon: 'directions_car', color: 'text-orange', label: 'Metal Plates, Skip the DMV' },
                   { icon: 'price_check', color: 'text-green-700', label: 'No Dealer Fees Ever' },
                 ].map(item => (
                   <div class="flex items-center gap-3">
@@ -812,8 +831,8 @@ const faqSchema = {
 
             <!-- Hours -->
             <div class="bg-surface rounded-2xl border border-gray-100 p-4 text-xs text-gray-500 text-center">
-              <p class="font-semibold text-gray-600">Mon / Tue / Thu / Fri &nbsp;3–7pm</p>
-              <p class="font-semibold text-gray-600">Saturday &nbsp;10am–3pm</p>
+              <p class="font-semibold text-gray-600">Mon / Tue / Thu / Fri &nbsp;3 to 7pm</p>
+              <p class="font-semibold text-gray-600">Saturday &nbsp;10am to 3pm</p>
               <p class="text-orange font-semibold mt-1.5">After hours? Text anytime. I check!</p>
               <p class="text-gray-400 mt-2 leading-relaxed">Limited hours keep our overhead low so we pass the savings to you. Morning appointment? Just text.</p>
             </div>
@@ -886,7 +905,7 @@ const faqSchema = {
         <span class="material-symbols-outlined text-xl" style="font-variation-settings:'FILL' 1;">call</span>
         <span class="text-xs font-bold">Call</span>
       </a>
-      <a href={`${base}/apply`} class="flex-1 flex flex-col items-center justify-center py-3 gap-0.5 bg-orange text-white hover:bg-orange-dark transition-colors">
+      <a href={`${base}/financing?vehicle=${v.slug}#apply`} class="flex-1 flex flex-col items-center justify-center py-3 gap-0.5 bg-orange text-white hover:bg-orange-dark transition-colors">
         <span class="material-symbols-outlined text-xl" style="font-variation-settings:'FILL' 1;">payments</span>
         <span class="text-xs font-bold">Pre-Qualify</span>
       </a>
@@ -1169,11 +1188,11 @@ const faqSchema = {
     }
     containers.forEach(function (el) {
       var obs = new MutationObserver(function () {
-        if (fixMapLinks(el) > 0) stop(); // patch applied — done observing
+        if (fixMapLinks(el) > 0) stop(); // patch applied, done observing
       });
       obs.observe(el, { childList: true, subtree: true });
       observers.push(obs);
     });
-    timeoutId = setTimeout(stop, 30000); // badge never rendered (or already clean) — give up
+    timeoutId = setTimeout(stop, 30000); // badge never rendered (or already clean), give up
   })();
 </script>

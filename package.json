@@ -6,6 +6,9 @@
     "build:inventory": "node scripts/build-inventory.js",
     "build:inventory:dry": "node scripts/build-inventory.js --dry-run",
     "sync": "node scripts/build-inventory.js",
-    "sync:dry": "node scripts/build-inventory.js --dry-run"
+    "sync:dry": "node scripts/build-inventory.js --dry-run",
+    "build:facts": "node scripts/build-facts.mjs",
+    "build:facts:dry": "node scripts/build-facts.mjs --dry-run",
+    "build:llms": "node scripts/build-llms.mjs"
   }
 }

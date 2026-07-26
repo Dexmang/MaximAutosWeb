@@ -1,0 +1,42 @@
+[
+  {
+    "question": "Are your vehicles inspected before sale?",
+    "answer": "Yes. Every vehicle at Maxim Autos undergoes a thorough independent inspection before it goes on sale. Each vehicle comes with a detailed inspection report you can review before purchasing, so you know exactly what you're getting."
+  },
+  {
+    "question": "Does Maxim Autos include a free CARFAX report?",
+    "answer": "Yes. A free CARFAX vehicle history report is included with every vehicle at Maxim Autos. You can review the full history, including accident records, service history, and number of owners, before making a decision. No purchase necessary to request it."
+  },
+  {
+    "question": "Can I get license plates at the dealership?",
+    "answer": "Yes. Maxim Autos is an authorized Illinois CVR (Computer Vehicle Registration) electronic registration dealer. We process your title and registration on the spot and issue real metal plates the same day. You drive home with real plates, no temporary paper tags, no trip to the DMV."
+  },
+  {
+    "question": "Does Maxim Autos offer financing?",
+    "answer": "Yes. We offer financing for all credit levels, including first time buyers and those rebuilding credit. We work with multiple lenders to find the best rate available for your situation."
+  },
+  {
+    "question": "Are there any hidden fees or dealer fees?",
+    "answer": "No. The price you see is the price you pay. Maxim Autos does not charge dealer fees, documentation fees, or any hidden charges. The only additions to the vehicle price are state-required tax, title, and license fees."
+  },
+  {
+    "question": "Does Maxim Autos offer a warranty?",
+    "answer": "Every qualifying used car is backed by Illinois' 15 day / 500 mile statutory powertrain protection on qualifying cars. Extended coverage is available as an option at signing, ask Jerry for pricing when you visit."
+  },
+  {
+    "question": "Where is Maxim Autos located?",
+    "answer": "Maxim Autos is located in Skokie, Illinois, serving the North Shore communities including Evanston, Niles, Morton Grove, Lincolnwood, Des Plaines, Wilmette, and Glenview."
+  },
+  {
+    "question": "What are Maxim Autos' hours?",
+    "answer": "Monday, Tuesday, Thursday, and Friday: 3:00 PM to 7:00 PM. Saturday: 10:00 AM to 3:00 PM. Wednesday: by appointment only. Sunday: closed. After-hours appointments are always welcome. Text Jerry at (847) 510-8947."
+  },
+  {
+    "question": "Can I sell or trade in my vehicle at Maxim Autos?",
+    "answer": "Yes. Maxim Autos purchases vehicles directly and accepts trade-ins. Text your vehicle's VIN to Jerry at (847) 510-8947 for a quick offer. No obligation."
+  },
+  {
+    "question": "What price range does Maxim Autos carry?",
+    "answer": "Most vehicles at Maxim Autos are priced {{price.band}}. The inventory focuses on fully inspected, reliable vehicles at accessible prices."
+  }
+]

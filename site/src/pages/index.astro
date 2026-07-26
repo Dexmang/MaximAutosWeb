@@ -9,9 +9,10 @@ import reviews from '../data/reviews.json';
 import reviewsMeta from '../data/reviews_meta.json';
 import suburbs from '../data/suburbs.json';
 
+import facts from '../data/facts.json';
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 const title = 'Used Cars in Skokie, IL | 5-Star Rated | Maxim Autos';
-const description = 'Maxim Autos: fully inspected used cars from $5,000 to $15,000 in Skokie, IL. Metal plates on the spot. Skip the DMV. Financing for all credit levels. 5-star Google reviews.';
+const description = `Maxim Autos: fully inspected used cars from ${facts.inventory.bandText} in Skokie, IL. Metal plates on the spot. Skip the DMV. Financing for all credit levels. 5-star Google reviews.`;
 const featured = vehicles.filter(v => (v as any).status !== 'sold');
 // Non-Google platforms present in the review set. Drives the review-grid source
 // label, which is only shown when the cards are NOT all Google (otherwise the
@@ -74,7 +75,7 @@ const heroReviews = reviews.slice(0, 6);
         { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Thursday","Friday"], "opens": "15:00", "closes": "19:00" },
         { "@type": "OpeningHoursSpecification", "dayOfWeek": "Saturday", "opens": "10:00", "closes": "15:00" }
       ],
-      "priceRange": "$5,000 to $15,000",
+      "priceRange": facts.inventory.priceRange,
       "aggregateRating": {
         "@type": "AggregateRating",
         "ratingValue": String(reviewsMeta.rating.toFixed(1)),
@@ -130,15 +131,25 @@ const heroReviews = reviews.slice(0, 6);
         <h1 class="font-headline text-4xl md:text-5xl lg:text-6xl font-extrabold text-white leading-tight tracking-tight mb-4">
           Used Cars <br/>in Skokie, IL
         </h1>
-        <p class="font-headline text-lg md:text-2xl lg:text-3xl font-bold text-white mb-3">5-Star Rated. Same-Day Metal Plates.</p>
+        <p class="font-headline text-lg md:text-2xl lg:text-3xl font-bold text-white mb-3">5-Star Rated. Same Day Metal Plates.</p>
         <p class="text-lg md:text-xl text-white/80 mb-7 leading-relaxed">
-          $5K to $15K, hand-picked by the owner. Drive home the same day.
+          {facts.inventory.bandText}, hand picked by the owner. Drive home the same day.
         </p>
         <div class="flex flex-wrap gap-2 mb-8">
+          {/* These chips pointed at /inventory?price=under10k and ?body=SUV, which were
+              broken three ways at once (verified 2026-07-26):
+                1. robots.txt carries `Disallow: /inventory?`, so the homepage was linking
+                   crawlers straight into blocked URLs.
+                2. inventory.astro never reads query params. Its filters are buttons with
+                   data-price / data-body attributes, so the chip delivered the FULL
+                   unfiltered list. Broken for people, not just crawlers.
+                3. The destinations were dead ends for internal linking.
+              They now point at the real landing pages, which are crawlable, actually
+              filtered, and were sitting orphaned with zero inbound internal links. */}
           {[
-            { label: 'Under $10K', href: `${base}/inventory?price=under10k` },
-            { label: 'SUVs', href: `${base}/inventory?body=SUV` },
-            { label: 'Sedans', href: `${base}/inventory?body=Sedan` },
+            { label: 'Under $10K', href: `${base}/used-cars-under-10000-skokie` },
+            { label: 'Under $15K', href: `${base}/used-cars-under-15000-skokie` },
+            { label: 'SUVs', href: `${base}/used-suvs-skokie-il` },
             { label: 'View All', href: `${base}/inventory` },
           ].map(chip => (
             <a href={chip.href}
@@ -173,7 +184,7 @@ const heroReviews = reviews.slice(0, 6);
       <div class="flex justify-between items-center mb-6">
         <div>
           <span class="text-orange font-bold uppercase tracking-widest text-sm mb-1 block">Current Inventory</span>
-          <h2 class="font-headline text-2xl md:text-3xl font-extrabold">Hand-Picked. Every One.</h2>
+          <h2 class="font-headline text-2xl md:text-3xl font-extrabold">Hand Picked. Every One.</h2>
           <p class="text-gray-500 text-sm mt-1">We don't carry 200 cars. We carry the right ones.</p>
         </div>
         <a href={`${base}/inventory`} class="flex items-center gap-1 text-navy font-bold hover:text-orange transition-colors text-sm">
@@ -266,10 +277,10 @@ const heroReviews = reviews.slice(0, 6);
           <h2 class="font-headline text-2xl md:text-3xl font-extrabold text-white mb-2">Selling Your Car? We Buy Private Party.</h2>
           <p class="text-gray-300 text-base">Get a fast, fair cash offer. No dealer games, no lowball tricks. Text Jerry a photo and your asking price.</p>
         </div>
-        <div class="hidden sm:inline-flex shrink-0 items-center gap-2 bg-white/10 border border-white/20 text-white px-8 py-4 rounded-xl font-bold text-lg whitespace-nowrap">
+        <a href="tel:8475108947" aria-label="Call Maxim Autos at (847) 510-8947" class="hidden sm:inline-flex shrink-0 items-center gap-2 bg-white/10 border border-white/20 text-white px-8 py-4 rounded-xl font-bold text-lg whitespace-nowrap hover:opacity-90 transition-opacity">
           <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">phone</span>
           (847) 510-8947
-        </div>
+        </a>
       </div>
     </div>
   </section>
@@ -323,7 +334,7 @@ const heroReviews = reviews.slice(0, 6);
       <div class="flex flex-col md:flex-row items-center gap-8">
         <div class="flex-1">
           <h2 class="font-headline text-2xl md:text-3xl font-extrabold mb-3">Serving Chicago's North Shore</h2>
-          <p class="text-gray-600 mb-4">Located in Skokie. Fully inspected pre-owned cars from $5,000 to $15,000 with financing for all credit levels.</p>
+          <p class="text-gray-600 mb-4">Located in Skokie. Fully inspected pre-owned cars from {facts.inventory.bandText} with financing for all credit levels.</p>
           <div class="flex flex-wrap gap-2 mb-5">
             {['Skokie', 'Evanston', 'Niles', 'Morton Grove', 'Lincolnwood', 'Des Plaines', 'Wilmette', 'Glenview', 'Chicago'].map(city => (
               <span class="px-3 py-1.5 bg-surface rounded-full text-sm font-medium text-gray-700 border border-gray-200">{city}</span>
@@ -371,12 +382,12 @@ const heroReviews = reviews.slice(0, 6);
   <section class="py-12 bg-navy">
     <div class="max-w-4xl mx-auto px-6 lg:px-8 text-center">
       <h2 class="font-headline text-3xl md:text-4xl font-extrabold text-white mb-4">Ready to Find Your Next Car?</h2>
-      <p class="text-white/70 text-lg mb-8">Every car hand-picked and personally inspected. Call or text Jerry for a quick response.</p>
+      <p class="text-white/70 text-lg mb-8">Every car hand picked and personally inspected. Call or text Jerry for a quick response.</p>
       <div class="flex flex-col sm:flex-row justify-center gap-4">
-        <div class="hidden sm:inline-flex items-center justify-center gap-2 bg-orange text-white px-8 py-4 rounded-xl font-bold text-lg">
+        <a href="tel:8475108947" aria-label="Call Maxim Autos at (847) 510-8947" class="hidden sm:inline-flex items-center justify-center gap-2 bg-orange text-white px-8 py-4 rounded-xl font-bold text-lg hover:opacity-90 transition-opacity">
           <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">phone</span>
           (847) 510-8947
-        </div>
+        </a>
         <a href={`${base}/inventory`} class="inline-flex items-center justify-center gap-2 bg-white/10 text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-white/20 transition-colors border border-white/20">
           Browse Inventory
         </a>

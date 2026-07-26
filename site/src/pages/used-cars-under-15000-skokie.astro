@@ -6,6 +6,7 @@ import VehicleCard from '../components/VehicleCard.astro';
 import vehicles from '../data/vehicles.json';
 import reviewsMeta from '../data/reviews_meta.json';
 
+import facts from '../data/facts.json';
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 
 const PRICE_CAP = 15000;
@@ -155,9 +156,9 @@ const localBusinessSchema = {
   <!-- Copy -->
   <section class="py-14 bg-surface">
     <div class="max-w-3xl mx-auto px-6 lg:px-8">
-      <h2 class="font-headline text-2xl md:text-3xl font-extrabold text-navy mb-6">The $5,000 to $15,000 Sweet Spot</h2>
+      <h2 class="font-headline text-2xl md:text-3xl font-extrabold text-navy mb-6">The {facts.inventory.bandText} Sweet Spot</h2>
       <p class="text-gray-700 leading-relaxed mb-5">
-        Maxim Autos focuses entirely on the $5,000 to $15,000 used car segment. This is the price band where buyers want something reliable, well kept, and fairly priced, without the markup that comes with newer used inventory at large franchise stores. Jerry Franco, the owner, picks every car himself at auction and personally inspects each vehicle before it lists.
+        Maxim Autos focuses entirely on the {facts.inventory.bandText} used car segment. This is the price band where buyers want something reliable, well kept, and fairly priced, without the markup that comes with newer used inventory at large franchise stores. Jerry Franco, the owner, picks every car himself at auction and personally inspects each vehicle before it lists.
       </p>
       <p class="text-gray-700 leading-relaxed mb-5">
         Every car under $15,000 on the lot includes a free CARFAX vehicle history report and an independent mechanical inspection report. The listed price is the full vehicle price, plus standard Illinois tax and title. No dealer fees. No documentation fees. No surprise add ons at signing.

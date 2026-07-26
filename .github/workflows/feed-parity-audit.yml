@@ -6,7 +6,11 @@ on:
     - cron: '30 14 * * *'
   workflow_dispatch:
   workflow_run:
-    workflows: ["Sync Inventory from CarGurus"]
+    # Must match the `name:` in build-inventory / sync-inventory EXACTLY. This read
+    # "Sync Inventory from CarGurus" long after that workflow was renamed to
+    # "Build Inventory (DealerCenter feed = source of truth)", so the trigger never
+    # fired and the parity audit only ran on its daily cron.
+    workflows: ["Build Inventory (DealerCenter feed = source of truth)"]
     types: [completed]
 
 permissions:

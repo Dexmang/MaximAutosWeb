@@ -9,9 +9,10 @@ import reviews from '../../data/reviews.json';
 import reviewsMeta from '../../data/reviews_meta.json';
 import suburbs from '../../data/suburbs.json';
 
+import facts from '../../data/facts.json';
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 const title = 'Autos Usados en Skokie, IL | Maxim Autos';
-const description = 'Maxim Autos: autos usados completamente inspeccionados de $5,000 a $15,000 en Skokie, IL. Placas el mismo dia. Sin tramites del DMV. Financiamiento para todos los niveles de credito. Resenas de 5 estrellas en Google.';
+const description = `Maxim Autos: autos usados completamente inspeccionados de ${facts.inventory.bandTextEs} en Skokie, IL. Placas el mismo dia. Sin tramites del DMV. Financiamiento para todos los niveles de credito. Resenas de 5 estrellas en Google.`;
 const featured = vehicles.filter(v => (v as any).status !== 'sold').slice(0, 6);
 // Ver index.astro: etiqueta de origen solo cuando NO todas las resenas son de Google.
 const offGoogleSources = [...new Set(reviews.filter(r => r.source !== 'Google').map(r => r.source))];
@@ -54,7 +55,7 @@ const heroReviews = reviews.slice(0, 6);
         { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Thursday","Friday"], "opens": "15:00", "closes": "19:00" },
         { "@type": "OpeningHoursSpecification", "dayOfWeek": "Saturday", "opens": "10:00", "closes": "15:00" }
       ],
-      "priceRange": "$5,000 a $15,000",
+      "priceRange": facts.inventory.priceRangeEs,
       "aggregateRating": {
         "@type": "AggregateRating",
         "ratingValue": String(reviewsMeta.rating.toFixed(1)),
@@ -283,7 +284,7 @@ const heroReviews = reviews.slice(0, 6);
       <div class="flex flex-col md:flex-row items-center gap-8">
         <div class="flex-1">
           <h2 class="font-headline text-2xl md:text-3xl font-extrabold mb-3">Servicio en el North Shore de Chicago</h2>
-          <p class="text-gray-600 mb-4">Ubicados en Skokie. Autos usados completamente inspeccionados de $5,000 a $15,000 con financiamiento para todos los niveles de credito.</p>
+          <p class="text-gray-600 mb-4">Ubicados en Skokie. Autos usados completamente inspeccionados de {facts.inventory.bandTextEs} con financiamiento para todos los niveles de credito.</p>
           <div class="flex flex-wrap gap-2 mb-5">
             {['Skokie', 'Evanston', 'Niles', 'Morton Grove', 'Lincolnwood', 'Des Plaines', 'Wilmette', 'Glenview', 'Chicago'].map(city => (
               <span class="px-3 py-1.5 bg-surface rounded-full text-sm font-medium text-gray-700 border border-gray-200">{city}</span>

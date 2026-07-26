@@ -42,7 +42,7 @@ const returnPolicyHref = `${base}/return-policy`;
 
 const labels = isSpanish
   ? {
-      tagline:           'Autos usados de calidad en Skokie, IL. Cada vehiculo inspeccionado, cada precio transparente, cada cliente protegido.',
+      tagline:           'Autos usados de calidad en Skokie, IL. Cada vehiculo inspeccionado, cada precio transparente, cada vehiculo documentado.',
       hours:             'Horario',
       days1:             'Lun / Mar / Jue / Vie',
       time1:             '3:00 PM - 7:00 PM',
@@ -76,7 +76,7 @@ const labels = isSpanish
       mobileFinancing:   'Financiamiento',
     }
   : {
-      tagline:           'Quality used cars in Skokie, IL. Every vehicle inspected, every price transparent, every customer protected.',
+      tagline:           'Quality used cars in Skokie, IL. Every vehicle inspected, every price transparent, every car documented.',
       hours:             'Business Hours',
       days1:             'Mon / Tue / Thu / Fri',
       time1:             '3:00 PM - 7:00 PM',
@@ -210,7 +210,7 @@ const labels = isSpanish
     </span>
     <span class="flex items-center gap-x-2 flex-wrap justify-center sm:justify-end">
       {inventoryIso && (
-        <span class="opacity-70" title="Feed status — IUlive: DealerCenter feed current; IUverify: feed stale, check it">
+        <span class="opacity-70" title="Feed status, IUlive: DealerCenter feed current; IUverify: feed stale, check it">
           <span id="iu-status" data-ts={inventoryIso}>IU</span> · {inventoryUpdatedStr}
         </span>
       )}

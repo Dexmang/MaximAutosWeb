@@ -6,6 +6,7 @@ import VehicleCard from '../components/VehicleCard.astro';
 import vehicles from '../data/vehicles.json';
 import reviewsMeta from '../data/reviews_meta.json';
 
+import facts from '../data/facts.json';
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 
 const SUV_BODY_STYLES = ['SUV', 'Crossover', 'Crossover SUV'];
@@ -17,7 +18,7 @@ const matches = live.filter(v =>
 
 const canonicalUrl = 'https://www.maximautos.com/used-suvs-skokie-il';
 const title = 'Used SUVs for Sale in Skokie, IL | Under $15,000 | Maxim Autos';
-const description = 'Used SUVs for sale near Skokie, IL at Maxim Autos. $5,000 to $15,000. Every SUV fully inspected with a free CARFAX report. Same day metal plates. Financing for all credit levels.';
+const description = `Used SUVs for sale near Skokie, IL at Maxim Autos. ${facts.inventory.bandText}. Every SUV fully inspected with a free CARFAX report. Same day metal plates. Financing for all credit levels.`;
 
 const itemListSchema = {
   "@context": "https://schema.org",
@@ -77,11 +78,11 @@ const localBusinessSchema = {
 const faqs = [
   {
     q: 'Does Maxim Autos sell used SUVs near Skokie?',
-    a: 'Yes. Maxim Autos in Skokie regularly carries used SUVs and crossovers priced from $5,000 to $15,000. Every SUV on the lot is independently inspected and includes a free CARFAX report. Text Jerry at (847) 510-8947 for current availability.'
+    a: `Yes. Maxim Autos in Skokie regularly carries used SUVs and crossovers priced from ${facts.inventory.bandText}. Every SUV on the lot is independently inspected and includes a free CARFAX report. Text Jerry at (847) 510-8947 for current availability.`
   },
   {
     q: 'What SUV brands does Maxim Autos typically carry?',
-    a: 'Inventory rotates weekly. Past inventory has included Toyota RAV4, Honda CR-V, Hyundai Tucson, Ford Escape, Chevrolet Equinox, and Nissan Rogue, all priced in the $5,000 to $15,000 range. Every vehicle is owner-selected at auction for reliability and value.'
+    a: `Inventory rotates weekly. Past inventory has included Toyota RAV4, Honda CR-V, Hyundai Tucson, Ford Escape, Chevrolet Equinox, and Nissan Rogue, all priced in the ${facts.inventory.bandText} range. Every vehicle is owner-selected at auction for reliability and value.`
   },
   {
     q: 'Is financing available on used SUVs at Maxim Autos?',
@@ -133,7 +134,7 @@ const faqSchema = {
       <div class="bg-white/10 border border-white/20 rounded-xl px-6 py-5 mb-10 max-w-2xl">
         <p class="text-white/60 text-xs font-bold uppercase tracking-widest mb-2">Quick Answer</p>
         <p class="text-white text-base leading-relaxed">
-          Maxim Autos sells used SUVs in Skokie, IL priced from $5,000 to $15,000. Every SUV is fully inspected, includes a free CARFAX report, and comes with same day Illinois metal plates. Located at 9101 Terminal Ave, Skokie, IL 60077. Call or text (847) 510-8947.
+          Maxim Autos sells used SUVs in Skokie, IL priced from {facts.inventory.bandText}. Every SUV is fully inspected, includes a free CARFAX report, and comes with same day Illinois metal plates. Located at 9101 Terminal Ave, Skokie, IL 60077. Call or text (847) 510-8947.
         </p>
       </div>
 
@@ -200,13 +201,13 @@ const faqSchema = {
     <div class="max-w-3xl mx-auto px-6 lg:px-8">
       <h2 class="font-headline text-2xl md:text-3xl font-extrabold text-navy mb-6">Why SUV Buyers on Chicago's North Shore Shop Maxim Autos</h2>
       <p class="text-gray-700 leading-relaxed mb-5">
-        SUVs are the most searched body style in the $5,000 to $15,000 segment on Chicago's North Shore. Buyers in Skokie, Evanston, Niles, Morton Grove, and surrounding communities look for models like the Toyota RAV4, Honda CR-V, Hyundai Tucson, Ford Escape, Chevrolet Equinox, and Nissan Rogue. These models combine all-weather capability, cargo space, and long-term reliability at a price that makes sense for families and commuters.
+        SUVs are the most searched body style in the {facts.inventory.bandText} segment on Chicago's North Shore. Buyers in Skokie, Evanston, Niles, Morton Grove, and surrounding communities look for models like the Toyota RAV4, Honda CR-V, Hyundai Tucson, Ford Escape, Chevrolet Equinox, and Nissan Rogue. These models combine all-weather capability, cargo space, and long-term reliability at a price that makes sense for families and commuters.
       </p>
       <p class="text-gray-700 leading-relaxed mb-5">
-        Every SUV at Maxim Autos goes through an independent mechanical inspection before it goes on the lot. The inspection report covers engine, drivetrain, brakes, suspension, tires, electrical systems, and interior and exterior condition. That report is included with your purchase at no extra cost. A free CARFAX vehicle history report is also included with every vehicle. Every qualifying used car is backed by Illinois' 15 day / 500 mile statutory powertrain protection. Extended coverage is available as an option at signing, ask Jerry for pricing when you visit.
+        Every SUV at Maxim Autos goes through an independent mechanical inspection before it goes on the lot. The inspection report covers engine, drivetrain, brakes, suspension, tires, electrical systems, and interior and exterior condition. That report is included with your purchase at no extra cost. A free CARFAX vehicle history report is also included with every vehicle. Every qualifying used car is backed by Illinois' 15 day / 500 mile statutory powertrain protection on qualifying cars. Extended coverage is available as an option at signing, ask Jerry for pricing when you visit.
       </p>
       <p class="text-gray-700 leading-relaxed mb-5">
-        Maxim Autos is a licensed Illinois CVR dealer at 9101 Terminal Ave in Skokie. Every Illinois buyer drives home with real metal plates the same day. No DMV trip. No temporary tags. Financing is available for all credit levels, including first-time buyers and buyers rebuilding credit.
+        Maxim Autos is a licensed Illinois CVR dealer at 9101 Terminal Ave in Skokie. Every Illinois buyer drives home with real metal plates the same day. No DMV trip. No temporary tags. Financing is available for all credit levels, including first time buyers and buyers rebuilding credit.
       </p>
       <p class="text-gray-700 leading-relaxed">
         SUV inventory rotates weekly. If the model or year you want is not on the lot today, text Jerry at (847) 510-8947 with the make, model, mileage range, and budget. Jerry sources at auction every week and will reach out when something fits.

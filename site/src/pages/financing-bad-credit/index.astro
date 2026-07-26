@@ -4,11 +4,12 @@ import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 import QuickAnswer from '../../components/QuickAnswer.astro';
 
+import facts from '../../data/facts.json';
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 const title = 'Bad Credit Car Financing in Skokie, IL | Maxim Autos';
 const description = 'Bad credit car financing at Maxim Autos in Skokie, IL. Financing available for all credit levels through established lenders. Every application reviewed individually. Call or text (847) 510-8947.';
 
-const quickAnswer = 'Maxim Autos in Skokie, IL offers used car financing for all credit levels, including buyers with bad credit, no credit, past repossession, or bankruptcy. Financing is arranged through established lenders and every application is reviewed individually, so a low score does not automatically end the conversation. Vehicles are priced from $5,000 to $15,000, which keeps loan amounts and payments manageable. Every car includes an independent inspection report and a CARFAX history, and metal Illinois plates are issued on the spot. Call or text (847) 510-8947 or apply online.';
+const quickAnswer = `Maxim Autos in Skokie, IL offers used car financing for all credit levels, including buyers with bad credit, no credit, past repossession, or bankruptcy. Financing is arranged through established lenders and every application is reviewed individually, so a low score does not automatically end the conversation. Vehicles are priced from ${facts.inventory.bandText}, which keeps loan amounts and payments manageable. Every car includes an independent inspection report and a CARFAX history, and metal Illinois plates are issued on the spot. Call or text (847) 510-8947 or apply online.`;
 
 const articles = [
   {
@@ -50,7 +51,7 @@ const faqSchema = {
     { "@type": "Question", "name": "Can I buy a car at Maxim Autos with bad credit?", "acceptedAnswer": { "@type": "Answer", "text": "Yes, you can apply. Maxim Autos arranges financing for all credit levels through established lenders, and every application is reviewed individually. A low credit score does not automatically disqualify you, because lenders also weigh income, stability, and down payment." } },
     { "@type": "Question", "name": "Is approval guaranteed at Maxim Autos?", "acceptedAnswer": { "@type": "Answer", "text": "No dealer can honestly guarantee approval, and Maxim Autos does not. What we do is work with established lenders who serve every credit level and review each application individually, then tell you honestly what is possible for your situation." } },
     { "@type": "Question", "name": "Does a bad credit application hurt my credit score?", "acceptedAnswer": { "@type": "Answer", "text": "Browsing inventory has no impact on your credit. A formal credit application involves a soft or hard inquiry depending on the lender. Text Jerry at (847) 510-8947 first if you want to understand the steps before anything is submitted." } },
-    { "@type": "Question", "name": "Why does the $5,000 to $15,000 price range matter for bad credit buyers?", "acceptedAnswer": { "@type": "Answer", "text": "Smaller loans are easier to finance and easier to pay off. Because every Maxim Autos vehicle is priced between $5,000 and $15,000, the amounts requested from lenders stay modest, payments stay realistic, and the loan is more likely to fit a tight monthly budget." } }
+    { "@type": "Question", "name": `Why does the ${facts.inventory.bandText} price range matter for bad credit buyers?`, "acceptedAnswer": { "@type": "Answer", "text": `Smaller loans are easier to finance and easier to pay off. Because every Maxim Autos vehicle is priced between ${facts.inventory.bandText}, the amounts requested from lenders stay modest, payments stay realistic, and the loan is more likely to fit a tight monthly budget.` } }
   ]
 };
 ---
@@ -113,7 +114,7 @@ const faqSchema = {
           A credit score is one number. It does not say whether you show up to work, whether your income is steady, or whether you have cash to put down. The established lenders Maxim Autos works with understand that, which is why every application is reviewed individually instead of being filtered out by a score cutoff. Buyers with bad credit, thin credit, a past repossession, or a discharged bankruptcy get a real look, not an automatic no.
         </p>
         <p>
-          The inventory itself works in your favor. Every vehicle on the lot is priced between $5,000 and $15,000, so the loan you are asking for is modest by auto lending standards. Smaller amounts mean smaller payments, and smaller payments are easier for a lender to say yes to. You will not be pushed toward a $30,000 vehicle to inflate the deal.
+          The inventory itself works in your favor. Every vehicle on the lot is priced between {facts.inventory.bandText}, so the loan you are asking for is modest by auto lending standards. Smaller amounts mean smaller payments, and smaller payments are easier for a lender to say yes to. You will not be pushed toward a $30,000 vehicle to inflate the deal.
         </p>
         <p>
           You also get the same protection as every other buyer. Each car has passed an independent mechanical inspection and comes with a CARFAX history report. The advertised price is the full price, with no dealer fees or document charges added at signing. And when the loan is finalized, Maxim Autos issues metal Illinois plates on the spot, so you drive home registered the same day with no DMV trip.

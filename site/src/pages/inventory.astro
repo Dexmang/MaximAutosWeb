@@ -4,11 +4,13 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import VehicleCard from '../components/VehicleCard.astro';
 import vehicles from '../data/vehicles.json';
+import suburbs from '../data/suburbs.json';
+import facts from '../data/facts.json';
 
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 const liveVehicles = vehicles.filter(v => (v as any).status !== 'sold');
 const title = 'Used Cars for Sale in Skokie, IL';
-const description = `Browse ${liveVehicles.length} fully inspected used cars for sale at Maxim Autos in Skokie, IL. Prices from $${Math.min(...liveVehicles.map(v => v.price)).toLocaleString()} to $${Math.max(...liveVehicles.map(v => v.price)).toLocaleString()}. Every vehicle includes an independent inspection report and same-day metal plates. Financing available for all credit levels.`;
+const description = `Browse ${liveVehicles.length} fully inspected used cars for sale at Maxim Autos in Skokie, IL. Prices from $${Math.min(...liveVehicles.map(v => v.price)).toLocaleString()} to $${Math.max(...liveVehicles.map(v => v.price)).toLocaleString()}. Every vehicle includes an independent inspection report and same day metal plates. Financing available for all credit levels.`;
 
 const bodyStyles = [...new Set(liveVehicles.map(v => v.bodyStyle))].sort();
 const drivetrains = [...new Set(liveVehicles.map(v => v.drivetrain).filter(Boolean))].sort();
@@ -141,9 +143,9 @@ const drivetrains = [...new Set(liveVehicles.map(v => v.drivetrain).filter(Boole
           <div class="flex flex-wrap gap-1.5" id="filter-price">
             <button data-price="all" class="filter-btn filter-btn--active px-3 py-1.5 rounded-lg text-xs font-semibold transition-all">All</button>
             <button data-price="under10k" class="filter-btn px-3 py-1.5 rounded-lg text-xs font-semibold transition-all">Under $10K</button>
-            <button data-price="5000-8000" class="filter-btn px-3 py-1.5 rounded-lg text-xs font-semibold transition-all">$5K–$8K</button>
-            <button data-price="8000-12000" class="filter-btn px-3 py-1.5 rounded-lg text-xs font-semibold transition-all">$8K–$12K</button>
-            <button data-price="12000-15000" class="filter-btn px-3 py-1.5 rounded-lg text-xs font-semibold transition-all">$12K–$15K</button>
+            <button data-price="5000-8000" class="filter-btn px-3 py-1.5 rounded-lg text-xs font-semibold transition-all">$5K to $8K</button>
+            <button data-price="8000-12000" class="filter-btn px-3 py-1.5 rounded-lg text-xs font-semibold transition-all">$8K to $12K</button>
+            <button data-price="12000-15000" class="filter-btn px-3 py-1.5 rounded-lg text-xs font-semibold transition-all">$12K to $15K</button>
           </div>
         </div>
 
@@ -188,7 +190,7 @@ const drivetrains = [...new Set(liveVehicles.map(v => v.drivetrain).filter(Boole
     <div class="max-w-7xl mx-auto px-6 lg:px-8 py-3 flex items-center gap-3">
       <span class="material-symbols-outlined text-xl text-navy shrink-0" style="font-variation-settings:'FILL' 1;">local_shipping</span>
       <p class="text-sm text-gray-700">
-        <span class="font-bold text-navy">Not local?</span> Any of these can be delivered to your door — anywhere in the U.S. Complete the purchase online, pick up or get it shipped.
+        <span class="font-bold text-navy">Not local?</span> Any of these can be delivered to your door, anywhere in the U.S. Complete the purchase online, pick up or get it shipped.
         <a href={`${base}/ship`} class="text-orange font-bold hover:underline ml-1">How it works →</a>
       </p>
     </div>
@@ -262,7 +264,7 @@ const drivetrains = [...new Set(liveVehicles.map(v => v.drivetrain).filter(Boole
       <div class="bg-navy rounded-2xl px-8 py-7 flex flex-col md:flex-row items-center justify-between gap-6">
         <div>
           <h3 class="font-headline text-xl font-extrabold text-white mb-1">Financing for All Credit Levels</h3>
-          <p class="text-white/70 text-sm">Good credit, fair credit, rebuilding, or first-time buyer. Apply in minutes. No obligation.</p>
+          <p class="text-white/70 text-sm">Good credit, fair credit, rebuilding, or first time buyer. Apply in minutes. No obligation.</p>
         </div>
         <a href={`${base}/apply`} class="shrink-0 inline-flex items-center justify-center gap-2 bg-orange text-white px-7 py-3.5 rounded-xl font-bold text-base hover:bg-orange-dark transition-colors whitespace-nowrap">
           <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">payments</span>
@@ -275,15 +277,76 @@ const drivetrains = [...new Set(liveVehicles.map(v => v.drivetrain).filter(Boole
   <!-- Car Finder CTA -->
   <section class="py-16 bg-navy">
     <div class="max-w-4xl mx-auto px-6 lg:px-8 text-center">
-      <span class="text-orange font-bold uppercase tracking-widest text-sm mb-3 block">Hand-Picked Inventory</span>
+      <span class="text-orange font-bold uppercase tracking-widest text-sm mb-3 block">Hand Picked Inventory</span>
       <h2 class="font-headline text-3xl md:text-4xl font-extrabold text-white mb-4">Don't See What You're Looking For?</h2>
-      <p class="text-white/70 text-lg mb-3">Jerry personally selects every pre-owned vehicle on this lot. We don't sell volume — we sell quality.</p>
-      <p class="text-white/60 text-base mb-8">Text Jerry exactly what you want — make, model, budget, features. He sources vehicles weekly and will find it for you.</p>
+      <p class="text-white/70 text-lg mb-3">Jerry personally selects every pre-owned vehicle on this lot. We don't sell volume, we sell quality.</p>
+      <p class="text-white/60 text-base mb-8">Text Jerry exactly what you want, make, model, budget, features. He sources vehicles weekly and will find it for you.</p>
       <!-- Mobile: clickable. Desktop: show phone number for reference -->
       <div class="flex flex-col sm:flex-row justify-center gap-4">
-        <div class="hidden sm:inline-flex items-center justify-center gap-3 bg-white/10 border border-white/20 text-white px-8 py-4 rounded-xl font-bold text-lg">
+        <a href="tel:8475108947" aria-label="Call Maxim Autos at (847) 510-8947" class="hidden sm:inline-flex items-center justify-center gap-3 bg-white/10 border border-white/20 text-white px-8 py-4 rounded-xl font-bold text-lg hover:opacity-90 transition-opacity">
           <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">phone</span>
-          (847) 510-8947 — Call or Text
+          (847) 510-8947, Call or Text
+        </a>
+      </div>
+    </div>
+  </section>
+
+  {/* ORPHAN RESCUE.
+      Verified 2026-07-26: seven landing pages had ZERO inbound internal links from
+      anywhere on the site. They existed only in the sitemap, which is why 28 URLs sit in
+      Search Console as "Discovered, currently not indexed" with Last crawled = N/A.
+      Google found the addresses and declined to spend the fetch, because nothing on the
+      site said they mattered. A sitemap entry is an invitation; an internal link is a
+      recommendation. Better copy on a page Google never fetches changes nothing.
+
+      /inventory is the right parent: it is the page a shopper lands on with intent, and
+      every link below narrows that same intent rather than sending them sideways. */}
+  <section class="py-14 bg-surface border-t border-gray-200">
+    <div class="max-w-6xl mx-auto px-6 lg:px-8">
+      <h2 class="font-headline text-2xl font-extrabold text-navy mb-2">Browse by price, body style, or town</h2>
+      <p class="text-gray-600 text-sm mb-7">
+        Every link below is the same hand picked inventory, narrowed down. Current stock runs {facts.inventory.bandText}.
+      </p>
+
+      <div class="grid gap-8 md:grid-cols-3">
+        <div>
+          <h3 class="text-xs font-bold uppercase tracking-widest text-gray-500 mb-3">By price</h3>
+          <ul class="space-y-2">
+            {[
+              { label: 'Used cars under $10,000', href: `${base}/used-cars-under-10000-skokie` },
+              { label: 'Used cars under $15,000', href: `${base}/used-cars-under-15000-skokie` },
+            ].map(l => (
+              <li><a href={l.href} class="text-navy hover:text-orange font-semibold text-sm transition-colors">{l.label}</a></li>
+            ))}
+          </ul>
+
+          <h3 class="text-xs font-bold uppercase tracking-widest text-gray-500 mt-6 mb-3">By body style</h3>
+          <ul class="space-y-2">
+            <li><a href={`${base}/used-suvs-skokie-il`} class="text-navy hover:text-orange font-semibold text-sm transition-colors">Used SUVs in Skokie</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="text-xs font-bold uppercase tracking-widest text-gray-500 mb-3">By make</h3>
+          <ul class="space-y-2">
+            {[
+              { label: 'Used Honda', href: `${base}/used-honda-skokie` },
+              { label: 'Used Subaru', href: `${base}/used-subaru-skokie` },
+              { label: 'Used Toyota', href: `${base}/used-toyota-skokie` },
+            ].map(l => (
+              <li><a href={l.href} class="text-navy hover:text-orange font-semibold text-sm transition-colors">{l.label}</a></li>
+            ))}
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="text-xs font-bold uppercase tracking-widest text-gray-500 mb-3">By town</h3>
+          <ul class="space-y-2 columns-2 md:columns-1">
+            <li><a href={`${base}/used-cars-chicago-north-shore`} class="text-navy hover:text-orange font-semibold text-sm transition-colors">Chicago North Shore</a></li>
+            {suburbs.map(s => (
+              <li><a href={`${base}/used-cars-${s.slug}-il`} class="text-navy hover:text-orange font-semibold text-sm transition-colors">{s.city}</a></li>
+            ))}
+          </ul>
         </div>
       </div>
     </div>

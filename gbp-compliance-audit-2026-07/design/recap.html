@@ -1,0 +1,291 @@
+<title>Maxim Autos GBP Compliance Re-Audit</title>
+<style>
+  :root{
+    --navy:#0a2540; --orange:#f08010;
+    --bg:#f4f6f9; --panel:#ffffff; --ink:#0a2540; --muted:#5b6b7c;
+    --line:#e2e8f0; --chip-bg:#eef2f7;
+    --crit:#c0392b; --high:#e05a10; --med:#c99a00; --low:#4a6b8a; --ok:#2e8b57;
+    --shadow:0 1px 3px rgba(10,37,64,.08),0 8px 24px rgba(10,37,64,.06);
+    --font:'Manrope','Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
+  }
+  @media (prefers-color-scheme:dark){
+    :root{
+      --bg:#0a1420; --panel:#10233a; --ink:#eaf1f8; --muted:#9db0c4;
+      --line:#1e3550; --chip-bg:#16304a;
+      --crit:#ff6b5c; --high:#ff9a4d; --med:#ffcf4d; --low:#7fa8cf; --ok:#5fd39a;
+      --shadow:0 1px 3px rgba(0,0,0,.4),0 10px 30px rgba(0,0,0,.35);
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#0a1420; --panel:#10233a; --ink:#eaf1f8; --muted:#9db0c4;
+    --line:#1e3550; --chip-bg:#16304a;
+    --crit:#ff6b5c; --high:#ff9a4d; --med:#ffcf4d; --low:#7fa8cf; --ok:#5fd39a;
+    --shadow:0 1px 3px rgba(0,0,0,.4),0 10px 30px rgba(0,0,0,.35);
+  }
+  :root[data-theme="light"]{
+    --bg:#f4f6f9; --panel:#ffffff; --ink:#0a2540; --muted:#5b6b7c;
+    --line:#e2e8f0; --chip-bg:#eef2f7;
+    --crit:#c0392b; --high:#e05a10; --med:#c99a00; --low:#4a6b8a; --ok:#2e8b57;
+  }
+  *{box-sizing:border-box}
+  body{margin:0}
+  .wrap{font-family:var(--font);background:var(--bg);color:var(--ink);
+    padding:32px 20px 64px;line-height:1.5;-webkit-font-smoothing:antialiased}
+  .inner{max-width:1080px;margin:0 auto}
+  .kicker{display:inline-block;font-size:12px;font-weight:700;letter-spacing:.14em;
+    text-transform:uppercase;color:var(--orange);margin-bottom:14px}
+  h1{font-size:clamp(28px,4.4vw,46px);line-height:1.08;font-weight:800;margin:0 0 14px;
+    letter-spacing:-.02em}
+  h1 .accent{color:var(--orange)}
+  .sub{font-size:17px;color:var(--muted);max-width:760px;margin:0 0 8px}
+  .meta{font-size:13px;color:var(--muted);margin-top:10px}
+  .meta b{color:var(--ink)}
+  section{margin-top:38px}
+  h2{font-size:13px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;
+    color:var(--muted);margin:0 0 16px;padding-bottom:10px;border-bottom:1px solid var(--line)}
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:14px;
+    padding:18px 18px 16px;box-shadow:var(--shadow)}
+  .card .b-name{font-size:13px;font-weight:700;color:var(--ink);margin-bottom:12px;
+    display:flex;align-items:center;gap:8px}
+  .card .dot{width:9px;height:9px;border-radius:50%;flex:none}
+  .counts{display:flex;gap:18px;align-items:baseline}
+  .counts .n{font-size:30px;font-weight:800;letter-spacing:-.02em}
+  .counts .lbl{font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);
+    display:block;margin-top:2px;font-weight:600}
+  .pass .n{color:var(--ok)} .gap .n{color:var(--high)}
+  .verdict{background:var(--navy);color:#fff;border-radius:18px;padding:26px 26px;
+    box-shadow:var(--shadow);border:1px solid rgba(255,255,255,.06)}
+  :root[data-theme="dark"] .verdict{background:#08192b}
+  @media (prefers-color-scheme:dark){.verdict{background:#08192b}}
+  .verdict .big{font-size:clamp(20px,2.6vw,26px);font-weight:800;line-height:1.25;margin:0 0 10px;
+    letter-spacing:-.01em}
+  .verdict .big em{color:var(--orange);font-style:normal}
+  .verdict p{margin:0;color:#c7d5e4;font-size:15px}
+  .verdict .stat-row{display:flex;flex-wrap:wrap;gap:26px;margin-top:20px;padding-top:18px;
+    border-top:1px solid rgba(255,255,255,.12)}
+  .verdict .stat .v{font-size:26px;font-weight:800;color:#fff}
+  .verdict .stat .k{font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:#9db0c4;font-weight:600}
+  table{width:100%;border-collapse:collapse;background:var(--panel);border-radius:14px;
+    overflow:hidden;box-shadow:var(--shadow);border:1px solid var(--line)}
+  .tbl-scroll{overflow-x:auto}
+  th,td{text-align:left;padding:13px 15px;font-size:14px;vertical-align:top;border-bottom:1px solid var(--line)}
+  th{font-size:11px;text-transform:uppercase;letter-spacing:.07em;color:var(--muted);font-weight:700;
+    background:var(--chip-bg)}
+  tr:last-child td{border-bottom:none}
+  td .fid{font-weight:700;color:var(--ink);white-space:nowrap}
+  td .loc{color:var(--muted);font-size:12.5px;margin-top:3px}
+  .chip{display:inline-block;font-size:11px;font-weight:700;padding:3px 10px;border-radius:999px;
+    text-transform:uppercase;letter-spacing:.05em;white-space:nowrap;color:#fff}
+  .chip.crit{background:var(--crit)} .chip.high{background:var(--high)}
+  .chip.med{background:var(--med);color:#3a2e00} .chip.low{background:var(--low)}
+  @media (prefers-color-scheme:dark){.chip.med{color:#241c00}}
+  :root[data-theme="dark"] .chip.med{color:#241c00}
+  .bucket{font-size:11px;color:var(--muted);font-weight:600;text-transform:uppercase;letter-spacing:.05em}
+  .honesty{background:var(--panel);border:1px solid var(--line);border-left:5px solid var(--orange);
+    border-radius:14px;padding:22px 24px;box-shadow:var(--shadow)}
+  .honesty h3{margin:0 0 10px;font-size:17px;font-weight:800;color:var(--ink)}
+  .honesty p{margin:0 0 10px;font-size:14.5px;color:var(--muted)}
+  .honesty p b{color:var(--ink)}
+  .honesty p:last-child{margin-bottom:0}
+  .phase-wrap{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+  @media (max-width:720px){.phase-wrap{grid-template-columns:1fr}}
+  .phase{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:20px 22px;
+    box-shadow:var(--shadow)}
+  .phase.p1{border-top:4px solid var(--ok)}
+  .phase.p2{border-top:4px solid var(--high)}
+  .phase .tag{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;
+    padding:3px 10px;border-radius:999px;display:inline-block;margin-bottom:6px}
+  .phase.p1 .tag{background:rgba(46,139,87,.14);color:var(--ok)}
+  .phase.p2 .tag{background:rgba(224,90,16,.14);color:var(--high)}
+  .phase h3{margin:4px 0 4px;font-size:18px;font-weight:800}
+  .phase .gate{font-size:12.5px;color:var(--muted);margin:0 0 14px}
+  .phase ol{margin:0;padding-left:20px}
+  .phase li{font-size:14px;margin-bottom:9px;color:var(--ink)}
+  .phase li .id{font-weight:700;color:var(--orange)}
+  .phase li span.s{color:var(--muted)}
+  .foot{margin-top:40px;font-size:12.5px;color:var(--muted);border-top:1px solid var(--line);padding-top:16px}
+</style>
+
+<div class="wrap"><div class="inner">
+
+  <div class="kicker">Maxim Autos · Compliance Re-Audit · 2026-07-12</div>
+  <h1>The site is clean on the basics. The real gap is <span class="accent">review authenticity</span>.</h1>
+  <p class="sub">A read-only re-audit of maximautos.com against Google GBP policy, federal TILA and FTC rules, and Illinois statute. The prior Reg Z and powertrain findings are closed. What surfaced this pass is a site-wide pattern of Cars.com reviews dressed up as Google reviews behind a fabricated 5.0 rating and a 43 count that no source can back.</p>
+  <p class="meta"><b>13</b> confirmed findings (11 from the fan-out plus 2 from the backfilled A1 legitimacy slice) · <b>3</b> rejected as false positives · <b>17+</b> checks verified clean · Scope: Maxim Autos only · Nothing was edited, nothing published, GBP untouched.</p>
+
+  <section>
+    <div class="verdict">
+      <p class="big">One <em>critical</em> finding, three <em>high</em>, four medium, three low. Every confirmed item is a legitimacy and honesty fix, not a reinstatement lever.</p>
+      <p>The website did not cause the suspension. Correcting it hardens the trust signal and clears real FTC exposure, but it does not move the appeal.</p>
+      <div class="stat-row">
+        <div class="stat"><div class="v">1</div><div class="k">Critical</div></div>
+        <div class="stat"><div class="v">3</div><div class="k">High</div></div>
+        <div class="stat"><div class="v">4</div><div class="k">Medium</div></div>
+        <div class="stat"><div class="v">3</div><div class="k">Low</div></div>
+        <div class="stat"><div class="v">11 / 11</div><div class="k">New this audit</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Scorecard by bucket</h2>
+    <div class="grid">
+      <div class="card">
+        <div class="b-name"><span class="dot" style="background:var(--low)"></span>GBP policy</div>
+        <div class="counts"><div class="pass"><div class="n">0</div><span class="lbl">Gaps</span></div>
+          <div><div class="n" style="color:var(--muted)">via</div><span class="lbl">Reviews bucket</span></div></div>
+      </div>
+      <div class="card">
+        <div class="b-name"><span class="dot" style="background:var(--ok)"></span>Federal (TILA / FTC)</div>
+        <div class="counts"><div class="pass"><div class="n">4</div><span class="lbl">Pass</span></div>
+          <div class="gap"><div class="n">1</div><span class="lbl">Gap</span></div></div>
+      </div>
+      <div class="card">
+        <div class="b-name"><span class="dot" style="background:var(--ok)"></span>Illinois statute</div>
+        <div class="counts"><div class="pass"><div class="n">7</div><span class="lbl">Pass</span></div>
+          <div class="gap"><div class="n">3</div><span class="lbl">Gap</span></div></div>
+      </div>
+      <div class="card">
+        <div class="b-name"><span class="dot" style="background:var(--crit)"></span>Schema &amp; Reviews</div>
+        <div class="counts"><div class="pass"><div class="n">1</div><span class="lbl">Pass</span></div>
+          <div class="gap"><div class="n">5</div><span class="lbl">Gap</span></div></div>
+      </div>
+      <div class="card">
+        <div class="b-name"><span class="dot" style="background:var(--high)"></span>Live parity</div>
+        <div class="counts"><div class="pass"><div class="n">0</div><span class="lbl">Drift</span></div>
+          <div class="gap"><div class="n">2</div><span class="lbl">Gap</span></div></div>
+      </div>
+      <div class="card">
+        <div class="b-name"><span class="dot" style="background:var(--med)"></span>NAP &amp; name</div>
+        <div class="counts"><div class="pass"><div class="n">Clean</div><span class="lbl">Name / phone / hours</span></div>
+          <div class="gap"><div class="n">2</div><span class="lbl">Legitimacy gaps</span></div></div>
+      </div>
+    </div>
+    <p class="meta" style="margin-top:14px">Live parity note: every confirmed defect renders identically on the live site. None is a stale deploy. The gaps live in the committed source.</p>
+  </section>
+
+  <section>
+    <h2>The real gap list</h2>
+    <div class="tbl-scroll">
+    <table>
+      <thead><tr><th>Finding</th><th>Severity</th><th>Bucket</th><th>What is wrong</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><div class="fid">A4-01</div><div class="loc">reviews_meta.json · ~11 pages + /es/</div></td>
+          <td><span class="chip crit">Critical</span></td>
+          <td><span class="bucket">Reviews</span></td>
+          <td>AggregateRating publishes a flat 5.0 and a count of 43 as Google reviews. The only actual content is 6 Cars.com reviews averaging ~4.83. The 43 has no verifiable source and the site even contradicts itself elsewhere (36, 40).</td>
+        </tr>
+        <tr>
+          <td><div class="fid">A4-03</div><div class="loc">index.astro · testimonials.astro</div></td>
+          <td><span class="chip high">High</span></td>
+          <td><span class="bucket">Reviews</span></td>
+          <td>The homepage hero shows the Google four-color G and a Verified Review badge over rotating Cars.com quotes, labeled 5.0 Stars on Google. Real source misattribution under FTC 16 CFR 255.</td>
+        </tr>
+        <tr>
+          <td><div class="fid">CC-01</div><div class="loc">Header.astro · all ~40 routes</div></td>
+          <td><span class="chip high">High</span></td>
+          <td><span class="bucket">Live parity</span></td>
+          <td>The sticky nav badge on every page, English and Spanish, shows the Google logo, 5.0, and 43 reviews linking to a Google reviews search. Broadest and most prominent instance of the misattribution, above the fold site wide.</td>
+        </tr>
+        <tr>
+          <td><div class="fid">CC-02</div><div class="loc">es/index.astro</div></td>
+          <td><span class="chip high">High</span></td>
+          <td><span class="bucket">Live parity</span></td>
+          <td>The Spanish homepage repeats 5.0 Estrellas en Google and 43 Resenas over the same 6 Cars.com reviews. Same false Google claim, uncovered by the English location lists.</td>
+        </tr>
+        <tr>
+          <td><div class="fid">A2-01</div><div class="loc">vehicle/[slug].astro · VehicleCard</div></td>
+          <td><span class="chip med">Medium</span></td>
+          <td><span class="bucket">Federal</span></td>
+          <td>The VDP More Vehicles cards show $267/mo est. with a bare asterisk, but the page has no Reg Z footnote resolving it. Every other card host page carries the footnote, so the VDP was missed in the F1 sweep.</td>
+        </tr>
+        <tr>
+          <td><div class="fid">A5-F1</div><div class="loc">vehicles.json · live VDP</div></td>
+          <td><span class="chip med">Medium</span></td>
+          <td><span class="bucket">Illinois</span></td>
+          <td>The Volvo V60 VDP description promises 15 day / 500 mile Illinois powertrain protection with no qualifying. Fix belongs upstream in the DealerCenter template so it cannot recur.</td>
+        </tr>
+        <tr>
+          <td><div class="fid">A3-01</div><div class="loc">after-repossession-bankruptcy FAQ schema</div></td>
+          <td><span class="chip med">Medium</span></td>
+          <td><span class="bucket">Illinois</span></td>
+          <td>FAQ JSON-LD claims every vehicle is backed by statutory powertrain protection. Reaches Google rich results. Must say qualifying units per 815 ILCS 505/2L.</td>
+        </tr>
+        <tr>
+          <td><div class="fid">A4-02</div><div class="loc">reviews_meta.json vs testimonials.astro</div></td>
+          <td><span class="chip med">Medium</span></td>
+          <td><span class="bucket">Reviews</span></td>
+          <td>One page ships two Google counts: the schema and badge say 43, the meta description says 36. Proves the number is hand authored and drifting.</td>
+        </tr>
+        <tr>
+          <td><div class="fid">A3-02</div><div class="loc">suburbs.json · Des Plaines FAQ</div></td>
+          <td><span class="chip low">Low</span></td>
+          <td><span class="bucket">Illinois</span></td>
+          <td>One suburb FAQ omits qualifying on the powertrain line. Isolated: Skokie and Evanston already carry it. One word fix.</td>
+        </tr>
+        <tr>
+          <td><div class="fid">A4-05</div><div class="loc">index.astro · testimonials.astro</div></td>
+          <td><span class="chip low">Low</span></td>
+          <td><span class="bucket">Reviews</span></td>
+          <td>Verified Review wording sits beside the Google logo, but the site controls no verification mechanism for the static third party text.</td>
+        </tr>
+        <tr>
+          <td><div class="fid">A4-08</div><div class="loc">contact.astro vs index.astro</div></td>
+          <td><span class="chip low">Low</span></td>
+          <td><span class="bucket">Schema</span></td>
+          <td>Contact page geo coordinates sit ~1.5 to 2 km off the canonical pair used everywhere else, disagreeing even with its own map link. Text NAP is clean.</td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+  </section>
+
+  <section>
+    <h2>Honesty box</h2>
+    <div class="honesty">
+      <h3>The website is not the reinstatement lever</h3>
+      <p><b>The website did not cause the suspension.</b> Forensics confirmed the cause was the 7/1 GBP badge-graphic posts, with delayed batch moderation explaining the 7/11 timing. This re-audit hardens the legitimacy signal and removes real FTC and structured-data exposure, but no fix here gets the profile back.</p>
+      <p>The reinstatement path stays the appeal already filed, verdict expected around Jul 17 to 18, plus purging the 7/1 badge posts right after reinstatement. Do not present any site change as the thing that restores the listing.</p>
+      <p>Because the site is not the lever, nothing here is a reinstatement emergency. Fixes are sequenced on their own risk merits: additive disclosures now, public review-representation changes after the verdict.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>Phased roadmap</h2>
+    <div class="phase-wrap">
+      <div class="phase p1">
+        <span class="tag">Phase 1</span>
+        <h3>Safe during the appeal freeze</h3>
+        <p class="gate">Additive disclosure and qualifier hardening, website only. Zero downside, ship anytime. Nothing here changes a public business representation.</p>
+        <ol>
+          <li><span class="id">A2-01</span> Add the Reg Z footnote after the VDP More Vehicles grid. <span class="s">Closes the last F1 gap.</span></li>
+          <li><span class="id">A5-F1</span> Add qualifying to the Volvo VDP description and fix the DealerCenter template so it cannot recur.</li>
+          <li><span class="id">A3-01</span> Reword the after-repossession FAQ schema to qualifying units.</li>
+          <li><span class="id">A3-02</span> Add on qualifying cars to the Des Plaines suburb FAQ.</li>
+          <li><span class="id">A4-08</span> Align the contact page geo coordinates to the canonical pair.</li>
+          <li><span class="id">GL-01</span> Add the DL7667 license line to the sitewide footer. <span class="s">Legitimacy signal, currently buried in legal pages only.</span></li>
+          <li><span class="id">GL-02</span> Add the full streetAddress to the four incomplete PostalAddress schema nodes.</li>
+        </ol>
+      </div>
+      <div class="phase p2">
+        <span class="tag">Phase 2</span>
+        <h3>Gated to after the verdict</h3>
+        <p class="gate">Anything that changes the visible rating, count, source, or any NAP or hours substance. These are signals a reviewer may watch mid appeal. Highest severity work, so first in the queue once the verdict lands.</p>
+        <ol>
+          <li><span class="id">A4-01</span> Replace or remove the fabricated 5.0 / 43 aggregate. Pull real Google figures once reinstated, or strip the markup until a genuine source exists.</li>
+          <li><span class="id">A4-03 · CC-01 · CC-02</span> Stop showing Cars.com content under Google branding on the hero, the site-wide header, and the Spanish page. Keep English and Spanish in sync.</li>
+          <li><span class="id">A4-02</span> Reconcile the 36 vs 43 count to one sourced figure.</li>
+          <li><span class="id">A4-05</span> Drop Verified wording unless reviews are pulled from a verifying platform.</li>
+        </ol>
+        <p class="gate" style="margin-top:12px">If counsel prioritizes the FTC fabricated-review exposure, the review cluster can be expedited by removing the aggregate and Google branding, a subtractive de-risk that is safer than restating new numbers mid freeze.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="foot">
+    Sources: Google GBP policy and Search structured-data review-snippet and LocalBusiness guidance · 815 ILCS 505/2L (Illinois statutory powertrain warranty) · 12 CFR 1026.24 (Regulation Z) · FTC 16 CFR 455, 16 CFR 255, 16 CFR 465 · 14 Ill. Adm. Code 475 · internal compliance-guardrails.md C1 to C8. Read-only audit, Maxim Autos only, no changes made.
+  </div>
+
+</div></div>

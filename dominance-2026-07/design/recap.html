@@ -1,0 +1,497 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Maxim Autos - Website Dominance Recap</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; color: #1c2230; background: #eef1f6; line-height: 1.45; padding: 28px 18px; }
+  .wrap { max-width: 1120px; margin: 0 auto; }
+  h1 { font-size: 27px; letter-spacing: -0.4px; color: #0a2540; }
+  h2 { font-size: 15px; text-transform: uppercase; letter-spacing: 1.2px; color: #5a647a; margin: 30px 0 12px; border-bottom: 2px solid #dfe4ee; padding-bottom: 7px; }
+  .sub { color: #5a647a; font-size: 13.5px; margin-top: 5px; }
+  code { font-family: Consolas, "SF Mono", Menlo, monospace; font-size: 0.92em; background: #eef1f6; border: 1px solid #dfe4ee; border-radius: 4px; padding: 0 4px; color: #33405a; }
+
+  .banner { background: linear-gradient(100deg,#0a2540,#123a63); color: #fff; border-radius: 12px; padding: 18px 22px; margin-top: 16px; box-shadow: 0 4px 14px rgba(10,37,64,.24); border-left: 6px solid #f08010; }
+  .banner b.head { font-size: 17px; display: block; color: #ffd7ad; }
+  .banner p { font-size: 13px; color: #dfe7f2; margin-top: 8px; }
+  .banner p.tight { margin-top: 6px; }
+  .banner .win { color: #ffd7ad; font-weight: 700; }
+
+  .grid { display: grid; gap: 14px; }
+  .g2 { grid-template-columns: 1fr 1fr; }
+  .g3 { grid-template-columns: repeat(3, 1fr); }
+  .g4 { grid-template-columns: repeat(4, 1fr); }
+  .split { display: grid; grid-template-columns: 1.05fr 1fr; gap: 18px; align-items: start; }
+
+  .stat { background:#fff; border:1px solid #dfe4ee; border-radius:12px; padding:14px 16px; text-align:center; }
+  .stat .n { font-size: 26px; font-weight: 800; color:#f08010; letter-spacing:-.5px; }
+  .stat .n.navy { color:#0a2540; } .stat .n.red { color:#c0392b; } .stat .n.green { color:#0f7a3d; }
+  .stat .l { font-size: 11.5px; color:#5a647a; margin-top:4px; }
+
+  .tablewrap { overflow-x: auto; background:#fff; border:1px solid #dfe4ee; border-radius:12px; }
+  table { border-collapse: collapse; width: 100%; min-width: 640px; }
+  th, td { text-align: left; padding: 11px 14px; font-size: 12.8px; border-bottom: 1px solid #eef1f6; vertical-align: top; }
+  thead th { background:#0a2540; color:#fff; font-size: 11.5px; text-transform: uppercase; letter-spacing: .7px; border-bottom: 0; }
+  thead th:nth-child(2) { color:#ffd7ad; }
+  tbody tr:last-child td { border-bottom: 0; }
+  td.me { font-weight: 700; color:#0a2540; }
+  td.them { color:#5a647a; }
+  td.k { font-weight: 600; width: 26%; }
+  .win-b { background:#fff6ed; }
+
+  .card { background: #fff; border: 1px solid #dfe4ee; border-radius: 12px; padding: 15px; }
+  .card h3 { font-size: 13.5px; margin-bottom: 7px; color:#0a2540; }
+  .card p { font-size: 12.6px; color:#414a5c; }
+  .card .cost { display:block; margin-top:8px; font-size:12.2px; color:#8f3d0a; background:#fff6ed; border-left:3px solid #f08010; padding:6px 9px; border-radius:0 6px 6px 0; }
+  .tag { display:inline-block; font-size:10px; font-weight:800; letter-spacing:.5px; padding:2px 7px; border-radius:20px; text-transform:uppercase; margin-bottom:6px; }
+  .t-legal { background:#fdeaea; color:#a32a1c; }
+  .t-money { background:#fff1e2; color:#8f3d0a; }
+  .t-found { background:#eaf0ff; color:#2a4bb8; }
+  .t-traffic { background:#e9f4ee; color:#0f6b36; }
+
+  .also { background:#fff; border:1px solid #dfe4ee; border-radius:12px; padding:13px 16px; margin-top:14px; font-size:12.4px; color:#414a5c; }
+  .also b { color:#0a2540; }
+  .also span { display:block; padding:4px 0 4px 16px; position:relative; }
+  .also span:before { content:""; position:absolute; left:2px; top:11px; width:6px; height:6px; border-radius:50%; background:#f08010; }
+
+  .timeline { display:grid; grid-template-columns: repeat(3,1fr); gap:14px; }
+  .phase { background:#fff; border:1px solid #dfe4ee; border-radius:12px; overflow:hidden; }
+  .phase .top { padding:12px 15px; color:#fff; }
+  .p30 .top{ background:#0a2540; } .p60 .top{ background:#1d5b96; } .p90 .top{ background:#f08010; }
+  .phase .top b { font-size:16px; } .phase .top span{ font-size:11.5px; opacity:.92; display:block; }
+  .phase ul { list-style:none; padding:11px 15px; }
+  .phase li { font-size:12.2px; color:#414a5c; padding:5px 0 5px 17px; position:relative; border-bottom:1px solid #f2f4f9; }
+  .phase li:last-child{ border-bottom:0; }
+  .phase li:before { content:""; position:absolute; left:2px; top:10px; width:7px; height:7px; border-radius:50%; background:#0a2540; }
+  .p60 li:before{ background:#1d5b96; } .p90 li:before{ background:#f08010; }
+  .phase li.no { color:#8a93a6; } .phase li.no:before { background:#c9d0dd; }
+
+  .note { font-size:11.6px; color:#6a7488; margin-top:9px; }
+  .rule { background:#0a2540; color:#e9edf5; border-radius:12px; padding:17px 21px; margin-top:14px; font-size:13px; border-left:6px solid #f08010; }
+  .rule b { color:#ffd7ad; }
+
+  .cut { background:#fff; border:1px solid #dfe4ee; border-radius:11px; padding:12px 14px; font-size:12.4px; color:#414a5c; display:flex; gap:10px; }
+  .cut b { color:#0a2540; display:block; margin-bottom:2px; }
+  .cut .x { color:#c0392b; font-weight:900; flex:none; font-size:14px; line-height:1.3; }
+
+  /* Signature surface mockup */
+  .mock { background:#fff; border:1px solid #dbe1ec; border-radius:16px; overflow:hidden; box-shadow:0 6px 18px rgba(10,37,64,.10); max-width:430px; }
+  .mock .mh { display:flex; justify-content:space-between; align-items:flex-start; gap:10px; padding:16px 18px 13px; border-bottom:1px solid #eef1f6; }
+  .mock .mh h4 { font-size:17px; font-weight:800; color:#0a2540; letter-spacing:-.2px; }
+  .mock .mh p { font-size:11px; color:#7a8496; margin-top:3px; }
+  .mock .pill-free { flex:none; background:#e9f4ee; color:#0f6b36; border:1px solid #c7e6d4; padding:4px 9px; border-radius:20px; font-size:10.5px; font-weight:800; }
+  .mock .li { display:flex; justify-content:space-between; align-items:baseline; gap:12px; padding:11px 18px; border-bottom:1px solid #f2f4f9; }
+  .mock .li .lbl { font-size:12.8px; font-weight:600; color:#33405a; }
+  .mock .li .lbl small { display:block; font-weight:400; font-size:10.8px; color:#8a93a6; margin-top:2px; }
+  .mock .li .amt { font-size:14.5px; font-weight:700; color:#0a2540; white-space:nowrap; }
+  .mock .li.hero { background:#f0f9f3; border-left:3px solid #0f6b36; }
+  .mock .li.hero .amt { color:#0f6b36; font-weight:800; font-size:16px; }
+  .mock .li .amt.soft { font-size:12px; font-weight:600; color:#7a8496; text-align:right; }
+  .chip-v { display:inline-block; background:#fff6ed; color:#8f3d0a; border:1px solid #f6d8b8; font-size:9.5px; font-weight:800; padding:1px 6px; border-radius:10px; margin-top:4px; letter-spacing:.3px; }
+  .mock .navybar { background:#0a2540; color:#fff; padding:14px 18px; }
+  .mock .navybar b { font-size:13px; display:block; color:#fff; }
+  .mock .navybar span { font-size:11px; color:#a9bdd4; display:block; margin-top:3px; }
+  .mock .pay { display:flex; justify-content:space-between; align-items:flex-end; padding:13px 18px; border-bottom:1px solid #f2f4f9; background:#fffaf5; }
+  .mock .pay .k { font-size:10.5px; font-weight:800; letter-spacing:.8px; text-transform:uppercase; color:#8f3d0a; }
+  .mock .pay .k small { display:block; text-transform:none; letter-spacing:0; font-weight:400; color:#8a93a6; font-size:10.5px; margin-top:3px; }
+  .mock .pay .v { font-size:26px; font-weight:800; color:#0a2540; letter-spacing:-.5px; }
+  .mock .pay .v i { font-style:normal; font-size:13px; font-weight:700; }
+  .mock .ctas { padding:14px 18px 16px; }
+  .mock .btn { display:block; text-align:center; background:#f08010; color:#fff; font-weight:800; font-size:15px; padding:13px 10px; border-radius:12px; }
+  .mock .ctas p { text-align:center; font-size:11px; color:#7a8496; margin-top:8px; }
+  .mock .ctas p b { color:#0a2540; }
+  .mock .disc { background:#f7f9fc; border-top:1px solid #eef1f6; padding:12px 18px 14px; }
+  .mock .disc p { font-size:10.3px; line-height:1.5; color:#7a8496; }
+  .mock .disc p + p { margin-top:6px; }
+  .mocklabel { font-size:11px; color:#8a93a6; margin:0 0 8px; text-transform:uppercase; letter-spacing:.8px; }
+
+  .chg { background:#fff; border:1px solid #dfe4ee; border-radius:11px; padding:12px 14px; font-size:12.4px; color:#414a5c; margin-bottom:10px; }
+  .chg b { display:block; color:#0a2540; margin-bottom:2px; }
+  .chg.out { border-left:4px solid #c0392b; }
+  .chg.keep { border-left:4px solid #0f6b36; }
+  .chg.gate { border-left:4px solid #f08010; }
+
+  .approve { counter-reset: step; }
+  .approve .row { background:#fff; border:1px solid #dfe4ee; border-left:4px solid #0f7a3d; border-radius:9px; padding:12px 14px 12px 46px; position:relative; margin-bottom:9px; font-size:13px; }
+  .approve .row.y { border-left-color:#f08010; }
+  .approve .row.r { border-left-color:#c0392b; }
+  .approve .row:before { counter-increment: step; content: counter(step); position:absolute; left:12px; top:12px; width:24px; height:24px; border-radius:50%; background:#0a2540; color:#fff; font-size:12px; font-weight:800; display:flex; align-items:center; justify-content:center; }
+  .approve .row b { display:block; margin-bottom:3px; color:#0a2540; }
+  .approve .row .meta { font-size:11.4px; color:#6a7488; }
+  .pill { display:inline-block; font-size:9.5px; font-weight:800; padding:2px 8px; border-radius:12px; margin-left:6px; letter-spacing:.4px; text-transform:uppercase; vertical-align:middle; }
+  .green{ background:#e4f7ec; color:#0f7a3d; } .yellow{ background:#fdf0dd; color:#8f3d0a; } .red{ background:#fdeaea; color:#a32a1c; }
+
+  .foot { text-align:center; font-size:11px; color:#8a93a6; margin-top:28px; line-height:1.7; }
+
+  @media (max-width:720px){
+    body { padding: 18px 12px; }
+    .g2,.g3,.g4,.timeline,.split { grid-template-columns:1fr; }
+    .mock { max-width:100%; }
+    h1 { font-size:22px; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <h1>Maxim Autos: Winning on the Website</h1>
+  <p class="sub">Design only, 2026-07-25. Nothing here has been published, posted, deployed, or sent. Not one file on the live site was touched by this run. Everything below waits on your yes.</p>
+
+  <h2>The honest verdict</h2>
+  <div class="banner">
+    <b class="head">You asked for the best dealership site inside 50 miles. You cannot have it, and buying it would be a waste.</b>
+    <p>Maxim will not outrank Carvana, CarMax, Napleton, Berman, or CarGurus on the big searches. Three measured reasons, none of them fixable by anything on your site. <b>One:</b> you have 22 links from 5 other websites, and cancelling CarsForSale takes that to 4. The aggregators have six figures. <b>Two:</b> 28 of your pages sit in Google's own report as found and not fetched. Better writing on a page Google refuses to open changes nothing. <b>Three:</b> 7 cars, 5 to 8 sales a month, one person. Price and radius searches are locked up by the aggregators and stay that way no matter what we build.</p>
+    <p class="tight"><span class="win">What is winnable, and you already win some of it today.</span> Every search that names something only Maxim does. Measured this morning: "used car dealer Skokie CVR metal plates same day" returns Maxim in 6 of 10 results, and "used car dealer with financing for all credit levels Skokie Illinois" returns Maxim at position 1, ahead of UR Approved and Napleton Honda. The target is to own all of that ground, be the cleanest and fastest independent dealer site in the Skokie set, and be the dealer an answer engine can read without guessing.</p>
+    <p class="tight"><b>Your real rival is iCars Chicago on Dempster, not Carvana.</b> And the number this plan is judged on is not sales. At 5 to 8 cars a month with swings of plus or minus 3 already, a genuine 30 percent lift in leads is 1 to 2 extra cars. That is invisible in the sales number for 90 days and arguably for a year. Anyone who tells you otherwise is selling you something.</p>
+  </div>
+  <div class="grid g4" style="margin-top:14px;">
+    <div class="stat"><div class="n red">5 to 4</div><div class="l">other websites linking to you, falling when CarsForSale drops off. This is the one number holding everything back</div></div>
+    <div class="stat"><div class="n red">28</div><div class="l">of your pages Google found and refused to open</div></div>
+    <div class="stat"><div class="n green">6 of 10</div><div class="l">results already yours on the plates search, position 1 on all credit levels</div></div>
+    <div class="stat"><div class="n navy">1 to 2</div><div class="l">extra cars a month is all a 30 percent lead lift buys at this volume. Judge integers, not sales</div></div>
+  </div>
+
+  <h2>The moat</h2>
+  <div class="tablewrap">
+    <table>
+      <thead>
+        <tr><th>Measured 2026-07-25</th><th>maximautos.com</th><th>iCars Chicago, Skokie, your nearest real rival</th></tr>
+      </thead>
+      <tbody>
+        <tr class="win-b"><td class="k">Homepage weight</td><td class="me">92 KB</td><td class="them">724 KB, roughly 8 times heavier</td></tr>
+        <tr class="win-b"><td class="k">Wait before the page starts loading</td><td class="me">0.23s</td><td class="them">0.69s, roughly 3 times the wait. An earlier read measured 0.78s, same verdict</td></tr>
+        <tr class="win-b"><td class="k">Who owns the code</td><td class="me">Maxim owns its own source, own repo, static build</td><td class="them">DealerSocket tenant. Cannot ship custom code at all</td></tr>
+        <tr><td class="k">Car page data for search engines and AI</td><td class="me">Car, Vehicle, Offer and FAQ on all 27 cars</td><td class="them">None. Tops out at a generic dealer block</td></tr>
+        <tr><td class="k">Reviews</td><td class="me">46 at 5.0, profile verified 2026-07-24</td><td class="them">Roughly 100, unverified</td></tr>
+        <tr><td class="k">Price overlap</td><td class="me">$8,995 to $15,995</td><td class="them">$8,888 to $112,588. Only the bottom of their lot competes with you</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="note"><b>Told straight on the car page data row:</b> Google killed the vehicle rich result on 2025-06-12 and stopped rendering FAQ on 2026-05-07. So you ship data no competitor ships and no search engine draws on screen. It stays, because answer engines read it and that is real. It will never again be sold to you as a ranking win. The red team was right to kill that boast, and it is deleted from every document in this folder.</p>
+  <div class="rule">
+    <b>The one sentence that matters.</b> Every dealer reachable inside 50 miles runs a rented vendor platform: Sherman Dodge on Dealer eProcess, Napleton Honda and Ultimo Motors on Dealer Inspire, iCars on DealerSocket, Best Auto Sales on Carsforsale.com, Old Orchard Nissan on WordPress. A tenant cannot ship custom data, custom machine readable content, or a custom front end even if they want to. You own your source, so you structurally can. That is the moat: not a schema type, not a page count. Owning the code is what lets you ship a build gate that refuses false copy, one place where every number lives, and one clean picture of the business.
+  </div>
+
+  <h2>What is broken right now</h2>
+  <div class="grid g3">
+
+    <div class="card">
+      <span class="tag t-legal">Illinois law, live</span>
+      <h3>You advertise a price range no car on your lot fits</h3>
+      <p>"$5,000 to $15,000" appears on 15 pages, including the machine data Google reads and the answer text on your own FAQ. Your cheapest car is $8,995 and your top car is $15,995. Nothing you own sits inside the range you publish.</p>
+      <span class="cost">This is not a typo, it is an Illinois advertising rule broken in public (14 Ill. Adm. Code 475.390). Worse, the guardrail document that exists to prevent this hardcodes the wrong band itself, under the heading "use verbatim everywhere".</span>
+    </div>
+
+    <div class="card">
+      <span class="tag t-legal">Live in Google's feed</span>
+      <h3>A protection promise you do not offer, 62 times</h3>
+      <p>"Every customer protected" sits in the footer of 56 pages, closes all 7 live car descriptions, and appears 7 times inside the feed Google ingests. Your brand document does not merely contain the phrase, it orders it as the closing line of every car description.</p>
+      <span class="cost">It promises coverage on every car when the real protection is Illinois statutory powertrain on qualifying cars only. Google Merchant Center has already disapproved this account three times.</span>
+    </div>
+
+    <div class="card">
+      <span class="tag t-found">Source document</span>
+      <h3>Your own playbook teaches a false warranty</h3>
+      <p><code>copy-playbook.md</code> cites a 3 month warranty in 15 places. On line 533 it teaches that warranty as the approved replacement for the banned word "certified".</p>
+      <span class="cost">Any agent that correctly dodges one banned word lands on a false claim by instruction. Fixing the website while this file is loaded just reintroduces the claim next week. It gets retired, not edited.</span>
+    </div>
+
+    <div class="card">
+      <span class="tag t-money">Money</span>
+      <h3>Your analytics counts clicks, not customers</h3>
+      <p>The lead event fires the moment a finger touches a submit button, before the form is actually sent. A fumbled tap counts exactly the same as a real lead.</p>
+      <span class="cost">You cannot tell which cars or which pages produce calls, so every decision about the site is a guess. Nothing about leads in this plan is provable until this is fixed, which is why it is near the front of the queue.</span>
+    </div>
+
+    <div class="card">
+      <span class="tag t-money">Money</span>
+      <h3>Six phone numbers nobody can tap</h3>
+      <p>On six of your busiest pages the number sits in a box that renders nothing at all on a narrow phone, and is not clickable on a wide screen either.</p>
+      <span class="cost">Calling is the highest intent thing a used car shopper does, and on a phone your number is not on the page. Six positions in your analytics cannot ever fire, so any nonzero phone number after the fix is brand new signal.</span>
+    </div>
+
+    <div class="card">
+      <span class="tag t-money">Money</span>
+      <h3>The financing button sends nervous buyers to a Social Security form</h3>
+      <p>Three buttons on every car page, including the sticky bar labeled <code>Pre-Qualify</code>, go straight to the 60 field application that demands an SSN. That page also states the SSN is "never stored on our servers", while the code encrypts and stores it.</p>
+      <span class="cost">Credit shy buyers bail at the SSN, and you carry a false privacy statement on your own page. Two real credit applications exist in three months, one of them your own test.</span>
+    </div>
+
+    <div class="card">
+      <span class="tag t-traffic">Found by Google</span>
+      <h3>Two copies of your homepage compete</h3>
+      <p>The old GitHub Pages mirror serves a byte identical homepage with nothing telling Google to ignore it, and it points at itself as the original.</p>
+      <span class="cost">Google gets two candidates for the same page and picks one. Your production site should never have to argue with a leftover.</span>
+    </div>
+
+    <div class="card">
+      <span class="tag t-traffic">Found by Google</span>
+      <h3>8 pages nobody can reach, 2 dead buttons on the homepage</h3>
+      <p>8 of your search pages have zero links pointing at them from anywhere on the site. Two homepage chips point at addresses your own robots file blocks. One page targets Audi, a make you have never had in stock, live or sold.</p>
+      <span class="cost">Pages with no path in do not get crawled and do not rank. The Audi page also sits squarely inside the language the FTC used in its March 2026 letters about advertising cars you do not have.</span>
+    </div>
+
+    <div class="card">
+      <span class="tag t-legal">Federal</span>
+      <h3>9 pages show a payment with no disclosure</h3>
+      <p>Nine pages render car cards carrying an estimated monthly payment with no payment footnote anywhere on the page.</p>
+      <span class="cost">That is a federal lending disclosure rule, not a style preference, and it blocks any new page that shows a car card until it is fixed.</span>
+    </div>
+
+  </div>
+
+  <div class="also">
+    <b>Also confirmed, all live today, all in the queue:</b>
+    <span>The knowledge file pasted into your GoHighLevel assistant tells customers you are open Monday through Saturday 9 to 7, that Sunday is by appointment, gives the wrong email, says 34 reviews, and says "Total Protection". Every one of those is wrong.</span>
+    <span>6 old addresses still serve the false 3 month warranty to Bing, which is the index ChatGPT reads. Your live pages are clean, the index is not.</span>
+    <span>Nothing anywhere in the repo prevents the insider review from being published again. The exclusion lives in one person's memory.</span>
+    <span>Four of your make pages are 95.6 percent identical to each other, which is the exact pattern Google calls scaled content abuse.</span>
+    <span>Your bare domain forwards to the www version with a temporary redirect instead of a permanent one, open as a task since 2026-06-02. Your Spanish homepage answers on two addresses at once and disagrees with itself about which is the original.</span>
+  </div>
+
+  <h2>The plan</h2>
+  <div class="timeline">
+
+    <div class="phase p30">
+      <div class="top"><b>Day 30</b><span>Clean, legal, reachable. Two days of engineering plus one sitting with you</span></div>
+      <ul>
+        <li>All 18 first phase items proved green by a command, not by a claim</li>
+        <li>Zero banned phrases across 56 live pages, the Google feed, the AI file and the mirror</li>
+        <li>Price band computed live everywhere, including the machine data. It moves itself when a car sells</li>
+        <li>The false warranty playbook retired and the memory pointer moved the same day</li>
+        <li>The mirror hidden from Google, production untouched</li>
+        <li>All 8 orphan pages linked, the Audi page retired with a permanent redirect</li>
+        <li>Analytics fires on a real submission only, and one real phone lead has landed</li>
+        <li>One sitting in your Chrome: open Search Console, work the backlink task, submit BBB, Foursquare and Manta, all free</li>
+        <li>Other websites linking to you up from 5 to 8</li>
+        <li class="no">Not counted: any traffic, ranking, or sales number</li>
+      </ul>
+    </div>
+
+    <div class="phase p60">
+      <div class="top"><b>Day 60</b><span>The crawl queue starts moving. Nothing here starts until day 30 is green</span></div>
+      <ul>
+        <li>Pages Google refused to open below 28 and falling</li>
+        <li>The 6 stale warranty addresses no longer serve the claim to answer engines</li>
+        <li>The soft financing page beats the SSN application on starts</li>
+        <li>One clean picture of the business shipped, with page weight no higher than today</li>
+        <li>The 4 near identical make pages either rebuilt to pass a similarity gate or retired</li>
+        <li>One page about the Illinois doc fee, written about your buyer, naming no competitor</li>
+        <li>The dead ends fixed: 20 sold car pages get 3 live cars each instead of nothing</li>
+        <li>Inventory filters built from live data, so no filter returns zero and every car is reachable</li>
+        <li>Both probe gates answered yes or no, with nothing built past a no</li>
+        <li class="no">Not counted: impressions, a data quality improvement nobody can measure, or a rich result that does not exist</li>
+      </ul>
+    </div>
+
+    <div class="phase p90">
+      <div class="top"><b>Day 90</b><span>Authority off the floor and one attributed lead</span></div>
+      <ul>
+        <li>Other websites linking to you at 10 or more</li>
+        <li>Indexed page count strictly up</li>
+        <li>The plates and all credit levels wins still held when re queried</li>
+        <li>At least one lead in the database credited to the website. Today all 83 rows say CarGurus</li>
+        <li>Zero banned phrase regressions across 12 straight weekly scans</li>
+        <li class="no">Explicitly not success: a sales number, a big search term ranking, beating iCars on review count, or any claim about a 50 mile radius</li>
+      </ul>
+    </div>
+
+  </div>
+  <p class="note"><b>The gate between 30 and 60 is not a date.</b> Phase 2 opens only when other websites linking to you reach 8 and the count of pages Google refused to open is below 28 and falling. Both parts, not either. And no new page ships in any month where the link count went down, because that count is the thing actually holding the site back.</p>
+
+  <div class="rule">
+    <b>Where the other 28 days should go, and it is not the website.</b> Phase 1 is about two days of engineering plus one hour with you. Ninety proposals came in across four designs and not one of them touched this: 49 named leads with phone numbers are sitting in your database, more than a week old, never contacted, on a channel with zero recorded website conversions. That is outside a website plan and it is not being smuggled in here. It is just the honest answer to where the remaining time returns more than any data node on the list.
+  </div>
+
+  <h2>What we cut, and why</h2>
+  <p class="note" style="margin:0 0 12px;">24 proposals died. Three red team passes raised 38 serious attacks and all 38 are answered in the spec, including three places where the plan argues back instead of folding. This section is the reason you can trust the rest of the document.</p>
+  <div class="grid g2">
+
+    <div class="cut"><span class="x">X</span><div><b>The out the door total, the headline feature of the whole design</b> Illinois taxes a car at the rate where the buyer registers it, not where you sell it. A Chicago buyer owes an extra 1.25 percent, which makes the design's own worked total of $17,471 about $200 low. You declare 9 service cities plus a Chicago corridor, so there is no single correct number and no amount of verification saves it. Being $200 low at signing attacks the one promise the whole business is built on. The fee line survives, the total does not.</div></div>
+
+    <div class="cut"><span class="x">X</span><div><b>The budget first out the door page</b> Inherits the same tax defect, hardcodes 9.9 percent for an audience the design itself calls credit challenged, which is a step backwards from the rate slider already live on your financing page and advertises a term nobody is guaranteed. It also solves a filtering problem that 7 to 15 cars simply do not have, and your financing form already collects the exact monthly budget buckets it was built to capture.</div></div>
+
+    <div class="cut"><span class="x">X</span><div><b>The compare tray</b> Largest build in the design for the smallest problem on the list. At 7 to 15 cars the whole lot fits on two screens, you personally text every buyer, and there has been one real credit application in three months. It would also park a payment row over the payment disclosure at the bottom of a 390 pixel phone.</div></div>
+
+    <div class="cut"><span class="x">X</span><div><b>Inspection pages for each car</b> Not one completed inspection record exists anywhere. The database has zero inspection columns, "inspected" is a hardcoded true on all 27 cars, and the only artifact is a blank paper form. Worse, the design's own safety valve would quietly downgrade the inspection claim across 15 English pages plus the Spanish mirror after a three week lapse, which is the worst failure mode proposed in this run. It also turns tread depth and a named mechanic into written promises about a car sold as is.</div></div>
+
+    <div class="cut"><span class="x">X</span><div><b>Publishing the inspection checklist</b> The real form's header claims 100 plus points over about 28 line items, and its own footer carries the exact banned protection phrase. Publishing it would publish two new defects and a stronger claim with nothing behind it.</div></div>
+
+    <div class="cut"><span class="x">X</span><div><b>A Volvo page, a 10th suburb page, new price pages, new body pages, and a 9 by 5 city and make grid</b> The 4 make pages you already have measure 4.4 percent unique writing, failing the content plan's own 40 percent bar by a factor of nine. That is Google's scaled content abuse pattern, live on the site today. An inventory rule controls whether a thin page exists, not whether it is thin.</div></div>
+
+    <div class="cut"><span class="x">X</span><div><b>Five new Spanish pages</b> 7 of the 28 pages Google refuses to open ARE the Spanish pages you already have. Adding five more to a section Googlebot has never once fetched is building straight into a wall. The 8 pages of Spanish parity you already run all stay.</div></div>
+
+    <div class="cut"><span class="x">X</span><div><b>A sold car archive, in all three versions three designs proposed</b> It advertises prices for 20 cars nobody can buy, feeds more addresses into a queue Google is already refusing, and even the hidden version buys nothing measurable. The 20 sold pages stay exactly as they are, with one fix: a sold car should not advertise a price good through September.</div></div>
+
+    <div class="cut"><span class="x">X</span><div><b>Any comparison that names a competitor</b> Illinois bans comparing your price with another dealer's, and a doc fee is part of a price. It separately bans lowest price claims without ongoing monitoring, which this run is forbidden to do. Four of the competitors block the fetch that would prove the claim anyway, and naming one hands them direct standing to sue. The "0 of 6 competitors publish this" success metric is deleted for the same reason.</div></div>
+
+    <div class="cut"><span class="x">X</span><div><b>Any copy rule that can fail the production build</b> That build path IS production. On a failure Vercel keeps yesterday's deployment, which freezes live inventory and the Google feed and advertises a sold car at a stale price, on an account already disapproved three times. Also killed with it: two linters wired to workflows that were verified not to gate production at all, and a 30 day content freshness timer that would halt a deploy with nobody having done anything wrong. Copy rules block before a merge and only advise in production.</div></div>
+
+    <div class="cut"><span class="x">X</span><div><b>Three separate copy checkers</b> Three copies of one rule set is three places to write the rule wrong. That is the identical defect these designs exist to fix, the same as 13 copies of your review rating and two different Spanish payment footnotes. One checker, one rule file, two modes.</div></div>
+
+    <div class="cut"><span class="x">X</span><div><b>An AI judge with veto power over the pipeline</b> A judge that answers differently on different days, holding a gate on a pipeline that pushes inventory every 6 hours, in a shop with 24 overdue urgent tasks. The first false alarm is a permanently blocked pipeline that only you can unblock. It survives as an advisor that writes a verdict and opens a task, never on the inventory path, and only if you approve its token cost.</div></div>
+
+    <div class="cut"><span class="x">X</span><div><b>A committed approval card as the way work reaches you</b> Correct that a task list is not an execution mechanism, then delivered as a task list with a nicer format, into a queue already 52, 45, 45, 22 and 22 days deep. It becomes a push on the alert channel you already have, hard capped at 3 items, with the file kept only as the audit trail. Three silent weeks fires a critical alert.</div></div>
+
+    <div class="cut"><span class="x">X</span><div><b>Nagging you to paste corrections into DealerCenter</b> 4 to 6 minutes per car with a login and a judgment call, roughly 40 minutes a month, when the build already strips bad copy automatically and was verified doing exactly that to the warranty line. Feed copy is not writing that needs a human to protect its meaning.</div></div>
+
+    <div class="cut"><span class="x">X</span><div><b>Rebuilding the Google review scraper</b> It went blind, read nothing, and reported success. Google now blocks it and the owner named to replace it is disabled. Scraping runs against Google's terms, and Google is the one counterparty you cannot afford to annoy 14 days off a suspension. Review counts get updated by hand in a session you are already in, recorded so nobody rebuilds the scraper.</div></div>
+
+    <div class="cut"><span class="x">X</span><div><b>A blog, ever</b> A dated post format creates a weekly obligation one person cannot meet, and a visibly stale blog is worse than no blog. This is now a standing rule, not a preference. Evergreen pages only.</div></div>
+
+    <div class="cut"><span class="x">X</span><div><b>Rewriting your pages into question and answer headings for AI</b> Independent measurement shows question style headings reduced how much AI absorbed by 5.74 percent, while definitions, statistics and comparisons raised it 55 to 77 percent. The FAQ data already on every car page is the mechanism that actually works.</div></div>
+
+    <div class="cut"><span class="x">X</span><div><b>Seven more data types nobody renders</b> Speakable, HowTo, site search, carousel, product on a vehicle, question pages, and reviews of competitors. Each verified dead or wrong type against Google's own documentation. Product on a vehicle contradicts your Merchant feed and risks the account. Marking up a review of a competitor is a defamation surface.</div></div>
+
+    <div class="cut"><span class="x">X</span><div><b>The homepage hero rebuild as a project</b> No instrument can resolve a hero redesign at 665 profile views a month. Its two real parts, a live price band and a tappable phone number, are already in Phase 1 as trivial items. The rest is taste, priced as a project.</div></div>
+
+    <div class="cut"><span class="x">X</span><div><b>Citing the FTC car rule in your compliance docs</b> Vacated by the Fifth Circuit on 2025-01-27, not appealed, withdrawn on 2026-02-12. None of it is in force. The live federal hooks are the FTC Act, the used car buyer's guide rule, and the lending disclosure rule, plus the FTC's March 2026 letters to 97 dealer groups as current enforcement posture. The vacatur gets recorded so nobody adds it back.</div></div>
+
+    <div class="cut"><span class="x">X</span><div><b>An AI assistant on the site, this cycle</b> It needs a paid key, and it writes unverified customer facing text at the moment a customer reads it, which is precisely what the whole build gate exists to prevent. Recommended no regardless of price. If it ever ships it reads from your one data file and never keeps its own copy of the facts.</div></div>
+
+    <div class="cut"><span class="x">X</span><div><b>The Polish language angle and the after sale review ask by text</b> Both settled and killed previously. Not re pitched here, and listed only so you can see they were not quietly revived.</div></div>
+
+  </div>
+
+  <h2>The signature surface</h2>
+  <p class="note" style="margin:0 0 14px;">One new thing on the car page, and this is the version that survived. Your zero doc fee stops being a sentence in a green box and becomes a priced line inside the numbers. A competitor can copy the sentence in an afternoon. Copying the line item costs them $377.63 per car.</p>
+  <div class="split">
+
+    <div>
+      <p class="mocklabel">Mockup, real data, 2018 Subaru Crosstrek, stock J10218</p>
+      <div class="mock">
+
+        <div class="mh">
+          <div>
+            <h4>What you actually pay</h4>
+            <p>Every line, nothing held back.</p>
+          </div>
+          <span class="pill-free">Zero dealer fees</span>
+        </div>
+
+        <div class="li">
+          <span class="lbl">Vehicle price</span>
+          <span class="amt">$15,995</span>
+        </div>
+
+        <div class="li hero">
+          <span class="lbl">Dealer documentary fee
+            <small>Illinois allows dealers to charge up to $377.63. We charge nothing.</small>
+            <span class="chip-v">Confirm the cap before ship, or ship with no number</span>
+          </span>
+          <span class="amt">$0</span>
+        </div>
+
+        <div class="li">
+          <span class="lbl">Illinois sales tax
+            <small>Charged at the rate for the address where you register the car, not where you buy it.</small>
+          </span>
+          <span class="amt soft">Depends on<br>your city</span>
+        </div>
+
+        <div class="li">
+          <span class="lbl">Illinois certificate of title
+            <small>Set by the State of Illinois.</small>
+            <span class="chip-v">Verify with the Secretary of State before ship</span>
+          </span>
+          <span class="amt">$165</span>
+        </div>
+
+        <div class="li">
+          <span class="lbl">Illinois registration and plates
+            <small>Real metal plates issued here, not at the DMV. Assumes new plates, not a transfer.</small>
+            <span class="chip-v">Verify with the Secretary of State before ship</span>
+          </span>
+          <span class="amt">$151</span>
+        </div>
+
+        <div class="navybar">
+          <b>No dealer fees at Maxim Autos, ever.</b>
+          <span>The price you see is the price you pay, plus tax, title, and license. Nothing else gets added at signing.</span>
+        </div>
+
+        <div class="pay">
+          <span class="k">Estimated payment
+            <small>On the vehicle price. Already computed on your car pages today.</small>
+          </span>
+          <span class="v">$305<i>/mo</i></span>
+        </div>
+
+        <div class="ctas">
+          <span class="btn">Check my financing options</span>
+          <p>Goes to the soft financing page, not the Social Security form. <b>Ready now? Full application</b> stays as a second, smaller link.</p>
+        </div>
+
+        <div class="disc">
+          <p>* Est. payment based on 10% down, 9.9% APR, 60-month term. For illustrative purposes only. Actual terms vary by credit.</p>
+          <p>Illinois taxes a vehicle at the rate for the address where you register it, not where you buy it, so your tax depends on your city. Title and plate fees are set by the State of Illinois, and the plate figure assumes new plates rather than a transfer. These are estimates, not a quote.</p>
+        </div>
+
+      </div>
+    </div>
+
+    <div>
+      <p class="mocklabel">What the red team took out of this exact mockup</p>
+
+      <div class="chg out"><b>Removed: the big summed total</b>The design put "Estimated out the door $17,471" in a navy bar right here. Illinois tax follows your buyer's registration address, so a Chicago buyer is about $200 higher and the published total is wrong for them. On the one page whose entire promise is that the number you see is the number you pay, a total that is low at signing is the single worst thing we could publish. Removed, not softened.</div>
+
+      <div class="chg out"><b>Removed: the fixed 7.25 percent Skokie tax figure</b>The rate is a property of the buyer, not of your lot. So the line stays and the number goes, replaced with the plain sentence about where they register.</div>
+
+      <div class="chg out"><b>Removed: the second payment column</b>The design showed $305 a month next to $336 with tax and plates financed. The $336 is derived from the total, so it dies with the total. The single estimate that is already live on your car pages stays, with its disclosure directly underneath it.</div>
+
+      <div class="chg keep"><b>Kept: the fee as a priced line, which is the whole point</b>Your zero moves from a claim into the middle of the arithmetic, where a shopper can feel it against the $377.63 every other store charges. Every input is already in your data. No photography, no transcription, no weekly chore, no new tool.</div>
+
+      <div class="chg keep"><b>Kept: the honest button</b>The three buttons that currently dump a nervous buyer into a 60 field SSN form get retargeted to the soft financing page, carrying the car with them. The full application stays available for a buyer who is ready.</div>
+
+      <div class="chg gate"><b>Gate before this ships</b>The title fee, the plate fee, and the doc fee cap each get confirmed against a primary Illinois source. All three live in one small file with a source and a date per line, so that is a five minute check, not a code hunt. If the cap cannot be confirmed, it ships with no number at all: "Illinois allows dealers to charge a documentary service fee. We charge zero." That loses almost nothing.</div>
+
+    </div>
+  </div>
+
+  <h2>First batch to approve</h2>
+  <p class="note" style="margin:0 0 12px;">In order. Each one is a yes or no you can give in seconds. Green is safe engineering, no spend, reversible. Yellow needs a decision or an hour from you. Red needs money and does not move until you say so.</p>
+  <div class="approve">
+
+    <div class="row"><b>Purge the protection claim at the source and in the build <span class="pill green">green</span></b><div class="meta">MaxSEO, 2 hours. Fixes the brand document, the footer on 56 pages, and the feed Google reads, in one pass. Proof: a scan of all 56 built pages plus the feed returns zero hits.</div></div>
+
+    <div class="row"><b>Retire the copy playbook and move the memory pointer <span class="pill green">green</span></b><div class="meta">Ledger, 1 hour. Stops the false warranty being taught as approved copy. Nothing else on this list holds if the source documents keep re teaching the defect.</div></div>
+
+    <div class="row"><b>Build the one facts file and close the price band violation <span class="pill green">green</span></b><div class="meta">MaxSEO, 4 hours. One generated file feeds all 15 places, including the machine data. Until it ships the site states no range at all, just "priced from $8,995". Proof: the band moves by itself when a car sells.</div></div>
+
+    <div class="row"><b>One copy checker: blocking before a merge, advisory in production <span class="pill green">green</span></b><div class="meta">MaxSEO, 5 hours. Guarantees none of the above comes back. It never gates the inventory path that runs every 6 hours, so a wording rule can never freeze your live cars or your Google feed.</div></div>
+
+    <div class="row"><b>Make the lead event fire on a real submission <span class="pill green">green</span></b><div class="meta">MaxSEO, 2 hours. Prerequisite for every claim about leads in this plan. Proof: one event per successful send, and zero on a forced failure.</div></div>
+
+    <div class="row"><b>Retarget the car page financing buttons and correct the SSN statement <span class="pill green">green</span></b><div class="meta">MaxSEO, 1 hour. Three buttons move to the soft page, the button reads "Check my financing options", and your privacy sentence becomes true.</div></div>
+
+    <div class="row"><b>Make six phone numbers visible and tappable <span class="pill green">green</span></b><div class="meta">MaxSEO, 1 hour. Six positions that literally cannot produce a call today. Proof: a real phone event lands in analytics.</div></div>
+
+    <div class="row"><b>The remaining mechanical fixes, one batch <span class="pill green">green</span></b><div class="meta">MaxSEO plus ledger, about 11 hours total. Marquee wording, payment footnote on 9 pages, mirror hidden, 8 orphans linked, Audi page retired, submission pings rebuilt off the sitemap, chatbot facts corrected, bare domain redirect made permanent, Spanish duplicate resolved, feed slash and dash, broken launch file, posting cadence cap, reviewer denylist. Each verified one at a time.</div></div>
+
+    <div class="row y"><b>One sitting with you in Chrome: Search Console plus three free listings <span class="pill yellow">needs your hour</span></b><div class="meta">You plus MaxSEO, one session. Open the Search Console property that already exists, work the backlink task, close the stalled verification task, submit BBB, Foursquare and Manta, all confirmed free. This is the only item on the whole list that touches the thing actually holding you back.</div></div>
+
+    <div class="row y"><b>The one profile edit: correct the price band in your Google description <span class="pill yellow">needs your approval on that exact text</span></b><div class="meta">MaxGoogle, under the Google plan, minutes. At most one profile touch per week and this is the one that goes first, alone, nothing else that day. The wrong price band is live on Google right now.</div></div>
+
+    <div class="row y"><b>Walkaround video probe: one car, 7 days <span class="pill yellow">needs 15 to 20 minutes of your time</span></b><div class="meta">You. Video is the last vehicle result Google still puts a picture next to, so it is the only remaining lever that produces an image in a search result. Real cost is a database change plus 15 to 20 minutes per car, roughly 2 to 2.5 hours a month at 8 cars. If it does not happen in 7 days the question is settled at zero cost and nothing gets built.</div></div>
+
+    <div class="row y"><b>Inspection record probe: one filled form photographed, 7 days <span class="pill yellow">needs a habit never yet demonstrated</span></b><div class="meta">You. Zero completed inspection records exist anywhere today. If one appears, we revisit. If not, the site publishes the weaker true claim and the idea closes permanently.</div></div>
+
+    <div class="row y"><b>Search Console reporting account <span class="pill yellow">$0, but only you can create it</span></b><div class="meta">Five steps across two Google consoles. Yes, but last. A one click verification has been stalled 22 days, so a five step setup goes behind the sitting above. Until then the status board prints unavailable with the blocking task named, never a false green.</div></div>
+
+    <div class="row r"><b>Claim checker agent, advisory only <span class="pill red">needs spend</span></b><div class="meta">Unpriced token cost on every editorial change, so it needs your separate approval. It never blocks anything, never touches the inventory path, and can always be overridden with a written reason. The deterministic checker does the blocking.</div></div>
+
+    <div class="row r"><b>AI assistant on the website <span class="pill red">needs spend, recommended NO</span></b><div class="meta">Needs a paid key with a recurring per use cost that rises with traffic. I refuse to invent a monthly figure for it. Recommended no this cycle regardless of price: it writes unverified customer facing text at the moment a customer reads it, which is exactly what everything else here exists to prevent.</div></div>
+
+  </div>
+
+  <div class="foot">
+    Design only. No page published, no file on the live site changed, nothing posted, deployed, or sent.<br>
+    The executable detail, every file path, line number, verification command, the 38 red team attacks and their resolutions, is in SPEC.md in this folder.<br>
+    Built from 5 audits, 4 designs, and 3 red team passes, all in this folder. 12 defects reproduced live, 24 proposals killed.
+  </div>
+
+</div>
+</body>
+</html>

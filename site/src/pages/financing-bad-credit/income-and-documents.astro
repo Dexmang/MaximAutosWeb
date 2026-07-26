@@ -4,6 +4,7 @@ import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 import QuickAnswer from '../../components/QuickAnswer.astro';
 
+import facts from '../../data/facts.json';
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 const title = 'What Income and Documents Lenders Ask For | Bad Credit Car Buying | Maxim Autos';
 const description = 'The income proof and documents lenders typically ask for on a bad credit auto loan: pay stubs, ID, proof of residence, insurance. Maxim Autos, Skokie IL. (847) 510-8947.';
@@ -14,7 +15,7 @@ const faqSchema = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
   "mainEntity": [
-    { "@type": "Question", "name": "How much income do I need for a used car loan?", "acceptedAnswer": { "@type": "Answer", "text": "There is no single number; each lender sets its own standards and reviews applications individually. Steady, documentable income matters more than a high figure, and the modest $5,000 to $15,000 price range at Maxim Autos keeps the payment a lender needs to see supported relatively small." } },
+    { "@type": "Question", "name": "How much income do I need for a used car loan?", "acceptedAnswer": { "@type": "Answer", "text": `There is no single number; each lender sets its own standards and reviews applications individually. Steady, documentable income matters more than a high figure, and the modest ${facts.inventory.bandText} price range at Maxim Autos keeps the payment a lender needs to see supported relatively small.` } },
     { "@type": "Question", "name": "Can I use income that is not from a regular paycheck?", "acceptedAnswer": { "@type": "Answer", "text": "Often yes. Many lenders consider documented income from benefits, retirement, or work for yourself, usually shown through bank statements or tax records. Which sources count varies by lender, so ask before you apply." } },
     { "@type": "Question", "name": "What if I cannot find one of the documents?", "acceptedAnswer": { "@type": "Answer", "text": "Text Jerry at (847) 510-8947 and explain what you have. Lenders differ on what they accept, and there is often an alternative document that satisfies the same requirement." } }
   ]
@@ -73,7 +74,7 @@ const faqSchema = {
         </p>
         <h2 class="font-headline text-xl font-extrabold text-navy pt-2">Proof of income</h2>
         <p>
-          This is the document set that matters most on a bad credit application. Recent pay stubs are the cleanest evidence for anyone with a regular employer. Buyers who work for themselves, drive for app platforms, or receive benefits or retirement income can usually document it with bank statements or tax records instead. Lenders are not looking for a fortune; they are looking for consistency that comfortably covers a payment. With Maxim Autos inventory priced between $5,000 and $15,000, that payment stays modest.
+          This is the document set that matters most on a bad credit application. Recent pay stubs are the cleanest evidence for anyone with a regular employer. Buyers who work for themselves, drive for app platforms, or receive benefits or retirement income can usually document it with bank statements or tax records instead. Lenders are not looking for a fortune; they are looking for consistency that comfortably covers a payment. With Maxim Autos inventory priced between {facts.inventory.bandText}, that payment stays modest.
         </p>
         <h2 class="font-headline text-xl font-extrabold text-navy pt-2">Proof of residence</h2>
         <p>

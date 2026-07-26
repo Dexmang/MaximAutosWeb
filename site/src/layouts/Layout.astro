@@ -1,4 +1,10 @@
 ---
+// facts.json is the generated live number ledger (price band, unit count, review count,
+// rating, service cities). Never hardcode any of those in a page: a stated band no live
+// car falls inside violates 14 Ill. Adm. Code 475.390, which is what was found live on
+// 2026-07-25. See scripts/facts-core.mjs.
+import facts from '../data/facts.json';
+
 interface Props {
   title: string;
   description?: string;
@@ -24,7 +30,7 @@ const {
 
 const isSpanish = lang === 'es';
 const defaultDescription = isSpanish
-  ? 'Maxim Autos: autos usados completamente inspeccionados de $5,000 a $15,000 en Skokie, IL. Placas el mismo dia. Sin tramites del DMV. Financiamiento para todos los niveles de credito. Resenas de 5 estrellas en Google.'
+  ? `Maxim Autos: autos usados completamente inspeccionados ${facts.inventory.bandTextEs} en Skokie, IL. Placas el mismo dia. Sin tramites del DMV. Financiamiento para todos los niveles de credito. Resenas de 5 estrellas en Google.`
   : 'Quality used cars in Skokie, IL. Every vehicle inspected, every price transparent. Metal plates on the spot. Skip the DMV. Financing for all credit levels. Maxim Autos.';
 const resolvedDescription = description ?? defaultDescription;
 
@@ -37,7 +43,7 @@ const trust = isSpanish
       skipDmv: 'Sin tramites del DMV',
       skipDmvDetail: 'Placas el mismo dia',
       pricing: 'Cero Cargos de Dealer',
-      pricingDetail: 'Sin cargos ocultos · Todos los creditos bienvenidos',
+      pricingDetail: 'Sin cargos ocultos · Financiamiento para todos los niveles de credito',
       pricingHref: `${base}/es/financiamiento`,
     }
   : {
@@ -48,7 +54,7 @@ const trust = isSpanish
       skipDmv: 'Skip the DMV',
       skipDmvDetail: 'Metal plates on the spot',
       pricing: 'No Dealer Fees Ever',
-      pricingDetail: 'No doc fee · All credit welcome',
+      pricingDetail: 'No doc fee · Financing for all credit levels',
       pricingHref: `${base}/financing`,
     };
 
@@ -56,10 +62,32 @@ const siteName = 'Maxim Autos';
 // Dedupe: if title already contains siteName, don't append it again
 const fullTitle = title.includes(siteName) ? title : `${title} | ${siteName}`;
 
+// MIRROR CONTAINMENT.
+// The same source builds twice: production on Vercel at www.maximautos.com, and a
+// GitHub Pages mirror at dexmang.github.io/MaximAutosWeb (astro.config.mjs switches on
+// VERCEL). Verified live 2026-07-26: the mirror served a 93 KB byte similar homepage with
+// a canonical pointing AT ITSELF and no robots meta, so the entire site existed twice as
+// an indexable duplicate. On a site where 28 pages already sit in Search Console as
+// "Discovered, currently not indexed", a second full copy competes for the same crawl
+// budget it cannot afford.
+//
+// Two signals, deliberately belt and braces:
+//   1. canonical points at PRODUCTION, not at the mirror
+//   2. noindex on every mirror page (see the robots meta below)
+// deploy.yml also overwrites the mirror's robots.txt with Disallow: /
+const PRODUCTION_ORIGIN = 'https://www.maximautos.com';
+const isMirror = process.env.VERCEL !== '1' && process.env.MAXIM_LOCAL_DEV !== '1';
+
 // Build canonical and OG image as absolute URLs using Astro.site (from astro.config.mjs)
 // so they always match the configured canonical domain regardless of inbound host
 const siteUrl = Astro.site ?? new URL('https://www.maximautos.com/');
-const canonical = canonicalUrl || new URL(Astro.url.pathname, siteUrl).href;
+// On the mirror, strip the /MaximAutosWeb base and point at production, so even if the
+// noindex is somehow missed the duplicate still consolidates to the real page.
+const canonical = canonicalUrl || (
+  isMirror
+    ? PRODUCTION_ORIGIN + Astro.url.pathname.replace(/^\/MaximAutosWeb/, '')
+    : new URL(Astro.url.pathname, siteUrl).href
+);
 const ogImageAbsolute = new URL(ogImage ?? `${base}/brand/hero-family.jpg`, siteUrl).href;
 ---
 
@@ -137,7 +165,10 @@ const ogImageAbsolute = new URL(ogImage ?? `${base}/brand/hero-family.jpg`, site
     <slot name="structured-data" />
 
     <!-- Sold vehicle pages: keep URL live but exclude from search index -->
-    {noIndex && <meta name="robots" content="noindex, follow" />}
+    {noIndex && !isMirror && <meta name="robots" content="noindex, follow" />}
+    {/* Mirror pages are noindex AND nofollow: there is nothing on the GitHub Pages copy
+        worth crawling that production does not already serve. See the isMirror note above. */}
+    {isMirror && <meta name="robots" content="noindex, nofollow" />}
 
     <!-- Google Search Console Verification -->
     <!-- TODO: Add meta name="google-site-verification" content="YOUR_VERIFICATION_CODE" here -->
@@ -168,17 +199,16 @@ const ogImageAbsolute = new URL(ogImage ?? `${base}/brand/hero-family.jpg`, site
           if (!a) return;
           lead(a.getAttribute('href').indexOf('sms:') === 0 ? 'sms' : 'phone');
         }, true);
-        var FORM_CHANNELS = {
-          'contact-form': 'contact_form',
-          'financing-form': 'financing_form',
-          'apply-form': 'credit_app',
-          'sell-trade-form': 'sell_trade_form'
-        };
-        document.addEventListener('submit', function (e) {
-          var f = e.target;
-          if (!f || !f.tagName || f.tagName !== 'FORM') return;
-          lead(FORM_CHANNELS[f.id] || 'form');
-        }, true);
+        // Forms report their OWN success. The previous version listened for `submit` in
+        // the capture phase, which runs BEFORE each page's handler calls preventDefault()
+        // and fetch(), so generate_lead fired on every submit ATTEMPT: validation
+        // failures, network errors, Formspree 500s, everything. Every conversion number
+        // measured before 2026-07-26 counted clicks, not leads.
+        //
+        // Each form handler now calls window.maximLead('<channel>') inside its
+        // `if (res.ok)` branch only. Channels: contact_form, financing_form, credit_app,
+        // sell_trade_form, sms, phone, chat.
+        window.maximLead = lead;
         // Tawk.to is NOT installed today — this is a defensive no-op hook so
         // chat leads start counting automatically if it ever gets added.
         window.Tawk_API = window.Tawk_API || {};

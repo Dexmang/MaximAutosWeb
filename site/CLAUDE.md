@@ -11,7 +11,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 > - **Never call a car "certified"** (no CPO program). **Keep the all-in zero-doc-fee price.**
 > - **No overpromise:** never "Total Protection"/"total/complete/full protection"/"guaranteed" (cars are AS-IS). Powertrain claims must always say **"qualifying"** — never "on every sale" or unqualified.
 > - **NAP must match exactly:** Maxim Autos · 9101 Terminal Ave, Skokie, IL 60077 · (847) 510-8947 · lic. DL7667.
-> - **GBP is frozen** (reinstated 7/14 but still UNVERIFIED — edits don't publish; support case 3-6365000041662 open): no profile edits/posts/photos until verification clears; no badge-graphic images ever.
+> - **GBP is no longer frozen** (verified 2026-07-24, day-0 audit; support case 3-6365000041662 is moot and retired). New rule: **every GBP mutation needs Jerry's explicit per-change approval first**, capped at 2 touches/week in the cooling window (one per session, 48-72h apart). No badge-graphic images ever. See `businesses/maxim-autos/operations/compliance-guardrails.md` Part A and `businesses/maxim-autos/operations/google-local-domination-2026-07/design/SPEC.md`.
 > If a change would break a rule, STOP and flag it.
 
 ## Commands

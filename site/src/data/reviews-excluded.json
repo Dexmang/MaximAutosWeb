@@ -1,0 +1,15 @@
+{
+  "_why": "Reviewers whose testimonial must NEVER be published on the site or emitted as Review JSON-LD, because publishing it would be an undisclosed material connection. FTC Act Section 5 and the FTC endorsement guides treat a review from someone with a family or employment relationship as deceptive unless that relationship is disclosed. Before 2026-07-26 this exclusion existed only in one person's memory: there was no denylist, no flag, and no note anywhere in the repo, so any future rebuild of reviews.json from a live Google read would have quietly reintroduced it.",
+  "_enforced_by": "scripts/lint-copy.mjs, rule id 'excluded-reviewer'. It fails --strict if a listed name appears in site/src/data/reviews.json or in any built page. Enforcement, not documentation, is the point of this file.",
+  "_important": "These reviews are excluded from PUBLICATION only. They still exist on Google and still count toward the live rating and review total that reviews_meta.json records. Do NOT subtract them from AggregateRating: the schema must match what a person sees on the Google profile, and understating it is its own accuracy problem.",
+  "excluded": [
+    {
+      "name": "Victor Piechowiak",
+      "aliases": ["Victor P.", "Victor P", "V. Piechowiak"],
+      "reason": "Owner's son. Undisclosed insider review.",
+      "added": "2026-07-16",
+      "still_live_on_google": true,
+      "note": "Removing it from Google requires Victor to delete it from his own account. That is a reviewer action, not a profile edit, and it is not something Maxim can or should do on his behalf."
+    }
+  ]
+}

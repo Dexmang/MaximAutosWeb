@@ -41,6 +41,7 @@
 import { readFileSync, writeFileSync, appendFileSync } from 'fs';
 import { fileURLToPath } from 'url';
 import { dirname, resolve } from 'path';
+import { deriveFacts } from './facts-core.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const CARGURUS_URL = 'https://www.cargurus.com/Cars/m-Maxim-Autos-sp457703';
@@ -50,6 +51,19 @@ const URL_EVENTS_PATH = resolve(__dirname, '../site/src/data/url-events.jsonl');
 const RETIRED_SLUGS_PATH = resolve(__dirname, '../site/src/data/retired-slugs.json');
 const VERCEL_JSON_PATH = resolve(__dirname, '../vercel.json');
 const HOLD_VINS_PATH = resolve(__dirname, '../site/src/data/hold-vins.json');
+const FACTS_JSON = resolve(__dirname, '../site/src/data/facts.json');
+const REVIEWS_META_PATH = resolve(__dirname, '../site/src/data/reviews_meta.json');
+const SUBURBS_PATH = resolve(__dirname, '../site/src/data/suburbs.json');
+
+/** Parse a JSON file, or return the fallback. Used for ledger inputs that must never
+ *  abort the sync: a missing reviews file should cost a rating string, not the build. */
+function readJsonSafe(path, fallback) {
+  try {
+    return JSON.parse(readFileSync(path, 'utf8'));
+  } catch (_) {
+    return fallback;
+  }
+}
 const SITE_HOST = 'www.maximautos.com';
 const SITE_ORIGIN = `https://${SITE_HOST}`;
 
@@ -196,21 +210,106 @@ function generateVehicleSlug(year, make, model, trim, stockNumber) {
 // statutory powertrain protection must always be stated as applying to QUALIFYING
 // vehicles. DealerCenter ad copy that omits the qualifier is corrected here so it
 // can never reach a live VDP unqualified. Mirrors the rule in compliance-guardrails.md.
-function sanitizeDescription(text) {
-  return String(text || '')
-    .replace(
-      /Illinois powertrain protection(?! on qualifying)/g,
-      'Illinois powertrain protection on qualifying vehicles'
-    )
-    // Strip any free-"warranty" claim DealerCenter ad copy may carry (e.g. a
-    // "3-Month Peace of Mind Warranty"). Maxim sells AS-IS: the only warranty
-    // language allowed is the Illinois statutory powertrain protection above.
-    // This guard runs on every build so DC copy can never leak a non-statutory
-    // warranty promise onto a live VDP. Mirrors compliance-guardrails.md.
-    .replace(
-      /\d+[-\s]*Month\s+["“”]?Peace of Mind["“”]?\s+Warranty(?:\s*\(extended coverage available\))?/gi,
-      'Illinois statutory powertrain protection on qualifying vehicles, optional extended coverage available at signing'
-    );
+const EM_DASH = '—';
+const EN_DASH = '–';
+
+/**
+ * Ordered rewrite rules. Each runs on every build, on every description, so a violation
+ * typed into DealerCenter can never reach a live VDP or the Google vehicle feed.
+ *
+ * Verified live on 2026-07-25, BEFORE the C8 and style rules below existed: all 7 in
+ * stock cars carried "Every customer protected", and 4 of 7 carried 3 em dashes and one
+ * "on-the-spot" each, in both vehicles.json and web_assets/feeds/vehicles.xml. The
+ * warranty rule was already working (4 hits in the DC feed, 0 in the output), which is
+ * the proof that this function is the correct place to fix all of it.
+ */
+const DESCRIPTION_RULES = [
+  // ── Compliance ───────────────────────────────────────────────────────────────
+  {
+    // Matches the phrase regardless of what precedes it. The original rule required the
+    // literal "Illinois powertrain protection", which missed "statutory powertrain
+    // protection" and "15 day / 500 mile powertrain protection" and left 6 sold VDPs
+    // carrying an unqualified claim (found 2026-07-26 by lint-copy.mjs, whose rule was
+    // correctly broader than this one).
+    name: 'unqualified powertrain claim',
+    find: /powertrain protection(?!\s+on\s+qualifying)/gi,
+    replace: 'powertrain protection on qualifying cars',
+  },
+  {
+    // Guardrail C8. Maxim sells AS IS and offers no dealer warranty, so any month
+    // count paired with the word warranty is a claim it cannot document. Was found
+    // live on GBP and on the site in July 2026 and purged from both.
+    name: 'false month warranty',
+    find: /\d+[-\s]*Month\s+["“”]?Peace of Mind["“”]?\s+Warranty(?:\s*\(extended coverage available\))?/gi,
+    replace:
+      'Illinois statutory powertrain protection on qualifying vehicles, optional extended coverage available at signing',
+  },
+  {
+    // Guardrail C8, the blanket protection promise. Resolves to the approved brand
+    // tagline in memory/context/maxim-autos-brand.md.
+    name: 'C8 blanket protection claim',
+    find: /Every customer protected/gi,
+    replace: 'Every car documented',
+  },
+  {
+    name: 'C8 total or complete protection',
+    find: /\b(?:total|complete|full)\s+protection\b/gi,
+    replace: 'independent inspection report',
+  },
+  {
+    // No CPO program exists. This is the violation that established the whole
+    // forbidden vocabulary list.
+    name: 'certified claim',
+    find: /\b(?:Maxim Select Certified|certified pre[-\s]?owned|factory certified|certified)\b/gi,
+    replace: 'inspected',
+  },
+  {
+    // Guardrail B4. "all credit" alone reads as guaranteed approval.
+    name: 'all credit truncation',
+    find: /\ball credit\b(?!\s+levels)/gi,
+    replace: 'all credit levels',
+  },
+
+  // ── House style ──────────────────────────────────────────────────────────────
+  {
+    // A dash surrounded by spaces is acting as a comma in every observed instance
+    // ("Skokie, IL — minutes from Evanston"), so a comma preserves the meaning.
+    name: 'spaced em or en dash',
+    find: new RegExp(`\\s*[${EM_DASH}${EN_DASH}]\\s*`, 'g'),
+    replace: ', ',
+  },
+  { name: 'on-the-spot', find: /\bon-the-spot\b/gi, replace: 'the same visit' },
+  { name: 'hassle-free', find: /\bhassle-free\b/gi, replace: 'simple' },
+  { name: 'same-day', find: /\bsame-day\b/gi, replace: 'same day' },
+  { name: 'first-time', find: /\bfirst-time\b/gi, replace: 'first time' },
+  { name: 'worry-free', find: /\bworry-free\b/gi, replace: 'dependable' },
+
+  // ── Cleanup after the rules above ────────────────────────────────────────────
+  // Replacing " — " with ", " next to existing punctuation can produce ", ," or
+  // ". ,". Collapse those rather than shipping them.
+  { name: 'double comma', find: /,\s*,+/g, replace: ',' },
+  { name: 'comma after sentence end', find: /([.!?])\s*,\s*/g, replace: '$1 ' },
+  { name: 'space before punctuation', find: /\s+([.,;:!?])/g, replace: '$1' },
+  { name: 'collapsed whitespace', find: /[ \t]{2,}/g, replace: ' ' },
+];
+
+/** Accumulates rule name -> hit count across the whole run, reported by main(). */
+const SANITIZE_TALLY = {};
+
+/**
+ * Apply every rule. Returns the cleaned string and records which rules fired on the
+ * shared tally so the build log can report it (a silent sanitizer is indistinguishable
+ * from a broken one, which is how the review scraper failed for weeks).
+ */
+function sanitizeDescription(text, tally = null) {
+  let out = String(text || '');
+  for (const rule of DESCRIPTION_RULES) {
+    const hits = out.match(rule.find);
+    if (!hits) continue;
+    out = out.replace(rule.find, rule.replace);
+    if (tally) tally[rule.name] = (tally[rule.name] || 0) + hits.length;
+  }
+  return out.trim();
 }
 
 // ── Web hold list (DealerCenter "Inbound" / off-web units) ──────────────────────
@@ -475,14 +574,28 @@ async function main() {
 
   // ── Build the active set straight from the DC feed ──────────────────────────────
   const active = [];
+  // VINs carrying a manual_sold flag that DealerCenter still lists. Reported, not
+  // honored — see the note at the flag check below.
+  const manualSoldButLive = [];
   for (const [vin, rec] of Object.entries(dcByVin)) {
     const ex = existingByVin[vin];
 
-    // Manual sold override: a human marked this VIN sold; honor it even though the
-    // feed still shows it (rare; clears only by removing manual_sold from vehicles.json).
+    // Manual sold override — DEMOTED TO A WARNING 2026-07-25 per the owner's
+    // standing rule: "the Google feed units should always match the latest FTP
+    // from DealerCenter, no matter sold or not."
+    //
+    // This loop only ever walks VINs that ARE in the newest DC feed, so honoring
+    // manual_sold here meant a local flag could hide a car DealerCenter still
+    // lists — turning its VDP into a SOLD page while the Google feed either
+    // dropped it or linked to a sold landing page (a Vehicle Ads policy problem
+    // in its own right). DealerCenter is the book of record: in the feed = live.
+    //
+    // The flag is no longer suppressive, only reported. It still works the way it
+    // was actually useful: once the VIN drops out of the DC feed it is soldified
+    // below like any other feed-absent car. Same semantics the hold list already
+    // uses (a hold is honored ONLY while the VIN is out of the feed).
     if (ex?.manual_sold) {
-      active.push({ ...ex, manual_sold: true });
-      continue;
+      manualSoldButLive.push({ vin, stockNumber: ex.stockNumber, slug: ex.slug });
     }
 
     // Start from the DC record (authoritative: price, mileage, photos, specs, copy).
@@ -505,8 +618,14 @@ async function main() {
     out.dealRating = ov?.dealRating || rec.dealRating || ex?.dealRating || '';
     out.priceSavings = ov ? (ov.priceSavings ?? 0) : (rec.priceSavings ?? ex?.priceSavings ?? 0);
 
-    // Compliance sanitizer on the ad copy.
-    out.description = sanitizeDescription(rec.description || ex?.description || '');
+    // Compliance sanitizer on every free text field, not just the ad copy. Tallied so the
+    // build log names every rule that fired; see the summary after the inventory list.
+    // `warranty` is included because it carried an unqualified powertrain claim on all 27
+    // records. No page renders it today, but a wrong claim in committed data is how a
+    // violation reaches a page later.
+    out.description = sanitizeDescription(rec.description || ex?.description || '', SANITIZE_TALLY);
+    const warrantyText = rec.warranty || ex?.warranty || '';
+    if (warrantyText) out.warranty = sanitizeDescription(warrantyText, SANITIZE_TALLY);
 
     // In the feed ⇒ live. Clear any stale off-market/sold flags.
     out.status = 'available';
@@ -522,13 +641,22 @@ async function main() {
   // at once. Held units are skipped here — the web-hold omits them entirely below.
   const today = new Date().toISOString().slice(0, 10);
   const nowIso = new Date().toISOString();
+  // The sanitizer MUST run on sold records too, not just the active set. A sold VDP keeps
+  // whatever description it was built with, so the 20 sold pages carried the C8 blanket
+  // protection claim and unqualified powertrain wording long after the active set was
+  // cleaned (verified 2026-07-26: 36 C8 hits across 17 built pages, nearly all sold VDPs).
+  // Those pages are noindex but they still return 200 and are read by AI crawlers, and a
+  // false claim on a page a human can reach is a false claim. Re running the sanitizer is
+  // idempotent, so an already clean description is untouched.
   const sold = [];
   for (const ex of existing) {
     if (!ex.vin || ex.vin === 'TBD') continue;
     if (dcVins.has(ex.vin.toUpperCase())) continue; // still in feed → handled above
     if (isHeld(ex.vin)) continue;                    // web-held → omit, never soldify
-    if (ex.status === 'sold') { sold.push(ex); continue; } // already sold → preserve for SEO
-    sold.push({ ...ex, status: 'sold', sold_date: today, missing_since: ex.missing_since || nowIso });
+    const clean = { ...ex, description: sanitizeDescription(ex.description || '', SANITIZE_TALLY) };
+    if (ex.warranty) clean.warranty = sanitizeDescription(ex.warranty, SANITIZE_TALLY);
+    if (ex.status === 'sold') { sold.push(clean); continue; } // already sold → preserve for SEO
+    sold.push({ ...clean, status: 'sold', sold_date: today, missing_since: ex.missing_since || nowIso });
   }
 
   const vehicles = [...active, ...sold];
@@ -545,6 +673,27 @@ async function main() {
 
   // Guarantee unique slugs so two same-trim units never collide on the VDP route.
   ensureUniqueSlugs(visible, existingByVin);
+
+  if (manualSoldButLive.length) {
+    console.warn(
+      `\nmanual_sold IGNORED for ${manualSoldButLive.length} unit(s) still in the DC feed ` +
+      `(DealerCenter is the book of record — in the feed = live):`
+    );
+    manualSoldButLive.forEach(m =>
+      console.warn(`  ! [${m.vin}] stock ${m.stockNumber || '—'} — kept LIVE. Take it off in DealerCenter to retire it.`)
+    );
+  }
+
+  const sanitized = Object.entries(SANITIZE_TALLY);
+  if (sanitized.length) {
+    console.log('\nCopy sanitizer corrected DealerCenter ad copy:');
+    sanitized
+      .sort((a, b) => b[1] - a[1])
+      .forEach(([rule, n]) => console.log(`  ${String(n).padStart(3)} x  ${rule}`));
+    console.log('  (these would otherwise be live on the VDPs and inside the Google vehicle feed)');
+  } else {
+    console.log('\nCopy sanitizer: nothing to correct in this feed.');
+  }
 
   console.log(`\nInventory: ${active.length} live (from DC feed), ${sold.length} sold/retained, ${heldNow.length} held.`);
   visible.filter(v => v.status !== 'sold').forEach(v =>
@@ -571,6 +720,27 @@ async function main() {
   } else {
     console.log(`\nIndexNow: ${urls.length} changed URL(s) logged for the post-deploy ping:`);
     urls.forEach(u => console.log(`  → ${u}`));
+  }
+
+  // ── Live number ledger ────────────────────────────────────────────────────────
+  // vehicles.json just changed, so the price band and unit count derived from it are
+  // now stale. Regenerate facts.json in the same run so the 6 hourly sync commits a
+  // ledger that matches the inventory it just committed. Astro also regenerates this
+  // on every build via the site prebuild hook, so production can never render a band
+  // from a different inventory than the page it is on. See scripts/facts-core.mjs.
+  console.log('\nLive number ledger...');
+  try {
+    const facts = deriveFacts({
+      vehicles: visible,
+      reviews: readJsonSafe(REVIEWS_META_PATH, {}),
+      suburbs: readJsonSafe(SUBURBS_PATH, []),
+    });
+    writeFileSync(FACTS_JSON, JSON.stringify(facts, null, 2) + '\n');
+    console.log(`  band ${facts.inventory.bandText || '(none)'}, ${facts.inventory.stockText}`);
+  } catch (err) {
+    // Never fatal. A missing ledger degrades page copy to an open ended price floor;
+    // a thrown error here would abort the sync and leave the site on stale inventory.
+    console.warn(`  ! ledger not written: ${err.message}`);
   }
 }
 
