@@ -183,7 +183,16 @@ const faqs = [
 // priceValidUntil freezes at build time; acceptable because the site rebuilds
 // at least weekly (every CarGurus sync commit redeploys), so the 60-day window
 // never comes close to expiring on a live page.
-const priceValidUntil = new Date(Date.now() + 60 * 24 * 60 * 60 * 1000).toISOString().split('T')[0];
+//
+// SOLD cars are the exception. Until 2026-07-26 every sold VDP also advertised a price
+// valid 60 days into the FUTURE, so the markup said "this price is good until September"
+// on a car that was gone. The Offer already carries availability SoldOut; the validity
+// window has to agree with it. Falls back to the build date when sold_date is missing
+// rather than emitting a future date.
+const soldOnDate = (v as any).sold_date || null;
+const priceValidUntil = isSold
+  ? (soldOnDate || new Date().toISOString().split('T')[0])
+  : new Date(Date.now() + 60 * 24 * 60 * 60 * 1000).toISOString().split('T')[0];
 // No trailing slash — must exactly match <link rel=canonical> (Layout.astro,
 // trailingSlash 'never') and Vehicle.url below.
 const canonicalVdpUrl = `https://www.maximautos.com/vehicle/${v.slug}`;

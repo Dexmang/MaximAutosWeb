@@ -1,4 +1,13 @@
-name: Deploy to GitHub Pages
+name: Publish GitHub Pages MIRROR (NOT production)
+
+# PRODUCTION IS VERCEL. Vercel builds from the same push to main using the
+# buildCommand in vercel.json. This workflow only publishes the secondary mirror at
+# dexmang.github.io/MaximAutosWeb, which is noindexed and robots blocked.
+#
+# Renamed 2026-07-26 because a design pass mistook this file for the production
+# deploy gate and proposed wiring a copy linter into it. That would have gated the
+# mirror while leaving production ungated. The real gate is
+# .github/workflows/lint-copy.yml, which runs on pull requests into main.
 
 on:
   push:
@@ -35,6 +44,31 @@ jobs:
       - name: Build Astro site
         working-directory: ./site
         run: npm run build
+
+      # MIRROR CONTAINMENT. This workflow publishes the GitHub Pages MIRROR, not
+      # production. Production is Vercel, deployed from the same push via vercel.json.
+      # Verified live 2026-07-26: the mirror was serving the whole site as an indexable
+      # duplicate with self referencing canonicals, competing for crawl budget on a site
+      # where 28 pages already sit in Search Console as "Discovered, currently not
+      # indexed". Layout.astro adds noindex,nofollow and points the canonical at
+      # production; this step blocks crawlers at the robots.txt level too.
+      #
+      # web_assets/robots.txt is SHARED with production, so it cannot carry Disallow: /.
+      # It is overwritten here, in the mirror artifact only, after the build.
+      - name: Block crawlers on the mirror
+        working-directory: ./site
+        run: |
+          cat > dist/robots.txt <<'EOF'
+          # GitHub Pages MIRROR of maximautos.com. Not the canonical site.
+          # The live site is https://www.maximautos.com and it is the only one that
+          # should be crawled or indexed. Every page here also carries
+          # noindex,nofollow and a canonical pointing at production.
+          User-agent: *
+          Disallow: /
+          EOF
+          rm -f dist/sitemap-index.xml dist/sitemap-0.xml
+          echo "mirror robots.txt written, sitemaps removed:"
+          cat dist/robots.txt
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3

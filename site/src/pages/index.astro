@@ -136,10 +136,20 @@ const heroReviews = reviews.slice(0, 6);
           {facts.inventory.bandText}, hand-picked by the owner. Drive home the same day.
         </p>
         <div class="flex flex-wrap gap-2 mb-8">
+          {/* These chips pointed at /inventory?price=under10k and ?body=SUV, which were
+              broken three ways at once (verified 2026-07-26):
+                1. robots.txt carries `Disallow: /inventory?`, so the homepage was linking
+                   crawlers straight into blocked URLs.
+                2. inventory.astro never reads query params. Its filters are buttons with
+                   data-price / data-body attributes, so the chip delivered the FULL
+                   unfiltered list. Broken for people, not just crawlers.
+                3. The destinations were dead ends for internal linking.
+              They now point at the real landing pages, which are crawlable, actually
+              filtered, and were sitting orphaned with zero inbound internal links. */}
           {[
-            { label: 'Under $10K', href: `${base}/inventory?price=under10k` },
-            { label: 'SUVs', href: `${base}/inventory?body=SUV` },
-            { label: 'Sedans', href: `${base}/inventory?body=Sedan` },
+            { label: 'Under $10K', href: `${base}/used-cars-under-10000-skokie` },
+            { label: 'Under $15K', href: `${base}/used-cars-under-15000-skokie` },
+            { label: 'SUVs', href: `${base}/used-suvs-skokie-il` },
             { label: 'View All', href: `${base}/inventory` },
           ].map(chip => (
             <a href={chip.href}

@@ -4,82 +4,328 @@
   "installCommand": "echo 'deps installed via buildCommand'",
   "framework": null,
   "redirects": [
-    { "source": "/sitemap.xml",       "destination": "/sitemap-index.xml", "permanent": false },
-    { "source": "/schedule-a-test-drive",  "destination": "/contact",    "permanent": true },
-    { "source": "/schedule-a-test-drive/", "destination": "/contact",    "permanent": true },
-    { "source": "/vehicle-specials",       "destination": "/inventory",  "permanent": true },
-    { "source": "/vehicle-specials/",      "destination": "/inventory",  "permanent": true },
-    { "source": "/loan-application",       "destination": "/financing",  "permanent": true },
-    { "source": "/loan-application/",      "destination": "/financing",  "permanent": true },
-    { "source": "/credit-application",     "destination": "/financing",  "permanent": true },
-    { "source": "/credit-application/",    "destination": "/financing",  "permanent": true },
-    { "source": "/about-us",               "destination": "/about",      "permanent": true },
-    { "source": "/about-us/",              "destination": "/about",      "permanent": true },
-    { "source": "/contact-us",             "destination": "/contact",    "permanent": true },
-    { "source": "/contact-us/",            "destination": "/contact",    "permanent": true },
-    { "source": "/apply-online",           "destination": "/financing",  "permanent": true },
-    { "source": "/apply-online/",          "destination": "/financing",  "permanent": true },
-    { "source": "/car-finder",             "destination": "/inventory",  "permanent": true },
-    { "source": "/car-finder/",            "destination": "/inventory",  "permanent": true },
-    { "source": "/inventory.aspx",         "destination": "/inventory",  "permanent": true },
-    { "source": "/%3E",                    "destination": "/",           "permanent": true },
-    { "source": "/inventory/hyundai/tucson/j10175",  "destination": "/inventory", "permanent": true },
-    { "source": "/inventory/hyundai/tucson/j10175/", "destination": "/inventory", "permanent": true },
-    { "source": "/inventory/honda/cr-v/J10198",      "destination": "/inventory", "permanent": true },
-    { "source": "/inventory/honda/cr-v/J10198/",     "destination": "/inventory", "permanent": true },
-    { "source": "/es/financing",                     "destination": "/financing", "permanent": true },
-    { "source": "/es/financing/",                    "destination": "/financing", "permanent": true },
-    { "source": "/maps",                             "destination": "/",          "permanent": true },
-    { "source": "/maps/",                            "destination": "/",          "permanent": true },
-    { "source": "/inventory/ford/escape/j10188",   "destination": "/vehicle/2017-ford-escape-titanium",           "permanent": true },
-    { "source": "/inventory/ford/escape/j10188/",  "destination": "/vehicle/2017-ford-escape-titanium",           "permanent": true },
-    { "source": "/inventory/subaru/outback/j10190",  "destination": "/vehicle/2017-subaru-outback-2-5i-limited-awd", "permanent": true },
-    { "source": "/inventory/subaru/outback/j10190/", "destination": "/vehicle/2017-subaru-outback-2-5i-limited-awd", "permanent": true },
-    { "source": "/inventory/lexus/rx/j10185",   "destination": "/vehicle/2014-lexus-rx-350-awd", "permanent": true },
-    { "source": "/inventory/lexus/rx/j10185/",  "destination": "/vehicle/2014-lexus-rx-350-awd", "permanent": true },
-    { "source": "/inventory/jaguar/xj/j10186",       "destination": "/vehicle/2008-jaguar-xj-series-xj8-l-rwd", "permanent": true },
-    { "source": "/inventory/jaguar/xj/j10186/",      "destination": "/vehicle/2008-jaguar-xj-series-xj8-l-rwd", "permanent": true },
-    { "source": "/inventory/jaguar/xj8-vanden-plas/j10186",  "destination": "/vehicle/2008-jaguar-xj-series-xj8-l-rwd", "permanent": true },
-    { "source": "/inventory/jaguar/xj8-vanden-plas/j10186/", "destination": "/vehicle/2008-jaguar-xj-series-xj8-l-rwd", "permanent": true },
-    { "source": "/vehicle/2017-subaru-outback-25i-limited-awd",  "destination": "/vehicle/2017-subaru-outback-2-5i-limited-awd", "permanent": true },
-    { "source": "/vehicle/2017-subaru-outback-25i-limited-awd/", "destination": "/vehicle/2017-subaru-outback-2-5i-limited-awd", "permanent": true },
-    { "source": "/vehicle/2008-jaguar-xj-vanden-plas-l",  "destination": "/vehicle/2008-jaguar-xj-series-xj8-l-rwd", "permanent": true },
-    { "source": "/vehicle/2008-jaguar-xj-vanden-plas-l/", "destination": "/vehicle/2008-jaguar-xj-series-xj8-l-rwd", "permanent": true },
-    { "source": "/inventory/subaru/crosstrek/j10187",  "destination": "/vehicle/2017-subaru-crosstrek-premium", "permanent": true },
-    { "source": "/inventory/subaru/crosstrek/j10187/", "destination": "/vehicle/2017-subaru-crosstrek-premium", "permanent": true },
-    { "source": "/inventory/:make/:model/:stock",    "destination": "/inventory", "permanent": true },
-    { "source": "/inventory/:make/:model/:stock/",   "destination": "/inventory", "permanent": true },
-    { "source": "/vehicle/2014-lexus-rx350",  "destination": "/vehicle/2014-lexus-rx-350-awd", "permanent": true },
-    { "source": "/vehicle/2014-lexus-rx350/", "destination": "/vehicle/2014-lexus-rx-350-awd", "permanent": true },
-    { "source": "/vehicle/2013-lexus-rx350",  "destination": "/vehicle/2014-lexus-rx-350-awd", "permanent": true },
-    { "source": "/vehicle/2013-lexus-rx350/", "destination": "/vehicle/2014-lexus-rx-350-awd", "permanent": true },
-    { "source": "/vehicle/2016-subaru-outback-36r",  "destination": "/vehicle/2017-subaru-outback-2-5i-limited-awd", "permanent": true },
-    { "source": "/vehicle/2016-subaru-outback-36r/", "destination": "/vehicle/2017-subaru-outback-2-5i-limited-awd", "permanent": true },
-    { "source": "/vehicle/2016-nissan-pathfinder-sl-4wd",  "destination": "/inventory", "permanent": true },
-    { "source": "/vehicle/2016-nissan-pathfinder-sl-4wd/", "destination": "/inventory", "permanent": true },
-    { "source": "/vehicle/2016-volvo-v60-sv33-premier",  "destination": "/vehicle/2016-volvo-v60-cross-country-j10208", "permanent": true },
-    { "source": "/vehicle/2016-volvo-v60-sv33-premier/", "destination": "/vehicle/2016-volvo-v60-cross-country-j10208", "permanent": true }
+    {
+      "source": "/sitemap.xml",
+      "destination": "/sitemap-index.xml",
+      "permanent": true
+    },
+    {
+      "source": "/schedule-a-test-drive",
+      "destination": "/contact",
+      "permanent": true
+    },
+    {
+      "source": "/schedule-a-test-drive/",
+      "destination": "/contact",
+      "permanent": true
+    },
+    {
+      "source": "/vehicle-specials",
+      "destination": "/inventory",
+      "permanent": true
+    },
+    {
+      "source": "/vehicle-specials/",
+      "destination": "/inventory",
+      "permanent": true
+    },
+    {
+      "source": "/loan-application",
+      "destination": "/financing",
+      "permanent": true
+    },
+    {
+      "source": "/loan-application/",
+      "destination": "/financing",
+      "permanent": true
+    },
+    {
+      "source": "/credit-application",
+      "destination": "/financing",
+      "permanent": true
+    },
+    {
+      "source": "/credit-application/",
+      "destination": "/financing",
+      "permanent": true
+    },
+    {
+      "source": "/about-us",
+      "destination": "/about",
+      "permanent": true
+    },
+    {
+      "source": "/about-us/",
+      "destination": "/about",
+      "permanent": true
+    },
+    {
+      "source": "/contact-us",
+      "destination": "/contact",
+      "permanent": true
+    },
+    {
+      "source": "/contact-us/",
+      "destination": "/contact",
+      "permanent": true
+    },
+    {
+      "source": "/apply-online",
+      "destination": "/financing",
+      "permanent": true
+    },
+    {
+      "source": "/apply-online/",
+      "destination": "/financing",
+      "permanent": true
+    },
+    {
+      "source": "/car-finder",
+      "destination": "/inventory",
+      "permanent": true
+    },
+    {
+      "source": "/car-finder/",
+      "destination": "/inventory",
+      "permanent": true
+    },
+    {
+      "source": "/inventory.aspx",
+      "destination": "/inventory",
+      "permanent": true
+    },
+    {
+      "source": "/%3E",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/inventory/hyundai/tucson/j10175",
+      "destination": "/inventory",
+      "permanent": true
+    },
+    {
+      "source": "/inventory/hyundai/tucson/j10175/",
+      "destination": "/inventory",
+      "permanent": true
+    },
+    {
+      "source": "/inventory/honda/cr-v/J10198",
+      "destination": "/inventory",
+      "permanent": true
+    },
+    {
+      "source": "/inventory/honda/cr-v/J10198/",
+      "destination": "/inventory",
+      "permanent": true
+    },
+    {
+      "source": "/es/financing",
+      "destination": "/financing",
+      "permanent": true
+    },
+    {
+      "source": "/es/financing/",
+      "destination": "/financing",
+      "permanent": true
+    },
+    {
+      "source": "/maps",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/maps/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/inventory/ford/escape/j10188",
+      "destination": "/vehicle/2017-ford-escape-titanium",
+      "permanent": true
+    },
+    {
+      "source": "/inventory/ford/escape/j10188/",
+      "destination": "/vehicle/2017-ford-escape-titanium",
+      "permanent": true
+    },
+    {
+      "source": "/inventory/subaru/outback/j10190",
+      "destination": "/vehicle/2017-subaru-outback-2-5i-limited-awd",
+      "permanent": true
+    },
+    {
+      "source": "/inventory/subaru/outback/j10190/",
+      "destination": "/vehicle/2017-subaru-outback-2-5i-limited-awd",
+      "permanent": true
+    },
+    {
+      "source": "/inventory/lexus/rx/j10185",
+      "destination": "/vehicle/2014-lexus-rx-350-awd",
+      "permanent": true
+    },
+    {
+      "source": "/inventory/lexus/rx/j10185/",
+      "destination": "/vehicle/2014-lexus-rx-350-awd",
+      "permanent": true
+    },
+    {
+      "source": "/inventory/jaguar/xj/j10186",
+      "destination": "/vehicle/2008-jaguar-xj-series-xj8-l-rwd",
+      "permanent": true
+    },
+    {
+      "source": "/inventory/jaguar/xj/j10186/",
+      "destination": "/vehicle/2008-jaguar-xj-series-xj8-l-rwd",
+      "permanent": true
+    },
+    {
+      "source": "/inventory/jaguar/xj8-vanden-plas/j10186",
+      "destination": "/vehicle/2008-jaguar-xj-series-xj8-l-rwd",
+      "permanent": true
+    },
+    {
+      "source": "/inventory/jaguar/xj8-vanden-plas/j10186/",
+      "destination": "/vehicle/2008-jaguar-xj-series-xj8-l-rwd",
+      "permanent": true
+    },
+    {
+      "source": "/vehicle/2017-subaru-outback-25i-limited-awd",
+      "destination": "/vehicle/2017-subaru-outback-2-5i-limited-awd",
+      "permanent": true
+    },
+    {
+      "source": "/vehicle/2017-subaru-outback-25i-limited-awd/",
+      "destination": "/vehicle/2017-subaru-outback-2-5i-limited-awd",
+      "permanent": true
+    },
+    {
+      "source": "/vehicle/2008-jaguar-xj-vanden-plas-l",
+      "destination": "/vehicle/2008-jaguar-xj-series-xj8-l-rwd",
+      "permanent": true
+    },
+    {
+      "source": "/vehicle/2008-jaguar-xj-vanden-plas-l/",
+      "destination": "/vehicle/2008-jaguar-xj-series-xj8-l-rwd",
+      "permanent": true
+    },
+    {
+      "source": "/inventory/subaru/crosstrek/j10187",
+      "destination": "/vehicle/2017-subaru-crosstrek-premium",
+      "permanent": true
+    },
+    {
+      "source": "/inventory/subaru/crosstrek/j10187/",
+      "destination": "/vehicle/2017-subaru-crosstrek-premium",
+      "permanent": true
+    },
+    {
+      "source": "/inventory/:make/:model/:stock",
+      "destination": "/inventory",
+      "permanent": true
+    },
+    {
+      "source": "/inventory/:make/:model/:stock/",
+      "destination": "/inventory",
+      "permanent": true
+    },
+    {
+      "source": "/vehicle/2014-lexus-rx350",
+      "destination": "/vehicle/2014-lexus-rx-350-awd",
+      "permanent": true
+    },
+    {
+      "source": "/vehicle/2014-lexus-rx350/",
+      "destination": "/vehicle/2014-lexus-rx-350-awd",
+      "permanent": true
+    },
+    {
+      "source": "/vehicle/2013-lexus-rx350",
+      "destination": "/vehicle/2014-lexus-rx-350-awd",
+      "permanent": true
+    },
+    {
+      "source": "/vehicle/2013-lexus-rx350/",
+      "destination": "/vehicle/2014-lexus-rx-350-awd",
+      "permanent": true
+    },
+    {
+      "source": "/vehicle/2016-subaru-outback-36r",
+      "destination": "/vehicle/2017-subaru-outback-2-5i-limited-awd",
+      "permanent": true
+    },
+    {
+      "source": "/vehicle/2016-subaru-outback-36r/",
+      "destination": "/vehicle/2017-subaru-outback-2-5i-limited-awd",
+      "permanent": true
+    },
+    {
+      "source": "/vehicle/2016-nissan-pathfinder-sl-4wd",
+      "destination": "/inventory",
+      "permanent": true
+    },
+    {
+      "source": "/vehicle/2016-nissan-pathfinder-sl-4wd/",
+      "destination": "/inventory",
+      "permanent": true
+    },
+    {
+      "source": "/vehicle/2016-volvo-v60-sv33-premier",
+      "destination": "/vehicle/2016-volvo-v60-cross-country-j10208",
+      "permanent": true
+    },
+    {
+      "source": "/vehicle/2016-volvo-v60-sv33-premier/",
+      "destination": "/vehicle/2016-volvo-v60-cross-country-j10208",
+      "permanent": true
+    },
+    {
+      "source": "/used-audi-skokie",
+      "destination": "/inventory",
+      "permanent": true
+    },
+    {
+      "source": "/used-audi-skokie/",
+      "destination": "/inventory",
+      "permanent": true
+    }
   ],
   "headers": [
     {
       "source": "/(.*)",
       "headers": [
-        { "key": "X-Content-Type-Options", "value": "nosniff" },
-        { "key": "X-Frame-Options", "value": "SAMEORIGIN" },
-        { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" }
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "X-Frame-Options",
+          "value": "SAMEORIGIN"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "strict-origin-when-cross-origin"
+        }
       ]
     },
     {
       "source": "/brand/(.*)",
       "headers": [
-        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
       ]
     },
     {
       "source": "/photos/(.*)",
       "headers": [
-        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
       ]
     }
-  ]
+  ],
+  "trailingSlash": false
 }

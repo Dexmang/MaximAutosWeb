@@ -121,14 +121,17 @@ const faqSchema = {
           <div class="mt-6 bg-navy rounded-2xl p-6 text-center">
             <p class="text-gray-400 text-sm mb-1">Estimated Monthly Payment</p>
             <p class="font-headline text-5xl font-extrabold text-white" id="calc-result">$227</p>
-            <p class="text-gray-400 text-xs mt-2">*Estimate only. Actual rate and terms vary by credit and lender.</p>
+            <p class="text-gray-400 text-xs mt-2 leading-relaxed">* Illustration only, based on the price, down payment, rate, and term you set above. This is not an offer of credit or a commitment to lend. Your actual rate and term depend on the lender and on credit approval, and approval is never guaranteed.</p>
           </div>
-          <a href={`${base}/apply`}
+          <a href="#apply"
             class="mt-5 w-full flex items-center justify-center gap-2 bg-orange text-white py-3.5 rounded-xl font-bold text-sm hover:bg-orange-dark transition-colors">
             <span class="material-symbols-outlined text-base" style="font-variation-settings:'FILL' 1;">payments</span>
-            Get Pre-Approved
+            Check my financing options
           </a>
-          <p class="text-xs text-gray-400 text-center mt-2">Soft pull pre-qualification. No impact to your credit score.</p>
+          <p class="text-xs text-gray-400 text-center mt-2">Four questions, no Social Security Number, and nothing touches your credit.</p>
+          <a href={`${base}/apply`} class="block text-center text-xs text-gray-400 hover:text-orange mt-2 underline">
+            Ready now? Full credit application
+          </a>
         </div>
 
         <!-- Trust Points -->

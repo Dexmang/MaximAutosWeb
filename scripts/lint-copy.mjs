@@ -53,6 +53,21 @@ const AS_JSON = process.argv.includes('--json');
 const EM = '—';
 const EN = '–';
 
+/**
+ * Reviewers who must never be published. Loaded from data so the list is editable without
+ * touching this file, and so a future rebuild of reviews.json from a live Google read
+ * cannot quietly reintroduce one. See site/src/data/reviews-excluded.json for why.
+ */
+function loadExcludedReviewers() {
+  try {
+    const d = JSON.parse(readFileSync(join(DATA, 'reviews-excluded.json'), 'utf8'));
+    return (d.excluded || []).flatMap(e => [e.name, ...(e.aliases || [])]).filter(Boolean);
+  } catch (_) {
+    return [];
+  }
+}
+const EXCLUDED_REVIEWERS = loadExcludedReviewers();
+
 // ── The rule table ────────────────────────────────────────────────────────────────
 // severity: 'error'   real world harm. Compliance, false claim, legal exposure.
 //           'warn'    house style. Reads as AI writing, no legal exposure.
@@ -135,6 +150,17 @@ const RULES = [
     find: /\{\{\s*[a-zA-Z][a-zA-Z.]*\s*\}\}/g,
     why: 'A placeholder reached output. The sentence is now missing a number a reader needs. Check the token name against KNOWN_TOKENS in scripts/facts-core.mjs.',
   },
+  // Built dynamically so the denylist lives in data, not in code. Skipped entirely when
+  // the list is empty, so an empty file never produces a match-everything regex.
+  ...(EXCLUDED_REVIEWERS.length ? [{
+    id: 'excluded-reviewer',
+    severity: 'error',
+    find: new RegExp(
+      '\\b(?:' + EXCLUDED_REVIEWERS.map(n => n.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')).join('|') + ')\\b',
+      'gi'
+    ),
+    why: 'This reviewer is on the publication denylist in site/src/data/reviews-excluded.json (undisclosed material connection, FTC Act Section 5). They may still count toward the live Google total, but their words must never appear on the site or in Review JSON-LD.',
+  }] : []),
 
   // House style. Real, but nobody gets hurt.
   {
@@ -179,6 +205,9 @@ const EXEMPT_PATHS = [
   // prose around them. build-facts.mjs renders them into the .json the pages import, and
   // an unresolved token in that RENDERED output is what the linter must catch.
   /\.template\.(?:json|txt)$/,
+  // The denylist names the excluded reviewers on purpose. Scanning it would make the
+  // rule fail on its own configuration.
+  /data[\\/]reviews-excluded\.json$/,
 ];
 
 function isExempt(path) {

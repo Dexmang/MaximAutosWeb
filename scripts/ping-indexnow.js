@@ -41,11 +41,17 @@ const BASE_URL = `https://${HOST}`;
 const API_ENDPOINT = "https://api.indexnow.org/indexnow";
 const DRY_RUN = process.argv.includes("--dry-run");
 
-const RECENT_EVENT_DAYS = 7;    // url-events.jsonl lookback
+// 14, not 7, to match how long a sold VDP is retained in the sitemap by the custom
+// serializer in astro.config.mjs. At 7 a car that sold 10 days ago was still in the
+// sitemap but no longer being announced, so the transition Google most needed to hear
+// about was the one it was not told.
+const RECENT_EVENT_DAYS = 14;   // url-events.jsonl lookback
 const RECENT_RETIRED_DAYS = 30; // retired-slugs.json lookback
 
 // ---------------------------------------------------------------------------
-// Static pages (no trailing slashes — canonical form)
+// FALLBACK ONLY. buildSitemapUrls() is the real source; this list is used only when
+// the site has not been built. Kept deliberately short and does not need maintaining.
+// (no trailing slashes, canonical form)
 // ---------------------------------------------------------------------------
 const STATIC_PATHS = [
   "/",
@@ -64,7 +70,6 @@ const STATIC_PATHS = [
   "/used-subaru-skokie",
   "/used-toyota-skokie",
   "/used-honda-skokie",
-  "/used-audi-skokie",
 ];
 
 function readJson(relPath) {
@@ -139,13 +144,55 @@ function buildRetiredUrls() {
 // ---------------------------------------------------------------------------
 // Build full URL list
 // ---------------------------------------------------------------------------
+/**
+ * Every <loc> in the built sitemap.
+ *
+ * The sitemap is the right source and the hand written STATIC_PATHS list was not. On
+ * 2026-07-26 that array was missing /used-suvs-skokie-il, /privacy-policy, /return-policy,
+ * /terms and all 8 Spanish pages, while still listing /used-audi-skokie, which had just
+ * been retired to a 301. A hand list of URLs drifts for exactly the same reason a hand
+ * written price band drifts.
+ *
+ * The sitemap also already encodes the rules this script was trying to reimplement: the
+ * custom serializer in astro.config.mjs drops sold VDPs after 14 days and excludes
+ * anything noindexed. Reading it means one source of truth for "which URLs exist".
+ *
+ * Returns [] if the site has not been built, and the caller falls back to the hand list.
+ */
+function buildSitemapUrls() {
+  const candidates = [
+    join(__dirname, '../site/dist/sitemap-0.xml'),
+    join(__dirname, '../site/dist/sitemap-index.xml'),
+  ];
+  for (const file of candidates) {
+    try {
+      const xml = readFileSync(file, 'utf-8');
+      const locs = [...xml.matchAll(/<loc>\s*([^<\s]+)\s*<\/loc>/g)].map(m => m[1]);
+      // sitemap-index only lists other sitemaps, so ignore it if that is all we got.
+      const pages = locs.filter(u => !/sitemap[-\w]*\.xml$/i.test(u));
+      if (pages.length) {
+        console.log(`URL source: ${file.replace(/.*[\\/]/, '')} (${pages.length} locs)`);
+        return pages;
+      }
+    } catch (_) {
+      /* not built yet, try the next candidate */
+    }
+  }
+  return [];
+}
+
 function buildUrlList() {
-  const allPaths = [
-    ...STATIC_PATHS,
-    ...buildSuburbUrls(),
-    ...buildVehicleUrls(),
-    ...buildRetiredUrls(),
-  ].map(canonicalUrl);
+  const fromSitemap = buildSitemapUrls();
+
+  // The sitemap covers every live page. The extra sources below cover URLs that
+  // deliberately are NOT in it but still need announcing: retired slugs now 301ing, and
+  // recent added/sold/slug_changed transitions.
+  const base = fromSitemap.length
+    ? fromSitemap
+    : (console.warn('URL source: sitemap not found, falling back to the hand written STATIC_PATHS'),
+       [...STATIC_PATHS, ...buildSuburbUrls(), ...buildVehicleUrls()]);
+
+  const allPaths = [...base, ...buildRetiredUrls()].map(canonicalUrl);
   const withEvents = [...allPaths, ...buildRecentEventUrls()];
   return [...new Set(withEvents)].slice(0, 10000); // IndexNow spec cap
 }
