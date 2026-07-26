@@ -160,7 +160,13 @@ function buildItem(v) {
     return null;
   }
 
-  const link = `${SITE_HOST}/vehicle/${v.slug}/`;
+  // NO TRAILING SLASH. astro.config.mjs sets trailingSlash: 'never', so the VDP
+  // canonical and the Offer.url both read /vehicle/<slug> with no slash. Both forms
+  // return 200 (verified live 2026-07-26), so a slashed g:link sends Merchant Center to
+  // a duplicate URL whose canonical points somewhere else. That landing page versus
+  // canonical mismatch is the disapproval pattern behind DB tasks #114, #132 and #154.
+  // This string must stay byte identical to the canonical the VDP emits.
+  const link = `${SITE_HOST}/vehicle/${v.slug}`;
 
   // ---------------------------------------------------------------------------
   // IMAGES — the feed must never carry the branded lead photo.
@@ -352,7 +358,7 @@ function buildFeed() {
   const feed = `<?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:g="http://base.google.com/ns/1.0">
 <channel>
-  <title>${xmlEscape(DEALER_NAME)} — Vehicle Inventory</title>
+  <title>${xmlEscape(DEALER_NAME)} Vehicle Inventory</title>
   <link>${SITE_HOST}/</link>
   <description>Used vehicles for sale at ${xmlEscape(DEALER_NAME)} in ${xmlEscape(DEALER_ADDRESS_LOCALITY)}, ${xmlEscape(DEALER_ADDRESS_REGION)} ${xmlEscape(DEALER_POSTAL)}. Phone ${xmlEscape(DEALER_PHONE)}.</description>
   <lastBuildDate>${now}</lastBuildDate>
