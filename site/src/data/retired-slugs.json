@@ -12,6 +12,12 @@
       "stockNumber": "J10208",
       "retired_at": "2026-07-04",
       "redirect_to": "/vehicle/2016-volvo-v60-cross-country-j10208"
+    },
+    "2015-honda-civic-se": {
+      "vin": "19XFB2F73FE078163",
+      "stockNumber": "J10210",
+      "retired_at": "2026-07-26",
+      "redirect_to": "/inventory"
     }
   }
 }

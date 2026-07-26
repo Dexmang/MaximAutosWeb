@@ -288,6 +288,16 @@
       "source": "/used-audi-skokie/",
       "destination": "/inventory",
       "permanent": true
+    },
+    {
+      "source": "/vehicle/2015-honda-civic-se",
+      "destination": "/inventory",
+      "permanent": true
+    },
+    {
+      "source": "/vehicle/2015-honda-civic-se/",
+      "destination": "/inventory",
+      "permanent": true
     }
   ],
   "headers": [
