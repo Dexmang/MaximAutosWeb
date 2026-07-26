@@ -37,6 +37,6 @@
   },
   {
     "question": "What price range does Maxim Autos carry?",
-    "answer": "Most vehicles at Maxim Autos are priced $8,995 to $15,995. The inventory focuses on fully inspected, reliable vehicles at accessible prices."
+    "answer": "Most vehicles at Maxim Autos are priced {{price.band}}. The inventory focuses on fully inspected, reliable vehicles at accessible prices."
   }
 ]

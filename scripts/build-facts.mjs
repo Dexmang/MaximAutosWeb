@@ -22,7 +22,7 @@
 import { readFileSync, writeFileSync, mkdirSync, existsSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { deriveFacts } from './facts-core.mjs';
+import { deriveFacts, resolveTokens, KNOWN_TOKENS } from './facts-core.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const DATA_DIR = join(__dirname, '../site/src/data');
@@ -43,10 +43,69 @@ function readJson(name, fallback) {
   }
 }
 
+/**
+ * Hand authored prose that contains live numbers lives in a *.template.json, and the
+ * *.json the pages import is GENERATED from it with {{tokens}} resolved.
+ *
+ * Doing it this way rather than calling resolveTokens at every usage site means the 6
+ * files that import suburbs.json and faq.json needed no edits at all, and there is no
+ * second code path that could resolve tokens differently. Same shape as llms.txt.
+ */
+const TEMPLATED = [
+  { template: 'suburbs.template.json', out: 'suburbs.json' },
+  { template: 'faq.template.json', out: 'faq.json' },
+];
+
+function renderTemplates(facts) {
+  for (const { template, out } of TEMPLATED) {
+    const tPath = join(DATA_DIR, template);
+    if (!existsSync(tPath)) {
+      console.warn(`  ! ${template} missing, ${out} left as is`);
+      continue;
+    }
+    const raw = readFileSync(tPath, 'utf8');
+    const rendered = resolveTokens(raw, facts);
+
+    const leftover = [...rendered.matchAll(/\{\{\s*([a-zA-Z][a-zA-Z.]*)\s*\}\}/g)].map(m => m[1]);
+    if (leftover.length) {
+      // Loud, but not fatal: lint-copy.mjs fails the PR when an unresolved token reaches
+      // built output, and failing here would abort a build over a typo in prose.
+      console.warn(
+        `  ! ${template} has unresolved token(s): ${[...new Set(leftover)].join(', ')}`
+      );
+      console.warn(`    known: ${KNOWN_TOKENS.join(', ')}`);
+    }
+
+    // JSON validity is non negotiable: a broken data file breaks every page that reads it.
+    try {
+      JSON.parse(rendered);
+    } catch (err) {
+      console.error(`  ! ${template} produced invalid JSON, ${out} NOT written: ${err.message}`);
+      continue;
+    }
+
+    const outPath = join(DATA_DIR, out);
+    let unchanged = false;
+    try { unchanged = readFileSync(outPath, 'utf8') === rendered; } catch (_) { /* first run */ }
+    if (unchanged) {
+      console.log(`  ${out} unchanged`);
+      continue;
+    }
+    writeFileSync(outPath, rendered, 'utf8');
+    console.log(`  rendered ${out} from ${template}`);
+  }
+}
+
 function main() {
   const vehicles = readJson('vehicles.json');
   const reviews = readJson('reviews_meta.json', {});
-  const suburbs = readJson('suburbs.json', []);
+  // The city list comes from the TEMPLATE, since the rendered file may not exist yet on
+  // a clean checkout. City names carry no tokens, so either source gives the same list.
+  // Read lazily: JS evaluates arguments eagerly, so passing readJson('suburbs.json') as
+  // the fallback would warn about a file this path does not need.
+  const suburbs = existsSync(join(DATA_DIR, 'suburbs.template.json'))
+    ? readJson('suburbs.template.json', [])
+    : readJson('suburbs.json', []);
 
   const facts = deriveFacts({ vehicles, reviews, suburbs });
 
@@ -86,11 +145,14 @@ function main() {
 
   if (unchanged) {
     console.log(`  facts.json unchanged, left alone (no timestamp churn)`);
-    return;
+  } else {
+    writeFileSync(OUT_PATH, JSON.stringify(facts, null, 2) + '\n', 'utf8');
+    console.log(`  wrote ${OUT_PATH}`);
   }
 
-  writeFileSync(OUT_PATH, JSON.stringify(facts, null, 2) + '\n', 'utf8');
-  console.log(`  wrote ${OUT_PATH}`);
+  // ALWAYS render, even when the ledger did not move. A template edited on its own
+  // (a reworded sentence, a new suburb) must still reach the file the pages import.
+  renderTemplates(facts);
 }
 
 try {

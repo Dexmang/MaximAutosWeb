@@ -4,11 +4,12 @@ import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 import QuickAnswer from '../../components/QuickAnswer.astro';
 
+import facts from '../../data/facts.json';
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 const title = 'Rebuilding Credit with an Auto Loan | Maxim Autos Skokie IL';
 const description = 'How a used car loan can rebuild your credit: payment history, credit mix, and a finish line. Practical guide from Maxim Autos in Skokie, IL. Call or text (847) 510-8947.';
 
-const quickAnswer = 'An auto loan reported to the credit bureaus can rebuild credit because payment history is the largest factor in most scoring models, and an installment loan adds variety to your credit mix. Make every payment on time and the loan builds a positive record month after month. Maxim Autos in Skokie arranges financing for all credit levels through established lenders, with vehicles priced $5,000 to $15,000 so the payment stays manageable. Call or text (847) 510-8947.';
+const quickAnswer = `An auto loan reported to the credit bureaus can rebuild credit because payment history is the largest factor in most scoring models, and an installment loan adds variety to your credit mix. Make every payment on time and the loan builds a positive record month after month. Maxim Autos in Skokie arranges financing for all credit levels through established lenders, with vehicles priced ${facts.inventory.bandText} so the payment stays manageable. Call or text (847) 510-8947.`;
 
 const faqSchema = {
   "@context": "https://schema.org",
@@ -16,7 +17,7 @@ const faqSchema = {
   "mainEntity": [
     { "@type": "Question", "name": "Does a car loan really improve a credit score?", "acceptedAnswer": { "@type": "Answer", "text": "It can, if the lender reports to the credit bureaus and you make every payment on time. Payment history is the largest component of most scoring models, so a year or more of clean payments on an installment loan builds real positive history. Results depend on your overall credit file, and no specific score change can be promised." } },
     { "@type": "Question", "name": "How long before payments start helping?", "acceptedAnswer": { "@type": "Answer", "text": "Reporting typically begins within the first month or two of the loan. The benefit compounds with time: six months of on time payments says something, and two years says much more. The key is never missing." } },
-    { "@type": "Question", "name": "What happens if I pay late while rebuilding?", "acceptedAnswer": { "@type": "Answer", "text": "Late payments are reported and work against the rebuild, which is why the payment needs to fit your real budget from day one. Choosing a modest vehicle, like the $5,000 to $15,000 inventory at Maxim Autos, keeps the monthly number at a level you can defend in a bad month." } }
+    { "@type": "Question", "name": "What happens if I pay late while rebuilding?", "acceptedAnswer": { "@type": "Answer", "text": `Late payments are reported and work against the rebuild, which is why the payment needs to fit your real budget from day one. Choosing a modest vehicle, like the ${facts.inventory.bandText} inventory at Maxim Autos, keeps the monthly number at a level you can defend in a bad month.` } }
   ]
 };
 ---
@@ -73,7 +74,7 @@ const faqSchema = {
         </p>
         <h2 class="font-headline text-xl font-extrabold text-navy pt-2">The rebuild only works if the payment fits</h2>
         <p>
-          Here is the part many lots will not say out loud: an unaffordable loan rebuilds nothing. One late payment gets reported just as faithfully as twelve good ones, and it hurts more when your file is thin. The single most important decision is choosing a payment you can make in your worst month, not your best one. This is where shopping at a lot with $5,000 to $15,000 inventory is a structural advantage; the loan stays small, so the payment stays survivable. Putting money down shrinks it further, as covered in <a href={`${base}/financing-bad-credit/down-payment`} class="text-orange font-semibold hover:underline">how much a down payment helps</a>.
+          Here is the part many lots will not say out loud: an unaffordable loan rebuilds nothing. One late payment gets reported just as faithfully as twelve good ones, and it hurts more when your file is thin. The single most important decision is choosing a payment you can make in your worst month, not your best one. This is where shopping at a lot with {facts.inventory.bandText} inventory is a structural advantage; the loan stays small, so the payment stays survivable. Putting money down shrinks it further, as covered in <a href={`${base}/financing-bad-credit/down-payment`} class="text-orange font-semibold hover:underline">how much a down payment helps</a>.
         </p>
         <h2 class="font-headline text-xl font-extrabold text-navy pt-2">Protect the rebuild from the car itself</h2>
         <p>

@@ -6,6 +6,7 @@ import VehicleCard from '../components/VehicleCard.astro';
 import vehicles from '../data/vehicles.json';
 import reviewsMeta from '../data/reviews_meta.json';
 
+import facts from '../data/facts.json';
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 
 const MAKE = 'Audi';
@@ -74,11 +75,11 @@ const localBusinessSchema = {
 const faqs = [
   {
     q: `Does Maxim Autos sell used ${MAKE} models in Skokie?`,
-    a: `Yes. Maxim Autos in Skokie regularly carries used ${MAKE} vehicles, with current rotating inventory in the $5,000 to $15,000 range. Every ${MAKE} on the lot is independently inspected and includes a free CARFAX report. Text Jerry at (847) 510-8947 for current availability.`
+    a: `Yes. Maxim Autos in Skokie regularly carries used ${MAKE} vehicles, with current rotating inventory in the ${facts.inventory.bandText} range. Every ${MAKE} on the lot is independently inspected and includes a free CARFAX report. Text Jerry at (847) 510-8947 for current availability.`
   },
   {
     q: `Has Maxim Autos carried A4, Q5, and A6?`,
-    a: `Yes. Audi is a regular part of the rotating inventory at Maxim Autos. Current and past inventory has included A4, A6, and Q5 among others, all priced in the $5,000 to $15,000 range.`
+    a: `Yes. Audi is a regular part of the rotating inventory at Maxim Autos. Current and past inventory has included A4, A6, and Q5 among others, all priced in the ${facts.inventory.bandText} range.`
   },
   {
     q: `Is financing available on used ${MAKE} models?`,
@@ -183,7 +184,7 @@ const faqSchema = {
         Audi is one of the most searched luxury makes among Skokie and North Shore buyers shopping in the under $15,000 range. The Quattro all wheel drive system is a strong fit for Chicago winters, and used A4, A6, Q5, and Q7 inventory in this price band offers a level of interior refinement and ride quality that is hard to match for the money.
       </p>
       <p class="text-gray-700 leading-relaxed mb-5">
-        Maxim Autos focuses on the $5,000 to $15,000 segment, which lines up well with older A4, A6, Q5, and Q7 inventory. Every {MAKE} that comes through goes through an independent mechanical inspection and includes a free CARFAX vehicle history report. Pricing is transparent. The price you see is the price you pay, plus standard Illinois tax and title. No dealer fees. No documentation fees.
+        Maxim Autos focuses on the {facts.inventory.bandText} segment, which lines up well with older A4, A6, Q5, and Q7 inventory. Every {MAKE} that comes through goes through an independent mechanical inspection and includes a free CARFAX vehicle history report. Pricing is transparent. The price you see is the price you pay, plus standard Illinois tax and title. No dealer fees. No documentation fees.
       </p>
       <p class="text-gray-700 leading-relaxed mb-5">
         Inventory rotates weekly. If a specific {MAKE} model or model year is on your wish list and is not on the lot today, Jerry can keep an eye out for it at the auctions he sources from each week. Text the model, year, mileage range, and budget to (847) 510-8947 and Jerry will reach out when something fits.

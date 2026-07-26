@@ -4,6 +4,7 @@ import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 import QuickAnswer from '../../components/QuickAnswer.astro';
 
+import facts from '../../data/facts.json';
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 const title = 'How Buying a Used Car with Bad Credit Works in Illinois | Maxim Autos';
 const description = 'Step by step: how bad credit used car buying works in Illinois, from application to same day metal plates. Maxim Autos in Skokie, IL. Call or text (847) 510-8947.';
@@ -69,7 +70,7 @@ const faqSchema = {
         </p>
         <h2 class="font-headline text-xl font-extrabold text-navy pt-2">Step 1: Pick the car before you panic about the loan</h2>
         <p>
-          Start with a vehicle that fits your budget, not the other way around. At Maxim Autos every car is priced between $5,000 and $15,000, has passed an independent mechanical inspection, and comes with a CARFAX history report. A modest, documented car keeps the loan request small, and small requests are the easiest ones for lenders to work with.
+          Start with a vehicle that fits your budget, not the other way around. At Maxim Autos every car is priced between {facts.inventory.bandText}, has passed an independent mechanical inspection, and comes with a CARFAX history report. A modest, documented car keeps the loan request small, and small requests are the easiest ones for lenders to work with.
         </p>
         <h2 class="font-headline text-xl font-extrabold text-navy pt-2">Step 2: Apply and let a human review it</h2>
         <p>

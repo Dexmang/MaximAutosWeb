@@ -1,4 +1,10 @@
 ---
+// facts.json is the generated live number ledger (price band, unit count, review count,
+// rating, service cities). Never hardcode any of those in a page: a stated band no live
+// car falls inside violates 14 Ill. Adm. Code 475.390, which is what was found live on
+// 2026-07-25. See scripts/facts-core.mjs.
+import facts from '../data/facts.json';
+
 interface Props {
   title: string;
   description?: string;
@@ -24,7 +30,7 @@ const {
 
 const isSpanish = lang === 'es';
 const defaultDescription = isSpanish
-  ? 'Maxim Autos: autos usados completamente inspeccionados de $5,000 a $15,000 en Skokie, IL. Placas el mismo dia. Sin tramites del DMV. Financiamiento para todos los niveles de credito. Resenas de 5 estrellas en Google.'
+  ? `Maxim Autos: autos usados completamente inspeccionados ${facts.inventory.bandTextEs} en Skokie, IL. Placas el mismo dia. Sin tramites del DMV. Financiamiento para todos los niveles de credito. Resenas de 5 estrellas en Google.`
   : 'Quality used cars in Skokie, IL. Every vehicle inspected, every price transparent. Metal plates on the spot. Skip the DMV. Financing for all credit levels. Maxim Autos.';
 const resolvedDescription = description ?? defaultDescription;
 
@@ -37,7 +43,7 @@ const trust = isSpanish
       skipDmv: 'Sin tramites del DMV',
       skipDmvDetail: 'Placas el mismo dia',
       pricing: 'Cero Cargos de Dealer',
-      pricingDetail: 'Sin cargos ocultos · Todos los creditos bienvenidos',
+      pricingDetail: 'Sin cargos ocultos · Financiamiento para todos los niveles de credito',
       pricingHref: `${base}/es/financiamiento`,
     }
   : {
@@ -48,7 +54,7 @@ const trust = isSpanish
       skipDmv: 'Skip the DMV',
       skipDmvDetail: 'Metal plates on the spot',
       pricing: 'No Dealer Fees Ever',
-      pricingDetail: 'No doc fee · All credit welcome',
+      pricingDetail: 'No doc fee · Financing for all credit levels',
       pricingHref: `${base}/financing`,
     };
 

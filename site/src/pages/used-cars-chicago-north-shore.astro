@@ -7,6 +7,7 @@ import suburbs from '../data/suburbs.json';
 import vehicles from '../data/vehicles.json';
 import reviewsMeta from '../data/reviews_meta.json';
 
+import facts from '../data/facts.json';
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 
 const available = vehicles.filter(v => (v as any).status !== 'sold');
@@ -15,9 +16,9 @@ const maxPrice = Math.max(...available.map(v => v.price));
 
 const canonicalUrl = 'https://www.maximautos.com/used-cars-chicago-north-shore';
 const title = 'Used Cars Near Chicago North Shore, IL · Maxim Autos Skokie';
-const description = 'Maxim Autos serves the entire Chicago North Shore with quality used cars from $5K to $15K. Family owned in Skokie, rated 5.0 on Google. Free CARFAX, same day metal plates.';
+const description = `Maxim Autos serves the entire Chicago North Shore with quality used cars from ${facts.inventory.bandText}. Family owned in Skokie, rated 5.0 on Google. Free CARFAX, same day metal plates.`;
 
-const quickAnswer = `Maxim Autos is a used car dealership at 9101 Terminal Ave in Skokie, IL serving every community on Chicago's North Shore. Inventory is priced from $5,000 to $15,000. Every vehicle is independently inspected and includes a free CARFAX report. Metal Illinois plates are issued on the spot at the time of purchase. Financing is available for all credit levels, including buyers building credit for the first time. Call or text Jerry at (847) 510-8947.`;
+const quickAnswer = `Maxim Autos is a used car dealership at 9101 Terminal Ave in Skokie, IL serving every community on Chicago's North Shore. Inventory is priced from ${facts.inventory.bandText}. Every vehicle is independently inspected and includes a free CARFAX report. Metal Illinois plates are issued on the spot at the time of purchase. Financing is available for all credit levels, including buyers building credit for the first time. Call or text Jerry at (847) 510-8947.`;
 
 const localBusinessSchema = {
   "@context": "https://schema.org",
@@ -64,7 +65,7 @@ const faqs = [
   },
   {
     q: "What is the price range for used cars at Maxim Autos?",
-    a: `Every vehicle at Maxim Autos is priced from $5,000 to $15,000. Current inventory shows ${available.length} vehicles available, ranging from $${minPrice.toLocaleString()} to $${maxPrice.toLocaleString()}. All cars include a free CARFAX report and an independent inspection.`
+    a: `Every vehicle at Maxim Autos is priced from ${facts.inventory.bandText}. Current inventory shows ${available.length} vehicles available, ranging from $${minPrice.toLocaleString()} to $${maxPrice.toLocaleString()}. All cars include a free CARFAX report and an independent inspection.`
   },
   {
     q: "Does Maxim Autos issue metal Illinois plates the same day?",
@@ -114,7 +115,7 @@ const faqSchema = {
           Used Cars for the Chicago North Shore
         </h1>
         <p class="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed mb-8">
-          Maxim Autos in Skokie serves the entire North Shore. Fully inspected used cars from $5,000 to $15,000. Free CARFAX, metal plates the same day, financing for all credit levels.
+          Maxim Autos in Skokie serves the entire North Shore. Fully inspected used cars from {facts.inventory.bandText}. Free CARFAX, metal plates the same day, financing for all credit levels.
         </p>
         <div class="flex flex-col sm:flex-row justify-center gap-4">
           <a href={`${base}/inventory`}

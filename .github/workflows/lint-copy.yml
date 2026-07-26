@@ -1,0 +1,52 @@
+name: Copy and compliance lint
+
+# THE GATE. Runs on pull requests into main, and main is what Vercel deploys, so nothing
+# reaches the live site with a compliance error in it.
+#
+# Deliberately NOT wired into deploy.yml, sync-inventory.yml, or the Vercel build command.
+# Vercel's buildCommand is `cd site && npm ci && npm run build`; a non zero exit there
+# makes Vercel keep the PREVIOUS deployment, which would freeze the site and the Google
+# vehicle feed on yesterday's inventory and advertise sold cars at stale prices. Merchant
+# Center has already disapproved this account three times. A prose rule must never be able
+# to cause that. See the header of scripts/lint-copy.mjs.
+#
+# In production the same script runs advisory only, exits 0, and just prints.
+
+on:
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  lint-copy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+          cache-dependency-path: site/package-lock.json
+
+      - name: Install
+        working-directory: site
+        run: npm ci
+
+      # The linter scans BUILT output, because that is the only thing a reader can see.
+      # Source comments legitimately contain em dashes and are never scanned.
+      # `npm run build` also fires the prebuild hook, which regenerates facts.json,
+      # llms.txt, suburbs.json and faq.json, so the lint runs against freshly rendered
+      # copy rather than whatever happened to be committed.
+      - name: Build
+        working-directory: site
+        run: npm run build
+
+      - name: Lint copy and compliance
+        run: node scripts/lint-copy.mjs --strict
+
+      # Runs even when the gate fails, so the PR conversation shows the full picture
+      # including the house style warnings that do not block.
+      - name: Full report including warnings
+        if: always()
+        run: node scripts/lint-copy.mjs

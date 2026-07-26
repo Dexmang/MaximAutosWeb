@@ -4,11 +4,12 @@ import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 import QuickAnswer from '../../components/QuickAnswer.astro';
 
+import facts from '../../data/facts.json';
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 const title = 'How Much a Down Payment Helps with Bad Credit | Maxim Autos';
 const description = 'Why a down payment matters more when your credit is rough: smaller loan, lower payment, stronger application. Maxim Autos in Skokie, IL. Call or text (847) 510-8947.';
 
-const quickAnswer = 'A down payment helps a bad credit application three ways: it shrinks the loan amount, lowers the monthly payment, and shows the lender you have skin in the game. There is no universal required amount; lenders set their own standards and every application at Maxim Autos is reviewed individually. Because inventory runs $5,000 to $15,000, even a modest amount down makes a visible difference. Call or text (847) 510-8947 to talk numbers.';
+const quickAnswer = `A down payment helps a bad credit application three ways: it shrinks the loan amount, lowers the monthly payment, and shows the lender you have skin in the game. There is no universal required amount; lenders set their own standards and every application at Maxim Autos is reviewed individually. Because inventory runs ${facts.inventory.bandText}, even a modest amount down makes a visible difference. Call or text (847) 510-8947 to talk numbers.`;
 
 const faqSchema = {
   "@context": "https://schema.org",
@@ -16,7 +17,7 @@ const faqSchema = {
   "mainEntity": [
     { "@type": "Question", "name": "How much down payment do I need with bad credit?", "acceptedAnswer": { "@type": "Answer", "text": "There is no fixed amount. Requirements vary by lender and by the rest of your application, which is why every application at Maxim Autos is reviewed individually. As a rule of thumb, more down strengthens the application, but text Jerry at (847) 510-8947 to discuss what makes sense for your situation rather than guessing." } },
     { "@type": "Question", "name": "Can a trade vehicle count as my down payment?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Maxim Autos buys vehicles and accepts trades, and the value of your current car can serve as some or all of your down payment. Text the VIN to (847) 510-8947 for a quick offer." } },
-    { "@type": "Question", "name": "Is it better to put more down or keep cash for repairs?", "acceptedAnswer": { "@type": "Answer", "text": "Keeping an emergency cushion is wise, but the repair worry is smaller here than at a typical lot: every qualifying vehicle passes an independent mechanical inspection and is backed by Illinois' 15 day / 500 mile statutory powertrain protection, so you are not choosing between a down payment and an immediate repair fund. Extended coverage is available as an option at signing." } }
+    { "@type": "Question", "name": "Is it better to put more down or keep cash for repairs?", "acceptedAnswer": { "@type": "Answer", "text": "Keeping an emergency cushion is wise, but the repair worry is smaller here than at a typical lot: every qualifying vehicle passes an independent mechanical inspection and is backed by Illinois' 15 day / 500 mile statutory powertrain protection on qualifying cars, so you are not choosing between a down payment and an immediate repair fund. Extended coverage is available as an option at signing." } }
   ]
 };
 ---
@@ -69,7 +70,7 @@ const faqSchema = {
         </p>
         <h2 class="font-headline text-xl font-extrabold text-navy pt-2">It shrinks the loan itself</h2>
         <p>
-          Every dollar you put down is a dollar you do not borrow. On a $9,000 car, $1,500 down means the lender is being asked for $7,500 instead of the full amount. Smaller loans are simply easier for a lender to approve, and at Maxim Autos the starting numbers are already small because the whole inventory sits between $5,000 and $15,000.
+          Every dollar you put down is a dollar you do not borrow. On a $9,000 car, $1,500 down means the lender is being asked for $7,500 instead of the full amount. Smaller loans are simply easier for a lender to approve, and at Maxim Autos the starting numbers are already small because the whole inventory sits between {facts.inventory.bandText}.
         </p>
         <h2 class="font-headline text-xl font-extrabold text-navy pt-2">It lowers the monthly payment</h2>
         <p>
