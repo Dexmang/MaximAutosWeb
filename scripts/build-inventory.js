@@ -475,14 +475,28 @@ async function main() {
 
   // ── Build the active set straight from the DC feed ──────────────────────────────
   const active = [];
+  // VINs carrying a manual_sold flag that DealerCenter still lists. Reported, not
+  // honored — see the note at the flag check below.
+  const manualSoldButLive = [];
   for (const [vin, rec] of Object.entries(dcByVin)) {
     const ex = existingByVin[vin];
 
-    // Manual sold override: a human marked this VIN sold; honor it even though the
-    // feed still shows it (rare; clears only by removing manual_sold from vehicles.json).
+    // Manual sold override — DEMOTED TO A WARNING 2026-07-25 per the owner's
+    // standing rule: "the Google feed units should always match the latest FTP
+    // from DealerCenter, no matter sold or not."
+    //
+    // This loop only ever walks VINs that ARE in the newest DC feed, so honoring
+    // manual_sold here meant a local flag could hide a car DealerCenter still
+    // lists — turning its VDP into a SOLD page while the Google feed either
+    // dropped it or linked to a sold landing page (a Vehicle Ads policy problem
+    // in its own right). DealerCenter is the book of record: in the feed = live.
+    //
+    // The flag is no longer suppressive, only reported. It still works the way it
+    // was actually useful: once the VIN drops out of the DC feed it is soldified
+    // below like any other feed-absent car. Same semantics the hold list already
+    // uses (a hold is honored ONLY while the VIN is out of the feed).
     if (ex?.manual_sold) {
-      active.push({ ...ex, manual_sold: true });
-      continue;
+      manualSoldButLive.push({ vin, stockNumber: ex.stockNumber, slug: ex.slug });
     }
 
     // Start from the DC record (authoritative: price, mileage, photos, specs, copy).
@@ -545,6 +559,16 @@ async function main() {
 
   // Guarantee unique slugs so two same-trim units never collide on the VDP route.
   ensureUniqueSlugs(visible, existingByVin);
+
+  if (manualSoldButLive.length) {
+    console.warn(
+      `\nmanual_sold IGNORED for ${manualSoldButLive.length} unit(s) still in the DC feed ` +
+      `(DealerCenter is the book of record — in the feed = live):`
+    );
+    manualSoldButLive.forEach(m =>
+      console.warn(`  ! [${m.vin}] stock ${m.stockNumber || '—'} — kept LIVE. Take it off in DealerCenter to retire it.`)
+    );
+  }
 
   console.log(`\nInventory: ${active.length} live (from DC feed), ${sold.length} sold/retained, ${heldNow.length} held.`);
   visible.filter(v => v.status !== 'sold').forEach(v =>
