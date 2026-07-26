@@ -11,12 +11,12 @@ const faqSchema = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
   "mainEntity": [
-    { "@type": "Question", "name": "I'm local — can I still buy online?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. The entire transaction — video, paperwork, payment — can be handled remotely even if you're 10 minutes away. Pick up when it's convenient or have it delivered." } },
-    { "@type": "Question", "name": "What if the car doesn't match the listing?", "acceptedAnswer": { "@type": "Answer", "text": "Before any money moves, Jerry records a personal video of the car showing every imperfection — every scratch, every wear item — and provides a full written condition disclosure. We want you confident before we finalize anything." } },
+    { "@type": "Question", "name": "I'm local, can I still buy online?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. The entire transaction, video, paperwork, payment, can be handled remotely even if you're 10 minutes away. Pick up when it's convenient or have it delivered." } },
+    { "@type": "Question", "name": "What if the car doesn't match the listing?", "acceptedAnswer": { "@type": "Answer", "text": "Before any money moves, Jerry records a personal video of the car showing every imperfection, every scratch, every wear item, and provides a full written condition disclosure. We want you confident before we finalize anything." } },
     { "@type": "Question", "name": "How does payment work?", "acceptedAnswer": { "@type": "Answer", "text": "Secure wire or bank transfer. Paperwork is handled digitally via DocuSign. We do not release the car until payment clears and you have confirmed you're ready." } },
     { "@type": "Question", "name": "What about taxes and registration in my state?", "acceptedAnswer": { "@type": "Answer", "text": "We provide a standard bill of sale. You register in your home state. We handle out-of-state deals regularly and can walk you through exactly what your state requires." } },
     { "@type": "Question", "name": "Is my car insured during shipping?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. All carriers we work with are FMCSA-licensed and insured. You receive the carrier's insurance certificate before the car is loaded." } },
-    { "@type": "Question", "name": "How long does delivery take?", "acceptedAnswer": { "@type": "Answer", "text": "Local pickup is available anytime during business hours once the deal is done. Shipping depends on distance — nearby states 1–2 days, mid-range 2–5 days, West Coast 5–9 days. We provide carrier contact info and tracking once the car is picked up." } },
+    { "@type": "Question", "name": "How long does delivery take?", "acceptedAnswer": { "@type": "Answer", "text": "Local pickup is available anytime during business hours once the deal is done. Shipping depends on distance, nearby states 1 to 2 days, mid range 2 to 5 days, West Coast 5 to 9 days. We provide carrier contact info and tracking once the car is picked up." } },
     { "@type": "Question", "name": "Can I have the car independently inspected before buying?", "acceptedAnswer": { "@type": "Answer", "text": "Absolutely. We welcome third-party pre-purchase inspections through services like Lemon Squad or YourMechanic. Arrange it at your expense and we'll coordinate access." } }
   ]
 };
@@ -49,7 +49,7 @@ const faqSchema = {
         Buy the Car.<br class="hidden md:block" /> Skip the Dealership.
       </h1>
       <p class="text-xl text-gray-300 max-w-2xl mx-auto leading-relaxed mb-8">
-        Browse, negotiate, and close the deal entirely online — from anywhere. Pick up in Skokie or get it delivered to your door, anywhere in the U.S.
+        Browse, negotiate, and close the deal entirely online, from anywhere. Pick up in Skokie or get it delivered to your door, anywhere in the U.S.
       </p>
       <div class="flex flex-col sm:flex-row gap-4 justify-center">
         <div class="hidden sm:inline-flex items-center justify-center gap-2 bg-orange text-white px-8 py-4 rounded-xl font-bold text-lg">
@@ -73,10 +73,10 @@ const faqSchema = {
       </div>
       <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
         {[
-          { step: '1', icon: 'search', title: 'Browse Online', text: 'Find a vehicle you like. Text or call Jerry with any questions — you get the owner directly, not a call center.' },
+          { step: '1', icon: 'search', title: 'Browse Online', text: 'Find a vehicle you like. Text or call Jerry with any questions, you get the owner directly, not a call center.' },
           { step: '2', icon: 'videocam', title: 'Personal Video', text: 'Jerry records a video of the car for you. Every scratch, every wear item shown. Full CARFAX and written condition report included.' },
           { step: '3', icon: 'payments', title: 'Secure Payment', text: 'Paperwork handled digitally. Secure payment. We do not release the car until everything clears and you are ready.' },
-          { step: '4', icon: 'fork_right', title: 'Pick Up or Get It Delivered', text: 'Come grab it from our Skokie lot — or we arrange door-to-door delivery anywhere in the U.S. Licensed carrier, fully insured, tracking provided.' },
+          { step: '4', icon: 'fork_right', title: 'Pick Up or Get It Delivered', text: 'Come grab it from our Skokie lot, or we arrange door-to-door delivery anywhere in the U.S. Licensed carrier, fully insured, tracking provided.' },
         ].map(s => (
           <div class="flex flex-col items-start gap-3 bg-white rounded-2xl p-6 border border-gray-100 shadow-sm">
             <div class="flex items-center gap-3">
@@ -107,7 +107,7 @@ const faqSchema = {
           </div>
           <h3 class="font-headline text-xl font-extrabold mb-3">Pick Up in Skokie</h3>
           <p class="text-gray-600 text-sm leading-relaxed mb-5">
-            Come get it at 9101 Terminal Ave. We'll have everything ready — metal plates, paperwork, keys. In and out in under 30 minutes. No waiting, no surprises.
+            Come get it at 9101 Terminal Ave. We'll have everything ready, metal plates, paperwork, keys. In and out in under 30 minutes. No waiting, no surprises.
           </p>
           <div class="space-y-2">
             {['No delivery cost', 'Metal plates ready on pickup', 'Deal already done before you arrive'].map(item => (
@@ -132,7 +132,7 @@ const faqSchema = {
           </div>
           <h3 class="font-headline text-xl font-extrabold mb-3">Door-to-Door Delivery</h3>
           <p class="text-gray-300 text-sm leading-relaxed mb-5">
-            We arrange a licensed, insured carrier. You get the transport company info and insurance certificate before we load. Works for any address in the U.S. — local or cross-country.
+            We arrange a licensed, insured carrier. You get the transport company info and insurance certificate before we load. Works for any address in the U.S. local or cross-country.
           </p>
           <div class="space-y-2 mb-5">
             {['FMCSA-licensed carriers only', 'Insurance certificate before loading', 'Tracking provided once picked up'].map(item => (
@@ -145,10 +145,10 @@ const faqSchema = {
           <div class="bg-white/10 rounded-xl p-4 text-xs text-gray-300 space-y-1.5">
             <p class="font-bold text-white text-sm mb-2">Estimated shipping from Chicago</p>
             {[
-              { to: 'Indiana / Wisconsin / Missouri', cost: '$350–$500' },
-              { to: 'New York / Atlanta / Charlotte', cost: '$700–$900' },
-              { to: 'Dallas / Miami / Nashville', cost: '$850–$1,075' },
-              { to: 'Phoenix / Denver / LA / Seattle', cost: '$950–$1,225' },
+              { to: 'Indiana / Wisconsin / Missouri', cost: '$350 to $500' },
+              { to: 'New York / Atlanta / Charlotte', cost: '$700 to $900' },
+              { to: 'Dallas / Miami / Nashville', cost: '$850 to $1,075' },
+              { to: 'Phoenix / Denver / LA / Seattle', cost: '$950 to $1,225' },
             ].map(row => (
               <div class="flex justify-between">
                 <span>{row.to}</span>
@@ -172,7 +172,7 @@ const faqSchema = {
       </div>
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
         {[
-          { icon: 'videocam', title: 'Personal Video Walkthrough', sub: 'Jerry records it for you. Every ding, every wear item — named and shown on camera.' },
+          { icon: 'videocam', title: 'Personal Video Walkthrough', sub: 'Jerry records it for you. Every ding, every wear item, named and shown on camera.' },
           { icon: 'description', title: 'Full CARFAX Report', sub: 'Accident history, title status, service records, previous owners.' },
           { icon: 'fact_check', title: 'Written Condition Disclosure', sub: 'Every cosmetic and mechanical issue noted in writing before purchase.' },
           { icon: 'draw', title: 'Digital Paperwork', sub: 'DocuSign. No trip to a notary, no printer required. Sign from anywhere.' },
@@ -202,12 +202,12 @@ const faqSchema = {
       </div>
       <div class="space-y-4">
         {[
-          { q: "I'm local — can I still buy online?", a: "Yes. The entire transaction — video, paperwork, payment — can be handled remotely even if you're 10 minutes away. Pick up when it's convenient or have it delivered." },
+          { q: "I'm local, can I still buy online?", a: "Yes. The entire transaction, video, paperwork, payment, can be handled remotely even if you're 10 minutes away. Pick up when it's convenient or have it delivered." },
           { q: "What if the car doesn't match the listing?", a: "Before any money moves, Jerry records a personal video showing every imperfection and provides a full written condition disclosure. We want you confident before we finalize anything." },
           { q: "How does payment work?", a: "Secure wire or bank transfer. Paperwork via DocuSign. We do not release the car until payment clears and you have confirmed you're ready." },
           { q: "What about taxes and registration in my state?", a: "We provide a standard bill of sale. You register in your home state. We handle out-of-state deals regularly and can walk you through exactly what your state requires." },
           { q: "Is my car insured during shipping?", a: "Yes. All carriers we work with are FMCSA-licensed and insured. You receive the carrier's insurance certificate before the car is loaded." },
-          { q: "How long does delivery take?", a: "Local pickup is available anytime once the deal is done. Shipping depends on distance — nearby states 1–2 days, mid-range 2–5 days, West Coast 5–9 days. We give you carrier contact info and tracking once the car is picked up." },
+          { q: "How long does delivery take?", a: "Local pickup is available anytime once the deal is done. Shipping depends on distance, nearby states 1 to 2 days, mid range 2 to 5 days, West Coast 5 to 9 days. We give you carrier contact info and tracking once the car is picked up." },
           { q: "Can I have the car inspected before buying?", a: "Absolutely. We welcome third-party pre-purchase inspections through services like Lemon Squad or YourMechanic. Arrange it at your expense and we'll coordinate access." },
         ].map(item => (
           <details class="bg-surface rounded-xl border border-gray-200 group">

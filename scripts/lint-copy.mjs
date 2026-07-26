@@ -110,12 +110,19 @@ const RULES = [
   {
     id: 'no-credit-check',
     severity: 'error',
-    find: /\bno\s+credit\s+check\b/gi,
-    why: 'Regulatory violation when claimed about FINANCING. Maxim always runs credit to place a loan.',
-    // "No credit check to browse" is true, compliant, and a genuinely good trust line:
-    // looking at inventory really does not touch your credit. Only a claim about
-    // financing or approval without a credit pull is the violation.
-    unless: sentence => /\b(?:to\s+browse|to\s+shop|to\s+look|to\s+view|browsing|shopping)\b/i.test(sentence),
+    // Widened 2026-07-26. The original rule only matched the literal "no credit check" and
+    // therefore missed "Get pre-approved quickly with no impact to your credit score",
+    // which was live on all 27 VDPs and inside the FAQPage JSON-LD Google ingests. A
+    // pre-approval IS a credit pull. Same false claim, different words.
+    find: /\b(?:no\s+credit\s+check|no\s+impact\s+to\s+your\s+credit|without\s+affecting\s+your\s+credit|won'?t\s+affect\s+your\s+credit|does\s+not\s+affect\s+your\s+credit)\b/gi,
+    why: 'Regulatory violation when claimed about APPROVAL or FINANCING. A pre-approval is a credit pull. Only browsing, a conversation, or the no-SSN prequalifier form genuinely leave credit untouched.',
+    // These uses are true and are good trust lines: looking at inventory, talking to Jerry,
+    // and the four question form with no SSN really do not touch anyone's credit.
+    // 220 chars because on /financing the qualifier is a card title and the claim is the
+    // card body, two sentences apart.
+    contextChars: 220,
+    unless: ctx =>
+      /\b(?:to\s+browse|to\s+shop|to\s+look|to\s+view|browsing|shopping|explore\s+our|explore\s+the|neither\s+touches|does\s+not\s+touch|nothing\s+is\s+pulled|no\s+Social\s+Security|Pre-?Qualify\s+Now|No\s+obligation)\b/i.test(ctx),
   },
   {
     id: 'all-credit-truncated',
@@ -187,6 +194,29 @@ const PROTECTED_VERBATIM = [
   'Pago estimado con 10% de enganche, 9.9% APR, plazo de 60 meses. Solo para fines ilustrativos. Los términos reales varían según el crédito.',
 ];
 
+/**
+ * Customer review bodies, treated as protected verbatim for STYLE rules.
+ *
+ * Three reviews contain em dashes. Those words appear in built HTML on the homepage,
+ * /es/ and /testimonials, so a naive style scan reports 11 permanent warnings that can
+ * never be fixed, because fixing them would mean rewriting what a named customer wrote.
+ * A rule that always fires and can never be satisfied is a rule everyone learns to
+ * ignore, which then hides the real ones. Masking them keeps the count honest.
+ *
+ * Compliance rules still see the unmasked text, so a review claiming a warranty or
+ * "certified" would still be caught.
+ */
+function loadReviewBodies() {
+  try {
+    const raw = JSON.parse(readFileSync(join(DATA, 'reviews.json'), 'utf8'));
+    const rows = Array.isArray(raw) ? raw : (raw.reviews || []);
+    return rows.map(r => r && r.text).filter(t => typeof t === 'string' && t.length > 20);
+  } catch (_) {
+    return [];
+  }
+}
+const REVIEW_BODIES = loadReviewBodies();
+
 // Files that legitimately hold the banned strings because their job is to name them.
 const EXEMPT_PATHS = [
   /dominance-2026-07/, /gbp-compliance-audit/, /legal-rebuild/,   // design docs
@@ -214,26 +244,77 @@ function isExempt(path) {
   return EXEMPT_PATHS.some(re => re.test(path));
 }
 
+/**
+ * Files exempt from HOUSE STYLE rules only. Compliance rules still apply in full.
+ *
+ * reviews.json holds real customers' own words. Three of them contain em dashes
+ * (Eduard, Ken, Jim). Editing a testimonial to satisfy a punctuation preference means
+ * publishing words the customer did not write and attributing them to that customer by
+ * name, which is a materially worse problem than the dash. The style rule yields; the
+ * compliance rules do not, so a review that made a warranty or "certified" claim would
+ * still be caught.
+ *
+ * The operational data files carry em dashes inside internal `note` fields that describe
+ * how the pipeline works. Those never render on a page.
+ */
+const STYLE_EXEMPT_PATHS = [
+  /data[\\/]reviews\.json$/,          // customers' own words
+  /data[\\/]hold-vins\.json$/,        // internal note fields only
+  /data[\\/]retired-slugs\.json$/,    // internal note fields only
+  /data[\\/]url-events\.jsonl$/,
+];
+
+function isStyleExempt(path) {
+  return STYLE_EXEMPT_PATHS.some(re => re.test(path));
+}
+
+/**
+ * Decode the HTML entities Astro emits, so rules match what a READER sees.
+ *
+ * This is not cosmetic. Astro escapes apostrophes to &#39;, so a rule looking for a
+ * phrase containing an apostrophe silently missed it in built output, and the masking of
+ * protected verbatim strings failed for the same reason. Any compliance rule whose phrase
+ * contains a quote or an ampersand was only half working before this.
+ */
+function decodeEntities(s) {
+  return s
+    .replace(/&#(\d+);/g, (_, n) => String.fromCharCode(Number(n)))
+    .replace(/&#x([0-9a-f]+);/gi, (_, h) => String.fromCharCode(parseInt(h, 16)))
+    .replace(/&quot;/g, '"')
+    .replace(/&apos;/g, "'")
+    .replace(/&nbsp;/g, ' ')
+    .replace(/&lt;/g, '<')
+    .replace(/&gt;/g, '>')
+    .replace(/&amp;/g, '&');   // last, so &amp;#39; does not double decode
+}
+
 /** Strip HTML tags, script and style bodies, and JSON-LD, leaving reader visible text. */
 function visibleText(html) {
-  return html
-    .replace(/<script\b[^>]*type=["']application\/ld\+json["'][^>]*>[\s\S]*?<\/script>/gi, ' ')
-    .replace(/<script\b[\s\S]*?<\/script>/gi, ' ')
-    .replace(/<style\b[\s\S]*?<\/style>/gi, ' ')
-    .replace(/<!--[\s\S]*?-->/g, ' ')
-    .replace(/<[^>]+>/g, ' ');
+  return decodeEntities(
+    html
+      .replace(/<script\b[^>]*type=["']application\/ld\+json["'][^>]*>[\s\S]*?<\/script>/gi, ' ')
+      .replace(/<script\b[\s\S]*?<\/script>/gi, ' ')
+      .replace(/<style\b[\s\S]*?<\/style>/gi, ' ')
+      .replace(/<!--[\s\S]*?-->/g, ' ')
+      .replace(/<[^>]+>/g, ' ')
+  );
 }
 
 /** JSON-LD blocks only. Google reads these, so they are scanned separately and strictly. */
 function jsonLdText(html) {
-  return [...html.matchAll(/<script\b[^>]*application\/ld\+json[^>]*>([\s\S]*?)<\/script>/gi)]
-    .map(m => m[1])
-    .join('\n');
+  // Decoded for the same reason as visibleText: Astro's set:html escapes apostrophes to
+  // &#39;, so any rule whose phrase contains a quote was only half working against
+  // structured data, which is precisely the copy Google ingests.
+  return decodeEntities(
+    [...html.matchAll(/<script\b[^>]*application\/ld\+json[^>]*>([\s\S]*?)<\/script>/gi)]
+      .map(m => m[1])
+      .join('\n')
+  );
 }
 
 function maskProtected(text) {
   let out = text;
-  for (const v of PROTECTED_VERBATIM) {
+  for (const v of [...PROTECTED_VERBATIM, ...REVIEW_BODIES]) {
     out = out.split(v).join(' '.repeat(v.length));
   }
   return out;
@@ -268,15 +349,28 @@ function sentenceAround(text, index) {
 
 function scan(path, text, label) {
   if (isExempt(path)) return;
+  const styleExempt = isStyleExempt(path);
   const masked = maskProtected(text);
   for (const rule of RULES) {
+    if (styleExempt && rule.severity === 'warn') continue;
     // Style rules are excused inside protected verbatim spans; compliance rules never are.
     const subject = rule.severity === 'warn' ? masked : text;
     let hits = [...subject.matchAll(rule.find)];
 
     // Context aware rules drop the hits their `unless` predicate excuses.
+    //
+    // `contextChars` widens what the predicate sees. The credit rules need it: on the
+    // financing page the qualifier and the claim are in DIFFERENT sentences ("No Credit
+    // Check to Browse" is a card title, "No impact to your credit score." is the body),
+    // so a sentence-only window reported two true statements as violations. A rule that
+    // flags correct copy is worse than no rule.
     if (rule.unless) {
-      hits = hits.filter(h => !rule.unless(sentenceAround(subject, h.index)));
+      hits = hits.filter(h => {
+        const ctx = rule.contextChars
+          ? subject.slice(Math.max(0, h.index - rule.contextChars), h.index + rule.contextChars)
+          : sentenceAround(subject, h.index);
+        return !rule.unless(ctx);
+      });
     }
     if (!hits.length) continue;
 

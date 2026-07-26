@@ -10,7 +10,7 @@ import facts from '../data/facts.json';
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 const liveVehicles = vehicles.filter(v => (v as any).status !== 'sold');
 const title = 'Used Cars for Sale in Skokie, IL';
-const description = `Browse ${liveVehicles.length} fully inspected used cars for sale at Maxim Autos in Skokie, IL. Prices from $${Math.min(...liveVehicles.map(v => v.price)).toLocaleString()} to $${Math.max(...liveVehicles.map(v => v.price)).toLocaleString()}. Every vehicle includes an independent inspection report and same-day metal plates. Financing available for all credit levels.`;
+const description = `Browse ${liveVehicles.length} fully inspected used cars for sale at Maxim Autos in Skokie, IL. Prices from $${Math.min(...liveVehicles.map(v => v.price)).toLocaleString()} to $${Math.max(...liveVehicles.map(v => v.price)).toLocaleString()}. Every vehicle includes an independent inspection report and same day metal plates. Financing available for all credit levels.`;
 
 const bodyStyles = [...new Set(liveVehicles.map(v => v.bodyStyle))].sort();
 const drivetrains = [...new Set(liveVehicles.map(v => v.drivetrain).filter(Boolean))].sort();
@@ -143,9 +143,9 @@ const drivetrains = [...new Set(liveVehicles.map(v => v.drivetrain).filter(Boole
           <div class="flex flex-wrap gap-1.5" id="filter-price">
             <button data-price="all" class="filter-btn filter-btn--active px-3 py-1.5 rounded-lg text-xs font-semibold transition-all">All</button>
             <button data-price="under10k" class="filter-btn px-3 py-1.5 rounded-lg text-xs font-semibold transition-all">Under $10K</button>
-            <button data-price="5000-8000" class="filter-btn px-3 py-1.5 rounded-lg text-xs font-semibold transition-all">$5K–$8K</button>
-            <button data-price="8000-12000" class="filter-btn px-3 py-1.5 rounded-lg text-xs font-semibold transition-all">$8K–$12K</button>
-            <button data-price="12000-15000" class="filter-btn px-3 py-1.5 rounded-lg text-xs font-semibold transition-all">$12K–$15K</button>
+            <button data-price="5000-8000" class="filter-btn px-3 py-1.5 rounded-lg text-xs font-semibold transition-all">$5K to $8K</button>
+            <button data-price="8000-12000" class="filter-btn px-3 py-1.5 rounded-lg text-xs font-semibold transition-all">$8K to $12K</button>
+            <button data-price="12000-15000" class="filter-btn px-3 py-1.5 rounded-lg text-xs font-semibold transition-all">$12K to $15K</button>
           </div>
         </div>
 
@@ -190,7 +190,7 @@ const drivetrains = [...new Set(liveVehicles.map(v => v.drivetrain).filter(Boole
     <div class="max-w-7xl mx-auto px-6 lg:px-8 py-3 flex items-center gap-3">
       <span class="material-symbols-outlined text-xl text-navy shrink-0" style="font-variation-settings:'FILL' 1;">local_shipping</span>
       <p class="text-sm text-gray-700">
-        <span class="font-bold text-navy">Not local?</span> Any of these can be delivered to your door — anywhere in the U.S. Complete the purchase online, pick up or get it shipped.
+        <span class="font-bold text-navy">Not local?</span> Any of these can be delivered to your door, anywhere in the U.S. Complete the purchase online, pick up or get it shipped.
         <a href={`${base}/ship`} class="text-orange font-bold hover:underline ml-1">How it works →</a>
       </p>
     </div>
@@ -264,7 +264,7 @@ const drivetrains = [...new Set(liveVehicles.map(v => v.drivetrain).filter(Boole
       <div class="bg-navy rounded-2xl px-8 py-7 flex flex-col md:flex-row items-center justify-between gap-6">
         <div>
           <h3 class="font-headline text-xl font-extrabold text-white mb-1">Financing for All Credit Levels</h3>
-          <p class="text-white/70 text-sm">Good credit, fair credit, rebuilding, or first-time buyer. Apply in minutes. No obligation.</p>
+          <p class="text-white/70 text-sm">Good credit, fair credit, rebuilding, or first time buyer. Apply in minutes. No obligation.</p>
         </div>
         <a href={`${base}/apply`} class="shrink-0 inline-flex items-center justify-center gap-2 bg-orange text-white px-7 py-3.5 rounded-xl font-bold text-base hover:bg-orange-dark transition-colors whitespace-nowrap">
           <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">payments</span>
@@ -277,10 +277,10 @@ const drivetrains = [...new Set(liveVehicles.map(v => v.drivetrain).filter(Boole
   <!-- Car Finder CTA -->
   <section class="py-16 bg-navy">
     <div class="max-w-4xl mx-auto px-6 lg:px-8 text-center">
-      <span class="text-orange font-bold uppercase tracking-widest text-sm mb-3 block">Hand-Picked Inventory</span>
+      <span class="text-orange font-bold uppercase tracking-widest text-sm mb-3 block">Hand Picked Inventory</span>
       <h2 class="font-headline text-3xl md:text-4xl font-extrabold text-white mb-4">Don't See What You're Looking For?</h2>
-      <p class="text-white/70 text-lg mb-3">Jerry personally selects every pre-owned vehicle on this lot. We don't sell volume — we sell quality.</p>
-      <p class="text-white/60 text-base mb-8">Text Jerry exactly what you want — make, model, budget, features. He sources vehicles weekly and will find it for you.</p>
+      <p class="text-white/70 text-lg mb-3">Jerry personally selects every pre-owned vehicle on this lot. We don't sell volume, we sell quality.</p>
+      <p class="text-white/60 text-base mb-8">Text Jerry exactly what you want, make, model, budget, features. He sources vehicles weekly and will find it for you.</p>
       <!-- Mobile: clickable. Desktop: show phone number for reference -->
       <div class="flex flex-col sm:flex-row justify-center gap-4">
         <a href="tel:8475108947" aria-label="Call Maxim Autos at (847) 510-8947" class="hidden sm:inline-flex items-center justify-center gap-3 bg-white/10 border border-white/20 text-white px-8 py-4 rounded-xl font-bold text-lg hover:opacity-90 transition-opacity">

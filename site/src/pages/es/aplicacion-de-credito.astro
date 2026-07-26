@@ -48,7 +48,7 @@ const states = ['AL','AK','AZ','AR','CA','CO','CT','DE','FL','GA','HI','ID','IL'
       </div>
 
       <form id="apply-form" action="/api/credit-app" method="POST" class="space-y-8">
-        <input type="hidden" name="_subject" value="Solicitud de Credito — Maxim Autos" />
+        <input type="hidden" name="_subject" value="Solicitud de Credito, Maxim Autos" />
         <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" />
 
         <!-- ===== BUYER SECTION ===== -->
@@ -499,7 +499,7 @@ const states = ['AL','AK','AZ','AR','CA','CO','CT','DE','FL','GA','HI','ID','IL'
           {[1, 2, 3].map(n => (
             <div class={`app-grid${n < 3 ? ' mb-5 pb-5 border-b border-gray-100' : ''}`}>
               <div>
-                <label class="app-label">Referencia {n} — Nombre Completo</label>
+                <label class="app-label">Referencia {n}, Nombre Completo</label>
                 <input type="text" name={`ref${n}_name`} class="app-input" placeholder="Nombre completo" />
               </div>
               <div>

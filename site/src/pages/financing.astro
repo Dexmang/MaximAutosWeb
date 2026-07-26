@@ -5,17 +5,17 @@ import Footer from '../components/Footer.astro';
 
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 const title = 'Used Car Financing in Skokie, IL | All Credit Levels | Maxim Autos';
-const description = 'Financing for all credit levels at Maxim Autos in Skokie, IL. First-time buyers, rebuilding credit, all welcome. No credit check to browse. Apply in minutes.';
+const description = 'Financing for all credit levels at Maxim Autos in Skokie, IL. First time buyers, rebuilding credit, all welcome. No credit check to browse. Apply in minutes.';
 
 const faqSchema = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
   "mainEntity": [
-    { "@type": "Question", "name": "Can I get financing with bad credit?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Maxim Autos works with multiple lenders to find financing for all credit levels, including those rebuilding credit. We welcome first-time buyers and buyers with challenged credit." } },
+    { "@type": "Question", "name": "Can I get financing with bad credit?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Maxim Autos works with multiple lenders to find financing for all credit levels, including those rebuilding credit. We welcome first time buyers and buyers with challenged credit." } },
     { "@type": "Question", "name": "How much down payment do I need?", "acceptedAnswer": { "@type": "Answer", "text": "Down payment requirements vary by lender and credit situation. Text Jerry at (847) 510-8947 to discuss your specific situation. There is no obligation." } },
     { "@type": "Question", "name": "Does applying affect my credit score?", "acceptedAnswer": { "@type": "Answer", "text": "Browsing inventory has no impact on your credit score. A formal credit application involves a soft or hard inquiry depending on the lender. The pre-qualification form on this page is not a credit application." } },
     { "@type": "Question", "name": "What interest rates are available?", "acceptedAnswer": { "@type": "Answer", "text": "Rates vary by lender, credit profile, and loan term. Maxim Autos works with multiple lenders to find the best available rate for your situation. The payment calculator on each vehicle listing shows estimated payments across different rates." } },
-    { "@type": "Question", "name": "Can I get financing as a first-time buyer?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Maxim Autos specifically works with lenders who approve first-time buyers. There is no credit history requirement to apply." } }
+    { "@type": "Question", "name": "Can I get financing as a first time buyer?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Maxim Autos specifically works with lenders who approve first time buyers. There is no credit history requirement to apply." } }
   ]
 };
 ---
@@ -47,7 +47,7 @@ const faqSchema = {
         Financing for All Credit Levels
       </h1>
       <p class="text-xl text-gray-300 max-w-2xl mx-auto leading-relaxed">
-        First-time buyer? Rebuilding credit? No problem. Maxim Autos works with multiple lenders to find you the best rate.
+        First time buyer? Rebuilding credit? No problem. Maxim Autos works with multiple lenders to find you the best rate.
       </p>
       <div class="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
         <a href={`${base}/apply`} class="inline-flex items-center justify-center gap-2 bg-orange text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-orange-dark transition-colors shadow-lg shadow-orange/20">
@@ -138,7 +138,7 @@ const faqSchema = {
         <div class="space-y-5">
           <h3 class="font-headline text-2xl font-extrabold text-navy">Why Finance Through Maxim?</h3>
           {[
-            { icon: 'groups', title: 'All Credit Levels Welcome', text: 'Good, fair, rebuilding, or first-time buyer. We work with lenders who serve every situation.' },
+            { icon: 'groups', title: 'All Credit Levels Welcome', text: 'Good, fair, rebuilding, or first time buyer. We work with lenders who serve every situation.' },
             { icon: 'search_off', title: 'No Credit Check to Browse', text: 'Explore the full inventory with zero impact to your credit score.' },
             { icon: 'directions_car', title: 'Drive Home Today with Plates', text: 'Get approved, get your metal plates on the spot, skip the DMV entirely.' },
             { icon: 'person', title: 'Deal Directly with Jerry', text: 'No commissioned salespeople. Jerry handles every deal personally, start to finish.' },
@@ -172,7 +172,7 @@ const faqSchema = {
         {[
           { icon: 'search_off', title: 'No Credit Check to Browse', text: 'Explore our full inventory online. No impact to your credit score.' },
           { icon: 'groups', title: 'All Credit Levels', text: 'Good, fair, or rebuilding. We work with lenders who serve every situation.' },
-          { icon: 'person_add', title: 'First-Time Buyers', text: 'Building credit for the first time? We help first-time buyers get approved.' },
+          { icon: 'person_add', title: 'First Time Buyers', text: 'Building credit for the first time? We help first time buyers get approved.' },
           { icon: 'trending_up', title: 'Rebuilding Credit', text: 'A financed vehicle purchase can help rebuild your credit history.' },
         ].map(item => (
           <div class="text-center p-8 rounded-xl border border-gray-100 hover:border-orange/20 hover:shadow-md transition-all">
@@ -284,9 +284,9 @@ const faqSchema = {
           >
             <option value="" disabled selected>Select your range</option>
             <option value="under-150">Under $150/month</option>
-            <option value="150-250">$150 – $250/month</option>
-            <option value="250-350">$250 – $350/month</option>
-            <option value="350-500">$350 – $500/month</option>
+            <option value="150-250">$150 to $250/month</option>
+            <option value="250-350">$250 to $350/month</option>
+            <option value="350-500">$350 to $500/month</option>
             <option value="500-plus">$500+/month</option>
           </select>
         </div>
@@ -303,7 +303,7 @@ const faqSchema = {
             <option value="good">Good</option>
             <option value="fair">Fair</option>
             <option value="rebuilding">Rebuilding</option>
-            <option value="first-time">First-Time Buyer</option>
+            <option value="first time">First Time Buyer</option>
           </select>
         </div>
         <button
