@@ -157,8 +157,15 @@ const RULES = [
   {
     id: 'unqualified-powertrain',
     severity: 'error',
-    find: /powertrain protection(?!\s+on\s+qualifying)/gi,
-    why: '815 ILCS 505/2L exempts high mileage, rebuilt, heavy and antique units, so the claim must always say "on qualifying".',
+    find: /powertrain protection/gi,
+    why: '815 ILCS 505/2L exempts units over 150,000 miles, rebuilt or flood titles, GVWR at or above 8,000 lb, and antiques, so the claim must always carry a qualifier.',
+    // The first version demanded the literal "on qualifying" immediately after the phrase.
+    // The audit on 2026-07-26 showed the legal pages qualify it correctly in other words:
+    // "every QUALIFYING retail buyer", "and the vehicle is NOT EXEMPT", "for vehicles WHERE
+    // Illinois law provides". Those are all compliant, so demanding one exact phrasing would
+    // have flagged correct copy the moment it appeared on a non-exempt page.
+    contextChars: 200,
+    unless: ctx => /\bqualif(?:y|ying|ies)\b|\bnot exempt\b|\bexempt(?:ions?)?\b|\bwhere Illinois law provides\b|\beligible\b/i.test(ctx),
   },
   {
     id: 'unpaired-segment-band',
