@@ -3,6 +3,7 @@ import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import VehicleCard from '../components/VehicleCard.astro';
+import PriceBandNote from '../components/PriceBandNote.astro';
 import ReviewRotator from '../components/ReviewRotator.astro';
 import vehicles from '../data/vehicles.json';
 import reviews from '../data/reviews.json';
@@ -132,20 +133,30 @@ const heroReviews = reviews.slice(0, 6);
           Used Cars <br/>in Skokie, IL
         </h1>
         <p class="font-headline text-lg md:text-2xl lg:text-3xl font-bold text-white mb-3">5-Star Rated. Same Day Metal Plates.</p>
-        <p class="text-lg md:text-xl text-white/80 mb-7 leading-relaxed">
-          {facts.inventory.bandText}, hand picked by the owner. Drive home the same day.
+        <p class="text-lg md:text-xl text-white/80 mb-2 leading-relaxed">
+          Cars in the {facts.inventory.segmentText} range, hand picked by the owner. Drive home the same day.
         </p>
+        {/* The segment claim above is only defensible with the real current range beside
+            it, so this note is not optional decoration. See PriceBandNote.astro, and
+            the unpaired-segment-band rule in scripts/lint-copy.mjs which fails the build
+            gate if the two ever get separated. */}
+        <PriceBandNote class="text-white mb-6 max-w-lg" />
         <div class="flex flex-wrap gap-2 mb-8">
-          {/* These chips pointed at /inventory?price=under10k and ?body=SUV, which were
-              broken three ways at once (verified 2026-07-26):
+          {/* These chips pointed at /inventory?price=under10k and ?body=SUV.
+              Why they were repointed at the landing pages instead:
                 1. robots.txt carries `Disallow: /inventory?`, so the homepage was linking
-                   crawlers straight into blocked URLs.
-                2. inventory.astro never reads query params. Its filters are buttons with
-                   data-price / data-body attributes, so the chip delivered the FULL
-                   unfiltered list. Broken for people, not just crawlers.
-                3. The destinations were dead ends for internal linking.
-              They now point at the real landing pages, which are crawlable, actually
-              filtered, and were sitting orphaned with zero inbound internal links. */}
+                   crawlers straight into URLs the site itself blocks.
+                2. The landing pages had ZERO inbound internal links from anywhere, which
+                   is why 28 URLs sit in Search Console as "Discovered, currently not
+                   indexed". These chips now carry real internal link signal to three.
+
+              CORRECTION, 2026-07-26: an earlier version of this comment claimed
+              inventory.astro does not read query params and that the chips therefore
+              served an unfiltered list. That was WRONG. applyUrlParams() at
+              inventory.astro:478 reads price, body and drive, and it is live. The chips
+              worked for users. The honest trade-off of this change is that a shopper now
+              lands on a purpose-built page rather than a filtered grid, which is a
+              reasonable swap for crawlability, but it was not a broken-for-users fix. */}
           {[
             { label: 'Under $10K', href: `${base}/used-cars-under-10000-skokie` },
             { label: 'Under $15K', href: `${base}/used-cars-under-15000-skokie` },

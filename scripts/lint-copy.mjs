@@ -68,6 +68,27 @@ function loadExcludedReviewers() {
 }
 const EXCLUDED_REVIEWERS = loadExcludedReviewers();
 
+/**
+ * The live price band, in every phrasing the site can render it, read from the generated
+ * ledger. Used by the unpaired-segment-band rule to decide whether a "$5,000 to $15,000"
+ * segment claim has the real current range beside it.
+ *
+ * Read from facts.json rather than hardcoded, because hardcoding a price band in a file
+ * is the exact defect this whole linter exists to catch.
+ */
+function loadLiveBandPatterns() {
+  try {
+    const f = JSON.parse(readFileSync(join(DATA, 'facts.json'), 'utf8'));
+    const inv = f.inventory || {};
+    return [inv.bandText, inv.bandTextEs, inv.priceMinText, inv.fromText, inv.fromTextEs]
+      .filter(Boolean);
+  } catch (_) {
+    // No ledger means the rule cannot verify a pairing, so it must not excuse anything.
+    return [];
+  }
+}
+const LIVE_BAND_PATTERNS = loadLiveBandPatterns();
+
 // ── The rule table ────────────────────────────────────────────────────────────────
 // severity: 'error'   real world harm. Compliance, false claim, legal exposure.
 //           'warn'    house style. Reads as AI writing, no legal exposure.
@@ -140,10 +161,20 @@ const RULES = [
     why: '815 ILCS 505/2L exempts high mileage, rebuilt, heavy and antique units, so the claim must always say "on qualifying".',
   },
   {
-    id: 'stale-price-band',
+    id: 'unpaired-segment-band',
     severity: 'error',
-    find: /\$5,?000\s*(?:to|a|and|[-–—])\s*\$?15,?000|\$5K\s*(?:to|[-–—])\s*\$?15K/gi,
-    why: 'A stated range no live unit falls inside violates 14 Ill. Adm. Code 475.390. Read the band from site/src/data/facts.json instead.',
+    // "a" is included for Spanish on BOTH the full and the K notation forms. The Spanish
+    // hero read "De $5K a $15K" and slipped past the first version of this rule, which
+    // accepted "a" only on the $5,000 form. Any new phrasing of the segment claim must be
+    // added here or it is unpoliced.
+    find: /\$5,?000\s*(?:to|a|and|[-–—])\s*\$?15,?000|\$5\s?K\s*(?:to|a|and|[-–—])\s*\$?15\s?K/gi,
+    why: 'The "$5,000 to $15,000" segment claim is allowed by Jerry\'s decision 2026-07-26, but ONLY when the actual live band appears beside it. Alone it is a 14 Ill. Adm. Code 475.390 range-of-prices violation: of 38 J-series cars ever listed, zero were under $5,000 and 5 were over $15,000. Render <PriceBandNote /> next to it, or use facts.inventory.bandText instead.',
+    // 400 chars, which comfortably covers a hero paragraph plus the note underneath it.
+    // The pairing has to be on the SAME SURFACE to count: a disclosure on the landing page
+    // does not travel with a meta description into a search snippet, which is why meta tags
+    // and JSON-LD carry live values rather than the segment claim.
+    contextChars: 400,
+    unless: ctx => LIVE_BAND_PATTERNS.some(p => ctx.includes(p)),
   },
   {
     id: 'named-competitor',

@@ -96,6 +96,23 @@ export function deriveFacts({ vehicles = [], reviews = {}, suburbs = [], now = n
       bandText: usable ? `${usd(priceMin)} to ${usd(priceMax)}` : null,
       bandTextEs: usable ? `de ${usd(priceMin)} a ${usd(priceMax)}` : null,
 
+      // ── The SEGMENT claim, which is a different thing from the live band ──────────
+      // Jerry's decision 2026-07-26: keep "$5,000 to $15,000" as the description of the
+      // market Maxim buys in, paired with the live band so both statements are true.
+      //
+      // This is NOT interchangeable with bandText. Across all 38 J-series cars ever
+      // listed, ZERO were priced under $5,000 and 5 were priced over $15,000, so stating
+      // this alone AS the inventory's price range is what tripped 14 Ill. Adm. Code
+      // 475.390. A disclaimer cannot cure a claim it contradicts; what works is stating
+      // the segment and the actual current range together, on the same surface.
+      //
+      // Rule enforced by scripts/lint-copy.mjs: wherever segmentText appears in built
+      // output, the live band must appear within 400 characters. The PriceBandNote
+      // component is how that pairing is satisfied.
+      segmentText: '$5,000 to $15,000',
+      segmentTextEs: '$5,000 a $15,000',
+      segmentLabel: 'the cars Maxim Autos buys and sells',
+
       // The single safest phrasing: an open ended floor cannot go stale upward the way
       // a ceiling can, so this is the default for prose that does not need the full band.
       fromText: usable

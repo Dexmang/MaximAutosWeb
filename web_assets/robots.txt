@@ -1,6 +1,11 @@
 User-agent: *
 Allow: /inventory$
 Disallow: /inventory?
+# Spanish parity. /es/inventario handles the same price/body/drive query params as
+# the English page, so the parameterized forms are crawlable duplicates of one page.
+# This rule was missing while the English one existed.
+Allow: /es/inventario$
+Disallow: /es/inventario?
 
 User-agent: ClaudeBot
 Crawl-delay: 1

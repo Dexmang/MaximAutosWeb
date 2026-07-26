@@ -3,6 +3,7 @@ import Layout from '../../layouts/Layout.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 import VehicleCard from '../../components/VehicleCard.astro';
+import PriceBandNote from '../../components/PriceBandNote.astro';
 import ReviewRotator from '../../components/ReviewRotator.astro';
 import vehicles from '../../data/vehicles.json';
 import reviews from '../../data/reviews.json';
@@ -100,9 +101,13 @@ const heroReviews = reviews.slice(0, 6);
           Autos Usados <br/>en Skokie, IL
         </h1>
         <p class="font-headline text-lg md:text-2xl lg:text-3xl font-bold text-white mb-3">Autos Usados en los que Puedes Confiar.</p>
-        <p class="text-lg md:text-xl text-white/80 mb-7 leading-relaxed">
-          De $5K a $15K, seleccionados personalmente por el dueno. Lleva tu auto el mismo dia.
+        <p class="text-lg md:text-xl text-white/80 mb-2 leading-relaxed">
+          Autos de {facts.inventory.segmentTextEs}, seleccionados personalmente por el dueno. Lleva tu auto el mismo dia.
         </p>
+        {/* Paired note, required. See PriceBandNote.astro and the unpaired-segment-band
+            rule in scripts/lint-copy.mjs. Guardrail D4: every English disclosure needs its
+            Spanish equivalent on the matching /es/ page. */}
+        <PriceBandNote lang="es" class="text-white mb-6 max-w-lg" />
         <div class="flex flex-wrap gap-2 mb-8">
           {[
             { label: 'Menos de $10K', href: `${base}/es/inventario?price=under10k` },

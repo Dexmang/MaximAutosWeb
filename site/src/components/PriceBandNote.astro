@@ -1,0 +1,81 @@
+---
+/**
+ * PriceBandNote  ::  the fine print that makes the "$5,000 to $15,000" claim true.
+ *
+ * WHY THIS EXISTS
+ * Jerry's decision 2026-07-26: keep "$5,000 to $15,000" on the site as the description of
+ * the market Maxim buys in. On its own that is a problem, and not a theoretical one:
+ * across all 38 J-series cars ever listed, ZERO were priced under $5,000 and 5 were priced
+ * over $15,000. Stated as THE inventory's price range it is a 14 Ill. Adm. Code 475.390
+ * range-of-prices violation, and it was live on 47 pages including the JSON-LD Google reads.
+ *
+ * A generic disclaimer would NOT fix that. Under FTC Section 5 and the Illinois rules, fine
+ * print cannot cure a claim it contradicts: "prices subject to change" next to a floor that
+ * has never existed leaves the floor false.
+ *
+ * What this does instead is pair the segment claim with the ACTUAL current range, on the
+ * same surface, in the same breath. Both statements are then true:
+ *   "We buy and sell cars in the $5,000 to $15,000 range"  <- what Maxim specializes in
+ *   "In stock today: $8,995 to $15,995"                    <- what is actually on the lot
+ *
+ * The second line is read from the generated ledger, so it moves on its own as inventory
+ * turns and can never go stale. That is the part a hand written disclaimer could not do.
+ *
+ * ENFORCEMENT: scripts/lint-copy.mjs fails --strict if segmentText appears in built output
+ * without the live band within 400 characters. Rendering this component satisfies that.
+ *
+ * Deliberately NOT used in two places:
+ *   1. JSON-LD priceRange. Structured data has nowhere to put a qualifier, and Google
+ *      reads it as a flat factual claim about the business, so it carries the live band.
+ *   2. Meta descriptions. A search snippet is a separate surface from the landing page, so
+ *      a disclosure on the page does not travel with it. Those carry the live floor.
+ */
+import facts from '../data/facts.json';
+
+interface Props {
+  lang?: string;
+  /** 'inline' for a sentence under a hero, 'block' for a bordered note under a grid. */
+  variant?: 'inline' | 'block';
+  class?: string;
+}
+
+const { lang = 'en', variant = 'inline', class: className = '' } = Astro.props;
+const isSpanish = lang === 'es';
+
+const inv = facts.inventory;
+
+// Degrade honestly. If the ledger has no priced live unit, say nothing about a range
+// rather than printing an empty one.
+const liveBand = isSpanish ? inv.bandTextEs : inv.bandText;
+const stockCount = inv.unitCount;
+
+const copy = isSpanish
+  ? {
+      lead: `Maxim Autos se especializa en autos de ${inv.segmentTextEs}.`,
+      live: liveBand
+        ? `Disponibles hoy: ${stockCount} ${stockCount === 1 ? 'auto' : 'autos'}, ${liveBand}.`
+        : 'El precio de cada vehiculo aparece en su pagina.',
+      tail: 'El inventario cambia. Los precios no incluyen impuestos, titulo ni placas, y no cobramos cargos de dealer.',
+    }
+  : {
+      lead: `Maxim Autos specializes in cars in the ${inv.segmentText} range.`,
+      live: liveBand
+        ? `In stock today: ${stockCount} ${stockCount === 1 ? 'car' : 'cars'}, ${liveBand}.`
+        : 'Pricing for each vehicle is listed on its own page.',
+      tail: 'Inventory changes. Prices exclude tax, title, and license, and we charge no dealer fees.',
+    };
+---
+
+{/* The 'inline' variant omits the lead sentence on purpose. It sits directly beneath copy
+    that has just made the segment claim, so repeating it reads like a stutter. The 'block'
+    variant may stand alone under a grid, so it keeps the lead for context. Either way the
+    LIVE band is present, which is what the pairing rule requires. */}
+{variant === 'block' ? (
+  <p class={`text-xs text-gray-500 leading-relaxed border-t border-gray-200 pt-3 mt-4 ${className}`}>
+    {copy.lead} <span class="font-semibold text-gray-600">{copy.live}</span> {copy.tail}
+  </p>
+) : (
+  <p class={`text-xs leading-relaxed opacity-70 ${className}`}>
+    <span class="font-semibold opacity-100">{copy.live}</span> {copy.tail}
+  </p>
+)}

@@ -159,30 +159,75 @@ function buildRetiredUrls() {
  *
  * Returns [] if the site has not been built, and the caller falls back to the hand list.
  */
-function buildSitemapUrls() {
-  const candidates = [
+function extractLocs(xml) {
+  const locs = [...xml.matchAll(/<loc>\s*([^<\s]+)\s*<\/loc>/g)].map(m => m[1]);
+  // sitemap-index only lists other sitemaps, so ignore it if that is all we got.
+  return locs.filter(u => !/sitemap[-\w]*\.xml$/i.test(u));
+}
+
+function localSitemapUrls() {
+  for (const file of [
     join(__dirname, '../site/dist/sitemap-0.xml'),
     join(__dirname, '../site/dist/sitemap-index.xml'),
-  ];
-  for (const file of candidates) {
+  ]) {
     try {
-      const xml = readFileSync(file, 'utf-8');
-      const locs = [...xml.matchAll(/<loc>\s*([^<\s]+)\s*<\/loc>/g)].map(m => m[1]);
-      // sitemap-index only lists other sitemaps, so ignore it if that is all we got.
-      const pages = locs.filter(u => !/sitemap[-\w]*\.xml$/i.test(u));
+      const pages = extractLocs(readFileSync(file, 'utf-8'));
       if (pages.length) {
-        console.log(`URL source: ${file.replace(/.*[\\/]/, '')} (${pages.length} locs)`);
+        console.log(`URL source: local ${file.replace(/.*[\\/]/, '')} (${pages.length} locs)`);
         return pages;
       }
     } catch (_) {
-      /* not built yet, try the next candidate */
+      /* not built in this working copy */
     }
   }
   return [];
 }
 
-function buildUrlList() {
-  const fromSitemap = buildSitemapUrls();
+/**
+ * Fetch the PUBLISHED sitemap.
+ *
+ * This is the path that actually runs in CI, and the first version of this script did not
+ * have it. The ping-indexnow job in deploy.yml is a SEPARATE job with its own fresh
+ * checkout, and site/dist is gitignored, so the local sitemap is never present there. The
+ * result: the run on 2026-07-26 logged "sitemap not found, falling back to the hand written
+ * STATIC_PATHS" and submitted 40 URLs instead of 58, still missing all 8 Spanish pages, the
+ * 3 legal pages and /used-suvs-skokie-il. The fallback stopped it breaking, which hid the
+ * fact that the improvement was doing nothing.
+ *
+ * Fetching the live sitemap is also strictly more correct than reading a local build: the
+ * job runs after deploy, so it announces what is genuinely published rather than what this
+ * checkout happens to contain.
+ */
+async function liveSitemapUrls() {
+  for (const path of ['/sitemap-0.xml', '/sitemap-index.xml']) {
+    try {
+      const res = await fetch(`${BASE_URL}${path}`, {
+        headers: { 'User-Agent': 'maximautos-indexnow/1.0' },
+        signal: AbortSignal.timeout(15000),
+      });
+      if (!res.ok) continue;
+      const pages = extractLocs(await res.text());
+      if (pages.length) {
+        console.log(`URL source: live ${path} (${pages.length} locs)`);
+        return pages;
+      }
+    } catch (err) {
+      console.warn(`  could not fetch ${path}: ${err.message}`);
+    }
+  }
+  return [];
+}
+
+async function buildSitemapUrls() {
+  // Live first. In CI it is the only one that exists, and after a deploy it is also the
+  // more accurate of the two.
+  const live = await liveSitemapUrls();
+  if (live.length) return live;
+  return localSitemapUrls();
+}
+
+async function buildUrlList() {
+  const fromSitemap = await buildSitemapUrls();
 
   // The sitemap covers every live page. The extra sources below cover URLs that
   // deliberately are NOT in it but still need announcing: retired slugs now 301ing, and
@@ -259,7 +304,7 @@ async function pingIndexNow(urlList) {
 // ---------------------------------------------------------------------------
 (async () => {
   try {
-    const urlList = buildUrlList();
+    const urlList = await buildUrlList();
     await pingIndexNow(urlList);
     console.log("\nIndexNow ping complete.");
   } catch (err) {
