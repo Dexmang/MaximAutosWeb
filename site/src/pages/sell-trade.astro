@@ -26,10 +26,10 @@ const description = 'Sell your car or trade it in at Maxim Autos in Skokie, IL. 
         Text Jerry your VIN for a quick offer. No obligation.
       </p>
       <div class="mt-10">
-        <div class="hidden sm:inline-flex items-center justify-center gap-2 bg-orange text-white px-8 py-4 rounded-xl font-bold text-lg shadow-lg shadow-orange/20">
+        <a href="tel:8475108947" aria-label="Call Maxim Autos at (847) 510-8947" class="hidden sm:inline-flex items-center justify-center gap-2 bg-orange text-white px-8 py-4 rounded-xl font-bold text-lg shadow-lg shadow-orange/20 hover:opacity-90 transition-opacity">
           <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">phone</span>
           (847) 510-8947
-        </div>
+        </a>
       </div>
     </div>
   </section>
@@ -169,6 +169,7 @@ const description = 'Sell your car or trade it in at Maxim Autos in Skokie, IL. 
       var ymm = (document.getElementById('sell-ymm').value || '').trim();
       var mileage = (document.getElementById('sell-mileage').value || '').trim();
       var body = encodeURIComponent('Hi Jerry, I\'m ' + (name || 'a visitor') + ' looking to sell/trade my ' + ymm + ' with ' + mileage + ' miles.');
+      if (window.maximLead) window.maximLead('sms');
       window.location.href = 'sms:8475108947&body=' + body;
       return;
     }
@@ -182,6 +183,7 @@ const description = 'Sell your car or trade it in at Maxim Autos in Skokie, IL. 
       headers: { 'Accept': 'application/json' }
     }).then(function (res) {
       if (res.ok) {
+        if (window.maximLead) window.maximLead('sell_trade_form');  /* fires only on a confirmed successful submission */
         form.innerHTML = '<div class="text-center py-12"><span class="material-symbols-outlined text-5xl text-green-500 mb-4 block" style="font-variation-settings:\'FILL\' 1;">check_circle</span><h3 class="font-headline text-xl font-bold text-navy mb-2">Offer Request Sent!</h3><p class="text-gray-600 mb-4">Jerry will review your vehicle info and respond with an offer, usually the same day.</p><a href="sms:8475108947&body=Hi Jerry, I just submitted a vehicle for an offer on your website." class="inline-flex items-center gap-2 bg-orange text-white px-6 py-3 rounded-xl font-bold hover:bg-orange-dark transition-colors"><span class="material-symbols-outlined" style="font-variation-settings:\'FILL\' 1;">sms</span>Text Jerry to Follow Up</a></div>';
       } else {
         btn.disabled = false;

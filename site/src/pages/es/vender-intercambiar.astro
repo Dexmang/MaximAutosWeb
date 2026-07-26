@@ -170,6 +170,7 @@ const description = 'Vende tu auto o intercambialo en Maxim Autos en Skokie, IL.
       var ymm = (document.getElementById('sell-ymm').value || '').trim();
       var mileage = (document.getElementById('sell-mileage').value || '').trim();
       var body = encodeURIComponent('Hola Jerry, soy ' + (name || 'un visitante') + ' y quiero vender/intercambiar mi ' + ymm + ' con ' + mileage + ' millas.');
+      if (window.maximLead) window.maximLead('sms');
       window.location.href = 'sms:8475108947&body=' + body;
       return;
     }
@@ -183,6 +184,7 @@ const description = 'Vende tu auto o intercambialo en Maxim Autos en Skokie, IL.
       headers: { 'Accept': 'application/json' }
     }).then(function (res) {
       if (res.ok) {
+        if (window.maximLead) window.maximLead('sell_trade_form');  /* fires only on a confirmed successful submission */
         form.innerHTML = '<div class="text-center py-12"><span class="material-symbols-outlined text-5xl text-green-500 mb-4 block" style="font-variation-settings:\'FILL\' 1;">check_circle</span><h3 class="font-headline text-xl font-bold text-navy mb-2">Solicitud Enviada!</h3><p class="text-gray-600 mb-4">Jerry revisara la informacion de tu vehiculo y te respondera con una oferta, generalmente el mismo dia.</p></div>';
       } else {
         btn.disabled = false;

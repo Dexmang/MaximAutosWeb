@@ -204,6 +204,7 @@ const hours = [
       var name = (document.getElementById('contact-name').value || '').trim();
       var msg = (document.getElementById('contact-message').value || '').trim();
       var body = encodeURIComponent('Hola Jerry, soy ' + (name || 'un visitante') + '. ' + msg);
+      if (window.maximLead) window.maximLead('sms');
       window.location.href = 'sms:8475108947&body=' + body;
       return;
     }
@@ -217,6 +218,7 @@ const hours = [
       headers: { 'Accept': 'application/json' }
     }).then(function (res) {
       if (res.ok) {
+        if (window.maximLead) window.maximLead('contact_form');  /* fires only on a confirmed successful submission */
         form.innerHTML = '<div class="text-center py-12"><span class="material-symbols-outlined text-5xl text-green-500 mb-4 block" style="font-variation-settings:\'FILL\' 1;">check_circle</span><h3 class="font-headline text-xl font-bold text-navy mb-2">Mensaje Enviado!</h3><p class="text-gray-600">Jerry te respondera pronto. Fuera de horario? El revisa mensajes de texto tambien.</p></div>';
       } else {
         btn.disabled = false;

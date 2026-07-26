@@ -84,7 +84,7 @@ const states = ['AL','AK','AZ','AR','CA','CO','CT','DE','FL','GA','HI','ID','IL'
               <div class="col-span-2">
                 <label class="app-label">Social Security Number <span class="text-red-500">*</span></label>
                 <input type="text" id="buyer_ssn" name="buyer_ssn" required class="app-input" placeholder="XXX-XX-XXXX" maxlength="11" inputmode="numeric" autocomplete="off" />
-                <p class="text-xs text-gray-400 mt-1">Required to process your credit application. Submitted over an encrypted connection and never stored on our servers.</p>
+                <p class="text-xs text-gray-400 mt-1">Required by lenders to run your credit. Sent over an encrypted connection, then encrypted again at rest in private storage that only Jerry can open. Never shared with anyone except the lender you are applying to.</p>
               </div>
               <div>
                 <label class="app-label">Driver's License Number <span class="text-gray-400 font-normal text-xs">(Optional)</span></label>
@@ -729,6 +729,7 @@ const states = ['AL','AK','AZ','AR','CA','CO','CT','DE','FL','GA','HI','ID','IL'
       headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' }
     }).then(function (res) {
       if (res.ok) {
+        if (window.maximLead) window.maximLead('credit_app');  /* fires only on a confirmed successful submission */
         form.closest('section').innerHTML = '<div class="max-w-2xl mx-auto px-6 py-20 text-center"><span class="material-symbols-outlined text-6xl text-green-500 mb-6 block" style="font-variation-settings:\'FILL\' 1;">check_circle</span><h2 class="font-headline text-2xl font-extrabold text-navy mb-3">Application Submitted!</h2><p class="text-gray-600 text-lg mb-2">Jerry will review your application and follow up same day during business hours.</p><p class="text-gray-600 text-base mt-4">Have questions? Text or call Jerry 847-510-8947</p></div>';
       } else {
         btn.disabled = false;

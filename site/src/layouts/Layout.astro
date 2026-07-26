@@ -174,17 +174,16 @@ const ogImageAbsolute = new URL(ogImage ?? `${base}/brand/hero-family.jpg`, site
           if (!a) return;
           lead(a.getAttribute('href').indexOf('sms:') === 0 ? 'sms' : 'phone');
         }, true);
-        var FORM_CHANNELS = {
-          'contact-form': 'contact_form',
-          'financing-form': 'financing_form',
-          'apply-form': 'credit_app',
-          'sell-trade-form': 'sell_trade_form'
-        };
-        document.addEventListener('submit', function (e) {
-          var f = e.target;
-          if (!f || !f.tagName || f.tagName !== 'FORM') return;
-          lead(FORM_CHANNELS[f.id] || 'form');
-        }, true);
+        // Forms report their OWN success. The previous version listened for `submit` in
+        // the capture phase, which runs BEFORE each page's handler calls preventDefault()
+        // and fetch(), so generate_lead fired on every submit ATTEMPT: validation
+        // failures, network errors, Formspree 500s, everything. Every conversion number
+        // measured before 2026-07-26 counted clicks, not leads.
+        //
+        // Each form handler now calls window.maximLead('<channel>') inside its
+        // `if (res.ok)` branch only. Channels: contact_form, financing_form, credit_app,
+        // sell_trade_form, sms, phone, chat.
+        window.maximLead = lead;
         // Tawk.to is NOT installed today — this is a defensive no-op hook so
         // chat leads start counting automatically if it ever gets added.
         window.Tawk_API = window.Tawk_API || {};
