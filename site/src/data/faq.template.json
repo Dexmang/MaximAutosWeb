@@ -37,6 +37,6 @@
   },
   {
     "question": "What price range does Maxim Autos carry?",
-    "answer": "Most vehicles at Maxim Autos are priced {{price.band}}. The inventory focuses on fully inspected, reliable vehicles at accessible prices."
+    "answer": "Maxim Autos specializes in cars in the {{price.segment}} range. {{price.stockLine}}. The inventory focuses on fully inspected, reliable vehicles at accessible prices."
   }
 ]

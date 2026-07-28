@@ -113,6 +113,20 @@ export function deriveFacts({ vehicles = [], reviews = {}, suburbs = [], now = n
       segmentTextEs: '$5,000 a $15,000',
       segmentLabel: 'the cars Maxim Autos buys and sells',
 
+      // The pairing partner for segmentText in hand authored prose. PriceBandNote covers
+      // the two homepages; these cover the suburb pages and the FAQ, where the copy is a
+      // {{token}} in a JSON template rather than a component. Deliberately carries no
+      // trailing period so a sentence can end or continue after it.
+      //
+      // Any template sentence that states the SEGMENT must render this within the same
+      // paragraph, or lint-copy.mjs fails it as an unpaired segment claim.
+      stockLineText: usable
+        ? `In stock today: ${unitCount} ${unitCount === 1 ? 'car' : 'cars'}, ${usd(priceMin)} to ${usd(priceMax)}`
+        : 'Pricing for each vehicle is listed on its own page',
+      stockLineTextEs: usable
+        ? `Disponibles hoy: ${unitCount} ${unitCount === 1 ? 'auto' : 'autos'}, de ${usd(priceMin)} a ${usd(priceMax)}`
+        : 'El precio de cada vehiculo aparece en su pagina',
+
       // The single safest phrasing: an open ended floor cannot go stale upward the way
       // a ceiling can, so this is the default for prose that does not need the full band.
       fromText: usable
@@ -171,6 +185,10 @@ export function resolveTokens(text, facts) {
   const table = {
     'price.band': facts.inventory.bandText,
     'price.bandEs': facts.inventory.bandTextEs,
+    'price.segment': facts.inventory.segmentText,
+    'price.segmentEs': facts.inventory.segmentTextEs,
+    'price.stockLine': facts.inventory.stockLineText,
+    'price.stockLineEs': facts.inventory.stockLineTextEs,
     'price.min': facts.inventory.priceMinText,
     'price.max': facts.inventory.priceMaxText,
     'price.from': facts.inventory.fromText,
@@ -193,6 +211,7 @@ export function resolveTokens(text, facts) {
 /** Every token name resolveTokens understands, for the linter's error messages. */
 export const KNOWN_TOKENS = [
   'price.band', 'price.bandEs', 'price.min', 'price.max', 'price.from', 'price.fromEs',
+  'price.segment', 'price.segmentEs', 'price.stockLine', 'price.stockLineEs',
   'inventory.count', 'inventory.stock', 'inventory.stockEs',
   'reviews.rating', 'reviews.count', 'reviews.ratingText', 'cities',
 ];
