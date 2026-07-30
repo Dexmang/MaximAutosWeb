@@ -1,6 +1,6 @@
 {
   "source": "pka_hub.db ma_vehicles + vPIC",
-  "generated_at": "2026-07-29",
+  "generated_at": "2026-07-30",
   "by_vin": {
     "5J6RM4H3XGL120098": {
       "slug": "2016-honda-cr-v-lx-awd",
@@ -69,8 +69,8 @@
       "makeSlug": "honda",
       "bodyStyleSlug": "suvs",
       "description": "2016 Honda CR-V LX. Remote start, cooled down by the time you enter, AWD, backup cam, and legendary reliability. Silver on charcoal, automatic, 2.4L. A family SUV ready for Chicago summer road trips and year round commuting in the suburbs. The AC blows ice cold, and it is great on gas for an SUV, returning up to 31 mpg on the highway. Key features: 4WD, Honda's bulletproof 2.4L engine, automatic transmission, sport utility 4 door configuration, A/C, power windows and locks, cruise control. Practical cargo space and rear seat room, perfect first family car or commuter. The Maxim Autos Difference Independent inspection report included with every vehicle Metal plates issued on the spot, drive home today Transparent pricing, no hidden fees Financing for all credit levels Located in Skokie, IL, serving Evanston, Niles, Morton Grove, Lincolnwood, Des Plaines, and the entire North Shore Chicago area. Same day appointments available, call or stop by today. Every car inspected. Every price transparent. Every customer protected.",
-      "dealRating": "FAIR_PRICE",
-      "priceSavings": 49
+      "dealRating": "GOOD_PRICE",
+      "priceSavings": 234
     },
     "JF2GTABC7JH322593": {
       "year": 2018,
@@ -128,7 +128,7 @@
       "featured": true,
       "sortOrder": 0,
       "dealRating": "GOOD_PRICE",
-      "priceSavings": 958,
+      "priceSavings": 1087,
       "description": "2018 Subaru Crosstrek Premium — standard symmetrical all wheel drive, 8.7 inches of ground clearance, rugged and comfortable. Blue on black, automatic, 2.0L boxer 4 cylinder. Built for anyone who wants real all weather capability with the comfort and value of a daily driver. Key features: standard symmetrical all wheel drive for exceptional grip in rain, snow, and rough terrain, 8.7 inches of ground clearance that matches true SUVs, All Weather Package with heated front seats, heated mirrors, and windshield wiper de icer, leather wrapped steering wheel, smartphone integration, and precise handling on Subaru's rigid global platform. Ready for winter roads and weekend trips alike. The Maxim Autos Difference Independent inspection report included with every vehicle 3-Month \"Peace of Mind\" Warranty (extended coverage available) Metal plates issued on-the-spot — drive home today Transparent pricing, no hidden fees Financing for all credit levels Located in Skokie, IL — minutes from Evanston, Niles, Morton Grove, Lincolnwood, Des Plaines, and the North Shore Chicago corridor. Call to set up a same day appointment. Every car inspected. Every price transparent. Every customer protected.",
       "highlights": [
         "Premium trim",
@@ -163,9 +163,9 @@
       "carfax": true,
       "warranty": "Illinois 15 day / 500 mile statutory powertrain protection on qualifying cars",
       "stockNumber": "J10219",
-      "primaryPhotoUrl": "https://imagesdl.dealercenter.net/1289/856/202412-b40da28e523b4f6e8800691d10e958ec/202607-da6f0175fdcf45c28970fd0fd851478b.jpg",
+      "primaryPhotoUrl": "https://imagesdl.dealercenter.net/1289/856/202607-da6f0175fdcf45c28970fd0fd851478b.jpg",
       "photoUrls": [
-        "https://imagesdl.dealercenter.net/1289/856/202412-b40da28e523b4f6e8800691d10e958ec/202607-da6f0175fdcf45c28970fd0fd851478b.jpg",
+        "https://imagesdl.dealercenter.net/1289/856/202607-da6f0175fdcf45c28970fd0fd851478b.jpg",
         "https://imagesdl.dealercenter.net/1289/856/202607-ced75de876994aae90f1dc1fab788477.jpg",
         "https://imagesdl.dealercenter.net/1289/856/202607-85eda321955b410b983f1b77a35ad181.jpg",
         "https://imagesdl.dealercenter.net/1289/856/202607-58e08e9fe36242cdb581dba9488a9c9f.jpg",
@@ -191,8 +191,8 @@
       "dateAdded": "2026-07-29",
       "featured": true,
       "sortOrder": 0,
-      "dealRating": "",
-      "priceSavings": 0,
+      "dealRating": "FAIR_PRICE",
+      "priceSavings": -179,
       "description": "2019 Toyota C-HR LE — bold styling, standard Toyota Safety Sense, nimble and fun to drive. Gray on black, smooth CVT automatic, 2.0L 4 cylinder. A distinctive compact crossover with Toyota reliability and a full suite of standard safety tech. Key features: 2.0L engine paired with a smooth CVT, standard Toyota Safety Sense P including pre collision with pedestrian detection, lane departure alert with steering assist, adaptive cruise control, and automatic high beams, 8 inch touchscreen with Apple CarPlay, dual zone automatic climate control, and sharp, sporty steering that makes tight city driving easy. Bold coupe like styling turns heads. The Maxim Autos Difference Independent inspection report included with every vehicle Metal plates issued on-the-spot — drive home today Transparent pricing, no hidden fees Financing for all credit levels Located in Skokie, IL — minutes from Evanston, Niles, Morton Grove, Lincolnwood, Des Plaines, and the North Shore Chicago corridor. Call to set up a same day appointment. Every car inspected. Every price transparent. Every customer protected.",
       "highlights": [
         "LE/XLE/Limited trim",
@@ -262,7 +262,7 @@
       "featured": true,
       "sortOrder": 0,
       "dealRating": "FAIR_PRICE",
-      "priceSavings": 288,
+      "priceSavings": -224,
       "description": "2018 Chevrolet Trax LT AWD — confident all wheel drive, peppy turbo engine, easy to park compact SUV. Silver on black, automatic, 1.4L turbo 4 cylinder. A right sized crossover that handles Chicago winters and tight city spots with ease. Key features: 138 hp 1.4L turbo engine, all wheel drive for extra grip in rain and snow, standard Apple CarPlay and Android Auto on a 7 inch touchscreen, built in 4G LTE Wi-Fi hotspot, remote start, light and easy steering for simple parking. Flexible rear seating opens up generous cargo room when you need it. The Maxim Autos Difference Independent inspection report included with every vehicle Metal plates issued on-the-spot — drive home today Transparent pricing, no hidden fees Financing for all credit levels Located in Skokie, IL — minutes from Evanston, Niles, Morton Grove, Lincolnwood, Des Plaines, and the North Shore Chicago corridor. Call to set up a same day appointment. Every car inspected. Every price transparent. Every customer protected.",
       "highlights": [
         "1LT trim",
@@ -326,7 +326,7 @@
       "featured": true,
       "sortOrder": 0,
       "dealRating": "FAIR_PRICE",
-      "priceSavings": -574,
+      "priceSavings": -537,
       "description": "2014 Kia Forte LX — standard Bluetooth, strong fuel economy, roomy cabin with a class above feel. Gray on gray, 6 speed automatic, 1.8L 4 cylinder. A practical commuter sedan that is easy on gas and easy to own. Key features: 148 hp 1.8L engine, EPA estimated 25 city / 36 highway mpg, standard Bluetooth connectivity, air conditioning, power locks and mirrors, tilt and telescoping steering wheel, generous passenger volume for a compact. The 14.9 cubic foot trunk rivals many midsize sedans. The Maxim Autos Difference Independent inspection report included with every vehicle Metal plates issued on-the-spot — drive home today Transparent pricing, no hidden fees Financing for all credit levels Located in Skokie, IL — minutes from Evanston, Niles, Morton Grove, Lincolnwood, Des Plaines, and the North Shore Chicago corridor. Call to set up a same day appointment. Every car inspected. Every price transparent. Every customer protected.",
       "highlights": [
         "LX trim",
