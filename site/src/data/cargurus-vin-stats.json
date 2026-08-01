@@ -1,10 +1,10 @@
 {
-  "last_updated": "2026-08-01T02:06:26.938Z",
+  "last_updated": "2026-08-01T08:07:43.616Z",
   "period_start": "2026-07-25",
   "period_end": "2026-08-01",
   "by_vin": {
     "KNDJN2A23F7202591": {
-      "srp_views": 87,
+      "srp_views": 107,
       "vdp_views": 3,
       "leads_email": 0,
       "leads_phone": 0,
@@ -22,8 +22,8 @@
       "map_clicks": 0
     },
     "KNAFK4A61E5187089": {
-      "srp_views": 713,
-      "vdp_views": 14,
+      "srp_views": 736,
+      "vdp_views": 15,
       "leads_email": 0,
       "leads_phone": 0,
       "leads_chat": 0,
@@ -31,8 +31,8 @@
       "map_clicks": 0
     },
     "JTNKHMBX1K1014467": {
-      "srp_views": 225,
-      "vdp_views": 25,
+      "srp_views": 256,
+      "vdp_views": 27,
       "leads_email": 0,
       "leads_phone": 0,
       "leads_chat": 0,
@@ -40,8 +40,8 @@
       "map_clicks": 0
     },
     "YV440MDU8H2041771": {
-      "srp_views": 31,
-      "vdp_views": 13,
+      "srp_views": 42,
+      "vdp_views": 16,
       "leads_email": 0,
       "leads_phone": 0,
       "leads_chat": 0,
@@ -67,7 +67,7 @@
       "map_clicks": 1
     },
     "KL7CJPSB8JB587987": {
-      "srp_views": 325,
+      "srp_views": 342,
       "vdp_views": 10,
       "leads_email": 0,
       "leads_phone": 0,
@@ -76,7 +76,7 @@
       "map_clicks": 0
     },
     "5J6RM4H3XGL120098": {
-      "srp_views": 512,
+      "srp_views": 526,
       "vdp_views": 24,
       "leads_email": 0,
       "leads_phone": 0,
@@ -94,8 +94,8 @@
       "map_clicks": 1
     },
     "KMHDH4AE6GU489451": {
-      "srp_views": 62,
-      "vdp_views": 6,
+      "srp_views": 115,
+      "vdp_views": 9,
       "leads_email": 0,
       "leads_phone": 0,
       "leads_chat": 0,
@@ -103,8 +103,8 @@
       "map_clicks": 0
     },
     "JF2GTABC7JH322593": {
-      "srp_views": 676,
-      "vdp_views": 54,
+      "srp_views": 696,
+      "vdp_views": 56,
       "leads_email": 5,
       "leads_phone": 0,
       "leads_chat": 0,
@@ -112,8 +112,8 @@
       "map_clicks": 0
     },
     "2GNALCEK5H1605016": {
-      "srp_views": 50,
-      "vdp_views": 8,
+      "srp_views": 67,
+      "vdp_views": 10,
       "leads_email": 0,
       "leads_phone": 0,
       "leads_chat": 0,
