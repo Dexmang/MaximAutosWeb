@@ -2,8 +2,34 @@ name: Build Inventory (DealerCenter feed = source of truth)
 
 on:
   schedule:
-    # Every 6 hours: 12am, 6am, 12pm, 6pm UTC
+    # Every 6 hours: 12am, 6am, 12pm, 6pm UTC. Safety net only now, see `push` below.
     - cron: '0 0,6,12,18 * * *'
+
+  # Fire as soon as the local OAP pull publishes fresh DealerCenter snapshots.
+  # Before this existed, pull_oap_sftp.py pushed the snapshots (which always
+  # worked) and then ran `gh workflow run sync-inventory.yml` to kick the rebuild.
+  # That dispatch failed 103 consecutive times because gh's token lives in the
+  # Windows keyring and the Task Scheduler job cannot unlock it. The failure was
+  # silent by design (`check=False`), so every pull quietly fell through to the
+  # cron: the pull lands at 07:00/19:00 UTC and the next cron is 12:00/00:00, a
+  # ~5 hour lag between a car changing in DealerCenter and the live site knowing.
+  # The push already succeeds, so triggering on it removes the dependency instead
+  # of repairing it. The gh call was deleted from the script on 2026-08-02.
+  #
+  # Paths are ONLY the snapshots the local pull writes. They are deliberately
+  # disjoint from the set this workflow itself commits (vehicles.json,
+  # cargurus-*.json, vehicles.xml, retired-slugs.json, url-events.jsonl,
+  # vercel.json), so this cannot self trigger. GitHub's rule that a GITHUB_TOKEN
+  # push never fires `on: push` is a second net, not the primary guard.
+  # inventory-meta.json is excluded on purpose: it is a heartbeat that changes on
+  # every pull even when no car data did, and Vercel redeploys on any push anyway.
+  push:
+    branches: [main]
+    paths:
+      - 'site/src/data/dc-inventory.json'
+      - 'site/src/data/dc-photos.json'
+      - 'site/src/data/vin-trims.json'
+
   workflow_dispatch:
 
 permissions:
