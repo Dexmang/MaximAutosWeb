@@ -1,10 +1,10 @@
 {
-  "last_updated": "2026-08-02T13:04:28.370Z",
+  "last_updated": "2026-08-02T18:58:50.536Z",
   "period_start": "2026-07-26",
   "period_end": "2026-08-02",
   "by_vin": {
     "KNDJN2A23F7202591": {
-      "srp_views": 189,
+      "srp_views": 213,
       "vdp_views": 4,
       "leads_email": 0,
       "leads_phone": 0,
@@ -22,17 +22,17 @@
       "map_clicks": 0
     },
     "KNAFK4A61E5187089": {
-      "srp_views": 702,
-      "vdp_views": 13,
-      "leads_email": 0,
+      "srp_views": 740,
+      "vdp_views": 20,
+      "leads_email": 2,
       "leads_phone": 0,
       "leads_chat": 0,
-      "website_clicks": 0,
-      "map_clicks": 0
+      "website_clicks": 1,
+      "map_clicks": 1
     },
     "JTNKHMBX1K1014467": {
-      "srp_views": 338,
-      "vdp_views": 34,
+      "srp_views": 351,
+      "vdp_views": 35,
       "leads_email": 0,
       "leads_phone": 0,
       "leads_chat": 0,
@@ -40,12 +40,12 @@
       "map_clicks": 0
     },
     "YV440MDU8H2041771": {
-      "srp_views": 70,
+      "srp_views": 85,
       "vdp_views": 16,
       "leads_email": 0,
       "leads_phone": 0,
       "leads_chat": 0,
-      "website_clicks": 0,
+      "website_clicks": 1,
       "map_clicks": 0
     },
     "3CZRU6H34KG719886": {
@@ -67,7 +67,7 @@
       "map_clicks": 1
     },
     "KL7CJPSB8JB587987": {
-      "srp_views": 353,
+      "srp_views": 364,
       "vdp_views": 10,
       "leads_email": 0,
       "leads_phone": 0,
@@ -76,7 +76,7 @@
       "map_clicks": 0
     },
     "5J6RM4H3XGL120098": {
-      "srp_views": 475,
+      "srp_views": 481,
       "vdp_views": 21,
       "leads_email": 0,
       "leads_phone": 0,
@@ -94,8 +94,8 @@
       "map_clicks": 0
     },
     "KMHDH4AE6GU489451": {
-      "srp_views": 172,
-      "vdp_views": 15,
+      "srp_views": 400,
+      "vdp_views": 17,
       "leads_email": 0,
       "leads_phone": 0,
       "leads_chat": 0,
@@ -112,7 +112,7 @@
       "map_clicks": 0
     },
     "2GNALCEK5H1605016": {
-      "srp_views": 107,
+      "srp_views": 115,
       "vdp_views": 13,
       "leads_email": 0,
       "leads_phone": 0,
