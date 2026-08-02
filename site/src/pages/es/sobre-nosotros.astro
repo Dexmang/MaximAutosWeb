@@ -2,6 +2,7 @@
 import Layout from '../../layouts/Layout.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
+import reviewsMeta from '../../data/reviews_meta.json';
 
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 const title = 'Sobre Nosotros | Maxim Autos Skokie, IL';
@@ -77,7 +78,7 @@ const description = 'Conoce a Jerry, dueno de Maxim Autos. Cada vehiculo inspecc
           <div class="w-16 h-16 bg-navy/5 rounded-2xl flex items-center justify-center mx-auto mb-6">
             <span class="material-symbols-outlined text-4xl text-navy" style="font-variation-settings: 'FILL' 1;">gpp_good</span>
           </div>
-          <h3 class="font-headline text-xl font-bold mb-3">Proteccion Total</h3>
+          <h3 class="font-headline text-xl font-bold mb-3">Inspeccionado y Documentado</h3>
           <ul class="text-gray-600 text-sm space-y-2">
             <li>Reporte de inspeccion independiente incluido</li>
             <li>Reporte CARFAX gratis incluido</li>
@@ -120,7 +121,7 @@ const description = 'Conoce a Jerry, dueno de Maxim Autos. Cada vehiculo inspecc
         <ul class="space-y-4">
           {[
             { icon: 'person', text: 'Trato directo con Jerry, el dueno. Sin vendedores a comision.' },
-            { icon: 'star', text: 'Resenas de 5 estrellas en Google (36 y contando)' },
+            { icon: 'star', text: `Resenas de 5 estrellas en Google (${reviewsMeta.count} y contando)` },
             { icon: 'fact_check', text: 'Reporte de inspeccion independiente incluido con cada vehiculo' },
             { icon: 'shield', text: 'Cada vehiculo completamente inspeccionado por un mecanico independiente' },
             { icon: 'credit_card', text: 'Placas de metal en el momento. Sin tramites del DMV.' },
