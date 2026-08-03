@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-08-03T19:00:24.189Z",
+  "last_updated": "2026-08-03T19:21:37.040Z",
   "period": {
     "start": "2026-07-27",
     "end": "2026-08-03"
@@ -10,7 +10,7 @@
     "vdp_views": 388,
     "leads_total": 0,
     "leads_email": 12,
-    "leads_phone": 3,
+    "leads_phone": 4,
     "leads_chat": 0,
     "website_clicks": 12,
     "map_clicks": 7
@@ -169,7 +169,7 @@
     "vdps": 388,
     "chat_leads": 0,
     "sms_leads": 1,
-    "phone_leads": 3,
+    "phone_leads": 4,
     "facebook_clicks": 0,
     "twitter_clicks": 0,
     "instagram_clicks": 0,
