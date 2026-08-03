@@ -1,6 +1,6 @@
 {
   "source": "pka_hub.db ma_vehicles",
-  "generated_at": "2026-08-03T07:00:05.286Z",
+  "generated_at": "2026-08-03T19:00:05.480Z",
   "by_vin": {
     "JTJBK1BA4E2462410": "350",
     "1FMCU0J95HUE21095": "Titanium",
@@ -126,6 +126,9 @@
     "4S3BWAN63L3011555": "Limited",
     "KMHDH4AE6GU489451": "Value Edition",
     "YV440MDU8H2041771": "T5 Inscription",
-    "4S4BSAFC0H3294886": "2.5I Premium"
+    "4S4BSAFC0H3294886": "2.5I Premium",
+    "3N1CE2CPXHL360736": "SV",
+    "4T1BK1FKXFU556508": "XLE",
+    "JM1BM1L70G1355427": "I Touring"
   }
 }
