@@ -1,6 +1,6 @@
 {
   "source": "pka_hub.db ma_vehicles + vPIC",
-  "generated_at": "2026-08-03",
+  "generated_at": "2026-08-04",
   "by_vin": {
     "2GNALCEK5H1605016": {
       "year": 2017,
@@ -556,8 +556,7 @@
       "primaryPhotoUrl": "https://imagesdl.dealercenter.net/1289/856/202607-a2c89377c4c94118a282667226de3774.jpg",
       "photoUrls": [
         "https://imagesdl.dealercenter.net/1289/856/202607-a2c89377c4c94118a282667226de3774.jpg",
-        "https://imagesdl.dealercenter.net/1289/856/202607-7aebf3c019914902ac18aff6a11feb1e.jpg",
-        "https://imagesdl.dealercenter.net/1289/856/202607-004563c2e23d4d5f9152cfd321774de3.jpg",
+        "https://imagesdl.dealercenter.net/1289/856/202608-c248a01c4e4740a1a4ee2ee1a2de30b3.jpg",
         "https://imagesdl.dealercenter.net/1289/856/202607-0258a6dd060c40bc95bc30707bb35c7b.jpg",
         "https://imagesdl.dealercenter.net/1289/856/202607-7d9a656d0ada46d5adef3c33a8d97300.jpg",
         "https://imagesdl.dealercenter.net/1289/856/202607-2b2ca7005a324ef787d83a4fd014dcef.jpg",
@@ -571,7 +570,8 @@
         "https://imagesdl.dealercenter.net/1289/856/202607-ebd7d09bf1d34d5884458e084d1dd2b2.jpg",
         "https://imagesdl.dealercenter.net/1289/856/202608-0bbefc3d425c4f9d84ef94e6abe507d1.jpg",
         "https://imagesdl.dealercenter.net/1289/856/202608-d5b4d7e8f75c4f6ab445655f320ee56c.jpg",
-        "https://imagesdl.dealercenter.net/1289/856/202607-1608b573fdd645bab5d02cac77edad60.jpg"
+        "https://imagesdl.dealercenter.net/1289/856/202607-1608b573fdd645bab5d02cac77edad60.jpg",
+        "https://imagesdl.dealercenter.net/1289/856/202607-004563c2e23d4d5f9152cfd321774de3.jpg"
       ],
       "photos": {
         "exterior": 17,
