@@ -4,7 +4,7 @@
   <title>Maxim Autos Vehicle Inventory</title>
   <link>https://www.maximautos.com/</link>
   <description>Used vehicles for sale at Maxim Autos in Skokie, IL 60077. Phone +18475108947.</description>
-  <lastBuildDate>2026-08-04T13:52:37.544Z</lastBuildDate>
+  <lastBuildDate>2026-08-04T19:00:29.956Z</lastBuildDate>
   <item>
     <g:id>2GNALCEK5H1605016</g:id>
     <g:title>2017 Chevrolet Equinox LT / FL</g:title>
@@ -76,6 +76,42 @@
     <g:color>Silver</g:color>
     <g:trim>Limited+M/R+NAVI(HK)</g:trim>
     <g:body_style>sedan</g:body_style>
+  </item>
+  <item>
+    <g:id>4S4BSAFC0H3294886</g:id>
+    <g:title>2017 Subaru Outback Premium + ES</g:title>
+    <g:description>2017 Subaru Outback 2.5i Premium with Symmetrical All-Wheel Drive, 8.7 inches of ground clearance, and 25 city / 33 highway mpg. Blue exterior on a Tan interior, automatic transmission, 2.5L 4-cylinder engine. A wagon that drives like a car but goes anywhere a crossover can, built for North Shore winters and everyday hauling alike. Key features: Symmetrical All-Wheel Drive for confident traction in rain and snow, heated front seats, dual zone climate control, power adjustable driver&apos;s seat, 7 inch touchscreen with Bluetooth and satellite radio, roof rails with integrated crossbars, rear view camera, blind spot monitor, and lane departure warning. Up to 73 cubic feet of cargo space with the rear seats folded flat. The Maxim Autos Difference Independent inspection report included with every vehicle Three Month Peace of Mind Warranty (extended coverage available) Metal plates issued immediately, drive home today Transparent pricing, no hidden fees Financing for all credit levels Located in Skokie, IL, minutes from Evanston, Niles, Morton Grove, Lincolnwood, Des Plaines, and the North Shore Chicago area. Call or text to set up a same day appointment. Every car inspected. Every price transparent. Every car documented.</g:description>
+    <g:link>https://www.maximautos.com/vehicle/2017-subaru-outback-premium-es-j10225</g:link>
+    <g:link_template>https://www.maximautos.com/vehicle/2017-subaru-outback-premium-es-j10225?store={store_code}</g:link_template>
+    <g:image_link>https://imagesdl.dealercenter.net/1289/856/202608-11431082ef244291b7d2b3accb216cf3.jpg</g:image_link>
+    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202608-8b1c409267a841648c1f270564128dc3.jpg</g:additional_image_link>
+    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202608-8dc574fff3174f25992717faa7eafc01.jpg</g:additional_image_link>
+    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202608-b2962b12554b4f69ac868177f80b746a.jpg</g:additional_image_link>
+    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202608-9cbdf043b3da4db39208898bca40a8de.jpg</g:additional_image_link>
+    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202608-55ff842368c245d6af5b5b5ab69f7f31.jpg</g:additional_image_link>
+    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202608-5969a10c776b44c78f0b50321d301128.jpg</g:additional_image_link>
+    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202608-048e1d0f977d470d88e254dd3705a38d.jpg</g:additional_image_link>
+    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202608-b592b9bc99234aa489a449bbdcca5aaa.jpg</g:additional_image_link>
+    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202608-4652730c8e7245f0a3bf91cf54dc91c5.jpg</g:additional_image_link>
+    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202608-f1ec5019c51c488da3a06456fdbb1808.jpg</g:additional_image_link>
+    <g:condition>used</g:condition>
+    <g:price>15495 USD</g:price>
+    <g:availability>in_stock</g:availability>
+    <g:brand>Subaru</g:brand>
+    <g:google_product_category>Vehicles &amp; Parts &gt; Vehicles &gt; Motor Vehicles &gt; Cars, Trucks &amp; Vans</g:google_product_category>
+    <g:excluded_destination>Shopping_ads</g:excluded_destination>
+    <g:excluded_destination>Free_listings</g:excluded_destination>
+    <g:vin>4S4BSAFC0H3294886</g:vin>
+    <g:year>2017</g:year>
+    <g:model>Outback</g:model>
+    <g:mileage>78257 Miles</g:mileage>
+    <g:store_code>08861907241419503398</g:store_code>
+    <g:vehicle_fulfillment>
+      <g:option>in_store</g:option>
+    </g:vehicle_fulfillment>
+    <g:color>Blue</g:color>
+    <g:trim>Premium + ES</g:trim>
+    <g:body_style>suv</g:body_style>
   </item>
   <item>
     <g:id>5J6RM4H3XGL120098</g:id>
