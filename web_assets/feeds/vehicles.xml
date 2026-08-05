@@ -4,7 +4,7 @@
   <title>Maxim Autos Vehicle Inventory</title>
   <link>https://www.maximautos.com/</link>
   <description>Used vehicles for sale at Maxim Autos in Skokie, IL 60077. Phone +18475108947.</description>
-  <lastBuildDate>2026-08-05T01:51:43.645Z</lastBuildDate>
+  <lastBuildDate>2026-08-05T07:00:26.058Z</lastBuildDate>
   <item>
     <g:id>2GNALCEK5H1605016</g:id>
     <g:title>2017 Chevrolet Equinox LT / FL</g:title>
@@ -40,6 +40,42 @@
     <g:color>Black</g:color>
     <g:trim>LT / FL</g:trim>
     <g:body_style>suv</g:body_style>
+  </item>
+  <item>
+    <g:id>3N1CE2CPXHL360736</g:id>
+    <g:title>2017 Nissan Versa Note SV Hatchback 4D</g:title>
+    <g:description>2017 Nissan Versa Note SV. Rearview camera, Bluetooth hands free calling, SiriusXM ready, and excellent fuel economy for daily commuting. Blue on black cloth, automatic, 1.6L. A practical hatchback for commuters and first time buyers who want low cost of ownership without giving up cabin space. The 1.6L returns 31 mpg city and 39 mpg highway, so gas stops stay rare. Key features: automatic transmission, cruise control, power windows and locks, power mirrors, side and overhead airbags, folding rear seats for real cargo space. Roomy hatchback layout, easy to park and maneuver around town. The Maxim Autos Difference Independent inspection report included with every vehicle Metal plates issued on the spot, drive home today Transparent pricing, no hidden fees Financing for all credit levels Located in Skokie, IL, serving Evanston, Niles, Morton Grove, Lincolnwood, Des Plaines, and the entire North Shore Chicago area. Same day appointments available, call or stop by today. Every car inspected. Every price transparent. Every car documented.</g:description>
+    <g:link>https://www.maximautos.com/vehicle/2017-nissan-versa-note-sv-hatchback-4d-j10226</g:link>
+    <g:link_template>https://www.maximautos.com/vehicle/2017-nissan-versa-note-sv-hatchback-4d-j10226?store={store_code}</g:link_template>
+    <g:image_link>https://imagesdl.dealercenter.net/1289/856/202608-145683bc6b7c4ed99c591aa6b6f285d9.jpg</g:image_link>
+    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202608-49ef1f38e6db44909dac551fd285ea51.jpg</g:additional_image_link>
+    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202608-e47c4523221b40d6a5218ce5fce72f89.jpg</g:additional_image_link>
+    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202608-cdc78b6928f64b28a75c00b1e7bfd4e6.jpg</g:additional_image_link>
+    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202608-0c1c8a869713444fb930564a2359ddac.jpg</g:additional_image_link>
+    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202608-14d2dad387304405a914a21bf8a95489.jpg</g:additional_image_link>
+    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202608-115e8064080248b49a103c594a01d704.jpg</g:additional_image_link>
+    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202608-a6f7053b523e403eb144e0be5046d31d.jpg</g:additional_image_link>
+    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202608-bde8e0cc1f3942ccaa7dcba432595aef.jpg</g:additional_image_link>
+    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202608-5c92dc0279b44775a205dd312d2c9e52.jpg</g:additional_image_link>
+    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202608-3257a5c0813749beaea541343dfca1c4.jpg</g:additional_image_link>
+    <g:condition>used</g:condition>
+    <g:price>10995 USD</g:price>
+    <g:availability>in_stock</g:availability>
+    <g:brand>Nissan</g:brand>
+    <g:google_product_category>Vehicles &amp; Parts &gt; Vehicles &gt; Motor Vehicles &gt; Cars, Trucks &amp; Vans</g:google_product_category>
+    <g:excluded_destination>Shopping_ads</g:excluded_destination>
+    <g:excluded_destination>Free_listings</g:excluded_destination>
+    <g:vin>3N1CE2CPXHL360736</g:vin>
+    <g:year>2017</g:year>
+    <g:model>Versa Note</g:model>
+    <g:mileage>68875 Miles</g:mileage>
+    <g:store_code>08861907241419503398</g:store_code>
+    <g:vehicle_fulfillment>
+      <g:option>in_store</g:option>
+    </g:vehicle_fulfillment>
+    <g:color>Blue</g:color>
+    <g:trim>SV Hatchback 4D</g:trim>
+    <g:body_style>hatchback</g:body_style>
   </item>
   <item>
     <g:id>4S3BWAN63L3011555</g:id>
