@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-08-05T19:00:29.621Z",
+  "last_updated": "2026-08-05T19:18:45.080Z",
   "period": {
     "start": "2026-07-29",
     "end": "2026-08-05"
@@ -12,7 +12,7 @@
     "leads_email": 19,
     "leads_phone": 7,
     "leads_chat": 0,
-    "website_clicks": 15,
+    "website_clicks": 16,
     "map_clicks": 6
   },
   "daily": [
@@ -174,7 +174,7 @@
     "twitter_clicks": 0,
     "instagram_clicks": 0,
     "printouts": 0,
-    "website_clicks": 15,
+    "website_clicks": 16,
     "map_clicks": 6,
     "you_tube_clicks": 0,
     "success": true
