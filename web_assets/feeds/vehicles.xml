@@ -4,43 +4,7 @@
   <title>Maxim Autos Vehicle Inventory</title>
   <link>https://www.maximautos.com/</link>
   <description>Used vehicles for sale at Maxim Autos in Skokie, IL 60077. Phone +18475108947.</description>
-  <lastBuildDate>2026-08-06T01:53:24.316Z</lastBuildDate>
-  <item>
-    <g:id>2GNALCEK5H1605016</g:id>
-    <g:title>2017 Chevrolet Equinox LT / FL</g:title>
-    <g:description>This 2017 Chevrolet Equinox LT stands out on mileage. At 70,549 miles it sits well under most 2017 Equinox listings in the Chicago market, where plenty of comparable units have already passed 100,000. Power comes from the 2.4 liter four cylinder paired with a six speed automatic, driving the front wheels, and it runs on regular unleaded or E85. Equipment includes a backup camera, Bluetooth, OnStar, SiriusXM satellite radio with the MyLink AM/FM and CD system, a power driver seat, alloy wheels, keyless entry, cruise control, and air conditioning. Safety coverage runs deep, with dual, side, and full length head curtain air bags, four wheel ABS, StabiliTrak, traction control, hill start assist, and daytime running lights. The finish is black over a black interior. The Maxim Autos Difference Independent inspection report included with every vehicle Metal plates issued the same day so you can drive home today Transparent pricing, no hidden fees Financing for all credit levels Located in Skokie, IL, serving Evanston, Niles, Morton Grove, Lincolnwood, Des Plaines, and the entire North Shore Chicago corridor. Visit or call for a same day appointment. Every car inspected. Every price transparent. Every car documented.</g:description>
-    <g:link>https://www.maximautos.com/vehicle/2017-chevrolet-equinox-lt-fl-j10220</g:link>
-    <g:link_template>https://www.maximautos.com/vehicle/2017-chevrolet-equinox-lt-fl-j10220?store={store_code}</g:link_template>
-    <g:image_link>https://imagesdl.dealercenter.net/1289/856/202608-db5aef9a29124027a37ec6e13780d695.jpg</g:image_link>
-    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202608-32cdc9737fbd46d9b881e32eb8d396ac.jpg</g:additional_image_link>
-    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202608-fe7c42b1f6fa442aa4b4dfa593889298.jpg</g:additional_image_link>
-    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202608-d1a98e729dc84865a619618708ce1486.jpg</g:additional_image_link>
-    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202608-66838fa4ae0e4c97882e810d3f85fff0.jpg</g:additional_image_link>
-    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202608-077193293571459782e2022d8d600f16.jpg</g:additional_image_link>
-    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202608-7e07dd7fa6014e809187b2c63a037c88.jpg</g:additional_image_link>
-    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202608-0a896534dfdc4fc4bca4dcb224bb41e6.jpg</g:additional_image_link>
-    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202608-5aa8ec8a9bc648c2a733443969744cde.jpg</g:additional_image_link>
-    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202608-29f1690c664d429fb20d617cee71d061.jpg</g:additional_image_link>
-    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202608-eb7da9babf404a42affa3589206743fe.jpg</g:additional_image_link>
-    <g:condition>used</g:condition>
-    <g:price>10450 USD</g:price>
-    <g:availability>in_stock</g:availability>
-    <g:brand>Chevrolet</g:brand>
-    <g:google_product_category>Vehicles &amp; Parts &gt; Vehicles &gt; Motor Vehicles &gt; Cars, Trucks &amp; Vans</g:google_product_category>
-    <g:excluded_destination>Shopping_ads</g:excluded_destination>
-    <g:excluded_destination>Free_listings</g:excluded_destination>
-    <g:vin>2GNALCEK5H1605016</g:vin>
-    <g:year>2017</g:year>
-    <g:model>Equinox</g:model>
-    <g:mileage>70549 Miles</g:mileage>
-    <g:store_code>08861907241419503398</g:store_code>
-    <g:vehicle_fulfillment>
-      <g:option>in_store</g:option>
-    </g:vehicle_fulfillment>
-    <g:color>Black</g:color>
-    <g:trim>LT / FL</g:trim>
-    <g:body_style>suv</g:body_style>
-  </item>
+  <lastBuildDate>2026-08-06T07:00:25.964Z</lastBuildDate>
   <item>
     <g:id>3N1CE2CPXHL360736</g:id>
     <g:title>2017 Nissan Versa Note SV Hatchback 4D</g:title>
@@ -59,7 +23,7 @@
     <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202608-5c92dc0279b44775a205dd312d2c9e52.jpg</g:additional_image_link>
     <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202608-3257a5c0813749beaea541343dfca1c4.jpg</g:additional_image_link>
     <g:condition>used</g:condition>
-    <g:price>10995 USD</g:price>
+    <g:price>8450 USD</g:price>
     <g:availability>in_stock</g:availability>
     <g:brand>Nissan</g:brand>
     <g:google_product_category>Vehicles &amp; Parts &gt; Vehicles &gt; Motor Vehicles &gt; Cars, Trucks &amp; Vans</g:google_product_category>
@@ -76,6 +40,42 @@
     <g:color>Blue</g:color>
     <g:trim>SV Hatchback 4D</g:trim>
     <g:body_style>hatchback</g:body_style>
+  </item>
+  <item>
+    <g:id>4S3BNBA66F3007762</g:id>
+    <g:title>2015 Subaru Legacy Base</g:title>
+    <g:description>2015 Subaru Legacy 2.5i, standard symmetrical all wheel drive, up to 36 mpg highway, roomy and quiet cabin. Blue on black, smooth CVT automatic, 2.5L boxer 4 cylinder. The all weather sedan Chicago winters were made for, without giving up fuel economy. Key features: 175 hp 2.5L boxer engine, standard symmetrical all wheel drive with superior traction in rain and snow, EPA estimated 26 city / 36 highway mpg, spacious cabin with generous rear legroom that rivals larger family sedans, enhanced sound insulation for a quiet ride. Rear legroom and passenger space compete with midsize sedans a class up. The Maxim Autos Difference Independent inspection report included with every vehicle Metal plates issued the same visit, drive home today Transparent pricing, no hidden fees Financing for all credit levels Located in Skokie, IL, minutes from Evanston, Niles, Morton Grove, Lincolnwood, Des Plaines, and the North Shore Chicago corridor. Call to set up a same day appointment. Every car inspected. Every price transparent. Every car documented.</g:description>
+    <g:link>https://www.maximautos.com/vehicle/2015-subaru-legacy-base-j10216</g:link>
+    <g:link_template>https://www.maximautos.com/vehicle/2015-subaru-legacy-base-j10216?store={store_code}</g:link_template>
+    <g:image_link>https://imagesdl.dealercenter.net/1289/856/202607-158e2a4a4c424b51b37f0f11c60495b5.jpg</g:image_link>
+    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202607-e62ab5e9b664400b8817bc6f94343728.jpg</g:additional_image_link>
+    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202607-916eeba4a9c640a4a48a5094a71dd794.jpg</g:additional_image_link>
+    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202607-f6032bf6ac7746f28e5fdc175f238c9d.jpg</g:additional_image_link>
+    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202607-451366806e8a4263b6e2fe6de445f038.jpg</g:additional_image_link>
+    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202607-b11d3ad53732486dad01e0935fbce066.jpg</g:additional_image_link>
+    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202607-5878fb94a83341a59646b4a4aed96dd2.jpg</g:additional_image_link>
+    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202607-1c7a8cfc56164a0c98b58ef16a51029c.jpg</g:additional_image_link>
+    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202607-a91e8721ceff485b8cfcec616c013630.jpg</g:additional_image_link>
+    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202607-7db4deb67bd8472fad17ccf2bea9c930.jpg</g:additional_image_link>
+    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202607-696bd36395be45b6b47974f912c79610.jpg</g:additional_image_link>
+    <g:condition>used</g:condition>
+    <g:price>9995 USD</g:price>
+    <g:availability>in_stock</g:availability>
+    <g:brand>Subaru</g:brand>
+    <g:google_product_category>Vehicles &amp; Parts &gt; Vehicles &gt; Motor Vehicles &gt; Cars, Trucks &amp; Vans</g:google_product_category>
+    <g:excluded_destination>Shopping_ads</g:excluded_destination>
+    <g:excluded_destination>Free_listings</g:excluded_destination>
+    <g:vin>4S3BNBA66F3007762</g:vin>
+    <g:year>2015</g:year>
+    <g:model>Legacy</g:model>
+    <g:mileage>91170 Miles</g:mileage>
+    <g:store_code>08861907241419503398</g:store_code>
+    <g:vehicle_fulfillment>
+      <g:option>in_store</g:option>
+    </g:vehicle_fulfillment>
+    <g:color>Blue</g:color>
+    <g:trim>Base</g:trim>
+    <g:body_style>sedan</g:body_style>
   </item>
   <item>
     <g:id>4S3BWAN63L3011555</g:id>
@@ -131,7 +131,7 @@
     <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202608-4652730c8e7245f0a3bf91cf54dc91c5.jpg</g:additional_image_link>
     <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202608-f1ec5019c51c488da3a06456fdbb1808.jpg</g:additional_image_link>
     <g:condition>used</g:condition>
-    <g:price>15495 USD</g:price>
+    <g:price>14450 USD</g:price>
     <g:availability>in_stock</g:availability>
     <g:brand>Subaru</g:brand>
     <g:google_product_category>Vehicles &amp; Parts &gt; Vehicles &gt; Motor Vehicles &gt; Cars, Trucks &amp; Vans</g:google_product_category>
@@ -435,42 +435,6 @@
     </g:vehicle_fulfillment>
     <g:color>Gray</g:color>
     <g:trim>GL(Middle-low grade)</g:trim>
-    <g:body_style>suv</g:body_style>
-  </item>
-  <item>
-    <g:id>YV440MDU8H2041771</g:id>
-    <g:title>2017 Volvo XC60 Inscription</g:title>
-    <g:description>This 2017 Volvo XC60 T5 Inscription is the top trim in the lineup, and at 82,164 miles it brings an equipment list that normally lives in a much higher price bracket. Under the hood is the turbocharged 2.0 liter four cylinder paired with the eight speed Geartronic automatic, driving the front wheels. The cabin is finished in leather with dual power seats, and it carries a panoramic sunroof, navigation, Volvo Sensus with the high performance audio system, AM/FM/HD radio, SiriusXM, Bluetooth, Volvo On Call, and keyless start. Safety equipment includes BLIS blind spot information, park assist, a backup camera, hill start assist, stability and traction control, four wheel ABS, and dual, side, and full length head curtain air bags. Alloy wheels and daytime running lights finish it off. Painted white over a beige leather interior. The Maxim Autos Difference Independent inspection report included with every vehicle Metal plates issued the same day so you can drive home today Transparent pricing, no hidden fees Financing for all credit levels Located in Skokie, IL, serving Evanston, Niles, Morton Grove, Lincolnwood, Des Plaines, and the entire North Shore Chicago corridor. Visit or call for a same day appointment. Every car inspected. Every price transparent. Every car documented.</g:description>
-    <g:link>https://www.maximautos.com/vehicle/2017-volvo-xc60-inscription-j10222</g:link>
-    <g:link_template>https://www.maximautos.com/vehicle/2017-volvo-xc60-inscription-j10222?store={store_code}</g:link_template>
-    <g:image_link>https://imagesdl.dealercenter.net/1289/856/202607-0258a6dd060c40bc95bc30707bb35c7b.jpg</g:image_link>
-    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202608-c248a01c4e4740a1a4ee2ee1a2de30b3.jpg</g:additional_image_link>
-    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202607-7d9a656d0ada46d5adef3c33a8d97300.jpg</g:additional_image_link>
-    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202607-2b2ca7005a324ef787d83a4fd014dcef.jpg</g:additional_image_link>
-    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202607-1e7da24398974c73abcae4fc3868e371.jpg</g:additional_image_link>
-    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202607-eb9dc58790804a34b7ab8a4539e3c0d2.jpg</g:additional_image_link>
-    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202607-3d1d1f5fce9f46d982db5e194c43f7b0.jpg</g:additional_image_link>
-    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202607-e42c5b6f1a274f999a4f2ff36b83bde6.jpg</g:additional_image_link>
-    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202607-b34e688085234389acecdc62efc16a80.jpg</g:additional_image_link>
-    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202608-d27fd8aabf2e4860bf88aa4e7899ab95.jpg</g:additional_image_link>
-    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202607-9014f196145c4043b1ef0b6487e162ba.jpg</g:additional_image_link>
-    <g:condition>used</g:condition>
-    <g:price>11950 USD</g:price>
-    <g:availability>in_stock</g:availability>
-    <g:brand>Volvo</g:brand>
-    <g:google_product_category>Vehicles &amp; Parts &gt; Vehicles &gt; Motor Vehicles &gt; Cars, Trucks &amp; Vans</g:google_product_category>
-    <g:excluded_destination>Shopping_ads</g:excluded_destination>
-    <g:excluded_destination>Free_listings</g:excluded_destination>
-    <g:vin>YV440MDU8H2041771</g:vin>
-    <g:year>2017</g:year>
-    <g:model>XC60</g:model>
-    <g:mileage>82164 Miles</g:mileage>
-    <g:store_code>08861907241419503398</g:store_code>
-    <g:vehicle_fulfillment>
-      <g:option>in_store</g:option>
-    </g:vehicle_fulfillment>
-    <g:color>White</g:color>
-    <g:trim>Inscription</g:trim>
     <g:body_style>suv</g:body_style>
   </item>
 </channel>
