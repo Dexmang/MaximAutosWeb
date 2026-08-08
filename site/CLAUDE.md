@@ -61,6 +61,14 @@ Other data files:
   feed has no status, so a pulled car looks identical to a sold one. The hold
   auto-releases when the VIN returns to the DC feed. Maintain with
   `operations/hold_unit.py`; full rationale in `operations/inventory-pipeline.md`.
+- `sold-override.json` — owner-declared SOLD list, the bridge between a car selling and
+  DealerCenter being updated that evening. `build_vehicles_json.py` subtracts these VINs
+  from the active feed set, so the car drops out of `dc-inventory.json` and is soldified
+  normally: off the grid, SOLD VDP kept for SEO, out of the Google feed. Entries prune
+  themselves once the VIN really leaves the feed. Unlike `hold-vins.json` this keeps a
+  SOLD page; unlike the retired `manual_sold` flag it works while the VIN is still in the
+  feed, so use it ONLY for a sale Jerry has confirmed. Rationale:
+  `operations/inventory-pipeline.md`.
 - `reviews.json` — on-page review content, MIXED platforms, newest first. Every entry needs a
   `source` (`"Google"`, `"Cars.com"`, ...) and a real `rating`; both drive rendering (see
   `ReviewRotator.astro`). Hero rotators take `slice(0, 6)`; the grids and testimonials show all.
