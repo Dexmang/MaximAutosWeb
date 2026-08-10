@@ -1,6 +1,6 @@
 {
   "source": "pka_hub.db ma_vehicles",
-  "generated_at": "2026-08-10T07:00:05.161Z",
+  "generated_at": "2026-08-10T19:00:05.256Z",
   "by_vin": {
     "JTJBK1BA4E2462410": "350",
     "1FMCU0J95HUE21095": "Titanium",
@@ -129,6 +129,7 @@
     "4S4BSAFC0H3294886": "2.5I Premium",
     "3N1CE2CPXHL360736": "SV",
     "4T1BK1FKXFU556508": "XLE",
-    "JM1BM1L70G1355427": "I Touring"
+    "JM1BM1L70G1355427": "I Touring",
+    "KNDCC3LCXJ5152268": "EX"
   }
 }
