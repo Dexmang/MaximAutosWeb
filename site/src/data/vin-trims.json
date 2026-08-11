@@ -1,6 +1,6 @@
 {
   "source": "pka_hub.db ma_vehicles",
-  "generated_at": "2026-08-10T19:00:05.256Z",
+  "generated_at": "2026-08-11T19:00:10.531Z",
   "by_vin": {
     "JTJBK1BA4E2462410": "350",
     "1FMCU0J95HUE21095": "Titanium",
@@ -130,6 +130,13 @@
     "3N1CE2CPXHL360736": "SV",
     "4T1BK1FKXFU556508": "XLE",
     "JM1BM1L70G1355427": "I Touring",
-    "KNDCC3LCXJ5152268": "EX"
+    "KNDCC3LCXJ5152268": "EX",
+    "NMTKHMBX4LR118426": "LE",
+    "YV4A22PK0J1214240": "T6 Momentum",
+    "1GKKNWLS3HZ262925": "SLT-2",
+    "JM3KE4DY6G0826709": "Grand Touring",
+    "SHHFK7H79HU203382": "EX-L w/Navigation",
+    "JF2GPAVC7D2808666": "Premium",
+    "KM8SM4HF4EU062283": "GLS"
   }
 }
