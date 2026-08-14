@@ -1,17 +1,4 @@
 {
   "note": "Owner-declared SOLD list — cars Jerry has confirmed sold before DealerCenter has been updated. The OAP feed carries no status column, so a car stays in the feed until it is marked sold in DC; until then the site would keep showing it for sale. A VIN listed here is subtracted from the active feed set by operations/build_vehicles_json.py, so dc-inventory.json omits it and build-inventory.js soldifies it like any other feed-absent car: off the inventory grid at once, VDP kept as a SOLD page (200 OK) for SEO, absent from the Google Merchant feed. This is a BRIDGE, not a permanent hide — it is honored only while DC still lists the VIN, and is pruned automatically the moment the VIN drops out of the feed for real. Distinct from hold-vins.json, which hides an Inbound/recon unit with no SOLD page at all.",
-  "by_vin": {
-    "4T1BK1FKXFU556508": {
-      "stock": "J10227",
-      "label": "2015 Toyota Camry",
-      "declared_by": "Jerry",
-      "since": "2026-08-08"
-    },
-    "JM1BM1L70G1355427": {
-      "stock": "J10228",
-      "label": "2016 Mazda Mazda3",
-      "declared_by": "Jerry",
-      "since": "2026-08-08"
-    }
-  }
+  "by_vin": {}
 }

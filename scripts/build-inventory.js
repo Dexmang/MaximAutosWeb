@@ -312,6 +312,92 @@ function sanitizeDescription(text, tally = null) {
   return out.trim();
 }
 
+// ── Internal-note guard (compliance-guardrails.md PART A2) ──────────────────────
+// The DealerCenter Description field is PUBLISHED copy: it syndicates to this site,
+// CarGurus, Facebook Marketplace and the Google vehicle feed. It gets used as a notes
+// field anyway, and on 2026-08-14 J10235 and J10236 went live reading "DO NOT ADVERTISE"
+// and disclosing absent titles, 7 and 9 damage points and an open recall — because both
+// units were flipped to In Inventory while their intake notes still sat in Description.
+//
+// The rewrite rules above cannot fix that class of copy: a find/replace on an intake note
+// still leaves an intake note. So this guard throws the whole description away and
+// substitutes neutral spec copy, then shouts in the build log.
+//
+// The failure mode is deliberately asymmetric. A false positive costs one car its
+// marketing paragraph for one build cycle and is loudly logged; a false negative
+// publishes damage and title findings to every syndication partner at once.
+const INTERNAL_NOTE_MARKERS = [
+  // HARD — any one of these alone condemns the description.
+  { name: 'do not advertise', re: /\bdo not advertise\b/i, hard: true },
+  { name: 'do not post/list/publish', re: /\bdo not (?:post|list|publish)\b/i, hard: true },
+  { name: 'held for owner review', re: /\bhold(?:ing)? for\s+\w+(?:'s)?\s+review\b/i, hard: true },
+  { name: 'awaiting owner decision', re: /\buntil (?:jerry|the owner)\b/i, hard: true },
+  { name: 'no listing copy written', re: /\bno listing copy\b/i, hard: true },
+  { name: 'internal note', re: /\binternal (?:only|note|use)\b/i, hard: true },
+  { name: 'not for sale/retail', re: /\bnot for (?:sale|retail)\b/i, hard: true },
+  { name: 'title absent', re: /\btitle (?:absent|missing|not in hand)\b/i, hard: true },
+  { name: 'auction announcement', re: /\b(?:carmax|manheim|adesa|auction) announcement/i, hard: true },
+  { name: 'damage point count', re: /\b\d+\s+damage points?\b/i, hard: true },
+  { name: 'structural alteration', re: /\bstructural alteration/i, hard: true },
+  // SOFT — legitimate copy never needs these, but two are required to condemn.
+  { name: 'AutoCheck reference', re: /\bautocheck\b/i, hard: false },
+  { name: 'arbitration', re: /\barbitrat(?:e|ed|ion)\b/i, hard: false },
+  { name: 'open recall', re: /\bopen recall\b/i, hard: false },
+  { name: 'pre-retail gating', re: /\bbefore retail\b/i, hard: false },
+  { name: 'buy-screen math', re: /\b(?:acv|cost to market|wholesale price)\b/i, hard: false },
+];
+
+/** Marker names that fired, or [] if the text reads as customer-facing copy. */
+function internalNoteHits(text) {
+  const s = String(text || '');
+  const hit = INTERNAL_NOTE_MARKERS.filter(m => m.re.test(s));
+  if (hit.some(m => m.hard)) return hit.map(m => m.name);
+  return hit.length >= 2 ? hit.map(m => m.name) : [];
+}
+
+/**
+ * Neutral stand-in copy built only from spec fields, so it states nothing that isn't
+ * already on the page. Deliberately compliance-plain: no payment (Reg Z B1), no
+ * "certified" (C7), no unqualified coverage claim (C8), conditional financing language
+ * (B4), all-in price (C1), canonical phone (D1).
+ */
+function neutralDescription(v) {
+  const title = [v.year, v.make, v.model, v.trim].filter(Boolean).join(' ');
+  const miles = Number(v.mileage) > 0 ? `with ${Number(v.mileage).toLocaleString('en-US')} miles` : '';
+  const price = Number(v.price) > 0 ? `at $${Number(v.price).toLocaleString('en-US')} all in, no dealer fees` : '';
+  const specs = [v.engine, v.transmission, v.drivetrain].filter(Boolean).join(', ');
+  const colors = v.exteriorColor
+    ? `${v.exteriorColor}${v.interiorColor ? ` over ${v.interiorColor}` : ''}`
+    : '';
+  return [
+    `${[title, miles, price].filter(Boolean).join(' ')}.`,
+    specs ? `${specs}.` : '',
+    colors ? `${colors}.` : '',
+    'Independently inspected with a free CARFAX report.',
+    'Same day metal plates, and financing is available for all credit levels.',
+    'Call or text (847) 510-8947 to see it in Skokie.',
+  ].filter(Boolean).join(' ').replace(/\s{2,}/g, ' ').trim();
+}
+
+/** Records every suppression so main() can name the units in the build log. */
+const INTERNAL_NOTE_TALLY = [];
+
+/** Pass customer-facing copy through untouched; replace an intake note wholesale. */
+function guardDescription(text, rec) {
+  const markers = internalNoteHits(text);
+  if (!markers.length) return String(text || '');
+  const replacement = neutralDescription(rec);
+  INTERNAL_NOTE_TALLY.push({
+    vin: rec.vin,
+    stockNumber: rec.stockNumber || '—',
+    slug: rec.slug || '',
+    markers,
+    suppressed: String(text || '').replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim(),
+    replacement,
+  });
+  return replacement;
+}
+
 // ── Web hold list (DealerCenter "Inbound" / off-web units) ──────────────────────
 // The OAP feed carries no status column, so a unit Jerry sets to Inbound (in recon,
 // not for sale yet) just drops out of the feed — indistinguishable from a sold car,
@@ -623,7 +709,12 @@ async function main() {
     // `warranty` is included because it carried an unqualified powertrain claim on all 27
     // records. No page renders it today, but a wrong claim in committed data is how a
     // violation reaches a page later.
-    out.description = sanitizeDescription(rec.description || ex?.description || '', SANITIZE_TALLY);
+    // guardDescription runs FIRST: an intake note has to be thrown away whole, before the
+    // rewrite rules get a chance to make it read like polished copy (PART A2).
+    out.description = sanitizeDescription(
+      guardDescription(rec.description || ex?.description || '', out),
+      SANITIZE_TALLY,
+    );
     const warrantyText = rec.warranty || ex?.warranty || '';
     if (warrantyText) out.warranty = sanitizeDescription(warrantyText, SANITIZE_TALLY);
 
@@ -653,7 +744,12 @@ async function main() {
     if (!ex.vin || ex.vin === 'TBD') continue;
     if (dcVins.has(ex.vin.toUpperCase())) continue; // still in feed → handled above
     if (isHeld(ex.vin)) continue;                    // web-held → omit, never soldify
-    const clean = { ...ex, description: sanitizeDescription(ex.description || '', SANITIZE_TALLY) };
+    // Same reasoning as the sanitizer below: a sold VDP is still a page a human can reach,
+    // so the internal-note guard has to run here too, not just on the active set.
+    const clean = {
+      ...ex,
+      description: sanitizeDescription(guardDescription(ex.description || '', ex), SANITIZE_TALLY),
+    };
     if (ex.warranty) clean.warranty = sanitizeDescription(ex.warranty, SANITIZE_TALLY);
     if (ex.status === 'sold') { sold.push(clean); continue; } // already sold → preserve for SEO
     sold.push({ ...clean, status: 'sold', sold_date: today, missing_since: ex.missing_since || nowIso });
@@ -682,6 +778,20 @@ async function main() {
     manualSoldButLive.forEach(m =>
       console.warn(`  ! [${m.vin}] stock ${m.stockNumber || '—'} — kept LIVE. Take it off in DealerCenter to retire it.`)
     );
+  }
+
+  if (INTERNAL_NOTE_TALLY.length) {
+    console.warn(
+      `\n!! INTERNAL NOTE SUPPRESSED on ${INTERNAL_NOTE_TALLY.length} unit(s) — the DealerCenter ` +
+      `Description held intake notes, not listing copy (compliance-guardrails.md PART A2).`
+    );
+    INTERNAL_NOTE_TALLY.forEach(h => {
+      console.warn(`  ! stock ${h.stockNumber} [${h.vin}] /vehicle/${h.slug}`);
+      console.warn(`      markers  : ${h.markers.join(', ')}`);
+      console.warn(`      withheld : ${h.suppressed.slice(0, 160)}${h.suppressed.length > 160 ? '…' : ''}`);
+      console.warn(`      published: ${h.replacement}`);
+    });
+    console.warn('  Fix the Description in DealerCenter; the next feed replaces this stand-in copy.');
   }
 
   const sanitized = Object.entries(SANITIZE_TALLY);
