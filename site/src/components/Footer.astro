@@ -18,12 +18,25 @@ const currentYear = new Date().getFullYear();
 // go check) by comparing the timestamp to the visitor's clock, so it self-flags even
 // if the pipeline stops deploying. This is the single place to check feed health.
 const inventoryIso = (inventoryMeta as any)?.lastUpdated || '';
-const inventoryUpdatedStr = inventoryIso
-  ? new Intl.DateTimeFormat(isSpanish ? 'es-US' : 'en-US', {
-      timeZone: 'America/Chicago',
-      month: 'short', day: 'numeric', year: 'numeric',
-      hour: 'numeric', minute: '2-digit',
-    }).format(new Date(inventoryIso)) + ' CT'
+
+// The last two successful DealerCenter publishes, newest first. `recent` is written
+// by pull_oap_sftp.py; fall back to the single lastUpdated stamp so a deploy from
+// before that field existed still renders rather than blanking the heartbeat.
+const inventoryRecent: string[] = (() => {
+  const list = (inventoryMeta as any)?.recent;
+  const arr = Array.isArray(list) ? list.filter((s: any) => typeof s === 'string' && s) : [];
+  return (arr.length ? arr : [inventoryIso]).filter(Boolean).slice(0, 2);
+})();
+
+// Year is dropped and "CT" carried once at the end: with two stamps side by side,
+// repeating both turns a quiet heartbeat into clutter.
+const stampFmt = new Intl.DateTimeFormat(isSpanish ? 'es-US' : 'en-US', {
+  timeZone: 'America/Chicago',
+  month: 'short', day: 'numeric',
+  hour: 'numeric', minute: '2-digit',
+});
+const inventoryUpdatedStr = inventoryRecent.length
+  ? inventoryRecent.map(iso => stampFmt.format(new Date(iso))).join(' · ') + ' CT'
   : '';
 
 const invHref      = isSpanish ? `${base}/es/inventario`            : `${base}/inventory`;
@@ -210,7 +223,7 @@ const labels = isSpanish
     </span>
     <span class="flex items-center gap-x-2 flex-wrap justify-center sm:justify-end">
       {inventoryIso && (
-        <span class="opacity-70" title="Feed status, IUlive: DealerCenter feed current; IUverify: feed stale, check it">
+        <span class="opacity-70" title="Feed status, IUlive: DealerCenter feed current; IUverify: feed stale, check it. Times are the last two successful feed updates.">
           <span id="iu-status" data-ts={inventoryIso}>IU</span> · {inventoryUpdatedStr}
         </span>
       )}
@@ -222,8 +235,10 @@ const labels = isSpanish
       var el = document.getElementById('iu-status');
       if (!el) return;
       var t = Date.parse(el.getAttribute('data-ts') || '');
-      // DealerCenter feed pulls run ~3x/day; flag for a check if no successful
-      // pull in 18h (more than two missed cycles = something's off).
+      // DealerCenter drops the feed twice a day, roughly 12h apart (measured
+      // 2026-08-15: midday and just after midnight CT). The poller checks every
+      // 30 min, so 18h without a successful publish means a whole drop was missed,
+      // not just a late one.
       var fresh = !isNaN(t) && (Date.now() - t) < 18 * 3600 * 1000;
       el.textContent = fresh ? 'IUlive' : 'IUverify';
       el.style.color = fresh ? '#34d399' : '#f59e0b';

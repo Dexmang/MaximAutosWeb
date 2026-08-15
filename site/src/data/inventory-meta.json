@@ -1,4 +1,8 @@
 {
   "lastUpdated": "2026-08-15T07:00:05Z",
-  "note": "DealerCenter feed last pulled; shown as IUlive/IUverify in the site footer."
+  "note": "DealerCenter feed publishes, newest first. lastUpdated drives IUlive/IUverify in the site footer; the footer also renders the top two entries of `recent` as the last two updates.",
+  "recent": [
+    "2026-08-15T07:00:05Z",
+    "2026-08-14T19:00:04Z"
+  ]
 }
