@@ -52,7 +52,10 @@ sync — `pka_hub.db` is unreachable from CI, hence the committed snapshots):
 - `dc-photos.json` — VIN → DealerCenter CDN photo URLs (photos for cars CarGurus knows)
 - `dc-inventory.json` — VIN → full DC record + VIN-decoded specs (adds new cars)
 - `vin-trims.json` — VIN → cleaned trim fallback
-- `inventory-meta.json` — `lastUpdated` heartbeat; the footer's `IUlive`/`IUverify` code
+- `inventory-meta.json` — feed heartbeat. `lastUpdated` drives the footer's
+  `IUlive`/`IUverify` flip; `recent` is a newest-first list of successful publishes
+  (capped at 5) and the footer renders the top two as the last two feed updates.
+  Written by `operations/pull_oap_sftp.py` on publish only, never by a no-op poll.
 
 Other data files:
 - `hold-vins.json` — "web hold" list. VINs here are OMITTED from `vehicles.json`
