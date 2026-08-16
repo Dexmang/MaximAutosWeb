@@ -37,7 +37,9 @@ const vinStats: { impressions: number; vdp_views: number; leads: number } | null
     }
   : null;
 const showVinStats = !isSold && vinStats !== null && vinStats.vdp_views >= 3;
-const titleText = `${v.year} ${v.make} ${v.model} ${v.trim}`;
+// A base car has an empty trim (e.g. 2015 Kia Soul); join on non-empty parts so
+// the <title>, H1, schema name and SMS body never carry a double space.
+const titleText = [v.year, v.make, v.model, v.trim].filter(Boolean).join(' ');
 const pageTitle = isSold
   ? `${titleText} (Sold) | Maxim Autos Skokie, IL`
   : `${titleText} for Sale in Skokie, IL`;
