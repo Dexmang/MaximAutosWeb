@@ -69,8 +69,8 @@ const heroReviews = reviews.slice(0, 6);
   <Header slot="header" lang="es" />
 
   <!-- Hero -->
-  <section class="bg-navy overflow-hidden md:relative md:min-h-[448px] lg:min-h-[512px] md:flex md:items-center">
-    <div class="relative w-full max-h-44 overflow-hidden md:max-h-none md:overflow-visible md:absolute md:inset-0 md:z-0">
+  <section class="bg-navy overflow-hidden md:relative md:min-h-[224px] lg:min-h-[256px] md:flex md:items-center">
+    <div class="relative w-full max-h-28 overflow-hidden md:max-h-none md:overflow-visible md:absolute md:inset-0 md:z-0">
       <picture>
         <source srcset={`${base}/brand/hero-family.webp`} type="image/webp" />
         <img
@@ -86,29 +86,29 @@ const heroReviews = reviews.slice(0, 6);
       <div class="hidden md:block absolute inset-0 bg-gradient-to-r from-navy/90 via-navy/70 to-navy/20"></div>
 
       <!-- Tarjeta de resena rotativa: escritorio abajo a la derecha; movil tiene la suya bajo los CTA -->
-      <ReviewRotator reviews={heroReviews} lang="es" class="hidden md:block absolute bottom-6 right-6 lg:bottom-8 lg:right-8 w-72 lg:w-80" />
+      <ReviewRotator reviews={heroReviews} lang="es" class="hidden md:block absolute bottom-4 right-6 lg:bottom-5 lg:right-8 w-64 lg:w-72" />
     </div>
 
-    <div class="relative z-10 w-full max-w-7xl mx-auto px-6 lg:px-8 pt-4 pb-8 md:py-10">
-      <div class="max-w-xl">
+    <div class="relative z-10 w-full max-w-7xl mx-auto px-6 lg:px-8 pt-3 pb-6 md:py-5">
+      <div class="max-w-xl md:max-w-2xl">
         <a href="https://www.google.com/search?q=Maxim+Autos+Skokie+IL+reviews" target="_blank" rel="noopener"
-           class="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 text-white rounded-full px-4 py-2 mb-6 hover:bg-white/20 transition-colors">
-          <span class="material-symbols-outlined text-orange text-base" style="font-variation-settings: 'FILL' 1;">star</span>
+           class="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 text-white rounded-full px-3 py-1 mb-2 hover:bg-white/20 transition-colors">
+          <span class="material-symbols-outlined text-orange text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
           <span class="font-bold text-sm">{reviewsMeta.rating.toFixed(1)} Estrellas en Google</span>
           <span class="text-white/60 text-xs">· {reviewsMeta.count} Resenas</span>
         </a>
-        <h1 class="font-headline text-4xl md:text-5xl lg:text-6xl font-extrabold text-white leading-tight tracking-tight mb-4">
-          Autos Usados <br/>en Skokie, IL
+        <h1 class="font-headline text-2xl md:text-3xl lg:text-4xl font-extrabold text-white leading-tight tracking-tight mb-1">
+          Autos Usados en Skokie, IL
         </h1>
-        <p class="font-headline text-lg md:text-2xl lg:text-3xl font-bold text-white mb-3">Autos Usados en los que Puedes Confiar.</p>
-        <p class="text-lg md:text-xl text-white/80 mb-2 leading-relaxed">
+        <p class="font-headline text-base md:text-lg lg:text-xl font-bold text-white mb-1">Autos Usados en los que Puedes Confiar.</p>
+        <p class="text-sm md:text-base text-white/80 mb-1 leading-snug text-balance">
           Especializados en el rango de {facts.inventory.segmentTextEs}, solo autos seleccionados a mano. Lleva tu auto el mismo dia.
         </p>
         {/* Paired note, required. See PriceBandNote.astro and the unpaired-segment-band
             rule in scripts/lint-copy.mjs. Guardrail D4: every English disclosure needs its
             Spanish equivalent on the matching /es/ page. */}
-        <PriceBandNote lang="es" class="text-white mb-6 max-w-lg" />
-        <div class="flex flex-wrap gap-2 mb-8">
+        <PriceBandNote lang="es" class="text-white mb-3 max-w-lg md:max-w-2xl" />
+        <div class="flex flex-wrap gap-2 mb-3">
           {[
             { label: 'Menos de $10K', href: `${base}/es/inventario?price=under10k` },
             { label: 'SUVs', href: `${base}/es/inventario?body=SUV` },
@@ -116,20 +116,20 @@ const heroReviews = reviews.slice(0, 6);
             { label: 'Ver Todo', href: `${base}/es/inventario` },
           ].map(chip => (
             <a href={chip.href}
-               class="bg-white/15 backdrop-blur-sm border border-white/25 text-white text-sm font-semibold px-4 py-2 rounded-full hover:bg-white/30 transition-all">
+               class="bg-white/15 backdrop-blur-sm border border-white/25 text-white text-sm font-semibold px-3.5 py-1.5 rounded-full hover:bg-white/30 transition-all">
               {chip.label}
             </a>
           ))}
         </div>
         <div class="flex flex-col sm:flex-row gap-3">
           <a href={`${base}/es/inventario`}
-             class="inline-flex items-center justify-center gap-2 bg-orange text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-orange-dark transition-colors shadow-lg">
-            Ver Inventario <span class="material-symbols-outlined">arrow_forward</span>
+             class="inline-flex items-center justify-center gap-2 bg-orange text-white px-6 py-2.5 rounded-xl font-bold text-base hover:bg-orange-dark transition-colors shadow-lg">
+            Ver Inventario <span class="material-symbols-outlined text-lg">arrow_forward</span>
           </a>
         </div>
 
-        <!-- Tarjeta de resena para movil (la de escritorio va sobre la foto del hero) -->
-        <ReviewRotator reviews={heroReviews} lang="es" class="md:hidden mt-8 w-full" />
+        {/* La tarjeta movil se movio bajo la parrilla de vehiculos (2026-08-15) para que
+            el telefono llegue antes a los autos. La de escritorio va sobre la foto del hero. */}
       </div>
     </div>
   </section>
@@ -172,7 +172,9 @@ const heroReviews = reviews.slice(0, 6);
         ))}
       </div>
       <p class="text-xs text-gray-400 mt-4">* Pago estimado con 10% de enganche, 9.9% APR, plazo de 60 meses. Solo para fines ilustrativos. Los términos reales varían según el crédito.</p>
-      <div class="text-center mt-10 md:hidden">
+      <!-- Tarjeta de resena rotativa para movil, reubicada fuera del hero. -->
+      <ReviewRotator reviews={heroReviews} lang="es" class="md:hidden mt-6 w-full" />
+      <div class="text-center mt-8 md:hidden">
         <a href={`${base}/es/inventario`} class="inline-flex items-center gap-2 bg-navy text-white px-8 py-4 rounded-xl font-bold hover:bg-navy-light transition-colors">
           Ver Todo el Inventario <span class="material-symbols-outlined">arrow_forward</span>
         </a>
