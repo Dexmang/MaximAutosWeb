@@ -70,12 +70,16 @@ const copy = isSpanish
     that has just made the segment claim, so repeating it reads like a stutter. The 'block'
     variant may stand alone under a grid, so it keeps the lead for context. Either way the
     LIVE band is present, which is what the pairing rule requires. */}
+{/* The {' '} separators are load bearing. Astro strips the literal whitespace between a
+    closing tag and a following expression, which shipped the disclosure as
+    "...$16,850.Inventory changes." on the live homepage. A disclosure that reads as a
+    run-on is a disclosure a regulator can call unclear, so keep the spaces explicit. */}
 {variant === 'block' ? (
   <p class={`text-xs text-gray-500 leading-relaxed border-t border-gray-200 pt-3 mt-4 ${className}`}>
-    {copy.lead} <span class="font-semibold text-gray-600">{copy.live}</span> {copy.tail}
+    {copy.lead}{' '}<span class="font-semibold text-gray-600">{copy.live}</span>{' '}{copy.tail}
   </p>
 ) : (
   <p class={`text-xs leading-relaxed opacity-70 ${className}`}>
-    <span class="font-semibold opacity-100">{copy.live}</span> {copy.tail}
+    <span class="font-semibold opacity-100">{copy.live}</span>{' '}{copy.tail}
   </p>
 )}
