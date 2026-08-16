@@ -55,6 +55,10 @@ const VEHICLES_PATH = join(__dirname, "../site/src/data/vehicles.json");
 // dc-inventory.json is the committed snapshot of the NEWEST DealerCenter OAP
 // (SFTP) feed. It is the book of record for what is for sale.
 const DC_INVENTORY_PATH = join(__dirname, "../site/src/data/dc-inventory.json");
+// Optional per-VIN hero overrides: { VIN: photoUrls index }. Used only when a
+// gallery does not follow the standard shoot order, so the default hero pick
+// (photoUrls[2]) would land on a rear angle. See the file's _comment.
+const HERO_OVERRIDES_PATH = join(__dirname, "../site/src/data/gmc-hero-overrides.json");
 const FEED_DIR = join(__dirname, "../web_assets/feeds");
 const FEED_PATH = join(FEED_DIR, "vehicles.xml");
 
@@ -199,7 +203,19 @@ function buildItem(v) {
   const BRANDED_LEAD_PHOTOS = 1; // photo[0] carries the promotional overlay
   const HERO_OFFSET = 1; // within cleanPhotos: the front-to-side ~45° shot
   const cleanPhotos = (v.photoUrls || []).slice(BRANDED_LEAD_PHOTOS);
-  const heroIndex = cleanPhotos.length > HERO_OFFSET ? HERO_OFFSET : 0;
+  let heroIndex = cleanPhotos.length > HERO_OFFSET ? HERO_OFFSET : 0;
+  // Per-VIN override (gmc-hero-overrides.json), expressed as a photoUrls index.
+  // Index 0 is the branded lead and is refused; out-of-range values are ignored
+  // with a warning so a stale entry can never blank a hero.
+  const override = HERO_OVERRIDES[(v.vin || "").toUpperCase()];
+  if (override !== undefined) {
+    const idx = Number(override) - BRANDED_LEAD_PHOTOS;
+    if (Number.isInteger(idx) && idx >= 0 && idx < cleanPhotos.length) {
+      heroIndex = idx;
+    } else {
+      console.warn(`WARN ${v.slug} — hero override ${override} ignored (branded lead or out of range)`);
+    }
+  }
   const imageLink = cleanPhotos[heroIndex];
   if (!imageLink) {
     console.warn(`SKIP ${v.slug} — no unbranded image available for image_link`);
@@ -306,6 +322,27 @@ function buildItem(v) {
 // ---------------------------------------------------------------------------
 // Main
 // ---------------------------------------------------------------------------
+/**
+ * Load the optional hero override map. Missing file or a non-object is an
+ * empty map; keys are upper-cased VINs, the `_comment` key is dropped.
+ */
+function loadHeroOverrides() {
+  if (!existsSync(HERO_OVERRIDES_PATH)) return {};
+  try {
+    const raw = JSON.parse(readFileSync(HERO_OVERRIDES_PATH, "utf-8"));
+    const out = {};
+    for (const [k, val] of Object.entries(raw || {})) {
+      if (k.startsWith("_")) continue;
+      out[k.toUpperCase()] = val;
+    }
+    return out;
+  } catch (err) {
+    console.warn(`WARN could not read ${HERO_OVERRIDES_PATH}: ${err.message}; ignoring overrides`);
+    return {};
+  }
+}
+const HERO_OVERRIDES = loadHeroOverrides();
+
 function buildFeed() {
   const vehicles = JSON.parse(readFileSync(VEHICLES_PATH, "utf-8"));
 

@@ -1,0 +1,5 @@
+{
+  "_comment": "Google Merchant Center hero (image_link) overrides, keyed by VIN. Value = index into the unit's photoUrls array. Only needed when a gallery does not follow the standard DealerCenter shoot order ([0] branded lead, [1] straight-on front, [2] front-to-side 3/4), so the builder's default pick (photoUrls[2]) would land on a rear angle. Google recommends a front-to-side main image and warns against rear angles. Index 0 is never allowed (branded overlay). Entries for VINs no longer in the DC feed are inert; prune when convenient.",
+  "YV4A22PK0J1214240": 1,
+  "1GKKNWLS3HZ262925": 1
+}
