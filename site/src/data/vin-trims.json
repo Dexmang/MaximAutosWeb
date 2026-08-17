@@ -1,6 +1,6 @@
 {
   "source": "pka_hub.db ma_vehicles",
-  "generated_at": "2026-08-17T06:00:03.575Z",
+  "generated_at": "2026-08-17T23:00:03.606Z",
   "by_vin": {
     "JTJBK1BA4E2462410": "350",
     "1FMCU0J95HUE21095": "Titanium",
@@ -137,6 +137,7 @@
     "JM3KE4DY6G0826709": "Grand Touring",
     "SHHFK7H79HU203382": "EX-L w/Navigation",
     "JF2GPAVC7D2808666": "Premium",
-    "KM8SM4HF4EU062283": "GLS"
+    "KM8SM4HF4EU062283": "GLS",
+    "JTDKN3DU5E1751265": "TWO"
   }
 }
