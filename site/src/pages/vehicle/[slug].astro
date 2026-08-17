@@ -1,5 +1,6 @@
 ---
 import { getImage } from 'astro:assets';
+import { isRemoteImageAvailable } from '../../lib/remote-image';
 import Layout from '../../layouts/Layout.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
@@ -83,20 +84,35 @@ const thumbSizes = '(min-width: 1280px) 256px, 20vw';
 // WebP hero for LCP (task #202). The DC CDN serves JPG only (no WebP variant in
 // its path scheme), so Astro/Sharp reencodes the hero to self-hosted WebP at
 // build time. Only the in-stock hero is optimized — sold VDPs are noIndex and
-// their DC photos may be purged. Wrapped so a transient CDN 503 or a missing
-// remote image can never break the build: on any failure heroWebpSrcset stays
-// undefined and the markup falls back to the hotlinked JPG <img> (prior behavior).
+// their DC photos may be purged.
+//
+// Every URL is confirmed reachable BEFORE it reaches getImage(). A try/catch here
+// would do nothing: getImage() only registers the transform, and the download runs
+// later inside Astro's own build queue, where a 404 aborts the entire build. The DC
+// CDN builds its /{width}/{height}/ derivatives on demand and 404s some of them
+// (this killed three production deploys on 2026-08-17). See src/lib/remote-image.ts.
+//
+// Variants are probed independently — 640/480 frequently 404s on a photo whose
+// 1024/768 serves fine, so a dead small variant still leaves a usable WebP hero.
+// If neither confirms, heroWebpSrcset stays undefined and the markup falls back to
+// the hotlinked JPG <img>, exactly as before.
 let heroWebpSrcset: string | undefined;
 if (!isSold && allPhotos.length > 0 && isDcPhoto(allPhotos[0])) {
-  try {
-    const [w640, w1024] = await Promise.all([
-      getImage({ src: dcResize(allPhotos[0], 640, 480), width: 640, height: 480, format: 'webp' }),
-      getImage({ src: dcResize(allPhotos[0], 1024, 768), width: 1024, height: 768, format: 'webp' }),
-    ]);
-    heroWebpSrcset = `${w640.src} 640w, ${w1024.src} 1024w`;
-  } catch (_) {
-    heroWebpSrcset = undefined;
+  const variants = [
+    { url: dcResize(allPhotos[0], 640, 480), width: 640, height: 480 },
+    { url: dcResize(allPhotos[0], 1024, 768), width: 1024, height: 768 },
+  ];
+  const parts: string[] = [];
+  for (const { url, width, height } of variants) {
+    if (!(await isRemoteImageAvailable(url))) continue;
+    try {
+      const img = await getImage({ src: url, width, height, format: 'webp' });
+      parts.push(`${img.src} ${width}w`);
+    } catch (_) {
+      // Registration itself failed; skip this variant.
+    }
   }
+  heroWebpSrcset = parts.length > 0 ? parts.join(', ') : undefined;
 }
 
 const otherVehicles = vehicles.filter(o => o.slug !== v.slug && (o as any).status !== 'sold').slice(0, 3);
