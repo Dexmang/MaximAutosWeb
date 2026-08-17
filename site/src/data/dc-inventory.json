@@ -1,6 +1,6 @@
 {
   "source": "pka_hub.db ma_vehicles + vPIC",
-  "generated_at": "2026-08-16",
+  "generated_at": "2026-08-17",
   "by_vin": {
     "1GKKNWLS3HZ262925": {
       "year": 2017,
@@ -49,7 +49,7 @@
       "priceSavings": 0,
       "description": "2017 GMC Acadia SLT AWD — strong 3.6L V6, confident all-wheel drive, upscale leather-appointed comfort. Burgundy exterior on black leather interior, automatic transmission, third-row seating. A downsized, efficient midsize crossover with the towing muscle and quiet ride families want. Key features: 8-inch touchscreen with Apple CarPlay and Android Auto, BOSE premium sound system, heated front and rear seats, blind spot monitor, remote start, power liftgate, memory seats, panoramic sunroof, full roof rack, tow hitch, rear-view camera, and smart key entry. Smart-slide second-row seating makes third-row access easy for a genuine three-row family hauler. The Maxim Autos Difference Independent inspection report included with every vehicle 3-Month \"Peace of Mind\" Warranty (extended coverage available) Metal plates issued on-the-spot — drive home today Transparent pricing, no hidden fees Financing for all credit levels Located in Skokie, IL — minutes from Evanston, Niles, Morton Grove, Lincolnwood, Des Plaines, and the North Shore Chicago suburbs. Call or text to set up a same-day appointment. Every car inspected. Every price transparent. Every customer protected.",
       "highlights": [
-        "SLT-2 trim",
+        "SLT 2 trim",
         "93,985 miles",
         "Fully inspected, free CARFAX"
       ],
@@ -113,7 +113,7 @@
       "priceSavings": 0,
       "description": "2017 Nissan Versa Note SV. Rearview camera, Bluetooth hands free calling, SiriusXM ready, and excellent fuel economy for daily commuting. Blue on black cloth, automatic, 1.6L. A practical hatchback for commuters and first time buyers who want low cost of ownership without giving up cabin space. The 1.6L returns 31 mpg city and 39 mpg highway, so gas stops stay rare. Key features: automatic transmission, cruise control, power windows and locks, power mirrors, side and overhead airbags, folding rear seats for real cargo space. Roomy hatchback layout, easy to park and maneuver around town. The Maxim Autos Difference Independent inspection report included with every vehicle Metal plates issued on the spot, drive home today Transparent pricing, no hidden fees Financing for all credit levels Located in Skokie, IL, serving Evanston, Niles, Morton Grove, Lincolnwood, Des Plaines, and the entire North Shore Chicago area. Same day appointments available, call or stop by today. Every car inspected. Every price transparent. Every customer protected.",
       "highlights": [
-        "SV trim",
+        "SV Hatchback 4D trim",
         "68,875 miles",
         "Fully inspected, free CARFAX"
       ],
@@ -176,7 +176,7 @@
       "priceSavings": 1017,
       "description": "This 2020 Subaru Legacy Limited is a lot of equipment for the money. The price reflects the 119,072 miles on the odometer rather than the feature list, which is close to fully loaded. It pairs the 2.5 liter four cylinder with the Lineartronic CVT and Subaru all wheel drive, so Chicago winters are a non issue. Inside there is leather seating, heated front seats, dual power seats, a navigation system, harman/kardon audio, SUBARU STARLINK with Bluetooth and SiriusXM, push button start, and a moon roof. Driver assistance is the real strength: EyeSight, adaptive cruise control, lane keep assist, blind spot detection, and a backup camera, backed by knee air bags and full length head curtain air bags. LED headlamps, fog lights, alloy wheels, and the All Weather Package round it out. Finished in silver over a black interior. The Maxim Autos Difference Independent inspection report included with every vehicle Metal plates issued the same day so you can drive home today Transparent pricing, no hidden fees Financing for all credit levels Located in Skokie, IL, serving Evanston, Niles, Morton Grove, Lincolnwood, Des Plaines, and the entire North Shore Chicago corridor. Visit or call for a same day appointment. Every car inspected. Every price transparent. Every customer protected.",
       "highlights": [
-        "Limited trim",
+        "Limited+M/R+NAVI(HK) trim",
         "119,072 miles",
         "Fully inspected, free CARFAX"
       ],
@@ -307,7 +307,7 @@
       "priceSavings": 0,
       "description": "2013 Subaru XV Crosstrek Premium with Symmetrical all wheel drive, black on tan cloth, 2.0 liter Subaru Boxer engine and CVT automatic. This is the compact crossover that handles a Chicago winter without asking you to drive something huge, and it still returns highway numbers a lot of sedans would envy. Key features: Symmetrical all wheel drive standard, 2.0 liter horizontally opposed Boxer four cylinder, continuously variable automatic transmission, tilt and telescoping steering wheel, cruise control and air conditioning. EPA rated 25 city and 33 highway. The Maxim Autos Difference Independent inspection report included with every vehicle Metal plates issued same day, drive home today Transparent pricing, no hidden fees Financing for all credit levels Skokie, IL. Serving Evanston, Niles, Morton Grove, Lincolnwood, Des Plaines and the North Shore. Call or text (847) 510-8947 to set up a same day appointment. Every car inspected. Every price transparent. Every customer protected.",
       "highlights": [
-        "Premium trim",
+        "Prm+AWP+S/R trim",
         "86,200 miles",
         "Fully inspected, free CARFAX"
       ],
@@ -368,7 +368,7 @@
       "priceSavings": 0,
       "description": "2016 Mazda CX-5 Grand Touring AWD — engaging, car-like handling, premium Grand Touring cabin, efficient 2.5L Skyactiv-G engine. Blue exterior on beige leather interior, automatic transmission, one-owner Evanston history. A compact SUV that drives more like a sedan than a crossover, with real EPA-estimated fuel economy of 24 city / 30 highway. Key features: Bose premium sound system, leather seating, heated front seats, navigation system, blind spot monitor, power seat, smart key entry, sunroof, and rear-view camera on Mazda's confident predictive AWD system. Sharp suspension tuning and responsive steering make this one of the more fun-to-drive compact SUVs on the market. The Maxim Autos Difference Independent inspection report included with every vehicle 3-Month \"Peace of Mind\" Warranty (extended coverage available) Metal plates issued on-the-spot — drive home today Transparent pricing, no hidden fees Financing for all credit levels Located in Skokie, IL — minutes from Evanston, Niles, Morton Grove, Lincolnwood, Des Plaines, and the North Shore Chicago suburbs. Call or text to set up a same-day appointment. Every car inspected. Every price transparent. Every customer protected.",
       "highlights": [
-        "Grand Touring trim",
+        "Grand Touring/GT trim",
         "69,074 miles",
         "Fully inspected, free CARFAX"
       ],
@@ -499,7 +499,7 @@
       "priceSavings": 0,
       "description": "2014 Hyundai Santa Fe GLS, a three row crossover with seating for seven and a 3.3 liter V6 under the hood. Silver on gray cloth, six speed automatic with Shiftronic. One owner car out of La Grange with just 53,229 miles, which works out to roughly 4,400 miles a year on a vehicle this age. If you need real third row space without stepping up to a full size SUV, this is the size that works. Key features: 3.3 liter V6 producing 290 horsepower, six speed automatic with Shiftronic manual shift mode, seating for seven across three rows, second row bench with a fold flat third row for cargo flexibility, air conditioning with rear climate controls, power windows and locks, cruise control, and up to 5,000 pounds of towing capacity when properly equipped. EPA rated 18 city and 25 highway. The Maxim Autos Difference No dealer fees. Ever. Independent inspection report included with every vehicle Metal plates issued same day, drive home today Transparent pricing, no hidden fees Financing for all credit levels Skokie, IL. Serving Evanston, Niles, Morton Grove, Lincolnwood, Des Plaines and the North Shore. Call or text (847) 510-8947 to set up a same day appointment. Every car inspected. Every price transparent. Every customer protected.",
       "highlights": [
-        "GLS trim",
+        "GL trim",
         "53,229 miles",
         "Fully inspected, free CARFAX"
       ],
@@ -561,7 +561,7 @@
       "priceSavings": 1311,
       "description": "The Value Edition was the sweet spot of the 2016 Elantra lineup, and this one reads 96,503 miles, well under most of what is listed locally in the same year and trim. It runs the 1.8 liter four cylinder with the six speed Shiftronic automatic, driving the front wheels. Value Edition is where Hyundai loaded in the equipment that normally costs extra: a power glass sunroof, heated front seats, a backup camera, keyless entry with keyless start, alloy wheels, and fog lights. On top of that you get air conditioning, cruise control, power windows and power door locks, Bluetooth, SiriusXM satellite radio alongside the AM/FM and CD system, an alarm system, and a tilt and telescoping steering wheel. Safety coverage includes hill start assist control, electronic stability control, traction control, four wheel ABS, and dual, side, and full length head curtain air bags. Finished in red over a black interior. The Maxim Autos Difference Independent inspection report included with every vehicle Metal plates issued the same day so you can drive home today Transparent pricing, no hidden fees Financing for all credit levels Located in Skokie, IL, serving Evanston, Niles, Morton Grove, Lincolnwood, Des Plaines, and the entire North Shore Chicago corridor. Visit or call for a same day appointment. Every car inspected. Every price transparent. Every customer protected.",
       "highlights": [
-        "Value Edition trim",
+        "SE / Value Edition / Sport / Limited trim",
         "96,503 miles",
         "Fully inspected, free CARFAX"
       ],
@@ -622,7 +622,7 @@
       "priceSavings": 0,
       "description": "2018 Kia Niro EX Hybrid — an estimated 49-50 mpg combined, upscale EX comfort, and a small-SUV body without the hybrid trade-offs. Gray exterior on black interior, automatic transmission, 1.6L hybrid powertrain. Built for drivers who want real fuel savings on every commute without sacrificing everyday comfort. Key features: heated front seats, leather-wrapped steering wheel, Harman Kardon premium sound, navigation system, blind spot monitor, Apple CarPlay and Android Auto, power seat, rear-view camera, smart key entry, and a smooth 6-speed dual-clutch automatic instead of a droning CVT. The hybrid battery packages neatly under the rear seat, so cargo space stays close to a standard hatchback's. The Maxim Autos Difference Independent inspection report included with every vehicle 3-Month \"Peace of Mind\" Warranty (extended coverage available) Metal plates issued on-the-spot — drive home today Transparent pricing, no hidden fees Financing for all credit levels Located in Skokie, IL — minutes from Evanston, Niles, Morton Grove, Lincolnwood, Des Plaines, and the North Shore Chicago suburbs. Call or text to set up a same-day appointment. Every car inspected. Every price transparent. Every customer protected.",
       "highlights": [
-        "EX trim",
+        "EX Premium (PHEV), Graphite Edition (HEV) trim",
         "90,990 miles",
         "Fully inspected, free CARFAX"
       ],
@@ -684,6 +684,7 @@
       "priceSavings": 963,
       "description": "This 2015 Kia Soul comes with the six speed manual gearbox, which makes it a genuinely rare find on a used lot and an easy call for anyone who would rather shift for themselves. The odometer reads 94,489 miles. The 1.6 liter four cylinder sends power to the front wheels through that manual transmission. Equipment includes air conditioning, cruise control, power windows and power door locks, Bluetooth, SiriusXM satellite radio alongside the AM/FM stereo, a tilt and telescoping steering wheel, and alloy wheels. Safety coverage includes hill start assist control, electronic stability control, traction control, four wheel ABS, and dual, side, and head curtain air bags. It is finished in gray over a black interior, in the boxy Soul shape that swallows far more cargo than its footprint suggests. The Maxim Autos Difference Independent inspection report included with every vehicle Metal plates issued the same day so you can drive home today Transparent pricing, no hidden fees Financing for all credit levels Located in Skokie, IL, serving Evanston, Niles, Morton Grove, Lincolnwood, Des Plaines, and the entire North Shore Chicago corridor. Visit or call for a same day appointment. Every car inspected. Every price transparent. Every customer protected.",
       "highlights": [
+        "GL(Middle-low grade) trim",
         "94,489 miles",
         "Fully inspected, free CARFAX"
       ],
@@ -744,7 +745,7 @@
       "priceSavings": 0,
       "description": "2017 Honda Civic EX-L Hatchback — sporty 174-hp turbo engine, massive 25.7 cubic feet of cargo space (46.2 with seats folded), upscale leather-trimmed interior. Black exterior on black leather interior, automatic transmission, one-owner Lake in the Hills history. A practical hatchback that doesn't feel like a compromise, with real strong fuel economy for daily driving. Key features: Apple CarPlay and Android Auto, sunroof, heated front seats, remote start, rear-view camera, smart key entry, and a wide rear hatch opening with a unique side-mounted retractable cargo cover. Leather seating and a quiet cabin give this hatchback a genuinely upscale feel for its class. The Maxim Autos Difference Independent inspection report included with every vehicle 3-Month \"Peace of Mind\" Warranty (extended coverage available) Metal plates issued on-the-spot — drive home today Transparent pricing, no hidden fees Financing for all credit levels Located in Skokie, IL — minutes from Evanston, Niles, Morton Grove, Lincolnwood, Des Plaines, and the North Shore Chicago suburbs. Call or text to set up a same-day appointment. Every car inspected. Every price transparent. Every customer protected.",
       "highlights": [
-        "EX-L w/Navigation trim",
+        "EX-L trim",
         "111,399 miles",
         "Fully inspected, free CARFAX"
       ],
@@ -799,7 +800,7 @@
       "priceSavings": 0,
       "description": "This 2018 Volvo XC90 T6 Momentum is finished in gray over tan leather, with an automatic transmission, the 2.0L turbocharged and supercharged T6 engine, AWD, and 109,619 miles. It seats seven across three rows and is EPA rated at 20 MPG city and 27 MPG highway, so it suits a family that wants a large Swedish crossover without the fuel bill of a traditional three row SUV. Key features: Panoramic sunroof, leather seats, fold away third row seat, heated front seats, heated steering wheel, navigation system, Apple CarPlay, Android Auto, blind spot monitor, lane departure warning, automated cruise control, head up display, rear view camera, parking sensors, power liftgate, remote start, memory seats, rear air conditioning, rear sunshade, smart key, 20 inch alloy wheels, Bluetooth, satellite radio ready, and AWD. EPA rated 20 MPG city and 27 MPG highway. The Maxim Autos Difference No dealer fees. Ever. Independent inspection report included with every vehicle Metal plates issued same day, drive home today Transparent pricing, no hidden fees Financing for all credit levels Maxim Autos is in Skokie, IL, serving Evanston, Niles, Morton Grove, Lincolnwood, Wilmette, Glenview, Park Ridge, and the North Shore. Call or text (847) 510-8947 to set up a time to see it. Every car inspected. Every price transparent. Every customer protected.",
       "highlights": [
-        "T6 Momentum trim",
+        "Momentum trim",
         "109,619 miles",
         "Fully inspected, free CARFAX"
       ],
