@@ -1,11 +1,11 @@
 {
-  "last_updated": "2026-08-17T06:00:16.032Z",
+  "last_updated": "2026-08-17T06:37:42.200Z",
   "period_start": "2026-08-10",
   "period_end": "2026-08-17",
   "by_vin": {
     "KNDJN2A23F7202591": {
-      "srp_views": 1725,
-      "vdp_views": 35,
+      "srp_views": 1746,
+      "vdp_views": 36,
       "leads_email": 0,
       "leads_phone": 1,
       "leads_chat": 0,
@@ -31,7 +31,7 @@
       "map_clicks": 2
     },
     "1GKKNWLS3HZ262925": {
-      "srp_views": 124,
+      "srp_views": 127,
       "vdp_views": 8,
       "leads_email": 0,
       "leads_phone": 0,
@@ -40,7 +40,7 @@
       "map_clicks": 2
     },
     "JM3KE4DY6G0826709": {
-      "srp_views": 508,
+      "srp_views": 531,
       "vdp_views": 40,
       "leads_email": 0,
       "leads_phone": 1,
@@ -58,7 +58,7 @@
       "map_clicks": 0
     },
     "3N1CE2CPXHL360736": {
-      "srp_views": 780,
+      "srp_views": 783,
       "vdp_views": 48,
       "leads_email": 0,
       "leads_phone": 0,
@@ -76,8 +76,8 @@
       "map_clicks": 0
     },
     "4S3BWAN63L3011555": {
-      "srp_views": 905,
-      "vdp_views": 30,
+      "srp_views": 912,
+      "vdp_views": 31,
       "leads_email": 0,
       "leads_phone": 0,
       "leads_chat": 0,
@@ -85,7 +85,7 @@
       "map_clicks": 0
     },
     "KL7CJPSB8JB587987": {
-      "srp_views": 1162,
+      "srp_views": 1174,
       "vdp_views": 34,
       "leads_email": 2,
       "leads_phone": 0,
@@ -94,7 +94,7 @@
       "map_clicks": 0
     },
     "5J6RM4H3XGL120098": {
-      "srp_views": 1406,
+      "srp_views": 1416,
       "vdp_views": 114,
       "leads_email": 0,
       "leads_phone": 0,
@@ -103,8 +103,8 @@
       "map_clicks": 2
     },
     "YV4A22PK0J1214240": {
-      "srp_views": 433,
-      "vdp_views": 27,
+      "srp_views": 443,
+      "vdp_views": 28,
       "leads_email": 0,
       "leads_phone": 0,
       "leads_chat": 0,
@@ -112,8 +112,8 @@
       "map_clicks": 0
     },
     "SHHFK7H79HU203382": {
-      "srp_views": 367,
-      "vdp_views": 36,
+      "srp_views": 385,
+      "vdp_views": 38,
       "leads_email": 2,
       "leads_phone": 0,
       "leads_chat": 0,
@@ -121,7 +121,7 @@
       "map_clicks": 3
     },
     "KMHDH4AE6GU489451": {
-      "srp_views": 665,
+      "srp_views": 674,
       "vdp_views": 21,
       "leads_email": 0,
       "leads_phone": 0,
