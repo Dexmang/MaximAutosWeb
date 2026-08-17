@@ -298,6 +298,16 @@
       "source": "/vehicle/2015-honda-civic-se/",
       "destination": "/inventory",
       "permanent": true
+    },
+    {
+      "source": "/vehicle/2017-gmc-acadia-slt-2-j10231",
+      "destination": "/inventory",
+      "permanent": true
+    },
+    {
+      "source": "/vehicle/2017-gmc-acadia-slt-2-j10231/",
+      "destination": "/inventory",
+      "permanent": true
     }
   ],
   "headers": [

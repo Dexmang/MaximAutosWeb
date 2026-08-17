@@ -18,6 +18,12 @@
       "stockNumber": "J10210",
       "retired_at": "2026-07-26",
       "redirect_to": "/inventory"
+    },
+    "2017-gmc-acadia-slt-2-j10231": {
+      "vin": "1GKKNWLS3HZ262925",
+      "stockNumber": "J10231",
+      "retired_at": "2026-08-17",
+      "redirect_to": "/inventory"
     }
   }
 }
