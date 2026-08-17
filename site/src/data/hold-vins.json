@@ -16,6 +16,13 @@
       "stock": "J10202",
       "reason": "sold",
       "since": "2026-07-01"
+    },
+    "1GKKNWLS3HZ262925": {
+      "stock": "J10231",
+      "reason": "returned-to-carmax",
+      "since": "2026-08-17",
+      "note": "Transmission problem found 2026-08-17. Unit goes back to CarMax Auctions Indianapolis (bought 2026-08-10). Never sold, so it must not get a SOLD VDP. DealerCenter set to Inbound the same day.",
+      "bridge": true
     }
   }
 }
