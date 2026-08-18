@@ -1,13 +1,13 @@
 {
   "source": "pka_hub.db ma_vehicles",
-  "generated_at": "2026-08-18T08:30:03.819Z",
+  "generated_at": "2026-08-18T21:00:03.609Z",
   "by_vin": {
-    "JTJBK1BA4E2462410": "350",
+    "JTJBK1BA4E2462410": "AWD",
     "1FMCU0J95HUE21095": "Titanium",
     "KM8J3CAL9LU250710": "Ultimate",
-    "SAJWA79B58SH23092": "Vanden Plas L",
+    "SAJWA79B58SH23092": "XJ8 L",
     "4S4BSANC1H3317349": "2.5I Limited",
-    "JF2GPABC4HH264053": "2.0I Premium",
+    "JF2GPABC4HH264053": "Premium",
     "4T1B11HK5KU764662": "LE",
     "5J6RM4H73FL051496": "EX-L",
     "WA1L2AFP8GA046658": "2.0T Premium Plus",
@@ -138,6 +138,7 @@
     "SHHFK7H79HU203382": "EX-L w/Navigation",
     "JF2GPAVC7D2808666": "Premium",
     "KM8SM4HF4EU062283": "GLS",
-    "JTDKN3DU5E1751265": "TWO"
+    "JTDKN3DU5E1751265": "TWO",
+    "KM8SMDHFXFU124707": "GLS"
   }
 }
