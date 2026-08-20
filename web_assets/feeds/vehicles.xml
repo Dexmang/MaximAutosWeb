@@ -4,7 +4,7 @@
   <title>Maxim Autos Vehicle Inventory</title>
   <link>https://www.maximautos.com/</link>
   <description>Used vehicles for sale at Maxim Autos in Skokie, IL 60077. Phone +18475108947.</description>
-  <lastBuildDate>2026-08-20T18:27:01.630Z</lastBuildDate>
+  <lastBuildDate>2026-08-20T20:05:10.529Z</lastBuildDate>
   <item>
     <g:id>3N1CE2CPXHL360736</g:id>
     <g:title>2017 Nissan Versa Note SV</g:title>
@@ -255,42 +255,6 @@
     </g:vehicle_fulfillment>
     <g:color>Silver</g:color>
     <g:trim>1LT</g:trim>
-    <g:body_style>suv</g:body_style>
-  </item>
-  <item>
-    <g:id>KM8SM4HF4EU062283</g:id>
-    <g:title>2014 Hyundai Santa Fe GLS</g:title>
-    <g:description>2014 Hyundai Santa Fe GLS, a three row crossover with seating for seven and a 3.3 liter V6 under the hood. Silver on gray cloth, six speed automatic with Shiftronic. One owner car out of La Grange with just 53,229 miles, which works out to roughly 4,400 miles a year on a vehicle this age. If you need real third row space without stepping up to a full size SUV, this is the size that works. Key features: 3.3 liter V6 producing 290 horsepower, six speed automatic with Shiftronic manual shift mode, seating for seven across three rows, second row bench with a fold flat third row for cargo flexibility, air conditioning with rear climate controls, power windows and locks, cruise control, and up to 5,000 pounds of towing capacity when properly equipped. EPA rated 18 city and 25 highway. The Maxim Autos Difference No dealer fees. Ever. Independent inspection report included with every vehicle Metal plates issued same day, drive home today Transparent pricing, no hidden fees Financing for all credit levels Skokie, IL. Serving Evanston, Niles, Morton Grove, Lincolnwood, Des Plaines and the North Shore. Call or text (847) 510-8947 to set up a same day appointment. Every car inspected. Every price transparent. Every car documented.</g:description>
-    <g:link>https://www.maximautos.com/vehicle/2014-hyundai-santa-fe-gl-j10236</g:link>
-    <g:link_template>https://www.maximautos.com/vehicle/2014-hyundai-santa-fe-gl-j10236?store={store_code}</g:link_template>
-    <g:image_link>https://imagesdl.dealercenter.net/1289/856/202608-bdad2a066fe241be841cb074077dea6a.jpg</g:image_link>
-    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202608-44ad7e3ae95743f2906d35d1da01e04a.jpg</g:additional_image_link>
-    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202608-0862f9a8415c41fab1ab4c654090e51f.jpg</g:additional_image_link>
-    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202608-a0b4914db3194f9d9646bb18f4ee2960.jpg</g:additional_image_link>
-    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202608-51fb7e23056345b19510eea4fbad42df.jpg</g:additional_image_link>
-    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202608-83d47faec6014907bd361bd475dab5e6.jpg</g:additional_image_link>
-    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202608-73744420c91747acaf254f5e16d6b5c4.jpg</g:additional_image_link>
-    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202608-bbdfb7fd71ae428ab86a13a80e7ff09b.jpg</g:additional_image_link>
-    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202608-3efefdffb739462fa06c17e154bfeacc.jpg</g:additional_image_link>
-    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202608-41e77496d4a94d8096166799af3e91c4.jpg</g:additional_image_link>
-    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202608-9f51ad31a5b1477ba7c6d5eabf0f4cb1.jpg</g:additional_image_link>
-    <g:condition>used</g:condition>
-    <g:price>10950 USD</g:price>
-    <g:availability>in_stock</g:availability>
-    <g:brand>Hyundai</g:brand>
-    <g:google_product_category>Vehicles &amp; Parts &gt; Vehicles &gt; Motor Vehicles &gt; Cars, Trucks &amp; Vans</g:google_product_category>
-    <g:excluded_destination>Shopping_ads</g:excluded_destination>
-    <g:excluded_destination>Free_listings</g:excluded_destination>
-    <g:vin>KM8SM4HF4EU062283</g:vin>
-    <g:year>2014</g:year>
-    <g:model>Santa Fe</g:model>
-    <g:mileage>53229 Miles</g:mileage>
-    <g:store_code>08861907241419503398</g:store_code>
-    <g:vehicle_fulfillment>
-      <g:option>in_store</g:option>
-    </g:vehicle_fulfillment>
-    <g:color>Silver</g:color>
-    <g:trim>GLS</g:trim>
     <g:body_style>suv</g:body_style>
   </item>
   <item>
