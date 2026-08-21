@@ -1,19 +1,182 @@
 {
-  "last_updated": "2026-08-21T00:52:28.726Z",
+  "last_updated": "2026-08-21T06:30:16.381Z",
   "period": {
     "start": "2026-08-14",
     "end": "2026-08-21"
   },
   "totals": {
     "impressions": 0,
-    "srp_views": 0,
-    "vdp_views": 0,
+    "srp_views": 11435,
+    "vdp_views": 600,
     "leads_total": 0,
-    "leads_email": 0,
-    "leads_phone": 0,
+    "leads_email": 16,
+    "leads_phone": 9,
     "leads_chat": 0,
-    "website_clicks": 0,
-    "map_clicks": 0
+    "website_clicks": 23,
+    "map_clicks": 11
   },
-  "daily": []
+  "daily": [
+    {
+      "date": "2026-08-21",
+      "impressions": 131,
+      "srp_views": 0,
+      "vdp_views": 0,
+      "leads_total": 0,
+      "leads_email": 0,
+      "leads_phone": 0,
+      "leads_chat": 0,
+      "website_clicks": 0,
+      "map_clicks": 0
+    },
+    {
+      "date": "2026-08-20",
+      "impressions": 1680,
+      "srp_views": 0,
+      "vdp_views": 0,
+      "leads_total": 4,
+      "leads_email": 0,
+      "leads_phone": 0,
+      "leads_chat": 0,
+      "website_clicks": 0,
+      "map_clicks": 0
+    },
+    {
+      "date": "2026-08-19",
+      "impressions": 1651,
+      "srp_views": 0,
+      "vdp_views": 0,
+      "leads_total": 4,
+      "leads_email": 0,
+      "leads_phone": 0,
+      "leads_chat": 0,
+      "website_clicks": 0,
+      "map_clicks": 0
+    },
+    {
+      "date": "2026-08-18",
+      "impressions": 1546,
+      "srp_views": 0,
+      "vdp_views": 0,
+      "leads_total": 2,
+      "leads_email": 0,
+      "leads_phone": 0,
+      "leads_chat": 0,
+      "website_clicks": 0,
+      "map_clicks": 0
+    },
+    {
+      "date": "2026-08-17",
+      "impressions": 1810,
+      "srp_views": 0,
+      "vdp_views": 0,
+      "leads_total": 2,
+      "leads_email": 0,
+      "leads_phone": 0,
+      "leads_chat": 0,
+      "website_clicks": 0,
+      "map_clicks": 0
+    },
+    {
+      "date": "2026-08-16",
+      "impressions": 1820,
+      "srp_views": 0,
+      "vdp_views": 0,
+      "leads_total": 2,
+      "leads_email": 0,
+      "leads_phone": 0,
+      "leads_chat": 0,
+      "website_clicks": 0,
+      "map_clicks": 0
+    },
+    {
+      "date": "2026-08-15",
+      "impressions": 1492,
+      "srp_views": 0,
+      "vdp_views": 0,
+      "leads_total": 1,
+      "leads_email": 0,
+      "leads_phone": 0,
+      "leads_chat": 0,
+      "website_clicks": 0,
+      "map_clicks": 0
+    },
+    {
+      "date": "2026-08-14",
+      "impressions": 1305,
+      "srp_views": 0,
+      "vdp_views": 0,
+      "leads_total": 1,
+      "leads_email": 0,
+      "leads_phone": 0,
+      "leads_chat": 0,
+      "website_clicks": 0,
+      "map_clicks": 0
+    }
+  ],
+  "raw": {
+    "daily_stats": [
+      {
+        "impressions": 131,
+        "leads": 0,
+        "clicks": 7,
+        "date": "2026-08-21"
+      },
+      {
+        "impressions": 1680,
+        "leads": 4,
+        "clicks": 104,
+        "date": "2026-08-20"
+      },
+      {
+        "impressions": 1651,
+        "leads": 4,
+        "clicks": 72,
+        "date": "2026-08-19"
+      },
+      {
+        "impressions": 1546,
+        "leads": 2,
+        "clicks": 75,
+        "date": "2026-08-18"
+      },
+      {
+        "impressions": 1810,
+        "leads": 2,
+        "clicks": 89,
+        "date": "2026-08-17"
+      },
+      {
+        "impressions": 1820,
+        "leads": 2,
+        "clicks": 82,
+        "date": "2026-08-16"
+      },
+      {
+        "impressions": 1492,
+        "leads": 1,
+        "clicks": 97,
+        "date": "2026-08-15"
+      },
+      {
+        "impressions": 1305,
+        "leads": 1,
+        "clicks": 74,
+        "date": "2026-08-14"
+      }
+    ],
+    "leads_email": 16,
+    "srps": 11435,
+    "vdps": 600,
+    "chat_leads": 0,
+    "sms_leads": 0,
+    "phone_leads": 9,
+    "facebook_clicks": 0,
+    "twitter_clicks": 0,
+    "instagram_clicks": 0,
+    "printouts": 0,
+    "website_clicks": 23,
+    "map_clicks": 11,
+    "you_tube_clicks": 0,
+    "success": true
+  }
 }
