@@ -4,7 +4,7 @@
   <title>Maxim Autos Vehicle Inventory</title>
   <link>https://www.maximautos.com/</link>
   <description>Used vehicles for sale at Maxim Autos in Skokie, IL 60077. Phone +18475108947.</description>
-  <lastBuildDate>2026-08-21T18:25:24.062Z</lastBuildDate>
+  <lastBuildDate>2026-08-21T23:54:52.300Z</lastBuildDate>
   <item>
     <g:id>3N1CE2CPXHL360736</g:id>
     <g:title>2017 Nissan Versa Note SV</g:title>
@@ -40,42 +40,6 @@
     <g:color>Blue</g:color>
     <g:trim>SV</g:trim>
     <g:body_style>hatchback</g:body_style>
-  </item>
-  <item>
-    <g:id>4S3BWAN63L3011555</g:id>
-    <g:title>2020 Subaru Legacy Limited</g:title>
-    <g:description>This 2020 Subaru Legacy Limited is a lot of equipment for the money. The price reflects the 119,072 miles on the odometer rather than the feature list, which is close to fully loaded. It pairs the 2.5 liter four cylinder with the Lineartronic CVT and Subaru all wheel drive, so Chicago winters are a non issue. Inside there is leather seating, heated front seats, dual power seats, a navigation system, harman/kardon audio, SUBARU STARLINK with Bluetooth and SiriusXM, push button start, and a moon roof. Driver assistance is the real strength: EyeSight, adaptive cruise control, lane keep assist, blind spot detection, and a backup camera, backed by knee air bags and full length head curtain air bags. LED headlamps, fog lights, alloy wheels, and the All Weather Package round it out. Finished in silver over a black interior. The Maxim Autos Difference Independent inspection report included with every vehicle Metal plates issued the same day so you can drive home today Transparent pricing, no hidden fees Financing for all credit levels Located in Skokie, IL, serving Evanston, Niles, Morton Grove, Lincolnwood, Des Plaines, and the entire North Shore Chicago corridor. Visit or call for a same day appointment. Every car inspected. Every price transparent. Every car documented.</g:description>
-    <g:link>https://www.maximautos.com/vehicle/2020-subaru-legacy-limited-m-r-navi-hk-j10221</g:link>
-    <g:link_template>https://www.maximautos.com/vehicle/2020-subaru-legacy-limited-m-r-navi-hk-j10221?store={store_code}</g:link_template>
-    <g:image_link>https://imagesdl.dealercenter.net/1289/856/202607-34a7a77d2e4b499ca4b04dddc119409b.jpg</g:image_link>
-    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202607-71c8bed5aa774f688efc87457ca28ebc.jpg</g:additional_image_link>
-    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202607-f91f0a3f2f9d450eb74e5df4ac513d94.jpg</g:additional_image_link>
-    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202607-7839d3555a534b4092682e73b52f2b15.jpg</g:additional_image_link>
-    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202607-8fca533b69a44022983b7411678bf671.jpg</g:additional_image_link>
-    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202607-84838e8a2ef743d2ac391e6257cd09e9.jpg</g:additional_image_link>
-    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202607-7b2a25ba837f49b384d0c20fbab78ce6.jpg</g:additional_image_link>
-    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202607-324a860485664695a95d02ff467cf5bd.jpg</g:additional_image_link>
-    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202607-2e9b3524fa184e309f372cdc64a453b6.jpg</g:additional_image_link>
-    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202607-8e670395fc6d4f849d4b6c76b4d24b2d.jpg</g:additional_image_link>
-    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202607-5185c6b754094ac490c1db2af7f66e18.jpg</g:additional_image_link>
-    <g:condition>used</g:condition>
-    <g:price>13450 USD</g:price>
-    <g:availability>in_stock</g:availability>
-    <g:brand>Subaru</g:brand>
-    <g:google_product_category>Vehicles &amp; Parts &gt; Vehicles &gt; Motor Vehicles &gt; Cars, Trucks &amp; Vans</g:google_product_category>
-    <g:excluded_destination>Shopping_ads</g:excluded_destination>
-    <g:excluded_destination>Free_listings</g:excluded_destination>
-    <g:vin>4S3BWAN63L3011555</g:vin>
-    <g:year>2020</g:year>
-    <g:model>Legacy</g:model>
-    <g:mileage>119072 Miles</g:mileage>
-    <g:store_code>08861907241419503398</g:store_code>
-    <g:vehicle_fulfillment>
-      <g:option>in_store</g:option>
-    </g:vehicle_fulfillment>
-    <g:color>Silver</g:color>
-    <g:trim>Limited</g:trim>
-    <g:body_style>sedan</g:body_style>
   </item>
   <item>
     <g:id>5J6RM4H3XGL120098</g:id>
@@ -363,41 +327,6 @@
     </g:vehicle_fulfillment>
     <g:color>Gray</g:color>
     <g:trim>EX</g:trim>
-    <g:body_style>suv</g:body_style>
-  </item>
-  <item>
-    <g:id>KNDJN2A23F7202591</g:id>
-    <g:title>2015 Kia Soul</g:title>
-    <g:description>This 2015 Kia Soul comes with the six speed manual gearbox, which makes it a genuinely rare find on a used lot and an easy call for anyone who would rather shift for themselves. The odometer reads 94,489 miles. The 1.6 liter four cylinder sends power to the front wheels through that manual transmission. Equipment includes air conditioning, cruise control, power windows and power door locks, Bluetooth, SiriusXM satellite radio alongside the AM/FM stereo, a tilt and telescoping steering wheel, and alloy wheels. Safety coverage includes hill start assist control, electronic stability control, traction control, four wheel ABS, and dual, side, and head curtain air bags. It is finished in gray over a black interior, in the boxy Soul shape that swallows far more cargo than its footprint suggests. The Maxim Autos Difference Independent inspection report included with every vehicle Metal plates issued the same day so you can drive home today Transparent pricing, no hidden fees Financing for all credit levels Located in Skokie, IL, serving Evanston, Niles, Morton Grove, Lincolnwood, Des Plaines, and the entire North Shore Chicago corridor. Visit or call for a same day appointment. Every car inspected. Every price transparent. Every car documented.</g:description>
-    <g:link>https://www.maximautos.com/vehicle/2015-kia-soul-gl-middle-low-grade-j10223</g:link>
-    <g:link_template>https://www.maximautos.com/vehicle/2015-kia-soul-gl-middle-low-grade-j10223?store={store_code}</g:link_template>
-    <g:image_link>https://imagesdl.dealercenter.net/1289/856/202607-58d55b99a82641068bb3ed6d19f4e463.jpg</g:image_link>
-    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202607-5097d4e79a7f4669b66b69165fa2a13e.jpg</g:additional_image_link>
-    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202607-22f76188c19446beac845cd782f6e5ae.jpg</g:additional_image_link>
-    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202607-2b3927399b2c459b9228a4356f00e643.jpg</g:additional_image_link>
-    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202607-ebe60872d851444ab5df8752bd30e91f.jpg</g:additional_image_link>
-    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202607-819c73e66de449fc805f554ed633c39b.jpg</g:additional_image_link>
-    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202607-365028b1801745e68d940bf859058718.jpg</g:additional_image_link>
-    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202607-a59d75b2b06c4829bf930188df0d2b31.jpg</g:additional_image_link>
-    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202607-16647f61d56646cdbf7e15d3024bcd05.jpg</g:additional_image_link>
-    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202607-801922403f6c4d2fb974887fa10e0c69.jpg</g:additional_image_link>
-    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202607-445c8d20249d44388d8d8d206896754d.jpg</g:additional_image_link>
-    <g:condition>used</g:condition>
-    <g:price>6450 USD</g:price>
-    <g:availability>in_stock</g:availability>
-    <g:brand>Kia</g:brand>
-    <g:google_product_category>Vehicles &amp; Parts &gt; Vehicles &gt; Motor Vehicles &gt; Cars, Trucks &amp; Vans</g:google_product_category>
-    <g:excluded_destination>Shopping_ads</g:excluded_destination>
-    <g:excluded_destination>Free_listings</g:excluded_destination>
-    <g:vin>KNDJN2A23F7202591</g:vin>
-    <g:year>2015</g:year>
-    <g:model>Soul</g:model>
-    <g:mileage>94489 Miles</g:mileage>
-    <g:store_code>08861907241419503398</g:store_code>
-    <g:vehicle_fulfillment>
-      <g:option>in_store</g:option>
-    </g:vehicle_fulfillment>
-    <g:color>Gray</g:color>
     <g:body_style>suv</g:body_style>
   </item>
   <item>
