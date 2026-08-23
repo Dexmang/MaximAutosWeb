@@ -23,6 +23,13 @@
       "since": "2026-08-17",
       "note": "Transmission problem found 2026-08-17. Unit goes back to CarMax Auctions Indianapolis (bought 2026-08-10). Never sold, so it must not get a SOLD VDP. DealerCenter set to Inbound the same day.",
       "bridge": true
+    },
+    "NMTKHMBX4LR118426": {
+      "stock": "J10229",
+      "reason": "returned-to-carmax",
+      "since": "2026-08-23",
+      "note": "arbitration back to CarMax, confirmed by Jerry 2026-08-23",
+      "bridge": true
     }
   }
 }
