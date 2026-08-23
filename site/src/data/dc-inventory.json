@@ -1,6 +1,6 @@
 {
   "source": "pka_hub.db ma_vehicles + vPIC",
-  "generated_at": "2026-08-22",
+  "generated_at": "2026-08-23",
   "by_vin": {
     "3N1CE2CPXHL360736": {
       "year": 2017,
@@ -263,7 +263,7 @@
       "make": "Toyota",
       "model": "Prius",
       "trim": "Two",
-      "price": 12995,
+      "price": 11350,
       "mileage": 107008,
       "exteriorColor": "Black",
       "interiorColor": "Beige",
@@ -457,7 +457,7 @@
       "make": "Hyundai",
       "model": "Elantra",
       "trim": "Value Edition",
-      "price": 8995,
+      "price": 8450,
       "mileage": 96503,
       "exteriorColor": "Red",
       "interiorColor": "Black",
