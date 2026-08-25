@@ -1,6 +1,6 @@
 {
   "source": "pka_hub.db ma_vehicles",
-  "generated_at": "2026-08-24T17:00:03.564Z",
+  "generated_at": "2026-08-25T05:30:03.461Z",
   "by_vin": {
     "JTJBK1BA4E2462410": "AWD",
     "1FMCU0J95HUE21095": "Titanium",
@@ -139,6 +139,11 @@
     "JF2GPAVC7D2808666": "Premium",
     "KM8SM4HF4EU062283": "GLS",
     "JTDKN3DU5E1751265": "TWO",
-    "KM8SMDHFXFU124707": "GLS"
+    "KM8SMDHFXFU124707": "GLS",
+    "WVGBV7AX5HK000196": "2.0T S 4Motion",
+    "2C4RC1BG0LR133382": "Touring L",
+    "2GKALMEK3G6308539": "SLE-1",
+    "3C4PDCBB7GT164698": "SXT",
+    "KNDCB3LC5M5478437": "LX"
   }
 }
