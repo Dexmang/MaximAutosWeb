@@ -505,67 +505,6 @@
       "photoPrefix": "2021-kia-niro-lx",
       "photoPath": "",
       "dealerCenterUrl": ""
-    },
-    "SHHFK7H79HU203382": {
-      "year": 2017,
-      "make": "Honda",
-      "model": "Civic",
-      "trim": "EX-L w/Navigation",
-      "price": 14995,
-      "mileage": 111399,
-      "exteriorColor": "Black",
-      "interiorColor": "Black",
-      "engine": "174 hp 1.5L I4",
-      "transmission": "CVT",
-      "drivetrain": "",
-      "fuelType": "Gasoline",
-      "bodyStyle": "Hatchback",
-      "bodyStyleSlug": "hatchbacks",
-      "makeSlug": "honda",
-      "vin": "SHHFK7H79HU203382",
-      "condition": "Used",
-      "inspected": true,
-      "inspection": true,
-      "carfax": true,
-      "warranty": "Illinois 15 day / 500 mile statutory powertrain protection on qualifying cars",
-      "stockNumber": "J10234",
-      "primaryPhotoUrl": "https://imagesdl.dealercenter.net/1289/856/202608-35975ef37449443597bdbf891f79ef66.jpg",
-      "photoUrls": [
-        "https://imagesdl.dealercenter.net/1289/856/202608-35975ef37449443597bdbf891f79ef66.jpg",
-        "https://imagesdl.dealercenter.net/1289/856/202608-ed7664821fc14b8d9c92cd8dbabbeacb.jpg",
-        "https://imagesdl.dealercenter.net/1289/856/202608-0a00dc2bd88b41ba8223d6e7c632712b.jpg",
-        "https://imagesdl.dealercenter.net/1289/856/202608-9883d8acd7764166a3ab39ba2fe8320c.jpg",
-        "https://imagesdl.dealercenter.net/1289/856/202608-b7b3d467781c4cdb943e72625af681fd.jpg",
-        "https://imagesdl.dealercenter.net/1289/856/202608-19323ccace514e8388d76d31e6c25e1c.jpg",
-        "https://imagesdl.dealercenter.net/1289/856/202608-a47e02a5a5554f13bb9f6d5af29963ef.jpg",
-        "https://imagesdl.dealercenter.net/1289/856/202608-35b9d13cbe4e4cb885eb9692a20069fe.jpg",
-        "https://imagesdl.dealercenter.net/1289/856/202608-e24ab295de7a4786a5c292461d94ef81.jpg",
-        "https://imagesdl.dealercenter.net/1289/856/202608-6a06ba80549a43208ba81ac814e72785.jpg",
-        "https://imagesdl.dealercenter.net/1289/856/202608-9eadaa7adc3f49f69f6b66d38f8ee02a.jpg",
-        "https://imagesdl.dealercenter.net/1289/856/202608-7cb8df19ebee474ab7f912644150efc6.jpg"
-      ],
-      "photos": {
-        "exterior": 12,
-        "interior": 0,
-        "source": "dealercenter"
-      },
-      "status": "available",
-      "slug": "2017-honda-civic-ex-l-j10234",
-      "dateAdded": "2026-08-14",
-      "featured": true,
-      "sortOrder": 0,
-      "dealRating": "",
-      "priceSavings": 0,
-      "description": "2017 Honda Civic EX-L Hatchback, sporty 174 hp turbo engine, massive 25.7 cubic feet of cargo space (46.2 with seats folded), upscale leather trimmed interior. Black exterior on black leather interior, automatic transmission, one owner Lake in the Hills history per Carfax. A practical hatchback that doesn't feel like a compromise, with real strong fuel economy for daily driving. Key features: Apple CarPlay and Android Auto, sunroof, heated front seats, remote start, rearview camera, smart key entry, and a wide rear hatch opening with a unique side mounted retractable cargo cover. Leather seating and a quiet cabin give this hatchback a genuinely upscale feel for its class. The Maxim Autos Difference Independent inspection report included with every vehicle Metal plates issued on the spot, drive home today Transparent pricing, no hidden fees Financing for all credit levels Located in Skokie, IL, minutes from Evanston, Niles, Morton Grove, Lincolnwood, Des Plaines, and the North Shore Chicago suburbs. Call or text to set up a same day appointment. Every car inspected. Every price transparent. Every customer protected.",
-      "highlights": [
-        "EX-L trim",
-        "111,399 miles",
-        "Fully inspected, free CARFAX"
-      ],
-      "features": [],
-      "photoPrefix": "2017-honda-civic-ex-l",
-      "photoPath": "",
-      "dealerCenterUrl": ""
     }
   }
 }
