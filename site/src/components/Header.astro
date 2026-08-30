@@ -78,11 +78,15 @@ const secondaryLinks = isSpanish
 
 const directionsUrl = 'https://www.google.com/search?q=Maxim+Autos+9101+Terminal+Ave+Skokie+IL+60077+directions';
 
+// Full credit application, surfaced in the header chrome on every page
+const applyHref = isSpanish ? `${base}/es/aplicacion-de-credito` : `${base}/apply`;
+
 const chrome = isSpanish
   ? {
       directions: 'Direcciones',
       textJerry: 'Escribe a Jerry',
       callOrText: 'Llama o Escribe',
+      applyFull: 'Solicitud Completa de Credito',
       directionsAria: 'Obtener direcciones a Maxim Autos',
       toggleMenuAria: 'Abrir menu',
       directionsMobile: 'Direcciones, 9101 Terminal Ave, Skokie IL',
@@ -91,6 +95,7 @@ const chrome = isSpanish
       directions: 'Directions',
       textJerry: 'Text Jerry',
       callOrText: 'Call or Text',
+      applyFull: 'Full Credit Application',
       directionsAria: 'Get directions to Maxim Autos',
       toggleMenuAria: 'Toggle menu',
       directionsMobile: 'Directions, 9101 Terminal Ave, Skokie IL',
@@ -100,6 +105,15 @@ const chrome = isSpanish
 <!-- Secondary utility bar — desktop only -->
 <div class="hidden lg:block bg-gray-50 border-b border-gray-100">
   <div class="max-w-7xl mx-auto px-6 lg:px-8 flex justify-end items-center gap-5 py-1.5">
+    <!-- Full credit application CTA. Lives here, not in the main nav bar: the main
+         bar's natural content is already wider than max-w-7xl allows, so any button
+         added there wraps the phone box and nav links onto two lines. This strip has
+         the room, and mr-auto anchors the pill to the otherwise empty left side. -->
+    <a href={applyHref}
+       class="mr-auto inline-flex items-center gap-1 bg-orange text-white text-xs font-bold px-3 py-1 rounded-full hover:bg-orange-dark transition-colors">
+      <span class="material-symbols-outlined text-sm" style="font-variation-settings:'FILL' 1;">payments</span>
+      {chrome.applyFull}
+    </a>
     {secondaryLinks.map(link => (
       <a href={link.href}
          class:list={['text-xs font-medium transition-colors', currentPath.startsWith(link.href) ? 'text-navy' : 'text-gray-400 hover:text-navy']}>
@@ -209,6 +223,11 @@ const chrome = isSpanish
   <!-- Mobile Menu -->
   <div id="mobile-menu" class="hidden lg:hidden bg-white border-t border-gray-100 pb-4">
     <div class="px-6 py-2 space-y-1">
+      <a href={applyHref}
+         class="flex items-center justify-center gap-2 bg-orange text-white py-3 px-4 rounded-lg text-sm font-bold hover:bg-orange-dark transition-colors mb-2">
+        <span class="material-symbols-outlined text-base" style="font-variation-settings:'FILL' 1;">payments</span>
+        {chrome.applyFull}
+      </a>
       {[...primaryLinks, ...secondaryLinks].map(link => (
         <a
           href={link.href}
