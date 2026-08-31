@@ -42,6 +42,7 @@ import { readFileSync, writeFileSync, appendFileSync } from 'fs';
 import { fileURLToPath } from 'url';
 import { dirname, resolve } from 'path';
 import { deriveFacts } from './facts-core.mjs';
+import { isExcludedStock } from './stock-rules.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const CARGURUS_URL = 'https://www.cargurus.com/Cars/m-Maxim-Autos-sp457703';
@@ -613,6 +614,19 @@ async function main() {
   } catch (_) {
     console.warn('vehicles.json not found or unreadable — starting fresh.');
   }
+
+  // Owner-excluded stock (E-prefix = Choni's units, scripts/stock-rules.mjs) must
+  // never survive in vehicles.json, not even as a retained SOLD VDP. Zero are
+  // expected here; purging on every build heals any entry that ever slipped in.
+  const strayExcluded = existing.filter(v => isExcludedStock(v.stockNumber));
+  if (strayExcluded.length) {
+    console.warn(
+      `Purging ${strayExcluded.length} owner-excluded unit(s) found in vehicles.json: ` +
+      strayExcluded.map(v => `${v.stockNumber} [${v.vin}]`).join(', ')
+    );
+    existing = existing.filter(v => !isExcludedStock(v.stockNumber));
+  }
+
   const existingByVin = Object.fromEntries(
     existing.filter(v => v.vin && v.vin !== 'TBD').map(v => [v.vin, v])
   );
@@ -627,6 +641,19 @@ async function main() {
   }
   // Normalize keys to uppercase VIN.
   dcByVin = Object.fromEntries(Object.entries(dcByVin).map(([k, v]) => [k.toUpperCase(), v]));
+
+  // Owner-excluded stock (E-prefix = Choni's units, scripts/stock-rules.mjs) is
+  // dropped from the DC set before anything else reads it, so these units never
+  // become cards or VDPs and the feed guard / sold logic never count them.
+  const ownerExcluded = Object.entries(dcByVin).filter(([, rec]) => isExcludedStock(rec?.stockNumber));
+  if (ownerExcluded.length) {
+    console.log(`\nOwner-excluded stock in the DC feed (never listed on maximautos.com):`);
+    for (const [vin, rec] of ownerExcluded) {
+      console.log(`  - ${rec?.stockNumber} ${rec?.year || ''} ${rec?.make || ''} ${rec?.model || ''} [${vin}]`);
+    }
+    dcByVin = Object.fromEntries(Object.entries(dcByVin).filter(([, rec]) => !isExcludedStock(rec?.stockNumber)));
+  }
+
   const dcVins = new Set(Object.keys(dcByVin));
   const HOLD_VINS = loadHoldVins();
   const isHeld = (vin) => HOLD_VINS.has((vin || '').toUpperCase()) && !dcVins.has((vin || '').toUpperCase());

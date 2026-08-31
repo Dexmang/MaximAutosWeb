@@ -57,6 +57,14 @@ sync — `pka_hub.db` is unreachable from CI, hence the committed snapshots):
   (capped at 5) and the footer renders the top two as the last two feed updates.
   Written by `operations/pull_oap_sftp.py` on publish only, never by a no-op poll.
 
+**Owner-excluded stock:** units whose stock number starts with **E** (e.g. E613770)
+belong to Choni, not Maxim Autos, and must NEVER appear on the site or in the Google
+feed — no card, no VDP (live or SOLD), no feed row. The single predicate lives in
+`scripts/stock-rules.mjs` and is applied by BOTH `build-inventory.js` (drops them
+from the DC set, purges strays from `vehicles.json`) and `build-gmc-feed.js`
+(drops them from the parity book of record so a photo-less E-unit can't fail
+`--strict` and freeze the sync). Owner's standing rule, 2026-08-31.
+
 Other data files:
 - `hold-vins.json` — "web hold" list. VINs here are OMITTED from `vehicles.json`
   entirely (no card, no SOLD VDP, absent from the Google feed) instead of being

@@ -38,6 +38,7 @@
 import { readFileSync, writeFileSync, mkdirSync, existsSync } from "fs";
 import { fileURLToPath } from "url";
 import { dirname, join } from "path";
+import { isExcludedStock } from "./stock-rules.mjs";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -362,7 +363,21 @@ function buildFeed() {
   // (kept live for SEO) out of the feed automatically.
   // ---------------------------------------------------------------------------
   const dcRaw = JSON.parse(readFileSync(DC_INVENTORY_PATH, "utf-8"));
-  const dcByVin = dcRaw.by_vin || dcRaw;
+  const dcByVinAll = dcRaw.by_vin || dcRaw;
+  // Owner-excluded stock (E-prefix = Choni's units, scripts/stock-rules.mjs) is
+  // not this site's inventory. It leaves the book of record BEFORE parity is
+  // counted, so a photo-less E-unit cannot fail --strict and freeze the sync
+  // (E613770 did exactly that, 2026-08-30).
+  const ownerExcluded = Object.entries(dcByVinAll).filter(([, r]) => isExcludedStock(r?.stockNumber));
+  if (ownerExcluded.length) {
+    console.log(
+      `Owner-excluded stock left out of the book of record: ` +
+        ownerExcluded.map(([vin, r]) => `${r?.stockNumber || "?"} [${vin}]`).join(", ")
+    );
+  }
+  const dcByVin = Object.fromEntries(
+    Object.entries(dcByVinAll).filter(([, r]) => !isExcludedStock(r?.stockNumber))
+  );
   const dcVins = new Set(Object.keys(dcByVin).map((k) => k.toUpperCase()));
   if (dcVins.size === 0) {
     throw new Error("dc-inventory.json carries zero VINs — refusing to build an empty feed");
