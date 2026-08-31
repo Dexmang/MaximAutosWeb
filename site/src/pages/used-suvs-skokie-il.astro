@@ -236,9 +236,15 @@ const faqSchema = {
     <div class="max-w-4xl mx-auto px-6 lg:px-8 text-center">
       <h2 class="font-headline text-3xl md:text-4xl font-extrabold text-white mb-4">Looking for a Specific SUV?</h2>
       <p class="text-white/70 text-lg mb-8">Tell Jerry the make, model, year, and budget. He sources at auction every week.</p>
-      <div class="hidden sm:inline-flex items-center justify-center gap-2 bg-orange text-white px-8 py-4 rounded-xl font-bold text-lg">
-        <span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1;">phone</span>
-        (847) 510-8947
+      <div class="flex flex-col sm:flex-row justify-center gap-4">
+        <div class="hidden sm:inline-flex items-center justify-center gap-2 bg-orange text-white px-8 py-4 rounded-xl font-bold text-lg">
+          <span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1;">phone</span>
+          (847) 510-8947
+        </div>
+        <a href={`${base}/apply`} class="inline-flex items-center justify-center gap-2 bg-white/10 text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-white/20 transition-colors border border-white/20">
+          <span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1;">payments</span>
+          Apply for Financing
+        </a>
       </div>
     </div>
   </section>
