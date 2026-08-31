@@ -1,10 +1,10 @@
 {
-  "last_updated": "2026-08-31T12:19:52.926Z",
+  "last_updated": "2026-08-31T17:30:27.761Z",
   "period_start": "2026-08-24",
   "period_end": "2026-08-31",
   "by_vin": {
     "KNDJN2A23F7202591": {
-      "srp_views": 904,
+      "srp_views": 923,
       "vdp_views": 27,
       "leads_email": 3,
       "leads_phone": 0,
@@ -22,7 +22,7 @@
       "map_clicks": 0
     },
     "KNDCB3LC5M5478437": {
-      "srp_views": 193,
+      "srp_views": 200,
       "vdp_views": 14,
       "leads_email": 0,
       "leads_phone": 0,
@@ -31,8 +31,8 @@
       "map_clicks": 1
     },
     "JM3KE4DY6G0826709": {
-      "srp_views": 1080,
-      "vdp_views": 89,
+      "srp_views": 1089,
+      "vdp_views": 90,
       "leads_email": 3,
       "leads_phone": 0,
       "leads_chat": 0,
@@ -40,7 +40,7 @@
       "map_clicks": 0
     },
     "KM8SMDHFXFU124707": {
-      "srp_views": 122,
+      "srp_views": 123,
       "vdp_views": 8,
       "leads_email": 0,
       "leads_phone": 0,
@@ -49,7 +49,7 @@
       "map_clicks": 1
     },
     "JTDKN3DU5E1751265": {
-      "srp_views": 1084,
+      "srp_views": 1104,
       "vdp_views": 75,
       "leads_email": 0,
       "leads_phone": 0,
@@ -58,8 +58,8 @@
       "map_clicks": 0
     },
     "JF2GPAVC7D2808666": {
-      "srp_views": 442,
-      "vdp_views": 47,
+      "srp_views": 458,
+      "vdp_views": 49,
       "leads_email": 0,
       "leads_phone": 0,
       "leads_chat": 1,
@@ -103,8 +103,8 @@
       "map_clicks": 0
     },
     "5J6RM4H3XGL120098": {
-      "srp_views": 463,
-      "vdp_views": 53,
+      "srp_views": 470,
+      "vdp_views": 54,
       "leads_email": 0,
       "leads_phone": 0,
       "leads_chat": 0,
@@ -130,7 +130,7 @@
       "map_clicks": 0
     },
     "SHHFK7H79HU203382": {
-      "srp_views": 923,
+      "srp_views": 924,
       "vdp_views": 79,
       "leads_email": 1,
       "leads_phone": 0,
@@ -139,7 +139,7 @@
       "map_clicks": 0
     },
     "KMHDH4AE6GU489451": {
-      "srp_views": 522,
+      "srp_views": 528,
       "vdp_views": 22,
       "leads_email": 0,
       "leads_phone": 0,
