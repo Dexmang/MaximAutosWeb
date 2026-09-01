@@ -1,6 +1,6 @@
 {
   "source": "pka_hub.db ma_vehicles",
-  "generated_at": "2026-08-31T17:30:04.347Z",
+  "generated_at": "2026-09-01T00:30:04.442Z",
   "by_vin": {
     "JTJBK1BA4E2462410": "AWD",
     "1FMCU0J95HUE21095": "Titanium",
@@ -145,6 +145,9 @@
     "2GKALMEK3G6308539": "SLE-1",
     "3C4PDCBB7GT164698": "SXT",
     "KNDCB3LC5M5478437": "LX",
-    "4S4BSAAC4G3267471": "2.5I"
+    "4S4BSAAC4G3267471": "2.5I",
+    "3N1CN8EV9ML865322": "SV",
+    "JM3KE4CY4G0882052": "Touring",
+    "4S3BNBN62F3053941": "2.5I Limited"
   }
 }
