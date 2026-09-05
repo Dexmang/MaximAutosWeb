@@ -615,7 +615,7 @@
       "interior": 0,
       "source": "dealercenter"
     },
-    "status": "available",
+    "status": "sold",
     "slug": "2017-honda-civic-ex-l-j10234",
     "dateAdded": "2026-08-14",
     "featured": true,
@@ -631,7 +631,9 @@
     "features": [],
     "photoPrefix": "2017-honda-civic-ex-l",
     "photoPath": "",
-    "dealerCenterUrl": ""
+    "dealerCenterUrl": "",
+    "sold_date": "2026-09-05",
+    "missing_since": "2026-09-05T01:00:21.842Z"
   },
   {
     "slug": "2016-honda-cr-v-lx-awd",
