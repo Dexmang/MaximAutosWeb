@@ -4,7 +4,7 @@
   <title>Maxim Autos Vehicle Inventory</title>
   <link>https://www.maximautos.com/</link>
   <description>Used vehicles for sale at Maxim Autos in Skokie, IL 60077. Phone +18475108947.</description>
-  <lastBuildDate>2026-09-05T02:19:26.284Z</lastBuildDate>
+  <lastBuildDate>2026-09-05T06:00:17.693Z</lastBuildDate>
   <item>
     <g:id>2C4RC1BG0LR133382</g:id>
     <g:title>2020 Chrysler Pacifica Touring L</g:title>
@@ -112,6 +112,42 @@
     <g:color>Gray</g:color>
     <g:trim>SXT</g:trim>
     <g:body_style>suv</g:body_style>
+  </item>
+  <item>
+    <g:id>3N1CN8EV9ML865322</g:id>
+    <g:title>2021 Nissan Versa SV</g:title>
+    <g:description>2021 Nissan Versa SV: an EPA estimated 40 MPG highway, Apple CarPlay and Android Auto, Nissan Safety Shield 360. Black exterior, automatic, efficient 1.6L four cylinder with the Xtronic CVT. The cheapest way to put modern safety tech and 40 MPG in your driveway. Key features: EPA estimated 32 city and 40 highway MPG, 7 inch touchscreen with Apple CarPlay and Android Auto standard on the SV, automatic emergency braking, blind spot warning, lane departure warning, rear cross traffic alert, remote keyless entry, cruise control, multiple USB ports, and a quiet cabin with a nearly 15 cubic foot trunk, big for the class. Safety Shield 360 comes standard, technology most rivals did not offer until years later. The Maxim Autos Difference Independent inspection report included with every vehicle Metal plates issued on the spot, drive home today Transparent pricing, no hidden fees Financing for all credit levels Skokie, IL. Serving Evanston, Niles, Morton Grove, Lincolnwood, Des Plaines and the North Shore Chicago area. Call or text to set up a same day appointment. Every car inspected. Every price transparent. Every car documented.</g:description>
+    <g:link>https://www.maximautos.com/vehicle/2021-nissan-versa-sv-j10245</g:link>
+    <g:link_template>https://www.maximautos.com/vehicle/2021-nissan-versa-sv-j10245?store={store_code}</g:link_template>
+    <g:image_link>https://imagesdl.dealercenter.net/1289/856/202609-bae5cb5223914d3096645c2537d60131.jpg</g:image_link>
+    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202609-dade06f52aaf4ffda9a6eb0d74ac0d18.jpg</g:additional_image_link>
+    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202609-def2c24c783e432f994c1ae86b5d4e24.jpg</g:additional_image_link>
+    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202609-77ad8b2bd857466aa0f924032a863984.jpg</g:additional_image_link>
+    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202609-ef36cf3723194342b6f6b8b564cb2831.jpg</g:additional_image_link>
+    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202609-392c3c90c95c46a1a5fd30a784227b25.jpg</g:additional_image_link>
+    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202609-29e6124214664f0b89a6e7600e79c291.jpg</g:additional_image_link>
+    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202609-6abe0686eddf47059fa8b74d1abe0754.jpg</g:additional_image_link>
+    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202609-5fda2a8c020649e8947a310cdc760c31.jpg</g:additional_image_link>
+    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202609-d8f1b4c5b86842b5827c0acc0fd27100.jpg</g:additional_image_link>
+    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202609-3cb2d15fea854582b4653aca2838bc84.jpg</g:additional_image_link>
+    <g:condition>used</g:condition>
+    <g:price>10995 USD</g:price>
+    <g:availability>in_stock</g:availability>
+    <g:brand>Nissan</g:brand>
+    <g:google_product_category>Vehicles &amp; Parts &gt; Vehicles &gt; Motor Vehicles &gt; Cars, Trucks &amp; Vans</g:google_product_category>
+    <g:excluded_destination>Shopping_ads</g:excluded_destination>
+    <g:excluded_destination>Free_listings</g:excluded_destination>
+    <g:vin>3N1CN8EV9ML865322</g:vin>
+    <g:year>2021</g:year>
+    <g:model>Versa</g:model>
+    <g:mileage>87394 Miles</g:mileage>
+    <g:store_code>08861907241419503398</g:store_code>
+    <g:vehicle_fulfillment>
+      <g:option>in_store</g:option>
+    </g:vehicle_fulfillment>
+    <g:color>Black</g:color>
+    <g:trim>SV</g:trim>
+    <g:body_style>sedan</g:body_style>
   </item>
   <item>
     <g:id>JF2GPAVC7D2808666</g:id>
