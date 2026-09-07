@@ -136,6 +136,17 @@ def _render(data: dict) -> str:
         for r in refs:
             rows.append(_row("", r))
 
+    meta = data.get("_meta") or {}
+    if meta:
+        fill = meta.get("fill_ms")
+        rows += [
+            _section("Submission"),
+            _row("Received (UTC)", meta.get("submitted_at")),
+            _row("IP", meta.get("ip")),
+            _row("Browser", meta.get("ua")),
+            _row("Time on form", f"{int(fill) // 1000}s" if fill else ""),
+        ]
+
     name = f"{data.get('buyer_first_name','')} {data.get('buyer_last_name','')}".strip()
 
     return f"""<!DOCTYPE html>
