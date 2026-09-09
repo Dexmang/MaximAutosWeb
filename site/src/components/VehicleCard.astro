@@ -17,11 +17,12 @@ interface Props {
   photos?: { exterior: number; interior: number; source: string };
   dealRating?: string;
   priceSavings?: number;
+  stockNumber?: string;
   lang?: string;
 }
 
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
-const { slug, year, make, model, trim, price, mileage, drivetrain, engine, bodyStyle, photoPath, photoPrefix, inspected, primaryPhotoUrl, photos, dealRating, priceSavings, lang = 'en' } = Astro.props;
+const { slug, year, make, model, trim, price, mileage, drivetrain, engine, bodyStyle, photoPath, photoPrefix, inspected, primaryPhotoUrl, photos, dealRating, priceSavings, stockNumber, lang = 'en' } = Astro.props;
 const isSpanish = lang === 'es';
 
 const DEAL_BADGE: Record<string, { label: string; bg: string; text: string }> = isSpanish
@@ -92,7 +93,7 @@ const monthlyPayment = Math.round(
 );
 ---
 
-<div class="vehicle-card group relative bg-white overflow-hidden rounded-xl shadow-sm hover:shadow-lg transition-all duration-300" data-price={price} data-body={bodyStyle} data-mileage={mileage} data-year={year}>
+<div class="vehicle-card group relative bg-white overflow-hidden rounded-xl shadow-sm hover:shadow-lg transition-all duration-300" data-price={price} data-body={bodyStyle} data-mileage={mileage} data-year={year} data-stock={stockNumber}>
   <!-- Stretched link covers the full card; financing link sits above it via z-index -->
   <a href={`${base}/vehicle/${slug}`} class="absolute inset-0 z-10" aria-label={`${lbl.viewLabel} ${title}`}></a>
 
@@ -123,7 +124,10 @@ const monthlyPayment = Math.round(
   </div>
   <div class="px-3 py-4 sm:px-4">
     <h3 class="font-headline text-base font-bold text-gray-900 mb-0.5">{title}</h3>
-    <p class="text-xs text-gray-500 mb-3">{engine} &bull; {drivetrain}</p>
+    <p class="text-xs text-gray-500 mb-3 flex justify-between items-baseline gap-2">
+      <span>{engine} &bull; {drivetrain}</span>
+      {stockNumber && <span class="shrink-0 text-gray-400 font-medium whitespace-nowrap">Stock #{stockNumber}</span>}
+    </p>
 
     <!-- Price + Payment -->
     <div class="flex flex-wrap justify-between items-end mb-3 gap-y-1">
