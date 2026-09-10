@@ -53,6 +53,11 @@ const RETIRED_SLUGS_PATH = resolve(__dirname, '../site/src/data/retired-slugs.js
 const VERCEL_JSON_PATH = resolve(__dirname, '../vercel.json');
 const HOLD_VINS_PATH = resolve(__dirname, '../site/src/data/hold-vins.json');
 const FACTS_JSON = resolve(__dirname, '../site/src/data/facts.json');
+// Ratings snapshot the PKA machine commits (operations/sync_cargurus_ratings.py).
+// CarGurus has answered the GitHub runner with HTTP 406 since early August 2026, so
+// the live scrape fails in CI; this file is the same read taken from a network
+// CarGurus does serve. Used only when the live fetch fails.
+const CARGURUS_RATINGS_PATH = resolve(__dirname, '../site/src/data/cargurus-ratings.json');
 const REVIEWS_META_PATH = resolve(__dirname, '../site/src/data/reviews_meta.json');
 const SUBURBS_PATH = resolve(__dirname, '../site/src/data/suburbs.json');
 
@@ -426,10 +431,12 @@ function loadHoldVins() {
 
 async function fetchHtml(url) {
   const res = await fetch(url, {
+    // CarGurus returns 406 to a browser User-Agent whose TLS fingerprint is not a
+    // browser (Node fetch, Python requests). A plain curl identity is served normally.
+    // Verified 2026-09-10 on the PKA machine: Chrome UA 406, curl UA 200, same URL.
     headers: {
-      'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36',
-      'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
-      'Accept-Language': 'en-US,en;q=0.9',
+      'User-Agent': 'curl/8.9.0',
+      'Accept': '*/*',
       'Cache-Control': 'no-cache',
     },
   });
@@ -486,14 +493,38 @@ async function buildCargurusRatingOverlay() {
       overlay[vin] = {
         dealRating: n.dealRating || '',
         priceSavings: n.priceData?.differential ?? 0,
+        cgPrice: n.priceData.current,
       };
     }
     console.log(`  Got ratings for ${Object.keys(overlay).length} VIN(s).`);
     return overlay;
   } catch (e) {
-    console.warn(`  CarGurus overlay unavailable (${e.message}). Building from DealerCenter with last-known ratings.`);
+    console.warn(`  CarGurus overlay unavailable (${e.message}).`);
+    return loadRatingsSnapshot();
+  }
+}
+
+// Fallback: the ratings snapshot committed by the PKA machine
+// (operations/sync_cargurus_ratings.py). Same shape as the live overlay, cgPrice
+// included, so the price-parity guard in the build loop applies to it as well.
+function loadRatingsSnapshot() {
+  const snap = readJsonSafe(CARGURUS_RATINGS_PATH, null);
+  if (!snap || !snap.by_vin) {
+    console.warn('  No cargurus-ratings.json snapshot either. Badges hold their last value only where the price is unchanged.');
     return {};
   }
+  const ageH = Math.round((Date.now() - Date.parse(snap.fetchedAt || 0)) / 36e5);
+  const overlay = {};
+  for (const [vin, r] of Object.entries(snap.by_vin)) {
+    if (r.cgPrice == null) continue;
+    overlay[vin.toUpperCase()] = {
+      dealRating: r.dealRating || '',
+      priceSavings: r.priceSavings ?? 0,
+      cgPrice: r.cgPrice,
+    };
+  }
+  console.log(`  Using cargurus-ratings.json snapshot: ${Object.keys(overlay).length} VIN(s), fetched ${ageH}h ago${ageH > 48 ? ' (STALE: check the PKA pull task)' : ''}.`);
+  return overlay;
 }
 
 // ── diff summary + URL event classification (verbatim behavior from old builder) ──
@@ -726,10 +757,29 @@ async function main() {
       if (ex.features?.length && !(rec.features?.length)) out.features = ex.features;
     }
 
-    // Deal badge: freshest CarGurus scrape → DC-carried value → prior value → none.
+    // Deal badge: CarGurus read (live scrape, else the committed snapshot) → prior
+    // value → none. A rating describes the price CarGurus listed when it computed it:
+    //   - CarGurus still shows a different price than DealerCenter (it lags a reprice
+    //     by hours): blank the badge until it catches up. Never "$963 below" on a price
+    //     that no longer exists.
+    //   - No CarGurus read at all and the DC price moved since the last build: blank
+    //     too, same reason. Only an unchanged price may keep its prior badge.
     const ov = cgOverlay[vin];
-    out.dealRating = ov?.dealRating || rec.dealRating || ex?.dealRating || '';
-    out.priceSavings = ov ? (ov.priceSavings ?? 0) : (rec.priceSavings ?? ex?.priceSavings ?? 0);
+    const priceMoved = !!ex && Number(ex.price) !== Number(out.price);
+    if (ov && ov.cgPrice != null && Number(ov.cgPrice) !== Number(out.price)) {
+      out.dealRating = '';
+      out.priceSavings = 0;
+      console.log(`  ${out.stockNumber}: CarGurus still lists $${ov.cgPrice} vs DealerCenter $${out.price}; badge blank until it catches up (CarGurus had ${ov.dealRating || 'no rating'}).`);
+    } else if (ov) {
+      out.dealRating = ov.dealRating || '';
+      out.priceSavings = ov.priceSavings ?? 0;
+    } else if (priceMoved) {
+      out.dealRating = '';
+      out.priceSavings = 0;
+    } else {
+      out.dealRating = rec.dealRating || ex?.dealRating || '';
+      out.priceSavings = rec.priceSavings ?? ex?.priceSavings ?? 0;
+    }
 
     // Compliance sanitizer on every free text field, not just the ad copy. Tallied so the
     // build log names every rule that fired; see the summary after the inventory list.

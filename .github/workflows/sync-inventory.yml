@@ -29,6 +29,9 @@ on:
       - 'site/src/data/dc-inventory.json'
       - 'site/src/data/dc-photos.json'
       - 'site/src/data/vin-trims.json'
+      # CarGurus deal ratings read on the PKA machine (the runner gets HTTP 406).
+      # Committed by operations/sync_cargurus_ratings.py, never by this workflow.
+      - 'site/src/data/cargurus-ratings.json'
 
   workflow_dispatch:
 
