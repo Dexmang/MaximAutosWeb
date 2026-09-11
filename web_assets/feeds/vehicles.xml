@@ -4,7 +4,7 @@
   <title>Maxim Autos Vehicle Inventory</title>
   <link>https://www.maximautos.com/</link>
   <description>Used vehicles for sale at Maxim Autos in Skokie, IL 60077. Phone +18475108947.</description>
-  <lastBuildDate>2026-09-11T02:21:47.770Z</lastBuildDate>
+  <lastBuildDate>2026-09-11T10:00:21.629Z</lastBuildDate>
   <item>
     <g:id>2C4RC1BG0LR133382</g:id>
     <g:title>2020 Chrysler Pacifica Touring L</g:title>
@@ -184,6 +184,42 @@
     <g:color>Black</g:color>
     <g:trim>Sport</g:trim>
     <g:body_style>station_wagon</g:body_style>
+  </item>
+  <item>
+    <g:id>JM3KE4CY4G0882052</g:id>
+    <g:title>2016 Mazda CX-5 Touring</g:title>
+    <g:description>2016 Mazda CX-5 Touring: all wheel drive, a 2.5L Skyactiv engine, heated seats and blind spot monitoring. Black on black, automatic. The compact SUV that handles like a sedan and shrugs off Chicago winters. Key features: all wheel drive, 2.5L Skyactiv four cylinder rated at an EPA estimated 24 city and 30 highway MPG, heated front seats, blind spot monitoring, rearview camera, smart key with push button start, power driver seat, Bluetooth, cruise control, alloy wheels, and a roomy, well trimmed cabin with rear seats that fold flat for cargo. This generation earned a reputation as one of the most reliable compact SUVs on the road. The Maxim Autos Difference Independent inspection report included with every vehicle Metal plates issued on the spot, drive home today Transparent pricing, no hidden fees Financing for all credit levels Skokie, IL. Serving Evanston, Niles, Morton Grove, Lincolnwood, Des Plaines and the North Shore Chicago area. Call or text to set up a same day appointment. Every car inspected. Every price transparent. Every car documented.</g:description>
+    <g:link>https://www.maximautos.com/vehicle/2016-mazda-cx-5-touring-j10246</g:link>
+    <g:link_template>https://www.maximautos.com/vehicle/2016-mazda-cx-5-touring-j10246?store={store_code}</g:link_template>
+    <g:image_link>https://imagesdl.dealercenter.net/1289/856/202609-7f3190cf147942978dbe2e8308fe128f.jpg</g:image_link>
+    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202609-47187a724e2647a3bf68d5167c1dc551.jpg</g:additional_image_link>
+    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202609-150336549996442bb50b7e39f8a58d47.jpg</g:additional_image_link>
+    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202609-efa1d2c7e56d48ec89a27a995af0d799.jpg</g:additional_image_link>
+    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202609-83910fb90e344763bf2df891f0eca4c7.jpg</g:additional_image_link>
+    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202609-4073f1216bde455cbd25024be77fd699.jpg</g:additional_image_link>
+    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202609-8d36001652fa423696b1191edae7bd79.jpg</g:additional_image_link>
+    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202609-f843e4f6134b42168ad2764e2a97d1e3.jpg</g:additional_image_link>
+    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202609-f383877387fa40a4bd4d8e4c11126bb7.jpg</g:additional_image_link>
+    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202609-5b447526153e48489cb8429bfe297510.jpg</g:additional_image_link>
+    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202609-ecb44471fba04c3781ddecd2a0823937.jpg</g:additional_image_link>
+    <g:condition>used</g:condition>
+    <g:price>13995 USD</g:price>
+    <g:availability>in_stock</g:availability>
+    <g:brand>Mazda</g:brand>
+    <g:google_product_category>Vehicles &amp; Parts &gt; Vehicles &gt; Motor Vehicles &gt; Cars, Trucks &amp; Vans</g:google_product_category>
+    <g:excluded_destination>Shopping_ads</g:excluded_destination>
+    <g:excluded_destination>Free_listings</g:excluded_destination>
+    <g:vin>JM3KE4CY4G0882052</g:vin>
+    <g:year>2016</g:year>
+    <g:model>CX-5</g:model>
+    <g:mileage>88080 Miles</g:mileage>
+    <g:store_code>08861907241419503398</g:store_code>
+    <g:vehicle_fulfillment>
+      <g:option>in_store</g:option>
+    </g:vehicle_fulfillment>
+    <g:color>Black</g:color>
+    <g:trim>Touring</g:trim>
+    <g:body_style>suv</g:body_style>
   </item>
   <item>
     <g:id>JM3KE4DY6G0826709</g:id>
