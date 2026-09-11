@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-09-11T00:30:53.902Z",
+  "last_updated": "2026-09-11T01:30:18.730Z",
   "period_start": "2026-09-04",
   "period_end": "2026-09-11",
   "by_vin": {
@@ -72,7 +72,7 @@
       "leads_email": 0,
       "leads_phone": 0,
       "leads_chat": 0,
-      "website_clicks": 0,
+      "website_clicks": 3,
       "map_clicks": 1
     },
     "KM8SMDHFXFU124707": {
@@ -96,10 +96,10 @@
     "JTDKN3DU5E1751265": {
       "srp_views": 1118,
       "vdp_views": 84,
-      "leads_email": 0,
+      "leads_email": 7,
       "leads_phone": 0,
       "leads_chat": 0,
-      "website_clicks": 0,
+      "website_clicks": 8,
       "map_clicks": 2
     },
     "KMHDH4AE6GU489451": {
@@ -109,7 +109,7 @@
       "leads_phone": 1,
       "leads_chat": 0,
       "website_clicks": 1,
-      "map_clicks": 0
+      "map_clicks": 2
     }
   }
 }
