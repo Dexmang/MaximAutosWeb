@@ -394,10 +394,26 @@ function buildFeed() {
   const vehicleVins = new Set(vehicles.map((v) => (v.vin || "").toUpperCase()));
   const dcMissingFromSite = [...dcVins].filter((vin) => !vehicleVins.has(vin));
 
+  // A DC VIN whose feed row carries no photos yet is not a skip, it is a car
+  // DealerCenter has not finished publishing: photos land in the OAP feed a few
+  // hours after the Media tab is saved (J10252 and J10253, 2026-09-15, uploaded
+  // the evening before, still photo-less in the 00:51 feed). Google would
+  // disapprove an image-less item anyway, so it waits for the next feed drop.
+  // Leaving it out must not fail --strict: that froze the inventory commit and
+  // kept every other new car off the site while the emails piled up.
+  const awaitingPhotos = available.filter((v) => (v.photoUrls || []).length === 0);
+  const ready = available.filter((v) => (v.photoUrls || []).length > 0);
+  if (awaitingPhotos.length) {
+    console.warn(
+      `  AWAITING PHOTOS (left out of the feed until DealerCenter publishes them): ` +
+        awaitingPhotos.map((v) => v.slug || v.stockNumber || v.vin).join(", ")
+    );
+  }
+
   const now = new Date().toISOString();
   const skippedRows = [];
   const items = [];
-  for (const v of available) {
+  for (const v of ready) {
     const item = buildItem(v);
     if (item === null) {
       skippedRows.push(v.slug || v.vin || v.stockNumber || "(unidentified row)");
@@ -428,6 +444,7 @@ ${itemsXml}</channel>
   console.log(`  VINs in newest DC feed (book of record): ${dcVins.size}`);
   console.log(`  total rows in vehicles.json: ${vehicles.length}`);
   console.log(`  matched to a DC VIN: ${available.length}`);
+  console.log(`  awaiting photos in the DC feed: ${awaitingPhotos.length}`);
   console.log(`  written to feed: ${written}`);
 
   // Parity must be exact: feed VINs == DC feed VINs. Anything else is drift.
@@ -450,9 +467,10 @@ ${itemsXml}</channel>
     console.warn(`  PARITY DRIFT: feed has ${written} of ${dcVins.size} DC VINs`);
   }
 
-  if (STRICT && (written === 0 || written < available.length || dcMissingFromSite.length)) {
+  if (STRICT && (written === 0 || written < ready.length || dcMissingFromSite.length)) {
     console.error(
-      `STRICT FAILURE: wrote ${written} of ${available.length} active vehicles` +
+      `STRICT FAILURE: wrote ${written} of ${ready.length} photo-ready vehicles` +
+        (awaitingPhotos.length ? ` (${awaitingPhotos.length} awaiting photos, not counted)` : "") +
         (written === 0 ? " (feed is empty)" : "")
     );
     if (skippedRows.length > 0) {
