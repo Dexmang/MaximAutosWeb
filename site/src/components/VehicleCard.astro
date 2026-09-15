@@ -44,7 +44,8 @@ const lbl = isSpanish
       freeCarfax:     'CARFAX Gratis',
       zeroFees:       'Cero Cargos de Dealer',
       financing:      'Financiamiento',
-      photosComing:   'Fotos proximamente',
+      photosComing:   'Fotos en 24 horas. Escribenos para verlo primero',
+      justLanded:     'Recien llegado',
       perMonth:       '/mes est.',
       fullyInspected: 'TOTALMENTE INSPECCIONADO',
       viewLabel:      'Ver',
@@ -55,7 +56,8 @@ const lbl = isSpanish
       freeCarfax:     'Free CARFAX',
       zeroFees:       'No Dealer Fees Ever',
       financing:      'Financing',
-      photosComing:   'Photos coming soon',
+      photosComing:   'Photos within 24 hrs. Text to see it first',
+      justLanded:     'Just landed',
       perMonth:       '/mo est.',
       fullyInspected: 'FULLY INSPECTED',
       viewLabel:      'View',
@@ -110,9 +112,11 @@ const monthlyPayment = Math.round(
         height="768"
       />
     ) : (
-      <div class="w-full h-full flex flex-col items-center justify-center bg-gray-100 text-gray-400 gap-2">
-        <span class="material-symbols-outlined text-4xl">no_photography</span>
-        <span class="text-xs font-medium">{lbl.photosComing}</span>
+      <div class="w-full h-full flex flex-col justify-between p-3 text-white"
+           style="background: radial-gradient(120% 90% at 100% 0%, rgba(240,128,16,.28) 0%, rgba(240,128,16,0) 55%), linear-gradient(160deg, #0a2540 0%, #061a2e 100%);">
+        <div class="font-headline font-bold text-[11px] tracking-[0.18em] uppercase text-orange-light">{lbl.justLanded}</div>
+        <div class="font-headline font-extrabold text-xl leading-tight">{year} {make}<br />{model} {trim}</div>
+        <div class="text-[11px] font-medium opacity-85">{lbl.photosComing}</div>
       </div>
     )}
     {inspected && (
