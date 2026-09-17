@@ -1,14 +1,14 @@
 {
   "source": "https://www.cargurus.com/Cars/m-Maxim-Autos-sp457703",
-  "fetchedAt": "2026-09-16T23:30:03Z",
+  "fetchedAt": "2026-09-17T00:00:04Z",
   "note": "CarGurus deal ratings read from the PKA machine (the GitHub runner gets HTTP 406). build-inventory.js uses this when its own fetch fails and only applies a rating whose cgPrice equals the DealerCenter price.",
   "by_vin": {
     "1C3CDFBB6ED669896": {
       "stock": "J10253",
       "dealRating": "FAIR_PRICE",
-      "priceSavings": -1066,
+      "priceSavings": -1167,
       "cgPrice": 11495,
-      "imv": 10429,
+      "imv": 10328,
       "daysOnMarket": 1
     },
     "2C4RC1BG0LR133382": {
@@ -21,10 +21,10 @@
     },
     "2FMPK3J96GBC56381": {
       "stock": "J10252",
-      "dealRating": "POOR_PRICE",
-      "priceSavings": -920,
-      "cgPrice": 11495,
-      "imv": 10575,
+      "dealRating": "FAIR_PRICE",
+      "priceSavings": -289,
+      "cgPrice": 10995,
+      "imv": 10706,
       "daysOnMarket": 1
     },
     "2GKALMEK3G6308539": {
@@ -53,10 +53,10 @@
     },
     "5N1AZ2MH6FN251280": {
       "stock": "J10251",
-      "dealRating": "POOR_PRICE",
-      "priceSavings": -1534,
-      "cgPrice": 13995,
-      "imv": 12461,
+      "dealRating": "FAIR_PRICE",
+      "priceSavings": -1014,
+      "cgPrice": 13450,
+      "imv": 12436,
       "daysOnMarket": 1
     },
     "JM1CW2BL1F0183769": {
@@ -86,9 +86,9 @@
     "KMHDH4AE6GU489451": {
       "stock": "J10224",
       "dealRating": "GOOD_PRICE",
-      "priceSavings": 982,
-      "cgPrice": 7995,
-      "imv": 8977,
+      "priceSavings": 1456,
+      "cgPrice": 7450,
+      "imv": 8906,
       "daysOnMarket": 47
     },
     "KNDCB3LC5M5478437": {
@@ -101,10 +101,10 @@
     },
     "KNDJN2A23F7202591": {
       "stock": "J10223",
-      "dealRating": "FAIR_PRICE",
-      "priceSavings": -290,
-      "cgPrice": 7450,
-      "imv": 7160,
+      "dealRating": "GOOD_PRICE",
+      "priceSavings": 715,
+      "cgPrice": 6450,
+      "imv": 7165,
       "daysOnMarket": 47
     },
     "YV4A22PL7G1014747": {
