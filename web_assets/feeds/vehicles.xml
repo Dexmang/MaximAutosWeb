@@ -4,7 +4,7 @@
   <title>Maxim Autos Vehicle Inventory</title>
   <link>https://www.maximautos.com/</link>
   <description>Used vehicles for sale at Maxim Autos in Skokie, IL 60077. Phone +18475108947.</description>
-  <lastBuildDate>2026-09-17T00:30:14.740Z</lastBuildDate>
+  <lastBuildDate>2026-09-17T01:24:36.930Z</lastBuildDate>
   <item>
     <g:id>1C3CDFBB6ED669896</g:id>
     <g:title>2014 Dodge Dart SXT</g:title>
@@ -40,6 +40,8 @@
     <g:color>Gray</g:color>
     <g:trim>SXT</g:trim>
     <g:body_style>sedan</g:body_style>
+    <g:custom_label_0>age_0_30</g:custom_label_0>
+    <g:custom_label_1>sedan</g:custom_label_1>
   </item>
   <item>
     <g:id>2C4RC1BG0LR133382</g:id>
@@ -76,6 +78,8 @@
     <g:color>Black</g:color>
     <g:trim>Touring L</g:trim>
     <g:body_style>full_size_van</g:body_style>
+    <g:custom_label_0>age_0_30</g:custom_label_0>
+    <g:custom_label_1>full_size_van</g:custom_label_1>
   </item>
   <item>
     <g:id>2FMPK3J96GBC56381</g:id>
@@ -112,6 +116,8 @@
     <g:color>Black</g:color>
     <g:trim>SEL</g:trim>
     <g:body_style>suv</g:body_style>
+    <g:custom_label_0>age_0_30</g:custom_label_0>
+    <g:custom_label_1>suv</g:custom_label_1>
   </item>
   <item>
     <g:id>2GKALMEK3G6308539</g:id>
@@ -148,6 +154,8 @@
     <g:color>Black</g:color>
     <g:trim>SLE-1</g:trim>
     <g:body_style>suv</g:body_style>
+    <g:custom_label_0>age_0_30</g:custom_label_0>
+    <g:custom_label_1>suv</g:custom_label_1>
   </item>
   <item>
     <g:id>3C4PDCBB7GT164698</g:id>
@@ -184,6 +192,8 @@
     <g:color>Gray</g:color>
     <g:trim>SXT</g:trim>
     <g:body_style>suv</g:body_style>
+    <g:custom_label_0>age_0_30</g:custom_label_0>
+    <g:custom_label_1>suv</g:custom_label_1>
   </item>
   <item>
     <g:id>3N1CN8EV9ML865322</g:id>
@@ -220,6 +230,8 @@
     <g:color>Black</g:color>
     <g:trim>SV</g:trim>
     <g:body_style>sedan</g:body_style>
+    <g:custom_label_0>age_0_30</g:custom_label_0>
+    <g:custom_label_1>sedan</g:custom_label_1>
   </item>
   <item>
     <g:id>5N1AZ2MH6FN251280</g:id>
@@ -256,6 +268,8 @@
     <g:color>Black</g:color>
     <g:trim>Platinum</g:trim>
     <g:body_style>suv</g:body_style>
+    <g:custom_label_0>age_0_30</g:custom_label_0>
+    <g:custom_label_1>suv</g:custom_label_1>
   </item>
   <item>
     <g:id>JM1CW2BL1F0183769</g:id>
@@ -292,6 +306,8 @@
     <g:color>Black</g:color>
     <g:trim>Sport</g:trim>
     <g:body_style>station_wagon</g:body_style>
+    <g:custom_label_0>age_0_30</g:custom_label_0>
+    <g:custom_label_1>station_wagon</g:custom_label_1>
   </item>
   <item>
     <g:id>JM3KE4CY4G0882052</g:id>
@@ -328,6 +344,8 @@
     <g:color>Black</g:color>
     <g:trim>Touring</g:trim>
     <g:body_style>suv</g:body_style>
+    <g:custom_label_0>age_0_30</g:custom_label_0>
+    <g:custom_label_1>suv</g:custom_label_1>
   </item>
   <item>
     <g:id>JM3KE4DY6G0826709</g:id>
@@ -364,6 +382,8 @@
     <g:color>Blue</g:color>
     <g:trim>Grand Touring</g:trim>
     <g:body_style>suv</g:body_style>
+    <g:custom_label_0>age_31_60</g:custom_label_0>
+    <g:custom_label_1>suv</g:custom_label_1>
   </item>
   <item>
     <g:id>KMHDH4AE6GU489451</g:id>
@@ -400,6 +420,8 @@
     <g:color>Red</g:color>
     <g:trim>Value Edition</g:trim>
     <g:body_style>sedan</g:body_style>
+    <g:custom_label_0>age_31_60</g:custom_label_0>
+    <g:custom_label_1>sedan</g:custom_label_1>
   </item>
   <item>
     <g:id>KNDCB3LC5M5478437</g:id>
@@ -436,6 +458,8 @@
     <g:color>White</g:color>
     <g:trim>LX</g:trim>
     <g:body_style>suv</g:body_style>
+    <g:custom_label_0>age_0_30</g:custom_label_0>
+    <g:custom_label_1>suv</g:custom_label_1>
   </item>
   <item>
     <g:id>KNDJN2A23F7202591</g:id>
@@ -471,6 +495,8 @@
     </g:vehicle_fulfillment>
     <g:color>Gray</g:color>
     <g:body_style>suv</g:body_style>
+    <g:custom_label_0>age_31_60</g:custom_label_0>
+    <g:custom_label_1>suv</g:custom_label_1>
   </item>
   <item>
     <g:id>YV4A22PL7G1014747</g:id>
@@ -507,6 +533,8 @@
     <g:color>Silver</g:color>
     <g:trim>T6 Inscription</g:trim>
     <g:body_style>suv</g:body_style>
+    <g:custom_label_0>age_0_30</g:custom_label_0>
+    <g:custom_label_1>suv</g:custom_label_1>
   </item>
 </channel>
 </rss>

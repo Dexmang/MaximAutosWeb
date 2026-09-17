@@ -140,6 +140,22 @@ function mapBodyStyle(v) {
 }
 
 /**
+ * Days in stock bucket for custom_label_0. dateAdded is YYYY-MM-DD, the day the
+ * car first appeared in site data (preserved across syncs by
+ * build_vehicles_json.py). Buckets are coarse on purpose so the label changes
+ * at most twice in a car's life and the 6h CI rebuild does not churn commits.
+ */
+function ageBucket(dateAdded) {
+  if (!dateAdded) return null;
+  const added = Date.parse(`${dateAdded}T00:00:00Z`);
+  if (Number.isNaN(added)) return null;
+  const days = Math.floor((Date.now() - added) / 86400000);
+  if (days < 0) return null;
+  if (days <= 30) return "age_0_30";
+  if (days <= 60) return "age_31_60";
+  return "age_61_plus";
+}
+/**
  * Build a single <item> for a vehicle row.
  * Returns null for vehicles that lack the minimum required fields.
  */
@@ -315,6 +331,17 @@ function buildItem(v) {
   if (v.trim) item += tag("trim", v.trim);
   const bodyStyle = mapBodyStyle(v);
   if (bodyStyle) item += tag("body_style", bodyStyle);
+
+  // Custom labels are STANDARD Merchant Center product attributes
+  // (support.google.com/merchants/answer/6324473), not vehicle specific ones, so
+  // the vehicle data source recognizes them the same way it recognizes brand and
+  // google_product_category above. Two uses: (1) Standard Shopping product group
+  // splits, so aged units can carry their own bid; (2) Product Value
+  // Optimization keys on custom labels (Rethink Retail 2026, task #292).
+  // custom_label_0 = days in stock bucket. custom_label_1 = mapped body style.
+  const age = ageBucket(v.dateAdded);
+  if (age) item += tag("custom_label_0", age);
+  if (bodyStyle) item += tag("custom_label_1", bodyStyle);
 
   item += "  </item>\n";
   return item;
