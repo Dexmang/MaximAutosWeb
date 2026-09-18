@@ -308,6 +308,26 @@
       "source": "/vehicle/2017-gmc-acadia-slt-2-j10231/",
       "destination": "/inventory",
       "permanent": true
+    },
+    {
+      "source": "/gym",
+      "destination": "/inventory?utm_source=htc_gym&utm_medium=banner&utm_campaign=rothner_gym_2026",
+      "permanent": false
+    },
+    {
+      "source": "/gym/",
+      "destination": "/inventory?utm_source=htc_gym&utm_medium=banner&utm_campaign=rothner_gym_2026",
+      "permanent": false
+    },
+    {
+      "source": "/GYM",
+      "destination": "/inventory?utm_source=htc_gym&utm_medium=banner&utm_campaign=rothner_gym_2026",
+      "permanent": false
+    },
+    {
+      "source": "/GYM/",
+      "destination": "/inventory?utm_source=htc_gym&utm_medium=banner&utm_campaign=rothner_gym_2026",
+      "permanent": false
     }
   ],
   "headers": [
