@@ -4,7 +4,7 @@
   <title>Maxim Autos Vehicle Inventory</title>
   <link>https://www.maximautos.com/</link>
   <description>Used vehicles for sale at Maxim Autos in Skokie, IL 60077. Phone +18475108947.</description>
-  <lastBuildDate>2026-09-19T00:00:16.064Z</lastBuildDate>
+  <lastBuildDate>2026-09-19T00:30:18.357Z</lastBuildDate>
   <item>
     <g:id>1C3CDFBB6ED669896</g:id>
     <g:title>2014 Dodge Dart SXT</g:title>
@@ -496,6 +496,44 @@
     <g:color>Gray</g:color>
     <g:body_style>suv</g:body_style>
     <g:custom_label_0>age_31_60</g:custom_label_0>
+    <g:custom_label_1>suv</g:custom_label_1>
+  </item>
+  <item>
+    <g:id>WVGBV7AX5HK000196</g:id>
+    <g:title>2017 Volkswagen Tiguan 2.0T S 4Motion</g:title>
+    <g:description>2017 Volkswagen Tiguan 2.0T S 4Motion: 4Motion all wheel drive, 200 horsepower turbocharged engine, heated front seats, Apple CarPlay. Black on tan, automatic, 2.0L turbo four rated at an EPA estimated 20 city and 24 highway. A German built crossover that takes a Chicago winter in stride without the German price tag. Key features: 4Motion all wheel drive that reads traction and sends torque to the wheels that still have grip in rain and snow, 200 horsepower turbocharged 2.0L four making 207 lb ft of torque, six speed automatic with Sport mode, heated front seats, KESSY proximity keyless entry with push button start, 6.3 inch App Connect touchscreen with Apple CarPlay and Android Auto, standard rearview camera, and leatherette upholstery that wipes clean after the kids. The doors shut with the solid thunk that tells you how it was built. The Maxim Autos Difference Independent inspection report included with every vehicle Metal plates issued on the spot, drive home today Transparent pricing, no hidden fees Financing for all credit levels Skokie, IL. Serving Evanston, Niles, Morton Grove, Lincolnwood, Des Plaines and the North Shore Chicago area. Call or text to set up a same day appointment. Every car inspected. Every price transparent. Every car documented.</g:description>
+    <g:link>https://www.maximautos.com/vehicle/2017-volkswagen-tiguan-2-0t-s-4motion-j10239</g:link>
+    <g:link_template>https://www.maximautos.com/vehicle/2017-volkswagen-tiguan-2-0t-s-4motion-j10239?store={store_code}</g:link_template>
+    <g:image_link>https://imagesdl.dealercenter.net/1289/856/202608-3281cc3921164f36bdd4e911fa24e58f.jpg</g:image_link>
+    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202608-096fbf59e8824de1892774a8ef70efbd.jpg</g:additional_image_link>
+    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202608-dc2c2449653f4c229a19801a40ecb137.jpg</g:additional_image_link>
+    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202608-44d6cfe08c764ab2b39782ccda94759a.jpg</g:additional_image_link>
+    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202608-0dbc5c5ee66849598be4ac52448cc420.jpg</g:additional_image_link>
+    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202608-e2b50155365b4cef8d0f425c42951a42.jpg</g:additional_image_link>
+    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202608-4503094b0c7f4d6face37276438bca5b.jpg</g:additional_image_link>
+    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202608-a3802ecc37274dcf995595bbf46110a5.jpg</g:additional_image_link>
+    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202608-940edd6d6cdd4f428629f6230e3dcbd9.jpg</g:additional_image_link>
+    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202608-f7c2ccdc5fda4e7285153b2ff07a200e.jpg</g:additional_image_link>
+    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202608-cbf444e4c30541d08ba09832f22622f3.jpg</g:additional_image_link>
+    <g:condition>used</g:condition>
+    <g:price>7995 USD</g:price>
+    <g:availability>in_stock</g:availability>
+    <g:brand>Volkswagen</g:brand>
+    <g:google_product_category>Vehicles &amp; Parts &gt; Vehicles &gt; Motor Vehicles &gt; Cars, Trucks &amp; Vans</g:google_product_category>
+    <g:excluded_destination>Shopping_ads</g:excluded_destination>
+    <g:excluded_destination>Free_listings</g:excluded_destination>
+    <g:vin>WVGBV7AX5HK000196</g:vin>
+    <g:year>2017</g:year>
+    <g:model>Tiguan</g:model>
+    <g:mileage>107615 Miles</g:mileage>
+    <g:store_code>08861907241419503398</g:store_code>
+    <g:vehicle_fulfillment>
+      <g:option>in_store</g:option>
+    </g:vehicle_fulfillment>
+    <g:color>Black</g:color>
+    <g:trim>2.0T S 4Motion</g:trim>
+    <g:body_style>suv</g:body_style>
+    <g:custom_label_0>age_0_30</g:custom_label_0>
     <g:custom_label_1>suv</g:custom_label_1>
   </item>
   <item>
