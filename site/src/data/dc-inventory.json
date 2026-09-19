@@ -463,7 +463,7 @@
       "year": 2015,
       "make": "Mazda",
       "model": "Mazda5",
-      "trim": "Sport",
+      "trim": "Sport Van",
       "price": 8995,
       "mileage": 115933,
       "exteriorColor": "Black",
@@ -499,12 +499,24 @@
         "https://imagesdl.dealercenter.net/1289/856/202609-4599158f1bbf4e198c979211ef00af6d.jpg",
         "https://imagesdl.dealercenter.net/1289/856/202609-9427213f1caf469fa316075a85cf933b.jpg",
         "https://imagesdl.dealercenter.net/1289/856/202609-9039e4090fce41ce8fd15d3e5ad27e52.jpg",
-        "https://imagesdl.dealercenter.net/1289/856/202609-30d7dd17f69f41fb83ddbbf4def2be91.jpg",
-        "https://imagesdl.dealercenter.net/1289/856/202609-d7d80a6015df4652806bb1a292dff057.jpg",
-        "https://imagesdl.dealercenter.net/1289/856/202609-846e08601405454e9b90868d078c87b7.jpg"
+        "https://imagesdl.dealercenter.net/1289/856/202609-358f98b0f628449faa6222c2690fb3fe.jpg",
+        "https://imagesdl.dealercenter.net/1289/856/202609-dd4cbe5b59df43e9ab23c6061e236f7f.jpg",
+        "https://imagesdl.dealercenter.net/1289/856/202609-d73803bb9f1740a1ad5891b396c7af6e.jpg",
+        "https://imagesdl.dealercenter.net/1289/856/202609-80a0fbc3a66d41f282150384ad8df32a.jpg",
+        "https://imagesdl.dealercenter.net/1289/856/202609-669dc23ab2f5459faaf7b3685be6e559.jpg",
+        "https://imagesdl.dealercenter.net/1289/856/202609-4cb97ee32f8a4165a07a94c110ecf299.jpg",
+        "https://imagesdl.dealercenter.net/1289/856/202609-007e4aa811f64cf39a0a10ca9090815f.jpg",
+        "https://imagesdl.dealercenter.net/1289/856/202609-f87a59d1b941497390509d4afdb0b559.jpg",
+        "https://imagesdl.dealercenter.net/1289/856/202609-a09ecca9a02b43d08736e23d593640e4.jpg",
+        "https://imagesdl.dealercenter.net/1289/856/202609-81b54c96868042ce888401a161ea1ec7.jpg",
+        "https://imagesdl.dealercenter.net/1289/856/202609-14b2e97a739b4a9cb985dc4730cb9fff.jpg",
+        "https://imagesdl.dealercenter.net/1289/856/202609-53eedf446adf478f9512b2f6592703c3.jpg",
+        "https://imagesdl.dealercenter.net/1289/856/202609-f5ff2e00bddd4e2c8bea4e923a3a68eb.jpg",
+        "https://imagesdl.dealercenter.net/1289/856/202609-2b3888a6ac2a4f52a7bf7058be99f89d.jpg",
+        "https://imagesdl.dealercenter.net/1289/856/202609-141fdadabdbc486c8cbba070291e62cb.jpg"
       ],
       "photos": {
-        "exterior": 18,
+        "exterior": 30,
         "interior": 0,
         "source": "dealercenter"
       },
@@ -517,7 +529,7 @@
       "priceSavings": -494,
       "description": "2015 Mazda Mazda5 Sport: seating for six, dual sliding rear doors, and a compact footprint that handles like a car and parks like a hatchback. Black exterior on black cloth, automatic, 2.5L four cylinder. The family hauler for people who refuse to drive a full size van. Key features: 2.5L four cylinder with 157 horsepower and a five speed automatic, three rows of seating for six with second row captain's chairs and hidden storage under the seats, dual sliding rear doors that make loading kids easy in a tight garage, fold flat third row for a level cargo floor, full roof rack, alloy wheels, air conditioning, cruise control, AM/FM CD audio with auxiliary input, power windows, locks and mirrors, rear defroster, side and overhead airbags, traction control. This was the final model year of the Mazda5, a rare six seat van that fits the whole family without the size or the fuel bill of a full size minivan. The Maxim Autos Difference Independent inspection report included with every vehicle Metal plates issued on the spot, drive home today Transparent pricing, no hidden fees Financing for all credit levels Located in Skokie, IL, minutes from Evanston, Niles, Morton Grove, Lincolnwood, and Des Plaines, serving the North Shore Chicago area. Call (847) 510-8947 to schedule a same day appointment. Every car inspected. Every price transparent. Every customer protected.",
       "highlights": [
-        "Sport trim",
+        "Sport Van trim",
         "115,933 miles",
         "Fully inspected, free CARFAX"
       ],
@@ -902,8 +914,8 @@
       "dateAdded": "2026-08-26",
       "featured": true,
       "sortOrder": 0,
-      "dealRating": "",
-      "priceSavings": 0,
+      "dealRating": "GOOD_PRICE",
+      "priceSavings": 736,
       "description": "2017 Volkswagen Tiguan 2.0T S 4Motion: 4Motion all wheel drive, 200 horsepower turbocharged engine, heated front seats, Apple CarPlay. Black on tan, automatic, 2.0L turbo four rated at an EPA estimated 20 city and 24 highway. A German built crossover that takes a Chicago winter in stride without the German price tag. Key features: 4Motion all wheel drive that reads traction and sends torque to the wheels that still have grip in rain and snow, 200 horsepower turbocharged 2.0L four making 207 lb ft of torque, six speed automatic with Sport mode, heated front seats, KESSY proximity keyless entry with push button start, 6.3 inch App Connect touchscreen with Apple CarPlay and Android Auto, standard rearview camera, and leatherette upholstery that wipes clean after the kids. The doors shut with the solid thunk that tells you how it was built. The Maxim Autos Difference Independent inspection report included with every vehicle Metal plates issued on the spot, drive home today Transparent pricing, no hidden fees Financing for all credit levels Skokie, IL. Serving Evanston, Niles, Morton Grove, Lincolnwood, Des Plaines and the North Shore Chicago area. Call or text to set up a same day appointment. Every car inspected. Every price transparent. Every customer protected.",
       "highlights": [
         "2.0T S 4Motion trim",
@@ -913,9 +925,7 @@
       "features": [],
       "photoPrefix": "2017-volkswagen-tiguan-2-0t-s-4motion",
       "photoPath": "",
-      "dealerCenterUrl": "",
-      "sold_date": "2026-08-29",
-      "missing_since": "2026-08-29T06:00:18.913Z"
+      "dealerCenterUrl": ""
     },
     "YV4A22PL7G1014747": {
       "year": 2016,
