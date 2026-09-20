@@ -1,6 +1,6 @@
 {
   "source": "https://www.cargurus.com/Cars/m-Maxim-Autos-sp457703",
-  "fetchedAt": "2026-09-20T05:30:04Z",
+  "fetchedAt": "2026-09-20T06:00:04Z",
   "note": "CarGurus deal ratings read from the PKA machine (the GitHub runner gets HTTP 406). build-inventory.js uses this when its own fetch fails and only applies a rating whose cgPrice equals the DealerCenter price.",
   "by_vin": {
     "1C3CDFBB6ED669896": {
@@ -9,7 +9,7 @@
       "priceSavings": -1167,
       "cgPrice": 11495,
       "imv": 10328,
-      "daysOnMarket": 4
+      "daysOnMarket": 5
     },
     "2C4RC1BG0LR133382": {
       "stock": "J10240",
@@ -25,7 +25,7 @@
       "priceSavings": -289,
       "cgPrice": 10995,
       "imv": 10706,
-      "daysOnMarket": 4
+      "daysOnMarket": 5
     },
     "2GKALMEK3G6308539": {
       "stock": "J10241",
@@ -43,13 +43,21 @@
       "imv": 9091,
       "daysOnMarket": 24
     },
+    "4S3BNBN62F3053941": {
+      "stock": "J10247",
+      "dealRating": "FAIR_PRICE",
+      "priceSavings": -182,
+      "cgPrice": 10995,
+      "imv": 10813,
+      "daysOnMarket": null
+    },
     "5N1AZ2MH6FN251280": {
       "stock": "J10251",
       "dealRating": "FAIR_PRICE",
       "priceSavings": -1014,
       "cgPrice": 13450,
       "imv": 12436,
-      "daysOnMarket": 4
+      "daysOnMarket": 5
     },
     "JM1CW2BL1F0183769": {
       "stock": "J10249",
@@ -105,7 +113,7 @@
       "priceSavings": -421,
       "cgPrice": 14495,
       "imv": 14074,
-      "daysOnMarket": 4
+      "daysOnMarket": 5
     }
   }
 }
