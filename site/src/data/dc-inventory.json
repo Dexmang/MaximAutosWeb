@@ -1,6 +1,6 @@
 {
   "source": "pka_hub.db ma_vehicles + vPIC",
-  "generated_at": "2026-09-22",
+  "generated_at": "2026-09-23",
   "by_vin": {
     "1C3CDFBB6ED669896": {
       "year": 2014,
@@ -257,7 +257,7 @@
       "featured": true,
       "sortOrder": 0,
       "dealRating": "GOOD_PRICE",
-      "priceSavings": 1236,
+      "priceSavings": 1116,
       "description": "2016 GMC Terrain SLE: 77,029 miles, sliding rear seats, quiet cabin, 7 inch touchscreen. Black on black, automatic, 2.4L four rated at an EPA estimated 22 city and 32 highway. Low mileage for a 2016 and the 32 highway keeps the running cost down. Key features: Second row seats that slide forward and back so you pick legroom or cargo room, active noise cancellation that keeps the cabin quiet at highway speed, 2.4L four cylinder, 7 inch touchscreen with Bluetooth and USB, standard rearview camera with dynamic guidelines, wide rear doors that make loading a child seat easy, and split folding rear seatbacks. At 77,029 miles this one has plenty of road left in it. The Maxim Autos Difference Independent inspection report included with every vehicle Metal plates issued on the spot, drive home today Transparent pricing, no hidden fees Financing for all credit levels Skokie, IL. Serving Evanston, Niles, Morton Grove, Lincolnwood, Des Plaines and the North Shore Chicago area. Call or text to set up a same day appointment. Every car inspected. Every price transparent. Every customer protected.",
       "highlights": [
         "SLE-1 trim",
@@ -320,7 +320,7 @@
       "featured": true,
       "sortOrder": 0,
       "dealRating": "GOOD_PRICE",
-      "priceSavings": 1141,
+      "priceSavings": 1226,
       "description": "2016 Dodge Journey SXT: third row seating, hidden storage, fold flat front passenger seat. Gray on black, automatic, 2.4L four rated at an EPA estimated 19 city and 25 highway. Seven seats at the price most lots want for five. Key features: Third row seating that covers carpools, cousins and everything in between, a hidden storage bin under the front passenger cushion and sub floor compartments in the second row for keeping valuables out of sight, a front passenger seatback that folds completely flat so long items ride inside, 2.4L four cylinder, Bluetooth, alarm system, and 12V power outlets front and rear. Drop the second and third rows and it turns into a proper cargo hauler. The Maxim Autos Difference Independent inspection report included with every vehicle Metal plates issued on the spot, drive home today Transparent pricing, no hidden fees Financing for all credit levels Skokie, IL. Serving Evanston, Niles, Morton Grove, Lincolnwood, Des Plaines and the North Shore Chicago area. Call or text to set up a same day appointment. Every car inspected. Every price transparent. Every customer protected.",
       "highlights": [
         "SXT trim",
@@ -340,7 +340,7 @@
       "price": 10995,
       "mileage": 118170,
       "exteriorColor": "Gray",
-      "interiorColor": "Blue",
+      "interiorColor": "Gray",
       "engine": "2.5L",
       "transmission": "CVT",
       "drivetrain": "AWD",
@@ -365,15 +365,36 @@
         "https://imagesdl.dealercenter.net/1289/856/202609-3e9f9573ff3a4782bdaf22d27a3bbd33.jpg",
         "https://imagesdl.dealercenter.net/1289/856/202609-b1f96c854b4740c6884c6845d6d4b0ed.jpg",
         "https://imagesdl.dealercenter.net/1289/856/202609-e6c1231c8355488a830e9d98adc32ebc.jpg",
+        "https://imagesdl.dealercenter.net/1289/856/202609-53db4df8c3bc47458bf7d60055c6099e.jpg",
         "https://imagesdl.dealercenter.net/1289/856/202609-a578176d4fc74112ac99b39e53f3187b.jpg",
         "https://imagesdl.dealercenter.net/1289/856/202609-782b27c035884887bda28a2314af97ca.jpg",
         "https://imagesdl.dealercenter.net/1289/856/202609-b14295ae472e4d6aa4c204b7b23e6039.jpg",
+        "https://imagesdl.dealercenter.net/1289/856/202609-a21a7142b49847e1ad5dc3878d1fcc58.jpg",
+        "https://imagesdl.dealercenter.net/1289/856/202609-17dd5bedf2be497899d5d6b97c449c7e.jpg",
         "https://imagesdl.dealercenter.net/1289/856/202609-fa8ef4a082a74912ad5e3ce0595e2819.jpg",
         "https://imagesdl.dealercenter.net/1289/856/202609-b346964abe2849209d658f143cb7960c.jpg",
-        "https://imagesdl.dealercenter.net/1289/856/202609-d1b4c9a9cd1c4ba4ba3f30222d3cfc7b.jpg"
+        "https://imagesdl.dealercenter.net/1289/856/202609-d1b4c9a9cd1c4ba4ba3f30222d3cfc7b.jpg",
+        "https://imagesdl.dealercenter.net/1289/856/202609-88821a8c1bbd4d0c9a2c65f3f12cd3c5.jpg",
+        "https://imagesdl.dealercenter.net/1289/856/202609-3d81bea9646b45fe85faed5322a30649.jpg",
+        "https://imagesdl.dealercenter.net/1289/856/202609-d3c3bf4b7cc84927ad1d8bdfa9915dc1.jpg",
+        "https://imagesdl.dealercenter.net/1289/856/202609-3280174982db4ee08fa0420d96deea17.jpg",
+        "https://imagesdl.dealercenter.net/1289/856/202609-0237a9520be6474bb8266a69dae39cef.jpg",
+        "https://imagesdl.dealercenter.net/1289/856/202609-1453a08c69e1498d82fa9c87e68c7dcf.jpg",
+        "https://imagesdl.dealercenter.net/1289/856/202609-bd1be1b1d2944278be611a851eb22409.jpg",
+        "https://imagesdl.dealercenter.net/1289/856/202609-9d6b1e5d214246d6b1941f51b42aa533.jpg",
+        "https://imagesdl.dealercenter.net/1289/856/202609-2fce792e894e453cba05a91fea3cbda1.jpg",
+        "https://imagesdl.dealercenter.net/1289/856/202609-cad5ab81194b4729a9981d551b51f1fc.jpg",
+        "https://imagesdl.dealercenter.net/1289/856/202609-be2d18fdb4eb4efca79cff791a6fc0a4.jpg",
+        "https://imagesdl.dealercenter.net/1289/856/202609-d3c5bfcce5ef4a59aaf78ff737045e51.jpg",
+        "https://imagesdl.dealercenter.net/1289/856/202609-0dd412155ff74cb68ba197d1b4624b61.jpg",
+        "https://imagesdl.dealercenter.net/1289/856/202609-0a403804f22549fba50545eebaddd598.jpg",
+        "https://imagesdl.dealercenter.net/1289/856/202609-f6214b456d844ac2899282ea5af63f0e.jpg",
+        "https://imagesdl.dealercenter.net/1289/856/202609-c01f3978e7d34755b86ba2bc088a7583.jpg",
+        "https://imagesdl.dealercenter.net/1289/856/202609-77c98570dd8247db890861c7af69ac0d.jpg",
+        "https://imagesdl.dealercenter.net/1289/856/202609-a240640d38cd467b9de523049ad6e910.jpg"
       ],
       "photos": {
-        "exterior": 14,
+        "exterior": 35,
         "interior": 0,
         "source": "dealercenter"
       },
@@ -384,7 +405,7 @@
       "sortOrder": 0,
       "dealRating": "FAIR_PRICE",
       "priceSavings": -42,
-      "description": "2015 Subaru Legacy 2.5i Limited: standard Subaru all wheel drive, leather, sunroof, navigation and Harman Kardon audio. Gray on blue leather, automatic, 2.5L boxer four. This is the loaded one, and it was built for exactly this climate. Key features: symmetrical all wheel drive standard, an EPA estimated 26 city and 36 highway MPG, heated leather seats front and rear, power moonroof, navigation, Harman Kardon premium audio, blind spot monitoring, lane departure warning, adaptive cruise control, memory driver seat, rearview camera, smart key, and the roomiest cabin in the midsize class when it launched. Few AWD sedans of any year match its 36 highway MPG. The Maxim Autos Difference Independent inspection report included with every vehicle Metal plates issued on the spot, drive home today Transparent pricing, no hidden fees Financing for all credit levels Skokie, IL. Serving Evanston, Niles, Morton Grove, Lincolnwood, Des Plaines and the North Shore Chicago area. Call or text to set up a same day appointment. Every car inspected. Every price transparent. Every customer protected.",
+      "description": "2015 Subaru Legacy 2.5i Limited: standard Subaru all wheel drive, leather, sunroof, navigation and Harman Kardon audio. Gray on gray leather, automatic, 2.5L boxer four. This is the loaded one, and it was built for exactly this climate. Key features: symmetrical all wheel drive standard, an EPA estimated 26 city and 36 highway MPG, heated leather seats front and rear, power moonroof, navigation, Harman Kardon premium audio, blind spot monitoring, lane departure warning, adaptive cruise control, memory driver seat, rearview camera, smart key, and the roomiest cabin in the midsize class when it launched. Few AWD sedans of any year match its 36 highway MPG. The Maxim Autos Difference Independent inspection report included with every vehicle Metal plates issued on the spot, drive home today Transparent pricing, no hidden fees Financing for all credit levels Skokie, IL. Serving Evanston, Niles, Morton Grove, Lincolnwood, Des Plaines and the North Shore Chicago area. Call or text to set up a same day appointment. Every car inspected. Every price transparent. Every customer protected.",
       "highlights": [
         "2.5i Limited trim",
         "118,170 miles",
@@ -447,7 +468,7 @@
       "featured": true,
       "sortOrder": 0,
       "dealRating": "FAIR_PRICE",
-      "priceSavings": -1014,
+      "priceSavings": -1058,
       "description": "2015 Nissan Murano Platinum AWD: all wheel drive, Zero Gravity heated and ventilated seats, panoramic moonroof, 360 degree Around View camera, 3.5L V6. Black on black leather, automatic, all wheel drive, EPA estimated 21 city and 28 highway MPG. A near luxury midsize SUV for the buyer who wants the comfort without the badge premium. Key features: 3.5L V6 rated at 260 horsepower, all wheel drive for Chicago winters, NASA inspired Zero Gravity front seats with heating and ventilation, heated rear seats, panoramic moonroof, 360 degree Around View monitor for tight parking, leather upholstery with soft touch padding and wood accents, power folding rear seats, Bose premium audio, NissanConnect touchscreen with navigation, EPA estimated 21 city and 28 highway MPG. Seats five with 39.6 cubic feet of cargo behind the rear seat. The Maxim Autos Difference Independent inspection report included with every vehicle Metal plates issued on the spot, drive home today Transparent pricing, no hidden fees Financing for all credit levels Located in Skokie, IL, minutes from Evanston, Niles, Morton Grove, Lincolnwood, and Des Plaines, serving the North Shore Chicago area. Call (847) 510-8947 to schedule a same day appointment. Every car inspected. Every price transparent. Every customer protected.",
       "highlights": [
         "Platinum trim",
@@ -526,7 +547,7 @@
       "featured": true,
       "sortOrder": 0,
       "dealRating": "FAIR_PRICE",
-      "priceSavings": -343,
+      "priceSavings": -694,
       "description": "2015 Mazda Mazda5 Sport: seating for six, dual sliding rear doors, and a compact footprint that handles like a car and parks like a hatchback. Black exterior on black cloth, automatic, 2.5L four cylinder. The family hauler for people who refuse to drive a full size van. Key features: 2.5L four cylinder with 157 horsepower and a five speed automatic, three rows of seating for six with second row captain's chairs and hidden storage under the seats, dual sliding rear doors that make loading kids easy in a tight garage, fold flat third row for a level cargo floor, full roof rack, alloy wheels, air conditioning, cruise control, AM/FM CD audio with auxiliary input, power windows, locks and mirrors, rear defroster, side and overhead airbags, traction control. This was the final model year of the Mazda5, a rare six seat van that fits the whole family without the size or the fuel bill of a full size minivan. The Maxim Autos Difference Independent inspection report included with every vehicle Metal plates issued on the spot, drive home today Transparent pricing, no hidden fees Financing for all credit levels Located in Skokie, IL, minutes from Evanston, Niles, Morton Grove, Lincolnwood, and Des Plaines, serving the North Shore Chicago area. Call (847) 510-8947 to schedule a same day appointment. Every car inspected. Every price transparent. Every customer protected.",
       "highlights": [
         "Sport trim",
@@ -675,9 +696,7 @@
       "features": [],
       "photoPrefix": "2016-mazda-cx-5-grand-touring-gt",
       "photoPath": "",
-      "dealerCenterUrl": "",
-      "sold_date": "2026-09-19",
-      "missing_since": "2026-09-19T17:30:17.963Z"
+      "dealerCenterUrl": ""
     },
     "KMHDH4AE6GU489451": {
       "year": 2016,
@@ -729,7 +748,7 @@
       "featured": true,
       "sortOrder": 0,
       "dealRating": "GOOD_PRICE",
-      "priceSavings": 1456,
+      "priceSavings": 1659,
       "description": "The Value Edition was the sweet spot of the 2016 Elantra lineup, and this one reads 96,503 miles, well under most of what is listed locally in the same year and trim. It runs the 1.8 liter four cylinder with the six speed Shiftronic automatic, driving the front wheels. Value Edition is where Hyundai loaded in the equipment that normally costs extra: a power glass sunroof, heated front seats, a backup camera, keyless entry with keyless start, alloy wheels, and fog lights. On top of that you get air conditioning, cruise control, power windows and power door locks, Bluetooth, SiriusXM satellite radio alongside the AM/FM and CD system, an alarm system, and a tilt and telescoping steering wheel. Safety coverage includes hill start assist control, electronic stability control, traction control, four wheel ABS, and dual, side, and full length head curtain air bags. Finished in red over a black interior. The Maxim Autos Difference Independent inspection report included with every vehicle Metal plates issued the same day so you can drive home today Transparent pricing, no hidden fees Financing for all credit levels Located in Skokie, IL, serving Evanston, Niles, Morton Grove, Lincolnwood, Des Plaines, and the entire North Shore Chicago corridor. Visit or call for a same day appointment. Every car inspected. Every price transparent. Every customer protected.",
       "highlights": [
         "SE / Value Edition / Sport / Limited trim",
