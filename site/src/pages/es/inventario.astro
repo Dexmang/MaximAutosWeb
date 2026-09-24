@@ -3,12 +3,19 @@ import Layout from '../../layouts/Layout.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 import VehicleCard from '../../components/VehicleCard.astro';
+import Icon from '../../components/Icon.astro';
 import vehicles from '../../data/vehicles.json';
+import facts from '../../data/facts.json';
 
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
-const liveVehicles = vehicles.filter(v => (v as any).status !== 'sold');
-const title = 'Autos Usados en Venta en Skokie, IL | Maxim Autos';
-const description = `Explora ${liveVehicles.length} autos usados completamente inspeccionados en Maxim Autos en Skokie, IL. Precios desde $${Math.min(...liveVehicles.map(v => v.price)).toLocaleString()} hasta $${Math.max(...liveVehicles.map(v => v.price)).toLocaleString()}. Cada vehiculo incluye reporte de inspeccion independiente y placas el mismo dia. Financiamiento disponible para todos los niveles de credito.`;
+// Orden del servidor igual al orden por defecto (precio de menor a mayor).
+const liveVehicles = vehicles.filter(v => (v as any).status !== 'sold').sort((a, b) => a.price - b.price);
+// Titulo y descripcion: conteo, rango y calificacion solo desde facts.json.
+// Titulo 58 o menos, descripcion 155 o menos.
+const title = facts.inventory.usable && facts.inventory.unitCount >= 2
+  ? `${facts.inventory.unitCount} Autos Usados, Sin Cargos de Dealer | Maxim Autos`
+  : 'Autos Usados en Skokie, Sin Cargos de Dealer | Maxim Autos';
+const description = `${facts.inventory.stockLineTextEs}, en Skokie, IL. Sin cargos de dealer. ${facts.reviews.ratingTextEs} con ${facts.reviews.count} resenas. CARFAX Gratis.`;
 
 const bodyStyles = [...new Set(liveVehicles.map(v => v.bodyStyle))].sort();
 const drivetrains = [...new Set(liveVehicles.map(v => v.drivetrain).filter(Boolean))].sort();
@@ -35,24 +42,31 @@ const drivetrains = [...new Set(liveVehicles.map(v => v.drivetrain).filter(Boole
   <Header slot="header" lang="es" />
 
   <!-- Encabezado de pagina + filtros -->
-  <section class="sticky top-[73px] z-40 bg-white border-b border-gray-200 shadow-sm">
-    <div class="max-w-7xl mx-auto px-6 lg:px-8 py-3">
-      <div class="flex items-center justify-between mb-2">
-        <div>
+  <!-- Offsets del encabezado medido: 57 px telefono, 61 px md, 75 px lg (R2-10). -->
+  <section class="sticky top-[57px] md:top-[61px] lg:top-[75px] z-40 bg-white border-b border-gray-200 shadow-sm">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8 py-2 md:py-3">
+      <!-- Fila de titulo fija: el conteo y los controles de 44 px van con ella (Appendix A10). -->
+      <div class="flex flex-wrap items-center justify-between gap-y-1 md:mb-2">
+        <div class="w-full md:w-auto">
           <h1 class="font-headline text-lg font-extrabold text-navy leading-tight">Autos Usados en Skokie, IL</h1>
-          <p class="text-xs text-gray-500 hidden sm:block">Todos los vehiculos completamente inspeccionados · CARFAX gratis incluido</p>
+          <p class="text-xs text-gray-500 hidden sm:block">Cada vehiculo inspeccionado · CARFAX Gratis</p>
         </div>
-        <div class="flex items-center gap-2 md:hidden">
-          <select id="filter-sort" class="px-2 py-1.5 rounded-lg text-xs font-semibold border border-gray-200 bg-white text-gray-700 cursor-pointer">
-            <option value="price-asc">Precio ↑</option>
-            <option value="price-desc">Precio ↓</option>
-            <option value="year-desc">Mas recientes</option>
-            <option value="mileage-asc">Millas ↑</option>
-          </select>
-          <button id="mobile-filter-toggle" class="flex items-center gap-1 px-3 py-1.5 rounded-lg border border-gray-200 text-xs font-semibold text-gray-700 bg-white whitespace-nowrap">
-            <span class="material-symbols-outlined text-sm">tune</span>
-            Filtros<span id="mobile-filter-count" class="hidden ml-1 bg-orange text-white text-[10px] rounded-full px-1.5 leading-snug"></span>
-          </button>
+        <div class="flex items-center justify-between md:justify-end gap-3 w-full md:w-auto">
+          <p class="text-sm text-gray-600 font-medium" id="vehicle-count">
+            <span class="hidden sm:inline">Mostrando </span><span class="text-navy font-bold" id="count-num">{liveVehicles.length}</span> vehiculos
+          </p>
+          <div class="flex items-center gap-2 md:hidden">
+            <select id="filter-sort" class="h-11 px-3 rounded-lg text-base font-semibold border border-gray-200 bg-white text-gray-700 cursor-pointer">
+              <option value="price-asc">Precio ↑</option>
+              <option value="price-desc">Precio ↓</option>
+              <option value="year-desc">Mas recientes</option>
+              <option value="mileage-asc">Millas ↑</option>
+            </select>
+            <button id="mobile-filter-toggle" class="h-11 flex items-center gap-1 px-3 rounded-lg border border-gray-200 text-[13px] font-semibold text-gray-700 bg-white whitespace-nowrap">
+              <Icon name="tune" class="text-sm" />
+              Filtros<span id="mobile-filter-count" class="hidden ml-1 bg-orange text-navy text-[10px] rounded-full px-1.5 leading-snug"></span>
+            </button>
+          </div>
         </div>
       </div>
 
@@ -105,29 +119,13 @@ const drivetrains = [...new Set(liveVehicles.map(v => v.drivetrain).filter(Boole
     </div>
   </section>
 
-  <!-- Entrega nacional -->
-  <div class="bg-navy/5 border-b border-navy/10">
-    <div class="max-w-7xl mx-auto px-6 lg:px-8 py-3 flex items-center gap-3">
-      <span class="material-symbols-outlined text-xl text-navy shrink-0" style="font-variation-settings:'FILL' 1;">local_shipping</span>
-      <p class="text-sm text-gray-700">
-        <span class="font-bold text-navy">No estas en el area?</span> Cualquiera de estos autos puede entregarse en tu puerta, en cualquier parte de EE.UU. Compra en linea, recoge o pide envio.
-        <a href={`${base}/es/compra-en-linea`} class="text-orange font-bold hover:underline ml-1">Como funciona →</a>
-      </p>
-    </div>
-  </div>
-
   <!-- Inventario -->
-  <section class="py-6 bg-surface">
+  <section class="pt-4 pb-6 md:py-6 bg-surface">
     <div class="max-w-7xl mx-auto px-6 lg:px-8">
-      <div class="flex items-center justify-between mb-8">
-        <p class="text-gray-600 font-medium" id="vehicle-count">
-          Mostrando <span class="text-navy font-bold" id="count-num">{liveVehicles.length}</span> vehiculos
-        </p>
-        <button id="clear-filters" class="hidden text-sm text-orange font-semibold hover:underline">Limpiar Filtros</button>
-      </div>
+      <button id="clear-filters" class="hidden mb-3 text-sm text-orange-ink font-semibold hover:underline">Limpiar Filtros</button>
 
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5" id="vehicle-grid">
-        {liveVehicles.map(v => (
+        {liveVehicles.map((v, i) => (
           <div
             class="vehicle-item"
             data-price={v.price}
@@ -157,19 +155,29 @@ const drivetrains = [...new Set(liveVehicles.map(v => v.drivetrain).filter(Boole
               photos={v.photos}
               dealRating={(v as any).dealRating}
               priceSavings={(v as any).priceSavings}
+              priority={i === 0}
             />
           </div>
         ))}
       </div>
 
-      <p class="text-xs text-gray-400 mt-4">* Pago estimado con 10% de enganche, 9.9% APR, plazo de 60 meses. Solo para fines ilustrativos. Los términos reales varían según el crédito.</p>
+      <p class="text-sm text-gray-600 mt-4">* Pago estimado con 10% de enganche, 9.9% APR, plazo de 60 meses. Solo para fines ilustrativos. Los términos reales varían según el crédito.</p>
+
+      <!-- Entrega nacional: una sola vez, debajo de la cuadricula (R1-08). -->
+      <div class="mt-6 rounded-xl border border-navy/10 bg-navy/5 px-4 py-3 flex items-center gap-3">
+        <Icon name="local_shipping" class="text-xl text-navy" fill />
+        <p class="text-sm text-gray-700">
+          <span class="font-bold text-navy">No estas en el area?</span> Cualquiera de estos autos puede entregarse en tu puerta, en cualquier parte de EE.UU.
+          <a href={`${base}/es/compra-en-linea`} class="text-orange-ink font-bold hover:underline ml-1">Como funciona →</a>
+        </p>
+      </div>
 
       <div id="no-results" class="hidden text-center py-20">
-        <span class="material-symbols-outlined text-6xl text-gray-300 mb-4 block">search_off</span>
+        <Icon name="search_off" class="text-6xl text-gray-300 mb-4" />
         <h3 class="font-headline text-xl font-bold text-gray-700 mb-2">Ningun vehiculo coincide con tus filtros</h3>
         <p class="text-gray-500 mb-6">Intenta ajustar el rango de precio o el tipo de carroceria.</p>
         <button id="reset-from-empty" class="inline-flex items-center gap-2 bg-gray-200 text-gray-700 px-6 py-3 rounded-lg font-bold text-sm hover:bg-gray-300 transition-colors">
-          <span class="material-symbols-outlined text-lg">filter_alt_off</span>
+          <Icon name="filter_alt_off" class="text-lg" />
           Limpiar Todos los Filtros
         </button>
       </div>
@@ -185,7 +193,7 @@ const drivetrains = [...new Set(liveVehicles.map(v => v.drivetrain).filter(Boole
           <p class="text-white/70 text-sm">Buen credito, credito regular, reconstruyendo, o primer auto. Aplica en minutos. Sin compromiso.</p>
         </div>
         <a href={`${base}/es/aplicacion-de-credito`} class="shrink-0 inline-flex items-center justify-center gap-2 bg-orange text-white px-7 py-3.5 rounded-xl font-bold text-base hover:bg-orange-dark transition-colors whitespace-nowrap">
-          <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">payments</span>
+          <Icon name="payments" fill />
           Aplicar para Financiamiento
         </a>
       </div>
@@ -201,7 +209,7 @@ const drivetrains = [...new Set(liveVehicles.map(v => v.drivetrain).filter(Boole
       <p class="text-white/60 text-base mb-8">Envianos un mensaje con lo que buscas: marca, modelo, presupuesto y caracteristicas. Jerry consigue autos cada semana y lo encontrara para ti.</p>
       <div class="flex flex-col sm:flex-row justify-center gap-4">
         <div class="hidden sm:inline-flex items-center justify-center gap-3 bg-white/10 border border-white/20 text-white px-8 py-4 rounded-xl font-bold text-lg">
-          <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">phone</span>
+          <Icon name="phone" fill />
           (847) 510-8947
         </div>
       </div>

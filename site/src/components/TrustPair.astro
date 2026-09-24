@@ -1,0 +1,90 @@
+---
+/**
+ * TrustPair: the two Maxim Autos differentiators, one treatment everywhere.
+ * The fee promise is the headline; the Google rating is the seal. Every number comes
+ * from facts.json. Never type a rating, a count or a star in this file or any caller.
+ */
+import facts from '../data/facts.json';
+import Icon from './Icon.astro';
+
+interface Props {
+  variant: 'chip' | 'strip' | 'fee' | 'vdp' | 'vdp-row';
+  lang?: string;
+  class?: string;
+}
+const { variant, lang = 'en', class: className = '' } = Astro.props;
+const es = lang === 'es';
+const r = facts.reviews;
+const full = Math.max(0, Math.min(5, Math.round(Number(r.rating))));
+const stars = '★'.repeat(full) + '☆'.repeat(5 - full);
+const googleReviews = 'https://www.google.com/search?q=Maxim+Autos+Skokie+IL+reviews';
+const t = es
+  ? { fee: 'Cero Cargos de Dealer', feeDetail: '', reviews: 'resenas', stars: 'Estrellas en Google', count: 'Resenas' }
+  : { fee: 'No Dealer Fees Ever', feeDetail: 'No doc fee', reviews: 'reviews', stars: 'Stars on Google', count: 'Reviews' };
+// Spanish feeDetail stays empty until maxseo signs it (R1-16).
+// Inside these conditional blocks Astro drops the space between two adjacent
+// expressions ("54reviews"), so every number and its word are one template literal.
+// At lg the chip matches the live 109 x 36 chip (14 px G, rating line leading-none against
+// text-xs's own 16 px line height). One px wider and the 1024 header wraps to 119 px (R2-03).
+// vdp-row at lg only renders in the 270 px sidebar: the decorative stars drop there so
+// "5.0 Stars on Google · 54 Reviews" holds one line instead of breaking into three.
+// July SPEC 5A zero doc fee wording, byte identical. English only: no Spanish VDP exists.
+const feeLead = 'No dealer fees at Maxim Autos, ever.';
+const feeTail = 'The price you see is the price you pay, plus tax, title, and license.';
+---
+{variant === 'chip' && (
+  <a href={googleReviews} target="_blank" rel="noopener" data-cta="header" data-cta-name="google_reviews"
+     aria-label={`${r.ratingValue} ${t.stars}, ${r.count} ${t.reviews}`}
+     class={`flex items-center gap-1.5 h-11 lg:h-auto lg:py-1 bg-surface border border-gray-200 rounded-lg px-2.5 hover:border-orange/40 transition-colors ${className}`}>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" class="w-4 h-4 lg:w-3.5 lg:h-3.5 shrink-0" aria-hidden="true">
+      <path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/>
+      <path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/>
+      <path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/>
+      <path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.18 1.48-4.97 2.31-8.16 2.31-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/>
+    </svg>
+    <span class="flex flex-col">
+      <span class="flex items-center gap-1 leading-none">
+        <span class="hidden min-[360px]:inline text-yellow-400 text-[13px] lg:text-[11px] tracking-tight" aria-hidden="true">{stars}</span>
+        <span class="font-extrabold text-navy text-[15px] lg:text-xs lg:leading-none">{r.ratingValue}</span>
+      </span>
+      <span class="text-gray-500 text-[11px] lg:text-[10px] leading-none mt-1">{`${r.count} ${t.reviews}`}</span>
+    </span>
+  </a>
+)}
+{variant === 'strip' && (
+  <p class={`flex items-center gap-1.5 h-9 min-w-0 whitespace-nowrap text-navy ${className}`}>
+    <Icon name="sell" class="text-base" fill />
+    <span class="font-extrabold text-[15px]">{t.fee}</span>
+    {t.feeDetail && <span class="opacity-50" aria-hidden="true">·</span>}
+    {t.feeDetail && <span class="font-medium text-[13px] truncate">{t.feeDetail}</span>}
+  </p>
+)}
+{variant === 'fee' && (
+  <p class={`inline-flex items-center gap-1 text-xs font-bold text-green-700 leading-[18px] whitespace-nowrap ${className}`}>
+    <Icon name="price_check" class="text-sm" fill />{t.fee}
+  </p>
+)}
+{variant === 'vdp' && (
+  <div class={className}>
+    <div class="flex items-start gap-2 bg-green-50 border border-green-100 rounded-lg px-3 py-2 mb-0.5">
+      <Icon name="price_check" class="text-base text-green-700 shrink-0 mt-0.5" fill />
+      <p class="text-sm text-gray-700 leading-snug"><span class="font-bold text-green-700">{feeLead}</span>{' '}{feeTail}</p>
+    </div>
+    <Astro.self variant="vdp-row" lang={lang} />
+  </div>
+)}
+{variant === 'vdp-row' && (
+    <a href={googleReviews} target="_blank" rel="noopener" data-cta="vdp_body" data-cta-name="google_reviews"
+       class="mt-0 -mb-2.5 py-2.5 min-h-[44px] flex items-center gap-1.5 text-navy hover:text-orange-ink">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" class="w-4 h-4 shrink-0" aria-hidden="true">
+        <path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/>
+        <path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/>
+        <path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/>
+        <path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.18 1.48-4.97 2.31-8.16 2.31-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/>
+      </svg>
+      <span class="lg:hidden text-yellow-400 text-[13px] tracking-tight" aria-hidden="true">{stars}</span>
+      <span class="font-bold text-sm lg:whitespace-nowrap">{`${r.ratingValue} ${t.stars}`}</span>
+      <span class="text-gray-500 text-[13px] lg:whitespace-nowrap">{`· ${r.count} ${t.count}`}</span>
+      <Icon name="chevron_right" class="text-lg text-gray-400" />
+    </a>
+)}

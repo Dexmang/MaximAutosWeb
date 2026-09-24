@@ -111,7 +111,7 @@ const mapsDirectionsUrl = `https://www.google.com/search?q=directions+from+${enc
           <li class="text-gray-600">/</li>
           <li><a href={`${base}/inventory`} class="hover:text-white transition-colors">Inventory</a></li>
           <li class="text-gray-600">/</li>
-          <li class="text-gray-300">Pre-Owned Cars Near {suburb.city}</li>
+          <li class="text-gray-300">Used Cars Near {suburb.city}</li>
         </ol>
       </nav>
 
@@ -136,7 +136,7 @@ const mapsDirectionsUrl = `https://www.google.com/search?q=directions+from+${enc
           </div>
           <div class="flex items-center gap-2 text-gray-300">
             <span class="material-symbols-outlined text-orange text-base" style="font-variation-settings:'FILL' 1;">star</span>
-            5-Star Google Rating
+            {reviewsMeta.rating.toFixed(1)} Stars on Google
           </div>
           <div class="flex items-center gap-2 text-gray-300">
             <span class="material-symbols-outlined text-orange text-base" style="font-variation-settings:'FILL' 1;">directions_car</span>
@@ -210,7 +210,7 @@ const mapsDirectionsUrl = `https://www.google.com/search?q=directions+from+${enc
           />
         ))}
       </div>
-      <p class="text-xs text-gray-400 mt-4">* Est. payment based on 10% down, 9.9% APR, 60-month term. For illustrative purposes only. Actual terms vary by credit.</p>
+      <p class="text-sm text-gray-600 mt-4">* Est. payment based on 10% down, 9.9% APR, 60-month term. For illustrative purposes only. Actual terms vary by credit.</p>
     </div>
   </section>
 

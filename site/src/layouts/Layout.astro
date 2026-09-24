@@ -4,6 +4,8 @@
 // car falls inside violates 14 Ill. Adm. Code 475.390, which is what was found live on
 // 2026-07-25. See scripts/facts-core.mjs.
 import facts from '../data/facts.json';
+import TrustPair from '../components/TrustPair.astro';
+import Icon from '../components/Icon.astro';
 
 interface Props {
   title: string;
@@ -38,23 +40,25 @@ const trust = isSpanish
   ? {
       heading: 'Por que confian en nosotros',
       protection: 'Inspeccionado y Documentado',
-      protectionDetail: 'Inspeccion · CARFAX Gratis · Sin Cargos de Dealer',
+      protectionDetail: 'CARFAX Gratis',
       protectionHref: `${base}/es/sobre-nosotros`,
       skipDmv: 'Sin tramites del DMV',
       skipDmvDetail: 'Placas el mismo dia',
       pricing: 'Cero Cargos de Dealer',
-      pricingDetail: 'Sin cargos ocultos · Financiamiento para todos los niveles de credito',
+      // Empty until maxseo signs a Spanish twin of "No doc fee"; the span is not rendered
+      // when empty. "Sin cargos ocultos" claimed no hidden fees, broader than no doc fee (R1-16).
+      pricingDetail: '',
       pricingHref: `${base}/es/financiamiento`,
     }
   : {
       heading: 'Why Buyers Trust Us',
       protection: 'Inspected & Documented',
-      protectionDetail: 'Inspected · Free CARFAX · No Dealer Fees',
+      protectionDetail: 'Free CARFAX',
       protectionHref: `${base}/about`,
       skipDmv: 'Skip the DMV',
-      skipDmvDetail: 'Metal plates on the spot',
+      skipDmvDetail: 'Metal plates issued the same visit.',
       pricing: 'No Dealer Fees Ever',
-      pricingDetail: 'No doc fee · Financing for all credit levels',
+      pricingDetail: 'No doc fee',
       pricingHref: `${base}/financing`,
     };
 
@@ -147,7 +151,7 @@ const ogImageAbsolute = new URL(ogImage ?? `${base}/brand/hero-family.jpg`, site
       }
     </style>
 
-    <!-- Organization schema — emitted on every page so SERP/knowledge-panel logo signal is universal -->
+    <!-- Organization schema, emitted on every page so SERP/knowledge-panel logo signal is universal -->
     <script type="application/ld+json" set:html={JSON.stringify({
       "@context": "https://schema.org",
       "@type": "Organization",
@@ -173,7 +177,7 @@ const ogImageAbsolute = new URL(ogImage ?? `${base}/brand/hero-family.jpg`, site
     <!-- Google Search Console Verification -->
     <!-- TODO: Add meta name="google-site-verification" content="YOUR_VERIFICATION_CODE" here -->
 
-    <!-- Google Analytics 4 — Measurement ID: G-H05CD3EHE9 -->
+    <!-- Google Analytics 4, Measurement ID: G-H05CD3EHE9 -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-H05CD3EHE9"></script>
     <script is:inline>
       window.dataLayer = window.dataLayer || [];
@@ -182,22 +186,61 @@ const ogImageAbsolute = new URL(ogImage ?? `${base}/brand/hero-family.jpg`, site
       gtag('config', 'G-H05CD3EHE9');
     </script>
 
-    <!-- GA4 lead events — tel:/sms: clicks, lead form submits, chat (future).
+    <!-- GA4 lead events: tel:/sms: clicks, lead form submits, chat (future).
          Capture phase so AJAX forms (preventDefault in bubble phase) and
-         dynamically rendered links are still counted. -->
-    <script is:inline>
+         dynamically rendered links are still counted.
+         Every generate_lead carries cta_location (the nearest data-cta, else "body";
+         "form" when a form handler calls maximLead), page_type and, on a vehicle page,
+         vehicle_stock. Any other link with data-cta-name sends cta_click (D2-25).
+         No value or currency: what a lead is worth is unverified (A2 4.2). -->
+    <script is:inline define:vars={{ base }}>
       (function () {
-        function lead(channel) {
-          if (typeof gtag === 'function') {
-            gtag('event', 'generate_lead', { lead_channel: channel, transport_type: 'beacon' });
-          }
+        // Path without the mirror base and without a trailing slash: "/", "/es",
+        // "/inventory", "/vehicle/2019-honda-cr-v-ex-j10246".
+        var path = window.location.pathname;
+        if (base && path.indexOf(base) === 0) path = path.slice(base.length);
+        path = path.replace(/\/+$/, '') || '/';
+        var pageType = (path === '/' || path === '/es') ? 'home'
+          : (path === '/inventory' || path === '/es/inventario') ? 'inventory'
+          : path.indexOf('/vehicle/') === 0 ? 'vdp'
+          : 'other';
+        // The stock number is the slug suffix (-j10246). It names a car, not a person.
+        var stockMatch = pageType === 'vdp' ? path.match(/-(j\d{5})$/i) : null;
+        var vehicleStock = stockMatch ? stockMatch[1].toUpperCase() : '';
+        function params(extra) {
+          var p = { page_type: pageType, transport_type: 'beacon' };
+          if (vehicleStock) p.vehicle_stock = vehicleStock;
+          for (var k in extra) p[k] = extra[k];
+          return p;
+        }
+        function ctaLocation(a) {
+          var el = a.closest('[data-cta]');
+          return (el && el.getAttribute('data-cta')) || 'body';
+        }
+        // One generate_lead per channel plus location per page load: a double tap on
+        // the sticky Call cell is one lead, not two.
+        var sent = {};
+        function lead(channel, loc) {
+          if (typeof gtag !== 'function') return;
+          var key = channel + '|' + loc;
+          if (sent[key]) return;
+          sent[key] = true;
+          gtag('event', 'generate_lead', params({ lead_channel: channel, cta_location: loc }));
         }
         document.addEventListener('click', function (e) {
           var t = e.target;
           if (!t || typeof t.closest !== 'function') return;
           var a = t.closest('a[href^="tel:"], a[href^="sms:"]');
-          if (!a) return;
-          lead(a.getAttribute('href').indexOf('sms:') === 0 ? 'sms' : 'phone');
+          if (a) {
+            lead(a.getAttribute('href').indexOf('sms:') === 0 ? 'sms' : 'phone', ctaLocation(a));
+            return;
+          }
+          // Taps that are not leads but are worth counting: carfax, google_reviews,
+          // prequalify, directions.
+          var c = t.closest('a[data-cta-name]');
+          if (c && typeof gtag === 'function') {
+            gtag('event', 'cta_click', params({ cta_name: c.getAttribute('data-cta-name'), cta_location: ctaLocation(c) }));
+          }
         }, true);
         // Forms report their OWN success. The previous version listened for `submit` in
         // the capture phase, which runs BEFORE each page's handler calls preventDefault()
@@ -207,41 +250,44 @@ const ogImageAbsolute = new URL(ogImage ?? `${base}/brand/hero-family.jpg`, site
         //
         // Each form handler now calls window.maximLead('<channel>') inside its
         // `if (res.ok)` branch only. Channels: contact_form, financing_form, credit_app,
-        // sell_trade_form, sms, phone, chat.
-        window.maximLead = lead;
-        // Tawk.to is NOT installed today — this is a defensive no-op hook so
+        // sell_trade_form, sms, phone, chat. It still takes one argument; the location
+        // is always "form".
+        window.maximLead = function (channel) { lead(channel, 'form'); };
+        // Tawk.to is NOT installed today; this is a defensive no op hook so
         // chat leads start counting automatically if it ever gets added.
         window.Tawk_API = window.Tawk_API || {};
-        window.Tawk_API.onChatStarted = function () { lead('chat'); };
+        window.Tawk_API.onChatStarted = function () { lead('chat', 'chat'); };
       })();
     </script>
   </head>
   <body class="bg-surface font-body text-gray-900 antialiased">
     <slot name="header" />
 
-    <!-- Trust Strip — every page -->
-    <div class="bg-orange text-white py-2">
+    <!-- Differentiator strip, every page. Fee first; the Google rating lives in the pinned
+         header chip. Navy on orange is 5.77:1. The lg row keeps the live flex-wrap (R2-02). -->
+    <div class="bg-orange text-navy">
       <div class="max-w-7xl mx-auto px-4">
-        <div class="flex flex-wrap items-center gap-x-3 gap-y-1 text-xs">
-          <span class="font-bold uppercase tracking-widest text-white/80 shrink-0">{trust.heading}</span>
-          <span class="text-white/40 hidden sm:block">|</span>
-          <a href={trust.protectionHref} class="flex items-center gap-1 hover:underline shrink-0">
-            <span class="material-symbols-outlined text-sm" style="font-variation-settings:'FILL' 1;">gpp_good</span>
-            <span class="font-bold">{trust.protection}</span>
-            <span class="text-white/70 hidden lg:inline">· {trust.protectionDetail}</span>
-          </a>
-          <span class="text-white/40 hidden sm:block">·</span>
-          <div class="flex items-center gap-1 shrink-0">
-            <span class="material-symbols-outlined text-sm" style="font-variation-settings:'FILL' 1;">directions_car</span>
-            <span class="font-bold">{trust.skipDmv}</span>
-            <span class="text-white/70 hidden lg:inline">· {trust.skipDmvDetail}</span>
-          </div>
-          <span class="text-white/40 hidden sm:block">·</span>
-          <a href={trust.pricingHref} class="flex items-center gap-1 hover:underline shrink-0">
-            <span class="material-symbols-outlined text-sm" style="font-variation-settings:'FILL' 1;">sell</span>
+        <TrustPair variant="strip" lang={lang} class="lg:hidden" />
+        <div class="hidden lg:flex flex-wrap items-center gap-x-3 gap-y-1 py-2 text-xs">
+          <span class="font-bold uppercase tracking-widest">{trust.heading}</span>
+          <span class="opacity-40" aria-hidden="true">|</span>
+          <a href={trust.pricingHref} class="flex items-center gap-1 hover:underline">
+            <Icon name="sell" class="text-sm" fill />
             <span class="font-bold">{trust.pricing}</span>
-            <span class="text-white/70 hidden lg:inline">· {trust.pricingDetail}</span>
+            {trust.pricingDetail && <span class="hidden xl:inline font-medium">· {trust.pricingDetail}</span>}
           </a>
+          <span class="opacity-40" aria-hidden="true">·</span>
+          <a href={trust.protectionHref} class="flex items-center gap-1 hover:underline">
+            <Icon name="gpp_good" class="text-sm" fill />
+            <span class="font-bold">{trust.protection}</span>
+            <span class="hidden xl:inline font-medium">· {trust.protectionDetail}</span>
+          </a>
+          <span class="opacity-40" aria-hidden="true">·</span>
+          <div class="flex items-center gap-1">
+            <Icon name="directions_car" class="text-sm" fill />
+            <span class="font-bold">{trust.skipDmv}</span>
+            <span class="hidden xl:inline font-medium">· {trust.skipDmvDetail}</span>
+          </div>
         </div>
       </div>
     </div>

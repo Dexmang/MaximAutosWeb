@@ -74,12 +74,15 @@ const copy = isSpanish
     closing tag and a following expression, which shipped the disclosure as
     "...$16,850.Inventory changes." on the live homepage. A disclosure that reads as a
     run-on is a disclosure a regulator can call unclear, so keep the spaces explicit. */}
+{/* Both variants are text-sm (14 px). This note carries the tax, title and license
+    qualifier on the fee claim, and a disclosure under the 10 pt floor (13.33 CSS px)
+    is one a regulator can call inconspicuous (R1-04, R2-06). Do not shrink it. */}
 {variant === 'block' ? (
-  <p class={`text-xs text-gray-500 leading-relaxed border-t border-gray-200 pt-3 mt-4 ${className}`}>
+  <p class={`text-sm text-gray-500 leading-relaxed border-t border-gray-200 pt-3 mt-4 ${className}`}>
     {copy.lead}{' '}<span class="font-semibold text-gray-600">{copy.live}</span>{' '}{copy.tail}
   </p>
 ) : (
-  <p class={`text-xs leading-relaxed opacity-70 ${className}`}>
+  <p class={`text-sm leading-snug opacity-90 ${className}`}>
     <span class="font-semibold opacity-100">{copy.live}</span>{' '}{copy.tail}
   </p>
 )}
