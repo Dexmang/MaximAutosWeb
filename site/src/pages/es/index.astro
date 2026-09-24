@@ -5,6 +5,7 @@ import Footer from '../../components/Footer.astro';
 import VehicleCard from '../../components/VehicleCard.astro';
 import PriceBandNote from '../../components/PriceBandNote.astro';
 import ReviewRotator from '../../components/ReviewRotator.astro';
+import Icon from '../../components/Icon.astro';
 import vehicles from '../../data/vehicles.json';
 import reviews from '../../data/reviews.json';
 import reviewsMeta from '../../data/reviews_meta.json';
@@ -12,8 +13,10 @@ import suburbs from '../../data/suburbs.json';
 
 import facts from '../../data/facts.json';
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
-const title = 'Autos Usados en Skokie, IL | Maxim Autos';
-const description = `Maxim Autos: autos usados completamente inspeccionados de ${facts.inventory.bandTextEs} en Skokie, IL. Placas el mismo dia. Sin tramites del DMV. Financiamiento para todos los niveles de credito. Resenas de 5 estrellas en Google.`;
+// Titulo de 58 caracteres; descripcion de 151 hoy (D2-03, D2-04). Todos los numeros
+// vienen de facts.json. Tambien corrige el "de de" que la plantilla anterior producia.
+const title = 'Autos Usados en Skokie, Sin Cargos de Dealer | Maxim Autos';
+const description = `${facts.reviews.ratingTextEs} con ${facts.reviews.count} resenas. Sin cargos de dealer. ${facts.inventory.stockLineTextEs}, en Skokie, IL. Placas el mismo dia.`;
 const featured = vehicles.filter(v => (v as any).status !== 'sold').slice(0, 6);
 // Ver index.astro: etiqueta de origen solo cuando NO todas las resenas son de Google.
 const offGoogleSources = [...new Set(reviews.filter(r => r.source !== 'Google').map(r => r.source))];
@@ -25,7 +28,7 @@ const heroReviews = reviews.slice(0, 6);
   description={description}
   lang="es"
   hreflangEn="https://www.maximautos.com/"
-  hreflangEs="https://www.maximautos.com/es/"
+  hreflangEs="https://www.maximautos.com/es"
 >
   <Fragment slot="structured-data">
     <script type="application/ld+json" set:html={JSON.stringify({
@@ -37,11 +40,12 @@ const heroReviews = reviews.slice(0, 6);
         "https://www.mapquest.com/us/illinois/maxim-autos-814974890"
       ],
       "description": description,
-      "url": "https://www.maximautos.com/es/",
+      "url": "https://www.maximautos.com/es",
       "telephone": "+1-847-510-8947",
       "email": "jfranco@maximautos.com",
       "address": {
         "@type": "PostalAddress",
+        "streetAddress": "9101 Terminal Ave",
         "addressLocality": "Skokie",
         "addressRegion": "IL",
         "postalCode": "60077",
@@ -70,92 +74,110 @@ const heroReviews = reviews.slice(0, 6);
 
   <!-- Hero -->
   <section class="bg-navy overflow-hidden md:relative md:min-h-[224px] lg:min-h-[256px] md:flex md:items-center">
-    <div class="relative w-full max-h-28 overflow-hidden md:max-h-none md:overflow-visible md:absolute md:inset-0 md:z-0">
+    <!-- Foto del hero solo desde md. Ver index.astro (D1-09, D1-10): en telefonos coincide
+         un gif de 1x1 en linea y la foto de 108,944 bytes nunca se descarga. -->
+    <div class="hidden md:block relative w-full overflow-hidden md:overflow-visible md:absolute md:inset-0 md:z-0">
       <picture>
-        <source srcset={`${base}/brand/hero-family.webp`} type="image/webp" />
+        <source media="(max-width: 767px)" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" width="1" height="1" />
+        <source media="(min-width: 768px)" srcset={`${base}/brand/hero-family.webp`} type="image/webp" width="1024" height="572" />
         <img
           src={`${base}/brand/hero-family.jpg`}
           alt="Familia disfrutando su auto comprado en Maxim Autos en Skokie IL"
           width="1024"
           height="572"
           class="w-full h-auto md:h-full md:object-cover md:object-center"
+          style="aspect-ratio:1024/572"
           loading="eager"
+          fetchpriority="high"
         />
       </picture>
-      <div class="md:hidden absolute inset-0 bg-gradient-to-b from-navy/20 to-navy"></div>
       <div class="hidden md:block absolute inset-0 bg-gradient-to-r from-navy/90 via-navy/70 to-navy/20"></div>
 
-      <!-- Tarjeta de resena rotativa: escritorio abajo a la derecha; movil tiene la suya bajo los CTA -->
-      <ReviewRotator reviews={heroReviews} lang="es" class="hidden md:block absolute bottom-4 right-6 lg:bottom-5 lg:right-8 w-64 lg:w-72" />
+      <!-- Tarjeta de resena rotativa: abajo a la derecha, solo desde lg (R2-07). En telefonos
+           va una resena de Google fija despues del segundo auto. -->
+      <ReviewRotator reviews={heroReviews} lang="es" class="hidden lg:block absolute bottom-4 right-6 lg:bottom-5 lg:right-8 w-64 lg:w-72" />
     </div>
 
-    <div class="relative z-10 w-full max-w-7xl mx-auto px-6 lg:px-8 pt-3 pb-6 md:py-5">
+    <div class="relative z-10 w-full max-w-7xl mx-auto px-6 lg:px-8 pt-4 pb-4 md:py-5">
       <div class="max-w-xl md:max-w-2xl">
+        {/* Insignia de calificacion desde md; en telefonos la lleva el chip del encabezado (D1-11). */}
         <a href="https://www.google.com/search?q=Maxim+Autos+Skokie+IL+reviews" target="_blank" rel="noopener"
-           class="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 text-white rounded-full px-3 py-1 mb-2 hover:bg-white/20 transition-colors">
-          <span class="material-symbols-outlined text-orange text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
-          <span class="font-bold text-sm">{reviewsMeta.rating.toFixed(1)} Estrellas en Google</span>
-          <span class="text-white/60 text-xs">· {reviewsMeta.count} Resenas</span>
+           data-cta="hero" data-cta-name="google_reviews"
+           class="hidden md:inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 text-white rounded-full px-3 py-1 mb-2 hover:bg-white/20 transition-colors">
+          <Icon name="star" class="text-orange text-sm" fill />
+          <span class="font-bold text-sm">{facts.reviews.ratingValue} Estrellas en Google</span>
+          <span class="text-white/60 text-xs">· {facts.reviews.count} Resenas</span>
         </a>
         <h1 class="font-headline text-2xl md:text-3xl lg:text-4xl font-extrabold text-white leading-tight tracking-tight mb-1">
           Autos Usados en Skokie, IL
         </h1>
-        <p class="font-headline text-base md:text-lg lg:text-xl font-bold text-white mb-1">Autos Usados en los que Puedes Confiar.</p>
-        <p class="text-sm md:text-base text-white/80 mb-1 leading-snug text-balance">
+        <p class="hidden md:block font-headline text-base md:text-lg lg:text-xl font-bold text-white mb-1">Cero Cargos de Dealer.</p>
+        {/* Frase del segmento desde md; en telefonos queda la nota del rango real sola (D1-14). */}
+        <p class="hidden md:block text-sm md:text-base text-white/80 mb-1 leading-snug text-balance">
           Especializados en el rango de {facts.inventory.segmentTextEs}, solo autos seleccionados a mano. Lleva tu auto el mismo dia.
         </p>
         {/* Paired note, required. See PriceBandNote.astro and the unpaired-segment-band
             rule in scripts/lint-copy.mjs. Guardrail D4: every English disclosure needs its
             Spanish equivalent on the matching /es/ page. */}
         <PriceBandNote lang="es" class="text-white mb-3 max-w-lg md:max-w-2xl" />
-        <div class="flex flex-wrap gap-2 mb-3">
+        {/* Chips: apuntaban a /es/inventario?price= y ?body=, que robots.txt bloquea con
+            `Disallow: /es/inventario?`. Ahora apuntan a /es/inventario sin parametros
+            (September P1-21). Como los tres llevan a la misma URL, se ocultan bajo md y en
+            telefonos queda visible Ver Inventario (decision 5 del SPEC). */}
+        <div class="hidden md:flex flex-wrap gap-2 mb-3">
           {[
-            { label: 'Menos de $10K', href: `${base}/es/inventario?price=under10k` },
-            { label: 'SUVs', href: `${base}/es/inventario?body=SUV` },
-            { label: 'Sedanes', href: `${base}/es/inventario?body=Sedan` },
-            { label: 'Ver Todo', href: `${base}/es/inventario` },
+            { label: 'Menos de $10K', href: `${base}/es/inventario` },
+            { label: 'SUVs', href: `${base}/es/inventario` },
+            { label: 'Sedanes', href: `${base}/es/inventario` },
           ].map(chip => (
             <a href={chip.href}
-               class="bg-white/15 backdrop-blur-sm border border-white/25 text-white text-sm font-semibold px-3.5 py-1.5 rounded-full hover:bg-white/30 transition-all">
+               class="inline-flex items-center min-h-[44px] px-3.5 rounded-full border text-sm backdrop-blur-sm transition-all bg-white/15 border-white/25 text-white font-semibold hover:bg-white/30">
               {chip.label}
             </a>
           ))}
         </div>
+        {/* Ver Inventario sigue visible en telefonos porque los chips estan ocultos bajo md.
+            Financiamiento desde sm; no existe formulario de precalificacion en espanol (R1-23). */}
         <div class="flex flex-col sm:flex-row gap-3">
-          <a href={`${base}/es/inventario`}
-             class="inline-flex items-center justify-center gap-2 bg-orange text-white px-6 py-2.5 rounded-xl font-bold text-base hover:bg-orange-dark transition-colors shadow-lg">
-            Ver Inventario <span class="material-symbols-outlined text-lg">arrow_forward</span>
+          <a href={`${base}/es/inventario`} data-cta="hero" data-cta-name="browse"
+             class="inline-flex items-center justify-center gap-2 bg-orange text-navy px-6 min-h-[48px] rounded-xl font-bold text-base hover:bg-orange-light transition-colors shadow-lg">
+            Ver Inventario <Icon name="arrow_forward" class="text-lg" />
           </a>
-          <a href={`${base}/es/aplicacion-de-credito`}
-             class="inline-flex items-center justify-center gap-2 bg-white/15 backdrop-blur-sm border-2 border-white/40 text-white px-6 py-2.5 rounded-xl font-bold text-base hover:bg-white/25 transition-all">
-            <span class="material-symbols-outlined text-lg" style="font-variation-settings:'FILL' 1;">payments</span>
-            Solicitud de Credito
+          <a href={`${base}/es/financiamiento`} data-cta="hero" data-cta-name="financing"
+             class="hidden sm:inline-flex items-center justify-center gap-2 bg-white/15 backdrop-blur-sm border-2 border-white/40 text-white px-6 min-h-[48px] rounded-xl font-bold text-base hover:bg-white/25 transition-all">
+            <Icon name="payments" class="text-lg" fill />
+            Financiamiento
           </a>
         </div>
 
-        {/* La tarjeta movil se movio bajo la parrilla de vehiculos (2026-08-15) para que
-            el telefono llegue antes a los autos. La de escritorio va sobre la foto del hero. */}
+        {/* La tarjeta movil se movio bajo la parrilla de vehiculos (2026-08-15), y en
+            septiembre 2026 paso a ser una resena de Google fija despues del segundo auto
+            (R2-05). La de escritorio va sobre la foto del hero desde lg. */}
       </div>
     </div>
   </section>
 
   <!-- Vehiculos Destacados -->
-  <section class="py-10 bg-surface">
+  <!-- Encabezado solo desde md: en telefonos eran 196 px entre el CTA y el primer auto (D1-18). -->
+  <section class="pt-4 pb-10 md:py-10 bg-surface">
     <div class="max-w-7xl mx-auto px-6 lg:px-8">
-      <div class="flex justify-between items-center mb-6">
+      <div class="hidden md:flex justify-between items-center mb-6">
         <div>
-          <span class="text-orange font-bold uppercase tracking-widest text-sm mb-1 block">Inventario Actual</span>
+          <span class="text-orange-ink font-bold uppercase tracking-widest text-sm mb-1 block">Inventario Actual</span>
           <h2 class="font-headline text-2xl md:text-3xl font-extrabold">Seleccionados a Mano. Cada Uno.</h2>
           <p class="text-gray-500 text-sm mt-1">No vendemos 200 autos. Vendemos los correctos.</p>
         </div>
-        <a href={`${base}/es/inventario`} class="flex items-center gap-1 text-navy font-bold hover:text-orange transition-colors text-sm">
-          Ver Todo <span class="material-symbols-outlined text-lg">arrow_forward</span>
+        <a href={`${base}/es/inventario`} class="flex items-center gap-1 min-h-[44px] text-orange-ink font-bold hover:text-navy transition-colors text-sm">
+          Ver Todo <Icon name="arrow_forward" class="text-lg" />
         </a>
       </div>
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {featured.map(v => (
+        {/* Primer auto: carga inmediata y prioridad alta (P1-11). Resena de Google fija
+            despues del segundo auto, solo telefonos, sin rotacion (R2-05). */}
+        {featured.map((v, i) => (<>
           <VehicleCard
             lang="es"
+            priority={i === 0}
             slug={v.slug}
             stockNumber={v.stockNumber}
             year={v.year}
@@ -174,20 +196,17 @@ const heroReviews = reviews.slice(0, 6);
             photos={v.photos}
             dealRating={(v as any).dealRating}
             priceSavings={(v as any).priceSavings}
-          />
-        ))}
+          />{i === 1 && <ReviewRotator reviews={heroReviews} lang="es" static class="md:hidden w-full" />}</>))}
       </div>
-      <p class="text-xs text-gray-400 mt-4">* Pago estimado con 10% de enganche, 9.9% APR, plazo de 60 meses. Solo para fines ilustrativos. Los términos reales varían según el crédito.</p>
-      <!-- Tarjeta de resena rotativa para movil, reubicada fuera del hero. -->
-      <ReviewRotator reviews={heroReviews} lang="es" class="md:hidden mt-6 w-full" />
+      <p class="text-sm text-gray-600 mt-4">* Pago estimado con 10% de enganche, 9.9% APR, plazo de 60 meses. Solo para fines ilustrativos. Los términos reales varían según el crédito.</p>
       <div class="text-center mt-8 md:hidden">
         <a href={`${base}/es/inventario`} class="inline-flex items-center gap-2 bg-navy text-white px-8 py-4 rounded-xl font-bold hover:bg-navy-light transition-colors">
-          Ver Todo el Inventario <span class="material-symbols-outlined">arrow_forward</span>
+          Ver Todo el Inventario <Icon name="arrow_forward" />
         </a>
       </div>
       <!-- Entrega nacional -->
       <div class="mt-8 flex items-center justify-center gap-3 bg-navy/5 border border-navy/10 rounded-xl px-6 py-4">
-        <span class="material-symbols-outlined text-2xl text-navy shrink-0" style="font-variation-settings:'FILL' 1;">local_shipping</span>
+        <Icon name="local_shipping" class="text-2xl text-navy shrink-0" fill />
         <p class="text-sm text-gray-700">
           <span class="font-bold text-navy">Prefiero comprar desde casa?</span> Completa toda la compra en linea, local o a nivel nacional. Recoge en Skokie o pide entrega a domicilio.
           <a href={`${base}/es/compra-en-linea`} class="text-orange font-bold hover:underline ml-1">Como funciona →</a>
@@ -196,35 +215,36 @@ const heroReviews = reviews.slice(0, 6);
     </div>
   </section>
 
-  <!-- Tres Pilares -->
+  <!-- Tres Pilares. La promesa de cero cargos va primero (D1-19); inspeccion y placas
+       con la misma fuerza que las frases de la seccion 5, nunca mas (P1-20, S30). -->
   <section class="py-10 bg-white">
     <div class="max-w-7xl mx-auto px-6 lg:px-8">
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
         <div class="flex items-start gap-4 p-4 md:p-6 rounded-xl border border-gray-100 hover:border-orange/20 hover:shadow-md transition-all">
           <div class="w-12 h-12 bg-navy/5 rounded-xl flex items-center justify-center shrink-0">
-            <span class="material-symbols-outlined text-2xl text-navy" style="font-variation-settings: 'FILL' 1;">gpp_good</span>
-          </div>
-          <div class="min-w-0">
-            <h3 class="font-headline text-base font-bold mb-1">Inspeccionado y Documentado</h3>
-            <p class="text-gray-500 text-sm">Reporte de inspeccion independiente incluido · CARFAX gratis · Proteccion de tren motriz de Illinois en autos que califican</p>
-          </div>
-        </div>
-        <div class="flex items-start gap-4 p-4 md:p-6 rounded-xl border border-gray-100 hover:border-orange/20 hover:shadow-md transition-all">
-          <div class="w-12 h-12 bg-navy/5 rounded-xl flex items-center justify-center shrink-0">
-            <span class="material-symbols-outlined text-2xl text-navy" style="font-variation-settings: 'FILL' 1;">directions_car</span>
-          </div>
-          <div class="min-w-0">
-            <h3 class="font-headline text-base font-bold mb-1">Placas el Mismo Dia</h3>
-            <p class="text-gray-500 text-sm">Placas de metal en el momento. Sin tramites del DMV. Maneja a casa hoy.</p>
-          </div>
-        </div>
-        <div class="flex items-start gap-4 p-4 md:p-6 rounded-xl border border-gray-100 hover:border-orange/20 hover:shadow-md transition-all">
-          <div class="w-12 h-12 bg-navy/5 rounded-xl flex items-center justify-center shrink-0">
-            <span class="material-symbols-outlined text-2xl text-navy" style="font-variation-settings: 'FILL' 1;">sell</span>
+            <Icon name="sell" class="text-2xl text-navy" fill />
           </div>
           <div class="min-w-0">
             <h3 class="font-headline text-base font-bold mb-1">Nunca Cobramos Cargos de Dealer</h3>
             <p class="text-gray-500 text-sm">Sin cargos ocultos · Precios claros · Financiamiento para todos los niveles de credito</p>
+          </div>
+        </div>
+        <div class="flex items-start gap-4 p-4 md:p-6 rounded-xl border border-gray-100 hover:border-orange/20 hover:shadow-md transition-all">
+          <div class="w-12 h-12 bg-navy/5 rounded-xl flex items-center justify-center shrink-0">
+            <Icon name="gpp_good" class="text-2xl text-navy" fill />
+          </div>
+          <div class="min-w-0">
+            <h3 class="font-headline text-base font-bold mb-1">Inspeccionado y Documentado</h3>
+            <p class="text-gray-500 text-sm">Cada auto se inspecciona antes de llegar al lote, y trae un CARFAX gratis. Preguntale a Jerry que se reviso en cualquier auto antes de decidir.</p>
+          </div>
+        </div>
+        <div class="flex items-start gap-4 p-4 md:p-6 rounded-xl border border-gray-100 hover:border-orange/20 hover:shadow-md transition-all">
+          <div class="w-12 h-12 bg-navy/5 rounded-xl flex items-center justify-center shrink-0">
+            <Icon name="directions_car" class="text-2xl text-navy" fill />
+          </div>
+          <div class="min-w-0">
+            <h3 class="font-headline text-base font-bold mb-1">Placas el Mismo Dia</h3>
+            <p class="text-gray-500 text-sm">Placas de metal entregadas en la misma visita, para que manejes a casa ese dia.</p>
           </div>
         </div>
       </div>
@@ -236,14 +256,14 @@ const heroReviews = reviews.slice(0, 6);
     <div class="max-w-7xl mx-auto px-6 lg:px-8">
       <div class="bg-navy rounded-2xl p-8 md:p-10 flex flex-col md:flex-row items-center gap-6 md:gap-10">
         <div class="w-16 h-16 bg-orange/20 rounded-2xl flex items-center justify-center shrink-0">
-          <span class="material-symbols-outlined text-4xl text-orange" style="font-variation-settings: 'FILL' 1;">monetization_on</span>
+          <Icon name="monetization_on" class="text-4xl text-orange" fill />
         </div>
         <div class="flex-1 text-center md:text-left">
           <h2 class="font-headline text-2xl md:text-3xl font-extrabold text-white mb-2">Vendes Tu Auto? Te Compramos Directamente.</h2>
           <p class="text-gray-300 text-base">Recibe una oferta rapida y justa. Sin juegos de concesionario, sin ofertas bajas. Manda una foto a Jerry con tu precio.</p>
         </div>
         <div class="hidden sm:inline-flex shrink-0 items-center gap-2 bg-white/10 border border-white/20 text-white px-8 py-4 rounded-xl font-bold text-lg whitespace-nowrap">
-          <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">phone</span>
+          <Icon name="phone" fill />
           (847) 510-8947
         </div>
       </div>
@@ -256,7 +276,7 @@ const heroReviews = reviews.slice(0, 6);
       <div class="text-center mb-10">
         <div class="flex justify-center items-center gap-1 mb-4">
           {[1,2,3,4,5].map(() => (
-            <span class="material-symbols-outlined text-orange text-2xl" style="font-variation-settings: 'FILL' 1;">star</span>
+            <Icon name="star" class="text-orange text-2xl" fill />
           ))}
         </div>
         <h2 class="font-headline text-3xl md:text-5xl font-extrabold mb-3">{reviewsMeta.rating.toFixed(1)} Estrellas en Google</h2>
@@ -271,7 +291,7 @@ const heroReviews = reviews.slice(0, 6);
           <div class="bg-white/5 p-8 rounded-xl border border-white/10 shrink-0 w-[85vw] snap-center md:w-auto md:shrink">
             <div class="flex items-center gap-1 mb-4" aria-label={review.rating + ' estrellas'}>
               {Array.from({ length: review.rating }).map(() => (
-                <span class="material-symbols-outlined text-orange text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+                <Icon name="star" class="text-orange text-sm" fill />
               ))}
             </div>
             <p class="text-lg italic mb-6 leading-relaxed text-gray-300">"{review.text}"</p>
@@ -284,7 +304,7 @@ const heroReviews = reviews.slice(0, 6);
       </div>
       <div class="text-center mt-10">
         <a href={`${base}/testimonials`} class="inline-flex items-center gap-2 text-orange font-bold hover:underline">
-          Leer Todas las Resenas <span class="material-symbols-outlined">arrow_forward</span>
+          Leer Todas las Resenas <Icon name="arrow_forward" />
         </a>
       </div>
       )}
@@ -297,14 +317,14 @@ const heroReviews = reviews.slice(0, 6);
       <div class="flex flex-col md:flex-row items-center gap-8">
         <div class="flex-1">
           <h2 class="font-headline text-2xl md:text-3xl font-extrabold mb-3">Servicio en el North Shore de Chicago</h2>
-          <p class="text-gray-600 mb-4">Ubicados en Skokie. Autos usados completamente inspeccionados de {facts.inventory.bandTextEs} con financiamiento para todos los niveles de credito.</p>
+          <p class="text-gray-600 mb-4">Ubicados en Skokie. Autos usados inspeccionados {facts.inventory.bandTextEs} con financiamiento para todos los niveles de credito.</p>
           <div class="flex flex-wrap gap-2 mb-5">
             {['Skokie', 'Evanston', 'Niles', 'Morton Grove', 'Lincolnwood', 'Des Plaines', 'Wilmette', 'Glenview', 'Chicago'].map(city => (
               <span class="px-3 py-1.5 bg-surface rounded-full text-sm font-medium text-gray-700 border border-gray-200">{city}</span>
             ))}
           </div>
           <a href="https://www.google.com/search?q=Maxim+Autos+9101+Terminal+Ave+Skokie+IL+60077+directions" target="_blank" rel="noopener" class="inline-flex items-center gap-2 bg-navy text-white px-6 py-3 rounded-xl font-bold hover:bg-navy-light transition-colors">
-            <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">location_on</span>
+            <Icon name="location_on" fill />
             Como Llegar
           </a>
         </div>
@@ -326,11 +346,11 @@ const heroReviews = reviews.slice(0, 6);
       <p class="text-white/70 text-lg mb-8">Cada auto seleccionado e inspeccionado personalmente. Llama o manda un mensaje de texto a Jerry para una respuesta rapida.</p>
       <div class="flex flex-col sm:flex-row justify-center gap-4">
         <div class="hidden sm:inline-flex items-center justify-center gap-2 bg-orange text-white px-8 py-4 rounded-xl font-bold text-lg">
-          <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">phone</span>
+          <Icon name="phone" fill />
           (847) 510-8947
         </div>
         <a href={`${base}/es/aplicacion-de-credito`} class="inline-flex items-center justify-center gap-2 bg-white/10 text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-white/20 transition-colors border border-white/20">
-          <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">payments</span>
+          <Icon name="payments" fill />
           Aplicar Ahora
         </a>
         <a href={`${base}/es/inventario`} class="inline-flex items-center justify-center gap-2 bg-white/10 text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-white/20 transition-colors border border-white/20">

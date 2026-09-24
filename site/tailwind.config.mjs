@@ -13,6 +13,9 @@ export default {
           DEFAULT: '#f08010',
           light: '#f59a3e',
           dark: '#c86a0a',
+          // Orange as TEXT on white. The brand orange is 2.69:1 there, too faint for a
+          // label; ink is 5.34:1 and still reads as the brand (P1-13, D1-43).
+          ink: '#a85400',
         },
         surface: '#f8f9fa',
         'surface-dim': '#edeeef',

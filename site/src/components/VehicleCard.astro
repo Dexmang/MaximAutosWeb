@@ -1,4 +1,7 @@
 ---
+import TrustPair from './TrustPair.astro';
+import Icon from './Icon.astro';
+
 interface Props {
   slug: string;
   year: number;
@@ -19,10 +22,12 @@ interface Props {
   priceSavings?: number;
   stockNumber?: string;
   lang?: string;
+  /** First card in a grid: load eagerly at high priority, it is the phone LCP (P1-11). */
+  priority?: boolean;
 }
 
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
-const { slug, year, make, model, trim, price, mileage, drivetrain, engine, bodyStyle, photoPath, photoPrefix, inspected, primaryPhotoUrl, photos, dealRating, priceSavings, stockNumber, lang = 'en' } = Astro.props;
+const { slug, year, make, model, trim, price, mileage, drivetrain, engine, bodyStyle, photoPath, photoPrefix, inspected, primaryPhotoUrl, photos, dealRating, priceSavings, stockNumber, lang = 'en', priority = false } = Astro.props;
 const isSpanish = lang === 'es';
 
 const DEAL_BADGE: Record<string, { label: string; bg: string; text: string }> = isSpanish
@@ -37,43 +42,33 @@ const DEAL_BADGE: Record<string, { label: string; bg: string; text: string }> = 
       FAIR_PRICE:  { label: 'Fair Deal',  bg: '#3498db', text: '#fff' },
     };
 
-const finLink = isSpanish ? `${base}/es/financiamiento` : `${base}/financing`;
 const lbl = isSpanish
   ? {
-      inspected:      'Inspeccionado',
       freeCarfax:     'CARFAX Gratis',
-      zeroFees:       'Cero Cargos de Dealer',
-      financing:      'Financiamiento',
       photosComing:   'Fotos en 24 horas. Escribenos para verlo primero',
       justLanded:     'Recien llegado',
-      perMonth:       '/mes est.',
-      fullyInspected: 'TOTALMENTE INSPECCIONADO',
+      fullyInspected: 'INSPECCIONADO',
       viewLabel:      'Ver',
       mileageTbd:     'Millaje por confirmar',
     }
   : {
-      inspected:      'Inspected',
       freeCarfax:     'Free CARFAX',
-      zeroFees:       'No Dealer Fees Ever',
-      financing:      'Financing',
       photosComing:   'Photos within 24 hrs. Text to see it first',
       justLanded:     'Just landed',
-      perMonth:       '/mo est.',
-      fullyInspected: 'FULLY INSPECTED',
+      fullyInspected: 'INSPECTED',
       viewLabel:      'View',
       mileageTbd:     'Mileage TBD',
     };
 const dealBadge = dealRating ? (DEAL_BADGE[dealRating] || null) : null;
-const savingsStr = (priceSavings && priceSavings > 0)
-  ? (isSpanish ? `$${priceSavings.toLocaleString()} menos` : `$${priceSavings.toLocaleString()} below`)
-  : '';
+// No savings figure on the card: a "$X below" comparison is CarGurus' claim, not ours to
+// restate in Maxim's own markup (R1-15). The badge label alone, attributed, stays.
 const title = [year, make, model, trim].filter(Boolean).join(' ');
 
 // Use CDN URL if available, fall back to local path, or null if no valid source
 const localThumb = photoPath ? `${base}/${photoPath}/thumb/${photoPrefix}-photo-exterior-maxim-autos-skokie-il-01.jpg` : null;
 const photoSrc = primaryPhotoUrl || localThumb;
 
-// Responsive variants — the DealerCenter CDN resizes on the fly via the
+// Responsive variants: the DealerCenter CDN resizes on the fly via the
 // /{width}/{height}/ path segments (400/300 ≈ 32KB vs 1024/768 ≈ 178KB).
 // CarGurus static URLs and local thumbs are fixed-size; they get no srcset.
 const DC_DIMS_RE = /\/(\d{2,4})\/(\d{2,4})\//;
@@ -84,19 +79,12 @@ const cardSrcset = isDcPhoto && photoSrc
   : undefined;
 const cardSizes = cardSrcset ? '(min-width: 1024px) 390px, (min-width: 640px) 46vw, 92vw' : undefined;
 
-// Payment estimate: 10% down, 9.9% APR, 60 months
-const downPayment = Math.round(price * 0.10);
-const principal = price - downPayment;
-const monthlyRate = 0.099 / 12;
-const numPayments = 60;
-const monthlyPayment = Math.round(
-  principal * (monthlyRate * Math.pow(1 + monthlyRate, numPayments)) /
-  (Math.pow(1 + monthlyRate, numPayments) - 1)
-);
+// No monthly payment on the card (R1-03). A payment is a trigger term; on a card its
+// disclosure sat 5,700 px away. The estimate lives on the VDP beside the Reg Z string.
 ---
 
 <div class="vehicle-card group relative bg-white overflow-hidden rounded-xl shadow-sm hover:shadow-lg transition-all duration-300" data-price={price} data-body={bodyStyle} data-mileage={mileage} data-year={year} data-stock={stockNumber}>
-  <!-- Stretched link covers the full card; financing link sits above it via z-index -->
+  <!-- Stretched link covers the full card -->
   <a href={`${base}/vehicle/${slug}`} class="absolute inset-0 z-10" aria-label={`${lbl.viewLabel} ${title}`}></a>
 
   <div class="relative h-48 overflow-hidden bg-gray-100">
@@ -107,7 +95,8 @@ const monthlyPayment = Math.round(
         sizes={cardSizes}
         alt={`${title} for sale at Maxim Autos Skokie IL`}
         class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-        loading="lazy"
+        loading={priority ? 'eager' : 'lazy'}
+        fetchpriority={priority ? 'high' : undefined}
         width="1024"
         height="768"
       />
@@ -121,57 +110,34 @@ const monthlyPayment = Math.round(
     )}
     {inspected && (
       <div class="absolute top-2 right-2 bg-navy text-white text-xs font-bold px-2.5 py-1 rounded-md flex items-center gap-1">
-        <span class="material-symbols-outlined text-xs" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+        <Icon name="check_circle" class="text-xs" fill />
         {lbl.fullyInspected}
       </div>
     )}
   </div>
   <div class="px-3 py-4 sm:px-4">
     <h3 class="font-headline text-base font-bold text-gray-900 mb-0.5">{title}</h3>
-    <p class="text-xs text-gray-500 mb-3 flex justify-between items-baseline gap-2">
-      <span>{engine} &bull; {drivetrain}</span>
-      {stockNumber && <span class="shrink-0 text-gray-400 font-medium whitespace-nowrap">Stock #{stockNumber}</span>}
+    <p class="text-xs text-gray-500 mb-2.5 flex justify-between items-baseline gap-2">
+      <span>{[engine, drivetrain, mileage > 0 ? `${mileage.toLocaleString()} mi` : lbl.mileageTbd].filter(Boolean).join(' • ')}</span>
+      {stockNumber && <span class="shrink-0 text-gray-500 font-medium whitespace-nowrap">Stock #{stockNumber}</span>}
     </p>
 
-    <!-- Price + Payment -->
-    <div class="flex flex-wrap justify-between items-end mb-3 gap-y-1">
-      <div>
-        <span class="text-xl font-extrabold text-navy">${price.toLocaleString()}</span>
-        {dealBadge && (
-          <div class="flex items-center gap-1 mt-1">
-            <!-- CarGurus-style price-tag badge with left arrow notch -->
-            <span class="inline-flex items-center gap-1 text-xs font-bold px-2 py-0.5 rounded"
-              style={`background:${dealBadge.bg};color:${dealBadge.text}`}>
-              {dealBadge.label}{savingsStr ? ` · ${savingsStr}` : ''}
-            </span>
-            <span class="text-[9px] text-gray-400 font-medium leading-none">CarGurus</span>
-          </div>
-        )}
-        <div class="flex items-center gap-1 mt-0.5">
-          <span class="text-xs font-bold text-navy">${monthlyPayment}{lbl.perMonth}</span>
-          <span class="text-xs text-gray-400 font-normal">*</span>
-        </div>
-      </div>
-      <span class="text-sm text-gray-500">{mileage > 0 ? `${mileage.toLocaleString()} mi` : lbl.mileageTbd}</span>
+    <!-- Price, with the fee promise as the price's own label. No card payment (R1-03). -->
+    <div class="flex justify-between items-baseline gap-2">
+      <span class="text-xl font-extrabold text-navy">${price.toLocaleString()}</span>
+      <TrustPair variant="fee" lang={lang} />
     </div>
-
-    <div class="flex flex-wrap gap-1.5">
-      <span class="inline-flex items-center gap-1 text-xs bg-gray-100 text-gray-500 px-2 py-1 rounded-full font-medium">
-        <span class="material-symbols-outlined text-xs" style="font-variation-settings: 'FILL' 1;">search</span>
-        {lbl.inspected}
-      </span>
-      <span class="inline-flex items-center gap-1 text-xs bg-gray-100 text-gray-500 px-2 py-1 rounded-full font-medium">
-        <span class="material-symbols-outlined text-xs" style="font-variation-settings: 'FILL' 1;">description</span>
+    <div class="flex justify-between items-center mt-2 min-h-[24px]">
+      {dealBadge ? (
+        <span class="inline-flex items-center gap-1">
+          <span class="text-xs font-bold px-2 py-0.5 rounded" style={`background:${dealBadge.bg};color:${dealBadge.text}`}>{dealBadge.label}</span>
+          <span class="text-xs text-gray-500 font-medium">CarGurus</span>
+        </span>
+      ) : <span></span>}
+      <span class="inline-flex items-center gap-1 text-xs bg-gray-100 text-gray-600 px-2 py-1 rounded-full font-medium">
+        <Icon name="description" class="text-xs" fill />
         {lbl.freeCarfax}
       </span>
-      <span class="inline-flex items-center gap-1 text-xs bg-green-50 text-green-700 px-2 py-1 rounded-full font-medium">
-        <span class="material-symbols-outlined text-xs" style="font-variation-settings: 'FILL' 1;">price_check</span>
-        {lbl.zeroFees}
-      </span>
-      <a href={finLink} class="relative z-20 inline-flex items-center gap-1 text-xs bg-orange/10 text-orange px-2 py-1 rounded-full font-medium">
-        <span class="material-symbols-outlined text-xs" style="font-variation-settings: 'FILL' 1;">payments</span>
-        {lbl.financing}
-      </a>
     </div>
   </div>
 </div>

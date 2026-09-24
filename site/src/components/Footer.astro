@@ -1,6 +1,7 @@
 ---
 import suburbs from '../data/suburbs.json';
 import inventoryMeta from '../data/inventory-meta.json';
+import Icon from './Icon.astro';
 
 interface Props {
   lang?: string;
@@ -14,7 +15,7 @@ const currentYear = new Date().getFullYear();
 
 // Compact feed-health stamp. inventory-meta.json carries lastUpdated = when the
 // DealerCenter feed was last successfully pulled. The footer shows "IU" + that time;
-// an inline script flips it to "IUlive" (feed current) or "IUverify" (feed stale —
+// an inline script flips it to "IUlive" (feed current) or "IUverify" (feed stale,
 // go check) by comparing the timestamp to the visitor's clock, so it self-flags even
 // if the pipeline stops deploying. This is the single place to check feed health.
 const inventoryIso = (inventoryMeta as any)?.lastUpdated || '';
@@ -83,7 +84,7 @@ const labels = isSpanish
       terms:             'Terminos de Uso',
       returnPolicy:      'Politica de Devolucion',
       invUpdated:        'Inventario actualizado',
-      taglineShort:      'Totalmente Inspeccionados • Autos Usados Skokie IL',
+      taglineShort:      'Inspeccionados • Autos Usados Skokie IL',
       mobileText:        'Escribe',
       mobileCall:        'Llamar',
       mobileDirections:  'Direcciones',
@@ -118,11 +119,11 @@ const labels = isSpanish
       terms:             'Terms of Use',
       returnPolicy:      'Return Policy',
       invUpdated:        'Inventory updated',
-      taglineShort:      'Fully Inspected • Used Cars Skokie IL',
+      taglineShort:      'Inspected • Used Cars Skokie IL',
       mobileText:        'Text Jerry',
       mobileCall:        'Call',
       mobileDirections:  'Directions',
-      mobileFinancing:   'Financing',
+      mobileFinancing:   'Prequalify',
     };
 ---
 
@@ -130,25 +131,25 @@ const labels = isSpanish
   <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 w-full px-6 lg:px-8 py-16 max-w-7xl mx-auto">
     <!-- Brand & Contact -->
     <div>
-      <img src={`${base}/brand/logo-header.png`} alt="Maxim Autos" class="h-10 mb-6 brightness-0 invert" />
+      <img src={`${base}/brand/logo-header.png`} alt="Maxim Autos" width="248" height="60" class="h-10 w-auto mb-6 brightness-0 invert" />
       <p class="text-sm mb-6 leading-relaxed">{labels.tagline}</p>
       <div class="space-y-3 text-sm">
         <p class="flex items-start gap-3">
-          <span class="material-symbols-outlined text-orange text-xl" style="font-variation-settings: 'FILL' 1;">location_on</span>
+          <Icon name="location_on" class="text-orange text-xl" fill />
           9101 Terminal Ave, Skokie, IL 60077
         </p>
         <a href="tel:8475108947" class="flex items-center gap-3 hover:text-white transition-colors">
-          <span class="material-symbols-outlined text-orange text-xl" style="font-variation-settings: 'FILL' 1;">phone</span>
+          <Icon name="phone" class="text-orange text-xl" fill />
           (847) 510-8947
         </a>
         <a href="mailto:jfranco@maximautos.com" class="flex items-center gap-3 hover:text-white transition-colors">
-          <span class="material-symbols-outlined text-orange text-xl" style="font-variation-settings: 'FILL' 1;">mail</span>
+          <Icon name="mail" class="text-orange text-xl" fill />
           jfranco@maximautos.com
         </a>
         <p class="text-xs text-gray-500 pt-1 leading-relaxed">Illinois Secretary of State Class D Used Vehicle Dealer · License DL7667</p>
       </div>
 
-      <!-- CARFAX Advantage Dealer badge — Maxim is an enrolled CARFAX Advantage dealer -->
+      <!-- CARFAX Advantage Dealer badge: Maxim is an enrolled CARFAX Advantage dealer -->
       <img
         src={`${base}/brand/carfax/advantage-dealer.png`}
         alt="CARFAX Advantage Dealer"
@@ -250,23 +251,26 @@ const labels = isSpanish
   </script>
 </footer>
 
-<!-- Sticky Mobile CTA - 3-button bar consistent across all pages -->
+<!-- Sticky Mobile CTA - 4 cell bar consistent across all pages. Text is the one filled
+     cell: it is the channel that works after hours. Navy on orange is 5.77:1 (white was
+     2.69:1). Prequalify goes to the English form anchor; Spanish has no prequalify form, so
+     it keeps Financiamiento to /es/financiamiento. The sms body is encoded (R1-19). -->
 <div id="footer-sticky-cta" class="fixed bottom-0 left-0 right-0 z-40 md:hidden bg-white border-t border-gray-200 shadow-[0_-4px_12px_rgba(0,0,0,0.08)]">
   <div class="flex">
-    <a href="sms:8475108947&body=Hi Jerry, I'm interested in a vehicle at Maxim Autos." class="flex-1 flex flex-col items-center justify-center py-3 gap-0.5 text-navy hover:bg-gray-50 transition-colors">
-      <span class="material-symbols-outlined text-xl" style="font-variation-settings:'FILL' 1;">sms</span>
+    <a href={`sms:8475108947&body=${encodeURIComponent(isSpanish ? 'Hola Jerry, me interesa un auto de Maxim Autos.' : "Hi Jerry, I'm interested in a vehicle at Maxim Autos.")}`} data-cta="sticky_global" class="flex-1 flex flex-col items-center justify-center py-3 gap-0.5 bg-orange text-navy hover:bg-orange-light transition-colors">
+      <Icon name="sms" class="text-xl" fill />
       <span class="text-xs font-bold">{labels.mobileText}</span>
     </a>
-    <a href="tel:8475108947" class="flex-1 flex flex-col items-center justify-center py-3 gap-0.5 text-navy hover:bg-gray-50 transition-colors border-x border-gray-200">
-      <span class="material-symbols-outlined text-xl" style="font-variation-settings:'FILL' 1;">call</span>
+    <a href="tel:8475108947" data-cta="sticky_global" class="flex-1 flex flex-col items-center justify-center py-3 gap-0.5 text-navy hover:bg-gray-50 transition-colors border-x border-gray-200">
+      <Icon name="call" class="text-xl" fill />
       <span class="text-xs font-bold">{labels.mobileCall}</span>
     </a>
-    <a href="https://www.google.com/maps/place/Maxim+Autos/@42.0464352,-87.7546134,17z/data=!3m1!4b1!4m6!3m5!1s0x880fcfcb0a430aed:0x4d36c77af06ce602!8m2!3d42.0464352!4d-87.7546134!16s%2Fg%2F11wmzx_p4t" target="_blank" rel="noopener noreferrer" class="flex-1 flex flex-col items-center justify-center py-3 gap-0.5 text-navy hover:bg-gray-50 transition-colors border-r border-gray-200">
-      <span class="material-symbols-outlined text-xl" style="font-variation-settings:'FILL' 1;">location_on</span>
+    <a href="https://www.google.com/maps/place/Maxim+Autos/@42.0464352,-87.7546134,17z/data=!3m1!4b1!4m6!3m5!1s0x880fcfcb0a430aed:0x4d36c77af06ce602!8m2!3d42.0464352!4d-87.7546134!16s%2Fg%2F11wmzx_p4t" target="_blank" rel="noopener noreferrer" data-cta="sticky_global" data-cta-name="directions" class="flex-1 flex flex-col items-center justify-center py-3 gap-0.5 text-navy hover:bg-gray-50 transition-colors border-r border-gray-200">
+      <Icon name="location_on" class="text-xl" fill />
       <span class="text-xs font-bold">{labels.mobileDirections}</span>
     </a>
-    <a href={finHref} class="flex-1 flex flex-col items-center justify-center py-3 gap-0.5 bg-orange text-white hover:bg-orange-dark transition-colors">
-      <span class="material-symbols-outlined text-xl" style="font-variation-settings:'FILL' 1;">payments</span>
+    <a href={isSpanish ? finHref : `${finHref}#apply`} data-cta="sticky_global" data-cta-name="prequalify" class="flex-1 flex flex-col items-center justify-center py-3 gap-0.5 text-navy hover:bg-gray-50 transition-colors">
+      <Icon name="payments" class="text-xl" fill />
       <span class="text-xs font-bold">{labels.mobileFinancing}</span>
     </a>
   </div>

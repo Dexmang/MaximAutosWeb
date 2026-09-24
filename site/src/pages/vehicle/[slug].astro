@@ -5,7 +5,10 @@ import Layout from '../../layouts/Layout.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 import VehicleCard from '../../components/VehicleCard.astro';
+import TrustPair from '../../components/TrustPair.astro';
+import Icon from '../../components/Icon.astro';
 import vehicles from '../../data/vehicles.json';
+import facts from '../../data/facts.json';
 // CarGurus VIN-level stats (refreshed by scripts/sync-cargurus-vin-stats.js).
 // Optional — the placeholder JSON shipped with the repo guarantees the import
 // always resolves, so the site builds even before the first sync runs.
@@ -41,13 +44,36 @@ const showVinStats = !isSold && vinStats !== null && vinStats.vdp_views >= 3;
 // A base car has an empty trim (e.g. 2015 Kia Soul); join on non-empty parts so
 // the <title>, H1, schema name and SMS body never carry a double space.
 const titleText = [v.year, v.make, v.model, v.trim].filter(Boolean).join(' ');
+
+// Title and description are measured, not hoped for (D2-09, D2-10). Caps: title 58,
+// description 155, the lengths a phone SERP shows before it cuts. Every title rung
+// carries "Maxim Autos", so Layout's dedupe appends no suffix. No price in the title and
+// no payment in either: a payment in a snippet would need the Reg Z terms beside it.
+const TITLE_MAX = 58;
+const DESC_MAX = 155;
+const yearMakeModel = [v.year, v.make, v.model].filter(Boolean).join(' ');
+const titleRungs = [
+  `${titleText} in Skokie, No Dealer Fees | Maxim Autos`,
+  `${titleText}, No Dealer Fees | Maxim Autos`,
+  `${yearMakeModel}, No Dealer Fees | Maxim Autos`,
+  `${titleText} | Maxim Autos`,
+];
+// First rung at or under the cap wins. A name too long for every rung takes the shortest.
+const availableTitle = titleRungs.find(t => t.length <= TITLE_MAX)
+  ?? titleRungs.reduce((a, b) => (b.length < a.length ? b : a));
+// Base sentence first, then each optional clause while the total stays at or under the
+// cap. Rating and count come from facts.json ("on Google", guardrail A9), never typed.
+const descBase = `${titleText}${v.mileage > 0 ? `, ${v.mileage.toLocaleString()} miles` : ''}, $${v.price.toLocaleString()}. No dealer fees, ever. ${facts.reviews.ratingText} from ${facts.reviews.count} reviews.`;
+const availableDesc = [' Free CARFAX.', ' Metal plates issued the same visit.']
+  .reduce((d, clause) => (d.length + clause.length <= DESC_MAX ? d + clause : d), descBase);
+
 const pageTitle = isSold
   ? `${titleText} (Sold) | Maxim Autos Skokie, IL`
-  : `${titleText} for Sale in Skokie, IL`;
+  : availableTitle;
 const mileageStr = v.mileage > 0 ? `${v.mileage.toLocaleString()} mi` : 'Mileage TBD';
 const pageDesc = isSold
-  ? `${titleText} previously listed at Maxim Autos in Skokie, IL has sold. Browse our current Pre-Owned inventory or text Jerry to source a similar one.`
-  : `${titleText}${v.mileage > 0 ? ` with ${v.mileage.toLocaleString()} miles` : ''} for $${v.price.toLocaleString()} at Maxim Autos in Skokie, IL. ${v.engine}, ${v.transmission}, ${v.drivetrain}. Fully inspected with free CARFAX. Same day metal plates.`;
+  ? `${titleText} previously listed at Maxim Autos in Skokie, IL has sold. Browse our current used inventory or text Jerry to source a similar one.`
+  : availableDesc;
 const seoSuffix = 'maxim-autos-skokie-il';
 
 // Build photo arrays
@@ -116,7 +142,6 @@ if (!isSold && allPhotos.length > 0 && isDcPhoto(allPhotos[0])) {
 }
 
 const otherVehicles = vehicles.filter(o => o.slug !== v.slug && (o as any).status !== 'sold').slice(0, 3);
-const smsBody = encodeURIComponent(`Hi Jerry, I'm interested in the ${titleText} listed on MaximAutos.com.`);
 
 // Static payment estimate (10% down, 9.9% APR, 60 mo)
 const downPayment = Math.round(v.price * 0.10);
@@ -130,9 +155,19 @@ const monthlyPayment = Math.round(
 
 const highlights: string[] = (v as any).highlights || [];
 const historyBadges: string[] = (v as any).historyBadges || [];
-const description: string = (v as any).description || '';
+// DealerCenter appends a shared "The Maxim Autos Difference" block to every listing
+// description. That block still says "inspection report" and "on the spot", both retired
+// (July rule 8, P1-20, G5). Everything after it is dealer boilerplate, never car specific,
+// so the VDP shows the description up to that marker. The page's own trust blocks carry
+// the canonical wording. The feed text itself is fixed in DealerCenter, not here.
+const rawDescription: string = (v as any).description || '';
+const boilerplateAt = rawDescription.indexOf('The Maxim Autos Difference');
+const description: string = (boilerplateAt >= 0 ? rawDescription.slice(0, boilerplateAt) : rawDescription).trim();
 const stockNumber: string = (v as any).stockNumber || '';
 const mpg: string = (v as any).mpg || '';
+// Every text lead names the stock number, so Jerry knows the car before he opens the
+// thread (D2-22). Never a price or a payment in the body. No stock number, no parenthetical.
+const smsBody = encodeURIComponent(`Hi Jerry, is the ${titleText}${stockNumber ? ` (stock ${stockNumber})` : ''} still available? I saw it on MaximAutos.com.`);
 
 // CARFAX "Show Me The CARFAX" per-VIN report link.
 // partner=DVW_1 is Maxim Autos' CARFAX Advantage link code (dealer portal →
@@ -189,15 +224,17 @@ const featureCats = categorize(v.features);
 const hasCategories = featureCats.safety.length > 0 || featureCats.comfort.length > 0 || featureCats.tech.length > 0;
 
 const faqs = [
-  { q: `Is the ${v.year} ${v.make} ${v.model} reliable?`, a: `The ${v.year} ${v.make} ${v.model} is well-regarded for reliability. This used vehicle has been fully inspected by an independent mechanic and the report is included with your purchase.` },
-  { q: `Is this used ${v.make} ${v.model} inspected before sale?`, a: `Yes. This ${titleText} has been inspected by an independent mechanic. The full inspection report is included with purchase so you can review every detail before buying.` },
+  // The per model reliability pair is gone (R1-01e): it made an unsupported claim about
+  // every model and promised paperwork we do not hand out. The inspection answer is the July
+  // section 5 claim, verbatim (July rule 8).
+  { q: `Is this used ${v.make} ${v.model} inspected before sale?`, a: `Every car is inspected before it goes on the lot, and a free CARFAX comes with it. Ask Jerry what was checked on any car before you decide.` },
   // "Get pre-approved quickly with no impact to your credit score" was live here on all
   // 27 VDPs, in the visible FAQ and in the FAQPage JSON-LD Google ingests. It is false:
   // a pre-approval is a credit pull. What genuinely costs nothing is TALKING to Jerry and
   // the soft prequalifier form, which asks four questions and no SSN. Corrected 2026-07-26.
   { q: `Can I get pre-approved for financing on this ${v.make} ${v.model}?`, a: `Yes. Maxim Autos offers financing for all credit levels, including first time buyers and those rebuilding credit. Start with the short financing form or a call to Jerry: neither touches your credit. A full application does include a credit check, and approval is never guaranteed.` },
   { q: `Does this used ${v.make} ${v.model} come with a CARFAX report?`, a: `Yes. A CARFAX vehicle history report is included with every used vehicle at Maxim Autos at no extra cost. Review the full history of this ${titleText} before making a decision.` },
-  { q: `Can I drive this ${v.make} ${v.model} home the same day?`, a: `Yes. Maxim Autos is an authorized Illinois CVR (Computer Vehicle Registration) electronic registration dealer. We process your title and registration on the spot and issue real metal plates the same day. No waiting for temporary plates, no trip to the DMV.` },
+  { q: `Can I drive this ${v.make} ${v.model} home the same day?`, a: `Yes. Maxim Autos is an authorized Illinois CVR (Computer Vehicle Registration) electronic registration dealer. Metal plates issued the same visit, for cars registered in Illinois. If you are registering in another state we issue an Illinois drive away permit instead and you plate the car at home.` },
   { q: `Are there any hidden fees on this used ${v.make} ${v.model}?`, a: `No. Maxim Autos never charges dealer fees. No doc fee, no processing fee, no surprise extras at signing. The listed price of $${v.price.toLocaleString()} is what you pay plus standard state tax, title and license.` },
 ];
 
@@ -251,18 +288,13 @@ const vehicleSchema = {
   "url": canonicalVdpUrl
 };
 if (v.vin && v.vin !== 'TBD') (vehicleSchema as any).vehicleIdentificationNumber = v.vin;
-
-const faqSchema = {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": faqs.map(f => ({ "@type": "Question", "name": f.q, "acceptedAnswer": { "@type": "Answer", "text": f.a } }))
-};
+// No FAQPage JSON-LD (D2-15). Google stopped showing the FAQ rich result on 2026-05-07,
+// and the markup had republished two banned inspection claims. The visible FAQ stays.
 ---
 
 <Layout title={pageTitle} description={pageDesc} ogImage={allPhotos.length > 0 ? allPhotos[0] : undefined} noIndex={isSold}>
   <Fragment slot="structured-data">
     <script type="application/ld+json" set:html={JSON.stringify(vehicleSchema)} />
-    <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
     <script type="application/ld+json" set:html={JSON.stringify({
       "@context": "https://schema.org",
       "@type": "BreadcrumbList",
@@ -281,7 +313,7 @@ const faqSchema = {
   {isSold && (
     <section class="bg-red-50 border-y border-red-200">
       <div class="max-w-7xl mx-auto px-6 lg:px-8 py-4 flex items-center justify-center gap-2 text-center">
-        <span class="material-symbols-outlined text-navy" style="font-variation-settings:'FILL' 1;">sell</span>
+        <Icon name="sell" class="text-navy" fill />
         <p class="font-headline font-extrabold text-navy text-base md:text-lg">
           This vehicle has sold. We rotate inventory weekly.
         </p>
@@ -305,7 +337,7 @@ const faqSchema = {
                      class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-[1.02]" />
               </picture>
               <div class="absolute bottom-3 left-3 bg-black/60 text-white text-sm font-semibold px-3 py-1.5 rounded-md flex items-center gap-1.5">
-                <span class="material-symbols-outlined text-base">photo_camera</span>
+                <Icon name="photo_camera" class="text-base" />
                 {allPhotos.length} photos · Click to view all
               </div>
             </div>
@@ -343,7 +375,7 @@ const faqSchema = {
               {allPhotos.length > 1 && (
                 <button id="view-all-btn"
                   class="absolute bottom-3 right-3 bg-black/70 text-white text-sm font-semibold px-3 py-1.5 rounded-md flex items-center gap-1.5">
-                  <span class="material-symbols-outlined text-base">photo_library</span>
+                  <Icon name="photo_library" class="text-base" />
                   View all {allPhotos.length} photos
                 </button>
               )}
@@ -390,32 +422,34 @@ const faqSchema = {
   {!isSold && (
     <section class="bg-white border-b border-gray-200 shadow-sm">
       <div class="max-w-7xl mx-auto flex divide-x divide-gray-200">
-        <div class="flex-1 flex items-center justify-center py-2.5 px-2">
+        <!-- Phone: one 44 px row, gray label beside the wordmark, so the CARFAX cell stops
+             being the loudest thing above the price (D1-33). md and up: the stacked badge. -->
+        <div class="flex-1 flex items-center justify-center h-11 md:h-auto md:py-2.5 px-2">
           {carfaxLink ? (
-            <a href={carfaxLink} target="_blank" rel="noopener noreferrer"
-               class="flex flex-col items-center leading-none hover:opacity-75 transition-opacity"
+            <a href={carfaxLink} target="_blank" rel="noopener noreferrer" data-cta="vdp_trust" data-cta-name="carfax"
+               class="flex flex-row md:flex-col items-center gap-1.5 md:gap-0 leading-none hover:opacity-75 transition-opacity"
                aria-label={`Show me the free CARFAX report for this ${v.year} ${v.make} ${v.model}`}>
-              <span class="text-sm font-extrabold tracking-[0.14em] text-orange">SHOW ME THE</span>
-              <span class="flex items-start mt-[3px]">
+              <span class="text-[11px] md:text-sm font-bold md:font-extrabold tracking-wide md:tracking-[0.14em] text-gray-600 md:text-orange-ink whitespace-nowrap">SHOW ME THE</span>
+              <span class="flex items-start md:mt-[3px]">
                 <span class="flex gap-[2px] border-2 border-black rounded-[5px] p-[2px] bg-white">
                   {'CARFA'.split('').map(ch => (
-                    <span class="bg-black text-white font-black text-[12px] leading-none w-[17px] h-[17px] flex items-center justify-center rounded-[2px]">{ch}</span>
+                    <span class="bg-black text-white font-black text-[10px] md:text-[12px] leading-none w-[14px] h-[14px] md:w-[17px] md:h-[17px] flex items-center justify-center rounded-[2px]">{ch}</span>
                   ))}
-                  <span class="bg-black text-white font-black text-[12px] leading-none w-[17px] h-[17px] flex items-end justify-center rounded-[2px] pb-[2px]">x</span>
+                  <span class="bg-black text-white font-black text-[10px] md:text-[12px] leading-none w-[14px] h-[14px] md:w-[17px] md:h-[17px] flex items-end justify-center rounded-[2px] pb-[2px]">x</span>
                 </span>
                 <span class="text-[7px] font-bold text-gray-900 ml-[2px]">®</span>
               </span>
             </a>
           ) : (
             <span class="flex items-center gap-1.5">
-              <span class="material-symbols-outlined text-lg text-blue-700 hidden sm:inline" style="font-variation-settings:'FILL' 1;">description</span>
+              <Icon name="description" class="text-lg text-blue-700 hidden sm:inline-block" fill />
               <span class="text-xs sm:text-sm font-bold text-gray-700">CARFAX Included</span>
             </span>
           )}
         </div>
-        <div class="flex-1 flex items-center justify-center gap-1.5 py-3 px-2 text-center">
-          <span class="material-symbols-outlined text-lg text-green-600 hidden sm:inline" style="font-variation-settings:'FILL' 1;">check_circle</span>
-          <span class="text-xs sm:text-sm font-bold text-gray-700">Fully Inspected</span>
+        <div class="flex-1 flex items-center justify-center gap-1.5 h-11 md:h-auto md:py-3 px-2 text-center">
+          <Icon name="check_circle" class="text-lg text-green-600 hidden sm:inline-block" fill />
+          <span class="text-xs sm:text-sm font-bold text-gray-700">Inspected</span>
         </div>
       </div>
     </section>
@@ -423,63 +457,64 @@ const faqSchema = {
 
   <!-- ===== MAIN 2-COLUMN LAYOUT ===== -->
   <section class="bg-white">
-    <div class="max-w-7xl mx-auto px-6 lg:px-8 py-10">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8 pt-4 pb-10 md:py-10">
       <div class="flex flex-col lg:flex-row gap-10">
 
         <!-- ===== LEFT COLUMN ===== -->
         <div class="flex-1 min-w-0">
 
           <!-- Breadcrumb -->
-          <nav class="flex items-center gap-1.5 text-sm text-gray-400 mb-4">
+          <nav class="hidden md:flex items-center gap-1.5 text-sm text-gray-500 mb-4">
             <a href={`${base}/`} class="hover:text-navy transition-colors">Home</a>
-            <span class="material-symbols-outlined text-xs">chevron_right</span>
+            <Icon name="chevron_right" class="text-xs" />
             <a href={`${base}/inventory`} class="hover:text-navy transition-colors">Inventory</a>
-            <span class="material-symbols-outlined text-xs">chevron_right</span>
+            <Icon name="chevron_right" class="text-xs" />
             <span class="text-gray-600 font-medium truncate">{titleText}</span>
           </nav>
 
           <!-- Title -->
-          <h1 class="font-headline text-2xl md:text-3xl font-extrabold text-navy leading-tight mb-2">{titleText}</h1>
-          <div class="flex flex-wrap items-center gap-2 text-sm text-gray-500 mb-4">
+          <h1 class="font-headline text-xl md:text-3xl font-extrabold text-navy leading-tight mb-1 md:mb-2">{titleText}</h1>
+          <div class="flex flex-wrap items-center gap-x-1.5 gap-y-0.5 md:gap-2 text-[13px] md:text-sm text-gray-500 mb-3 md:mb-4">
             <span>{mileageStr}</span>
             <span class="text-gray-300">·</span>
             <span>{v.drivetrain}</span>
             <span class="text-gray-300">·</span>
             <span>{v.engine}</span>
-            <span class="text-gray-300">·</span>
-            <span>{v.exteriorColor}</span>
+            <span class="text-gray-300 hidden sm:inline">·</span>
+            <span class="hidden sm:inline">{v.exteriorColor}</span>
             {stockNumber && <><span class="text-gray-300">·</span><span>Stock #{stockNumber}</span></>}
           </div>
 
           {!isSold && (
           <!-- Mobile price (shown below title on mobile, hidden on lg where sidebar shows) -->
-          <div class="lg:hidden mb-5 pb-5 border-b border-gray-100">
-            <span class="text-3xl font-extrabold text-navy" data-vehicle-price={v.price}>${v.price.toLocaleString()}</span>
-            <span class="text-sm text-gray-500 ml-2">Est. ${monthlyPayment}/mo</span>
-            {!isSold && v.vin && v.vin !== 'TBD' && (
-              <span class="cg-vin-badge ml-2 inline-block align-middle" data-cg-vin={v.vin} data-cg-price={v.price}></span>
-            )}
+          <div class="lg:hidden mb-4 pb-4 border-b border-gray-100">
+            <div class="flex items-start justify-between gap-3">
+              <span class="text-3xl font-extrabold text-navy" data-vehicle-price={v.price}>${v.price.toLocaleString()}</span>
+              {v.vin && v.vin !== 'TBD' && (
+                <span class="cg-vin-badge inline-block min-h-[46px] min-w-[124px] text-right" data-cg-vin={v.vin} data-cg-price={v.price}></span>
+              )}
+            </div>
+
+            <TrustPair variant="vdp" class="mt-2" />
+
             {showVinStats && vinStats && (
-              <p class="mt-1 text-xs text-gray-400">
-                <span class="material-symbols-outlined text-[12px] align-middle mr-0.5" style="font-variation-settings:'FILL' 1;">visibility</span>
+              <p class="mt-3.5 text-xs text-gray-500">
+                <Icon name="visibility" class="text-[12px] align-middle mr-0.5" fill />
                 {vinStats.vdp_views} shoppers checked this on CarGurus this week
               </p>
             )}
 
-            <!-- Zero dealer fees callout -->
-            <div class="mt-3 flex items-start gap-2 bg-green-50 border border-green-100 rounded-lg px-3 py-2">
-              <span class="material-symbols-outlined text-base text-green-700 shrink-0" style="font-variation-settings:'FILL' 1;">price_check</span>
-              <p class="text-xs text-gray-700 leading-snug"><span class="font-bold text-green-700">No dealer fees. Ever.</span> The price you see is the price you pay plus tax, title and license.</p>
-            </div>
+            <!-- Monthly figure with the verbatim Reg Z string directly under it (S25). 14 px (C5). -->
+            <p class="mt-2 text-sm text-gray-600">Est. <span class="font-bold text-navy">${monthlyPayment}/mo</span>*</p>
+            <p class="mt-0.5 text-sm leading-snug text-gray-600">* Est. payment based on 10% down, 9.9% APR, 60-month term. For illustrative purposes only. Actual terms vary by credit.</p>
 
-            <!-- Orange payment estimator callout -->
             <button id="mobile-calc-toggle"
-              class="mt-3 w-full flex items-center justify-between bg-orange/10 border border-orange/30 text-orange rounded-xl px-4 py-3 font-bold text-sm hover:bg-orange/15 transition-colors">
+              class="mt-2 mb-3 w-full h-12 flex items-center justify-between bg-orange/10 border border-orange/30 text-orange-ink rounded-xl px-4 font-bold text-sm hover:bg-orange/15 transition-colors">
               <span class="flex items-center gap-2">
-                <span class="material-symbols-outlined text-lg" style="font-variation-settings:'FILL' 1;">calculate</span>
+                <Icon name="calculate" class="text-lg" fill />
                 Estimate Your Payment
               </span>
-              <span class="material-symbols-outlined text-base transition-transform duration-200" id="mobile-calc-icon">expand_more</span>
+              <Icon name="expand_more" class="text-base transition-transform duration-200" id="mobile-calc-icon" />
             </button>
 
             <!-- Expandable payment calculator -->
@@ -529,7 +564,7 @@ const faqSchema = {
                 <p class="text-xs text-gray-400 mb-3">Estimates for illustration only. Actual terms depend on credit approval.</p>
                 <a href={`${base}/financing?vehicle=${v.slug}#apply`}
                    class="w-full flex items-center justify-center gap-2 bg-orange text-white py-3 rounded-xl font-bold text-sm hover:bg-orange-dark transition-colors">
-                  <span class="material-symbols-outlined text-base" style="font-variation-settings:'FILL' 1;">payments</span>
+                  <Icon name="payments" class="text-base" fill />
                   Check my financing options
                 </a>
                 <a href={`${base}/apply`} class="block text-center text-xs text-gray-400 hover:text-orange mt-2 underline">
@@ -543,17 +578,17 @@ const faqSchema = {
           {isSold && (
           <!-- Similar-inventory upsell (replaces price/CTA block when sold) -->
           <div class="mb-6 bg-navy rounded-2xl p-6 text-white">
-            <h2 class="font-headline text-lg font-extrabold mb-2">Looking for a similar Pre-Owned {v.make} {v.model}?</h2>
+            <h2 class="font-headline text-lg font-extrabold mb-2">Looking for a similar used {v.make} {v.model}?</h2>
             <p class="text-white/80 text-sm mb-4">Jerry rotates inventory weekly and personally sources every car. Browse what's on the lot today, or text Jerry exactly what you want and he will find it for you.</p>
             <div class="flex flex-col sm:flex-row gap-3">
               <a href={`${base}/inventory${v.bodyStyleSlug ? '?body=' + v.bodyStyle : ''}`}
                  class="flex-1 inline-flex items-center justify-center gap-2 bg-orange text-white px-5 py-3 rounded-xl font-bold text-sm hover:bg-orange/90 transition-colors">
-                <span class="material-symbols-outlined text-base">directions_car</span>
+                <Icon name="directions_car" class="text-base" />
                 See Current Inventory
               </a>
               <a href={`sms:8475108947&body=${smsBody}`}
                  class="flex-1 inline-flex items-center justify-center gap-2 bg-white/10 border border-white/30 text-white px-5 py-3 rounded-xl font-bold text-sm hover:bg-white/20 transition-colors">
-                <span class="material-symbols-outlined text-base" style="font-variation-settings:'FILL' 1;">sms</span>
+                <Icon name="sms" class="text-base" fill />
                 Text Jerry to Source One
               </a>
             </div>
@@ -564,12 +599,12 @@ const faqSchema = {
           {!isSold && (historyBadges.length > 0 || dealLabel) && (
             <div class="flex flex-wrap gap-2 mb-5">
               <a href={`${base}/ship`} class="inline-flex items-center gap-1.5 bg-navy/5 text-navy border border-navy/15 px-3 py-1.5 rounded-full text-xs font-semibold hover:bg-navy/10 transition-colors">
-                <span class="material-symbols-outlined text-xs text-navy" style="font-variation-settings:'FILL' 1;">local_shipping</span>
+                <Icon name="local_shipping" class="text-xs text-navy" fill />
                 Ships Nationwide
               </a>
               {historyBadges.map((badge: string) => (
                 <span class="inline-flex items-center gap-1.5 bg-green-50 text-green-800 border border-green-100 px-3 py-1.5 rounded-full text-xs font-semibold">
-                  <span class="material-symbols-outlined text-xs text-green-600" style="font-variation-settings:'FILL' 1;">check_circle</span>
+                  <Icon name="check_circle" class="text-xs text-green-600" fill />
                   {badge}
                 </span>
               ))}
@@ -626,12 +661,12 @@ const faqSchema = {
                     {featureCats.safety.length > 0 && (
                       <div>
                         <p class="text-xs font-bold text-gray-500 uppercase tracking-widest mb-2 flex items-center gap-1">
-                          <span class="material-symbols-outlined text-sm text-green-600">shield</span>Safety
+                          <Icon name="shield" class="text-sm text-green-600" />Safety
                         </p>
                         <ul class="space-y-1.5">
                           {featureCats.safety.map((f: string) => (
                             <li class="flex items-center gap-2 text-sm text-gray-700">
-                              <span class="material-symbols-outlined text-sm text-orange" style="font-variation-settings:'FILL' 1;">check_circle</span>{f}
+                              <Icon name="check_circle" class="text-sm text-orange" fill />{f}
                             </li>
                           ))}
                         </ul>
@@ -640,12 +675,12 @@ const faqSchema = {
                     {featureCats.comfort.length > 0 && (
                       <div>
                         <p class="text-xs font-bold text-gray-500 uppercase tracking-widest mb-2 flex items-center gap-1">
-                          <span class="material-symbols-outlined text-sm text-blue-500">chair</span>Comfort
+                          <Icon name="chair" class="text-sm text-blue-500" />Comfort
                         </p>
                         <ul class="space-y-1.5">
                           {featureCats.comfort.map((f: string) => (
                             <li class="flex items-center gap-2 text-sm text-gray-700">
-                              <span class="material-symbols-outlined text-sm text-orange" style="font-variation-settings:'FILL' 1;">check_circle</span>{f}
+                              <Icon name="check_circle" class="text-sm text-orange" fill />{f}
                             </li>
                           ))}
                         </ul>
@@ -654,12 +689,12 @@ const faqSchema = {
                     {(featureCats.tech.length > 0 || featureCats.other.length > 0) && (
                       <div>
                         <p class="text-xs font-bold text-gray-500 uppercase tracking-widest mb-2 flex items-center gap-1">
-                          <span class="material-symbols-outlined text-sm text-purple-500">devices</span>Technology
+                          <Icon name="devices" class="text-sm text-purple-500" />Technology
                         </p>
                         <ul class="space-y-1.5">
                           {[...featureCats.tech, ...featureCats.other].map((f: string) => (
                             <li class="flex items-center gap-2 text-sm text-gray-700">
-                              <span class="material-symbols-outlined text-sm text-orange" style="font-variation-settings:'FILL' 1;">check_circle</span>{f}
+                              <Icon name="check_circle" class="text-sm text-orange" fill />{f}
                             </li>
                           ))}
                         </ul>
@@ -670,7 +705,7 @@ const faqSchema = {
                   <div class="flex flex-wrap gap-2 mb-4">
                     {v.features.map((feat: string) => (
                       <span class="inline-flex items-center gap-1 bg-surface text-gray-700 px-3 py-1.5 rounded-full text-sm font-medium border border-gray-200">
-                        <span class="material-symbols-outlined text-sm text-orange" style="font-variation-settings:'FILL' 1;">check_circle</span>{feat}
+                        <Icon name="check_circle" class="text-sm text-orange" fill />{feat}
                       </span>
                     ))}
                   </div>
@@ -715,24 +750,19 @@ const faqSchema = {
           <div class="mb-8 space-y-4">
             <div class="bg-green-50 border border-green-200 rounded-xl p-5 flex items-start gap-4">
               <div class="w-10 h-10 bg-green-100 rounded-xl flex items-center justify-center shrink-0">
-                <span class="material-symbols-outlined text-2xl text-green-700" style="font-variation-settings:'FILL' 1;">check_circle</span>
+                <Icon name="check_circle" class="text-2xl text-green-700" fill />
               </div>
               <div>
-                <h3 class="font-headline font-bold text-green-900 mb-1">Fully Inspected by Independent Mechanic</h3>
-                <p class="text-green-800 text-sm mb-3">Inspection report included with purchase. Review every component before you buy.</p>
-                <div class="grid grid-cols-2 gap-x-4 gap-y-1.5">
-                  {['Engine & Drivetrain', 'Brakes & Suspension', 'Tires & Wheels', 'Electrical Systems', 'Interior & Exterior', 'Fluid Levels', 'Lights & Signals', 'Steering & Alignment'].map(item => (
-                    <div class="flex items-center gap-1.5 text-xs text-green-800">
-                      <span class="material-symbols-outlined text-xs text-green-600 shrink-0" style="font-variation-settings:'FILL' 1;">check_circle</span>{item}
-                    </div>
-                  ))}
-                </div>
+                {/* July section 5 inspection claim, verbatim. No "report", no published checklist
+                    (July rule 8, July 4D). R1-01b to R1-01d. */}
+                <h3 class="font-headline font-bold text-green-900 mb-1">Inspected and Documented</h3>
+                <p class="text-green-800 text-sm">Every car is inspected before it goes on the lot, and a free CARFAX comes with it. Ask Jerry what was checked on any car before you decide.</p>
               </div>
             </div>
 
             <div class="bg-blue-50 border border-blue-100 rounded-xl p-5 flex items-start gap-4">
               <div class="w-10 h-10 bg-blue-100 rounded-xl flex items-center justify-center shrink-0">
-                <span class="material-symbols-outlined text-2xl text-blue-700" style="font-variation-settings:'FILL' 1;">description</span>
+                <Icon name="description" class="text-2xl text-blue-700" fill />
               </div>
               <div>
                 <h3 class="font-headline font-bold text-blue-900 mb-1">CARFAX Report Included</h3>
@@ -741,7 +771,7 @@ const faqSchema = {
                   <a href={carfaxLink} target="_blank" rel="noopener noreferrer"
                      class="inline-flex items-center gap-1 text-sm font-bold text-blue-700 hover:underline mb-2">
                     View the free CARFAX report
-                    <span class="material-symbols-outlined text-sm">open_in_new</span>
+                    <Icon name="open_in_new" class="text-sm" />
                   </a>
                 )}
                 {v.vin && v.vin !== 'TBD' && (
@@ -754,7 +784,7 @@ const faqSchema = {
           <!-- FAQ -->
           <div class="mb-4">
             <h2 class="font-headline text-base font-bold text-navy mb-4 flex items-center gap-2">
-              <span class="material-symbols-outlined text-orange" style="font-variation-settings:'FILL' 1;">help</span>
+              <Icon name="help" class="text-orange" fill />
               Frequently Asked Questions
             </h2>
             <div class="bg-white rounded-xl border border-gray-100 divide-y divide-gray-100" id="faq-list">
@@ -762,7 +792,7 @@ const faqSchema = {
                 <div class="faq-item">
                   <button class="faq-toggle w-full flex items-center justify-between text-left py-4 px-5 gap-4" data-index={i} aria-expanded="false">
                     <span class="font-semibold text-gray-900 text-sm">{faq.q}</span>
-                    <span class="material-symbols-outlined text-gray-400 shrink-0 faq-icon transition-transform duration-200">expand_more</span>
+                    <Icon name="expand_more" class="text-gray-400 faq-icon transition-transform duration-200" />
                   </button>
                   <div class="faq-answer hidden pb-4 px-5 pr-12">
                     <p class="text-gray-600 text-sm leading-relaxed">{faq.a}</p>
@@ -778,36 +808,38 @@ const faqSchema = {
         <!-- ===== RIGHT STICKY SIDEBAR ===== -->
         {!isSold && (
         <div class="hidden lg:block w-80 shrink-0">
-          <div class="sticky top-[73px]">
+          <div class="sticky top-[75px]">
             <!-- Price + Payment Estimator -->
             <div class="bg-white rounded-2xl border border-gray-100 shadow-sm p-6 mb-4">
               <span class="text-4xl font-extrabold text-navy block mb-1" data-vehicle-price={v.price}>${v.price.toLocaleString()}</span>
-              <p class="text-sm text-gray-500 mb-1">Est. ${monthlyPayment}/mo</p>
               {!isSold && v.vin && v.vin !== 'TBD' && (
-                <div class="mb-2">
+                <div class="mb-2 min-h-[46px]">
                   <span class="cg-vin-badge inline-block" data-cg-vin={v.vin} data-cg-price={v.price}></span>
                 </div>
               )}
+              <TrustPair variant="vdp" class="mb-4" />
               {showVinStats && vinStats && (
                 <p class="mb-4 text-xs text-gray-400 flex items-center gap-1">
-                  <span class="material-symbols-outlined text-[14px]" style="font-variation-settings:'FILL' 1;">visibility</span>
+                  <Icon name="visibility" class="text-[14px]" fill />
                   {vinStats.vdp_views} shoppers checked this on CarGurus this week
                 </p>
               )}
-              {!showVinStats && <div class="mb-4"></div>}
 
-              <!-- Zero dealer fees callout -->
-              <div class="mb-4 flex items-start gap-2 bg-green-50 border border-green-100 rounded-lg px-3 py-2">
-                <span class="material-symbols-outlined text-base text-green-700 shrink-0" style="font-variation-settings:'FILL' 1;">price_check</span>
-                <p class="text-xs text-gray-700 leading-snug"><span class="font-bold text-green-700">No dealer fees. Ever.</span> The price you see is the price you pay plus tax, title and license.</p>
-              </div>
+              <!-- Monthly figure with the verbatim Reg Z string directly under it, open
+                   calculator or not (R1-18, S25). 14 px (C5). -->
+              <p class="mt-2 text-sm text-gray-600">Est. <span class="font-bold text-navy">${monthlyPayment}/mo</span>*</p>
+              <p class="mt-0.5 mb-3 text-sm leading-snug text-gray-600">* Est. payment based on 10% down, 9.9% APR, 60-month term. For illustrative purposes only. Actual terms vary by credit.</p>
 
-              <!-- Sidebar payment calculator -->
-              <div class="mb-4">
-                <p class="text-xs font-bold text-gray-500 uppercase tracking-widest mb-3 flex items-center gap-1.5">
-                  <span class="material-symbols-outlined text-sm text-orange" style="font-variation-settings:'FILL' 1;">calculate</span>
+              <!-- Sidebar payment calculator, closed by default. Open, it grew the sidebar
+                   past the fold and pushed the only CTA off a 1280 x 800 screen (R2-01). -->
+              <button id="sb-calc-toggle" aria-expanded="false" aria-controls="sb-calc-panel" class="w-full h-11 mb-3 flex items-center justify-between rounded-xl border border-orange/30 bg-orange/10 px-4 text-sm font-bold text-orange-ink">
+                <span class="flex items-center gap-2">
+                  <Icon name="calculate" class="text-lg" fill />
                   Estimate Your Payment
-                </p>
+                </span>
+                <Icon name="expand_more" class="text-base transition-transform duration-200" id="sb-calc-icon" />
+              </button>
+              <div id="sb-calc-panel" class="hidden mb-4">
                 <div class="mb-3">
                   <div class="flex justify-between items-center mb-1">
                     <label class="text-xs font-semibold text-gray-600">Down Payment</label>
@@ -847,7 +879,7 @@ const faqSchema = {
 
               <a href={`${base}/financing?vehicle=${v.slug}#apply`}
                  class="w-full flex items-center justify-center gap-2 bg-orange text-white py-3 rounded-xl font-bold text-base hover:bg-orange-dark transition-colors">
-                <span class="material-symbols-outlined text-lg" style="font-variation-settings:'FILL' 1;">payments</span>
+                <Icon name="payments" class="text-lg" fill />
                 Check my financing options
               </a>
               <a href={`${base}/apply`} class="block text-center text-xs text-gray-400 hover:text-orange mt-2 underline">
@@ -859,13 +891,13 @@ const faqSchema = {
             <div class="bg-white rounded-2xl border border-gray-100 shadow-sm p-5 mb-4">
               <div class="space-y-3">
                 {[
-                  { icon: 'shield', color: 'text-green-600', label: 'Independent Inspection Included' },
+                  { icon: 'shield', color: 'text-green-600', label: 'Inspected and Documented' },
                   { icon: 'description', color: 'text-blue-600', label: 'Free CARFAX Report' },
                   { icon: 'directions_car', color: 'text-orange', label: 'Metal Plates, Skip the DMV' },
                   { icon: 'price_check', color: 'text-green-700', label: 'No Dealer Fees Ever' },
                 ].map(item => (
                   <div class="flex items-center gap-3">
-                    <span class:list={['material-symbols-outlined text-xl shrink-0', item.color]} style="font-variation-settings:'FILL' 1;">{item.icon}</span>
+                    <Icon name={item.icon} class={`text-xl ${item.color}`} fill />
                     <span class="text-sm font-medium text-gray-700">{item.label}</span>
                   </div>
                 ))}
@@ -898,7 +930,7 @@ const faqSchema = {
             <h2 class="font-headline text-2xl font-extrabold">More Vehicles</h2>
           </div>
           <a href={`${base}/inventory`} class="hidden md:flex items-center gap-1 text-navy font-bold hover:text-orange transition-colors">
-            View All <span class="material-symbols-outlined">arrow_forward</span>
+            View All <Icon name="arrow_forward" />
           </a>
         </div>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -912,7 +944,7 @@ const faqSchema = {
             />
           ))}
         </div>
-        <p class="text-xs text-gray-400 mt-4">* Est. payment based on 10% down, 9.9% APR, 60-month term. For illustrative purposes only. Actual terms vary by credit.</p>
+        <p class="text-sm text-gray-600 mt-4">* Est. payment based on 10% down, 9.9% APR, 60-month term. For illustrative purposes only. Actual terms vary by credit.</p>
       </div>
     </section>
   )}
@@ -921,7 +953,7 @@ const faqSchema = {
   <section class="py-8 bg-white border-t border-gray-100">
     <div class="max-w-7xl mx-auto px-6 lg:px-8 text-center">
       <a href={`${base}/inventory`} class="inline-flex items-center gap-2 text-navy font-bold hover:text-orange transition-colors">
-        <span class="material-symbols-outlined">arrow_back</span>
+        <Icon name="arrow_back" />
         Back to Full Inventory
       </a>
     </div>
@@ -929,30 +961,27 @@ const faqSchema = {
 
   <!-- ===== LIGHTBOX ===== -->
   <dialog id="lightbox">
-    <button id="lightbox-close" aria-label="Close lightbox"><span class="material-symbols-outlined">close</span></button>
+    <button id="lightbox-close" aria-label="Close lightbox"><Icon name="close" /></button>
     <div id="lightbox-counter">1 / {allPhotos.length}</div>
-    <button id="lightbox-prev" aria-label="Previous photo"><span class="material-symbols-outlined">chevron_left</span></button>
+    <button id="lightbox-prev" aria-label="Previous photo"><Icon name="chevron_left" /></button>
     <img id="lightbox-img" src="" alt={`${titleText} photo`} />
-    <button id="lightbox-next" aria-label="Next photo"><span class="material-symbols-outlined">chevron_right</span></button>
+    <button id="lightbox-next" aria-label="Next photo"><Icon name="chevron_right" /></button>
   </dialog>
 
   {!isSold && (
-  <!-- Mobile sticky CTA bar -->
-  <div class="fixed bottom-0 left-0 right-0 z-40 md:hidden bg-white border-t border-gray-200 shadow-[0_-4px_12px_rgba(0,0,0,0.08)]">
-    <div class="flex">
-      <a href={`sms:8475108947&body=${smsBody}`} class="flex-1 flex flex-col items-center justify-center py-3 gap-0.5 text-navy hover:bg-gray-50 transition-colors">
-        <span class="material-symbols-outlined text-xl" style="font-variation-settings:'FILL' 1;">sms</span>
-        <span class="text-xs font-bold">Text Jerry</span>
-      </a>
-      <a href="tel:8475108947" class="flex-1 flex flex-col items-center justify-center py-3 gap-0.5 text-navy hover:bg-gray-50 transition-colors border-x border-gray-200">
-        <span class="material-symbols-outlined text-xl" style="font-variation-settings:'FILL' 1;">call</span>
-        <span class="text-xs font-bold">Call</span>
-      </a>
-      <a href={`${base}/financing?vehicle=${v.slug}#apply`} class="flex-1 flex flex-col items-center justify-center py-3 gap-0.5 bg-orange text-white hover:bg-orange-dark transition-colors">
-        <span class="material-symbols-outlined text-xl" style="font-variation-settings:'FILL' 1;">payments</span>
-        <span class="text-xs font-bold">Pre-Qualify</span>
-      </a>
-    </div>
+  <div class="fixed bottom-0 left-0 right-0 z-40 md:hidden flex bg-white border-t border-gray-200 shadow-[0_-4px_12px_rgba(0,0,0,0.08)]">
+    <a href={`sms:8475108947&body=${smsBody}`} data-cta="sticky_vdp" class="flex-1 flex flex-col items-center justify-center py-3 gap-0.5 bg-orange text-navy hover:bg-orange-light transition-colors">
+      <Icon name="sms" class="text-xl" fill />
+      <span class="text-xs font-bold">Text Jerry</span>
+    </a>
+    <a href="tel:8475108947" data-cta="sticky_vdp" class="flex-1 flex flex-col items-center justify-center py-3 gap-0.5 text-navy hover:bg-gray-50 transition-colors border-x border-gray-200">
+      <Icon name="call" class="text-xl" fill />
+      <span class="text-xs font-bold">Call</span>
+    </a>
+    <a href={`${base}/financing?vehicle=${v.slug}#apply`} data-cta="sticky_vdp" data-cta-name="prequalify" class="flex-1 flex flex-col items-center justify-center py-3 gap-0.5 text-navy hover:bg-gray-50 transition-colors">
+      <Icon name="payments" class="text-xl" fill />
+      <span class="text-xs font-bold">Prequalify</span>
+    </a>
   </div>
   <div class="h-16 md:hidden"></div>
   )}
@@ -1189,6 +1218,20 @@ const faqSchema = {
       });
     }
     sbUpdate();
+
+    // Closed by default so the CTA stays on screen (R2-01). Same pattern as the mobile toggle.
+    var sbToggle = document.getElementById('sb-calc-toggle');
+    var sbPanel = document.getElementById('sb-calc-panel');
+    var sbIcon = document.getElementById('sb-calc-icon');
+    if (sbToggle && sbPanel) {
+      sbToggle.addEventListener('click', function () {
+        var open = !sbPanel.classList.contains('hidden');
+        sbPanel.classList.toggle('hidden', open);
+        sbToggle.setAttribute('aria-expanded', String(!open));
+        if (sbIcon) sbIcon.style.transform = open ? '' : 'rotate(180deg)';
+        if (!open) sbUpdate();
+      });
+    }
   })();
 })();
 </script>
@@ -1199,7 +1242,7 @@ const faqSchema = {
   window.CarGurus.DealRatingBadge = window.CarGurus.DealRatingBadge || { options: {} };
   window.CarGurus.DealRatingBadge.options = { websitePartner: 'sp457703', minRating: 'GOOD_PRICE', style: 'STYLE1' };
 </script>
-<script is:inline src="https://static.cargurus.com/js/api/en_US/1.0/dealratingbadge.js"></script>
+<script is:inline defer src="https://static.cargurus.com/js/api/en_US/1.0/dealratingbadge.js"></script>
 
 <!-- CarGurus per-VIN Deal Badge SDK (renders into [data-cg-vin][data-cg-price] spans) -->
 <script is:inline defer src="https://www.cargurus.com/Cars/badges/getBadge.action?style=STYLE2"></script>

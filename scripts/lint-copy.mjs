@@ -217,8 +217,43 @@ const RULES = [
   {
     id: 'hyphenated-compound',
     severity: 'warn',
-    find: /\b(?:on-the-spot|hassle-free|same-day|first-time|worry-free|top-notch|state-of-the-art)\b/gi,
+    // 5-star and pre-owned added 2026-09-24 (mobile first D2-11), each with a real hyphen.
+    // Both were live in titles and descriptions, where a reader meets them first.
+    find: /\b(?:on-the-spot|hassle-free|same-day|first-time|worry-free|top-notch|state-of-the-art|5-star|pre-owned)\b/gi,
     why: 'House rule: no hyphenated compound modifiers. Rephrase naturally.',
+  },
+];
+
+// ── Length rules ──────────────────────────────────────────────────────────────────
+// Same shape as RULES, but they measure a tag instead of matching a phrase, so they run
+// once per built page rather than over every surface. Added 2026-09-24 (mobile first
+// D2-11, September P1-23): the 58 and 155 caps were a promise in the design docs; this
+// makes them a check, reported per URL, and it covers /es automatically.
+//
+// Warn only, never error. July rule 2: a length preference must never be able to block
+// anything, and --strict fails on errors alone, so these print in every mode and exit 0.
+//
+// Counted in characters a READER sees: entities decoded, whitespace collapsed. Astro's
+// meta refresh redirect stubs are skipped: their title is Astro's "Redirecting to:" text,
+// not ours. noindex pages are NOT skipped, on purpose: the GitHub Pages mirror build marks
+// every page noindex, so skipping them would make this check pass silently on a mirror.
+const LENGTH_RULES = [
+  {
+    id: 'title-length',
+    severity: 'warn',
+    max: 58,
+    extract: head => (head.match(/<title\b[^>]*>([\s\S]*?)<\/title>/i) || [])[1],
+    why: 'September P1-23: every <title> 58 characters or fewer. Past that Google truncates it, and the end of the title is what gets cut.',
+  },
+  {
+    id: 'description-length',
+    severity: 'warn',
+    max: 155,
+    extract: head => {
+      const tag = (head.match(/<meta\b[^>]*\bname=["']description["'][^>]*>/i) || [])[0];
+      return tag && (tag.match(/\bcontent=(["'])([\s\S]*?)\1/i) || [])[2];
+    },
+    why: 'September P1-23: every meta description 155 characters or fewer, so the snippet shows it whole on a phone instead of ending mid sentence.',
   },
 ];
 
@@ -276,6 +311,11 @@ const EXEMPT_PATHS = [
   // The denylist names the excluded reviewers on purpose. Scanning it would make the
   // rule fail on its own configuration.
   /data[\\/]reviews-excluded\.json$/,
+  // The web hold list is read by build-inventory.js for its VIN keys only. Its reason and
+  // note fields ("returned to CarMax") never reach a page or a feed, and a held VIN is
+  // left out of vehicles.json entirely, so scanning it flagged an internal pipeline note
+  // as a competitor comparison.
+  /data[\\/]hold-vins\.json$/,
 ];
 
 function isExempt(path) {
@@ -424,12 +464,38 @@ function scan(path, text, label) {
   }
 }
 
+/**
+ * Run LENGTH_RULES against one built page. Only the head is read, so an inline SVG
+ * <title> in the body can never be mistaken for the page title.
+ */
+function checkLengths(path, html) {
+  if (/<meta\b[^>]*http-equiv=["']refresh["']/i.test(html)) return;
+  const head = html.split(/<\/head>/i)[0];
+  for (const rule of LENGTH_RULES) {
+    const raw = rule.extract(head);
+    if (raw == null) continue;
+    const text = decodeEntities(raw).replace(/\s+/g, ' ').trim();
+    const len = [...text].length;
+    if (len <= rule.max) continue;
+    findings.push({
+      file: relative(ROOT, path).replace(/\\/g, '/'),
+      where: `${len} chars, cap ${rule.max}`,
+      rule: rule.id,
+      severity: rule.severity,
+      count: 1,
+      sample: text.slice(0, 60),
+      why: rule.why,
+    });
+  }
+}
+
 // ── Built HTML ───────────────────────────────────────────────────────────────────
 const htmlFiles = walk(DIST, ['.html']);
 for (const f of htmlFiles) {
   const raw = readFileSync(f, 'utf8');
   scan(f, visibleText(raw), 'visible text');
   scan(f, jsonLdText(raw), 'JSON-LD');
+  checkLengths(f, raw);
 }
 
 // ── Feed and AI surfaces ─────────────────────────────────────────────────────────
@@ -466,10 +532,12 @@ if (AS_JSON) {
       const total = items.reduce((n, i) => n + i.count, 0);
       console.log(`\n  [${rule}]  ${total} hit(s) in ${items.length} file(s)`);
       console.log(`    why: ${items[0].why}`);
-      for (const i of items.slice(0, 12)) {
+      // Length rules list every URL: the fix is per page, so a truncated list hides work.
+      const show = LENGTH_RULES.some(r => r.id === rule) ? items.length : 12;
+      for (const i of items.slice(0, show)) {
         console.log(`    ${i.file}  (${i.where}, ${i.count}x)  e.g. "${i.sample}"`);
       }
-      if (items.length > 12) console.log(`    ... and ${items.length - 12} more file(s)`);
+      if (items.length > show) console.log(`    ... and ${items.length - show} more file(s)`);
     }
   };
 

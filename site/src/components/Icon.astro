@@ -1,0 +1,44 @@
+---
+/**
+ * Icon: one Material Symbols glyph, always decorative, always in a fixed 1em box.
+ *
+ * WHY THE BOX
+ * Until the icon font loads, a ligature span renders its NAME as text. `price_check`
+ * showed up as about 80 px of words beside the price on a phone (R2-15), shoving the
+ * row sideways and then snapping back. A 1em square with overflow hidden reserves the
+ * glyph's final footprint from the first paint, so the swap causes no shift.
+ * `shrink-0` keeps that box from collapsing inside a truncating flex row: an element
+ * with overflow hidden has a flex minimum width of zero, so without it the icon is the
+ * first thing squeezed out.
+ *
+ * WHY aria-hidden AND translate="no"
+ * Screen readers and text extractors read the ligature name as a word ("sell",
+ * "chevron_right"), and browser translation rewrites it into a word the font does not
+ * know, which breaks the glyph. Every icon here sits beside a text label, so it is
+ * hidden from both. If an icon ever stands alone as a control, the CONTROL carries the
+ * aria-label, never this span. (September P1-14; the sweep of untouched files is Phase 2.)
+ *
+ * Usage: <Icon name="price_check" class="text-sm" fill />
+ * `class` sets size and colour; `fill` switches the FILL axis on, matching the inline
+ * `font-variation-settings:'FILL' 1` the older spans carry. Any other attribute (id,
+ * data-*) passes straight through to the span.
+ */
+interface Props {
+  name: string;
+  fill?: boolean;
+  class?: string;
+  style?: string;
+  [attr: string]: any;
+}
+
+const { name, fill = false, class: className = '', style = '', ...rest } = Astro.props;
+const fillStyle = fill ? "font-variation-settings:'FILL' 1;" : '';
+const styleAttr = `${fillStyle}${style}` || undefined;
+---
+<span
+  class={`material-symbols-outlined inline-block w-[1em] h-[1em] shrink-0 overflow-hidden leading-none ${className}`}
+  style={styleAttr}
+  aria-hidden="true"
+  translate="no"
+  {...rest}
+>{name}</span>
