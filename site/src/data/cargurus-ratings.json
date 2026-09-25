@@ -1,13 +1,13 @@
 {
   "source": "https://www.cargurus.com/Cars/m-Maxim-Autos-sp457703",
-  "fetchedAt": "2026-09-25T00:00:03Z",
+  "fetchedAt": "2026-09-25T02:30:04Z",
   "note": "CarGurus deal ratings read from the PKA machine (the GitHub runner gets HTTP 406). build-inventory.js uses this when its own fetch fails and only applies a rating whose cgPrice equals the DealerCenter price.",
   "by_vin": {
     "1C3CDFBB6ED669896": {
       "stock": "J10253",
       "dealRating": "FAIR_PRICE",
-      "priceSavings": -949,
-      "cgPrice": 11495,
+      "priceSavings": -404,
+      "cgPrice": 10950,
       "imv": 10546,
       "daysOnMarket": 9
     },
@@ -21,9 +21,9 @@
     },
     "2FMPK3J96GBC56381": {
       "stock": "J10252",
-      "dealRating": "FAIR_PRICE",
-      "priceSavings": -579,
-      "cgPrice": 10995,
+      "dealRating": "GOOD_PRICE",
+      "priceSavings": 966,
+      "cgPrice": 9450,
       "imv": 10416,
       "daysOnMarket": 9
     },
@@ -53,9 +53,9 @@
     },
     "5N1AZ2MH6FN251280": {
       "stock": "J10251",
-      "dealRating": "FAIR_PRICE",
-      "priceSavings": -1058,
-      "cgPrice": 13450,
+      "dealRating": "GOOD_PRICE",
+      "priceSavings": 542,
+      "cgPrice": 11850,
       "imv": 12392,
       "daysOnMarket": 9
     },
@@ -83,14 +83,6 @@
       "imv": 15126,
       "daysOnMarket": 13
     },
-    "JM3KE4DY6G0826709": {
-      "stock": "J10233",
-      "dealRating": "GOOD_PRICE",
-      "priceSavings": 1736,
-      "cgPrice": 16450,
-      "imv": 18186,
-      "daysOnMarket": 41
-    },
     "KMHDH4AE6GU489451": {
       "stock": "J10224",
       "dealRating": "GOOD_PRICE",
@@ -101,9 +93,9 @@
     },
     "KNDCB3LC5M5478437": {
       "stock": "J10243",
-      "dealRating": "FAIR_PRICE",
-      "priceSavings": 241,
-      "cgPrice": 14450,
+      "dealRating": "GOOD_PRICE",
+      "priceSavings": 1241,
+      "cgPrice": 13450,
       "imv": 14691,
       "daysOnMarket": 29
     },
@@ -118,8 +110,8 @@
     "WVGBV7AX5HK000196": {
       "stock": "J10239",
       "dealRating": "GOOD_PRICE",
-      "priceSavings": 531,
-      "cgPrice": 7995,
+      "priceSavings": 1076,
+      "cgPrice": 7450,
       "imv": 8526,
       "daysOnMarket": 29
     }
