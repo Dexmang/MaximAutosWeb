@@ -4,7 +4,7 @@
   <title>Maxim Autos Vehicle Inventory</title>
   <link>https://www.maximautos.com/</link>
   <description>Used vehicles for sale at Maxim Autos in Skokie, IL 60077. Phone +18475108947.</description>
-  <lastBuildDate>2026-09-25T17:00:15.412Z</lastBuildDate>
+  <lastBuildDate>2026-09-25T17:30:22.478Z</lastBuildDate>
   <item>
     <g:id>1C3CDFBB6ED669896</g:id>
     <g:title>2014 Dodge Dart SXT</g:title>
@@ -23,7 +23,7 @@
     <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202609-f0b6d8a5f2af4d70b4641b4b7b92c453.jpg</g:additional_image_link>
     <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202609-f57ac1cfcf9e4a259d661030e18814c6.jpg</g:additional_image_link>
     <g:condition>used</g:condition>
-    <g:price>11495 USD</g:price>
+    <g:price>10950 USD</g:price>
     <g:availability>in_stock</g:availability>
     <g:brand>Dodge</g:brand>
     <g:google_product_category>Vehicles &amp; Parts &gt; Vehicles &gt; Motor Vehicles &gt; Cars, Trucks &amp; Vans</g:google_product_category>
@@ -43,7 +43,7 @@
     <g:custom_label_0>age_0_30</g:custom_label_0>
     <g:custom_label_1>sedan</g:custom_label_1>
     <g:custom_label_2>price_8k_to_12k</g:custom_label_2>
-    <g:custom_label_3>cg_unrated</g:custom_label_3>
+    <g:custom_label_3>cg_fair_deal</g:custom_label_3>
     <g:custom_label_4>two_wheel_drive</g:custom_label_4>
     <g:question_and_answer>
       <g:question>Is this used Dodge Dart inspected before sale?</g:question>
@@ -203,7 +203,7 @@
     <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202609-02a04d1599a043008cfa76ac84b043a8.jpg</g:additional_image_link>
     <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202609-ed313a82aa554c1da277dfbcfc0d66fe.jpg</g:additional_image_link>
     <g:condition>used</g:condition>
-    <g:price>10995 USD</g:price>
+    <g:price>9450 USD</g:price>
     <g:availability>in_stock</g:availability>
     <g:brand>Ford</g:brand>
     <g:google_product_category>Vehicles &amp; Parts &gt; Vehicles &gt; Motor Vehicles &gt; Cars, Trucks &amp; Vans</g:google_product_category>
@@ -223,7 +223,7 @@
     <g:custom_label_0>age_0_30</g:custom_label_0>
     <g:custom_label_1>suv</g:custom_label_1>
     <g:custom_label_2>price_8k_to_12k</g:custom_label_2>
-    <g:custom_label_3>cg_unrated</g:custom_label_3>
+    <g:custom_label_3>cg_good_deal</g:custom_label_3>
     <g:custom_label_4>two_wheel_drive</g:custom_label_4>
     <g:question_and_answer>
       <g:question>Is this used Ford Edge inspected before sale?</g:question>
@@ -272,12 +272,12 @@
     <g:related_product>
       <g:relationship_type>substitute</g:relationship_type>
       <g:identifier_type>id</g:identifier_type>
-      <g:identifier>5XYPH4A52JG399000</g:identifier>
+      <g:identifier>2GKALMEK3G6308539</g:identifier>
     </g:related_product>
     <g:related_product>
       <g:relationship_type>substitute</g:relationship_type>
       <g:identifier_type>id</g:identifier_type>
-      <g:identifier>2GKALMEK3G6308539</g:identifier>
+      <g:identifier>3C4PDCBB7GT164698</g:identifier>
     </g:related_product>
     <g:related_product>
       <g:relationship_type>substitute</g:relationship_type>
@@ -372,7 +372,7 @@
     <g:related_product>
       <g:relationship_type>substitute</g:relationship_type>
       <g:identifier_type>id</g:identifier_type>
-      <g:identifier>WVGBV7AX5HK000196</g:identifier>
+      <g:identifier>2FMPK3J96GBC56381</g:identifier>
     </g:related_product>
     <g:related_product>
       <g:relationship_type>substitute</g:relationship_type>
@@ -382,7 +382,7 @@
     <g:related_product>
       <g:relationship_type>substitute</g:relationship_type>
       <g:identifier_type>id</g:identifier_type>
-      <g:identifier>2FMPK3J96GBC56381</g:identifier>
+      <g:identifier>5N1AZ2MH6FN251280</g:identifier>
     </g:related_product>
   </item>
   <item>
@@ -472,7 +472,7 @@
     <g:related_product>
       <g:relationship_type>substitute</g:relationship_type>
       <g:identifier_type>id</g:identifier_type>
-      <g:identifier>WVGBV7AX5HK000196</g:identifier>
+      <g:identifier>2FMPK3J96GBC56381</g:identifier>
     </g:related_product>
     <g:related_product>
       <g:relationship_type>substitute</g:relationship_type>
@@ -596,9 +596,9 @@
     <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202609-3e7eb0b1f373455ead2a5a521ff0a1c3.jpg</g:additional_image_link>
     <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202609-d712e72d64ce429d80e9466521d9c5ee.jpg</g:additional_image_link>
     <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202609-cfaeee80fddf4e8cb2a02449552bfe29.jpg</g:additional_image_link>
-    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202609-5e62ecebf63e4ed58f6aae5e0b76735c.jpg</g:additional_image_link>
+    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202609-fe1a1c017ad04b5da8388ac62c7e4062.jpg</g:additional_image_link>
     <g:condition>used</g:condition>
-    <g:price>13450 USD</g:price>
+    <g:price>11850 USD</g:price>
     <g:availability>in_stock</g:availability>
     <g:brand>Nissan</g:brand>
     <g:google_product_category>Vehicles &amp; Parts &gt; Vehicles &gt; Motor Vehicles &gt; Cars, Trucks &amp; Vans</g:google_product_category>
@@ -617,8 +617,8 @@
     <g:body_style>suv</g:body_style>
     <g:custom_label_0>age_0_30</g:custom_label_0>
     <g:custom_label_1>suv</g:custom_label_1>
-    <g:custom_label_2>price_12k_plus</g:custom_label_2>
-    <g:custom_label_3>cg_unrated</g:custom_label_3>
+    <g:custom_label_2>price_8k_to_12k</g:custom_label_2>
+    <g:custom_label_3>cg_good_deal</g:custom_label_3>
     <g:custom_label_4>awd_4wd</g:custom_label_4>
     <g:question_and_answer>
       <g:question>Is this used Nissan Murano inspected before sale?</g:question>
@@ -667,7 +667,7 @@
     <g:related_product>
       <g:relationship_type>substitute</g:relationship_type>
       <g:identifier_type>id</g:identifier_type>
-      <g:identifier>JM3KE4CY4G0882052</g:identifier>
+      <g:identifier>5XYPH4A52JG399000</g:identifier>
     </g:related_product>
     <g:related_product>
       <g:relationship_type>substitute</g:relationship_type>
@@ -677,7 +677,7 @@
     <g:related_product>
       <g:relationship_type>substitute</g:relationship_type>
       <g:identifier_type>id</g:identifier_type>
-      <g:identifier>5XYPH4A52JG399000</g:identifier>
+      <g:identifier>JM3KE4CY4G0882052</g:identifier>
     </g:related_product>
   </item>
   <item>
@@ -767,12 +767,12 @@
     <g:related_product>
       <g:relationship_type>substitute</g:relationship_type>
       <g:identifier_type>id</g:identifier_type>
-      <g:identifier>2FMPK3J96GBC56381</g:identifier>
+      <g:identifier>5N1AZ2MH6FN251280</g:identifier>
     </g:related_product>
     <g:related_product>
       <g:relationship_type>substitute</g:relationship_type>
       <g:identifier_type>id</g:identifier_type>
-      <g:identifier>5N1AZ2MH6FN251280</g:identifier>
+      <g:identifier>KNDCB3LC5M5478437</g:identifier>
     </g:related_product>
     <g:related_product>
       <g:relationship_type>substitute</g:relationship_type>
@@ -948,107 +948,7 @@
     <g:related_product>
       <g:relationship_type>substitute</g:relationship_type>
       <g:identifier_type>id</g:identifier_type>
-      <g:identifier>5N1AZ2MH6FN251280</g:identifier>
-    </g:related_product>
-    <g:related_product>
-      <g:relationship_type>substitute</g:relationship_type>
-      <g:identifier_type>id</g:identifier_type>
       <g:identifier>5XYPH4A52JG399000</g:identifier>
-    </g:related_product>
-  </item>
-  <item>
-    <g:id>JM3KE4DY6G0826709</g:id>
-    <g:title>2016 Mazda CX-5 Grand Touring</g:title>
-    <g:description>2016 Mazda CX-5 Grand Touring AWD, a one owner Carfax vehicle with engaging, car like handling, premium Grand Touring cabin, efficient 2.5L Skyactiv-G engine. Blue exterior on beige leather interior, automatic transmission, Evanston owned since new. A compact SUV that drives more like a sedan than a crossover, with real EPA estimated fuel economy of 24 city / 30 highway. Key features: Bose premium sound system, leather seating, heated front seats, navigation system, blind spot monitor, power seat, smart key entry, sunroof, and rearview camera on Mazda&apos;s confident predictive AWD system. Sharp suspension tuning and responsive steering make this one of the more fun to drive compact SUVs on the market. The Maxim Autos Difference Independent inspection report included with every vehicle Metal plates issued on the spot, drive home today Transparent pricing, no hidden fees Financing for all credit levels Located in Skokie, IL, minutes from Evanston, Niles, Morton Grove, Lincolnwood, Des Plaines, and the North Shore Chicago suburbs. Call or text to set up a same day appointment. Every car inspected. Every price transparent. Every car documented.</g:description>
-    <g:link>https://www.maximautos.com/vehicle/2016-mazda-cx-5-grand-touring-gt-j10233</g:link>
-    <g:link_template>https://www.maximautos.com/vehicle/2016-mazda-cx-5-grand-touring-gt-j10233?store={store_code}</g:link_template>
-    <g:image_link>https://imagesdl.dealercenter.net/1289/856/202608-21cc102bf367426e93263e8de48dbcad.jpg</g:image_link>
-    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202608-5b962572dd104c8ea10e7b85cf7400fd.jpg</g:additional_image_link>
-    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202608-56e3aaebfa7744e2a23be79fcba183d3.jpg</g:additional_image_link>
-    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202608-a022c8ed6ee74ba29c36d4a3d9706e95.jpg</g:additional_image_link>
-    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202608-9c707fb10931482bb6f93707a494ce1f.jpg</g:additional_image_link>
-    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202608-80eae09871a74c7e88fed6e3cac0d543.jpg</g:additional_image_link>
-    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202608-bcba92ea63b041dfad61cc27bd948ffa.jpg</g:additional_image_link>
-    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202608-f8ff52f5d11c496894704b46a01307e9.jpg</g:additional_image_link>
-    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202608-0ccf5e9f0c984362ab6b9beef8f7cc06.jpg</g:additional_image_link>
-    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202608-44e733705a9c4637a1a4850b9d5976aa.jpg</g:additional_image_link>
-    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202608-9f28835e8c044860a09819473ff48b6f.jpg</g:additional_image_link>
-    <g:condition>used</g:condition>
-    <g:price>16450 USD</g:price>
-    <g:availability>in_stock</g:availability>
-    <g:brand>Mazda</g:brand>
-    <g:google_product_category>Vehicles &amp; Parts &gt; Vehicles &gt; Motor Vehicles &gt; Cars, Trucks &amp; Vans</g:google_product_category>
-    <g:excluded_destination>Shopping_ads</g:excluded_destination>
-    <g:excluded_destination>Free_listings</g:excluded_destination>
-    <g:vin>JM3KE4DY6G0826709</g:vin>
-    <g:year>2016</g:year>
-    <g:model>CX-5</g:model>
-    <g:mileage>69074 Miles</g:mileage>
-    <g:store_code>08861907241419503398</g:store_code>
-    <g:vehicle_fulfillment>
-      <g:option>in_store</g:option>
-    </g:vehicle_fulfillment>
-    <g:color>Blue</g:color>
-    <g:trim>Grand Touring</g:trim>
-    <g:body_style>suv</g:body_style>
-    <g:custom_label_0>age_31_60</g:custom_label_0>
-    <g:custom_label_1>suv</g:custom_label_1>
-    <g:custom_label_2>price_12k_plus</g:custom_label_2>
-    <g:custom_label_3>cg_good_deal</g:custom_label_3>
-    <g:custom_label_4>awd_4wd</g:custom_label_4>
-    <g:question_and_answer>
-      <g:question>Is this used Mazda CX-5 inspected before sale?</g:question>
-      <g:answer>Every car is inspected before it goes on the lot, and a free CARFAX comes with it. Ask Jerry what was checked on any car before you decide.</g:answer>
-    </g:question_and_answer>
-    <g:question_and_answer>
-      <g:question>Does this Mazda CX-5 come with a CARFAX report?</g:question>
-      <g:answer>Yes. A CARFAX vehicle history report is included with every used vehicle at Maxim Autos at no extra cost.</g:answer>
-    </g:question_and_answer>
-    <g:question_and_answer>
-      <g:question>Can I get financing on this Mazda CX-5?</g:question>
-      <g:answer>Yes. Maxim Autos offers financing for all credit levels, including first time buyers and those rebuilding credit. Start with the short financing form or a call to Jerry: neither touches your credit. A full application does include a credit check, and approval is never guaranteed.</g:answer>
-    </g:question_and_answer>
-    <g:question_and_answer>
-      <g:question>Are there dealer fees or doc fees on this Mazda CX-5?</g:question>
-      <g:answer>No. Maxim Autos never charges dealer fees. No doc fee, no processing fee, no surprise extras at signing. The listed price is what you pay plus standard Illinois tax, title and license.</g:answer>
-    </g:question_and_answer>
-    <g:question_and_answer>
-      <g:question>Can I drive this Mazda CX-5 home the same day?</g:question>
-      <g:answer>Yes. Maxim Autos is an authorized Illinois CVR (Computer Vehicle Registration) electronic registration dealer. Metal plates are issued the same visit for cars registered in Illinois. Buyers registering in another state receive an Illinois drive away permit and plate the car at home.</g:answer>
-    </g:question_and_answer>
-    <g:question_and_answer>
-      <g:question>Is this Mazda CX-5 all wheel drive?</g:question>
-      <g:answer>Yes. This 2016 Mazda CX-5 Grand Touring is four wheel drive (4WD).</g:answer>
-    </g:question_and_answer>
-    <g:question_and_answer>
-      <g:question>What transmission does this Mazda CX-5 have?</g:question>
-      <g:answer>This 2016 Mazda CX-5 Grand Touring has an automatic transmission.</g:answer>
-    </g:question_and_answer>
-    <g:question_and_answer>
-      <g:question>What is the fuel economy of this Mazda CX-5?</g:question>
-      <g:answer>EPA estimated 24 city and 30 highway MPG for this 2016 Mazda CX-5 Grand Touring.</g:answer>
-    </g:question_and_answer>
-    <g:question_and_answer>
-      <g:question>What engine is in this Mazda CX-5?</g:question>
-      <g:answer>This 2016 Mazda CX-5 Grand Touring has a 2.5L I4 engine.</g:answer>
-    </g:question_and_answer>
-    <g:question_and_answer>
-      <g:question>Where can I see this Mazda CX-5 in person?</g:question>
-      <g:answer>At Maxim Autos, 9101 Terminal Ave, Skokie, IL 60077, serving Evanston, Niles, Morton Grove, Lincolnwood, Des Plaines, Glenview, Wilmette and Park Ridge. Hours: Monday, Tuesday, Thursday and Friday 3 PM to 7 PM, Saturday 10 AM to 3 PM, Wednesday by appointment, Sunday closed. Call or text (847) 510-8947.</g:answer>
-    </g:question_and_answer>
-    <g:question_and_answer>
-      <g:question>Can I trade in my current car toward this Mazda CX-5?</g:question>
-      <g:answer>Yes. Maxim Autos accepts trade ins and also buys cars outright. Text the VIN of your car to (847) 510-8947 for a quick offer, no obligation.</g:answer>
-    </g:question_and_answer>
-    <g:related_product>
-      <g:relationship_type>substitute</g:relationship_type>
-      <g:identifier_type>id</g:identifier_type>
-      <g:identifier>KNDCB3LC5M5478437</g:identifier>
-    </g:related_product>
-    <g:related_product>
-      <g:relationship_type>substitute</g:relationship_type>
-      <g:identifier_type>id</g:identifier_type>
-      <g:identifier>JM3KE4CY4G0882052</g:identifier>
     </g:related_product>
     <g:related_product>
       <g:relationship_type>substitute</g:relationship_type>
@@ -1134,12 +1034,12 @@
     <g:related_product>
       <g:relationship_type>substitute</g:relationship_type>
       <g:identifier_type>id</g:identifier_type>
-      <g:identifier>4S3BNBN62F3053941</g:identifier>
+      <g:identifier>1C3CDFBB6ED669896</g:identifier>
     </g:related_product>
     <g:related_product>
       <g:relationship_type>substitute</g:relationship_type>
       <g:identifier_type>id</g:identifier_type>
-      <g:identifier>1C3CDFBB6ED669896</g:identifier>
+      <g:identifier>4S3BNBN62F3053941</g:identifier>
     </g:related_product>
   </item>
   <item>
@@ -1160,7 +1060,7 @@
     <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202609-a32b7218796e4ab6abb3c9b74624fcd7.jpg</g:additional_image_link>
     <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202609-402d74077a0944fab03f2e37ad6d20b9.jpg</g:additional_image_link>
     <g:condition>used</g:condition>
-    <g:price>14450 USD</g:price>
+    <g:price>13450 USD</g:price>
     <g:availability>in_stock</g:availability>
     <g:brand>Kia</g:brand>
     <g:google_product_category>Vehicles &amp; Parts &gt; Vehicles &gt; Motor Vehicles &gt; Cars, Trucks &amp; Vans</g:google_product_category>
@@ -1180,7 +1080,7 @@
     <g:custom_label_0>age_0_30</g:custom_label_0>
     <g:custom_label_1>suv</g:custom_label_1>
     <g:custom_label_2>price_12k_plus</g:custom_label_2>
-    <g:custom_label_3>cg_unrated</g:custom_label_3>
+    <g:custom_label_3>cg_good_deal</g:custom_label_3>
     <g:custom_label_4>two_wheel_drive</g:custom_label_4>
     <g:question_and_answer>
       <g:question>Is this used Kia Niro inspected before sale?</g:question>
@@ -1234,12 +1134,12 @@
     <g:related_product>
       <g:relationship_type>substitute</g:relationship_type>
       <g:identifier_type>id</g:identifier_type>
-      <g:identifier>5N1AZ2MH6FN251280</g:identifier>
+      <g:identifier>5XYPH4A52JG399000</g:identifier>
     </g:related_product>
     <g:related_product>
       <g:relationship_type>substitute</g:relationship_type>
       <g:identifier_type>id</g:identifier_type>
-      <g:identifier>JM3KE4DY6G0826709</g:identifier>
+      <g:identifier>5N1AZ2MH6FN251280</g:identifier>
     </g:related_product>
   </item>
   <item>
@@ -1324,7 +1224,7 @@
     <g:related_product>
       <g:relationship_type>substitute</g:relationship_type>
       <g:identifier_type>id</g:identifier_type>
-      <g:identifier>WVGBV7AX5HK000196</g:identifier>
+      <g:identifier>2FMPK3J96GBC56381</g:identifier>
     </g:related_product>
     <g:related_product>
       <g:relationship_type>substitute</g:relationship_type>
@@ -1350,7 +1250,7 @@
     <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202608-f7c2ccdc5fda4e7285153b2ff07a200e.jpg</g:additional_image_link>
     <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202608-cbf444e4c30541d08ba09832f22622f3.jpg</g:additional_image_link>
     <g:condition>used</g:condition>
-    <g:price>7995 USD</g:price>
+    <g:price>74505 USD</g:price>
     <g:availability>in_stock</g:availability>
     <g:brand>Volkswagen</g:brand>
     <g:google_product_category>Vehicles &amp; Parts &gt; Vehicles &gt; Motor Vehicles &gt; Cars, Trucks &amp; Vans</g:google_product_category>
@@ -1369,7 +1269,7 @@
     <g:body_style>suv</g:body_style>
     <g:custom_label_0>age_0_30</g:custom_label_0>
     <g:custom_label_1>suv</g:custom_label_1>
-    <g:custom_label_2>price_under_8k</g:custom_label_2>
+    <g:custom_label_2>price_12k_plus</g:custom_label_2>
     <g:custom_label_3>cg_unrated</g:custom_label_3>
     <g:custom_label_4>awd_4wd</g:custom_label_4>
     <g:question_and_answer>
@@ -1419,17 +1319,17 @@
     <g:related_product>
       <g:relationship_type>substitute</g:relationship_type>
       <g:identifier_type>id</g:identifier_type>
-      <g:identifier>3C4PDCBB7GT164698</g:identifier>
+      <g:identifier>JM3KE4CY4G0882052</g:identifier>
     </g:related_product>
     <g:related_product>
       <g:relationship_type>substitute</g:relationship_type>
       <g:identifier_type>id</g:identifier_type>
-      <g:identifier>2GKALMEK3G6308539</g:identifier>
+      <g:identifier>KNDCB3LC5M5478437</g:identifier>
     </g:related_product>
     <g:related_product>
       <g:relationship_type>substitute</g:relationship_type>
       <g:identifier_type>id</g:identifier_type>
-      <g:identifier>KNDJN2A23F7202591</g:identifier>
+      <g:identifier>5XYPH4A52JG399000</g:identifier>
     </g:related_product>
   </item>
 </channel>
