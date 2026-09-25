@@ -155,11 +155,201 @@ function ageBucket(dateAdded) {
   if (days <= 60) return "age_31_60";
   return "age_61_plus";
 }
+
+// ---------------------------------------------------------------------------
+// custom_label_2..4 and the conversational attributes (2026-09-24, Rethink
+// Retail items 3 and 5, second pass). Every value below is derived from data
+// the site already renders, so nothing here can drift from the VDP.
+// ---------------------------------------------------------------------------
+
+/**
+ * custom_label_2: price band. Coarse on purpose (three buckets) so a $200 price
+ * drop does not churn the label. Used for product group splits and PVO rules.
+ */
+function priceBand(price) {
+  const p = Number(price);
+  if (!(p > 0)) return null;
+  if (p < 8000) return "price_under_8k";
+  if (p < 12000) return "price_8k_to_12k";
+  return "price_12k_plus";
+}
+
+/**
+ * custom_label_3: CarGurus deal rating (the VIN keyed overlay in vehicles.json).
+ * Never shown to shoppers; lets a bid rule favor the units CarGurus already
+ * calls a good deal, or throttle an overpriced one until it is repriced.
+ */
+function dealLabel(v) {
+  const r = String(v.dealRating || "").toUpperCase();
+  const map = {
+    GREAT_PRICE: "cg_great_deal",
+    GOOD_PRICE: "cg_good_deal",
+    FAIR_PRICE: "cg_fair_deal",
+    HIGH_PRICE: "cg_high_price",
+    OVERPRICED: "cg_overpriced",
+    POOR_PRICE: "cg_overpriced",
+  };
+  return map[r] || "cg_unrated";
+}
+
+/**
+ * custom_label_4 plus the drivetrain Q&A. Values seen live 2026-09-24: FWD, AWD,
+ * 4WD, 4x2, blank. Chicago winters make AWD/4WD its own demand pool, so it gets
+ * its own label for a seasonal bid split.
+ */
+function driveInfo(v) {
+  const d = String(v.drivetrain || "").toUpperCase().replace(/[\s-]+/g, "");
+  if (!d) return null;
+  if (d === "AWD" || d.includes("ALLWHEEL")) return { label: "awd_4wd", text: "all wheel drive (AWD)", yes: true };
+  if (d === "4WD" || d === "4X4" || d.includes("FOURWHEEL")) return { label: "awd_4wd", text: "four wheel drive (4WD)", yes: true };
+  if (d === "FWD" || d.includes("FRONT")) return { label: "two_wheel_drive", text: "front wheel drive", yes: false };
+  if (d === "RWD" || d.includes("REAR")) return { label: "two_wheel_drive", text: "rear wheel drive", yes: false };
+  if (d === "4X2" || d === "2WD") return { label: "two_wheel_drive", text: "two wheel drive", yes: false };
+  return null;
+}
+
+/** EPA figures as the DealerCenter description states them ("22 city and 35 highway MPG"). */
+function mpgFromDescription(desc) {
+  const m = /(\d{2,3})\s*city\s*(?:and|\/|,)\s*(\d{2,3})\s*highway/i.exec(desc || "");
+  return m ? { city: m[1], hwy: m[2] } : null;
+}
+
+function transmissionText(v) {
+  const t = String(v.transmission || "").trim();
+  if (!t) return null;
+  const u = t.toUpperCase();
+  if (u === "CVT") return "continuously variable automatic (CVT)";
+  if (u.startsWith("AUTO")) return "automatic";
+  if (u.startsWith("MAN")) return "manual";
+  return t.toLowerCase();
+}
+
+/**
+ * question_and_answer (support.google.com/merchants/answer/17085211): up to 30
+ * pairs, 1,000 chars each, 10,000 total, no pricing, no dates, nothing that
+ * duplicates another attribute. Wording is the VDP FAQ wording, which is the
+ * July 2026 compliance set: inspection claim verbatim, financing never
+ * guaranteed, no doc fee, plates same visit for Illinois buyers. Car specific
+ * pairs (drive, transmission, MPG, engine) come from fields the vehicle ads spec
+ * has no attribute for, so they duplicate nothing.
+ */
+function buildQuestionAnswers(v, title) {
+  const mm = `${v.make} ${v.model}`;
+  const pairs = [
+    {
+      q: `Is this used ${mm} inspected before sale?`,
+      a: `Every car is inspected before it goes on the lot, and a free CARFAX comes with it. Ask Jerry what was checked on any car before you decide.`,
+    },
+    {
+      q: `Does this ${mm} come with a CARFAX report?`,
+      a: `Yes. A CARFAX vehicle history report is included with every used vehicle at Maxim Autos at no extra cost.`,
+    },
+    {
+      q: `Can I get financing on this ${mm}?`,
+      a: `Yes. Maxim Autos offers financing for all credit levels, including first time buyers and those rebuilding credit. Start with the short financing form or a call to Jerry: neither touches your credit. A full application does include a credit check, and approval is never guaranteed.`,
+    },
+    {
+      q: `Are there dealer fees or doc fees on this ${mm}?`,
+      a: `No. Maxim Autos never charges dealer fees. No doc fee, no processing fee, no surprise extras at signing. The listed price is what you pay plus standard Illinois tax, title and license.`,
+    },
+    {
+      q: `Can I drive this ${mm} home the same day?`,
+      a: `Yes. Maxim Autos is an authorized Illinois CVR (Computer Vehicle Registration) electronic registration dealer. Metal plates are issued the same visit for cars registered in Illinois. Buyers registering in another state receive an Illinois drive away permit and plate the car at home.`,
+    },
+  ];
+  const drive = driveInfo(v);
+  if (drive) {
+    pairs.push({
+      q: `Is this ${mm} all wheel drive?`,
+      a: drive.yes ? `Yes. This ${title} is ${drive.text}.` : `No. This ${title} is ${drive.text}.`,
+    });
+  }
+  const trans = transmissionText(v);
+  if (trans) {
+    const art = /^[aeiou]/i.test(trans) ? "an" : "a";
+    pairs.push({ q: `What transmission does this ${mm} have?`, a: `This ${title} has ${art} ${trans} transmission.` });
+  }
+  const mpg = mpgFromDescription(v.description);
+  if (mpg) {
+    pairs.push({
+      q: `What is the fuel economy of this ${mm}?`,
+      a: `EPA estimated ${mpg.city} city and ${mpg.hwy} highway MPG for this ${title}.`,
+    });
+  }
+  if (v.engine) {
+    const eng = String(v.engine).trim();
+    const engArt = /^[aeiou]/i.test(eng) ? "an" : "a";
+    pairs.push({ q: `What engine is in this ${mm}?`, a: `This ${title} has ${engArt} ${eng} engine.` });
+  }
+  pairs.push(
+    {
+      q: `Where can I see this ${mm} in person?`,
+      a: `At Maxim Autos, 9101 Terminal Ave, Skokie, IL 60077, serving Evanston, Niles, Morton Grove, Lincolnwood, Des Plaines, Glenview, Wilmette and Park Ridge. Hours: Monday, Tuesday, Thursday and Friday 3 PM to 7 PM, Saturday 10 AM to 3 PM, Wednesday by appointment, Sunday closed. Call or text (847) 510-8947.`,
+    },
+    {
+      q: `Can I trade in my current car toward this ${mm}?`,
+      a: `Yes. Maxim Autos accepts trade ins and also buys cars outright. Text the VIN of your car to (847) 510-8947 for a quick offer, no obligation.`,
+    }
+  );
+  // Spec limits, enforced rather than assumed.
+  let total = 0;
+  const out = [];
+  for (const p of pairs) {
+    if (out.length >= 30) break;
+    if (p.q.length > 1000 || p.a.length > 1000) continue;
+    if (total + p.q.length + p.a.length > 10000) break;
+    total += p.q.length + p.a.length;
+    out.push(p);
+  }
+  return out;
+}
+
+function questionAnswerXml(pairs) {
+  return pairs
+    .map(
+      (p) =>
+        `    <g:question_and_answer>\n` +
+        `      <g:question>${xmlEscape(p.q)}</g:question>\n` +
+        `      <g:answer>${xmlEscape(p.a)}</g:answer>\n` +
+        `    </g:question_and_answer>\n`
+    )
+    .join("");
+}
+
+/**
+ * related_product (support.google.com/merchants/answer/17085213). The enum has
+ * no "similar vehicle" value; the honest fit is "substitute" ("product that this
+ * product can be substituted for"). Up to three in stock units of the same
+ * mapped body style, nearest by price, identified by the same id the feed uses
+ * (the VIN, alphanumeric so it passes the identifier character rule).
+ */
+function buildRelatedXml(v, pool, bodyStyle) {
+  if (!bodyStyle) return "";
+  const self = (v.vin || "").toUpperCase();
+  const near = pool
+    .filter((o) => (o.vin || "").toUpperCase() !== self && mapBodyStyle(o) === bodyStyle && Number(o.price) > 0)
+    .map((o) => ({ vin: (o.vin || "").toUpperCase(), diff: Math.abs(Number(o.price) - Number(v.price)) }))
+    .filter((o) => /^[A-Z0-9_-]+$/.test(o.vin))
+    .sort((a, b) => a.diff - b.diff)
+    .slice(0, 3);
+  return near
+    .map(
+      (o) =>
+        `    <g:related_product>\n` +
+        `      <g:relationship_type>substitute</g:relationship_type>\n` +
+        `      <g:identifier_type>id</g:identifier_type>\n` +
+        `      <g:identifier>${o.vin}</g:identifier>\n` +
+        `    </g:related_product>\n`
+    )
+    .join("");
+}
+
 /**
  * Build a single <item> for a vehicle row.
  * Returns null for vehicles that lack the minimum required fields.
+ * `pool` is every photo-ready row in the newest DC feed, for related_product.
  */
-function buildItem(v) {
+function buildItem(v, pool = []) {
   // Required field gate. Any of these missing → skip the row to avoid
   // tripping account-level disapproval.
   // mileage and color are REQUIRED by the Vehicle Ads spec, not recommended —
@@ -342,6 +532,19 @@ function buildItem(v) {
   const age = ageBucket(v.dateAdded);
   if (age) item += tag("custom_label_0", age);
   if (bodyStyle) item += tag("custom_label_1", bodyStyle);
+  // custom_label_2..4 (2026-09-24): price band, CarGurus deal rating, drive.
+  // Five labels is the Merchant Center maximum (custom_label_0 to _4).
+  item += tag("custom_label_2", priceBand(v.price));
+  item += tag("custom_label_3", dealLabel(v));
+  const drive = driveInfo(v);
+  if (drive) item += tag("custom_label_4", drive.label);
+
+  // Conversational attributes (2026-09-24). Optional, universal product
+  // attributes for AI Mode answers; Google states they never change approval.
+  // document_link is deliberately absent: it accepts PDF only, the CARFAX link
+  // is an HTML page, and Maxim publishes no per car inspection PDF (July rule 8).
+  item += questionAnswerXml(buildQuestionAnswers(v, title));
+  item += buildRelatedXml(v, pool, bodyStyle);
 
   item += "  </item>\n";
   return item;
@@ -441,7 +644,7 @@ function buildFeed() {
   const skippedRows = [];
   const items = [];
   for (const v of ready) {
-    const item = buildItem(v);
+    const item = buildItem(v, ready);
     if (item === null) {
       skippedRows.push(v.slug || v.vin || v.stockNumber || "(unidentified row)");
     } else {

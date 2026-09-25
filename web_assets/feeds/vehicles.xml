@@ -4,7 +4,7 @@
   <title>Maxim Autos Vehicle Inventory</title>
   <link>https://www.maximautos.com/</link>
   <description>Used vehicles for sale at Maxim Autos in Skokie, IL 60077. Phone +18475108947.</description>
-  <lastBuildDate>2026-09-25T02:49:38.302Z</lastBuildDate>
+  <lastBuildDate>2026-09-25T02:50:58.763Z</lastBuildDate>
   <item>
     <g:id>1C3CDFBB6ED669896</g:id>
     <g:title>2014 Dodge Dart SXT</g:title>
@@ -42,6 +42,63 @@
     <g:body_style>sedan</g:body_style>
     <g:custom_label_0>age_0_30</g:custom_label_0>
     <g:custom_label_1>sedan</g:custom_label_1>
+    <g:custom_label_2>price_8k_to_12k</g:custom_label_2>
+    <g:custom_label_3>cg_unrated</g:custom_label_3>
+    <g:custom_label_4>two_wheel_drive</g:custom_label_4>
+    <g:question_and_answer>
+      <g:question>Is this used Dodge Dart inspected before sale?</g:question>
+      <g:answer>Every car is inspected before it goes on the lot, and a free CARFAX comes with it. Ask Jerry what was checked on any car before you decide.</g:answer>
+    </g:question_and_answer>
+    <g:question_and_answer>
+      <g:question>Does this Dodge Dart come with a CARFAX report?</g:question>
+      <g:answer>Yes. A CARFAX vehicle history report is included with every used vehicle at Maxim Autos at no extra cost.</g:answer>
+    </g:question_and_answer>
+    <g:question_and_answer>
+      <g:question>Can I get financing on this Dodge Dart?</g:question>
+      <g:answer>Yes. Maxim Autos offers financing for all credit levels, including first time buyers and those rebuilding credit. Start with the short financing form or a call to Jerry: neither touches your credit. A full application does include a credit check, and approval is never guaranteed.</g:answer>
+    </g:question_and_answer>
+    <g:question_and_answer>
+      <g:question>Are there dealer fees or doc fees on this Dodge Dart?</g:question>
+      <g:answer>No. Maxim Autos never charges dealer fees. No doc fee, no processing fee, no surprise extras at signing. The listed price is what you pay plus standard Illinois tax, title and license.</g:answer>
+    </g:question_and_answer>
+    <g:question_and_answer>
+      <g:question>Can I drive this Dodge Dart home the same day?</g:question>
+      <g:answer>Yes. Maxim Autos is an authorized Illinois CVR (Computer Vehicle Registration) electronic registration dealer. Metal plates are issued the same visit for cars registered in Illinois. Buyers registering in another state receive an Illinois drive away permit and plate the car at home.</g:answer>
+    </g:question_and_answer>
+    <g:question_and_answer>
+      <g:question>Is this Dodge Dart all wheel drive?</g:question>
+      <g:answer>No. This 2014 Dodge Dart SXT is front wheel drive.</g:answer>
+    </g:question_and_answer>
+    <g:question_and_answer>
+      <g:question>What transmission does this Dodge Dart have?</g:question>
+      <g:answer>This 2014 Dodge Dart SXT has an automatic transmission.</g:answer>
+    </g:question_and_answer>
+    <g:question_and_answer>
+      <g:question>What is the fuel economy of this Dodge Dart?</g:question>
+      <g:answer>EPA estimated 22 city and 35 highway MPG for this 2014 Dodge Dart SXT.</g:answer>
+    </g:question_and_answer>
+    <g:question_and_answer>
+      <g:question>What engine is in this Dodge Dart?</g:question>
+      <g:answer>This 2014 Dodge Dart SXT has a 2.4L I4 engine.</g:answer>
+    </g:question_and_answer>
+    <g:question_and_answer>
+      <g:question>Where can I see this Dodge Dart in person?</g:question>
+      <g:answer>At Maxim Autos, 9101 Terminal Ave, Skokie, IL 60077, serving Evanston, Niles, Morton Grove, Lincolnwood, Des Plaines, Glenview, Wilmette and Park Ridge. Hours: Monday, Tuesday, Thursday and Friday 3 PM to 7 PM, Saturday 10 AM to 3 PM, Wednesday by appointment, Sunday closed. Call or text (847) 510-8947.</g:answer>
+    </g:question_and_answer>
+    <g:question_and_answer>
+      <g:question>Can I trade in my current car toward this Dodge Dart?</g:question>
+      <g:answer>Yes. Maxim Autos accepts trade ins and also buys cars outright. Text the VIN of your car to (847) 510-8947 for a quick offer, no obligation.</g:answer>
+    </g:question_and_answer>
+    <g:related_product>
+      <g:relationship_type>substitute</g:relationship_type>
+      <g:identifier_type>id</g:identifier_type>
+      <g:identifier>4S3BNBN62F3053941</g:identifier>
+    </g:related_product>
+    <g:related_product>
+      <g:relationship_type>substitute</g:relationship_type>
+      <g:identifier_type>id</g:identifier_type>
+      <g:identifier>KMHDH4AE6GU489451</g:identifier>
+    </g:related_product>
   </item>
   <item>
     <g:id>2C4RC1BG0LR133382</g:id>
@@ -80,6 +137,53 @@
     <g:body_style>full_size_van</g:body_style>
     <g:custom_label_0>age_0_30</g:custom_label_0>
     <g:custom_label_1>full_size_van</g:custom_label_1>
+    <g:custom_label_2>price_12k_plus</g:custom_label_2>
+    <g:custom_label_3>cg_good_deal</g:custom_label_3>
+    <g:custom_label_4>two_wheel_drive</g:custom_label_4>
+    <g:question_and_answer>
+      <g:question>Is this used Chrysler Pacifica inspected before sale?</g:question>
+      <g:answer>Every car is inspected before it goes on the lot, and a free CARFAX comes with it. Ask Jerry what was checked on any car before you decide.</g:answer>
+    </g:question_and_answer>
+    <g:question_and_answer>
+      <g:question>Does this Chrysler Pacifica come with a CARFAX report?</g:question>
+      <g:answer>Yes. A CARFAX vehicle history report is included with every used vehicle at Maxim Autos at no extra cost.</g:answer>
+    </g:question_and_answer>
+    <g:question_and_answer>
+      <g:question>Can I get financing on this Chrysler Pacifica?</g:question>
+      <g:answer>Yes. Maxim Autos offers financing for all credit levels, including first time buyers and those rebuilding credit. Start with the short financing form or a call to Jerry: neither touches your credit. A full application does include a credit check, and approval is never guaranteed.</g:answer>
+    </g:question_and_answer>
+    <g:question_and_answer>
+      <g:question>Are there dealer fees or doc fees on this Chrysler Pacifica?</g:question>
+      <g:answer>No. Maxim Autos never charges dealer fees. No doc fee, no processing fee, no surprise extras at signing. The listed price is what you pay plus standard Illinois tax, title and license.</g:answer>
+    </g:question_and_answer>
+    <g:question_and_answer>
+      <g:question>Can I drive this Chrysler Pacifica home the same day?</g:question>
+      <g:answer>Yes. Maxim Autos is an authorized Illinois CVR (Computer Vehicle Registration) electronic registration dealer. Metal plates are issued the same visit for cars registered in Illinois. Buyers registering in another state receive an Illinois drive away permit and plate the car at home.</g:answer>
+    </g:question_and_answer>
+    <g:question_and_answer>
+      <g:question>Is this Chrysler Pacifica all wheel drive?</g:question>
+      <g:answer>No. This 2020 Chrysler Pacifica Touring L is front wheel drive.</g:answer>
+    </g:question_and_answer>
+    <g:question_and_answer>
+      <g:question>What transmission does this Chrysler Pacifica have?</g:question>
+      <g:answer>This 2020 Chrysler Pacifica Touring L has an automatic transmission.</g:answer>
+    </g:question_and_answer>
+    <g:question_and_answer>
+      <g:question>What is the fuel economy of this Chrysler Pacifica?</g:question>
+      <g:answer>EPA estimated 19 city and 28 highway MPG for this 2020 Chrysler Pacifica Touring L.</g:answer>
+    </g:question_and_answer>
+    <g:question_and_answer>
+      <g:question>What engine is in this Chrysler Pacifica?</g:question>
+      <g:answer>This 2020 Chrysler Pacifica Touring L has a 287 hp 3.6L I6 engine.</g:answer>
+    </g:question_and_answer>
+    <g:question_and_answer>
+      <g:question>Where can I see this Chrysler Pacifica in person?</g:question>
+      <g:answer>At Maxim Autos, 9101 Terminal Ave, Skokie, IL 60077, serving Evanston, Niles, Morton Grove, Lincolnwood, Des Plaines, Glenview, Wilmette and Park Ridge. Hours: Monday, Tuesday, Thursday and Friday 3 PM to 7 PM, Saturday 10 AM to 3 PM, Wednesday by appointment, Sunday closed. Call or text (847) 510-8947.</g:answer>
+    </g:question_and_answer>
+    <g:question_and_answer>
+      <g:question>Can I trade in my current car toward this Chrysler Pacifica?</g:question>
+      <g:answer>Yes. Maxim Autos accepts trade ins and also buys cars outright. Text the VIN of your car to (847) 510-8947 for a quick offer, no obligation.</g:answer>
+    </g:question_and_answer>
   </item>
   <item>
     <g:id>2FMPK3J96GBC56381</g:id>
@@ -118,6 +222,68 @@
     <g:body_style>suv</g:body_style>
     <g:custom_label_0>age_0_30</g:custom_label_0>
     <g:custom_label_1>suv</g:custom_label_1>
+    <g:custom_label_2>price_8k_to_12k</g:custom_label_2>
+    <g:custom_label_3>cg_unrated</g:custom_label_3>
+    <g:custom_label_4>two_wheel_drive</g:custom_label_4>
+    <g:question_and_answer>
+      <g:question>Is this used Ford Edge inspected before sale?</g:question>
+      <g:answer>Every car is inspected before it goes on the lot, and a free CARFAX comes with it. Ask Jerry what was checked on any car before you decide.</g:answer>
+    </g:question_and_answer>
+    <g:question_and_answer>
+      <g:question>Does this Ford Edge come with a CARFAX report?</g:question>
+      <g:answer>Yes. A CARFAX vehicle history report is included with every used vehicle at Maxim Autos at no extra cost.</g:answer>
+    </g:question_and_answer>
+    <g:question_and_answer>
+      <g:question>Can I get financing on this Ford Edge?</g:question>
+      <g:answer>Yes. Maxim Autos offers financing for all credit levels, including first time buyers and those rebuilding credit. Start with the short financing form or a call to Jerry: neither touches your credit. A full application does include a credit check, and approval is never guaranteed.</g:answer>
+    </g:question_and_answer>
+    <g:question_and_answer>
+      <g:question>Are there dealer fees or doc fees on this Ford Edge?</g:question>
+      <g:answer>No. Maxim Autos never charges dealer fees. No doc fee, no processing fee, no surprise extras at signing. The listed price is what you pay plus standard Illinois tax, title and license.</g:answer>
+    </g:question_and_answer>
+    <g:question_and_answer>
+      <g:question>Can I drive this Ford Edge home the same day?</g:question>
+      <g:answer>Yes. Maxim Autos is an authorized Illinois CVR (Computer Vehicle Registration) electronic registration dealer. Metal plates are issued the same visit for cars registered in Illinois. Buyers registering in another state receive an Illinois drive away permit and plate the car at home.</g:answer>
+    </g:question_and_answer>
+    <g:question_and_answer>
+      <g:question>Is this Ford Edge all wheel drive?</g:question>
+      <g:answer>No. This 2016 Ford Edge SEL is front wheel drive.</g:answer>
+    </g:question_and_answer>
+    <g:question_and_answer>
+      <g:question>What transmission does this Ford Edge have?</g:question>
+      <g:answer>This 2016 Ford Edge SEL has an automatic transmission.</g:answer>
+    </g:question_and_answer>
+    <g:question_and_answer>
+      <g:question>What is the fuel economy of this Ford Edge?</g:question>
+      <g:answer>EPA estimated 20 city and 30 highway MPG for this 2016 Ford Edge SEL.</g:answer>
+    </g:question_and_answer>
+    <g:question_and_answer>
+      <g:question>What engine is in this Ford Edge?</g:question>
+      <g:answer>This 2016 Ford Edge SEL has a 245 hp 2L I4 engine.</g:answer>
+    </g:question_and_answer>
+    <g:question_and_answer>
+      <g:question>Where can I see this Ford Edge in person?</g:question>
+      <g:answer>At Maxim Autos, 9101 Terminal Ave, Skokie, IL 60077, serving Evanston, Niles, Morton Grove, Lincolnwood, Des Plaines, Glenview, Wilmette and Park Ridge. Hours: Monday, Tuesday, Thursday and Friday 3 PM to 7 PM, Saturday 10 AM to 3 PM, Wednesday by appointment, Sunday closed. Call or text (847) 510-8947.</g:answer>
+    </g:question_and_answer>
+    <g:question_and_answer>
+      <g:question>Can I trade in my current car toward this Ford Edge?</g:question>
+      <g:answer>Yes. Maxim Autos accepts trade ins and also buys cars outright. Text the VIN of your car to (847) 510-8947 for a quick offer, no obligation.</g:answer>
+    </g:question_and_answer>
+    <g:related_product>
+      <g:relationship_type>substitute</g:relationship_type>
+      <g:identifier_type>id</g:identifier_type>
+      <g:identifier>5XYPH4A52JG399000</g:identifier>
+    </g:related_product>
+    <g:related_product>
+      <g:relationship_type>substitute</g:relationship_type>
+      <g:identifier_type>id</g:identifier_type>
+      <g:identifier>2GKALMEK3G6308539</g:identifier>
+    </g:related_product>
+    <g:related_product>
+      <g:relationship_type>substitute</g:relationship_type>
+      <g:identifier_type>id</g:identifier_type>
+      <g:identifier>5N1AZ2MH6FN251280</g:identifier>
+    </g:related_product>
   </item>
   <item>
     <g:id>2GKALMEK3G6308539</g:id>
@@ -156,6 +322,68 @@
     <g:body_style>suv</g:body_style>
     <g:custom_label_0>age_0_30</g:custom_label_0>
     <g:custom_label_1>suv</g:custom_label_1>
+    <g:custom_label_2>price_8k_to_12k</g:custom_label_2>
+    <g:custom_label_3>cg_good_deal</g:custom_label_3>
+    <g:custom_label_4>two_wheel_drive</g:custom_label_4>
+    <g:question_and_answer>
+      <g:question>Is this used GMC Terrain inspected before sale?</g:question>
+      <g:answer>Every car is inspected before it goes on the lot, and a free CARFAX comes with it. Ask Jerry what was checked on any car before you decide.</g:answer>
+    </g:question_and_answer>
+    <g:question_and_answer>
+      <g:question>Does this GMC Terrain come with a CARFAX report?</g:question>
+      <g:answer>Yes. A CARFAX vehicle history report is included with every used vehicle at Maxim Autos at no extra cost.</g:answer>
+    </g:question_and_answer>
+    <g:question_and_answer>
+      <g:question>Can I get financing on this GMC Terrain?</g:question>
+      <g:answer>Yes. Maxim Autos offers financing for all credit levels, including first time buyers and those rebuilding credit. Start with the short financing form or a call to Jerry: neither touches your credit. A full application does include a credit check, and approval is never guaranteed.</g:answer>
+    </g:question_and_answer>
+    <g:question_and_answer>
+      <g:question>Are there dealer fees or doc fees on this GMC Terrain?</g:question>
+      <g:answer>No. Maxim Autos never charges dealer fees. No doc fee, no processing fee, no surprise extras at signing. The listed price is what you pay plus standard Illinois tax, title and license.</g:answer>
+    </g:question_and_answer>
+    <g:question_and_answer>
+      <g:question>Can I drive this GMC Terrain home the same day?</g:question>
+      <g:answer>Yes. Maxim Autos is an authorized Illinois CVR (Computer Vehicle Registration) electronic registration dealer. Metal plates are issued the same visit for cars registered in Illinois. Buyers registering in another state receive an Illinois drive away permit and plate the car at home.</g:answer>
+    </g:question_and_answer>
+    <g:question_and_answer>
+      <g:question>Is this GMC Terrain all wheel drive?</g:question>
+      <g:answer>No. This 2016 GMC Terrain SLE-1 is front wheel drive.</g:answer>
+    </g:question_and_answer>
+    <g:question_and_answer>
+      <g:question>What transmission does this GMC Terrain have?</g:question>
+      <g:answer>This 2016 GMC Terrain SLE-1 has an automatic transmission.</g:answer>
+    </g:question_and_answer>
+    <g:question_and_answer>
+      <g:question>What is the fuel economy of this GMC Terrain?</g:question>
+      <g:answer>EPA estimated 22 city and 32 highway MPG for this 2016 GMC Terrain SLE-1.</g:answer>
+    </g:question_and_answer>
+    <g:question_and_answer>
+      <g:question>What engine is in this GMC Terrain?</g:question>
+      <g:answer>This 2016 GMC Terrain SLE-1 has a 2.4L I4 engine.</g:answer>
+    </g:question_and_answer>
+    <g:question_and_answer>
+      <g:question>Where can I see this GMC Terrain in person?</g:question>
+      <g:answer>At Maxim Autos, 9101 Terminal Ave, Skokie, IL 60077, serving Evanston, Niles, Morton Grove, Lincolnwood, Des Plaines, Glenview, Wilmette and Park Ridge. Hours: Monday, Tuesday, Thursday and Friday 3 PM to 7 PM, Saturday 10 AM to 3 PM, Wednesday by appointment, Sunday closed. Call or text (847) 510-8947.</g:answer>
+    </g:question_and_answer>
+    <g:question_and_answer>
+      <g:question>Can I trade in my current car toward this GMC Terrain?</g:question>
+      <g:answer>Yes. Maxim Autos accepts trade ins and also buys cars outright. Text the VIN of your car to (847) 510-8947 for a quick offer, no obligation.</g:answer>
+    </g:question_and_answer>
+    <g:related_product>
+      <g:relationship_type>substitute</g:relationship_type>
+      <g:identifier_type>id</g:identifier_type>
+      <g:identifier>WVGBV7AX5HK000196</g:identifier>
+    </g:related_product>
+    <g:related_product>
+      <g:relationship_type>substitute</g:relationship_type>
+      <g:identifier_type>id</g:identifier_type>
+      <g:identifier>3C4PDCBB7GT164698</g:identifier>
+    </g:related_product>
+    <g:related_product>
+      <g:relationship_type>substitute</g:relationship_type>
+      <g:identifier_type>id</g:identifier_type>
+      <g:identifier>2FMPK3J96GBC56381</g:identifier>
+    </g:related_product>
   </item>
   <item>
     <g:id>3C4PDCBB7GT164698</g:id>
@@ -194,6 +422,68 @@
     <g:body_style>suv</g:body_style>
     <g:custom_label_0>age_0_30</g:custom_label_0>
     <g:custom_label_1>suv</g:custom_label_1>
+    <g:custom_label_2>price_under_8k</g:custom_label_2>
+    <g:custom_label_3>cg_good_deal</g:custom_label_3>
+    <g:custom_label_4>two_wheel_drive</g:custom_label_4>
+    <g:question_and_answer>
+      <g:question>Is this used Dodge Journey inspected before sale?</g:question>
+      <g:answer>Every car is inspected before it goes on the lot, and a free CARFAX comes with it. Ask Jerry what was checked on any car before you decide.</g:answer>
+    </g:question_and_answer>
+    <g:question_and_answer>
+      <g:question>Does this Dodge Journey come with a CARFAX report?</g:question>
+      <g:answer>Yes. A CARFAX vehicle history report is included with every used vehicle at Maxim Autos at no extra cost.</g:answer>
+    </g:question_and_answer>
+    <g:question_and_answer>
+      <g:question>Can I get financing on this Dodge Journey?</g:question>
+      <g:answer>Yes. Maxim Autos offers financing for all credit levels, including first time buyers and those rebuilding credit. Start with the short financing form or a call to Jerry: neither touches your credit. A full application does include a credit check, and approval is never guaranteed.</g:answer>
+    </g:question_and_answer>
+    <g:question_and_answer>
+      <g:question>Are there dealer fees or doc fees on this Dodge Journey?</g:question>
+      <g:answer>No. Maxim Autos never charges dealer fees. No doc fee, no processing fee, no surprise extras at signing. The listed price is what you pay plus standard Illinois tax, title and license.</g:answer>
+    </g:question_and_answer>
+    <g:question_and_answer>
+      <g:question>Can I drive this Dodge Journey home the same day?</g:question>
+      <g:answer>Yes. Maxim Autos is an authorized Illinois CVR (Computer Vehicle Registration) electronic registration dealer. Metal plates are issued the same visit for cars registered in Illinois. Buyers registering in another state receive an Illinois drive away permit and plate the car at home.</g:answer>
+    </g:question_and_answer>
+    <g:question_and_answer>
+      <g:question>Is this Dodge Journey all wheel drive?</g:question>
+      <g:answer>No. This 2016 Dodge Journey SXT is front wheel drive.</g:answer>
+    </g:question_and_answer>
+    <g:question_and_answer>
+      <g:question>What transmission does this Dodge Journey have?</g:question>
+      <g:answer>This 2016 Dodge Journey SXT has an automatic transmission.</g:answer>
+    </g:question_and_answer>
+    <g:question_and_answer>
+      <g:question>What is the fuel economy of this Dodge Journey?</g:question>
+      <g:answer>EPA estimated 19 city and 25 highway MPG for this 2016 Dodge Journey SXT.</g:answer>
+    </g:question_and_answer>
+    <g:question_and_answer>
+      <g:question>What engine is in this Dodge Journey?</g:question>
+      <g:answer>This 2016 Dodge Journey SXT has a 2.4L I4 engine.</g:answer>
+    </g:question_and_answer>
+    <g:question_and_answer>
+      <g:question>Where can I see this Dodge Journey in person?</g:question>
+      <g:answer>At Maxim Autos, 9101 Terminal Ave, Skokie, IL 60077, serving Evanston, Niles, Morton Grove, Lincolnwood, Des Plaines, Glenview, Wilmette and Park Ridge. Hours: Monday, Tuesday, Thursday and Friday 3 PM to 7 PM, Saturday 10 AM to 3 PM, Wednesday by appointment, Sunday closed. Call or text (847) 510-8947.</g:answer>
+    </g:question_and_answer>
+    <g:question_and_answer>
+      <g:question>Can I trade in my current car toward this Dodge Journey?</g:question>
+      <g:answer>Yes. Maxim Autos accepts trade ins and also buys cars outright. Text the VIN of your car to (847) 510-8947 for a quick offer, no obligation.</g:answer>
+    </g:question_and_answer>
+    <g:related_product>
+      <g:relationship_type>substitute</g:relationship_type>
+      <g:identifier_type>id</g:identifier_type>
+      <g:identifier>WVGBV7AX5HK000196</g:identifier>
+    </g:related_product>
+    <g:related_product>
+      <g:relationship_type>substitute</g:relationship_type>
+      <g:identifier_type>id</g:identifier_type>
+      <g:identifier>2GKALMEK3G6308539</g:identifier>
+    </g:related_product>
+    <g:related_product>
+      <g:relationship_type>substitute</g:relationship_type>
+      <g:identifier_type>id</g:identifier_type>
+      <g:identifier>KNDJN2A23F7202591</g:identifier>
+    </g:related_product>
   </item>
   <item>
     <g:id>4S3BNBN62F3053941</g:id>
@@ -232,6 +522,63 @@
     <g:body_style>sedan</g:body_style>
     <g:custom_label_0>age_0_30</g:custom_label_0>
     <g:custom_label_1>sedan</g:custom_label_1>
+    <g:custom_label_2>price_8k_to_12k</g:custom_label_2>
+    <g:custom_label_3>cg_fair_deal</g:custom_label_3>
+    <g:custom_label_4>awd_4wd</g:custom_label_4>
+    <g:question_and_answer>
+      <g:question>Is this used Subaru Legacy inspected before sale?</g:question>
+      <g:answer>Every car is inspected before it goes on the lot, and a free CARFAX comes with it. Ask Jerry what was checked on any car before you decide.</g:answer>
+    </g:question_and_answer>
+    <g:question_and_answer>
+      <g:question>Does this Subaru Legacy come with a CARFAX report?</g:question>
+      <g:answer>Yes. A CARFAX vehicle history report is included with every used vehicle at Maxim Autos at no extra cost.</g:answer>
+    </g:question_and_answer>
+    <g:question_and_answer>
+      <g:question>Can I get financing on this Subaru Legacy?</g:question>
+      <g:answer>Yes. Maxim Autos offers financing for all credit levels, including first time buyers and those rebuilding credit. Start with the short financing form or a call to Jerry: neither touches your credit. A full application does include a credit check, and approval is never guaranteed.</g:answer>
+    </g:question_and_answer>
+    <g:question_and_answer>
+      <g:question>Are there dealer fees or doc fees on this Subaru Legacy?</g:question>
+      <g:answer>No. Maxim Autos never charges dealer fees. No doc fee, no processing fee, no surprise extras at signing. The listed price is what you pay plus standard Illinois tax, title and license.</g:answer>
+    </g:question_and_answer>
+    <g:question_and_answer>
+      <g:question>Can I drive this Subaru Legacy home the same day?</g:question>
+      <g:answer>Yes. Maxim Autos is an authorized Illinois CVR (Computer Vehicle Registration) electronic registration dealer. Metal plates are issued the same visit for cars registered in Illinois. Buyers registering in another state receive an Illinois drive away permit and plate the car at home.</g:answer>
+    </g:question_and_answer>
+    <g:question_and_answer>
+      <g:question>Is this Subaru Legacy all wheel drive?</g:question>
+      <g:answer>Yes. This 2015 Subaru Legacy 2.5i Limited is all wheel drive (AWD).</g:answer>
+    </g:question_and_answer>
+    <g:question_and_answer>
+      <g:question>What transmission does this Subaru Legacy have?</g:question>
+      <g:answer>This 2015 Subaru Legacy 2.5i Limited has a continuously variable automatic (CVT) transmission.</g:answer>
+    </g:question_and_answer>
+    <g:question_and_answer>
+      <g:question>What is the fuel economy of this Subaru Legacy?</g:question>
+      <g:answer>EPA estimated 26 city and 36 highway MPG for this 2015 Subaru Legacy 2.5i Limited.</g:answer>
+    </g:question_and_answer>
+    <g:question_and_answer>
+      <g:question>What engine is in this Subaru Legacy?</g:question>
+      <g:answer>This 2015 Subaru Legacy 2.5i Limited has a 2.5L engine.</g:answer>
+    </g:question_and_answer>
+    <g:question_and_answer>
+      <g:question>Where can I see this Subaru Legacy in person?</g:question>
+      <g:answer>At Maxim Autos, 9101 Terminal Ave, Skokie, IL 60077, serving Evanston, Niles, Morton Grove, Lincolnwood, Des Plaines, Glenview, Wilmette and Park Ridge. Hours: Monday, Tuesday, Thursday and Friday 3 PM to 7 PM, Saturday 10 AM to 3 PM, Wednesday by appointment, Sunday closed. Call or text (847) 510-8947.</g:answer>
+    </g:question_and_answer>
+    <g:question_and_answer>
+      <g:question>Can I trade in my current car toward this Subaru Legacy?</g:question>
+      <g:answer>Yes. Maxim Autos accepts trade ins and also buys cars outright. Text the VIN of your car to (847) 510-8947 for a quick offer, no obligation.</g:answer>
+    </g:question_and_answer>
+    <g:related_product>
+      <g:relationship_type>substitute</g:relationship_type>
+      <g:identifier_type>id</g:identifier_type>
+      <g:identifier>1C3CDFBB6ED669896</g:identifier>
+    </g:related_product>
+    <g:related_product>
+      <g:relationship_type>substitute</g:relationship_type>
+      <g:identifier_type>id</g:identifier_type>
+      <g:identifier>KMHDH4AE6GU489451</g:identifier>
+    </g:related_product>
   </item>
   <item>
     <g:id>5N1AZ2MH6FN251280</g:id>
@@ -270,6 +617,68 @@
     <g:body_style>suv</g:body_style>
     <g:custom_label_0>age_0_30</g:custom_label_0>
     <g:custom_label_1>suv</g:custom_label_1>
+    <g:custom_label_2>price_12k_plus</g:custom_label_2>
+    <g:custom_label_3>cg_unrated</g:custom_label_3>
+    <g:custom_label_4>awd_4wd</g:custom_label_4>
+    <g:question_and_answer>
+      <g:question>Is this used Nissan Murano inspected before sale?</g:question>
+      <g:answer>Every car is inspected before it goes on the lot, and a free CARFAX comes with it. Ask Jerry what was checked on any car before you decide.</g:answer>
+    </g:question_and_answer>
+    <g:question_and_answer>
+      <g:question>Does this Nissan Murano come with a CARFAX report?</g:question>
+      <g:answer>Yes. A CARFAX vehicle history report is included with every used vehicle at Maxim Autos at no extra cost.</g:answer>
+    </g:question_and_answer>
+    <g:question_and_answer>
+      <g:question>Can I get financing on this Nissan Murano?</g:question>
+      <g:answer>Yes. Maxim Autos offers financing for all credit levels, including first time buyers and those rebuilding credit. Start with the short financing form or a call to Jerry: neither touches your credit. A full application does include a credit check, and approval is never guaranteed.</g:answer>
+    </g:question_and_answer>
+    <g:question_and_answer>
+      <g:question>Are there dealer fees or doc fees on this Nissan Murano?</g:question>
+      <g:answer>No. Maxim Autos never charges dealer fees. No doc fee, no processing fee, no surprise extras at signing. The listed price is what you pay plus standard Illinois tax, title and license.</g:answer>
+    </g:question_and_answer>
+    <g:question_and_answer>
+      <g:question>Can I drive this Nissan Murano home the same day?</g:question>
+      <g:answer>Yes. Maxim Autos is an authorized Illinois CVR (Computer Vehicle Registration) electronic registration dealer. Metal plates are issued the same visit for cars registered in Illinois. Buyers registering in another state receive an Illinois drive away permit and plate the car at home.</g:answer>
+    </g:question_and_answer>
+    <g:question_and_answer>
+      <g:question>Is this Nissan Murano all wheel drive?</g:question>
+      <g:answer>Yes. This 2015 Nissan Murano Platinum is four wheel drive (4WD).</g:answer>
+    </g:question_and_answer>
+    <g:question_and_answer>
+      <g:question>What transmission does this Nissan Murano have?</g:question>
+      <g:answer>This 2015 Nissan Murano Platinum has a continuously variable automatic (CVT) transmission.</g:answer>
+    </g:question_and_answer>
+    <g:question_and_answer>
+      <g:question>What is the fuel economy of this Nissan Murano?</g:question>
+      <g:answer>EPA estimated 21 city and 28 highway MPG for this 2015 Nissan Murano Platinum.</g:answer>
+    </g:question_and_answer>
+    <g:question_and_answer>
+      <g:question>What engine is in this Nissan Murano?</g:question>
+      <g:answer>This 2015 Nissan Murano Platinum has a 3.5L I6 engine.</g:answer>
+    </g:question_and_answer>
+    <g:question_and_answer>
+      <g:question>Where can I see this Nissan Murano in person?</g:question>
+      <g:answer>At Maxim Autos, 9101 Terminal Ave, Skokie, IL 60077, serving Evanston, Niles, Morton Grove, Lincolnwood, Des Plaines, Glenview, Wilmette and Park Ridge. Hours: Monday, Tuesday, Thursday and Friday 3 PM to 7 PM, Saturday 10 AM to 3 PM, Wednesday by appointment, Sunday closed. Call or text (847) 510-8947.</g:answer>
+    </g:question_and_answer>
+    <g:question_and_answer>
+      <g:question>Can I trade in my current car toward this Nissan Murano?</g:question>
+      <g:answer>Yes. Maxim Autos accepts trade ins and also buys cars outright. Text the VIN of your car to (847) 510-8947 for a quick offer, no obligation.</g:answer>
+    </g:question_and_answer>
+    <g:related_product>
+      <g:relationship_type>substitute</g:relationship_type>
+      <g:identifier_type>id</g:identifier_type>
+      <g:identifier>JM3KE4CY4G0882052</g:identifier>
+    </g:related_product>
+    <g:related_product>
+      <g:relationship_type>substitute</g:relationship_type>
+      <g:identifier_type>id</g:identifier_type>
+      <g:identifier>KNDCB3LC5M5478437</g:identifier>
+    </g:related_product>
+    <g:related_product>
+      <g:relationship_type>substitute</g:relationship_type>
+      <g:identifier_type>id</g:identifier_type>
+      <g:identifier>5XYPH4A52JG399000</g:identifier>
+    </g:related_product>
   </item>
   <item>
     <g:id>5XYPH4A52JG399000</g:id>
@@ -308,6 +717,68 @@
     <g:body_style>suv</g:body_style>
     <g:custom_label_0>age_0_30</g:custom_label_0>
     <g:custom_label_1>suv</g:custom_label_1>
+    <g:custom_label_2>price_8k_to_12k</g:custom_label_2>
+    <g:custom_label_3>cg_overpriced</g:custom_label_3>
+    <g:custom_label_4>two_wheel_drive</g:custom_label_4>
+    <g:question_and_answer>
+      <g:question>Is this used Kia Sorento inspected before sale?</g:question>
+      <g:answer>Every car is inspected before it goes on the lot, and a free CARFAX comes with it. Ask Jerry what was checked on any car before you decide.</g:answer>
+    </g:question_and_answer>
+    <g:question_and_answer>
+      <g:question>Does this Kia Sorento come with a CARFAX report?</g:question>
+      <g:answer>Yes. A CARFAX vehicle history report is included with every used vehicle at Maxim Autos at no extra cost.</g:answer>
+    </g:question_and_answer>
+    <g:question_and_answer>
+      <g:question>Can I get financing on this Kia Sorento?</g:question>
+      <g:answer>Yes. Maxim Autos offers financing for all credit levels, including first time buyers and those rebuilding credit. Start with the short financing form or a call to Jerry: neither touches your credit. A full application does include a credit check, and approval is never guaranteed.</g:answer>
+    </g:question_and_answer>
+    <g:question_and_answer>
+      <g:question>Are there dealer fees or doc fees on this Kia Sorento?</g:question>
+      <g:answer>No. Maxim Autos never charges dealer fees. No doc fee, no processing fee, no surprise extras at signing. The listed price is what you pay plus standard Illinois tax, title and license.</g:answer>
+    </g:question_and_answer>
+    <g:question_and_answer>
+      <g:question>Can I drive this Kia Sorento home the same day?</g:question>
+      <g:answer>Yes. Maxim Autos is an authorized Illinois CVR (Computer Vehicle Registration) electronic registration dealer. Metal plates are issued the same visit for cars registered in Illinois. Buyers registering in another state receive an Illinois drive away permit and plate the car at home.</g:answer>
+    </g:question_and_answer>
+    <g:question_and_answer>
+      <g:question>Is this Kia Sorento all wheel drive?</g:question>
+      <g:answer>No. This 2018 Kia Sorento EX is two wheel drive.</g:answer>
+    </g:question_and_answer>
+    <g:question_and_answer>
+      <g:question>What transmission does this Kia Sorento have?</g:question>
+      <g:answer>This 2018 Kia Sorento EX has an automatic transmission.</g:answer>
+    </g:question_and_answer>
+    <g:question_and_answer>
+      <g:question>What is the fuel economy of this Kia Sorento?</g:question>
+      <g:answer>EPA estimated 18 city and 25 highway MPG for this 2018 Kia Sorento EX.</g:answer>
+    </g:question_and_answer>
+    <g:question_and_answer>
+      <g:question>What engine is in this Kia Sorento?</g:question>
+      <g:answer>This 2018 Kia Sorento EX has a 290 hp 3.3L I6 engine.</g:answer>
+    </g:question_and_answer>
+    <g:question_and_answer>
+      <g:question>Where can I see this Kia Sorento in person?</g:question>
+      <g:answer>At Maxim Autos, 9101 Terminal Ave, Skokie, IL 60077, serving Evanston, Niles, Morton Grove, Lincolnwood, Des Plaines, Glenview, Wilmette and Park Ridge. Hours: Monday, Tuesday, Thursday and Friday 3 PM to 7 PM, Saturday 10 AM to 3 PM, Wednesday by appointment, Sunday closed. Call or text (847) 510-8947.</g:answer>
+    </g:question_and_answer>
+    <g:question_and_answer>
+      <g:question>Can I trade in my current car toward this Kia Sorento?</g:question>
+      <g:answer>Yes. Maxim Autos accepts trade ins and also buys cars outright. Text the VIN of your car to (847) 510-8947 for a quick offer, no obligation.</g:answer>
+    </g:question_and_answer>
+    <g:related_product>
+      <g:relationship_type>substitute</g:relationship_type>
+      <g:identifier_type>id</g:identifier_type>
+      <g:identifier>2FMPK3J96GBC56381</g:identifier>
+    </g:related_product>
+    <g:related_product>
+      <g:relationship_type>substitute</g:relationship_type>
+      <g:identifier_type>id</g:identifier_type>
+      <g:identifier>5N1AZ2MH6FN251280</g:identifier>
+    </g:related_product>
+    <g:related_product>
+      <g:relationship_type>substitute</g:relationship_type>
+      <g:identifier_type>id</g:identifier_type>
+      <g:identifier>JM3KE4CY4G0882052</g:identifier>
+    </g:related_product>
   </item>
   <item>
     <g:id>JM1CW2BL1F0183769</g:id>
@@ -346,6 +817,44 @@
     <g:body_style>station_wagon</g:body_style>
     <g:custom_label_0>age_0_30</g:custom_label_0>
     <g:custom_label_1>station_wagon</g:custom_label_1>
+    <g:custom_label_2>price_8k_to_12k</g:custom_label_2>
+    <g:custom_label_3>cg_fair_deal</g:custom_label_3>
+    <g:question_and_answer>
+      <g:question>Is this used Mazda Mazda5 inspected before sale?</g:question>
+      <g:answer>Every car is inspected before it goes on the lot, and a free CARFAX comes with it. Ask Jerry what was checked on any car before you decide.</g:answer>
+    </g:question_and_answer>
+    <g:question_and_answer>
+      <g:question>Does this Mazda Mazda5 come with a CARFAX report?</g:question>
+      <g:answer>Yes. A CARFAX vehicle history report is included with every used vehicle at Maxim Autos at no extra cost.</g:answer>
+    </g:question_and_answer>
+    <g:question_and_answer>
+      <g:question>Can I get financing on this Mazda Mazda5?</g:question>
+      <g:answer>Yes. Maxim Autos offers financing for all credit levels, including first time buyers and those rebuilding credit. Start with the short financing form or a call to Jerry: neither touches your credit. A full application does include a credit check, and approval is never guaranteed.</g:answer>
+    </g:question_and_answer>
+    <g:question_and_answer>
+      <g:question>Are there dealer fees or doc fees on this Mazda Mazda5?</g:question>
+      <g:answer>No. Maxim Autos never charges dealer fees. No doc fee, no processing fee, no surprise extras at signing. The listed price is what you pay plus standard Illinois tax, title and license.</g:answer>
+    </g:question_and_answer>
+    <g:question_and_answer>
+      <g:question>Can I drive this Mazda Mazda5 home the same day?</g:question>
+      <g:answer>Yes. Maxim Autos is an authorized Illinois CVR (Computer Vehicle Registration) electronic registration dealer. Metal plates are issued the same visit for cars registered in Illinois. Buyers registering in another state receive an Illinois drive away permit and plate the car at home.</g:answer>
+    </g:question_and_answer>
+    <g:question_and_answer>
+      <g:question>What transmission does this Mazda Mazda5 have?</g:question>
+      <g:answer>This 2015 Mazda Mazda5 Sport Van has an automatic transmission.</g:answer>
+    </g:question_and_answer>
+    <g:question_and_answer>
+      <g:question>What engine is in this Mazda Mazda5?</g:question>
+      <g:answer>This 2015 Mazda Mazda5 Sport Van has a 2.5L engine.</g:answer>
+    </g:question_and_answer>
+    <g:question_and_answer>
+      <g:question>Where can I see this Mazda Mazda5 in person?</g:question>
+      <g:answer>At Maxim Autos, 9101 Terminal Ave, Skokie, IL 60077, serving Evanston, Niles, Morton Grove, Lincolnwood, Des Plaines, Glenview, Wilmette and Park Ridge. Hours: Monday, Tuesday, Thursday and Friday 3 PM to 7 PM, Saturday 10 AM to 3 PM, Wednesday by appointment, Sunday closed. Call or text (847) 510-8947.</g:answer>
+    </g:question_and_answer>
+    <g:question_and_answer>
+      <g:question>Can I trade in my current car toward this Mazda Mazda5?</g:question>
+      <g:answer>Yes. Maxim Autos accepts trade ins and also buys cars outright. Text the VIN of your car to (847) 510-8947 for a quick offer, no obligation.</g:answer>
+    </g:question_and_answer>
   </item>
   <item>
     <g:id>JM3KE4CY4G0882052</g:id>
@@ -384,6 +893,68 @@
     <g:body_style>suv</g:body_style>
     <g:custom_label_0>age_0_30</g:custom_label_0>
     <g:custom_label_1>suv</g:custom_label_1>
+    <g:custom_label_2>price_12k_plus</g:custom_label_2>
+    <g:custom_label_3>cg_good_deal</g:custom_label_3>
+    <g:custom_label_4>awd_4wd</g:custom_label_4>
+    <g:question_and_answer>
+      <g:question>Is this used Mazda CX-5 inspected before sale?</g:question>
+      <g:answer>Every car is inspected before it goes on the lot, and a free CARFAX comes with it. Ask Jerry what was checked on any car before you decide.</g:answer>
+    </g:question_and_answer>
+    <g:question_and_answer>
+      <g:question>Does this Mazda CX-5 come with a CARFAX report?</g:question>
+      <g:answer>Yes. A CARFAX vehicle history report is included with every used vehicle at Maxim Autos at no extra cost.</g:answer>
+    </g:question_and_answer>
+    <g:question_and_answer>
+      <g:question>Can I get financing on this Mazda CX-5?</g:question>
+      <g:answer>Yes. Maxim Autos offers financing for all credit levels, including first time buyers and those rebuilding credit. Start with the short financing form or a call to Jerry: neither touches your credit. A full application does include a credit check, and approval is never guaranteed.</g:answer>
+    </g:question_and_answer>
+    <g:question_and_answer>
+      <g:question>Are there dealer fees or doc fees on this Mazda CX-5?</g:question>
+      <g:answer>No. Maxim Autos never charges dealer fees. No doc fee, no processing fee, no surprise extras at signing. The listed price is what you pay plus standard Illinois tax, title and license.</g:answer>
+    </g:question_and_answer>
+    <g:question_and_answer>
+      <g:question>Can I drive this Mazda CX-5 home the same day?</g:question>
+      <g:answer>Yes. Maxim Autos is an authorized Illinois CVR (Computer Vehicle Registration) electronic registration dealer. Metal plates are issued the same visit for cars registered in Illinois. Buyers registering in another state receive an Illinois drive away permit and plate the car at home.</g:answer>
+    </g:question_and_answer>
+    <g:question_and_answer>
+      <g:question>Is this Mazda CX-5 all wheel drive?</g:question>
+      <g:answer>Yes. This 2016 Mazda CX-5 Touring is four wheel drive (4WD).</g:answer>
+    </g:question_and_answer>
+    <g:question_and_answer>
+      <g:question>What transmission does this Mazda CX-5 have?</g:question>
+      <g:answer>This 2016 Mazda CX-5 Touring has an automatic transmission.</g:answer>
+    </g:question_and_answer>
+    <g:question_and_answer>
+      <g:question>What is the fuel economy of this Mazda CX-5?</g:question>
+      <g:answer>EPA estimated 24 city and 30 highway MPG for this 2016 Mazda CX-5 Touring.</g:answer>
+    </g:question_and_answer>
+    <g:question_and_answer>
+      <g:question>What engine is in this Mazda CX-5?</g:question>
+      <g:answer>This 2016 Mazda CX-5 Touring has a 2.5L I4 engine.</g:answer>
+    </g:question_and_answer>
+    <g:question_and_answer>
+      <g:question>Where can I see this Mazda CX-5 in person?</g:question>
+      <g:answer>At Maxim Autos, 9101 Terminal Ave, Skokie, IL 60077, serving Evanston, Niles, Morton Grove, Lincolnwood, Des Plaines, Glenview, Wilmette and Park Ridge. Hours: Monday, Tuesday, Thursday and Friday 3 PM to 7 PM, Saturday 10 AM to 3 PM, Wednesday by appointment, Sunday closed. Call or text (847) 510-8947.</g:answer>
+    </g:question_and_answer>
+    <g:question_and_answer>
+      <g:question>Can I trade in my current car toward this Mazda CX-5?</g:question>
+      <g:answer>Yes. Maxim Autos accepts trade ins and also buys cars outright. Text the VIN of your car to (847) 510-8947 for a quick offer, no obligation.</g:answer>
+    </g:question_and_answer>
+    <g:related_product>
+      <g:relationship_type>substitute</g:relationship_type>
+      <g:identifier_type>id</g:identifier_type>
+      <g:identifier>KNDCB3LC5M5478437</g:identifier>
+    </g:related_product>
+    <g:related_product>
+      <g:relationship_type>substitute</g:relationship_type>
+      <g:identifier_type>id</g:identifier_type>
+      <g:identifier>5N1AZ2MH6FN251280</g:identifier>
+    </g:related_product>
+    <g:related_product>
+      <g:relationship_type>substitute</g:relationship_type>
+      <g:identifier_type>id</g:identifier_type>
+      <g:identifier>5XYPH4A52JG399000</g:identifier>
+    </g:related_product>
   </item>
   <item>
     <g:id>JM3KE4DY6G0826709</g:id>
@@ -422,6 +993,68 @@
     <g:body_style>suv</g:body_style>
     <g:custom_label_0>age_31_60</g:custom_label_0>
     <g:custom_label_1>suv</g:custom_label_1>
+    <g:custom_label_2>price_12k_plus</g:custom_label_2>
+    <g:custom_label_3>cg_good_deal</g:custom_label_3>
+    <g:custom_label_4>awd_4wd</g:custom_label_4>
+    <g:question_and_answer>
+      <g:question>Is this used Mazda CX-5 inspected before sale?</g:question>
+      <g:answer>Every car is inspected before it goes on the lot, and a free CARFAX comes with it. Ask Jerry what was checked on any car before you decide.</g:answer>
+    </g:question_and_answer>
+    <g:question_and_answer>
+      <g:question>Does this Mazda CX-5 come with a CARFAX report?</g:question>
+      <g:answer>Yes. A CARFAX vehicle history report is included with every used vehicle at Maxim Autos at no extra cost.</g:answer>
+    </g:question_and_answer>
+    <g:question_and_answer>
+      <g:question>Can I get financing on this Mazda CX-5?</g:question>
+      <g:answer>Yes. Maxim Autos offers financing for all credit levels, including first time buyers and those rebuilding credit. Start with the short financing form or a call to Jerry: neither touches your credit. A full application does include a credit check, and approval is never guaranteed.</g:answer>
+    </g:question_and_answer>
+    <g:question_and_answer>
+      <g:question>Are there dealer fees or doc fees on this Mazda CX-5?</g:question>
+      <g:answer>No. Maxim Autos never charges dealer fees. No doc fee, no processing fee, no surprise extras at signing. The listed price is what you pay plus standard Illinois tax, title and license.</g:answer>
+    </g:question_and_answer>
+    <g:question_and_answer>
+      <g:question>Can I drive this Mazda CX-5 home the same day?</g:question>
+      <g:answer>Yes. Maxim Autos is an authorized Illinois CVR (Computer Vehicle Registration) electronic registration dealer. Metal plates are issued the same visit for cars registered in Illinois. Buyers registering in another state receive an Illinois drive away permit and plate the car at home.</g:answer>
+    </g:question_and_answer>
+    <g:question_and_answer>
+      <g:question>Is this Mazda CX-5 all wheel drive?</g:question>
+      <g:answer>Yes. This 2016 Mazda CX-5 Grand Touring is four wheel drive (4WD).</g:answer>
+    </g:question_and_answer>
+    <g:question_and_answer>
+      <g:question>What transmission does this Mazda CX-5 have?</g:question>
+      <g:answer>This 2016 Mazda CX-5 Grand Touring has an automatic transmission.</g:answer>
+    </g:question_and_answer>
+    <g:question_and_answer>
+      <g:question>What is the fuel economy of this Mazda CX-5?</g:question>
+      <g:answer>EPA estimated 24 city and 30 highway MPG for this 2016 Mazda CX-5 Grand Touring.</g:answer>
+    </g:question_and_answer>
+    <g:question_and_answer>
+      <g:question>What engine is in this Mazda CX-5?</g:question>
+      <g:answer>This 2016 Mazda CX-5 Grand Touring has a 2.5L I4 engine.</g:answer>
+    </g:question_and_answer>
+    <g:question_and_answer>
+      <g:question>Where can I see this Mazda CX-5 in person?</g:question>
+      <g:answer>At Maxim Autos, 9101 Terminal Ave, Skokie, IL 60077, serving Evanston, Niles, Morton Grove, Lincolnwood, Des Plaines, Glenview, Wilmette and Park Ridge. Hours: Monday, Tuesday, Thursday and Friday 3 PM to 7 PM, Saturday 10 AM to 3 PM, Wednesday by appointment, Sunday closed. Call or text (847) 510-8947.</g:answer>
+    </g:question_and_answer>
+    <g:question_and_answer>
+      <g:question>Can I trade in my current car toward this Mazda CX-5?</g:question>
+      <g:answer>Yes. Maxim Autos accepts trade ins and also buys cars outright. Text the VIN of your car to (847) 510-8947 for a quick offer, no obligation.</g:answer>
+    </g:question_and_answer>
+    <g:related_product>
+      <g:relationship_type>substitute</g:relationship_type>
+      <g:identifier_type>id</g:identifier_type>
+      <g:identifier>KNDCB3LC5M5478437</g:identifier>
+    </g:related_product>
+    <g:related_product>
+      <g:relationship_type>substitute</g:relationship_type>
+      <g:identifier_type>id</g:identifier_type>
+      <g:identifier>JM3KE4CY4G0882052</g:identifier>
+    </g:related_product>
+    <g:related_product>
+      <g:relationship_type>substitute</g:relationship_type>
+      <g:identifier_type>id</g:identifier_type>
+      <g:identifier>5N1AZ2MH6FN251280</g:identifier>
+    </g:related_product>
   </item>
   <item>
     <g:id>KMHDH4AE6GU489451</g:id>
@@ -460,6 +1093,54 @@
     <g:body_style>sedan</g:body_style>
     <g:custom_label_0>age_31_60</g:custom_label_0>
     <g:custom_label_1>sedan</g:custom_label_1>
+    <g:custom_label_2>price_under_8k</g:custom_label_2>
+    <g:custom_label_3>cg_good_deal</g:custom_label_3>
+    <g:question_and_answer>
+      <g:question>Is this used Hyundai Elantra inspected before sale?</g:question>
+      <g:answer>Every car is inspected before it goes on the lot, and a free CARFAX comes with it. Ask Jerry what was checked on any car before you decide.</g:answer>
+    </g:question_and_answer>
+    <g:question_and_answer>
+      <g:question>Does this Hyundai Elantra come with a CARFAX report?</g:question>
+      <g:answer>Yes. A CARFAX vehicle history report is included with every used vehicle at Maxim Autos at no extra cost.</g:answer>
+    </g:question_and_answer>
+    <g:question_and_answer>
+      <g:question>Can I get financing on this Hyundai Elantra?</g:question>
+      <g:answer>Yes. Maxim Autos offers financing for all credit levels, including first time buyers and those rebuilding credit. Start with the short financing form or a call to Jerry: neither touches your credit. A full application does include a credit check, and approval is never guaranteed.</g:answer>
+    </g:question_and_answer>
+    <g:question_and_answer>
+      <g:question>Are there dealer fees or doc fees on this Hyundai Elantra?</g:question>
+      <g:answer>No. Maxim Autos never charges dealer fees. No doc fee, no processing fee, no surprise extras at signing. The listed price is what you pay plus standard Illinois tax, title and license.</g:answer>
+    </g:question_and_answer>
+    <g:question_and_answer>
+      <g:question>Can I drive this Hyundai Elantra home the same day?</g:question>
+      <g:answer>Yes. Maxim Autos is an authorized Illinois CVR (Computer Vehicle Registration) electronic registration dealer. Metal plates are issued the same visit for cars registered in Illinois. Buyers registering in another state receive an Illinois drive away permit and plate the car at home.</g:answer>
+    </g:question_and_answer>
+    <g:question_and_answer>
+      <g:question>What transmission does this Hyundai Elantra have?</g:question>
+      <g:answer>This 2016 Hyundai Elantra Value Edition has an automatic transmission.</g:answer>
+    </g:question_and_answer>
+    <g:question_and_answer>
+      <g:question>What engine is in this Hyundai Elantra?</g:question>
+      <g:answer>This 2016 Hyundai Elantra Value Edition has a 145 hp 1.8L I4 engine.</g:answer>
+    </g:question_and_answer>
+    <g:question_and_answer>
+      <g:question>Where can I see this Hyundai Elantra in person?</g:question>
+      <g:answer>At Maxim Autos, 9101 Terminal Ave, Skokie, IL 60077, serving Evanston, Niles, Morton Grove, Lincolnwood, Des Plaines, Glenview, Wilmette and Park Ridge. Hours: Monday, Tuesday, Thursday and Friday 3 PM to 7 PM, Saturday 10 AM to 3 PM, Wednesday by appointment, Sunday closed. Call or text (847) 510-8947.</g:answer>
+    </g:question_and_answer>
+    <g:question_and_answer>
+      <g:question>Can I trade in my current car toward this Hyundai Elantra?</g:question>
+      <g:answer>Yes. Maxim Autos accepts trade ins and also buys cars outright. Text the VIN of your car to (847) 510-8947 for a quick offer, no obligation.</g:answer>
+    </g:question_and_answer>
+    <g:related_product>
+      <g:relationship_type>substitute</g:relationship_type>
+      <g:identifier_type>id</g:identifier_type>
+      <g:identifier>4S3BNBN62F3053941</g:identifier>
+    </g:related_product>
+    <g:related_product>
+      <g:relationship_type>substitute</g:relationship_type>
+      <g:identifier_type>id</g:identifier_type>
+      <g:identifier>1C3CDFBB6ED669896</g:identifier>
+    </g:related_product>
   </item>
   <item>
     <g:id>KNDCB3LC5M5478437</g:id>
@@ -498,6 +1179,68 @@
     <g:body_style>suv</g:body_style>
     <g:custom_label_0>age_0_30</g:custom_label_0>
     <g:custom_label_1>suv</g:custom_label_1>
+    <g:custom_label_2>price_12k_plus</g:custom_label_2>
+    <g:custom_label_3>cg_unrated</g:custom_label_3>
+    <g:custom_label_4>two_wheel_drive</g:custom_label_4>
+    <g:question_and_answer>
+      <g:question>Is this used Kia Niro inspected before sale?</g:question>
+      <g:answer>Every car is inspected before it goes on the lot, and a free CARFAX comes with it. Ask Jerry what was checked on any car before you decide.</g:answer>
+    </g:question_and_answer>
+    <g:question_and_answer>
+      <g:question>Does this Kia Niro come with a CARFAX report?</g:question>
+      <g:answer>Yes. A CARFAX vehicle history report is included with every used vehicle at Maxim Autos at no extra cost.</g:answer>
+    </g:question_and_answer>
+    <g:question_and_answer>
+      <g:question>Can I get financing on this Kia Niro?</g:question>
+      <g:answer>Yes. Maxim Autos offers financing for all credit levels, including first time buyers and those rebuilding credit. Start with the short financing form or a call to Jerry: neither touches your credit. A full application does include a credit check, and approval is never guaranteed.</g:answer>
+    </g:question_and_answer>
+    <g:question_and_answer>
+      <g:question>Are there dealer fees or doc fees on this Kia Niro?</g:question>
+      <g:answer>No. Maxim Autos never charges dealer fees. No doc fee, no processing fee, no surprise extras at signing. The listed price is what you pay plus standard Illinois tax, title and license.</g:answer>
+    </g:question_and_answer>
+    <g:question_and_answer>
+      <g:question>Can I drive this Kia Niro home the same day?</g:question>
+      <g:answer>Yes. Maxim Autos is an authorized Illinois CVR (Computer Vehicle Registration) electronic registration dealer. Metal plates are issued the same visit for cars registered in Illinois. Buyers registering in another state receive an Illinois drive away permit and plate the car at home.</g:answer>
+    </g:question_and_answer>
+    <g:question_and_answer>
+      <g:question>Is this Kia Niro all wheel drive?</g:question>
+      <g:answer>No. This 2021 Kia Niro LX is two wheel drive.</g:answer>
+    </g:question_and_answer>
+    <g:question_and_answer>
+      <g:question>What transmission does this Kia Niro have?</g:question>
+      <g:answer>This 2021 Kia Niro LX has an automatic transmission.</g:answer>
+    </g:question_and_answer>
+    <g:question_and_answer>
+      <g:question>What is the fuel economy of this Kia Niro?</g:question>
+      <g:answer>EPA estimated 51 city and 46 highway MPG for this 2021 Kia Niro LX.</g:answer>
+    </g:question_and_answer>
+    <g:question_and_answer>
+      <g:question>What engine is in this Kia Niro?</g:question>
+      <g:answer>This 2021 Kia Niro LX has a 104 hp 1.6L I4 engine.</g:answer>
+    </g:question_and_answer>
+    <g:question_and_answer>
+      <g:question>Where can I see this Kia Niro in person?</g:question>
+      <g:answer>At Maxim Autos, 9101 Terminal Ave, Skokie, IL 60077, serving Evanston, Niles, Morton Grove, Lincolnwood, Des Plaines, Glenview, Wilmette and Park Ridge. Hours: Monday, Tuesday, Thursday and Friday 3 PM to 7 PM, Saturday 10 AM to 3 PM, Wednesday by appointment, Sunday closed. Call or text (847) 510-8947.</g:answer>
+    </g:question_and_answer>
+    <g:question_and_answer>
+      <g:question>Can I trade in my current car toward this Kia Niro?</g:question>
+      <g:answer>Yes. Maxim Autos accepts trade ins and also buys cars outright. Text the VIN of your car to (847) 510-8947 for a quick offer, no obligation.</g:answer>
+    </g:question_and_answer>
+    <g:related_product>
+      <g:relationship_type>substitute</g:relationship_type>
+      <g:identifier_type>id</g:identifier_type>
+      <g:identifier>JM3KE4CY4G0882052</g:identifier>
+    </g:related_product>
+    <g:related_product>
+      <g:relationship_type>substitute</g:relationship_type>
+      <g:identifier_type>id</g:identifier_type>
+      <g:identifier>5N1AZ2MH6FN251280</g:identifier>
+    </g:related_product>
+    <g:related_product>
+      <g:relationship_type>substitute</g:relationship_type>
+      <g:identifier_type>id</g:identifier_type>
+      <g:identifier>JM3KE4DY6G0826709</g:identifier>
+    </g:related_product>
   </item>
   <item>
     <g:id>KNDJN2A23F7202591</g:id>
@@ -535,6 +1278,59 @@
     <g:body_style>suv</g:body_style>
     <g:custom_label_0>age_31_60</g:custom_label_0>
     <g:custom_label_1>suv</g:custom_label_1>
+    <g:custom_label_2>price_under_8k</g:custom_label_2>
+    <g:custom_label_3>cg_good_deal</g:custom_label_3>
+    <g:question_and_answer>
+      <g:question>Is this used Kia Soul inspected before sale?</g:question>
+      <g:answer>Every car is inspected before it goes on the lot, and a free CARFAX comes with it. Ask Jerry what was checked on any car before you decide.</g:answer>
+    </g:question_and_answer>
+    <g:question_and_answer>
+      <g:question>Does this Kia Soul come with a CARFAX report?</g:question>
+      <g:answer>Yes. A CARFAX vehicle history report is included with every used vehicle at Maxim Autos at no extra cost.</g:answer>
+    </g:question_and_answer>
+    <g:question_and_answer>
+      <g:question>Can I get financing on this Kia Soul?</g:question>
+      <g:answer>Yes. Maxim Autos offers financing for all credit levels, including first time buyers and those rebuilding credit. Start with the short financing form or a call to Jerry: neither touches your credit. A full application does include a credit check, and approval is never guaranteed.</g:answer>
+    </g:question_and_answer>
+    <g:question_and_answer>
+      <g:question>Are there dealer fees or doc fees on this Kia Soul?</g:question>
+      <g:answer>No. Maxim Autos never charges dealer fees. No doc fee, no processing fee, no surprise extras at signing. The listed price is what you pay plus standard Illinois tax, title and license.</g:answer>
+    </g:question_and_answer>
+    <g:question_and_answer>
+      <g:question>Can I drive this Kia Soul home the same day?</g:question>
+      <g:answer>Yes. Maxim Autos is an authorized Illinois CVR (Computer Vehicle Registration) electronic registration dealer. Metal plates are issued the same visit for cars registered in Illinois. Buyers registering in another state receive an Illinois drive away permit and plate the car at home.</g:answer>
+    </g:question_and_answer>
+    <g:question_and_answer>
+      <g:question>What transmission does this Kia Soul have?</g:question>
+      <g:answer>This 2015 Kia Soul has a manual transmission.</g:answer>
+    </g:question_and_answer>
+    <g:question_and_answer>
+      <g:question>What engine is in this Kia Soul?</g:question>
+      <g:answer>This 2015 Kia Soul has a 1.6L engine.</g:answer>
+    </g:question_and_answer>
+    <g:question_and_answer>
+      <g:question>Where can I see this Kia Soul in person?</g:question>
+      <g:answer>At Maxim Autos, 9101 Terminal Ave, Skokie, IL 60077, serving Evanston, Niles, Morton Grove, Lincolnwood, Des Plaines, Glenview, Wilmette and Park Ridge. Hours: Monday, Tuesday, Thursday and Friday 3 PM to 7 PM, Saturday 10 AM to 3 PM, Wednesday by appointment, Sunday closed. Call or text (847) 510-8947.</g:answer>
+    </g:question_and_answer>
+    <g:question_and_answer>
+      <g:question>Can I trade in my current car toward this Kia Soul?</g:question>
+      <g:answer>Yes. Maxim Autos accepts trade ins and also buys cars outright. Text the VIN of your car to (847) 510-8947 for a quick offer, no obligation.</g:answer>
+    </g:question_and_answer>
+    <g:related_product>
+      <g:relationship_type>substitute</g:relationship_type>
+      <g:identifier_type>id</g:identifier_type>
+      <g:identifier>3C4PDCBB7GT164698</g:identifier>
+    </g:related_product>
+    <g:related_product>
+      <g:relationship_type>substitute</g:relationship_type>
+      <g:identifier_type>id</g:identifier_type>
+      <g:identifier>WVGBV7AX5HK000196</g:identifier>
+    </g:related_product>
+    <g:related_product>
+      <g:relationship_type>substitute</g:relationship_type>
+      <g:identifier_type>id</g:identifier_type>
+      <g:identifier>2GKALMEK3G6308539</g:identifier>
+    </g:related_product>
   </item>
   <item>
     <g:id>WVGBV7AX5HK000196</g:id>
@@ -573,6 +1369,68 @@
     <g:body_style>suv</g:body_style>
     <g:custom_label_0>age_0_30</g:custom_label_0>
     <g:custom_label_1>suv</g:custom_label_1>
+    <g:custom_label_2>price_under_8k</g:custom_label_2>
+    <g:custom_label_3>cg_unrated</g:custom_label_3>
+    <g:custom_label_4>awd_4wd</g:custom_label_4>
+    <g:question_and_answer>
+      <g:question>Is this used Volkswagen Tiguan inspected before sale?</g:question>
+      <g:answer>Every car is inspected before it goes on the lot, and a free CARFAX comes with it. Ask Jerry what was checked on any car before you decide.</g:answer>
+    </g:question_and_answer>
+    <g:question_and_answer>
+      <g:question>Does this Volkswagen Tiguan come with a CARFAX report?</g:question>
+      <g:answer>Yes. A CARFAX vehicle history report is included with every used vehicle at Maxim Autos at no extra cost.</g:answer>
+    </g:question_and_answer>
+    <g:question_and_answer>
+      <g:question>Can I get financing on this Volkswagen Tiguan?</g:question>
+      <g:answer>Yes. Maxim Autos offers financing for all credit levels, including first time buyers and those rebuilding credit. Start with the short financing form or a call to Jerry: neither touches your credit. A full application does include a credit check, and approval is never guaranteed.</g:answer>
+    </g:question_and_answer>
+    <g:question_and_answer>
+      <g:question>Are there dealer fees or doc fees on this Volkswagen Tiguan?</g:question>
+      <g:answer>No. Maxim Autos never charges dealer fees. No doc fee, no processing fee, no surprise extras at signing. The listed price is what you pay plus standard Illinois tax, title and license.</g:answer>
+    </g:question_and_answer>
+    <g:question_and_answer>
+      <g:question>Can I drive this Volkswagen Tiguan home the same day?</g:question>
+      <g:answer>Yes. Maxim Autos is an authorized Illinois CVR (Computer Vehicle Registration) electronic registration dealer. Metal plates are issued the same visit for cars registered in Illinois. Buyers registering in another state receive an Illinois drive away permit and plate the car at home.</g:answer>
+    </g:question_and_answer>
+    <g:question_and_answer>
+      <g:question>Is this Volkswagen Tiguan all wheel drive?</g:question>
+      <g:answer>Yes. This 2017 Volkswagen Tiguan 2.0T S 4Motion is all wheel drive (AWD).</g:answer>
+    </g:question_and_answer>
+    <g:question_and_answer>
+      <g:question>What transmission does this Volkswagen Tiguan have?</g:question>
+      <g:answer>This 2017 Volkswagen Tiguan 2.0T S 4Motion has an automatic transmission.</g:answer>
+    </g:question_and_answer>
+    <g:question_and_answer>
+      <g:question>What is the fuel economy of this Volkswagen Tiguan?</g:question>
+      <g:answer>EPA estimated 20 city and 24 highway MPG for this 2017 Volkswagen Tiguan 2.0T S 4Motion.</g:answer>
+    </g:question_and_answer>
+    <g:question_and_answer>
+      <g:question>What engine is in this Volkswagen Tiguan?</g:question>
+      <g:answer>This 2017 Volkswagen Tiguan 2.0T S 4Motion has a 200 hp 2L I4 engine.</g:answer>
+    </g:question_and_answer>
+    <g:question_and_answer>
+      <g:question>Where can I see this Volkswagen Tiguan in person?</g:question>
+      <g:answer>At Maxim Autos, 9101 Terminal Ave, Skokie, IL 60077, serving Evanston, Niles, Morton Grove, Lincolnwood, Des Plaines, Glenview, Wilmette and Park Ridge. Hours: Monday, Tuesday, Thursday and Friday 3 PM to 7 PM, Saturday 10 AM to 3 PM, Wednesday by appointment, Sunday closed. Call or text (847) 510-8947.</g:answer>
+    </g:question_and_answer>
+    <g:question_and_answer>
+      <g:question>Can I trade in my current car toward this Volkswagen Tiguan?</g:question>
+      <g:answer>Yes. Maxim Autos accepts trade ins and also buys cars outright. Text the VIN of your car to (847) 510-8947 for a quick offer, no obligation.</g:answer>
+    </g:question_and_answer>
+    <g:related_product>
+      <g:relationship_type>substitute</g:relationship_type>
+      <g:identifier_type>id</g:identifier_type>
+      <g:identifier>3C4PDCBB7GT164698</g:identifier>
+    </g:related_product>
+    <g:related_product>
+      <g:relationship_type>substitute</g:relationship_type>
+      <g:identifier_type>id</g:identifier_type>
+      <g:identifier>2GKALMEK3G6308539</g:identifier>
+    </g:related_product>
+    <g:related_product>
+      <g:relationship_type>substitute</g:relationship_type>
+      <g:identifier_type>id</g:identifier_type>
+      <g:identifier>KNDJN2A23F7202591</g:identifier>
+    </g:related_product>
   </item>
 </channel>
 </rss>

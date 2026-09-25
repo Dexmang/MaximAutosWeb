@@ -1,0 +1,277 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import VehicleCard from '../components/VehicleCard.astro';
+import QuickAnswer from '../components/QuickAnswer.astro';
+import vehicles from '../data/vehicles.json';
+import reviewsMeta from '../data/reviews_meta.json';
+
+import facts from '../data/facts.json';
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+
+// Drivetrain values seen live in vehicles.json on 2026-09-24: FWD, AWD, 4WD, 4x2, and
+// blank. 4x2 is two wheel drive and must never match, so this is a whole word test for
+// AWD, 4WD or 4x4 rather than a substring search for the digit 4.
+const AWD_RE = /\b(?:awd|4wd|4x4)\b/i;
+const live = vehicles.filter(v => (v as any).status !== 'sold');
+const matches = live.filter(v => AWD_RE.test(v.drivetrain || ''));
+
+// Every number on this page is computed from the matches or read from facts.json.
+const fmt = (n: number) => `$${n.toLocaleString('en-US')}`;
+const n = matches.length;
+const priced = matches.map(v => v.price).filter(p => typeof p === 'number' && p > 0);
+const minPrice = priced.length ? Math.min(...priced) : 0;
+const maxPrice = priced.length ? Math.max(...priced) : 0;
+const priceText = priced.length
+  ? (minPrice === maxPrice ? `priced at ${fmt(minPrice)}` : `priced ${fmt(minPrice)} to ${fmt(maxPrice)}`)
+  : '';
+const lineup = matches.map(v => [v.year, v.make, v.model, v.trim].filter(Boolean).join(' ')).join(', ');
+
+const canonicalUrl = 'https://www.maximautos.com/used-awd-cars-skokie-il';
+const title = 'Used AWD Cars and SUVs in Skokie IL · Maxim Autos';
+const description = n > 0
+  ? `Used AWD and 4WD cars in Skokie, IL, ${fmt(minPrice)} to ${fmt(maxPrice)}. Every car inspected, free CARFAX. Metal plates the same visit. Financing for all credit levels.`
+  : 'Used AWD and 4WD cars in Skokie, IL. Inventory rotates weekly. Every car inspected, free CARFAX. Metal plates the same visit. Financing for all credit levels.';
+
+const quickAnswer = n > 0
+  ? `Maxim Autos has ${n} AWD or 4WD ${n === 1 ? 'vehicle' : 'vehicles'} in stock today at 9101 Terminal Ave in Skokie, IL, ${priceText}. Every car is inspected before it goes on the lot, and a free CARFAX comes with it. Metal plates issued the same visit, for cars registered in Illinois.`
+  : 'Maxim Autos in Skokie, IL has no AWD or 4WD vehicles on the lot today. Inventory rotates weekly and the owner buys at auction every week, so text (847) 510-8947 with what you need. Every car is inspected before it goes on the lot, and a free CARFAX comes with it.';
+
+const faqs = [
+  {
+    q: 'Does Maxim Autos have used AWD cars in stock near Skokie?',
+    a: n > 0
+      ? `Yes. ${n} AWD or 4WD ${n === 1 ? 'vehicle is' : 'vehicles are'} on the lot today at 9101 Terminal Ave in Skokie, ${priceText}. Inventory rotates weekly, so text (847) 510-8947 if you want to hear about the next one before it lists.`
+      : 'Not today. Inventory rotates weekly and AWD units come and go quickly in the fall. Text (847) 510-8947 with the type of vehicle and budget you have in mind and Jerry will reach out when one lands.'
+  },
+  {
+    q: 'Are the AWD cars inspected before they go on sale?',
+    a: 'Every car is inspected before it goes on the lot, and a free CARFAX comes with it. Illinois 15 day / 500 mile statutory powertrain protection on qualifying cars.'
+  },
+  {
+    q: 'Can I finance an AWD car if my credit is not perfect?',
+    a: 'Financing for all credit levels, including first time buyers and those rebuilding credit. Approval is never guaranteed. No dealer fees. The price you see is the price you pay, plus tax, title, and license.'
+  }
+];
+
+const browseLinks = [
+  { href: `${base}/used-cars-under-10000-skokie`, label: 'Under $10,000' },
+  { href: `${base}/used-cars-under-15000-skokie`, label: 'Under $15,000' },
+  { href: `${base}/used-suvs-skokie-il`, label: 'Used SUVs' },
+  { href: `${base}/used-sedans-skokie-il`, label: 'Sedans' },
+  { href: `${base}/used-minivans-family-cars-skokie-il`, label: 'Minivans and Family Cars' },
+  { href: `${base}/used-cars-under-100k-miles-skokie`, label: 'Under 100k Miles' },
+];
+
+const itemListSchema = {
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "name": "Used AWD and 4WD Cars for Sale in Skokie, IL",
+  "itemListElement": matches.map((v, i) => ({
+    "@type": "ListItem",
+    "position": i + 1,
+    "item": {
+      "@type": "Car",
+      "name": `${v.year} ${v.make} ${v.model} ${v.trim}`,
+      "brand": { "@type": "Brand", "name": v.make },
+      "url": `https://www.maximautos.com/vehicle/${v.slug}`,
+      "offers": {
+        "@type": "Offer",
+        "price": v.price,
+        "priceCurrency": "USD",
+        "availability": "https://schema.org/InStock"
+      }
+    }
+  }))
+};
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.maximautos.com" },
+    { "@type": "ListItem", "position": 2, "name": "Inventory", "item": "https://www.maximautos.com/inventory" },
+    { "@type": "ListItem", "position": 3, "name": "Used AWD Cars", "item": canonicalUrl }
+  ]
+};
+
+const localBusinessSchema = {
+  "@context": "https://schema.org",
+  "@type": "AutoDealer",
+  "name": "Maxim Autos",
+  "url": "https://www.maximautos.com",
+  "telephone": "+1-847-510-8947",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "9101 Terminal Ave",
+    "addressLocality": "Skokie",
+    "addressRegion": "IL",
+    "postalCode": "60077",
+    "addressCountry": "US"
+  },
+  "geo": { "@type": "GeoCoordinates", "latitude": 42.0464352, "longitude": -87.7546134 },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": String(reviewsMeta.rating.toFixed(1)),
+    "reviewCount": String(reviewsMeta.count),
+    "bestRating": "5"
+  }
+};
+---
+
+<Layout title={title} description={description} canonicalUrl={canonicalUrl}>
+  <Fragment slot="structured-data">
+    <script type="application/ld+json" set:html={JSON.stringify(localBusinessSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(itemListSchema)} />
+  </Fragment>
+  <Header slot="header" />
+
+  <!-- Hero -->
+  <section class="bg-navy py-14 lg:py-20">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+      <nav class="text-sm text-gray-400 mb-8" aria-label="Breadcrumb">
+        <ol class="flex items-center gap-2 flex-wrap">
+          <li><a href={`${base}/`} class="hover:text-white transition-colors">Home</a></li>
+          <li class="text-gray-600">/</li>
+          <li><a href={`${base}/inventory`} class="hover:text-white transition-colors">Inventory</a></li>
+          <li class="text-gray-600">/</li>
+          <li class="text-gray-300">AWD Cars</li>
+        </ol>
+      </nav>
+      <div class="text-center">
+        <span class="text-orange font-bold uppercase tracking-widest text-sm mb-3 block">AWD and 4WD</span>
+        <h1 class="font-headline text-4xl md:text-5xl lg:text-6xl font-extrabold text-white leading-tight tracking-tight mb-5">
+          Used AWD Cars for Sale Near Skokie, IL
+        </h1>
+        <p class="text-xl text-gray-300 max-w-2xl mx-auto leading-relaxed">
+          All wheel drive and 4WD vehicles for Chicago winters, picked at auction by the owner. Every car is inspected before it goes on the lot, and a free CARFAX comes with it.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Inventory -->
+  <section class="py-14 bg-white">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+      <div class="flex items-center justify-between mb-8 flex-wrap gap-4">
+        <div>
+          <h2 class="font-headline text-2xl md:text-3xl font-extrabold text-navy">
+            {n === 0 ? 'Inventory Refreshes Weekly' : `${n} AWD and 4WD ${n === 1 ? 'Vehicle' : 'Vehicles'} in Stock`}
+          </h2>
+          <p class="text-gray-600 mt-1 text-sm">All inspected. No dealer fees. Free CARFAX on every car.</p>
+        </div>
+        <a href={`${base}/inventory`} class="inline-flex items-center gap-2 text-orange font-semibold hover:underline text-sm">
+          Full inventory <span class="material-symbols-outlined text-base">arrow_forward</span>
+        </a>
+      </div>
+
+      {n === 0 ? (
+        <div class="bg-surface border border-gray-200 rounded-xl p-8 text-center">
+          <p class="text-gray-700 mb-3">No vehicles available right now. Inventory rotates every week.</p>
+          <p class="text-gray-700">Text Jerry at <a href="sms:8475108947" class="text-orange font-bold">(847) 510-8947</a> with what you are looking for. He sources cars at auction every week.</p>
+        </div>
+      ) : (
+        <Fragment>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+          {matches.map((v, i) => (
+            <VehicleCard
+              slug={v.slug}
+              stockNumber={v.stockNumber}
+              year={v.year}
+              make={v.make}
+              model={v.model}
+              trim={v.trim}
+              price={v.price}
+              mileage={v.mileage}
+              drivetrain={v.drivetrain}
+              engine={v.engine}
+              bodyStyle={v.bodyStyle}
+              photoPath={v.photoPath}
+              photoPrefix={v.photoPrefix}
+              inspected={v.inspected}
+              primaryPhotoUrl={v.primaryPhotoUrl}
+              photos={v.photos}
+              priority={i === 0}
+            />
+          ))}
+        </div>
+        <p class="text-sm text-gray-600 mt-4">* Est. payment based on 10% down, 9.9% APR, 60-month term. For illustrative purposes only. Actual terms vary by credit.</p>
+        </Fragment>
+      )}
+    </div>
+  </section>
+
+  <!-- Copy -->
+  <section class="py-14 bg-surface">
+    <div class="max-w-3xl mx-auto px-6 lg:px-8">
+      <div class="mb-10">
+        <QuickAnswer answer={quickAnswer} />
+      </div>
+      <h2 class="font-headline text-2xl md:text-3xl font-extrabold text-navy mb-6">Why North Shore Buyers Want All Wheel Drive</h2>
+      <p class="text-gray-700 leading-relaxed mb-5">
+        Skokie sits a few miles from the lake, and the snow that comes off it does not care what the forecast said. Side streets in {facts.cities.slice(0, 4).join(', ')} and the rest of the North Shore get plowed after the arterials, and that is where a front wheel drive car spins its tires on the first push out of a parking spot. All wheel drive or 4WD sends power to the wheels that still have grip, which is the difference between leaving on time and waiting for a neighbor with a shovel. It does not shorten your stopping distance. Tires do that, so look at the tires on any car you consider, AWD or not.
+      </p>
+      <p class="text-gray-700 leading-relaxed mb-5">
+        Jerry Franco, the owner, picks every car at auction himself. {n > 0 ? `The AWD and 4WD vehicles on the lot today: ${lineup}.` : 'AWD and 4WD units move fast once the first cold week hits, so the list on this page changes often.'} Every car is inspected before it goes on the lot, and a free CARFAX comes with it. Illinois 15 day / 500 mile statutory powertrain protection on qualifying cars. One thing worth checking on any all wheel drive car, here or anywhere: all four tires should match in brand and wear. A mismatched set puts strain on the system that splits power between the axles, and that is an expensive repair to inherit.
+      </p>
+      <p class="text-gray-700 leading-relaxed mb-5">
+        All wheel drive costs a little more to run. Expect somewhat lower fuel economy than the same model with front wheel drive, and four tires when the time comes instead of two. For most buyers on the North Shore that trade is worth it for the four or five months a year the roads are a mess. If you park in a heated garage and drive mostly plowed arterials, a front wheel drive car on good winter tires may serve you just as well and cost less, and there is no pressure here to buy more drivetrain than you need. Check the EPA fuel economy figure on each listing before you decide.
+      </p>
+      <p class="text-gray-700 leading-relaxed">
+        No dealer fees. The price you see is the price you pay, plus tax, title, and license. Financing for all credit levels, including first time buyers and those rebuilding credit. Approval is never guaranteed. Metal plates issued the same visit, for cars registered in Illinois. {facts.reviews.ratingText} across {facts.reviews.count} reviews. Maxim Autos is at 9101 Terminal Ave in Skokie, IL 60077.
+      </p>
+    </div>
+  </section>
+
+  <!-- FAQ (visible only, no FAQPage JSON-LD by site policy since 2026-05-07) -->
+  <section class="py-14 bg-white">
+    <div class="max-w-3xl mx-auto px-6 lg:px-8">
+      <div class="text-center mb-10">
+        <span class="text-orange font-bold uppercase tracking-widest text-sm mb-2 block">FAQ</span>
+        <h2 class="font-headline text-2xl md:text-3xl font-extrabold text-navy">Common Questions About Used AWD Cars Near Skokie</h2>
+      </div>
+      <div class="space-y-4">
+        {faqs.map(item => (
+          <div class="bg-surface rounded-xl border border-gray-100 p-6">
+            <h3 class="font-headline font-bold text-navy mb-2">{item.q}</h3>
+            <p class="text-gray-600 leading-relaxed text-sm">{item.a}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- More ways to browse -->
+  <section class="py-10 bg-surface border-t border-gray-100">
+    <div class="max-w-3xl mx-auto px-6 lg:px-8">
+      <p class="text-xs font-bold text-orange uppercase tracking-widest mb-3">More ways to browse</p>
+      <nav aria-label="More ways to browse" class="flex flex-wrap gap-2">
+        {browseLinks.map(l => (
+          <a href={l.href} class="inline-flex items-center px-4 py-2 rounded-full border border-gray-200 bg-white text-sm font-semibold text-navy hover:border-orange hover:text-orange transition-colors">{l.label}</a>
+        ))}
+      </nav>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-16 bg-navy">
+    <div class="max-w-4xl mx-auto px-6 lg:px-8 text-center">
+      <h2 class="font-headline text-3xl md:text-4xl font-extrabold text-white mb-4">Ready for the Next Chicago Winter?</h2>
+      <p class="text-white/70 text-lg mb-8">Browse the AWD lot, text Jerry, or stop in. Metal plates issued the same visit, for cars registered in Illinois.</p>
+      <div class="flex flex-col sm:flex-row justify-center gap-4">
+        <div class="hidden sm:inline-flex items-center justify-center gap-2 bg-orange text-white px-8 py-4 rounded-xl font-bold text-lg">
+          <span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1;">phone</span>
+          (847) 510-8947
+        </div>
+        <a href={`${base}/apply`} class="inline-flex items-center justify-center gap-2 bg-white/10 text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-white/20 transition-colors border border-white/20">
+          <span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1;">payments</span>
+          Apply for Financing
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <Footer slot="footer" />
+</Layout>
