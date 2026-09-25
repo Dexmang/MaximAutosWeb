@@ -1,6 +1,6 @@
 {
   "source": "https://www.cargurus.com/Cars/m-Maxim-Autos-sp457703",
-  "fetchedAt": "2026-09-24T17:00:03Z",
+  "fetchedAt": "2026-09-25T00:00:03Z",
   "note": "CarGurus deal ratings read from the PKA machine (the GitHub runner gets HTTP 406). build-inventory.js uses this when its own fetch fails and only applies a rating whose cgPrice equals the DealerCenter price.",
   "by_vin": {
     "1C3CDFBB6ED669896": {
@@ -65,7 +65,7 @@
       "priceSavings": -1352,
       "cgPrice": 11995,
       "imv": 10643,
-      "daysOnMarket": null
+      "daysOnMarket": 1
     },
     "JM1CW2BL1F0183769": {
       "stock": "J10249",
@@ -89,7 +89,7 @@
       "priceSavings": 1736,
       "cgPrice": 16450,
       "imv": 18186,
-      "daysOnMarket": 40
+      "daysOnMarket": 41
     },
     "KMHDH4AE6GU489451": {
       "stock": "J10224",
