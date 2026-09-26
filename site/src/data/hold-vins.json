@@ -30,6 +30,12 @@
       "since": "2026-08-23",
       "note": "arbitration back to CarMax, confirmed by Jerry 2026-08-23",
       "bridge": true
+    },
+    "5XYPH4A52JG399000": {
+      "stock": "J10256",
+      "reason": "inbound",
+      "since": "2026-09-26",
+      "note": "Damaged 2026-09-26. Jerry set DealerCenter to Inbound until repaired. Coming back to retail once fixed; hold releases on its own when the VIN returns to the DC feed."
     }
   }
 }
