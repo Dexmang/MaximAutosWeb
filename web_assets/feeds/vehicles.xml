@@ -4,7 +4,7 @@
   <title>Maxim Autos Vehicle Inventory</title>
   <link>https://www.maximautos.com/</link>
   <description>Used vehicles for sale at Maxim Autos in Skokie, IL 60077. Phone +18475108947.</description>
-  <lastBuildDate>2026-09-27T05:30:19.262Z</lastBuildDate>
+  <lastBuildDate>2026-09-27T06:00:54.984Z</lastBuildDate>
   <item>
     <g:id>1C3CDFBB6ED669896</g:id>
     <g:title>2014 Dodge Dart SXT</g:title>
@@ -667,11 +667,6 @@
     <g:related_product>
       <g:relationship_type>substitute</g:relationship_type>
       <g:identifier_type>id</g:identifier_type>
-      <g:identifier>5XYPH4A52JG399000</g:identifier>
-    </g:related_product>
-    <g:related_product>
-      <g:relationship_type>substitute</g:relationship_type>
-      <g:identifier_type>id</g:identifier_type>
       <g:identifier>KNDCB3LC5M5478437</g:identifier>
     </g:related_product>
     <g:related_product>
@@ -679,105 +674,10 @@
       <g:identifier_type>id</g:identifier_type>
       <g:identifier>JM3KE4CY4G0882052</g:identifier>
     </g:related_product>
-  </item>
-  <item>
-    <g:id>5XYPH4A52JG399000</g:id>
-    <g:title>2018 Kia Sorento EX</g:title>
-    <g:description>2018 Kia Sorento EX V6: seats seven, leather, heated front seats, blind spot monitor, Apple CarPlay and Android Auto, power liftgate. White on black, six speed automatic, 3.3L V6 with 290 horsepower, EPA rated 25 MPG highway. A family SUV with the room and equipment of the bigger crossovers at a price that undercuts them. Key features: 3.3L GDI V6 rated at 290 horsepower with a six speed Sportmatic automatic, EPA rated 18 city / 25 highway MPG, seating for seven with a third row that folds flat into the floor, leather seats, heated front seats, power driver seat, smart key with keyless entry and start, power liftgate, blind spot monitor with rear cross traffic alert, rear parking sensors, rearview camera, UVO touchscreen with Apple CarPlay and Android Auto, Bluetooth, rear air conditioning, rear window sunshades, alloy wheels. Up to 73 cubic feet of cargo space with both rear rows folded, and the V6 is rated to tow up to 5,000 pounds. The Maxim Autos Difference Independent inspection report included with every vehicle Metal plates issued on the spot, drive home today Transparent pricing, no hidden fees Financing for all credit levels Skokie, IL, serving Evanston, Niles, Morton Grove, Lincolnwood, Des Plaines, and North Shore Chicago. Call (847) 510-8947 for a same day appointment. Every car inspected. Every price transparent. Every car documented.</g:description>
-    <g:link>https://www.maximautos.com/vehicle/2018-kia-sorento-ex-j10256</g:link>
-    <g:link_template>https://www.maximautos.com/vehicle/2018-kia-sorento-ex-j10256?store={store_code}</g:link_template>
-    <g:image_link>https://imagesdl.dealercenter.net/1289/856/202609-30472f0a4f554f0fa8115ea5a0dc47c0.jpg</g:image_link>
-    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202609-39b25a79a5cd449f989294a81a1d3c50.jpg</g:additional_image_link>
-    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202609-eba2c841b3484c41b2cb3787d1207fbe.jpg</g:additional_image_link>
-    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202609-f6138d823e3744fb8fe63ad4c3eefdee.jpg</g:additional_image_link>
-    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202609-e73db942a8cb47e0a7d0f27764345666.jpg</g:additional_image_link>
-    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202609-3f8c6b3d688140c9aa0cdd796c39ea92.jpg</g:additional_image_link>
-    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202609-bcd89746d54c4b46a9b36147f4883d55.jpg</g:additional_image_link>
-    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202609-975bd75078ee40d39044cb743867109a.jpg</g:additional_image_link>
-    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202609-7d55bcf0c47c4d558948327774738851.jpg</g:additional_image_link>
-    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202609-966b6058e6c14d7c90f26de4571a24d6.jpg</g:additional_image_link>
-    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202609-ab8f858ef2024e36bb30cb887f94f05b.jpg</g:additional_image_link>
-    <g:condition>used</g:condition>
-    <g:price>11995 USD</g:price>
-    <g:availability>in_stock</g:availability>
-    <g:brand>Kia</g:brand>
-    <g:google_product_category>Vehicles &amp; Parts &gt; Vehicles &gt; Motor Vehicles &gt; Cars, Trucks &amp; Vans</g:google_product_category>
-    <g:excluded_destination>Shopping_ads</g:excluded_destination>
-    <g:excluded_destination>Free_listings</g:excluded_destination>
-    <g:vin>5XYPH4A52JG399000</g:vin>
-    <g:year>2018</g:year>
-    <g:model>Sorento</g:model>
-    <g:mileage>113878 Miles</g:mileage>
-    <g:store_code>08861907241419503398</g:store_code>
-    <g:vehicle_fulfillment>
-      <g:option>in_store</g:option>
-    </g:vehicle_fulfillment>
-    <g:color>White</g:color>
-    <g:trim>EX</g:trim>
-    <g:body_style>suv</g:body_style>
-    <g:custom_label_0>age_0_30</g:custom_label_0>
-    <g:custom_label_1>suv</g:custom_label_1>
-    <g:custom_label_2>price_8k_to_12k</g:custom_label_2>
-    <g:custom_label_3>cg_overpriced</g:custom_label_3>
-    <g:custom_label_4>two_wheel_drive</g:custom_label_4>
-    <g:question_and_answer>
-      <g:question>Is this used Kia Sorento inspected before sale?</g:question>
-      <g:answer>Every car is inspected before it goes on the lot, and a free CARFAX comes with it. Ask Jerry what was checked on any car before you decide.</g:answer>
-    </g:question_and_answer>
-    <g:question_and_answer>
-      <g:question>Does this Kia Sorento come with a CARFAX report?</g:question>
-      <g:answer>Yes. A CARFAX vehicle history report is included with every used vehicle at Maxim Autos at no extra cost.</g:answer>
-    </g:question_and_answer>
-    <g:question_and_answer>
-      <g:question>Can I get financing on this Kia Sorento?</g:question>
-      <g:answer>Yes. Maxim Autos offers financing for all credit levels, including first time buyers and those rebuilding credit. Start with the short financing form or a call to Jerry: neither touches your credit. A full application does include a credit check, and approval is never guaranteed.</g:answer>
-    </g:question_and_answer>
-    <g:question_and_answer>
-      <g:question>Are there dealer fees or doc fees on this Kia Sorento?</g:question>
-      <g:answer>No. Maxim Autos never charges dealer fees. No doc fee, no processing fee, no surprise extras at signing. The listed price is what you pay plus standard Illinois tax, title and license.</g:answer>
-    </g:question_and_answer>
-    <g:question_and_answer>
-      <g:question>Can I drive this Kia Sorento home the same day?</g:question>
-      <g:answer>Yes. Maxim Autos is an authorized Illinois CVR (Computer Vehicle Registration) electronic registration dealer. Metal plates are issued the same visit for cars registered in Illinois. Buyers registering in another state receive an Illinois drive away permit and plate the car at home.</g:answer>
-    </g:question_and_answer>
-    <g:question_and_answer>
-      <g:question>Is this Kia Sorento all wheel drive?</g:question>
-      <g:answer>No. This 2018 Kia Sorento EX is two wheel drive.</g:answer>
-    </g:question_and_answer>
-    <g:question_and_answer>
-      <g:question>What transmission does this Kia Sorento have?</g:question>
-      <g:answer>This 2018 Kia Sorento EX has an automatic transmission.</g:answer>
-    </g:question_and_answer>
-    <g:question_and_answer>
-      <g:question>What is the fuel economy of this Kia Sorento?</g:question>
-      <g:answer>EPA estimated 18 city and 25 highway MPG for this 2018 Kia Sorento EX.</g:answer>
-    </g:question_and_answer>
-    <g:question_and_answer>
-      <g:question>What engine is in this Kia Sorento?</g:question>
-      <g:answer>This 2018 Kia Sorento EX has a 290 hp 3.3L I6 engine.</g:answer>
-    </g:question_and_answer>
-    <g:question_and_answer>
-      <g:question>Where can I see this Kia Sorento in person?</g:question>
-      <g:answer>At Maxim Autos, 9101 Terminal Ave, Skokie, IL 60077, serving Evanston, Niles, Morton Grove, Lincolnwood, Des Plaines, Glenview, Wilmette and Park Ridge. Hours: Monday, Tuesday, Thursday and Friday 3 PM to 7 PM, Saturday 10 AM to 3 PM, Wednesday by appointment, Sunday closed. Call or text (847) 510-8947.</g:answer>
-    </g:question_and_answer>
-    <g:question_and_answer>
-      <g:question>Can I trade in my current car toward this Kia Sorento?</g:question>
-      <g:answer>Yes. Maxim Autos accepts trade ins and also buys cars outright. Text the VIN of your car to (847) 510-8947 for a quick offer, no obligation.</g:answer>
-    </g:question_and_answer>
     <g:related_product>
       <g:relationship_type>substitute</g:relationship_type>
       <g:identifier_type>id</g:identifier_type>
-      <g:identifier>5N1AZ2MH6FN251280</g:identifier>
-    </g:related_product>
-    <g:related_product>
-      <g:relationship_type>substitute</g:relationship_type>
-      <g:identifier_type>id</g:identifier_type>
-      <g:identifier>KNDCB3LC5M5478437</g:identifier>
-    </g:related_product>
-    <g:related_product>
-      <g:relationship_type>substitute</g:relationship_type>
-      <g:identifier_type>id</g:identifier_type>
-      <g:identifier>JM3KE4CY4G0882052</g:identifier>
+      <g:identifier>2FMPK3J96GBC56381</g:identifier>
     </g:related_product>
   </item>
   <item>
@@ -948,12 +848,12 @@
     <g:related_product>
       <g:relationship_type>substitute</g:relationship_type>
       <g:identifier_type>id</g:identifier_type>
-      <g:identifier>5XYPH4A52JG399000</g:identifier>
+      <g:identifier>5N1AZ2MH6FN251280</g:identifier>
     </g:related_product>
     <g:related_product>
       <g:relationship_type>substitute</g:relationship_type>
       <g:identifier_type>id</g:identifier_type>
-      <g:identifier>5N1AZ2MH6FN251280</g:identifier>
+      <g:identifier>2FMPK3J96GBC56381</g:identifier>
     </g:related_product>
   </item>
   <item>
@@ -1134,12 +1034,12 @@
     <g:related_product>
       <g:relationship_type>substitute</g:relationship_type>
       <g:identifier_type>id</g:identifier_type>
-      <g:identifier>5XYPH4A52JG399000</g:identifier>
+      <g:identifier>5N1AZ2MH6FN251280</g:identifier>
     </g:related_product>
     <g:related_product>
       <g:relationship_type>substitute</g:relationship_type>
       <g:identifier_type>id</g:identifier_type>
-      <g:identifier>5N1AZ2MH6FN251280</g:identifier>
+      <g:identifier>2FMPK3J96GBC56381</g:identifier>
     </g:related_product>
   </item>
   <item>
@@ -1329,7 +1229,7 @@
     <g:related_product>
       <g:relationship_type>substitute</g:relationship_type>
       <g:identifier_type>id</g:identifier_type>
-      <g:identifier>5XYPH4A52JG399000</g:identifier>
+      <g:identifier>5N1AZ2MH6FN251280</g:identifier>
     </g:related_product>
   </item>
 </channel>
