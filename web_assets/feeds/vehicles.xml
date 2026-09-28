@@ -4,7 +4,7 @@
   <title>Maxim Autos Vehicle Inventory</title>
   <link>https://www.maximautos.com/</link>
   <description>Used vehicles for sale at Maxim Autos in Skokie, IL 60077. Phone +18475108947.</description>
-  <lastBuildDate>2026-09-27T23:30:22.686Z</lastBuildDate>
+  <lastBuildDate>2026-09-28T00:00:23.910Z</lastBuildDate>
   <item>
     <g:id>1C3CDFBB6ED669896</g:id>
     <g:title>2014 Dodge Dart SXT</g:title>
@@ -23,7 +23,7 @@
     <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202609-f0b6d8a5f2af4d70b4641b4b7b92c453.jpg</g:additional_image_link>
     <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202609-f57ac1cfcf9e4a259d661030e18814c6.jpg</g:additional_image_link>
     <g:condition>used</g:condition>
-    <g:price>10950 USD</g:price>
+    <g:price>10450 USD</g:price>
     <g:availability>in_stock</g:availability>
     <g:brand>Dodge</g:brand>
     <g:google_product_category>Vehicles &amp; Parts &gt; Vehicles &gt; Motor Vehicles &gt; Cars, Trucks &amp; Vans</g:google_product_category>
@@ -43,7 +43,7 @@
     <g:custom_label_0>age_0_30</g:custom_label_0>
     <g:custom_label_1>sedan</g:custom_label_1>
     <g:custom_label_2>price_8k_to_12k</g:custom_label_2>
-    <g:custom_label_3>cg_unrated</g:custom_label_3>
+    <g:custom_label_3>cg_fair_deal</g:custom_label_3>
     <g:custom_label_4>two_wheel_drive</g:custom_label_4>
     <g:question_and_answer>
       <g:question>Is this used Dodge Dart inspected before sale?</g:question>
@@ -118,7 +118,7 @@
     <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202609-9061344fb8b84aebaf0984b5d474ef8c.jpg</g:additional_image_link>
     <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202609-3e56e56c997741f5bc49bcb084d65fd4.jpg</g:additional_image_link>
     <g:condition>used</g:condition>
-    <g:price>12950 USD</g:price>
+    <g:price>12450 USD</g:price>
     <g:availability>in_stock</g:availability>
     <g:brand>Chrysler</g:brand>
     <g:google_product_category>Vehicles &amp; Parts &gt; Vehicles &gt; Motor Vehicles &gt; Cars, Trucks &amp; Vans</g:google_product_category>
@@ -138,7 +138,7 @@
     <g:custom_label_0>age_31_60</g:custom_label_0>
     <g:custom_label_1>full_size_van</g:custom_label_1>
     <g:custom_label_2>price_12k_plus</g:custom_label_2>
-    <g:custom_label_3>cg_unrated</g:custom_label_3>
+    <g:custom_label_3>cg_great_deal</g:custom_label_3>
     <g:custom_label_4>two_wheel_drive</g:custom_label_4>
     <g:question_and_answer>
       <g:question>Is this used Chrysler Pacifica inspected before sale?</g:question>
@@ -203,7 +203,7 @@
     <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202609-02a04d1599a043008cfa76ac84b043a8.jpg</g:additional_image_link>
     <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202609-ed313a82aa554c1da277dfbcfc0d66fe.jpg</g:additional_image_link>
     <g:condition>used</g:condition>
-    <g:price>9450 USD</g:price>
+    <g:price>8950 USD</g:price>
     <g:availability>in_stock</g:availability>
     <g:brand>Ford</g:brand>
     <g:google_product_category>Vehicles &amp; Parts &gt; Vehicles &gt; Motor Vehicles &gt; Cars, Trucks &amp; Vans</g:google_product_category>
@@ -223,7 +223,7 @@
     <g:custom_label_0>age_0_30</g:custom_label_0>
     <g:custom_label_1>suv</g:custom_label_1>
     <g:custom_label_2>price_8k_to_12k</g:custom_label_2>
-    <g:custom_label_3>cg_unrated</g:custom_label_3>
+    <g:custom_label_3>cg_good_deal</g:custom_label_3>
     <g:custom_label_4>two_wheel_drive</g:custom_label_4>
     <g:question_and_answer>
       <g:question>Is this used Ford Edge inspected before sale?</g:question>
@@ -282,7 +282,7 @@
     <g:related_product>
       <g:relationship_type>substitute</g:relationship_type>
       <g:identifier_type>id</g:identifier_type>
-      <g:identifier>5N1AZ2MH6FN251280</g:identifier>
+      <g:identifier>WVGBV7AX5HK000196</g:identifier>
     </g:related_product>
   </item>
   <item>
@@ -303,7 +303,7 @@
     <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202609-28351d8156034072a48035ded5c140af.jpg</g:additional_image_link>
     <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202609-2a845f1a02f84ce3b22b987a6d602539.jpg</g:additional_image_link>
     <g:condition>used</g:condition>
-    <g:price>9450 USD</g:price>
+    <g:price>8950 USD</g:price>
     <g:availability>in_stock</g:availability>
     <g:brand>GMC</g:brand>
     <g:google_product_category>Vehicles &amp; Parts &gt; Vehicles &gt; Motor Vehicles &gt; Cars, Trucks &amp; Vans</g:google_product_category>
@@ -323,7 +323,7 @@
     <g:custom_label_0>age_0_30</g:custom_label_0>
     <g:custom_label_1>suv</g:custom_label_1>
     <g:custom_label_2>price_8k_to_12k</g:custom_label_2>
-    <g:custom_label_3>cg_unrated</g:custom_label_3>
+    <g:custom_label_3>cg_good_deal</g:custom_label_3>
     <g:custom_label_4>two_wheel_drive</g:custom_label_4>
     <g:question_and_answer>
       <g:question>Is this used GMC Terrain inspected before sale?</g:question>
@@ -382,7 +382,7 @@
     <g:related_product>
       <g:relationship_type>substitute</g:relationship_type>
       <g:identifier_type>id</g:identifier_type>
-      <g:identifier>5N1AZ2MH6FN251280</g:identifier>
+      <g:identifier>WVGBV7AX5HK000196</g:identifier>
     </g:related_product>
   </item>
   <item>
@@ -472,17 +472,17 @@
     <g:related_product>
       <g:relationship_type>substitute</g:relationship_type>
       <g:identifier_type>id</g:identifier_type>
+      <g:identifier>WVGBV7AX5HK000196</g:identifier>
+    </g:related_product>
+    <g:related_product>
+      <g:relationship_type>substitute</g:relationship_type>
+      <g:identifier_type>id</g:identifier_type>
       <g:identifier>2FMPK3J96GBC56381</g:identifier>
     </g:related_product>
     <g:related_product>
       <g:relationship_type>substitute</g:relationship_type>
       <g:identifier_type>id</g:identifier_type>
       <g:identifier>2GKALMEK3G6308539</g:identifier>
-    </g:related_product>
-    <g:related_product>
-      <g:relationship_type>substitute</g:relationship_type>
-      <g:identifier_type>id</g:identifier_type>
-      <g:identifier>KNDJN2A23F7202591</g:identifier>
     </g:related_product>
   </item>
   <item>
@@ -593,10 +593,10 @@
     <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202609-b1ece7c48fb74cc79a1e1238704d9b21.jpg</g:additional_image_link>
     <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202609-542e0126b90543ac936f6a676c7b7077.jpg</g:additional_image_link>
     <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202609-97f448d45e604238a72c517abadabb61.jpg</g:additional_image_link>
-    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202609-3e7eb0b1f373455ead2a5a521ff0a1c3.jpg</g:additional_image_link>
     <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202609-d712e72d64ce429d80e9466521d9c5ee.jpg</g:additional_image_link>
-    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202609-cfaeee80fddf4e8cb2a02449552bfe29.jpg</g:additional_image_link>
-    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202609-fe1a1c017ad04b5da8388ac62c7e4062.jpg</g:additional_image_link>
+    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202609-3e7eb0b1f373455ead2a5a521ff0a1c3.jpg</g:additional_image_link>
+    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202609-5d773ad08bd94b379b9efdca1b1ce3a7.jpg</g:additional_image_link>
+    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202609-354ef937220f4cdaa3b25a1e1541d060.jpg</g:additional_image_link>
     <g:condition>used</g:condition>
     <g:price>11850 USD</g:price>
     <g:availability>in_stock</g:availability>
@@ -667,12 +667,12 @@
     <g:related_product>
       <g:relationship_type>substitute</g:relationship_type>
       <g:identifier_type>id</g:identifier_type>
-      <g:identifier>KNDCB3LC5M5478437</g:identifier>
+      <g:identifier>JM3KE4CY4G0882052</g:identifier>
     </g:related_product>
     <g:related_product>
       <g:relationship_type>substitute</g:relationship_type>
       <g:identifier_type>id</g:identifier_type>
-      <g:identifier>JM3KE4CY4G0882052</g:identifier>
+      <g:identifier>KNDCB3LC5M5478437</g:identifier>
     </g:related_product>
     <g:related_product>
       <g:relationship_type>substitute</g:relationship_type>
@@ -774,7 +774,7 @@
     <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202609-5b447526153e48489cb8429bfe297510.jpg</g:additional_image_link>
     <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202609-ecb44471fba04c3781ddecd2a0823937.jpg</g:additional_image_link>
     <g:condition>used</g:condition>
-    <g:price>13995 USD</g:price>
+    <g:price>12950 USD</g:price>
     <g:availability>in_stock</g:availability>
     <g:brand>Mazda</g:brand>
     <g:google_product_category>Vehicles &amp; Parts &gt; Vehicles &gt; Motor Vehicles &gt; Cars, Trucks &amp; Vans</g:google_product_category>
@@ -794,7 +794,7 @@
     <g:custom_label_0>age_0_30</g:custom_label_0>
     <g:custom_label_1>suv</g:custom_label_1>
     <g:custom_label_2>price_12k_plus</g:custom_label_2>
-    <g:custom_label_3>cg_unrated</g:custom_label_3>
+    <g:custom_label_3>cg_great_deal</g:custom_label_3>
     <g:custom_label_4>awd_4wd</g:custom_label_4>
     <g:question_and_answer>
       <g:question>Is this used Mazda CX-5 inspected before sale?</g:question>
@@ -862,17 +862,17 @@
     <g:description>The Value Edition was the sweet spot of the 2016 Elantra lineup, and this one reads 96,503 miles, well under most of what is listed locally in the same year and trim. It runs the 1.8 liter four cylinder with the six speed Shiftronic automatic, driving the front wheels. Value Edition is where Hyundai loaded in the equipment that normally costs extra: a power glass sunroof, heated front seats, a backup camera, keyless entry with keyless start, alloy wheels, and fog lights. On top of that you get air conditioning, cruise control, power windows and power door locks, Bluetooth, SiriusXM satellite radio alongside the AM/FM and CD system, an alarm system, and a tilt and telescoping steering wheel. Safety coverage includes hill start assist control, electronic stability control, traction control, four wheel ABS, and dual, side, and full length head curtain air bags. Finished in red over a black interior. The Maxim Autos Difference Independent inspection report included with every vehicle Metal plates issued the same day so you can drive home today Transparent pricing, no hidden fees Financing for all credit levels Located in Skokie, IL, serving Evanston, Niles, Morton Grove, Lincolnwood, Des Plaines, and the entire North Shore Chicago corridor. Visit or call for a same day appointment. Every car inspected. Every price transparent. Every car documented.</g:description>
     <g:link>https://www.maximautos.com/vehicle/2016-hyundai-elantra-se-value-edition-sport-limited-j10224</g:link>
     <g:link_template>https://www.maximautos.com/vehicle/2016-hyundai-elantra-se-value-edition-sport-limited-j10224?store={store_code}</g:link_template>
-    <g:image_link>https://imagesdl.dealercenter.net/1289/856/202609-237695e6c031435492c17af0c8d9a7a3.jpg</g:image_link>
-    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202609-f20830c617c2420f9be0ce56d121da83.jpg</g:additional_image_link>
-    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202609-9724ca9170394b90a634e12fbfe07a82.jpg</g:additional_image_link>
-    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202609-f363ed46154049dfbf94586f7f037e90.jpg</g:additional_image_link>
-    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202609-8ae0411bc26849deb486fe84092baab2.jpg</g:additional_image_link>
-    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202609-589f12d4dcfb48968057ab28423ad175.jpg</g:additional_image_link>
-    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202609-370c302289454fcf8da8194738966281.jpg</g:additional_image_link>
-    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202609-59c4788470d643ad8bca1adee4ec39b5.jpg</g:additional_image_link>
-    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202609-8b31b00e590f45f8ad2f5556b2592e0e.jpg</g:additional_image_link>
-    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202609-d46f0003c702413ea9edaedd2c171221.jpg</g:additional_image_link>
-    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202609-574f7537ca514f599a987d1060726a1e.jpg</g:additional_image_link>
+    <g:image_link>https://imagesdl.dealercenter.net/1289/856/202609-2f03154bfd1f4f44b800847b269166b1.jpg</g:image_link>
+    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202609-5cbdba4f260f49c496516da04f0c0348.jpg</g:additional_image_link>
+    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202609-6e4f92068d3943d9895a8323ef509826.jpg</g:additional_image_link>
+    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202609-a9d2071adb1d42c7af0c7245b928789e.jpg</g:additional_image_link>
+    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202609-746775561d0e4a51a3960321cc3e69d9.jpg</g:additional_image_link>
+    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202609-02addef71b6e4dfea212e463ffbc22dd.jpg</g:additional_image_link>
+    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202609-114d6c216c244f5f92490720cd059e43.jpg</g:additional_image_link>
+    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202609-c30aabfb926d4e62ac354045b0964569.jpg</g:additional_image_link>
+    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202609-44bee3f90f414aaaa4a04ca5b5a271ed.jpg</g:additional_image_link>
+    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202609-1ff4c0e0835f469ba78959cdf5fb5246.jpg</g:additional_image_link>
+    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202609-f0c277211e984188b96926d254326c90.jpg</g:additional_image_link>
     <g:condition>used</g:condition>
     <g:price>7450 USD</g:price>
     <g:availability>in_stock</g:availability>
@@ -1060,7 +1060,7 @@
     <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202609-0959353f0bd446e6bdd3189f85d3ac27.jpg</g:additional_image_link>
     <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202609-1a7ddf2fc91944db8dd8c7c896570e75.jpg</g:additional_image_link>
     <g:condition>used</g:condition>
-    <g:price>6450 USD</g:price>
+    <g:price>5950 USD</g:price>
     <g:availability>in_stock</g:availability>
     <g:brand>Kia</g:brand>
     <g:google_product_category>Vehicles &amp; Parts &gt; Vehicles &gt; Motor Vehicles &gt; Cars, Trucks &amp; Vans</g:google_product_category>
@@ -1079,7 +1079,7 @@
     <g:custom_label_0>age_31_60</g:custom_label_0>
     <g:custom_label_1>suv</g:custom_label_1>
     <g:custom_label_2>price_under_8k</g:custom_label_2>
-    <g:custom_label_3>cg_unrated</g:custom_label_3>
+    <g:custom_label_3>cg_good_deal</g:custom_label_3>
     <g:question_and_answer>
       <g:question>Is this used Kia Soul inspected before sale?</g:question>
       <g:answer>Every car is inspected before it goes on the lot, and a free CARFAX comes with it. Ask Jerry what was checked on any car before you decide.</g:answer>
@@ -1119,17 +1119,17 @@
     <g:related_product>
       <g:relationship_type>substitute</g:relationship_type>
       <g:identifier_type>id</g:identifier_type>
+      <g:identifier>WVGBV7AX5HK000196</g:identifier>
+    </g:related_product>
+    <g:related_product>
+      <g:relationship_type>substitute</g:relationship_type>
+      <g:identifier_type>id</g:identifier_type>
       <g:identifier>3C4PDCBB7GT164698</g:identifier>
     </g:related_product>
     <g:related_product>
       <g:relationship_type>substitute</g:relationship_type>
       <g:identifier_type>id</g:identifier_type>
       <g:identifier>2FMPK3J96GBC56381</g:identifier>
-    </g:related_product>
-    <g:related_product>
-      <g:relationship_type>substitute</g:relationship_type>
-      <g:identifier_type>id</g:identifier_type>
-      <g:identifier>2GKALMEK3G6308539</g:identifier>
     </g:related_product>
   </item>
   <item>
@@ -1150,7 +1150,7 @@
     <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202608-f7c2ccdc5fda4e7285153b2ff07a200e.jpg</g:additional_image_link>
     <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202608-cbf444e4c30541d08ba09832f22622f3.jpg</g:additional_image_link>
     <g:condition>used</g:condition>
-    <g:price>74505 USD</g:price>
+    <g:price>7450 USD</g:price>
     <g:availability>in_stock</g:availability>
     <g:brand>Volkswagen</g:brand>
     <g:google_product_category>Vehicles &amp; Parts &gt; Vehicles &gt; Motor Vehicles &gt; Cars, Trucks &amp; Vans</g:google_product_category>
@@ -1169,8 +1169,8 @@
     <g:body_style>suv</g:body_style>
     <g:custom_label_0>age_31_60</g:custom_label_0>
     <g:custom_label_1>suv</g:custom_label_1>
-    <g:custom_label_2>price_12k_plus</g:custom_label_2>
-    <g:custom_label_3>cg_unrated</g:custom_label_3>
+    <g:custom_label_2>price_under_8k</g:custom_label_2>
+    <g:custom_label_3>cg_good_deal</g:custom_label_3>
     <g:custom_label_4>awd_4wd</g:custom_label_4>
     <g:question_and_answer>
       <g:question>Is this used Volkswagen Tiguan inspected before sale?</g:question>
@@ -1219,17 +1219,17 @@
     <g:related_product>
       <g:relationship_type>substitute</g:relationship_type>
       <g:identifier_type>id</g:identifier_type>
-      <g:identifier>JM3KE4CY4G0882052</g:identifier>
+      <g:identifier>3C4PDCBB7GT164698</g:identifier>
     </g:related_product>
     <g:related_product>
       <g:relationship_type>substitute</g:relationship_type>
       <g:identifier_type>id</g:identifier_type>
-      <g:identifier>KNDCB3LC5M5478437</g:identifier>
+      <g:identifier>2FMPK3J96GBC56381</g:identifier>
     </g:related_product>
     <g:related_product>
       <g:relationship_type>substitute</g:relationship_type>
       <g:identifier_type>id</g:identifier_type>
-      <g:identifier>5N1AZ2MH6FN251280</g:identifier>
+      <g:identifier>2GKALMEK3G6308539</g:identifier>
     </g:related_product>
   </item>
 </channel>
