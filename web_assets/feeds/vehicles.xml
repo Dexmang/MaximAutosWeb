@@ -4,7 +4,7 @@
   <title>Maxim Autos Vehicle Inventory</title>
   <link>https://www.maximautos.com/</link>
   <description>Used vehicles for sale at Maxim Autos in Skokie, IL 60077. Phone +18475108947.</description>
-  <lastBuildDate>2026-09-29T05:00:16.635Z</lastBuildDate>
+  <lastBuildDate>2026-09-29T05:30:19.403Z</lastBuildDate>
   <item>
     <g:id>1C3CDFBB6ED669896</g:id>
     <g:title>2014 Dodge Dart SXT</g:title>
@@ -89,11 +89,6 @@
       <g:question>Can I trade in my current car toward this Dodge Dart?</g:question>
       <g:answer>Yes. Maxim Autos accepts trade ins and also buys cars outright. Text the VIN of your car to (847) 510-8947 for a quick offer, no obligation.</g:answer>
     </g:question_and_answer>
-    <g:related_product>
-      <g:relationship_type>substitute</g:relationship_type>
-      <g:identifier_type>id</g:identifier_type>
-      <g:identifier>4S3BNBN62F3053941</g:identifier>
-    </g:related_product>
     <g:related_product>
       <g:relationship_type>substitute</g:relationship_type>
       <g:identifier_type>id</g:identifier_type>
@@ -486,101 +481,6 @@
     </g:related_product>
   </item>
   <item>
-    <g:id>4S3BNBN62F3053941</g:id>
-    <g:title>2015 Subaru Legacy 2.5i Limited</g:title>
-    <g:description>2015 Subaru Legacy 2.5i Limited: standard Subaru all wheel drive, leather, sunroof, navigation and Harman Kardon audio. Gray on gray leather, automatic, 2.5L boxer four. This is the loaded one, and it was built for exactly this climate. Key features: symmetrical all wheel drive standard, an EPA estimated 26 city and 36 highway MPG, heated leather seats front and rear, power moonroof, navigation, Harman Kardon premium audio, blind spot monitoring, lane departure warning, adaptive cruise control, memory driver seat, rearview camera, smart key, and the roomiest cabin in the midsize class when it launched. Few AWD sedans of any year match its 36 highway MPG. The Maxim Autos Difference Independent inspection report included with every vehicle Metal plates issued on the spot, drive home today Transparent pricing, no hidden fees Financing for all credit levels Skokie, IL. Serving Evanston, Niles, Morton Grove, Lincolnwood, Des Plaines and the North Shore Chicago area. Call or text to set up a same day appointment. Every car inspected. Every price transparent. Every car documented.</g:description>
-    <g:link>https://www.maximautos.com/vehicle/2015-subaru-legacy-2-5i-limited-j10247</g:link>
-    <g:link_template>https://www.maximautos.com/vehicle/2015-subaru-legacy-2-5i-limited-j10247?store={store_code}</g:link_template>
-    <g:image_link>https://imagesdl.dealercenter.net/1289/856/202609-cdb91d4e973f40ed8dee3e18273f4399.jpg</g:image_link>
-    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202609-27cb82d65c3e4a35bfec5e540e9327ec.jpg</g:additional_image_link>
-    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202609-8a77ef7348ec44b1854e8f80226e1755.jpg</g:additional_image_link>
-    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202609-9b5c12d4cb0e4d00a2f255b2b0d59fd6.jpg</g:additional_image_link>
-    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202609-3e9f9573ff3a4782bdaf22d27a3bbd33.jpg</g:additional_image_link>
-    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202609-b1f96c854b4740c6884c6845d6d4b0ed.jpg</g:additional_image_link>
-    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202609-e6c1231c8355488a830e9d98adc32ebc.jpg</g:additional_image_link>
-    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202609-53db4df8c3bc47458bf7d60055c6099e.jpg</g:additional_image_link>
-    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202609-a578176d4fc74112ac99b39e53f3187b.jpg</g:additional_image_link>
-    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202609-782b27c035884887bda28a2314af97ca.jpg</g:additional_image_link>
-    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202609-b14295ae472e4d6aa4c204b7b23e6039.jpg</g:additional_image_link>
-    <g:condition>used</g:condition>
-    <g:price>10995 USD</g:price>
-    <g:availability>in_stock</g:availability>
-    <g:brand>Subaru</g:brand>
-    <g:google_product_category>Vehicles &amp; Parts &gt; Vehicles &gt; Motor Vehicles &gt; Cars, Trucks &amp; Vans</g:google_product_category>
-    <g:excluded_destination>Shopping_ads</g:excluded_destination>
-    <g:excluded_destination>Free_listings</g:excluded_destination>
-    <g:vin>4S3BNBN62F3053941</g:vin>
-    <g:year>2015</g:year>
-    <g:model>Legacy</g:model>
-    <g:mileage>118170 Miles</g:mileage>
-    <g:store_code>08861907241419503398</g:store_code>
-    <g:vehicle_fulfillment>
-      <g:option>in_store</g:option>
-    </g:vehicle_fulfillment>
-    <g:color>Gray</g:color>
-    <g:trim>2.5i Limited</g:trim>
-    <g:body_style>sedan</g:body_style>
-    <g:custom_label_0>age_0_30</g:custom_label_0>
-    <g:custom_label_1>sedan</g:custom_label_1>
-    <g:custom_label_2>price_8k_to_12k</g:custom_label_2>
-    <g:custom_label_3>cg_fair_deal</g:custom_label_3>
-    <g:custom_label_4>awd_4wd</g:custom_label_4>
-    <g:question_and_answer>
-      <g:question>Is this used Subaru Legacy inspected before sale?</g:question>
-      <g:answer>Every car is inspected before it goes on the lot, and a free CARFAX comes with it. Ask Jerry what was checked on any car before you decide.</g:answer>
-    </g:question_and_answer>
-    <g:question_and_answer>
-      <g:question>Does this Subaru Legacy come with a CARFAX report?</g:question>
-      <g:answer>Yes. A CARFAX vehicle history report is included with every used vehicle at Maxim Autos at no extra cost.</g:answer>
-    </g:question_and_answer>
-    <g:question_and_answer>
-      <g:question>Can I get financing on this Subaru Legacy?</g:question>
-      <g:answer>Yes. Maxim Autos offers financing for all credit levels, including first time buyers and those rebuilding credit. Start with the short financing form or a call to Jerry: neither touches your credit. A full application does include a credit check, and approval is never guaranteed.</g:answer>
-    </g:question_and_answer>
-    <g:question_and_answer>
-      <g:question>Are there dealer fees or doc fees on this Subaru Legacy?</g:question>
-      <g:answer>No. Maxim Autos never charges dealer fees. No doc fee, no processing fee, no surprise extras at signing. The listed price is what you pay plus standard Illinois tax, title and license.</g:answer>
-    </g:question_and_answer>
-    <g:question_and_answer>
-      <g:question>Can I drive this Subaru Legacy home the same day?</g:question>
-      <g:answer>Yes. Maxim Autos is an authorized Illinois CVR (Computer Vehicle Registration) electronic registration dealer. Metal plates are issued the same visit for cars registered in Illinois. Buyers registering in another state receive an Illinois drive away permit and plate the car at home.</g:answer>
-    </g:question_and_answer>
-    <g:question_and_answer>
-      <g:question>Is this Subaru Legacy all wheel drive?</g:question>
-      <g:answer>Yes. This 2015 Subaru Legacy 2.5i Limited is all wheel drive (AWD).</g:answer>
-    </g:question_and_answer>
-    <g:question_and_answer>
-      <g:question>What transmission does this Subaru Legacy have?</g:question>
-      <g:answer>This 2015 Subaru Legacy 2.5i Limited has a continuously variable automatic (CVT) transmission.</g:answer>
-    </g:question_and_answer>
-    <g:question_and_answer>
-      <g:question>What is the fuel economy of this Subaru Legacy?</g:question>
-      <g:answer>EPA estimated 26 city and 36 highway MPG for this 2015 Subaru Legacy 2.5i Limited.</g:answer>
-    </g:question_and_answer>
-    <g:question_and_answer>
-      <g:question>What engine is in this Subaru Legacy?</g:question>
-      <g:answer>This 2015 Subaru Legacy 2.5i Limited has a 2.5L engine.</g:answer>
-    </g:question_and_answer>
-    <g:question_and_answer>
-      <g:question>Where can I see this Subaru Legacy in person?</g:question>
-      <g:answer>At Maxim Autos, 9101 Terminal Ave, Skokie, IL 60077, serving Evanston, Niles, Morton Grove, Lincolnwood, Des Plaines, Glenview, Wilmette and Park Ridge. Hours: Monday, Tuesday, Thursday and Friday 3 PM to 7 PM, Saturday 10 AM to 3 PM, Wednesday by appointment, Sunday closed. Call or text (847) 510-8947.</g:answer>
-    </g:question_and_answer>
-    <g:question_and_answer>
-      <g:question>Can I trade in my current car toward this Subaru Legacy?</g:question>
-      <g:answer>Yes. Maxim Autos accepts trade ins and also buys cars outright. Text the VIN of your car to (847) 510-8947 for a quick offer, no obligation.</g:answer>
-    </g:question_and_answer>
-    <g:related_product>
-      <g:relationship_type>substitute</g:relationship_type>
-      <g:identifier_type>id</g:identifier_type>
-      <g:identifier>1C3CDFBB6ED669896</g:identifier>
-    </g:related_product>
-    <g:related_product>
-      <g:relationship_type>substitute</g:relationship_type>
-      <g:identifier_type>id</g:identifier_type>
-      <g:identifier>KMHDH4AE6GU489451</g:identifier>
-    </g:related_product>
-  </item>
-  <item>
     <g:id>5N1AZ2MH6FN251280</g:id>
     <g:title>2015 Nissan Murano Platinum</g:title>
     <g:description>2015 Nissan Murano Platinum AWD: all wheel drive, Zero Gravity heated and ventilated seats, panoramic moonroof, 360 degree Around View camera, 3.5L V6. Black on black leather, automatic, all wheel drive, EPA estimated 21 city and 28 highway MPG. A near luxury midsize SUV for the buyer who wants the comfort without the badge premium. Key features: 3.5L V6 rated at 260 horsepower, all wheel drive for Chicago winters, NASA inspired Zero Gravity front seats with heating and ventilation, heated rear seats, panoramic moonroof, 360 degree Around View monitor for tight parking, leather upholstery with soft touch padding and wood accents, power folding rear seats, Bose premium audio, NissanConnect touchscreen with navigation, EPA estimated 21 city and 28 highway MPG. Seats five with 39.6 cubic feet of cargo behind the rear seat. The Maxim Autos Difference Independent inspection report included with every vehicle Metal plates issued on the spot, drive home today Transparent pricing, no hidden fees Financing for all credit levels Located in Skokie, IL, minutes from Evanston, Niles, Morton Grove, Lincolnwood, and Des Plaines, serving the North Shore Chicago area. Call (847) 510-8947 to schedule a same day appointment. Every car inspected. Every price transparent. Every car documented.</g:description>
@@ -681,6 +581,96 @@
     </g:related_product>
   </item>
   <item>
+    <g:id>JF1GPAL69E8230098</g:id>
+    <g:title>2014 Subaru Impreza 2.0i Sport Premium</g:title>
+    <g:description>2014 Subaru Impreza 2.0i Sport Hatchback AWD: standard Symmetrical All Wheel Drive, up to 35 MPG on the highway, and a roomy hatchback cargo area. Venetian Red Pearl on Black, CVT automatic, 2.0L four cylinder. A compact Subaru made for Chicago winters that stays easy on gas every day of the year. Key features: EPA rated 27 city, 35 highway and 30 combined MPG, Symmetrical All Wheel Drive standard, smooth CVT automatic, 60/40 split rear seat that folds flat, cruise control, Bluetooth phone connection, steering wheel audio controls, a comfortable ride with steady handling, and a spacious cabin for its size. Fold the rear seats and the hatch takes bikes, strollers or a full week of groceries with room to spare. The Maxim Autos Difference Independent inspection report included with every vehicle Metal plates issued on the spot, drive home today Transparent pricing, no hidden fees Financing for all credit levels Located in Skokie, IL, serving Evanston, Niles, Morton Grove, Lincolnwood, Des Plaines and the North Shore of Chicago. Call or text (847) 510-8947 to set up your test drive today. Every car inspected. Every price transparent. Every car documented.</g:description>
+    <g:link>https://www.maximautos.com/vehicle/2014-subaru-impreza-2-0i-sport-premium-j10258</g:link>
+    <g:link_template>https://www.maximautos.com/vehicle/2014-subaru-impreza-2-0i-sport-premium-j10258?store={store_code}</g:link_template>
+    <g:image_link>https://imagesdl.dealercenter.net/1289/856/202609-47eabd7cb068419da8d31f4eac952170.jpg</g:image_link>
+    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202609-a3942f28bdc44b12ac12b4fa7b937e06.jpg</g:additional_image_link>
+    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202609-5f4213260f9d4dd083823f7ffa87a11d.jpg</g:additional_image_link>
+    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202609-caf354fd7c184728b5f5d7ae7b064eee.jpg</g:additional_image_link>
+    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202609-04c7480eff93494f95038e875f8b1d88.jpg</g:additional_image_link>
+    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202609-d3c5280ee45e480cabda261ffacf1bc9.jpg</g:additional_image_link>
+    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202609-afadb3f67b1b44cb8773e641d1fdc890.jpg</g:additional_image_link>
+    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202609-623e7f99e58748e898ec7ad4de49f3c1.jpg</g:additional_image_link>
+    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202609-19e8fc0fc0f84de88fb6a1b131020a1c.jpg</g:additional_image_link>
+    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202609-20025fb57c144f75b23331e6fbea42b6.jpg</g:additional_image_link>
+    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202609-83f75655af7b4af495697c91f861fb7e.jpg</g:additional_image_link>
+    <g:condition>used</g:condition>
+    <g:price>9950 USD</g:price>
+    <g:availability>in_stock</g:availability>
+    <g:brand>Subaru</g:brand>
+    <g:google_product_category>Vehicles &amp; Parts &gt; Vehicles &gt; Motor Vehicles &gt; Cars, Trucks &amp; Vans</g:google_product_category>
+    <g:excluded_destination>Shopping_ads</g:excluded_destination>
+    <g:excluded_destination>Free_listings</g:excluded_destination>
+    <g:vin>JF1GPAL69E8230098</g:vin>
+    <g:year>2014</g:year>
+    <g:model>Impreza</g:model>
+    <g:mileage>84051 Miles</g:mileage>
+    <g:store_code>08861907241419503398</g:store_code>
+    <g:vehicle_fulfillment>
+      <g:option>in_store</g:option>
+    </g:vehicle_fulfillment>
+    <g:color>Red</g:color>
+    <g:trim>2.0i Sport Premium</g:trim>
+    <g:body_style>station_wagon</g:body_style>
+    <g:custom_label_0>age_0_30</g:custom_label_0>
+    <g:custom_label_1>station_wagon</g:custom_label_1>
+    <g:custom_label_2>price_8k_to_12k</g:custom_label_2>
+    <g:custom_label_3>cg_good_deal</g:custom_label_3>
+    <g:custom_label_4>awd_4wd</g:custom_label_4>
+    <g:question_and_answer>
+      <g:question>Is this used Subaru Impreza inspected before sale?</g:question>
+      <g:answer>Every car is inspected before it goes on the lot, and a free CARFAX comes with it. Ask Jerry what was checked on any car before you decide.</g:answer>
+    </g:question_and_answer>
+    <g:question_and_answer>
+      <g:question>Does this Subaru Impreza come with a CARFAX report?</g:question>
+      <g:answer>Yes. A CARFAX vehicle history report is included with every used vehicle at Maxim Autos at no extra cost.</g:answer>
+    </g:question_and_answer>
+    <g:question_and_answer>
+      <g:question>Can I get financing on this Subaru Impreza?</g:question>
+      <g:answer>Yes. Maxim Autos offers financing for all credit levels, including first time buyers and those rebuilding credit. Start with the short financing form or a call to Jerry: neither touches your credit. A full application does include a credit check, and approval is never guaranteed.</g:answer>
+    </g:question_and_answer>
+    <g:question_and_answer>
+      <g:question>Are there dealer fees or doc fees on this Subaru Impreza?</g:question>
+      <g:answer>No. Maxim Autos never charges dealer fees. No doc fee, no processing fee, no surprise extras at signing. The listed price is what you pay plus standard Illinois tax, title and license.</g:answer>
+    </g:question_and_answer>
+    <g:question_and_answer>
+      <g:question>Can I drive this Subaru Impreza home the same day?</g:question>
+      <g:answer>Yes. Maxim Autos is an authorized Illinois CVR (Computer Vehicle Registration) electronic registration dealer. Metal plates are issued the same visit for cars registered in Illinois. Buyers registering in another state receive an Illinois drive away permit and plate the car at home.</g:answer>
+    </g:question_and_answer>
+    <g:question_and_answer>
+      <g:question>Is this Subaru Impreza all wheel drive?</g:question>
+      <g:answer>Yes. This 2014 Subaru Impreza 2.0i Sport Premium is all wheel drive (AWD).</g:answer>
+    </g:question_and_answer>
+    <g:question_and_answer>
+      <g:question>What transmission does this Subaru Impreza have?</g:question>
+      <g:answer>This 2014 Subaru Impreza 2.0i Sport Premium has a continuously variable automatic (CVT) transmission.</g:answer>
+    </g:question_and_answer>
+    <g:question_and_answer>
+      <g:question>What is the fuel economy of this Subaru Impreza?</g:question>
+      <g:answer>EPA estimated 27 city and 35 highway MPG for this 2014 Subaru Impreza 2.0i Sport Premium.</g:answer>
+    </g:question_and_answer>
+    <g:question_and_answer>
+      <g:question>What engine is in this Subaru Impreza?</g:question>
+      <g:answer>This 2014 Subaru Impreza 2.0i Sport Premium has a 2L engine.</g:answer>
+    </g:question_and_answer>
+    <g:question_and_answer>
+      <g:question>Where can I see this Subaru Impreza in person?</g:question>
+      <g:answer>At Maxim Autos, 9101 Terminal Ave, Skokie, IL 60077, serving Evanston, Niles, Morton Grove, Lincolnwood, Des Plaines, Glenview, Wilmette and Park Ridge. Hours: Monday, Tuesday, Thursday and Friday 3 PM to 7 PM, Saturday 10 AM to 3 PM, Wednesday by appointment, Sunday closed. Call or text (847) 510-8947.</g:answer>
+    </g:question_and_answer>
+    <g:question_and_answer>
+      <g:question>Can I trade in my current car toward this Subaru Impreza?</g:question>
+      <g:answer>Yes. Maxim Autos accepts trade ins and also buys cars outright. Text the VIN of your car to (847) 510-8947 for a quick offer, no obligation.</g:answer>
+    </g:question_and_answer>
+    <g:related_product>
+      <g:relationship_type>substitute</g:relationship_type>
+      <g:identifier_type>id</g:identifier_type>
+      <g:identifier>JM1CW2BL1F0183769</g:identifier>
+    </g:related_product>
+  </item>
+  <item>
     <g:id>JM1CW2BL1F0183769</g:id>
     <g:title>2015 Mazda Mazda5 Sport Van</g:title>
     <g:description>2015 Mazda Mazda5 Sport: seating for six, dual sliding rear doors, and a compact footprint that handles like a car and parks like a hatchback. Black exterior on black cloth, automatic, 2.5L four cylinder. The family hauler for people who refuse to drive a full size van. Key features: 2.5L four cylinder with 157 horsepower and a five speed automatic, three rows of seating for six with second row captain&apos;s chairs and hidden storage under the seats, dual sliding rear doors that make loading kids easy in a tight garage, fold flat third row for a level cargo floor, full roof rack, alloy wheels, air conditioning, cruise control, AM/FM CD audio with auxiliary input, power windows, locks and mirrors, rear defroster, side and overhead airbags, traction control. This was the final model year of the Mazda5, a rare six seat van that fits the whole family without the size or the fuel bill of a full size minivan. The Maxim Autos Difference Independent inspection report included with every vehicle Metal plates issued on the spot, drive home today Transparent pricing, no hidden fees Financing for all credit levels Located in Skokie, IL, minutes from Evanston, Niles, Morton Grove, Lincolnwood, and Des Plaines, serving the North Shore Chicago area. Call (847) 510-8947 to schedule a same day appointment. Every car inspected. Every price transparent. Every car documented.</g:description>
@@ -755,6 +745,11 @@
       <g:question>Can I trade in my current car toward this Mazda Mazda5?</g:question>
       <g:answer>Yes. Maxim Autos accepts trade ins and also buys cars outright. Text the VIN of your car to (847) 510-8947 for a quick offer, no obligation.</g:answer>
     </g:question_and_answer>
+    <g:related_product>
+      <g:relationship_type>substitute</g:relationship_type>
+      <g:identifier_type>id</g:identifier_type>
+      <g:identifier>JF1GPAL69E8230098</g:identifier>
+    </g:related_product>
   </item>
   <item>
     <g:id>JM3KE4CY4G0882052</g:id>
@@ -935,11 +930,6 @@
       <g:relationship_type>substitute</g:relationship_type>
       <g:identifier_type>id</g:identifier_type>
       <g:identifier>1C3CDFBB6ED669896</g:identifier>
-    </g:related_product>
-    <g:related_product>
-      <g:relationship_type>substitute</g:relationship_type>
-      <g:identifier_type>id</g:identifier_type>
-      <g:identifier>4S3BNBN62F3053941</g:identifier>
     </g:related_product>
   </item>
   <item>
