@@ -24,12 +24,6 @@
       "stockNumber": "J10231",
       "retired_at": "2026-08-17",
       "redirect_to": "/inventory"
-    },
-    "2018-kia-sorento-ex-j10256": {
-      "vin": "5XYPH4A52JG399000",
-      "stockNumber": "J10256",
-      "retired_at": "2026-09-27",
-      "redirect_to": "/inventory"
     }
   }
 }

@@ -328,16 +328,6 @@
       "source": "/GYM/",
       "destination": "/inventory?utm_source=htc_gym&utm_medium=banner&utm_campaign=rothner_gym_2026",
       "permanent": false
-    },
-    {
-      "source": "/vehicle/2018-kia-sorento-ex-j10256",
-      "destination": "/inventory",
-      "permanent": true
-    },
-    {
-      "source": "/vehicle/2018-kia-sorento-ex-j10256/",
-      "destination": "/inventory",
-      "permanent": true
     }
   ],
   "headers": [
