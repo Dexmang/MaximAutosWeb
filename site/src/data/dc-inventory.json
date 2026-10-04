@@ -1,6 +1,6 @@
 {
   "source": "pka_hub.db ma_vehicles + vPIC",
-  "generated_at": "2026-10-03",
+  "generated_at": "2026-10-04",
   "by_vin": {
     "1C3CDFBB6ED669896": {
       "year": 2014,
@@ -791,7 +791,7 @@
       "model": "Niro",
       "trim": "LX",
       "price": 13450,
-      "mileage": 86126,
+      "mileage": 86238,
       "exteriorColor": "White",
       "interiorColor": "Black",
       "engine": "104 hp 1.6L I4",
