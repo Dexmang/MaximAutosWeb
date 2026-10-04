@@ -4,7 +4,7 @@
   <title>Maxim Autos Vehicle Inventory</title>
   <link>https://www.maximautos.com/</link>
   <description>Used vehicles for sale at Maxim Autos in Skokie, IL 60077. Phone +18475108947.</description>
-  <lastBuildDate>2026-10-04T00:30:19.595Z</lastBuildDate>
+  <lastBuildDate>2026-10-04T00:54:53.717Z</lastBuildDate>
   <item>
     <g:id>1C3CDFBB6ED669896</g:id>
     <g:title>2014 Dodge Dart SXT</g:title>
@@ -277,7 +277,7 @@
     <g:related_product>
       <g:relationship_type>substitute</g:relationship_type>
       <g:identifier_type>id</g:identifier_type>
-      <g:identifier>WVGBV7AX5HK000196</g:identifier>
+      <g:identifier>5N1AZ2MH6FN251280</g:identifier>
     </g:related_product>
   </item>
   <item>
@@ -377,7 +377,7 @@
     <g:related_product>
       <g:relationship_type>substitute</g:relationship_type>
       <g:identifier_type>id</g:identifier_type>
-      <g:identifier>WVGBV7AX5HK000196</g:identifier>
+      <g:identifier>5N1AZ2MH6FN251280</g:identifier>
     </g:related_product>
   </item>
   <item>
@@ -467,17 +467,17 @@
     <g:related_product>
       <g:relationship_type>substitute</g:relationship_type>
       <g:identifier_type>id</g:identifier_type>
-      <g:identifier>WVGBV7AX5HK000196</g:identifier>
-    </g:related_product>
-    <g:related_product>
-      <g:relationship_type>substitute</g:relationship_type>
-      <g:identifier_type>id</g:identifier_type>
       <g:identifier>2FMPK3J96GBC56381</g:identifier>
     </g:related_product>
     <g:related_product>
       <g:relationship_type>substitute</g:relationship_type>
       <g:identifier_type>id</g:identifier_type>
       <g:identifier>2GKALMEK3G6308539</g:identifier>
+    </g:related_product>
+    <g:related_product>
+      <g:relationship_type>substitute</g:relationship_type>
+      <g:identifier_type>id</g:identifier_type>
+      <g:identifier>KNDJN2A23F7202591</g:identifier>
     </g:related_product>
   </item>
   <item>
@@ -572,12 +572,12 @@
     <g:related_product>
       <g:relationship_type>substitute</g:relationship_type>
       <g:identifier_type>id</g:identifier_type>
-      <g:identifier>JM3KE4CY4G0882052</g:identifier>
+      <g:identifier>2FMPK3J96GBC56381</g:identifier>
     </g:related_product>
     <g:related_product>
       <g:relationship_type>substitute</g:relationship_type>
       <g:identifier_type>id</g:identifier_type>
-      <g:identifier>KNDCB3LC5M5478437</g:identifier>
+      <g:identifier>2GKALMEK3G6308539</g:identifier>
     </g:related_product>
   </item>
   <item>
@@ -672,12 +672,12 @@
     <g:related_product>
       <g:relationship_type>substitute</g:relationship_type>
       <g:identifier_type>id</g:identifier_type>
-      <g:identifier>JM3KE4CY4G0882052</g:identifier>
+      <g:identifier>2FMPK3J96GBC56381</g:identifier>
     </g:related_product>
     <g:related_product>
       <g:relationship_type>substitute</g:relationship_type>
       <g:identifier_type>id</g:identifier_type>
-      <g:identifier>KNDCB3LC5M5478437</g:identifier>
+      <g:identifier>2GKALMEK3G6308539</g:identifier>
     </g:related_product>
   </item>
   <item>
@@ -852,106 +852,6 @@
     </g:related_product>
   </item>
   <item>
-    <g:id>JM3KE4CY4G0882052</g:id>
-    <g:title>2016 Mazda CX-5 Touring</g:title>
-    <g:description>2016 Mazda CX-5 Touring: all wheel drive, a 2.5L Skyactiv engine, heated seats and blind spot monitoring. Black on black, automatic. The compact SUV that handles like a sedan and shrugs off Chicago winters. Key features: all wheel drive, 2.5L Skyactiv four cylinder rated at an EPA estimated 24 city and 30 highway MPG, heated front seats, blind spot monitoring, rearview camera, smart key with push button start, power driver seat, Bluetooth, cruise control, alloy wheels, and a roomy, well trimmed cabin with rear seats that fold flat for cargo. This generation earned a reputation as one of the most reliable compact SUVs on the road. The Maxim Autos Difference Independent inspection report included with every vehicle Metal plates issued on the spot, drive home today Transparent pricing, no hidden fees Financing for all credit levels Skokie, IL. Serving Evanston, Niles, Morton Grove, Lincolnwood, Des Plaines and the North Shore Chicago area. Call or text to set up a same day appointment. Every car inspected. Every price transparent. Every car documented.</g:description>
-    <g:link>https://www.maximautos.com/vehicle/2016-mazda-cx-5-touring-j10246</g:link>
-    <g:link_template>https://www.maximautos.com/vehicle/2016-mazda-cx-5-touring-j10246?store={store_code}</g:link_template>
-    <g:image_link>https://imagesdl.dealercenter.net/1289/856/202609-7f3190cf147942978dbe2e8308fe128f.jpg</g:image_link>
-    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202609-47187a724e2647a3bf68d5167c1dc551.jpg</g:additional_image_link>
-    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202609-150336549996442bb50b7e39f8a58d47.jpg</g:additional_image_link>
-    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202609-efa1d2c7e56d48ec89a27a995af0d799.jpg</g:additional_image_link>
-    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202609-83910fb90e344763bf2df891f0eca4c7.jpg</g:additional_image_link>
-    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202609-4073f1216bde455cbd25024be77fd699.jpg</g:additional_image_link>
-    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202609-8d36001652fa423696b1191edae7bd79.jpg</g:additional_image_link>
-    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202609-f843e4f6134b42168ad2764e2a97d1e3.jpg</g:additional_image_link>
-    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202609-f383877387fa40a4bd4d8e4c11126bb7.jpg</g:additional_image_link>
-    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202609-5b447526153e48489cb8429bfe297510.jpg</g:additional_image_link>
-    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202609-ecb44471fba04c3781ddecd2a0823937.jpg</g:additional_image_link>
-    <g:condition>used</g:condition>
-    <g:price>12950 USD</g:price>
-    <g:availability>in_stock</g:availability>
-    <g:brand>Mazda</g:brand>
-    <g:google_product_category>Vehicles &amp; Parts &gt; Vehicles &gt; Motor Vehicles &gt; Cars, Trucks &amp; Vans</g:google_product_category>
-    <g:excluded_destination>Shopping_ads</g:excluded_destination>
-    <g:excluded_destination>Free_listings</g:excluded_destination>
-    <g:vin>JM3KE4CY4G0882052</g:vin>
-    <g:year>2016</g:year>
-    <g:model>CX-5</g:model>
-    <g:mileage>88080 Miles</g:mileage>
-    <g:store_code>08861907241419503398</g:store_code>
-    <g:vehicle_fulfillment>
-      <g:option>in_store</g:option>
-    </g:vehicle_fulfillment>
-    <g:color>Black</g:color>
-    <g:trim>Touring</g:trim>
-    <g:body_style>suv</g:body_style>
-    <g:custom_label_0>age_0_30</g:custom_label_0>
-    <g:custom_label_1>suv</g:custom_label_1>
-    <g:custom_label_2>price_12k_plus</g:custom_label_2>
-    <g:custom_label_3>cg_great_deal</g:custom_label_3>
-    <g:custom_label_4>awd_4wd</g:custom_label_4>
-    <g:question_and_answer>
-      <g:question>Is this used Mazda CX-5 inspected before sale?</g:question>
-      <g:answer>Every car is inspected before it goes on the lot, and a free CARFAX comes with it. Ask Jerry what was checked on any car before you decide.</g:answer>
-    </g:question_and_answer>
-    <g:question_and_answer>
-      <g:question>Does this Mazda CX-5 come with a CARFAX report?</g:question>
-      <g:answer>Yes. A CARFAX vehicle history report is included with every used vehicle at Maxim Autos at no extra cost.</g:answer>
-    </g:question_and_answer>
-    <g:question_and_answer>
-      <g:question>Can I get financing on this Mazda CX-5?</g:question>
-      <g:answer>Yes. Maxim Autos offers financing for all credit levels, including first time buyers and those rebuilding credit. Start with the short financing form or a call to Jerry: neither touches your credit. A full application does include a credit check, and approval is never guaranteed.</g:answer>
-    </g:question_and_answer>
-    <g:question_and_answer>
-      <g:question>Are there dealer fees or doc fees on this Mazda CX-5?</g:question>
-      <g:answer>No. Maxim Autos never charges dealer fees. No doc fee, no processing fee, no surprise extras at signing. The listed price is what you pay plus standard Illinois tax, title and license.</g:answer>
-    </g:question_and_answer>
-    <g:question_and_answer>
-      <g:question>Can I drive this Mazda CX-5 home the same day?</g:question>
-      <g:answer>Yes. Maxim Autos is an authorized Illinois CVR (Computer Vehicle Registration) electronic registration dealer. Metal plates are issued the same visit for cars registered in Illinois. Buyers registering in another state receive an Illinois drive away permit and plate the car at home.</g:answer>
-    </g:question_and_answer>
-    <g:question_and_answer>
-      <g:question>Is this Mazda CX-5 all wheel drive?</g:question>
-      <g:answer>Yes. This 2016 Mazda CX-5 Touring is four wheel drive (4WD).</g:answer>
-    </g:question_and_answer>
-    <g:question_and_answer>
-      <g:question>What transmission does this Mazda CX-5 have?</g:question>
-      <g:answer>This 2016 Mazda CX-5 Touring has an automatic transmission.</g:answer>
-    </g:question_and_answer>
-    <g:question_and_answer>
-      <g:question>What is the fuel economy of this Mazda CX-5?</g:question>
-      <g:answer>EPA estimated 24 city and 30 highway MPG for this 2016 Mazda CX-5 Touring.</g:answer>
-    </g:question_and_answer>
-    <g:question_and_answer>
-      <g:question>What engine is in this Mazda CX-5?</g:question>
-      <g:answer>This 2016 Mazda CX-5 Touring has a 2.5L I4 engine.</g:answer>
-    </g:question_and_answer>
-    <g:question_and_answer>
-      <g:question>Where can I see this Mazda CX-5 in person?</g:question>
-      <g:answer>At Maxim Autos, 9101 Terminal Ave, Skokie, IL 60077, serving Evanston, Niles, Morton Grove, Lincolnwood, Des Plaines, Glenview, Wilmette and Park Ridge. Hours: Monday, Tuesday, Thursday and Friday 3 PM to 7 PM, Saturday 10 AM to 3 PM, Wednesday by appointment, Sunday closed. Call or text (847) 510-8947.</g:answer>
-    </g:question_and_answer>
-    <g:question_and_answer>
-      <g:question>Can I trade in my current car toward this Mazda CX-5?</g:question>
-      <g:answer>Yes. Maxim Autos accepts trade ins and also buys cars outright. Text the VIN of your car to (847) 510-8947 for a quick offer, no obligation.</g:answer>
-    </g:question_and_answer>
-    <g:related_product>
-      <g:relationship_type>substitute</g:relationship_type>
-      <g:identifier_type>id</g:identifier_type>
-      <g:identifier>KNDCB3LC5M5478437</g:identifier>
-    </g:related_product>
-    <g:related_product>
-      <g:relationship_type>substitute</g:relationship_type>
-      <g:identifier_type>id</g:identifier_type>
-      <g:identifier>5XYPH4A52JG399000</g:identifier>
-    </g:related_product>
-    <g:related_product>
-      <g:relationship_type>substitute</g:relationship_type>
-      <g:identifier_type>id</g:identifier_type>
-      <g:identifier>5N1AZ2MH6FN251280</g:identifier>
-    </g:related_product>
-  </item>
-  <item>
     <g:id>KMHDH4AE6GU489451</g:id>
     <g:title>2016 Hyundai Elantra Value Edition</g:title>
     <g:description>The Value Edition was the sweet spot of the 2016 Elantra lineup, and this one reads 96,503 miles, well under most of what is listed locally in the same year and trim. It runs the 1.8 liter four cylinder with the six speed Shiftronic automatic, driving the front wheels. Value Edition is where Hyundai loaded in the equipment that normally costs extra: a power glass sunroof, heated front seats, a backup camera, keyless entry with keyless start, alloy wheels, and fog lights. On top of that you get air conditioning, cruise control, power windows and power door locks, Bluetooth, SiriusXM satellite radio alongside the AM/FM and CD system, an alarm system, and a tilt and telescoping steering wheel. Safety coverage includes hill start assist control, electronic stability control, traction control, four wheel ABS, and dual, side, and full length head curtain air bags. Finished in red over a black interior. The Maxim Autos Difference Independent inspection report included with every vehicle Metal plates issued the same day so you can drive home today Transparent pricing, no hidden fees Financing for all credit levels Located in Skokie, IL, serving Evanston, Niles, Morton Grove, Lincolnwood, Des Plaines, and the entire North Shore Chicago corridor. Visit or call for a same day appointment. Every car inspected. Every price transparent. Every car documented.</g:description>
@@ -1033,106 +933,6 @@
     </g:related_product>
   </item>
   <item>
-    <g:id>KNDCB3LC5M5478437</g:id>
-    <g:title>2021 Kia Niro LX</g:title>
-    <g:description>2021 Kia Niro LX Hybrid: an EPA estimated 50 MPG combined, wireless Apple CarPlay, dual zone climate. White on black, automatic, 1.6L hybrid rated at 51 city and 46 highway. If the drive to work is eating your paycheck, this is the car that stops it. Key features: 1.6L four cylinder hybrid rated at an EPA estimated 50 MPG combined, 51 city and 46 highway, 8 inch touchscreen with wireless Apple CarPlay and Android Auto, dual zone automatic climate control standard on the LX, rearview camera, multiple USB ports, rear occupant alert, and a cargo hold bigger than the compact footprint suggests. At 50 MPG combined it burns roughly half the fuel of a comparable gas crossover. The Maxim Autos Difference Independent inspection report included with every vehicle Metal plates issued on the spot, drive home today Transparent pricing, no hidden fees Financing for all credit levels Skokie, IL. Serving Evanston, Niles, Morton Grove, Lincolnwood, Des Plaines and the North Shore Chicago area. Call or text to set up a same day appointment. Every car inspected. Every price transparent. Every car documented.</g:description>
-    <g:link>https://www.maximautos.com/vehicle/2021-kia-niro-lx-j10243</g:link>
-    <g:link_template>https://www.maximautos.com/vehicle/2021-kia-niro-lx-j10243?store={store_code}</g:link_template>
-    <g:image_link>https://imagesdl.dealercenter.net/1289/856/202609-895d2742939045d29c1547d91b800e1e.jpg</g:image_link>
-    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202609-01278965546746f195cb20ce398511bc.jpg</g:additional_image_link>
-    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202609-50dd04a106fa4e50bc9587a89ccad779.jpg</g:additional_image_link>
-    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202609-e6bbe2d5e18b4388afb322284aeed075.jpg</g:additional_image_link>
-    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202609-40bcdfbdcb41467a983db99603a43f2f.jpg</g:additional_image_link>
-    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202609-0c61ba1904854374a3361795acc656f3.jpg</g:additional_image_link>
-    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202609-c7b91c67fd9c47098b27b0ef2ed95447.jpg</g:additional_image_link>
-    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202609-1fb0b48ab155457bae3ebb1f63caa6ae.jpg</g:additional_image_link>
-    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202609-cbb81e14d2164089b852fee5c0062254.jpg</g:additional_image_link>
-    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202609-a32b7218796e4ab6abb3c9b74624fcd7.jpg</g:additional_image_link>
-    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202609-402d74077a0944fab03f2e37ad6d20b9.jpg</g:additional_image_link>
-    <g:condition>used</g:condition>
-    <g:price>13450 USD</g:price>
-    <g:availability>in_stock</g:availability>
-    <g:brand>Kia</g:brand>
-    <g:google_product_category>Vehicles &amp; Parts &gt; Vehicles &gt; Motor Vehicles &gt; Cars, Trucks &amp; Vans</g:google_product_category>
-    <g:excluded_destination>Shopping_ads</g:excluded_destination>
-    <g:excluded_destination>Free_listings</g:excluded_destination>
-    <g:vin>KNDCB3LC5M5478437</g:vin>
-    <g:year>2021</g:year>
-    <g:model>Niro</g:model>
-    <g:mileage>86238 Miles</g:mileage>
-    <g:store_code>08861907241419503398</g:store_code>
-    <g:vehicle_fulfillment>
-      <g:option>in_store</g:option>
-    </g:vehicle_fulfillment>
-    <g:color>White</g:color>
-    <g:trim>LX</g:trim>
-    <g:body_style>suv</g:body_style>
-    <g:custom_label_0>age_31_60</g:custom_label_0>
-    <g:custom_label_1>suv</g:custom_label_1>
-    <g:custom_label_2>price_12k_plus</g:custom_label_2>
-    <g:custom_label_3>cg_good_deal</g:custom_label_3>
-    <g:custom_label_4>two_wheel_drive</g:custom_label_4>
-    <g:question_and_answer>
-      <g:question>Is this used Kia Niro inspected before sale?</g:question>
-      <g:answer>Every car is inspected before it goes on the lot, and a free CARFAX comes with it. Ask Jerry what was checked on any car before you decide.</g:answer>
-    </g:question_and_answer>
-    <g:question_and_answer>
-      <g:question>Does this Kia Niro come with a CARFAX report?</g:question>
-      <g:answer>Yes. A CARFAX vehicle history report is included with every used vehicle at Maxim Autos at no extra cost.</g:answer>
-    </g:question_and_answer>
-    <g:question_and_answer>
-      <g:question>Can I get financing on this Kia Niro?</g:question>
-      <g:answer>Yes. Maxim Autos offers financing for all credit levels, including first time buyers and those rebuilding credit. Start with the short financing form or a call to Jerry: neither touches your credit. A full application does include a credit check, and approval is never guaranteed.</g:answer>
-    </g:question_and_answer>
-    <g:question_and_answer>
-      <g:question>Are there dealer fees or doc fees on this Kia Niro?</g:question>
-      <g:answer>No. Maxim Autos never charges dealer fees. No doc fee, no processing fee, no surprise extras at signing. The listed price is what you pay plus standard Illinois tax, title and license.</g:answer>
-    </g:question_and_answer>
-    <g:question_and_answer>
-      <g:question>Can I drive this Kia Niro home the same day?</g:question>
-      <g:answer>Yes. Maxim Autos is an authorized Illinois CVR (Computer Vehicle Registration) electronic registration dealer. Metal plates are issued the same visit for cars registered in Illinois. Buyers registering in another state receive an Illinois drive away permit and plate the car at home.</g:answer>
-    </g:question_and_answer>
-    <g:question_and_answer>
-      <g:question>Is this Kia Niro all wheel drive?</g:question>
-      <g:answer>No. This 2021 Kia Niro LX is two wheel drive.</g:answer>
-    </g:question_and_answer>
-    <g:question_and_answer>
-      <g:question>What transmission does this Kia Niro have?</g:question>
-      <g:answer>This 2021 Kia Niro LX has an automatic transmission.</g:answer>
-    </g:question_and_answer>
-    <g:question_and_answer>
-      <g:question>What is the fuel economy of this Kia Niro?</g:question>
-      <g:answer>EPA estimated 51 city and 46 highway MPG for this 2021 Kia Niro LX.</g:answer>
-    </g:question_and_answer>
-    <g:question_and_answer>
-      <g:question>What engine is in this Kia Niro?</g:question>
-      <g:answer>This 2021 Kia Niro LX has a 104 hp 1.6L I4 engine.</g:answer>
-    </g:question_and_answer>
-    <g:question_and_answer>
-      <g:question>Where can I see this Kia Niro in person?</g:question>
-      <g:answer>At Maxim Autos, 9101 Terminal Ave, Skokie, IL 60077, serving Evanston, Niles, Morton Grove, Lincolnwood, Des Plaines, Glenview, Wilmette and Park Ridge. Hours: Monday, Tuesday, Thursday and Friday 3 PM to 7 PM, Saturday 10 AM to 3 PM, Wednesday by appointment, Sunday closed. Call or text (847) 510-8947.</g:answer>
-    </g:question_and_answer>
-    <g:question_and_answer>
-      <g:question>Can I trade in my current car toward this Kia Niro?</g:question>
-      <g:answer>Yes. Maxim Autos accepts trade ins and also buys cars outright. Text the VIN of your car to (847) 510-8947 for a quick offer, no obligation.</g:answer>
-    </g:question_and_answer>
-    <g:related_product>
-      <g:relationship_type>substitute</g:relationship_type>
-      <g:identifier_type>id</g:identifier_type>
-      <g:identifier>JM3KE4CY4G0882052</g:identifier>
-    </g:related_product>
-    <g:related_product>
-      <g:relationship_type>substitute</g:relationship_type>
-      <g:identifier_type>id</g:identifier_type>
-      <g:identifier>5XYPH4A52JG399000</g:identifier>
-    </g:related_product>
-    <g:related_product>
-      <g:relationship_type>substitute</g:relationship_type>
-      <g:identifier_type>id</g:identifier_type>
-      <g:identifier>5N1AZ2MH6FN251280</g:identifier>
-    </g:related_product>
-  </item>
-  <item>
     <g:id>KNDJN2A23F7202591</g:id>
     <g:title>2015 Kia Soul</g:title>
     <g:description>This 2015 Kia Soul comes with the six speed manual gearbox, which makes it a genuinely rare find on a used lot and an easy call for anyone who would rather shift for themselves. The odometer reads 94,489 miles. The 1.6 liter four cylinder sends power to the front wheels through that manual transmission. Equipment includes air conditioning, cruise control, power windows and power door locks, Bluetooth, SiriusXM satellite radio alongside the AM/FM stereo, a tilt and telescoping steering wheel, and alloy wheels. Safety coverage includes hill start assist control, electronic stability control, traction control, four wheel ABS, and dual, side, and head curtain air bags. It is finished in gray over a black interior, in the boxy Soul shape that swallows far more cargo than its footprint suggests. The Maxim Autos Difference Independent inspection report included with every vehicle Metal plates issued the same day so you can drive home today Transparent pricing, no hidden fees Financing for all credit levels Located in Skokie, IL, serving Evanston, Niles, Morton Grove, Lincolnwood, Des Plaines, and the entire North Shore Chicago corridor. Visit or call for a same day appointment. Every car inspected. Every price transparent. Every car documented.</g:description>
@@ -1204,106 +1004,6 @@
     </g:question_and_answer>
     <g:question_and_answer>
       <g:question>Can I trade in my current car toward this Kia Soul?</g:question>
-      <g:answer>Yes. Maxim Autos accepts trade ins and also buys cars outright. Text the VIN of your car to (847) 510-8947 for a quick offer, no obligation.</g:answer>
-    </g:question_and_answer>
-    <g:related_product>
-      <g:relationship_type>substitute</g:relationship_type>
-      <g:identifier_type>id</g:identifier_type>
-      <g:identifier>WVGBV7AX5HK000196</g:identifier>
-    </g:related_product>
-    <g:related_product>
-      <g:relationship_type>substitute</g:relationship_type>
-      <g:identifier_type>id</g:identifier_type>
-      <g:identifier>3C4PDCBB7GT164698</g:identifier>
-    </g:related_product>
-    <g:related_product>
-      <g:relationship_type>substitute</g:relationship_type>
-      <g:identifier_type>id</g:identifier_type>
-      <g:identifier>2FMPK3J96GBC56381</g:identifier>
-    </g:related_product>
-  </item>
-  <item>
-    <g:id>WVGBV7AX5HK000196</g:id>
-    <g:title>2017 Volkswagen Tiguan 2.0T S 4Motion</g:title>
-    <g:description>2017 Volkswagen Tiguan 2.0T S 4Motion: 4Motion all wheel drive, 200 horsepower turbocharged engine, heated front seats, Apple CarPlay. Black on tan, automatic, 2.0L turbo four rated at an EPA estimated 20 city and 24 highway. A German built crossover that takes a Chicago winter in stride without the German price tag. Key features: 4Motion all wheel drive that reads traction and sends torque to the wheels that still have grip in rain and snow, 200 horsepower turbocharged 2.0L four making 207 lb ft of torque, six speed automatic with Sport mode, heated front seats, KESSY proximity keyless entry with push button start, 6.3 inch App Connect touchscreen with Apple CarPlay and Android Auto, standard rearview camera, and leatherette upholstery that wipes clean after the kids. The doors shut with the solid thunk that tells you how it was built. The Maxim Autos Difference Independent inspection report included with every vehicle Metal plates issued on the spot, drive home today Transparent pricing, no hidden fees Financing for all credit levels Skokie, IL. Serving Evanston, Niles, Morton Grove, Lincolnwood, Des Plaines and the North Shore Chicago area. Call or text to set up a same day appointment. Every car inspected. Every price transparent. Every car documented.</g:description>
-    <g:link>https://www.maximautos.com/vehicle/2017-volkswagen-tiguan-2-0t-s-4motion-j10239</g:link>
-    <g:link_template>https://www.maximautos.com/vehicle/2017-volkswagen-tiguan-2-0t-s-4motion-j10239?store={store_code}</g:link_template>
-    <g:image_link>https://imagesdl.dealercenter.net/1289/856/202608-3281cc3921164f36bdd4e911fa24e58f.jpg</g:image_link>
-    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202608-096fbf59e8824de1892774a8ef70efbd.jpg</g:additional_image_link>
-    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202608-dc2c2449653f4c229a19801a40ecb137.jpg</g:additional_image_link>
-    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202608-44d6cfe08c764ab2b39782ccda94759a.jpg</g:additional_image_link>
-    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202608-0dbc5c5ee66849598be4ac52448cc420.jpg</g:additional_image_link>
-    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202608-e2b50155365b4cef8d0f425c42951a42.jpg</g:additional_image_link>
-    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202608-4503094b0c7f4d6face37276438bca5b.jpg</g:additional_image_link>
-    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202608-a3802ecc37274dcf995595bbf46110a5.jpg</g:additional_image_link>
-    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202608-940edd6d6cdd4f428629f6230e3dcbd9.jpg</g:additional_image_link>
-    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202608-f7c2ccdc5fda4e7285153b2ff07a200e.jpg</g:additional_image_link>
-    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202608-cbf444e4c30541d08ba09832f22622f3.jpg</g:additional_image_link>
-    <g:condition>used</g:condition>
-    <g:price>7450 USD</g:price>
-    <g:availability>in_stock</g:availability>
-    <g:brand>Volkswagen</g:brand>
-    <g:google_product_category>Vehicles &amp; Parts &gt; Vehicles &gt; Motor Vehicles &gt; Cars, Trucks &amp; Vans</g:google_product_category>
-    <g:excluded_destination>Shopping_ads</g:excluded_destination>
-    <g:excluded_destination>Free_listings</g:excluded_destination>
-    <g:vin>WVGBV7AX5HK000196</g:vin>
-    <g:year>2017</g:year>
-    <g:model>Tiguan</g:model>
-    <g:mileage>107615 Miles</g:mileage>
-    <g:store_code>08861907241419503398</g:store_code>
-    <g:vehicle_fulfillment>
-      <g:option>in_store</g:option>
-    </g:vehicle_fulfillment>
-    <g:color>Black</g:color>
-    <g:trim>2.0T S 4Motion</g:trim>
-    <g:body_style>suv</g:body_style>
-    <g:custom_label_0>age_31_60</g:custom_label_0>
-    <g:custom_label_1>suv</g:custom_label_1>
-    <g:custom_label_2>price_under_8k</g:custom_label_2>
-    <g:custom_label_3>cg_good_deal</g:custom_label_3>
-    <g:custom_label_4>awd_4wd</g:custom_label_4>
-    <g:question_and_answer>
-      <g:question>Is this used Volkswagen Tiguan inspected before sale?</g:question>
-      <g:answer>Every car is inspected before it goes on the lot, and a free CARFAX comes with it. Ask Jerry what was checked on any car before you decide.</g:answer>
-    </g:question_and_answer>
-    <g:question_and_answer>
-      <g:question>Does this Volkswagen Tiguan come with a CARFAX report?</g:question>
-      <g:answer>Yes. A CARFAX vehicle history report is included with every used vehicle at Maxim Autos at no extra cost.</g:answer>
-    </g:question_and_answer>
-    <g:question_and_answer>
-      <g:question>Can I get financing on this Volkswagen Tiguan?</g:question>
-      <g:answer>Yes. Maxim Autos offers financing for all credit levels, including first time buyers and those rebuilding credit. Start with the short financing form or a call to Jerry: neither touches your credit. A full application does include a credit check, and approval is never guaranteed.</g:answer>
-    </g:question_and_answer>
-    <g:question_and_answer>
-      <g:question>Are there dealer fees or doc fees on this Volkswagen Tiguan?</g:question>
-      <g:answer>No. Maxim Autos never charges dealer fees. No doc fee, no processing fee, no surprise extras at signing. The listed price is what you pay plus standard Illinois tax, title and license.</g:answer>
-    </g:question_and_answer>
-    <g:question_and_answer>
-      <g:question>Can I drive this Volkswagen Tiguan home the same day?</g:question>
-      <g:answer>Yes. Maxim Autos is an authorized Illinois CVR (Computer Vehicle Registration) electronic registration dealer. Metal plates are issued the same visit for cars registered in Illinois. Buyers registering in another state receive an Illinois drive away permit and plate the car at home.</g:answer>
-    </g:question_and_answer>
-    <g:question_and_answer>
-      <g:question>Is this Volkswagen Tiguan all wheel drive?</g:question>
-      <g:answer>Yes. This 2017 Volkswagen Tiguan 2.0T S 4Motion is all wheel drive (AWD).</g:answer>
-    </g:question_and_answer>
-    <g:question_and_answer>
-      <g:question>What transmission does this Volkswagen Tiguan have?</g:question>
-      <g:answer>This 2017 Volkswagen Tiguan 2.0T S 4Motion has an automatic transmission.</g:answer>
-    </g:question_and_answer>
-    <g:question_and_answer>
-      <g:question>What is the fuel economy of this Volkswagen Tiguan?</g:question>
-      <g:answer>EPA estimated 20 city and 24 highway MPG for this 2017 Volkswagen Tiguan 2.0T S 4Motion.</g:answer>
-    </g:question_and_answer>
-    <g:question_and_answer>
-      <g:question>What engine is in this Volkswagen Tiguan?</g:question>
-      <g:answer>This 2017 Volkswagen Tiguan 2.0T S 4Motion has a 200 hp 2L I4 engine.</g:answer>
-    </g:question_and_answer>
-    <g:question_and_answer>
-      <g:question>Where can I see this Volkswagen Tiguan in person?</g:question>
-      <g:answer>At Maxim Autos, 9101 Terminal Ave, Skokie, IL 60077, serving Evanston, Niles, Morton Grove, Lincolnwood, Des Plaines, Glenview, Wilmette and Park Ridge. Hours: Monday, Tuesday, Thursday and Friday 3 PM to 7 PM, Saturday 10 AM to 3 PM, Wednesday by appointment, Sunday closed. Call or text (847) 510-8947.</g:answer>
-    </g:question_and_answer>
-    <g:question_and_answer>
-      <g:question>Can I trade in my current car toward this Volkswagen Tiguan?</g:question>
       <g:answer>Yes. Maxim Autos accepts trade ins and also buys cars outright. Text the VIN of your car to (847) 510-8947 for a quick offer, no obligation.</g:answer>
     </g:question_and_answer>
     <g:related_product>
