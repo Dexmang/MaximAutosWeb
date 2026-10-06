@@ -1,21 +1,33 @@
 {
-  "last_updated": "2026-10-05T23:32:21.427Z",
+  "last_updated": "2026-10-06T00:00:15.624Z",
   "period": {
-    "start": "2026-09-28",
-    "end": "2026-10-05"
+    "start": "2026-09-29",
+    "end": "2026-10-06"
   },
   "totals": {
     "impressions": 0,
-    "srp_views": 12935,
-    "vdp_views": 620,
+    "srp_views": 10912,
+    "vdp_views": 518,
     "leads_total": 0,
-    "leads_email": 28,
+    "leads_email": 23,
     "leads_phone": 4,
     "leads_chat": 0,
-    "website_clicks": 20,
-    "map_clicks": 10
+    "website_clicks": 15,
+    "map_clicks": 7
   },
   "daily": [
+    {
+      "date": "2026-10-06",
+      "impressions": 0,
+      "srp_views": 0,
+      "vdp_views": 0,
+      "leads_total": 0,
+      "leads_email": 0,
+      "leads_phone": 0,
+      "leads_chat": 0,
+      "website_clicks": 0,
+      "map_clicks": 0
+    },
     {
       "date": "2026-10-05",
       "impressions": 442,
@@ -99,22 +111,16 @@
       "leads_chat": 0,
       "website_clicks": 0,
       "map_clicks": 0
-    },
-    {
-      "date": "2026-09-28",
-      "impressions": 2023,
-      "srp_views": 0,
-      "vdp_views": 0,
-      "leads_total": 5,
-      "leads_email": 0,
-      "leads_phone": 0,
-      "leads_chat": 0,
-      "website_clicks": 0,
-      "map_clicks": 0
     }
   ],
   "raw": {
     "daily_stats": [
+      {
+        "impressions": 0,
+        "leads": 0,
+        "clicks": 0,
+        "date": "2026-10-06"
+      },
       {
         "impressions": 442,
         "leads": 2,
@@ -156,17 +162,11 @@
         "leads": 4,
         "clicks": 103,
         "date": "2026-09-29"
-      },
-      {
-        "impressions": 2023,
-        "leads": 5,
-        "clicks": 102,
-        "date": "2026-09-28"
       }
     ],
-    "leads_email": 28,
-    "srps": 12935,
-    "vdps": 620,
+    "leads_email": 23,
+    "srps": 10912,
+    "vdps": 518,
     "chat_leads": 0,
     "sms_leads": 1,
     "phone_leads": 4,
@@ -174,8 +174,8 @@
     "twitter_clicks": 0,
     "instagram_clicks": 0,
     "printouts": 0,
-    "website_clicks": 20,
-    "map_clicks": 10,
+    "website_clicks": 15,
+    "map_clicks": 7,
     "you_tube_clicks": 0,
     "success": true
   }
