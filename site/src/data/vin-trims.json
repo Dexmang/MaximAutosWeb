@@ -1,6 +1,6 @@
 {
   "source": "pka_hub.db ma_vehicles",
-  "generated_at": "2026-10-06T06:00:04.923Z",
+  "generated_at": "2026-10-07T06:00:04.739Z",
   "by_vin": {
     "JTJBK1BA4E2462410": "AWD",
     "1FMCU0J95HUE21095": "Titanium",
@@ -158,9 +158,9 @@
     "5XYPH4A52JG399000": "EX",
     "1N4BZ1CP2KC320246": "S PLUS",
     "JF1GPAL69E8230098": "2.0I Sport Premium",
-    "5XYPHDA51HG304856": "EX V6 AWD",
+    "5XYPHDA51HG304856": "EX",
     "1FMCU9J9XLUB20237": "Titanium 2.0T AWD",
-    "WA1ECCFS8JR006434": "2.0T Premium quattro",
+    "WA1ECCFS8JR006434": "Premium",
     "JF1GPAC63EH339804": "2.0I Premium hatch AWD"
   }
 }
