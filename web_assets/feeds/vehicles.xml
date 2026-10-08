@@ -4,7 +4,7 @@
   <title>Maxim Autos Vehicle Inventory</title>
   <link>https://www.maximautos.com/</link>
   <description>Used vehicles for sale at Maxim Autos in Skokie, IL 60077. Phone +18475108947.</description>
-  <lastBuildDate>2026-10-08T00:30:15.531Z</lastBuildDate>
+  <lastBuildDate>2026-10-08T01:00:18.624Z</lastBuildDate>
   <item>
     <g:id>1C3CDFBB6ED669896</g:id>
     <g:title>2014 Dodge Dart SXT</g:title>
@@ -267,11 +267,6 @@
     <g:related_product>
       <g:relationship_type>substitute</g:relationship_type>
       <g:identifier_type>id</g:identifier_type>
-      <g:identifier>2GKALMEK3G6308539</g:identifier>
-    </g:related_product>
-    <g:related_product>
-      <g:relationship_type>substitute</g:relationship_type>
-      <g:identifier_type>id</g:identifier_type>
       <g:identifier>3C4PDCBB7GT164698</g:identifier>
     </g:related_product>
     <g:related_product>
@@ -279,105 +274,10 @@
       <g:identifier_type>id</g:identifier_type>
       <g:identifier>5XYPHDA51HG304856</g:identifier>
     </g:related_product>
-  </item>
-  <item>
-    <g:id>2GKALMEK3G6308539</g:id>
-    <g:title>2016 GMC Terrain SLE-1</g:title>
-    <g:description>2016 GMC Terrain SLE: 77,029 miles, sliding rear seats, quiet cabin, 7 inch touchscreen. Black on black, automatic, 2.4L four rated at an EPA estimated 22 city and 32 highway. Low mileage for a 2016 and the 32 highway keeps the running cost down. Key features: Second row seats that slide forward and back so you pick legroom or cargo room, active noise cancellation that keeps the cabin quiet at highway speed, 2.4L four cylinder, 7 inch touchscreen with Bluetooth and USB, standard rearview camera with dynamic guidelines, wide rear doors that make loading a child seat easy, and split folding rear seatbacks. At 77,029 miles this one has plenty of road left in it. The Maxim Autos Difference Independent inspection report included with every vehicle Metal plates issued on the spot, drive home today Transparent pricing, no hidden fees Financing for all credit levels Skokie, IL. Serving Evanston, Niles, Morton Grove, Lincolnwood, Des Plaines and the North Shore Chicago area. Call or text to set up a same day appointment. Every car inspected. Every price transparent. Every car documented.</g:description>
-    <g:link>https://www.maximautos.com/vehicle/2016-gmc-terrain-sle-1-j10241</g:link>
-    <g:link_template>https://www.maximautos.com/vehicle/2016-gmc-terrain-sle-1-j10241?store={store_code}</g:link_template>
-    <g:image_link>https://imagesdl.dealercenter.net/1289/856/202609-da64e46b4aa44cfa80c8d4b988423837.jpg</g:image_link>
-    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202609-a4d068997f8e4d74a26154f8acbc8274.jpg</g:additional_image_link>
-    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202609-325fdfbc2f084d4bb8f0254bd7f1f255.jpg</g:additional_image_link>
-    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202609-1c536c2537f34644b86d8e32a227cac6.jpg</g:additional_image_link>
-    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202609-98af5ea05b4d4b05b95916c4fc9c58c4.jpg</g:additional_image_link>
-    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202609-f38364d688e84d3d8c65af92a5fe87c4.jpg</g:additional_image_link>
-    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202609-14503d7793cc4b4397cf73ebefa921e9.jpg</g:additional_image_link>
-    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202609-de83b4b8376b4442a1ef7f68b58f4143.jpg</g:additional_image_link>
-    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202609-54e81b42158f43448b2f43c1a307850d.jpg</g:additional_image_link>
-    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202609-28351d8156034072a48035ded5c140af.jpg</g:additional_image_link>
-    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202609-2a845f1a02f84ce3b22b987a6d602539.jpg</g:additional_image_link>
-    <g:condition>used</g:condition>
-    <g:price>8950 USD</g:price>
-    <g:availability>in_stock</g:availability>
-    <g:brand>GMC</g:brand>
-    <g:google_product_category>Vehicles &amp; Parts &gt; Vehicles &gt; Motor Vehicles &gt; Cars, Trucks &amp; Vans</g:google_product_category>
-    <g:excluded_destination>Shopping_ads</g:excluded_destination>
-    <g:excluded_destination>Free_listings</g:excluded_destination>
-    <g:vin>2GKALMEK3G6308539</g:vin>
-    <g:year>2016</g:year>
-    <g:model>Terrain</g:model>
-    <g:mileage>77029 Miles</g:mileage>
-    <g:store_code>08861907241419503398</g:store_code>
-    <g:vehicle_fulfillment>
-      <g:option>in_store</g:option>
-    </g:vehicle_fulfillment>
-    <g:color>Black</g:color>
-    <g:trim>SLE-1</g:trim>
-    <g:body_style>suv</g:body_style>
-    <g:custom_label_0>age_31_60</g:custom_label_0>
-    <g:custom_label_1>suv</g:custom_label_1>
-    <g:custom_label_2>price_8k_to_12k</g:custom_label_2>
-    <g:custom_label_3>cg_good_deal</g:custom_label_3>
-    <g:custom_label_4>two_wheel_drive</g:custom_label_4>
-    <g:question_and_answer>
-      <g:question>Is this used GMC Terrain inspected before sale?</g:question>
-      <g:answer>Every car is inspected before it goes on the lot, and a free CARFAX comes with it. Ask Jerry what was checked on any car before you decide.</g:answer>
-    </g:question_and_answer>
-    <g:question_and_answer>
-      <g:question>Does this GMC Terrain come with a CARFAX report?</g:question>
-      <g:answer>Yes. A CARFAX vehicle history report is included with every used vehicle at Maxim Autos at no extra cost.</g:answer>
-    </g:question_and_answer>
-    <g:question_and_answer>
-      <g:question>Can I get financing on this GMC Terrain?</g:question>
-      <g:answer>Yes. Maxim Autos offers financing for all credit levels, including first time buyers and those rebuilding credit. Start with the short financing form or a call to Jerry: neither touches your credit. A full application does include a credit check, and approval is never guaranteed.</g:answer>
-    </g:question_and_answer>
-    <g:question_and_answer>
-      <g:question>Are there dealer fees or doc fees on this GMC Terrain?</g:question>
-      <g:answer>No. Maxim Autos never charges dealer fees. No doc fee, no processing fee, no surprise extras at signing. The listed price is what you pay plus standard Illinois tax, title and license.</g:answer>
-    </g:question_and_answer>
-    <g:question_and_answer>
-      <g:question>Can I drive this GMC Terrain home the same day?</g:question>
-      <g:answer>Yes. Maxim Autos is an authorized Illinois CVR (Computer Vehicle Registration) electronic registration dealer. Metal plates are issued the same visit for cars registered in Illinois. Buyers registering in another state receive an Illinois drive away permit and plate the car at home.</g:answer>
-    </g:question_and_answer>
-    <g:question_and_answer>
-      <g:question>Is this GMC Terrain all wheel drive?</g:question>
-      <g:answer>No. This 2016 GMC Terrain SLE-1 is front wheel drive.</g:answer>
-    </g:question_and_answer>
-    <g:question_and_answer>
-      <g:question>What transmission does this GMC Terrain have?</g:question>
-      <g:answer>This 2016 GMC Terrain SLE-1 has an automatic transmission.</g:answer>
-    </g:question_and_answer>
-    <g:question_and_answer>
-      <g:question>What is the fuel economy of this GMC Terrain?</g:question>
-      <g:answer>EPA estimated 22 city and 32 highway MPG for this 2016 GMC Terrain SLE-1.</g:answer>
-    </g:question_and_answer>
-    <g:question_and_answer>
-      <g:question>What engine is in this GMC Terrain?</g:question>
-      <g:answer>This 2016 GMC Terrain SLE-1 has a 2.4L I4 engine.</g:answer>
-    </g:question_and_answer>
-    <g:question_and_answer>
-      <g:question>Where can I see this GMC Terrain in person?</g:question>
-      <g:answer>At Maxim Autos, 9101 Terminal Ave, Skokie, IL 60077, serving Evanston, Niles, Morton Grove, Lincolnwood, Des Plaines, Glenview, Wilmette and Park Ridge. Hours: Monday, Tuesday, Thursday and Friday 3 PM to 7 PM, Saturday 10 AM to 3 PM, Wednesday by appointment, Sunday closed. Call or text (847) 510-8947.</g:answer>
-    </g:question_and_answer>
-    <g:question_and_answer>
-      <g:question>Can I trade in my current car toward this GMC Terrain?</g:question>
-      <g:answer>Yes. Maxim Autos accepts trade ins and also buys cars outright. Text the VIN of your car to (847) 510-8947 for a quick offer, no obligation.</g:answer>
-    </g:question_and_answer>
     <g:related_product>
       <g:relationship_type>substitute</g:relationship_type>
       <g:identifier_type>id</g:identifier_type>
-      <g:identifier>2FMPK3J96GBC56381</g:identifier>
-    </g:related_product>
-    <g:related_product>
-      <g:relationship_type>substitute</g:relationship_type>
-      <g:identifier_type>id</g:identifier_type>
-      <g:identifier>3C4PDCBB7GT164698</g:identifier>
-    </g:related_product>
-    <g:related_product>
-      <g:relationship_type>substitute</g:relationship_type>
-      <g:identifier_type>id</g:identifier_type>
-      <g:identifier>5XYPHDA51HG304856</g:identifier>
+      <g:identifier>5N1AZ2MH6FN251280</g:identifier>
     </g:related_product>
   </item>
   <item>
@@ -472,12 +372,12 @@
     <g:related_product>
       <g:relationship_type>substitute</g:relationship_type>
       <g:identifier_type>id</g:identifier_type>
-      <g:identifier>2GKALMEK3G6308539</g:identifier>
+      <g:identifier>KNDJN2A23F7202591</g:identifier>
     </g:related_product>
     <g:related_product>
       <g:relationship_type>substitute</g:relationship_type>
       <g:identifier_type>id</g:identifier_type>
-      <g:identifier>KNDJN2A23F7202591</g:identifier>
+      <g:identifier>5XYPHDA51HG304856</g:identifier>
     </g:related_product>
   </item>
   <item>
@@ -1115,7 +1015,7 @@
     <g:related_product>
       <g:relationship_type>substitute</g:relationship_type>
       <g:identifier_type>id</g:identifier_type>
-      <g:identifier>2GKALMEK3G6308539</g:identifier>
+      <g:identifier>5XYPHDA51HG304856</g:identifier>
     </g:related_product>
   </item>
   <item>
