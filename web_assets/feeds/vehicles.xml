@@ -4,7 +4,7 @@
   <title>Maxim Autos Vehicle Inventory</title>
   <link>https://www.maximautos.com/</link>
   <description>Used vehicles for sale at Maxim Autos in Skokie, IL 60077. Phone +18475108947.</description>
-  <lastBuildDate>2026-10-09T19:00:20.753Z</lastBuildDate>
+  <lastBuildDate>2026-10-09T19:30:15.855Z</lastBuildDate>
   <item>
     <g:id>1C3CDFBB6ED669896</g:id>
     <g:title>2014 Dodge Dart SXT</g:title>
@@ -133,7 +133,7 @@
     <g:custom_label_0>age_31_60</g:custom_label_0>
     <g:custom_label_1>full_size_van</g:custom_label_1>
     <g:custom_label_2>price_12k_plus</g:custom_label_2>
-    <g:custom_label_3>cg_good_deal</g:custom_label_3>
+    <g:custom_label_3>cg_unrated</g:custom_label_3>
     <g:custom_label_4>two_wheel_drive</g:custom_label_4>
     <g:question_and_answer>
       <g:question>Is this used Chrysler Pacifica inspected before sale?</g:question>
@@ -318,7 +318,7 @@
     <g:custom_label_0>age_31_60</g:custom_label_0>
     <g:custom_label_1>suv</g:custom_label_1>
     <g:custom_label_2>price_under_8k</g:custom_label_2>
-    <g:custom_label_3>cg_good_deal</g:custom_label_3>
+    <g:custom_label_3>cg_unrated</g:custom_label_3>
     <g:custom_label_4>two_wheel_drive</g:custom_label_4>
     <g:question_and_answer>
       <g:question>Is this used Dodge Journey inspected before sale?</g:question>
@@ -418,7 +418,7 @@
     <g:custom_label_0>age_0_30</g:custom_label_0>
     <g:custom_label_1>suv</g:custom_label_1>
     <g:custom_label_2>price_8k_to_12k</g:custom_label_2>
-    <g:custom_label_3>cg_fair_deal</g:custom_label_3>
+    <g:custom_label_3>cg_unrated</g:custom_label_3>
     <g:custom_label_4>awd_4wd</g:custom_label_4>
     <g:question_and_answer>
       <g:question>Is this used Nissan Murano inspected before sale?</g:question>
@@ -518,7 +518,7 @@
     <g:custom_label_0>age_0_30</g:custom_label_0>
     <g:custom_label_1>suv</g:custom_label_1>
     <g:custom_label_2>price_8k_to_12k</g:custom_label_2>
-    <g:custom_label_3>cg_overpriced</g:custom_label_3>
+    <g:custom_label_3>cg_unrated</g:custom_label_3>
     <g:custom_label_4>two_wheel_drive</g:custom_label_4>
     <g:question_and_answer>
       <g:question>Is this used Kia Sorento inspected before sale?</g:question>
@@ -618,7 +618,7 @@
     <g:custom_label_0>age_0_30</g:custom_label_0>
     <g:custom_label_1>suv</g:custom_label_1>
     <g:custom_label_2>price_8k_to_12k</g:custom_label_2>
-    <g:custom_label_3>cg_fair_deal</g:custom_label_3>
+    <g:custom_label_3>cg_unrated</g:custom_label_3>
     <g:custom_label_4>awd_4wd</g:custom_label_4>
     <g:question_and_answer>
       <g:question>Is this used Kia Sorento inspected before sale?</g:question>
@@ -965,7 +965,7 @@
     <g:custom_label_0>age_61_plus</g:custom_label_0>
     <g:custom_label_1>suv</g:custom_label_1>
     <g:custom_label_2>price_under_8k</g:custom_label_2>
-    <g:custom_label_3>cg_good_deal</g:custom_label_3>
+    <g:custom_label_3>cg_unrated</g:custom_label_3>
     <g:question_and_answer>
       <g:question>Is this used Kia Soul inspected before sale?</g:question>
       <g:answer>Every car is inspected before it goes on the lot, and a free CARFAX comes with it. Ask Jerry what was checked on any car before you decide.</g:answer>
@@ -1056,7 +1056,7 @@
     <g:custom_label_0>age_0_30</g:custom_label_0>
     <g:custom_label_1>suv</g:custom_label_1>
     <g:custom_label_2>price_12k_plus</g:custom_label_2>
-    <g:custom_label_3>cg_overpriced</g:custom_label_3>
+    <g:custom_label_3>cg_unrated</g:custom_label_3>
     <g:question_and_answer>
       <g:question>Is this used Audi Q3 inspected before sale?</g:question>
       <g:answer>Every car is inspected before it goes on the lot, and a free CARFAX comes with it. Ask Jerry what was checked on any car before you decide.</g:answer>
