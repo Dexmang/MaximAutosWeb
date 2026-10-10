@@ -4,7 +4,7 @@
   <title>Maxim Autos Vehicle Inventory</title>
   <link>https://www.maximautos.com/</link>
   <description>Used vehicles for sale at Maxim Autos in Skokie, IL 60077. Phone +18475108947.</description>
-  <lastBuildDate>2026-10-10T00:30:17.804Z</lastBuildDate>
+  <lastBuildDate>2026-10-10T01:00:21.274Z</lastBuildDate>
   <item>
     <g:id>1C3CDFBB6ED669896</g:id>
     <g:title>2014 Dodge Dart SXT</g:title>
@@ -89,11 +89,6 @@
       <g:question>Can I trade in my current car toward this Dodge Dart?</g:question>
       <g:answer>Yes. Maxim Autos accepts trade ins and also buys cars outright. Text the VIN of your car to (847) 510-8947 for a quick offer, no obligation.</g:answer>
     </g:question_and_answer>
-    <g:related_product>
-      <g:relationship_type>substitute</g:relationship_type>
-      <g:identifier_type>id</g:identifier_type>
-      <g:identifier>KMHDH4AE6GU489451</g:identifier>
-    </g:related_product>
   </item>
   <item>
     <g:id>2C4RC1BG0LR133382</g:id>
@@ -113,7 +108,7 @@
     <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202609-9061344fb8b84aebaf0984b5d474ef8c.jpg</g:additional_image_link>
     <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202609-3e56e56c997741f5bc49bcb084d65fd4.jpg</g:additional_image_link>
     <g:condition>used</g:condition>
-    <g:price>12450 USD</g:price>
+    <g:price>11950 USD</g:price>
     <g:availability>in_stock</g:availability>
     <g:brand>Chrysler</g:brand>
     <g:google_product_category>Vehicles &amp; Parts &gt; Vehicles &gt; Motor Vehicles &gt; Cars, Trucks &amp; Vans</g:google_product_category>
@@ -132,8 +127,8 @@
     <g:body_style>full_size_van</g:body_style>
     <g:custom_label_0>age_31_60</g:custom_label_0>
     <g:custom_label_1>full_size_van</g:custom_label_1>
-    <g:custom_label_2>price_12k_plus</g:custom_label_2>
-    <g:custom_label_3>cg_unrated</g:custom_label_3>
+    <g:custom_label_2>price_8k_to_12k</g:custom_label_2>
+    <g:custom_label_3>cg_great_deal</g:custom_label_3>
     <g:custom_label_4>two_wheel_drive</g:custom_label_4>
     <g:question_and_answer>
       <g:question>Is this used Chrysler Pacifica inspected before sale?</g:question>
@@ -198,7 +193,7 @@
     <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202609-02a04d1599a043008cfa76ac84b043a8.jpg</g:additional_image_link>
     <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202609-ed313a82aa554c1da277dfbcfc0d66fe.jpg</g:additional_image_link>
     <g:condition>used</g:condition>
-    <g:price>8950 USD</g:price>
+    <g:price>8450 USD</g:price>
     <g:availability>in_stock</g:availability>
     <g:brand>Ford</g:brand>
     <g:google_product_category>Vehicles &amp; Parts &gt; Vehicles &gt; Motor Vehicles &gt; Cars, Trucks &amp; Vans</g:google_product_category>
@@ -218,7 +213,7 @@
     <g:custom_label_0>age_0_30</g:custom_label_0>
     <g:custom_label_1>suv</g:custom_label_1>
     <g:custom_label_2>price_8k_to_12k</g:custom_label_2>
-    <g:custom_label_3>cg_unrated</g:custom_label_3>
+    <g:custom_label_3>cg_great_deal</g:custom_label_3>
     <g:custom_label_4>two_wheel_drive</g:custom_label_4>
     <g:question_and_answer>
       <g:question>Is this used Ford Edge inspected before sale?</g:question>
@@ -277,7 +272,7 @@
     <g:related_product>
       <g:relationship_type>substitute</g:relationship_type>
       <g:identifier_type>id</g:identifier_type>
-      <g:identifier>5N1AZ2MH6FN251280</g:identifier>
+      <g:identifier>5XYPH4A52JG399000</g:identifier>
     </g:related_product>
   </item>
   <item>
@@ -298,7 +293,7 @@
     <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202609-6977dac1c5eb4dcc9fa873f630d8e5d4.jpg</g:additional_image_link>
     <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202609-410d54e472b044a3b1c57ec28ab46bc2.jpg</g:additional_image_link>
     <g:condition>used</g:condition>
-    <g:price>7950 USD</g:price>
+    <g:price>7450 USD</g:price>
     <g:availability>in_stock</g:availability>
     <g:brand>Dodge</g:brand>
     <g:google_product_category>Vehicles &amp; Parts &gt; Vehicles &gt; Motor Vehicles &gt; Cars, Trucks &amp; Vans</g:google_product_category>
@@ -318,7 +313,7 @@
     <g:custom_label_0>age_31_60</g:custom_label_0>
     <g:custom_label_1>suv</g:custom_label_1>
     <g:custom_label_2>price_under_8k</g:custom_label_2>
-    <g:custom_label_3>cg_unrated</g:custom_label_3>
+    <g:custom_label_3>cg_good_deal</g:custom_label_3>
     <g:custom_label_4>two_wheel_drive</g:custom_label_4>
     <g:question_and_answer>
       <g:question>Is this used Dodge Journey inspected before sale?</g:question>
@@ -398,7 +393,7 @@
     <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202609-5d773ad08bd94b379b9efdca1b1ce3a7.jpg</g:additional_image_link>
     <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202609-354ef937220f4cdaa3b25a1e1541d060.jpg</g:additional_image_link>
     <g:condition>used</g:condition>
-    <g:price>11850 USD</g:price>
+    <g:price>11450 USD</g:price>
     <g:availability>in_stock</g:availability>
     <g:brand>Nissan</g:brand>
     <g:google_product_category>Vehicles &amp; Parts &gt; Vehicles &gt; Motor Vehicles &gt; Cars, Trucks &amp; Vans</g:google_product_category>
@@ -418,7 +413,7 @@
     <g:custom_label_0>age_0_30</g:custom_label_0>
     <g:custom_label_1>suv</g:custom_label_1>
     <g:custom_label_2>price_8k_to_12k</g:custom_label_2>
-    <g:custom_label_3>cg_unrated</g:custom_label_3>
+    <g:custom_label_3>cg_good_deal</g:custom_label_3>
     <g:custom_label_4>awd_4wd</g:custom_label_4>
     <g:question_and_answer>
       <g:question>Is this used Nissan Murano inspected before sale?</g:question>
@@ -467,12 +462,12 @@
     <g:related_product>
       <g:relationship_type>substitute</g:relationship_type>
       <g:identifier_type>id</g:identifier_type>
-      <g:identifier>5XYPH4A52JG399000</g:identifier>
+      <g:identifier>WA1ECCFS8JR006434</g:identifier>
     </g:related_product>
     <g:related_product>
       <g:relationship_type>substitute</g:relationship_type>
       <g:identifier_type>id</g:identifier_type>
-      <g:identifier>WA1ECCFS8JR006434</g:identifier>
+      <g:identifier>5XYPH4A52JG399000</g:identifier>
     </g:related_product>
     <g:related_product>
       <g:relationship_type>substitute</g:relationship_type>
@@ -498,7 +493,7 @@
     <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202609-966b6058e6c14d7c90f26de4571a24d6.jpg</g:additional_image_link>
     <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202609-ab8f858ef2024e36bb30cb887f94f05b.jpg</g:additional_image_link>
     <g:condition>used</g:condition>
-    <g:price>11995 USD</g:price>
+    <g:price>10350 USD</g:price>
     <g:availability>in_stock</g:availability>
     <g:brand>Kia</g:brand>
     <g:google_product_category>Vehicles &amp; Parts &gt; Vehicles &gt; Motor Vehicles &gt; Cars, Trucks &amp; Vans</g:google_product_category>
@@ -518,7 +513,7 @@
     <g:custom_label_0>age_0_30</g:custom_label_0>
     <g:custom_label_1>suv</g:custom_label_1>
     <g:custom_label_2>price_8k_to_12k</g:custom_label_2>
-    <g:custom_label_3>cg_unrated</g:custom_label_3>
+    <g:custom_label_3>cg_fair_deal</g:custom_label_3>
     <g:custom_label_4>two_wheel_drive</g:custom_label_4>
     <g:question_and_answer>
       <g:question>Is this used Kia Sorento inspected before sale?</g:question>
@@ -567,7 +562,7 @@
     <g:related_product>
       <g:relationship_type>substitute</g:relationship_type>
       <g:identifier_type>id</g:identifier_type>
-      <g:identifier>5N1AZ2MH6FN251280</g:identifier>
+      <g:identifier>5XYPHDA51HG304856</g:identifier>
     </g:related_product>
     <g:related_product>
       <g:relationship_type>substitute</g:relationship_type>
@@ -577,7 +572,7 @@
     <g:related_product>
       <g:relationship_type>substitute</g:relationship_type>
       <g:identifier_type>id</g:identifier_type>
-      <g:identifier>5XYPHDA51HG304856</g:identifier>
+      <g:identifier>5N1AZ2MH6FN251280</g:identifier>
     </g:related_product>
   </item>
   <item>
@@ -598,7 +593,7 @@
     <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202610-842074024ee945b09d07bbb2800e553b.jpg</g:additional_image_link>
     <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202610-e3a2035135824b01a2ff45e013b747d2.jpg</g:additional_image_link>
     <g:condition>used</g:condition>
-    <g:price>10495 USD</g:price>
+    <g:price>9750 USD</g:price>
     <g:availability>in_stock</g:availability>
     <g:brand>Kia</g:brand>
     <g:google_product_category>Vehicles &amp; Parts &gt; Vehicles &gt; Motor Vehicles &gt; Cars, Trucks &amp; Vans</g:google_product_category>
@@ -618,7 +613,7 @@
     <g:custom_label_0>age_0_30</g:custom_label_0>
     <g:custom_label_1>suv</g:custom_label_1>
     <g:custom_label_2>price_8k_to_12k</g:custom_label_2>
-    <g:custom_label_3>cg_unrated</g:custom_label_3>
+    <g:custom_label_3>cg_fair_deal</g:custom_label_3>
     <g:custom_label_4>awd_4wd</g:custom_label_4>
     <g:question_and_answer>
       <g:question>Is this used Kia Sorento inspected before sale?</g:question>
@@ -663,12 +658,12 @@
     <g:related_product>
       <g:relationship_type>substitute</g:relationship_type>
       <g:identifier_type>id</g:identifier_type>
-      <g:identifier>5N1AZ2MH6FN251280</g:identifier>
+      <g:identifier>5XYPH4A52JG399000</g:identifier>
     </g:related_product>
     <g:related_product>
       <g:relationship_type>substitute</g:relationship_type>
       <g:identifier_type>id</g:identifier_type>
-      <g:identifier>5XYPH4A52JG399000</g:identifier>
+      <g:identifier>WA1ECCFS8JR006434</g:identifier>
     </g:related_product>
     <g:related_product>
       <g:relationship_type>substitute</g:relationship_type>
@@ -784,7 +779,7 @@
     <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202609-ccc797f4bde542f4940a996488bf76dc.jpg</g:additional_image_link>
     <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202609-a7fa57816c9b4d93969d1ecfb69b4745.jpg</g:additional_image_link>
     <g:condition>used</g:condition>
-    <g:price>8995 USD</g:price>
+    <g:price>8450 USD</g:price>
     <g:availability>in_stock</g:availability>
     <g:brand>Mazda</g:brand>
     <g:google_product_category>Vehicles &amp; Parts &gt; Vehicles &gt; Motor Vehicles &gt; Cars, Trucks &amp; Vans</g:google_product_category>
@@ -804,7 +799,7 @@
     <g:custom_label_0>age_0_30</g:custom_label_0>
     <g:custom_label_1>station_wagon</g:custom_label_1>
     <g:custom_label_2>price_8k_to_12k</g:custom_label_2>
-    <g:custom_label_3>cg_fair_deal</g:custom_label_3>
+    <g:custom_label_3>cg_unrated</g:custom_label_3>
     <g:question_and_answer>
       <g:question>Is this used Mazda Mazda5 inspected before sale?</g:question>
       <g:answer>Every car is inspected before it goes on the lot, and a free CARFAX comes with it. Ask Jerry what was checked on any car before you decide.</g:answer>
@@ -848,87 +843,6 @@
     </g:related_product>
   </item>
   <item>
-    <g:id>KMHDH4AE6GU489451</g:id>
-    <g:title>2016 Hyundai Elantra Value Edition</g:title>
-    <g:description>The Value Edition was the sweet spot of the 2016 Elantra lineup, and this one reads 96,503 miles, well under most of what is listed locally in the same year and trim. It runs the 1.8 liter four cylinder with the six speed Shiftronic automatic, driving the front wheels. Value Edition is where Hyundai loaded in the equipment that normally costs extra: a power glass sunroof, heated front seats, a backup camera, keyless entry with keyless start, alloy wheels, and fog lights. On top of that you get air conditioning, cruise control, power windows and power door locks, Bluetooth, SiriusXM satellite radio alongside the AM/FM and CD system, an alarm system, and a tilt and telescoping steering wheel. Safety coverage includes hill start assist control, electronic stability control, traction control, four wheel ABS, and dual, side, and full length head curtain air bags. Finished in red over a black interior. The Maxim Autos Difference Independent inspection report included with every vehicle Metal plates issued the same day so you can drive home today Transparent pricing, no hidden fees Financing for all credit levels Located in Skokie, IL, serving Evanston, Niles, Morton Grove, Lincolnwood, Des Plaines, and the entire North Shore Chicago corridor. Visit or call for a same day appointment. Every car inspected. Every price transparent. Every car documented.</g:description>
-    <g:link>https://www.maximautos.com/vehicle/2016-hyundai-elantra-se-value-edition-sport-limited-j10224</g:link>
-    <g:link_template>https://www.maximautos.com/vehicle/2016-hyundai-elantra-se-value-edition-sport-limited-j10224?store={store_code}</g:link_template>
-    <g:image_link>https://imagesdl.dealercenter.net/1289/856/202609-2f03154bfd1f4f44b800847b269166b1.jpg</g:image_link>
-    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202609-5cbdba4f260f49c496516da04f0c0348.jpg</g:additional_image_link>
-    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202609-6e4f92068d3943d9895a8323ef509826.jpg</g:additional_image_link>
-    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202609-a9d2071adb1d42c7af0c7245b928789e.jpg</g:additional_image_link>
-    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202609-746775561d0e4a51a3960321cc3e69d9.jpg</g:additional_image_link>
-    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202609-02addef71b6e4dfea212e463ffbc22dd.jpg</g:additional_image_link>
-    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202609-114d6c216c244f5f92490720cd059e43.jpg</g:additional_image_link>
-    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202609-c30aabfb926d4e62ac354045b0964569.jpg</g:additional_image_link>
-    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202609-44bee3f90f414aaaa4a04ca5b5a271ed.jpg</g:additional_image_link>
-    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202609-1ff4c0e0835f469ba78959cdf5fb5246.jpg</g:additional_image_link>
-    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202609-f0c277211e984188b96926d254326c90.jpg</g:additional_image_link>
-    <g:condition>used</g:condition>
-    <g:price>7450 USD</g:price>
-    <g:availability>in_stock</g:availability>
-    <g:brand>Hyundai</g:brand>
-    <g:google_product_category>Vehicles &amp; Parts &gt; Vehicles &gt; Motor Vehicles &gt; Cars, Trucks &amp; Vans</g:google_product_category>
-    <g:excluded_destination>Shopping_ads</g:excluded_destination>
-    <g:excluded_destination>Free_listings</g:excluded_destination>
-    <g:vin>KMHDH4AE6GU489451</g:vin>
-    <g:year>2016</g:year>
-    <g:model>Elantra</g:model>
-    <g:mileage>96503 Miles</g:mileage>
-    <g:store_code>08861907241419503398</g:store_code>
-    <g:vehicle_fulfillment>
-      <g:option>in_store</g:option>
-    </g:vehicle_fulfillment>
-    <g:color>Red</g:color>
-    <g:trim>Value Edition</g:trim>
-    <g:body_style>sedan</g:body_style>
-    <g:custom_label_0>age_61_plus</g:custom_label_0>
-    <g:custom_label_1>sedan</g:custom_label_1>
-    <g:custom_label_2>price_under_8k</g:custom_label_2>
-    <g:custom_label_3>cg_great_deal</g:custom_label_3>
-    <g:question_and_answer>
-      <g:question>Is this used Hyundai Elantra inspected before sale?</g:question>
-      <g:answer>Every car is inspected before it goes on the lot, and a free CARFAX comes with it. Ask Jerry what was checked on any car before you decide.</g:answer>
-    </g:question_and_answer>
-    <g:question_and_answer>
-      <g:question>Does this Hyundai Elantra come with a CARFAX report?</g:question>
-      <g:answer>Yes. A CARFAX vehicle history report is included with every used vehicle at Maxim Autos at no extra cost.</g:answer>
-    </g:question_and_answer>
-    <g:question_and_answer>
-      <g:question>Can I get financing on this Hyundai Elantra?</g:question>
-      <g:answer>Yes. Maxim Autos offers financing for all credit levels, including first time buyers and those rebuilding credit. Start with the short financing form or a call to Jerry: neither touches your credit. A full application does include a credit check, and approval is never guaranteed.</g:answer>
-    </g:question_and_answer>
-    <g:question_and_answer>
-      <g:question>Are there dealer fees or doc fees on this Hyundai Elantra?</g:question>
-      <g:answer>No. Maxim Autos never charges dealer fees. No doc fee, no processing fee, no surprise extras at signing. The listed price is what you pay plus standard Illinois tax, title and license.</g:answer>
-    </g:question_and_answer>
-    <g:question_and_answer>
-      <g:question>Can I drive this Hyundai Elantra home the same day?</g:question>
-      <g:answer>Yes. Maxim Autos is an authorized Illinois CVR (Computer Vehicle Registration) electronic registration dealer. Metal plates are issued the same visit for cars registered in Illinois. Buyers registering in another state receive an Illinois drive away permit and plate the car at home.</g:answer>
-    </g:question_and_answer>
-    <g:question_and_answer>
-      <g:question>What transmission does this Hyundai Elantra have?</g:question>
-      <g:answer>This 2016 Hyundai Elantra Value Edition has an automatic transmission.</g:answer>
-    </g:question_and_answer>
-    <g:question_and_answer>
-      <g:question>What engine is in this Hyundai Elantra?</g:question>
-      <g:answer>This 2016 Hyundai Elantra Value Edition has a 145 hp 1.8L I4 engine.</g:answer>
-    </g:question_and_answer>
-    <g:question_and_answer>
-      <g:question>Where can I see this Hyundai Elantra in person?</g:question>
-      <g:answer>At Maxim Autos, 9101 Terminal Ave, Skokie, IL 60077, serving Evanston, Niles, Morton Grove, Lincolnwood, Des Plaines, Glenview, Wilmette and Park Ridge. Hours: Monday, Tuesday, Thursday and Friday 3 PM to 7 PM, Saturday 10 AM to 3 PM, Wednesday by appointment, Sunday closed. Call or text (847) 510-8947.</g:answer>
-    </g:question_and_answer>
-    <g:question_and_answer>
-      <g:question>Can I trade in my current car toward this Hyundai Elantra?</g:question>
-      <g:answer>Yes. Maxim Autos accepts trade ins and also buys cars outright. Text the VIN of your car to (847) 510-8947 for a quick offer, no obligation.</g:answer>
-    </g:question_and_answer>
-    <g:related_product>
-      <g:relationship_type>substitute</g:relationship_type>
-      <g:identifier_type>id</g:identifier_type>
-      <g:identifier>1C3CDFBB6ED669896</g:identifier>
-    </g:related_product>
-  </item>
-  <item>
     <g:id>KNDJN2A23F7202591</g:id>
     <g:title>2015 Kia Soul</g:title>
     <g:description>This 2015 Kia Soul comes with the six speed manual gearbox, which makes it a genuinely rare find on a used lot and an easy call for anyone who would rather shift for themselves. The odometer reads 94,489 miles. The 1.6 liter four cylinder sends power to the front wheels through that manual transmission. Equipment includes air conditioning, cruise control, power windows and power door locks, Bluetooth, SiriusXM satellite radio alongside the AM/FM stereo, a tilt and telescoping steering wheel, and alloy wheels. Safety coverage includes hill start assist control, electronic stability control, traction control, four wheel ABS, and dual, side, and head curtain air bags. It is finished in gray over a black interior, in the boxy Soul shape that swallows far more cargo than its footprint suggests. The Maxim Autos Difference Independent inspection report included with every vehicle Metal plates issued the same day so you can drive home today Transparent pricing, no hidden fees Financing for all credit levels Located in Skokie, IL, serving Evanston, Niles, Morton Grove, Lincolnwood, Des Plaines, and the entire North Shore Chicago corridor. Visit or call for a same day appointment. Every car inspected. Every price transparent. Every car documented.</g:description>
@@ -946,7 +860,7 @@
     <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202609-0959353f0bd446e6bdd3189f85d3ac27.jpg</g:additional_image_link>
     <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202609-1a7ddf2fc91944db8dd8c7c896570e75.jpg</g:additional_image_link>
     <g:condition>used</g:condition>
-    <g:price>5950 USD</g:price>
+    <g:price>5450 USD</g:price>
     <g:availability>in_stock</g:availability>
     <g:brand>Kia</g:brand>
     <g:google_product_category>Vehicles &amp; Parts &gt; Vehicles &gt; Motor Vehicles &gt; Cars, Trucks &amp; Vans</g:google_product_category>
@@ -965,7 +879,7 @@
     <g:custom_label_0>age_61_plus</g:custom_label_0>
     <g:custom_label_1>suv</g:custom_label_1>
     <g:custom_label_2>price_under_8k</g:custom_label_2>
-    <g:custom_label_3>cg_unrated</g:custom_label_3>
+    <g:custom_label_3>cg_great_deal</g:custom_label_3>
     <g:question_and_answer>
       <g:question>Is this used Kia Soul inspected before sale?</g:question>
       <g:answer>Every car is inspected before it goes on the lot, and a free CARFAX comes with it. Ask Jerry what was checked on any car before you decide.</g:answer>
@@ -1036,7 +950,7 @@
     <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202610-1e48a03156c541eb8fe408b1d499e404.jpg</g:additional_image_link>
     <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202610-2e2e85ff8ab746988a9a022f67153e7c.jpg</g:additional_image_link>
     <g:condition>used</g:condition>
-    <g:price>12995 USD</g:price>
+    <g:price>10950 USD</g:price>
     <g:availability>in_stock</g:availability>
     <g:brand>Audi</g:brand>
     <g:google_product_category>Vehicles &amp; Parts &gt; Vehicles &gt; Motor Vehicles &gt; Cars, Trucks &amp; Vans</g:google_product_category>
@@ -1055,8 +969,8 @@
     <g:body_style>suv</g:body_style>
     <g:custom_label_0>age_0_30</g:custom_label_0>
     <g:custom_label_1>suv</g:custom_label_1>
-    <g:custom_label_2>price_12k_plus</g:custom_label_2>
-    <g:custom_label_3>cg_unrated</g:custom_label_3>
+    <g:custom_label_2>price_8k_to_12k</g:custom_label_2>
+    <g:custom_label_3>cg_good_deal</g:custom_label_3>
     <g:question_and_answer>
       <g:question>Is this used Audi Q3 inspected before sale?</g:question>
       <g:answer>Every car is inspected before it goes on the lot, and a free CARFAX comes with it. Ask Jerry what was checked on any car before you decide.</g:answer>
@@ -1100,12 +1014,12 @@
     <g:related_product>
       <g:relationship_type>substitute</g:relationship_type>
       <g:identifier_type>id</g:identifier_type>
-      <g:identifier>5XYPH4A52JG399000</g:identifier>
+      <g:identifier>5N1AZ2MH6FN251280</g:identifier>
     </g:related_product>
     <g:related_product>
       <g:relationship_type>substitute</g:relationship_type>
       <g:identifier_type>id</g:identifier_type>
-      <g:identifier>5N1AZ2MH6FN251280</g:identifier>
+      <g:identifier>5XYPH4A52JG399000</g:identifier>
     </g:related_product>
     <g:related_product>
       <g:relationship_type>substitute</g:relationship_type>
