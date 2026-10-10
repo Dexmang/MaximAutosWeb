@@ -1,15 +1,15 @@
 {
-  "last_updated": "2026-10-09T22:04:44.290Z",
+  "last_updated": "2026-10-10T00:00:14.676Z",
   "period": {
-    "start": "2026-10-02",
-    "end": "2026-10-09"
+    "start": "2026-10-03",
+    "end": "2026-10-10"
   },
   "totals": {
     "impressions": 0,
-    "srp_views": 5634,
-    "vdp_views": 426,
+    "srp_views": 4418,
+    "vdp_views": 361,
     "leads_total": 0,
-    "leads_email": 12,
+    "leads_email": 9,
     "leads_phone": 2,
     "leads_chat": 0,
     "website_clicks": 12,
@@ -17,8 +17,20 @@
   },
   "daily": [
     {
+      "date": "2026-10-10",
+      "impressions": 0,
+      "srp_views": 0,
+      "vdp_views": 0,
+      "leads_total": 0,
+      "leads_email": 0,
+      "leads_phone": 0,
+      "leads_chat": 0,
+      "website_clicks": 0,
+      "map_clicks": 0
+    },
+    {
       "date": "2026-10-09",
-      "impressions": 371,
+      "impressions": 421,
       "srp_views": 0,
       "vdp_views": 0,
       "leads_total": 1,
@@ -99,26 +111,20 @@
       "leads_chat": 0,
       "website_clicks": 0,
       "map_clicks": 0
-    },
-    {
-      "date": "2026-10-02",
-      "impressions": 1266,
-      "srp_views": 0,
-      "vdp_views": 0,
-      "leads_total": 3,
-      "leads_email": 0,
-      "leads_phone": 0,
-      "leads_chat": 0,
-      "website_clicks": 0,
-      "map_clicks": 0
     }
   ],
   "raw": {
     "daily_stats": [
       {
-        "impressions": 371,
+        "impressions": 0,
+        "leads": 0,
+        "clicks": 0,
+        "date": "2026-10-10"
+      },
+      {
+        "impressions": 421,
         "leads": 1,
-        "clicks": 27,
+        "clicks": 34,
         "date": "2026-10-09"
       },
       {
@@ -156,19 +162,13 @@
         "leads": 1,
         "clicks": 89,
         "date": "2026-10-03"
-      },
-      {
-        "impressions": 1266,
-        "leads": 3,
-        "clicks": 72,
-        "date": "2026-10-02"
       }
     ],
-    "leads_email": 12,
-    "srps": 5634,
-    "vdps": 426,
+    "leads_email": 9,
+    "srps": 4418,
+    "vdps": 361,
     "chat_leads": 0,
-    "sms_leads": 1,
+    "sms_leads": 0,
     "phone_leads": 2,
     "facebook_clicks": 0,
     "twitter_clicks": 0,
