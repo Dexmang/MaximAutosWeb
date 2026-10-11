@@ -64,6 +64,13 @@ const dealBadge = dealRating ? (DEAL_BADGE[dealRating] || null) : null;
 // restate in Maxim's own markup (R1-15). The badge label alone, attributed, stays.
 const title = [year, make, model, trim].filter(Boolean).join(' ');
 
+// AWD / 4WD gets its own badge on the photo (2026-10-11). Chicago winters make it a
+// buying reason, and until now it only appeared in the gray spec line under the
+// title, in whatever spelling the VIN decoder used. Stacked under INSPECTED so it
+// never covers the hero overlay DealerCenter burns into photo[0].
+const awdMatch = /\b(awd|4wd|4x4)\b/i.exec(drivetrain || '');
+const awdLabel = awdMatch ? awdMatch[1].toUpperCase() : null;
+
 // Use CDN URL if available, fall back to local path, or null if no valid source
 const localThumb = photoPath ? `${base}/${photoPath}/thumb/${photoPrefix}-photo-exterior-maxim-autos-skokie-il-01.jpg` : null;
 const photoSrc = primaryPhotoUrl || localThumb;
@@ -108,10 +115,20 @@ const cardSizes = cardSrcset ? '(min-width: 1024px) 390px, (min-width: 640px) 46
         <div class="text-[11px] font-medium opacity-85">{lbl.photosComing}</div>
       </div>
     )}
-    {inspected && (
-      <div class="absolute top-2 right-2 bg-navy text-white text-xs font-bold px-2.5 py-1 rounded-md flex items-center gap-1">
-        <Icon name="check_circle" class="text-xs" fill />
-        {lbl.fullyInspected}
+    {(inspected || awdLabel) && (
+      <div class="absolute top-2 right-2 flex flex-col items-end gap-1">
+        {inspected && (
+          <div class="bg-navy text-white text-xs font-bold px-2.5 py-1 rounded-md flex items-center gap-1">
+            <Icon name="check_circle" class="text-xs" fill />
+            {lbl.fullyInspected}
+          </div>
+        )}
+        {awdLabel && (
+          <div class="bg-white text-navy text-xs font-bold px-2.5 py-1 rounded-md flex items-center gap-1 shadow-sm">
+            <Icon name="ac_unit" class="text-xs" fill />
+            {awdLabel}
+          </div>
+        )}
       </div>
     )}
   </div>

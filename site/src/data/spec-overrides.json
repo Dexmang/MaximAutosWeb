@@ -1,0 +1,41 @@
+{
+  "note": "Hand verified spec corrections, keyed by VIN, applied LAST by operations/build_vehicles_json.py (after the hub DB build sheet, the DealerCenter ad copy and the NHTSA vPIC decode). Use it for what no automatic source gets right: horsepower vPIC does not return, a trim DealerCenter wrote with a body word in it, a one time slug repair. Keys per VIN: engine, drivetrain (AWD|4WD|FWD|RWD), trim, bodyStyle, fuelType, slug, note. A slug change retires the old URL with a 301 to the new VDP (build-inventory.js keeps that ledger). Remove an entry once the unit is sold; a stale entry is harmless but noisy. Started 2026-10-11 after the engine and AWD audit.",
+  "by_vin": {
+    "5N1AZ2MH6FN251280": {
+      "engine": "260 hp 3.5L V6",
+      "drivetrain": "AWD",
+      "note": "J10251 2015 Murano Platinum. vPIC: 3.5L, 6 cyl, no layout, no HP, DriveType '4WD/4-Wheel Drive/4x4'. Nissan sells it as AWD; DealerCenter copy says AWD."
+    },
+    "JF1GPAL69E8230098": {
+      "engine": "148 hp 2.0L H4",
+      "note": "J10258 2014 Impreza 2.0i Sport Premium. vPIC returns displacement only; FB20 boxer four, 148 hp."
+    },
+    "JM1CW2BL1F0183769": {
+      "engine": "157 hp 2.5L I4",
+      "trim": "Sport",
+      "bodyStyle": "Van",
+      "note": "J10249 2015 Mazda5. DealerCenter trim is 'Sport Van' (manual build, Jerry 2026-09-18); the body word belongs to the body style, not the title. Compact minivan, so it sits with the Pacifica on the minivan page."
+    },
+    "KNDJN2A23F7202591": {
+      "engine": "130 hp 1.6L I4",
+      "drivetrain": "FWD",
+      "slug": "2015-kia-soul-j10223",
+      "note": "J10223 2015 Kia Soul base. Old slug carried the vPIC junk trim 'GL(Middle-low grade)'; the old URL 301s to this one. Body kept as SUV (vPIC MPV; Kia sells the Soul as a crossover) so it stays on the SUV page; the hub DB says wagon.",
+      "bodyStyle": "SUV"
+    },
+    "WA1ECCFS8JR006434": {
+      "engine": "200 hp 2.0L I4",
+      "drivetrain": "AWD",
+      "trim": "2.0T Premium quattro",
+      "note": "J10262 2018 Audi Q3. VIN position 5 'E' is the quattro Premium; vPIC returns no DriveType for it, which is why the site showed no drivetrain and the AWD filter and AWD page skipped it."
+    },
+    "3C4PDCBB7GT164698": {
+      "engine": "173 hp 2.4L I4",
+      "note": "J10242 2016 Journey SXT. vPIC has no HP for the 2.4L Tigershark."
+    },
+    "1C3CDFBB6ED669896": {
+      "engine": "184 hp 2.4L I4",
+      "note": "J10253 2014 Dart SXT. VIN position 8 'B' is the 2.4L Tigershark; vPIC has no HP."
+    }
+  }
+}
