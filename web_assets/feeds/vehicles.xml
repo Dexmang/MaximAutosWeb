@@ -4,7 +4,7 @@
   <title>Maxim Autos Vehicle Inventory</title>
   <link>https://www.maximautos.com/</link>
   <description>Used vehicles for sale at Maxim Autos in Skokie, IL 60077. Phone +18475108947.</description>
-  <lastBuildDate>2026-10-11T11:54:14.699Z</lastBuildDate>
+  <lastBuildDate>2026-10-11T14:22:33.361Z</lastBuildDate>
   <item>
     <g:id>1C3CDFBB6ED669896</g:id>
     <g:title>2014 Dodge Dart SXT</g:title>
@@ -79,7 +79,7 @@
     </g:question_and_answer>
     <g:question_and_answer>
       <g:question>What engine is in this Dodge Dart?</g:question>
-      <g:answer>This 2014 Dodge Dart SXT has a 2.4L I4 engine.</g:answer>
+      <g:answer>This 2014 Dodge Dart SXT has a 184 hp 2.4L I4 engine.</g:answer>
     </g:question_and_answer>
     <g:question_and_answer>
       <g:question>Where can I see this Dodge Dart in person?</g:question>
@@ -164,7 +164,7 @@
     </g:question_and_answer>
     <g:question_and_answer>
       <g:question>What engine is in this Chrysler Pacifica?</g:question>
-      <g:answer>This 2020 Chrysler Pacifica Touring L has a 287 hp 3.6L I6 engine.</g:answer>
+      <g:answer>This 2020 Chrysler Pacifica Touring L has a 287 hp 3.6L V6 engine.</g:answer>
     </g:question_and_answer>
     <g:question_and_answer>
       <g:question>Where can I see this Chrysler Pacifica in person?</g:question>
@@ -174,6 +174,11 @@
       <g:question>Can I trade in my current car toward this Chrysler Pacifica?</g:question>
       <g:answer>Yes. Maxim Autos accepts trade ins and also buys cars outright. Text the VIN of your car to (847) 510-8947 for a quick offer, no obligation.</g:answer>
     </g:question_and_answer>
+    <g:related_product>
+      <g:relationship_type>substitute</g:relationship_type>
+      <g:identifier_type>id</g:identifier_type>
+      <g:identifier>JM1CW2BL1F0183769</g:identifier>
+    </g:related_product>
   </item>
   <item>
     <g:id>2FMPK3J96GBC56381</g:id>
@@ -249,7 +254,7 @@
     </g:question_and_answer>
     <g:question_and_answer>
       <g:question>What engine is in this Ford Edge?</g:question>
-      <g:answer>This 2016 Ford Edge SEL has a 245 hp 2L I4 engine.</g:answer>
+      <g:answer>This 2016 Ford Edge SEL has a 245 hp 2.0L I4 engine.</g:answer>
     </g:question_and_answer>
     <g:question_and_answer>
       <g:question>Where can I see this Ford Edge in person?</g:question>
@@ -349,7 +354,7 @@
     </g:question_and_answer>
     <g:question_and_answer>
       <g:question>What engine is in this Dodge Journey?</g:question>
-      <g:answer>This 2016 Dodge Journey SXT has a 2.4L I4 engine.</g:answer>
+      <g:answer>This 2016 Dodge Journey SXT has a 173 hp 2.4L I4 engine.</g:answer>
     </g:question_and_answer>
     <g:question_and_answer>
       <g:question>Where can I see this Dodge Journey in person?</g:question>
@@ -437,7 +442,7 @@
     </g:question_and_answer>
     <g:question_and_answer>
       <g:question>Is this Nissan Murano all wheel drive?</g:question>
-      <g:answer>Yes. This 2015 Nissan Murano Platinum is four wheel drive (4WD).</g:answer>
+      <g:answer>Yes. This 2015 Nissan Murano Platinum is all wheel drive (AWD).</g:answer>
     </g:question_and_answer>
     <g:question_and_answer>
       <g:question>What transmission does this Nissan Murano have?</g:question>
@@ -449,7 +454,7 @@
     </g:question_and_answer>
     <g:question_and_answer>
       <g:question>What engine is in this Nissan Murano?</g:question>
-      <g:answer>This 2015 Nissan Murano Platinum has a 3.5L I6 engine.</g:answer>
+      <g:answer>This 2015 Nissan Murano Platinum has a 260 hp 3.5L V6 engine.</g:answer>
     </g:question_and_answer>
     <g:question_and_answer>
       <g:question>Where can I see this Nissan Murano in person?</g:question>
@@ -537,7 +542,7 @@
     </g:question_and_answer>
     <g:question_and_answer>
       <g:question>Is this Kia Sorento all wheel drive?</g:question>
-      <g:answer>No. This 2018 Kia Sorento EX is two wheel drive.</g:answer>
+      <g:answer>No. This 2018 Kia Sorento EX is front wheel drive.</g:answer>
     </g:question_and_answer>
     <g:question_and_answer>
       <g:question>What transmission does this Kia Sorento have?</g:question>
@@ -549,7 +554,7 @@
     </g:question_and_answer>
     <g:question_and_answer>
       <g:question>What engine is in this Kia Sorento?</g:question>
-      <g:answer>This 2018 Kia Sorento EX has a 290 hp 3.3L I6 engine.</g:answer>
+      <g:answer>This 2018 Kia Sorento EX has a 290 hp 3.3L V6 engine.</g:answer>
     </g:question_and_answer>
     <g:question_and_answer>
       <g:question>Where can I see this Kia Sorento in person?</g:question>
@@ -637,7 +642,7 @@
     </g:question_and_answer>
     <g:question_and_answer>
       <g:question>Is this Kia Sorento all wheel drive?</g:question>
-      <g:answer>Yes. This 2017 Kia Sorento EX is four wheel drive (4WD).</g:answer>
+      <g:answer>Yes. This 2017 Kia Sorento EX is all wheel drive (AWD).</g:answer>
     </g:question_and_answer>
     <g:question_and_answer>
       <g:question>What transmission does this Kia Sorento have?</g:question>
@@ -645,7 +650,7 @@
     </g:question_and_answer>
     <g:question_and_answer>
       <g:question>What engine is in this Kia Sorento?</g:question>
-      <g:answer>This 2017 Kia Sorento EX has a 290 hp 3.3L I6 engine.</g:answer>
+      <g:answer>This 2017 Kia Sorento EX has a 290 hp 3.3L V6 engine.</g:answer>
     </g:question_and_answer>
     <g:question_and_answer>
       <g:question>Where can I see this Kia Sorento in person?</g:question>
@@ -705,9 +710,9 @@
     </g:vehicle_fulfillment>
     <g:color>Red</g:color>
     <g:trim>2.0i Sport Premium</g:trim>
-    <g:body_style>station_wagon</g:body_style>
+    <g:body_style>hatchback</g:body_style>
     <g:custom_label_0>age_0_30</g:custom_label_0>
-    <g:custom_label_1>station_wagon</g:custom_label_1>
+    <g:custom_label_1>hatchback</g:custom_label_1>
     <g:custom_label_2>price_8k_to_12k</g:custom_label_2>
     <g:custom_label_3>cg_good_deal</g:custom_label_3>
     <g:custom_label_4>awd_4wd</g:custom_label_4>
@@ -745,7 +750,7 @@
     </g:question_and_answer>
     <g:question_and_answer>
       <g:question>What engine is in this Subaru Impreza?</g:question>
-      <g:answer>This 2014 Subaru Impreza 2.0i Sport Premium has a 2L engine.</g:answer>
+      <g:answer>This 2014 Subaru Impreza 2.0i Sport Premium has a 148 hp 2.0L H4 engine.</g:answer>
     </g:question_and_answer>
     <g:question_and_answer>
       <g:question>Where can I see this Subaru Impreza in person?</g:question>
@@ -755,15 +760,10 @@
       <g:question>Can I trade in my current car toward this Subaru Impreza?</g:question>
       <g:answer>Yes. Maxim Autos accepts trade ins and also buys cars outright. Text the VIN of your car to (847) 510-8947 for a quick offer, no obligation.</g:answer>
     </g:question_and_answer>
-    <g:related_product>
-      <g:relationship_type>substitute</g:relationship_type>
-      <g:identifier_type>id</g:identifier_type>
-      <g:identifier>JM1CW2BL1F0183769</g:identifier>
-    </g:related_product>
   </item>
   <item>
     <g:id>JM1CW2BL1F0183769</g:id>
-    <g:title>2015 Mazda Mazda5 Sport Van</g:title>
+    <g:title>2015 Mazda Mazda5 Sport</g:title>
     <g:description>2015 Mazda Mazda5 Sport: seating for six, dual sliding rear doors, and a compact footprint that handles like a car and parks like a hatchback. Black exterior on black cloth, automatic, 2.5L four cylinder. The family hauler for people who refuse to drive a full size van. Key features: 2.5L four cylinder with 157 horsepower and a five speed automatic, three rows of seating for six with second row captain&apos;s chairs and hidden storage under the seats, dual sliding rear doors that make loading kids easy in a tight garage, fold flat third row for a level cargo floor, full roof rack, alloy wheels, air conditioning, cruise control, AM/FM CD audio with auxiliary input, power windows, locks and mirrors, rear defroster, side and overhead airbags, traction control. This was the final model year of the Mazda5, a rare six seat van that fits the whole family without the size or the fuel bill of a full size minivan. The Maxim Autos Difference Independent inspection report included with every vehicle Metal plates issued on the spot, drive home today Transparent pricing, no hidden fees Financing for all credit levels Located in Skokie, IL, minutes from Evanston, Niles, Morton Grove, Lincolnwood, and Des Plaines, serving the North Shore Chicago area. Call (847) 510-8947 to schedule a same day appointment. Every car inspected. Every price transparent. Every car documented.</g:description>
     <g:link>https://www.maximautos.com/vehicle/2015-mazda-mazda5-sport-j10249</g:link>
     <g:link_template>https://www.maximautos.com/vehicle/2015-mazda-mazda5-sport-j10249?store={store_code}</g:link_template>
@@ -794,12 +794,13 @@
       <g:option>in_store</g:option>
     </g:vehicle_fulfillment>
     <g:color>Black</g:color>
-    <g:trim>Sport Van</g:trim>
-    <g:body_style>station_wagon</g:body_style>
+    <g:trim>Sport</g:trim>
+    <g:body_style>full_size_van</g:body_style>
     <g:custom_label_0>age_31_60</g:custom_label_0>
-    <g:custom_label_1>station_wagon</g:custom_label_1>
+    <g:custom_label_1>full_size_van</g:custom_label_1>
     <g:custom_label_2>price_8k_to_12k</g:custom_label_2>
     <g:custom_label_3>cg_fair_deal</g:custom_label_3>
+    <g:custom_label_4>two_wheel_drive</g:custom_label_4>
     <g:question_and_answer>
       <g:question>Is this used Mazda Mazda5 inspected before sale?</g:question>
       <g:answer>Every car is inspected before it goes on the lot, and a free CARFAX comes with it. Ask Jerry what was checked on any car before you decide.</g:answer>
@@ -821,12 +822,16 @@
       <g:answer>Yes. Maxim Autos is an authorized Illinois CVR (Computer Vehicle Registration) electronic registration dealer. Metal plates are issued the same visit for cars registered in Illinois. Buyers registering in another state receive an Illinois drive away permit and plate the car at home.</g:answer>
     </g:question_and_answer>
     <g:question_and_answer>
+      <g:question>Is this Mazda Mazda5 all wheel drive?</g:question>
+      <g:answer>No. This 2015 Mazda Mazda5 Sport is front wheel drive.</g:answer>
+    </g:question_and_answer>
+    <g:question_and_answer>
       <g:question>What transmission does this Mazda Mazda5 have?</g:question>
-      <g:answer>This 2015 Mazda Mazda5 Sport Van has an automatic transmission.</g:answer>
+      <g:answer>This 2015 Mazda Mazda5 Sport has an automatic transmission.</g:answer>
     </g:question_and_answer>
     <g:question_and_answer>
       <g:question>What engine is in this Mazda Mazda5?</g:question>
-      <g:answer>This 2015 Mazda Mazda5 Sport Van has a 2.5L engine.</g:answer>
+      <g:answer>This 2015 Mazda Mazda5 Sport has a 157 hp 2.5L I4 engine.</g:answer>
     </g:question_and_answer>
     <g:question_and_answer>
       <g:question>Where can I see this Mazda Mazda5 in person?</g:question>
@@ -839,7 +844,7 @@
     <g:related_product>
       <g:relationship_type>substitute</g:relationship_type>
       <g:identifier_type>id</g:identifier_type>
-      <g:identifier>JF1GPAL69E8230098</g:identifier>
+      <g:identifier>2C4RC1BG0LR133382</g:identifier>
     </g:related_product>
   </item>
   <item>
@@ -880,6 +885,7 @@
     <g:custom_label_1>suv</g:custom_label_1>
     <g:custom_label_2>price_under_8k</g:custom_label_2>
     <g:custom_label_3>cg_great_deal</g:custom_label_3>
+    <g:custom_label_4>two_wheel_drive</g:custom_label_4>
     <g:question_and_answer>
       <g:question>Is this used Kia Soul inspected before sale?</g:question>
       <g:answer>Every car is inspected before it goes on the lot, and a free CARFAX comes with it. Ask Jerry what was checked on any car before you decide.</g:answer>
@@ -901,12 +907,16 @@
       <g:answer>Yes. Maxim Autos is an authorized Illinois CVR (Computer Vehicle Registration) electronic registration dealer. Metal plates are issued the same visit for cars registered in Illinois. Buyers registering in another state receive an Illinois drive away permit and plate the car at home.</g:answer>
     </g:question_and_answer>
     <g:question_and_answer>
+      <g:question>Is this Kia Soul all wheel drive?</g:question>
+      <g:answer>No. This 2015 Kia Soul is front wheel drive.</g:answer>
+    </g:question_and_answer>
+    <g:question_and_answer>
       <g:question>What transmission does this Kia Soul have?</g:question>
       <g:answer>This 2015 Kia Soul has a manual transmission.</g:answer>
     </g:question_and_answer>
     <g:question_and_answer>
       <g:question>What engine is in this Kia Soul?</g:question>
-      <g:answer>This 2015 Kia Soul has a 1.6L engine.</g:answer>
+      <g:answer>This 2015 Kia Soul has a 130 hp 1.6L I4 engine.</g:answer>
     </g:question_and_answer>
     <g:question_and_answer>
       <g:question>Where can I see this Kia Soul in person?</g:question>
@@ -934,7 +944,7 @@
   </item>
   <item>
     <g:id>WA1ECCFS8JR006434</g:id>
-    <g:title>2018 Audi Q3 Premium</g:title>
+    <g:title>2018 Audi Q3 2.0T Premium quattro</g:title>
     <g:description>2018 Audi Q3 2.0T quattro Premium: turbocharged 2.0 liter, quattro all wheel drive, leather, panoramic sunroof, heated front seats, power liftgate. Black on black, 6 speed Tiptronic automatic, 2.0L TFSI. The Audi badge at a compact price, with quattro for the North Shore winter and no dealer fees. Key features: 2.0 liter TFSI turbo with 200 horsepower and 207 lb-ft, quattro all wheel drive for rain and snow, 6 speed Tiptronic automatic, leather seating, panoramic sunroof, heated front seats, power front seats, power liftgate, smart key, rear view camera, front and rear parking sensors, Bluetooth, satellite radio ready, S line style alloy wheels and sport exterior package. A quiet, upscale cabin in a crossover that fits a city garage. 20 city and 28 highway. The Maxim Autos Difference Independent inspection report included with every vehicle Metal plates issued on the spot, drive home today No dealer fees, transparent all in pricing Financing for all credit levels Skokie, IL, minutes from Evanston, Niles, Morton Grove, Lincolnwood, Des Plaines and the North Shore. Call or text (847) 510-8947 for a same day appointment. Every car inspected. Every price transparent. Every car documented.</g:description>
     <g:link>https://www.maximautos.com/vehicle/2018-audi-q3-premium-j10262</g:link>
     <g:link_template>https://www.maximautos.com/vehicle/2018-audi-q3-premium-j10262?store={store_code}</g:link_template>
@@ -965,12 +975,13 @@
       <g:option>in_store</g:option>
     </g:vehicle_fulfillment>
     <g:color>Black</g:color>
-    <g:trim>Premium</g:trim>
+    <g:trim>2.0T Premium quattro</g:trim>
     <g:body_style>suv</g:body_style>
     <g:custom_label_0>age_0_30</g:custom_label_0>
     <g:custom_label_1>suv</g:custom_label_1>
     <g:custom_label_2>price_8k_to_12k</g:custom_label_2>
     <g:custom_label_3>cg_good_deal</g:custom_label_3>
+    <g:custom_label_4>awd_4wd</g:custom_label_4>
     <g:question_and_answer>
       <g:question>Is this used Audi Q3 inspected before sale?</g:question>
       <g:answer>Every car is inspected before it goes on the lot, and a free CARFAX comes with it. Ask Jerry what was checked on any car before you decide.</g:answer>
@@ -992,16 +1003,20 @@
       <g:answer>Yes. Maxim Autos is an authorized Illinois CVR (Computer Vehicle Registration) electronic registration dealer. Metal plates are issued the same visit for cars registered in Illinois. Buyers registering in another state receive an Illinois drive away permit and plate the car at home.</g:answer>
     </g:question_and_answer>
     <g:question_and_answer>
+      <g:question>Is this Audi Q3 all wheel drive?</g:question>
+      <g:answer>Yes. This 2018 Audi Q3 2.0T Premium quattro is all wheel drive (AWD).</g:answer>
+    </g:question_and_answer>
+    <g:question_and_answer>
       <g:question>What transmission does this Audi Q3 have?</g:question>
-      <g:answer>This 2018 Audi Q3 Premium has an automatic transmission.</g:answer>
+      <g:answer>This 2018 Audi Q3 2.0T Premium quattro has an automatic transmission.</g:answer>
     </g:question_and_answer>
     <g:question_and_answer>
       <g:question>What is the fuel economy of this Audi Q3?</g:question>
-      <g:answer>EPA estimated 20 city and 28 highway MPG for this 2018 Audi Q3 Premium.</g:answer>
+      <g:answer>EPA estimated 20 city and 28 highway MPG for this 2018 Audi Q3 2.0T Premium quattro.</g:answer>
     </g:question_and_answer>
     <g:question_and_answer>
       <g:question>What engine is in this Audi Q3?</g:question>
-      <g:answer>This 2018 Audi Q3 Premium has a 200 hp 2L I4 engine.</g:answer>
+      <g:answer>This 2018 Audi Q3 2.0T Premium quattro has a 200 hp 2.0L I4 engine.</g:answer>
     </g:question_and_answer>
     <g:question_and_answer>
       <g:question>Where can I see this Audi Q3 in person?</g:question>
