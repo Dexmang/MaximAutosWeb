@@ -134,7 +134,11 @@ function mapBodyStyle(v) {
   if (b.includes("suv")) return "suv";
   if (b.includes("truck") || b.includes("pickup")) return "truck";
   if (b.includes("wagon")) return "station_wagon";
-  if (b.includes("van")) return "full_size_van";
+  // Maxim retails passenger minivans only (Pacifica, Mazda5, Town and Country);
+  // the builder normalizes both "Minivan" and "Van" to "Van", so a plain "van"
+  // is a minivan here. Cargo vans would be the exception (none retailed).
+  if (b.includes("cargo")) return "full_size_van";
+  if (b.includes("van")) return "minivan";
   if (b.includes("sedan")) return "sedan";
   return null;
 }
