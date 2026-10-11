@@ -745,15 +745,21 @@ async function main() {
     // Start from the DC record (authoritative: price, mileage, photos, specs, copy).
     const out = { ...rec, vin };
 
-    // URL / SEO / manual fields survive from the existing record.
+    // URL / SEO / manual fields survive from the existing record, except slug and
+    // highlights: the DC snapshot already freezes the slug (build_vehicles_json.py keeps
+    // the existing slug unless spec-overrides.json repairs it) and refreshes the trim
+    // bullet, so the snapshot wins for both and the existing record is the fallback.
+    // Until 2026-10-11 the existing record won here, which pinned the Kia Soul to its
+    // junk "gl-middle-low-grade" URL and bullet after the snapshot had corrected both.
     if (ex) {
-      out.slug = ex.slug || rec.slug;
+      out.slug = rec.slug || ex.slug;
       out.dateAdded = ex.dateAdded || rec.dateAdded;
       out.sortOrder = ex.sortOrder ?? rec.sortOrder ?? 0;
       out.featured = ex.featured ?? rec.featured ?? true;
       out.dealerCenterUrl = ex.dealerCenterUrl || rec.dealerCenterUrl || '';
       out.photoPrefix = ex.photoPrefix || rec.photoPrefix;
-      if (ex.highlights?.length) out.highlights = ex.highlights;
+      if (rec.highlights?.length) out.highlights = rec.highlights;
+      else if (ex.highlights?.length) out.highlights = ex.highlights;
       if (ex.features?.length && !(rec.features?.length)) out.features = ex.features;
     }
 
