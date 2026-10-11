@@ -4,7 +4,7 @@
   <title>Maxim Autos Vehicle Inventory</title>
   <link>https://www.maximautos.com/</link>
   <description>Used vehicles for sale at Maxim Autos in Skokie, IL 60077. Phone +18475108947.</description>
-  <lastBuildDate>2026-10-11T14:26:05.682Z</lastBuildDate>
+  <lastBuildDate>2026-10-11T16:11:51.954Z</lastBuildDate>
   <item>
     <g:id>1C3CDFBB6ED669896</g:id>
     <g:title>2014 Dodge Dart SXT</g:title>
@@ -124,9 +124,9 @@
     </g:vehicle_fulfillment>
     <g:color>Black</g:color>
     <g:trim>Touring L</g:trim>
-    <g:body_style>full_size_van</g:body_style>
+    <g:body_style>minivan</g:body_style>
     <g:custom_label_0>age_31_60</g:custom_label_0>
-    <g:custom_label_1>full_size_van</g:custom_label_1>
+    <g:custom_label_1>minivan</g:custom_label_1>
     <g:custom_label_2>price_8k_to_12k</g:custom_label_2>
     <g:custom_label_3>cg_great_deal</g:custom_label_3>
     <g:custom_label_4>two_wheel_drive</g:custom_label_4>
@@ -795,9 +795,9 @@
     </g:vehicle_fulfillment>
     <g:color>Black</g:color>
     <g:trim>Sport</g:trim>
-    <g:body_style>full_size_van</g:body_style>
+    <g:body_style>minivan</g:body_style>
     <g:custom_label_0>age_31_60</g:custom_label_0>
-    <g:custom_label_1>full_size_van</g:custom_label_1>
+    <g:custom_label_1>minivan</g:custom_label_1>
     <g:custom_label_2>price_8k_to_12k</g:custom_label_2>
     <g:custom_label_3>cg_fair_deal</g:custom_label_3>
     <g:custom_label_4>two_wheel_drive</g:custom_label_4>
