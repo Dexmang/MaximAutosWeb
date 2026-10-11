@@ -328,6 +328,16 @@
       "source": "/GYM/",
       "destination": "/inventory?utm_source=htc_gym&utm_medium=banner&utm_campaign=rothner_gym_2026",
       "permanent": false
+    },
+    {
+      "source": "/vehicle/2015-kia-soul-gl-middle-low-grade-j10223",
+      "destination": "/vehicle/2015-kia-soul-j10223",
+      "permanent": true
+    },
+    {
+      "source": "/vehicle/2015-kia-soul-gl-middle-low-grade-j10223/",
+      "destination": "/vehicle/2015-kia-soul-j10223",
+      "permanent": true
     }
   ],
   "headers": [

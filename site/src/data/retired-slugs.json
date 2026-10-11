@@ -24,6 +24,12 @@
       "stockNumber": "J10231",
       "retired_at": "2026-08-17",
       "redirect_to": "/inventory"
+    },
+    "2015-kia-soul-gl-middle-low-grade-j10223": {
+      "vin": "KNDJN2A23F7202591",
+      "stockNumber": "J10223",
+      "retired_at": "2026-10-11",
+      "redirect_to": "/vehicle/2015-kia-soul-j10223"
     }
   }
 }
