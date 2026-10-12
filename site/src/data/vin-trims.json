@@ -1,6 +1,6 @@
 {
   "source": "pka_hub.db ma_vehicles",
-  "generated_at": "2026-10-12T06:00:05.011Z",
+  "generated_at": "2026-10-12T17:30:05.362Z",
   "by_vin": {
     "JTJBK1BA4E2462410": "AWD",
     "1FMCU0J95HUE21095": "Titanium",
@@ -168,6 +168,11 @@
     "1N4AZ0CP2GC305761": "S",
     "1N4AZ0CP4EC340671": "S",
     "5YJSA1H15EFP51127": "85",
-    "WVWKR7AUXKW902678": "SE"
+    "WVWKR7AUXKW902678": "SE",
+    "YV4A22PK8G1072955": "T6 Momentum",
+    "KM8J33A47HU369551": "SE Plus",
+    "1FM5K8F88EGC35039": "Limited",
+    "4S4BSAKCXJ3314086": "2.5I Limited",
+    "2T2HK31U27C007849": "Base"
   }
 }
