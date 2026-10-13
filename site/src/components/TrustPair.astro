@@ -19,9 +19,14 @@ const full = Math.max(0, Math.min(5, Math.round(Number(r.rating))));
 const stars = '★'.repeat(full) + '☆'.repeat(5 - full);
 const googleReviews = 'https://www.google.com/search?q=Maxim+Autos+Skokie+IL+reviews';
 const t = es
-  ? { fee: 'Cero Cargos de Dealer', feeDetail: '', reviews: 'resenas', stars: 'Estrellas en Google', count: 'Resenas' }
-  : { fee: 'No Dealer Fees Ever', feeDetail: 'No doc fee', reviews: 'reviews', stars: 'Stars on Google', count: 'Reviews' };
-// Spanish feeDetail stays empty until maxseo signs it (R1-16).
+  ? { fee: 'Cero Cargos de Dealer', feeDetail: 'Sin cargo de documentacion', feeChip: '$0 cargos de dealer · $0 documentacion', reviews: 'resenas', stars: 'Estrellas en Google', count: 'Resenas' }
+  : { fee: 'No Dealer Fees Ever', feeDetail: 'No doc fee', feeChip: '$0 doc fee · $0 dealer fees', reviews: 'reviews', stars: 'Stars on Google', count: 'Reviews' };
+// Spanish feeDetail signed 2026-10-13 (Approach 1 build): "Sin cargo de documentacion" is the
+// exact twin of "No doc fee", not the broader "sin cargos ocultos" that R1-16 rejected.
+// feeChip is the inventory card's price label (Approach 1, 2026-10-13): the two zero lines,
+// so the card states a fact the buyer can check instead of repeating the slogan that is
+// already in the strip. The page level note under every grid carries the tax, title and
+// license qualifier at 14 px, so the chip does not need to.
 // Inside these conditional blocks Astro drops the space between two adjacent
 // expressions ("54reviews"), so every number and its word are one template literal.
 // At lg the chip matches the live 109 x 36 chip (14 px G, rating line leading-none against
@@ -60,8 +65,8 @@ const feeTail = 'The price you see is the price you pay, plus tax, title, and li
   </p>
 )}
 {variant === 'fee' && (
-  <p class={`inline-flex items-center gap-1 text-xs font-bold text-green-700 leading-[18px] whitespace-nowrap ${className}`}>
-    <Icon name="price_check" class="text-sm" fill />{t.fee}
+  <p class={`inline-flex items-center gap-1 text-xs font-bold text-green-700 leading-[18px] text-right ${className}`}>
+    <Icon name="price_check" class="text-sm shrink-0" fill />{t.feeChip}
   </p>
 )}
 {variant === 'vdp' && (

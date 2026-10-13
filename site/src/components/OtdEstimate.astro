@@ -1,0 +1,330 @@
+---
+/**
+ * OtdEstimate  ::  the estimated total at signing, by ZIP.
+ *
+ * WHY
+ * The site promises "the price you see is the price you pay, plus tax, title, and license."
+ * Tax, title and license was the one blank left in that promise. This block fills it in on the
+ * page where the buyer decides, which is the one thing a fee charging dealer cannot copy
+ * without exposing its own doc fee. Spec: website/otd-estimator-2026-10/design/SPEC.md,
+ * Approach 1 of the 2026-10-13 proposal.
+ *
+ * COMPLIANCE FENCE (same spec)
+ *   - No monthly payment in this block, so Reg Z is not triggered here. If a payment is ever
+ *     added, guardrail D3 applies on the page.
+ *   - The vehicle price stays the largest number on the page (FTC Pricing Transparency FAQ 4,
+ *     September 2026). The total here is text-lg; the price above it is text-3xl or text-4xl.
+ *   - "Estimated total at signing", never "out the door price" or a quote: Illinois taxes the
+ *     car at the rate for the buyer's registration address, and the exact figure is computed
+ *     on that address at signing. The assumptions print beside the number at 14 px (C5).
+ *   - The doc fee line quotes the state cap, a public figure, with the Maxim $0 beside it
+ *     (lint rule unpaired-doc-cap). Never "most dealers charge". Never a strikethrough
+ *     (475.360(d)). No savings counter.
+ *   - Split ZIPs resolve to the higher rate (zip-regions.json), so the estimate can only
+ *     overstate, never understate. Out of state ZIPs get no number (ST-58 varies by state).
+ *   - The ERT filing is a real per deal charge (Jerry, 2026-10-13). It is its own labelled
+ *     line inside the title and plates group, on every surface that states a total, so no
+ *     buyer meets it for the first time at the desk. Its value lives in the ledger; at 0 the
+ *     line disappears everywhere.
+ *   - Every figure comes from facts.json and zip-regions.json. A typed dollar amount in this
+ *     file is the same defect as the typed price band was (lint rule typed-doc-cap).
+ *
+ * Two call sites on the VDP (mobile price block, desktop sidebar) and one on the fee page
+ * with a car picker in the "picker" slot. Everything is scoped by data attributes; the one
+ * hoisted script below wires every [data-otd] on the page.
+ */
+import facts from '../data/facts.json';
+import Icon from './Icon.astro';
+
+interface Props {
+  price: number;
+  /** "2014 Ford Explorer Limited", for the text message body. */
+  title: string;
+  stockNumber?: string;
+  lang?: string;
+  class?: string;
+}
+const { price, title, stockNumber = '', lang = 'en', class: className = '' } = Astro.props;
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const es = lang === 'es';
+const T = facts.taxes;
+const F = facts.fees;
+const money = (n: number) => '$' + n.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+// Radio group name, unique per render so two blocks on one page do not share a group.
+const uid = Math.random().toString(36).slice(2, 8);
+
+// Server rendered default: Cook County suburb, new plates. The block carries real numbers
+// before any script runs, and a crawler reads a complete, labelled estimate for Skokie.
+const defaultTax = Math.round(price * T.cook * 100) / 100;
+const defaultTotal = Math.round((price + defaultTax + F.title + (F.ert || 0) + F.plates) * 100) / 100;
+
+const t = es
+  ? {
+      capLead: 'Cargo de documentacion del dealer: $0.',
+      capRest: `Illinois permite hasta ${F.docCapText} en ${F.docCapYear}. Cargos de dealer: $0.`,
+      heading: 'Tu total estimado al firmar',
+      zipLabel: 'Codigo postal',
+      zipHint: 'Escribe tu codigo postal para ver el impuesto de Illinois de tu direccion.',
+      zipMore: 'Sigue escribiendo, cinco digitos.',
+      platesLegend: 'Placas',
+      platesNew: 'Placas nuevas',
+      platesTransfer: 'Transferir mis placas',
+      chicago: 'Vivo dentro de los limites de la ciudad de Chicago',
+      rowPrice: 'Precio del vehiculo',
+      rowFees: 'Cargos de dealer y documentacion',
+      rowTax: 'Impuesto de venta de Illinois',
+      rowTitle: 'Titulo de Illinois',
+      rowErt: 'Tramite electronico de titulo y registro (ERT)',
+      rowPlatesNew: 'Placas nuevas',
+      rowPlatesTransfer: 'Transferencia de tus placas de Illinois',
+      rowTotal: 'Total estimado al firmar',
+      regions: {
+        cook: `Suburbio del condado de Cook, ${T.cookPct}`,
+        chicago: `Direccion en Chicago, ${T.chicagoPct}`,
+        collar: `Condado de DuPage, Kane, Lake, McHenry o Will, ${T.collarPct}`,
+        il: `Tasa estatal de Illinois ${T.statePct}, tasa local confirmada al firmar`,
+        out: 'Fuera de Illinois',
+        default: `Tasa de la zona de Skokie, ${T.cookPct}, hasta que escribas tu codigo postal`,
+      },
+      taxVaries: 'varia',
+      totalOut: 'Escribenos para tu total exacto',
+      note: `Estimado para una compra de contado sin auto a cuenta. Illinois cobra el impuesto segun la direccion donde se registra el auto, asi que la cifra exacta se calcula con tu direccion al firmar. Las tarifas de titulo y placas las fija la Secretaria de Estado de Illinois.${F.ert > 0 ? ' La linea ERT es el tramite electronico que entrega tus placas de metal el mismo dia, cobrado al costo.' : ''} Nada mas se agrega.`,
+      out: 'Fuera de Illinois? Vendemos y entregamos a otros estados, con envio asegurado puerta a puerta y un video personal del auto antes de que te comprometas. Lo que cobra Illinois depende de tu estado, asi que escribenos tu codigo postal para el total exacto.',
+      outLink: 'Como funciona la compra desde otro estado',
+      outHref: `${base}/es/compra-en-linea`,
+      ctaText: 'Enviame este estimado por texto',
+      ctaCall: 'Llamar (847) 510-8947',
+      smsDefault: 'Hola Jerry, me interesa el {title}{stockPart}. Sigue disponible? Lo vi en MaximAutos.com.',
+      smsIn: 'Hola Jerry, me interesa el {title}{stockPart}. Mi codigo postal es {zip}. Su sitio estimo {total} al firmar con {plates}. Sigue disponible?',
+      smsOut: 'Hola Jerry, me interesa el {title}{stockPart}. Mi codigo postal es {zip}, fuera de Illinois. Cual seria mi total y pueden enviarmelo?',
+      platesNewWord: 'placas nuevas',
+      platesTransferWord: 'transferencia de placas',
+    }
+  : {
+      capLead: 'Dealer doc fee: $0.',
+      capRest: `Illinois allows up to ${F.docCapText} in ${F.docCapYear}. Dealer fees: $0.`,
+      heading: 'Your estimated total at signing',
+      zipLabel: 'ZIP code',
+      zipHint: 'Enter your ZIP to see the Illinois tax for your address.',
+      zipMore: 'Keep typing, five digits.',
+      platesLegend: 'Plates',
+      platesNew: 'New plates',
+      platesTransfer: 'Transfer my plates',
+      chicago: 'I live inside Chicago city limits',
+      rowPrice: 'Vehicle price',
+      rowFees: 'Dealer fees and doc fee',
+      rowTax: 'Illinois sales tax',
+      rowTitle: 'Illinois title',
+      rowErt: 'Electronic title and registration filing (ERT)',
+      rowPlatesNew: 'New passenger plates',
+      rowPlatesTransfer: 'Transfer your Illinois plates',
+      rowTotal: 'Estimated total at signing',
+      regions: {
+        cook: `Cook County suburb, ${T.cookPct}`,
+        chicago: `Chicago address, ${T.chicagoPct}`,
+        collar: `DuPage, Kane, Lake, McHenry or Will County, ${T.collarPct}`,
+        il: `Illinois state rate ${T.statePct}, local rate confirmed at signing`,
+        out: 'Outside Illinois',
+        default: `Skokie area rate, ${T.cookPct}, until you enter a ZIP`,
+      },
+      taxVaries: 'varies',
+      totalOut: 'Text us for your exact total',
+      note: `Estimate for a cash purchase with no trade in. Illinois taxes the car at the rate for the address where it is registered, so the exact figure is calculated on your address at signing. Title and plate fees are set by the Illinois Secretary of State.${F.ert > 0 ? ' The ERT line is the electronic filing that issues your metal plates the same visit, passed through at cost.' : ''} Nothing else is added.`,
+      out: 'Outside Illinois? We sell and deliver out of state, insured door to door, with a personal video walkaround before you commit. What Illinois collects depends on your state, so text us your ZIP for the exact total.',
+      outLink: 'How buying from out of state works',
+      outHref: `${base}/ship`,
+      ctaText: 'Text me this estimate',
+      ctaCall: 'Call (847) 510-8947',
+      smsDefault: 'Hi Jerry, I am looking at the {title}{stockPart}. Is it still available? I saw it on MaximAutos.com.',
+      smsIn: 'Hi Jerry, I am looking at the {title}{stockPart}. My ZIP is {zip}. Your site estimated {total} at signing with {plates}. Is it still available?',
+      smsOut: 'Hi Jerry, I am looking at the {title}{stockPart}. My ZIP is {zip}, outside Illinois. What would my total be, and can you ship it to me?',
+      platesNewWord: 'new plates',
+      platesTransferWord: 'a plate transfer',
+    };
+
+const stockPart = stockNumber ? ` (stock ${stockNumber})` : '';
+const defaultSms = t.smsDefault.replace('{title}', title).replace('{stockPart}', stockPart);
+---
+
+<section
+  data-otd
+  data-otd-price={price}
+  data-otd-title={title}
+  data-otd-stock={stockNumber}
+  data-otd-strings={JSON.stringify(t)}
+  data-cta="vdp_otd"
+  class={`rounded-xl border border-gray-200 bg-white p-4 ${className}`}
+  aria-label={t.heading}
+>
+  <p class="text-sm text-gray-700 leading-snug">
+    <span class="font-bold text-green-700">{t.capLead}</span>{' '}{t.capRest}
+  </p>
+
+  <h3 class="font-headline text-base font-bold text-navy mt-3">{t.heading}</h3>
+  <slot name="picker" />
+
+  <div class="mt-2 flex flex-wrap items-center gap-x-4 gap-y-2 text-sm">
+    <label class="flex items-center gap-2">
+      <span class="font-semibold text-navy">{t.zipLabel}</span>
+      <input data-otd-zip type="text" inputmode="numeric" autocomplete="postal-code" maxlength="5" pattern="[0-9]*"
+             placeholder="60077" aria-label={t.zipLabel}
+             class="w-24 h-11 border border-gray-300 rounded-lg px-2.5 text-base font-semibold text-navy tabular-nums focus:border-orange focus:ring-1 focus:ring-orange" />
+    </label>
+    <fieldset class="flex items-center gap-3">
+      <legend class="sr-only">{t.platesLegend}</legend>
+      <label class="flex items-center gap-1.5 h-11"><input type="radio" name={`otd-plates-${uid}`} value="new" checked data-otd-plates class="accent-orange w-4 h-4" />{t.platesNew}</label>
+      <label class="flex items-center gap-1.5 h-11"><input type="radio" name={`otd-plates-${uid}`} value="transfer" data-otd-plates class="accent-orange w-4 h-4" />{t.platesTransfer}</label>
+    </fieldset>
+  </div>
+  <label data-otd-chi-wrap class="hidden mt-1 flex items-center gap-2 text-sm h-9">
+    <input type="checkbox" data-otd-chi class="accent-orange w-4 h-4" />{t.chicago}
+  </label>
+  <p data-otd-where class="mt-1 text-sm text-gray-600">{t.zipHint}</p>
+
+  <dl class="mt-2 text-sm tabular-nums divide-y divide-gray-100">
+    <div class="flex justify-between gap-3 py-1.5"><dt class="text-gray-700">{t.rowPrice}</dt><dd data-otd-price-out class="font-semibold text-navy">{money(price)}</dd></div>
+    <div class="flex justify-between gap-3 py-1.5"><dt class="text-gray-700">{t.rowFees}</dt><dd class="font-bold text-green-700">{money(0)}</dd></div>
+    <div class="flex justify-between gap-3 py-1.5">
+      <dt class="text-gray-700">{t.rowTax}<span data-otd-rate class="block text-sm text-gray-500">{t.regions.default}</span></dt>
+      <dd data-otd-tax class="font-semibold text-navy shrink-0">{money(defaultTax)}</dd>
+    </div>
+    <div class="flex justify-between gap-3 py-1.5"><dt class="text-gray-700">{t.rowTitle}</dt><dd class="font-semibold text-navy">{money(F.title)}</dd></div>
+    {F.ert > 0 && (
+      <div class="flex justify-between gap-3 py-1.5"><dt class="text-gray-700">{t.rowErt}</dt><dd class="font-semibold text-navy shrink-0">{money(F.ert)}</dd></div>
+    )}
+    <div class="flex justify-between gap-3 py-1.5"><dt data-otd-plates-lbl class="text-gray-700">{t.rowPlatesNew}</dt><dd data-otd-plates-out class="font-semibold text-navy">{money(F.plates)}</dd></div>
+    <div class="flex justify-between items-baseline gap-3 pt-2.5">
+      <dt class="font-bold text-navy">{t.rowTotal}</dt>
+      <dd data-otd-total class="font-headline text-lg font-extrabold text-navy text-right">{money(defaultTotal)}</dd>
+    </div>
+  </dl>
+
+  <p class="mt-2 text-sm leading-snug text-gray-600">{t.note}</p>
+  <div data-otd-out class="hidden mt-2 text-sm leading-snug text-gray-700 bg-navy/5 rounded-lg p-3">
+    {t.out}{' '}<a href={t.outHref} class="font-semibold text-navy underline underline-offset-2" data-cta-name="ship_how_it_works">{t.outLink}</a>
+  </div>
+
+  <div class="mt-3 flex flex-wrap gap-2">
+    <a data-otd-sms href={`sms:8475108947&body=${encodeURIComponent(defaultSms)}`}
+       class="flex-1 min-w-[170px] h-11 inline-flex items-center justify-center gap-1.5 bg-orange text-white font-bold text-sm rounded-xl hover:bg-orange-light transition-colors">
+      <Icon name="sms" class="text-base" fill />{t.ctaText}
+    </a>
+    <a href="tel:8475108947"
+       class="flex-1 min-w-[150px] h-11 inline-flex items-center justify-center gap-1.5 border-2 border-navy text-navy font-bold text-sm rounded-xl hover:bg-navy/5 transition-colors">
+      <Icon name="call" class="text-base" fill />{t.ctaCall}
+    </a>
+  </div>
+</section>
+
+<script>
+  import regions from '../data/zip-regions.json';
+  import facts from '../data/facts.json';
+
+  const T = facts.taxes;
+  const F = facts.fees;
+  const cook = new Set(regions.cook);
+  const collar = new Set(regions.collar);
+  const il = new Set(regions.il);
+  const rules = regions.rules;
+
+  function region(zip) {
+    if (!/^\d{5}$/.test(zip)) return null;
+    if (zip.startsWith(rules.chicagoPrefix)) return 'chicago';
+    if (cook.has(zip)) return 'cook';
+    if (collar.has(zip)) return 'collar';
+    if (il.has(zip)) return 'il';
+    // A PO box only ZIP has no ZCTA. Fall back to the prefix, higher rate first.
+    if (rules.cookFallbackPrefixes.includes(zip.slice(0, 3))) return 'cook';
+    if (zip >= rules.illinoisRange[0] && zip <= rules.illinoisRange[1]) return 'il';
+    return 'out';
+  }
+
+  const money = n => '$' + n.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+  const fill = (tpl, m) => tpl.replace(/\{(\w+)\}/g, (_, k) => (m[k] == null ? '' : String(m[k])));
+
+  function wire(sec) {
+    let s;
+    try { s = JSON.parse(sec.dataset.otdStrings || '{}'); } catch (e) { return; }
+    const q = sel => sec.querySelector(sel);
+    const zipEl = q('[data-otd-zip]');
+    const chiWrap = q('[data-otd-chi-wrap]');
+    const chi = q('[data-otd-chi]');
+    const plateInputs = Array.from(sec.querySelectorAll('[data-otd-plates]'));
+    const el = {
+      where: q('[data-otd-where]'), price: q('[data-otd-price-out]'), tax: q('[data-otd-tax]'),
+      rate: q('[data-otd-rate]'), platesLbl: q('[data-otd-plates-lbl]'), plates: q('[data-otd-plates-out]'),
+      total: q('[data-otd-total]'), out: q('[data-otd-out]'), sms: q('[data-otd-sms]'),
+    };
+    if (!zipEl || !el.total) return;
+    const picker = q('[data-otd-picker]');
+
+    // The last ZIP typed on any page, so the second car visited is already personal.
+    // Per browser convenience only; every read and write is guarded.
+    let stored = '';
+    try { stored = localStorage.getItem('maxim_zip') || ''; } catch (e) { /* private mode */ }
+    if (stored && !zipEl.value) zipEl.value = stored;
+
+    const platesMode = () => (plateInputs.find(i => i.checked) || {}).value || 'new';
+
+    function render() {
+      const price = Number(sec.dataset.otdPrice) || 0;
+      const title = sec.dataset.otdTitle || '';
+      const stock = sec.dataset.otdStock || '';
+      const stockPart = stock ? ' (stock ' + stock + ')' : '';
+      const z = zipEl.value.replace(/\D/g, '').slice(0, 5);
+      if (zipEl.value !== z) zipEl.value = z;
+      const r = region(z);
+      const mode = platesMode();
+      const platesFee = mode === 'new' ? F.plates : F.transfer;
+      const platesWord = mode === 'new' ? s.platesNewWord : s.platesTransferWord;
+
+      el.platesLbl.textContent = mode === 'new' ? s.rowPlatesNew : s.rowPlatesTransfer;
+      el.plates.textContent = money(platesFee);
+      el.price.textContent = money(price);
+      chiWrap.classList.toggle('hidden', r !== 'cook');
+      el.out.classList.toggle('hidden', r !== 'out');
+
+      if (r === 'out') {
+        el.where.textContent = '';
+        el.rate.textContent = s.regions.out;
+        el.tax.textContent = s.taxVaries;
+        el.total.textContent = s.totalOut;
+        el.sms.href = 'sms:8475108947&body=' + encodeURIComponent(fill(s.smsOut, { title, stockPart, zip: z }));
+        return;
+      }
+
+      const key = r === 'cook' && chi.checked ? 'chicago' : (r || 'cook');
+      // Region 'il' (rest of Illinois) carries the state rate; the ledger names it `state`.
+      const rate = key === 'il' ? T.state : T[key];
+      const tax = Math.round(price * rate * 100) / 100;
+      const total = Math.round((price + tax + F.title + (F.ert || 0) + platesFee) * 100) / 100;
+
+      el.where.textContent = r ? '' : (z.length ? s.zipMore : s.zipHint);
+      el.rate.textContent = r ? s.regions[key] : s.regions.default;
+      el.tax.textContent = money(tax);
+      el.total.textContent = money(total);
+      el.sms.href = 'sms:8475108947&body=' + encodeURIComponent(
+        r ? fill(s.smsIn, { title, stockPart, zip: z, total: money(total), plates: platesWord })
+          : fill(s.smsDefault, { title, stockPart })
+      );
+      if (r) { try { localStorage.setItem('maxim_zip', z); } catch (e) { /* private mode */ } }
+    }
+
+    zipEl.addEventListener('input', render);
+    chi.addEventListener('change', render);
+    plateInputs.forEach(i => i.addEventListener('change', render));
+    if (picker) {
+      picker.addEventListener('change', () => {
+        const o = picker.selectedOptions[0];
+        if (!o) return;
+        sec.dataset.otdPrice = o.value;
+        sec.dataset.otdTitle = o.dataset.title || '';
+        sec.dataset.otdStock = o.dataset.stock || '';
+        render();
+      });
+    }
+    render();
+  }
+
+  document.querySelectorAll('[data-otd]').forEach(wire);
+</script>

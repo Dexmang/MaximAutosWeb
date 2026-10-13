@@ -27,7 +27,7 @@
       },
       {
         "q": "Is there a used car dealer near Evanston with no hidden fees?",
-        "a": "Maxim Autos in Skokie operates with transparent, upfront pricing and no hidden dealer fees or documentation fees. The price you see is the price you pay, plus standard Illinois tax and title. It is one of the key reasons buyers from Evanston make the drive."
+        "a": "Maxim Autos in Skokie operates with transparent, upfront pricing and no hidden dealer fees or documentation fees. The price you see is the price you pay, plus standard Illinois tax and title. It is one of the key reasons buyers from Evanston make the drive. {{fees.capLine}}"
       },
       {
         "q": "Does every vehicle at Maxim Autos come with a CARFAX report?",
@@ -59,7 +59,7 @@
       },
       {
         "q": "Does Maxim Autos charge hidden fees for Niles buyers?",
-        "a": "Yes. Maxim Autos charges no dealer fees, no documentation fees, and no surprise add-ons. Pricing is transparent and upfront. The total cost at signing is the vehicle price plus standard Illinois tax and title."
+        "a": "No. Maxim Autos charges no dealer fees, no documentation fees, and no surprise add-ons. Pricing is transparent and upfront. The total cost at signing is the vehicle price plus standard Illinois tax and title. {{fees.capLine}}"
       },
       {
         "q": "Can Niles residents get financing at Maxim Autos?",
@@ -167,7 +167,7 @@
       },
       {
         "q": "Does Maxim Autos charge dealer fees for Des Plaines buyers?",
-        "a": "No. Maxim Autos does not charge dealer fees, documentation fees, or any hidden add-ons. The vehicle price is the price. Des Plaines buyers pay the vehicle price plus standard Illinois tax and title. Nothing else."
+        "a": "No. Maxim Autos does not charge dealer fees, documentation fees, or any hidden add-ons. The vehicle price is the price. Des Plaines buyers pay the vehicle price plus standard Illinois tax and title. Nothing else. {{fees.capLine}}"
       },
       {
         "q": "Can Des Plaines residents get same day metal plates at Maxim Autos?",
@@ -203,7 +203,7 @@
       },
       {
         "q": "Does Maxim Autos have no dealer fees for Glenview buyers?",
-        "a": "Yes. Maxim Autos does not charge dealer fees, documentation fees, or any hidden extras. The listed price is the full vehicle price. Glenview buyers pay vehicle price plus standard Illinois tax and title. No surprises at the table."
+        "a": "Yes. Maxim Autos does not charge dealer fees, documentation fees, or any hidden extras. The listed price is the full vehicle price. Glenview buyers pay vehicle price plus standard Illinois tax and title. No surprises at the table. {{fees.capLine}}"
       },
       {
         "q": "Does Maxim Autos offer financing for Glenview residents?",
@@ -319,7 +319,7 @@
       },
       {
         "q": "Is there a used car dealer near Park Ridge with no hidden fees?",
-        "a": "Maxim Autos in Skokie charges no dealer fees, no documentation fees, and no hidden add-ons of any kind. The vehicle price on the listing is the full price you pay, plus standard Illinois tax and title. Many Park Ridge buyers cite this transparency as the primary reason they drive to Skokie rather than buying locally."
+        "a": "Maxim Autos in Skokie charges no dealer fees, no documentation fees, and no hidden add-ons of any kind. The vehicle price on the listing is the full price you pay, plus standard Illinois tax and title. Many Park Ridge buyers cite this transparency as the primary reason they drive to Skokie rather than buying locally. {{fees.capLine}}"
       }
     ]
   }

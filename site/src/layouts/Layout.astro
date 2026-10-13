@@ -45,10 +45,10 @@ const trust = isSpanish
       skipDmv: 'Sin tramites del DMV',
       skipDmvDetail: 'Placas el mismo dia',
       pricing: 'Cero Cargos de Dealer',
-      // Empty until maxseo signs a Spanish twin of "No doc fee"; the span is not rendered
-      // when empty. "Sin cargos ocultos" claimed no hidden fees, broader than no doc fee (R1-16).
-      pricingDetail: '',
-      pricingHref: `${base}/es/financiamiento`,
+      // Signed 2026-10-13: the exact twin of "No doc fee". "Sin cargos ocultos" claimed no
+      // hidden fees, broader than no doc fee, and was rejected (R1-16).
+      pricingDetail: 'Sin cargo de documentacion',
+      pricingHref: `${base}/es/sin-cargos-de-dealer`,
     }
   : {
       heading: 'Why Buyers Trust Us',
@@ -59,7 +59,8 @@ const trust = isSpanish
       skipDmvDetail: 'Metal plates issued the same visit.',
       pricing: 'No Dealer Fees Ever',
       pricingDetail: 'No doc fee',
-      pricingHref: `${base}/financing`,
+      // The promise links to the page that proves it (Approach 1, 2026-10-13).
+      pricingHref: `${base}/no-dealer-fees`,
     };
 
 const siteName = 'Maxim Autos';

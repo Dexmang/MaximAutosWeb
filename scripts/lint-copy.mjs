@@ -89,6 +89,23 @@ function loadLiveBandPatterns() {
 }
 const LIVE_BAND_PATTERNS = loadLiveBandPatterns();
 
+/**
+ * The Illinois doc fee cap as the ledger prints it. The cap may be quoted on the site only
+ * with the Maxim figure beside it, so it is never read as what Maxim charges (OTD SPEC,
+ * 2026-10-11). Read from facts.json for the same reason as the band: a typed cap goes
+ * stale every January.
+ */
+function loadDocCapText() {
+  try {
+    const f = JSON.parse(readFileSync(join(DATA, 'facts.json'), 'utf8'));
+    return (f.fees && f.fees.docCapText) || null;
+  } catch (_) {
+    return null;
+  }
+}
+const DOC_CAP_TEXT = loadDocCapText();
+const escapeRe = s => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+
 // ── The rule table ────────────────────────────────────────────────────────────────
 // severity: 'error'   real world harm. Compliance, false claim, legal exposure.
 //           'warn'    house style. Reads as AI writing, no legal exposure.
@@ -195,6 +212,16 @@ const RULES = [
     find: /\{\{\s*[a-zA-Z][a-zA-Z.]*\s*\}\}/g,
     why: 'A placeholder reached output. The sentence is now missing a number a reader needs. Check the token name against KNOWN_TOKENS in scripts/facts-core.mjs.',
   },
+  // Built from the ledger so the figure is never typed here. Skipped when the ledger has no
+  // cap, so a missing facts.json cannot produce a match-nothing or match-everything rule.
+  ...(DOC_CAP_TEXT ? [{
+    id: 'unpaired-doc-cap',
+    severity: 'error',
+    find: new RegExp(escapeRe(DOC_CAP_TEXT), 'g'),
+    why: `The Illinois doc fee cap (${DOC_CAP_TEXT}) may only appear with the Maxim figure beside it: "$0", "zero" or "cero" within 200 characters. Quoted alone, a reader takes the cap for what Maxim charges. Use facts.fees.capLine or capShort, never a typed figure (OTD SPEC 2026-10-11).`,
+    contextChars: 200,
+    unless: ctx => /\$0(?![\d,])|\bzero\b|\bcero\b/i.test(ctx),
+  }] : []),
   // Built dynamically so the denylist lives in data, not in code. Skipped entirely when
   // the list is empty, so an empty file never produces a match-everything regex.
   ...(EXCLUDED_REVIEWERS.length ? [{
@@ -509,6 +536,27 @@ for (const f of [...walk(join(ASSETS, 'feeds'), ['.xml']), join(ASSETS, 'llms.tx
 for (const f of walk(DATA, ['.json'])) {
   if (/facts\.json$/.test(f)) continue;  // the ledger IS the numbers
   scan(f, readFileSync(f, 'utf8'), 'source data');
+}
+
+// ── Source: a typed doc fee cap ──────────────────────────────────────────────────
+// The cap changes every January. scripts/facts-core.mjs is the only place it may be typed;
+// a page, component or layout that types it is wrong by February. Source is otherwise never
+// scanned (comments), so this is a narrow, literal check on the one figure that drifts.
+if (DOC_CAP_TEXT) {
+  const capRe = new RegExp(escapeRe(DOC_CAP_TEXT));
+  const srcDirs = ['site/src/pages', 'site/src/components', 'site/src/layouts'].map(d => join(ROOT, d));
+  for (const f of srcDirs.flatMap(d => walk(d, ['.astro']))) {
+    if (!capRe.test(readFileSync(f, 'utf8'))) continue;
+    findings.push({
+      file: relative(ROOT, f).replace(/\\/g, '/'),
+      where: 'source',
+      rule: 'typed-doc-cap',
+      severity: 'error',
+      count: 1,
+      sample: DOC_CAP_TEXT,
+      why: 'The Illinois doc fee cap is typed into a page. It changes every January; read facts.fees.docCapText, capLine or capShort from the ledger instead.',
+    });
+  }
 }
 
 // ── Report ───────────────────────────────────────────────────────────────────────
