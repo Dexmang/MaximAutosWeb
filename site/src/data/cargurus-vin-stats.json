@@ -1,10 +1,10 @@
 {
-  "last_updated": "2026-10-13T13:16:52.280Z",
+  "last_updated": "2026-10-13T17:00:15.338Z",
   "period_start": "2026-10-06",
   "period_end": "2026-10-13",
   "by_vin": {
     "5N1AZ2MH6FN251280": {
-      "srp_views": 194,
+      "srp_views": 197,
       "vdp_views": 13,
       "leads_email": 0,
       "leads_phone": 0,
@@ -13,8 +13,8 @@
       "map_clicks": 0
     },
     "KNDJN2A23F7202591": {
-      "srp_views": 1005,
-      "vdp_views": 61,
+      "srp_views": 1037,
+      "vdp_views": 63,
       "leads_email": 0,
       "leads_phone": 0,
       "leads_chat": 0,
@@ -22,7 +22,7 @@
       "map_clicks": 0
     },
     "3C4PDCBB7GT164698": {
-      "srp_views": 440,
+      "srp_views": 446,
       "vdp_views": 27,
       "leads_email": 0,
       "leads_phone": 0,
@@ -31,7 +31,7 @@
       "map_clicks": 0
     },
     "5XYPHDA51HG304856": {
-      "srp_views": 221,
+      "srp_views": 225,
       "vdp_views": 12,
       "leads_email": 1,
       "leads_phone": 0,
@@ -49,7 +49,7 @@
       "map_clicks": 0
     },
     "JF1GPAL69E8230098": {
-      "srp_views": 537,
+      "srp_views": 546,
       "vdp_views": 51,
       "leads_email": 0,
       "leads_phone": 0,
@@ -67,7 +67,7 @@
       "map_clicks": 0
     },
     "WA1ECCFS8JR006434": {
-      "srp_views": 228,
+      "srp_views": 231,
       "vdp_views": 27,
       "leads_email": 0,
       "leads_phone": 0,
@@ -76,8 +76,8 @@
       "map_clicks": 0
     },
     "1C3CDFBB6ED669896": {
-      "srp_views": 670,
-      "vdp_views": 41,
+      "srp_views": 681,
+      "vdp_views": 42,
       "leads_email": 0,
       "leads_phone": 0,
       "leads_chat": 0,
@@ -94,7 +94,7 @@
       "map_clicks": 0
     },
     "2FMPK3J96GBC56381": {
-      "srp_views": 203,
+      "srp_views": 205,
       "vdp_views": 32,
       "leads_email": 1,
       "leads_phone": 0,
@@ -103,7 +103,7 @@
       "map_clicks": 0
     },
     "5XYPH4A52JG399000": {
-      "srp_views": 83,
+      "srp_views": 84,
       "vdp_views": 4,
       "leads_email": 0,
       "leads_phone": 0,
