@@ -149,7 +149,7 @@ const heroReviews = reviews.slice(0, 6);
         </div>
         {/* Ver Inventario sigue visible en telefonos porque los chips estan ocultos bajo md.
             Financiamiento desde sm; no existe formulario de precalificacion en espanol (R1-23). */}
-        <div class="flex flex-col sm:flex-row gap-3">
+        <div class="flex flex-col sm:flex-row sm:flex-wrap gap-3 [&>a]:whitespace-nowrap">
           <a href={`${base}/es/inventario`} data-cta="hero" data-cta-name="browse"
              class="inline-flex items-center justify-center gap-2 bg-orange text-navy px-6 min-h-[48px] rounded-xl font-bold text-base hover:bg-orange-light transition-colors shadow-lg">
             Ver Inventario <Icon name="arrow_forward" class="text-lg" />

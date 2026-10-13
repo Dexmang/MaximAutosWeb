@@ -201,7 +201,7 @@ const heroReviews = reviews.slice(0, 6);
         {/* Whole row hidden below sm on English phones: the orange View All pill above
             and the sticky bar already cover it, and hiding it lifts the first price above
             Safari's toolbar (R2 3C). */}
-        <div class="hidden sm:flex sm:flex-row gap-3">
+        <div class="hidden sm:flex sm:flex-row sm:flex-wrap gap-3 [&>a]:whitespace-nowrap">
           <a href={`${base}/inventory`} data-cta="hero" data-cta-name="browse"
              class="inline-flex items-center justify-center gap-2 bg-orange text-navy px-6 min-h-[48px] rounded-xl font-bold text-base hover:bg-orange-light transition-colors shadow-lg">
             Browse Inventory <Icon name="arrow_forward" class="text-lg" />
@@ -214,7 +214,7 @@ const heroReviews = reviews.slice(0, 6);
           <a href="#out-the-door" data-cta="hero" data-cta-name="out_the_door"
              class="inline-flex items-center justify-center gap-2 bg-white/15 backdrop-blur-sm border-2 border-white/40 text-white px-6 min-h-[48px] rounded-xl font-bold text-base hover:bg-white/25 transition-all">
             <Icon name="calculate" class="text-lg" fill />
-            Know your out the door cost
+            Out the door cost
           </a>
         </div>
 
