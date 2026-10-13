@@ -130,3 +130,6 @@
 {"ts":"2026-10-10T01:00:21.208Z","event":"sold","vin":"KMHDH4AE6GU489451","slug":"2016-hyundai-elantra-se-value-edition-sport-limited-j10224","url":"https://www.maximautos.com/vehicle/2016-hyundai-elantra-se-value-edition-sport-limited-j10224"}
 {"ts":"2026-10-11T14:26:05.630Z","event":"slug_changed_old","vin":"KNDJN2A23F7202591","slug":"2015-kia-soul-gl-middle-low-grade-j10223","url":"https://www.maximautos.com/vehicle/2015-kia-soul-gl-middle-low-grade-j10223"}
 {"ts":"2026-10-11T14:26:05.631Z","event":"slug_changed_new","vin":"KNDJN2A23F7202591","slug":"2015-kia-soul-j10223","url":"https://www.maximautos.com/vehicle/2015-kia-soul-j10223"}
+{"ts":"2026-10-13T17:30:21.714Z","event":"added","vin":"1FM5K8F88EGC35039","slug":"2014-ford-explorer-limited-j10270","url":"https://www.maximautos.com/vehicle/2014-ford-explorer-limited-j10270"}
+{"ts":"2026-10-13T17:30:21.714Z","event":"added","vin":"4S4BSAKCXJ3314086","slug":"2018-subaru-outback-2-5i-limited-j10271","url":"https://www.maximautos.com/vehicle/2018-subaru-outback-2-5i-limited-j10271"}
+{"ts":"2026-10-13T17:30:21.714Z","event":"added","vin":"KM8J33A47HU369551","slug":"2017-hyundai-tucson-se-plus-j10269","url":"https://www.maximautos.com/vehicle/2017-hyundai-tucson-se-plus-j10269"}
