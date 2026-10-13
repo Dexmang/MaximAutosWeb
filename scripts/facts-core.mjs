@@ -64,12 +64,12 @@ function pct(rate) {
  *   state    6.25%. A handful of downstate counties add a local vehicle tax; the block says
  *            "local rate confirmed at signing".
  *   fees     ilsos.gov fee schedule: title $165, new passenger plates $151, plate transfer $25.
- *   ert      Electronic Registration and Title (ERT) filing, $35, the per deal charge of the
- *            CVR electronic filing that issues metal plates the same visit. Passed through
- *            at cost, per Jerry 2026-10-13 (task 323). It is NOT a state fee and NOT a dealer
- *            doc fee: it is shown as its own labelled line inside the title and plates group
- *            on every surface that states a total, so no buyer meets it for the first time
- *            at the desk. Set to 0 the day Jerry absorbs it and every surface drops the line.
+ *   ert      Electronic Registration and Title (ERT) filing: the $35 per deal cost of the CVR
+ *            electronic filing that issues metal plates the same visit. ABSORBED. Jerry decided
+ *            2026-10-13 (task 330) that Maxim pays it and it is never a line on the buyer's
+ *            contract, so it is 0 here and no surface shows it. The plumbing stays: if it were
+ *            ever charged again it would be its own labelled line inside the title and plates
+ *            group on every surface that states a total, never a surprise at the desk.
  *   docCap   Illinois 2026 documentary service fee cap, operations/pricing-policy.md,
  *            taxable in Illinois. Maxim charges $0; the cap is quoted only beside that $0.
  */
@@ -88,7 +88,7 @@ export const IL_FEES = {
   title: 165,
   plates: 151,
   transfer: 25,
-  ert: 35,
+  ert: 0,
   docCap: 377.63,
   docCapYear: 2026,
 };
