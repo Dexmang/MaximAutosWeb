@@ -1,6 +1,6 @@
 {
   "source": "pka_hub.db ma_vehicles",
-  "generated_at": "2026-10-13T08:00:04.687Z",
+  "generated_at": "2026-10-13T17:30:06.803Z",
   "by_vin": {
     "WA1L2AFP8GA046658": {
       "primaryPhotoUrl": "https://imagesdl.dealercenter.net/1289/856/202605-5a3a7b53ec574aeeb79048aec9ba6173/202604-6e50c97293ab4318bea70628625c02b9.jpg",
@@ -1262,6 +1262,69 @@
         "https://imagesdl.dealercenter.net/1289/856/202610-707fe62d4bba462db63d22aec695f627.jpg"
       ],
       "count": 16
+    },
+    "KM8J33A47HU369551": {
+      "primaryPhotoUrl": "https://imagesdl.dealercenter.net/1289/856/202610-58dcafb086ab42afa5f1c08a2aa7dc0d.jpg",
+      "photoUrls": [
+        "https://imagesdl.dealercenter.net/1289/856/202610-58dcafb086ab42afa5f1c08a2aa7dc0d.jpg",
+        "https://imagesdl.dealercenter.net/1289/856/202610-94255fe2204d43a899283d53b97e3dd9.jpg",
+        "https://imagesdl.dealercenter.net/1289/856/202610-4f3a2cf1b13d4cb7b3bbffcb1ee81632.jpg",
+        "https://imagesdl.dealercenter.net/1289/856/202610-24e46bb66a104f1ea5df19ad15525af2.jpg",
+        "https://imagesdl.dealercenter.net/1289/856/202610-826f6124661f4b5cb50f262d50a93735.jpg",
+        "https://imagesdl.dealercenter.net/1289/856/202610-c5e5194bbd634c44a62ad570c2348486.jpg",
+        "https://imagesdl.dealercenter.net/1289/856/202610-df4a7cb452d94ca7a90495ff3204cb8f.jpg",
+        "https://imagesdl.dealercenter.net/1289/856/202610-34c4e3f76d29499dac5f6c1aeb3fbf59.jpg",
+        "https://imagesdl.dealercenter.net/1289/856/202610-bba704943c6448c1ae01fbc0bb7ef43f.jpg",
+        "https://imagesdl.dealercenter.net/1289/856/202610-56f4fcfb2ef64ddf9dee52a99a0688fb.jpg",
+        "https://imagesdl.dealercenter.net/1289/856/202610-fda30b0ac557466684c30b5bc2b34754.jpg",
+        "https://imagesdl.dealercenter.net/1289/856/202610-95e848a4ee1242b786f8401f4f69174f.jpg",
+        "https://imagesdl.dealercenter.net/1289/856/202610-b08c6aef2a5e451287bb577cf576830a.jpg",
+        "https://imagesdl.dealercenter.net/1289/856/202610-1fa1db32a0bf4a489bc5ff7b79d5dc14.jpg",
+        "https://imagesdl.dealercenter.net/1289/856/202610-46a8b856535f49ddbd1e955b4b4f2ea5.jpg"
+      ],
+      "count": 15
+    },
+    "1FM5K8F88EGC35039": {
+      "primaryPhotoUrl": "https://imagesdl.dealercenter.net/1289/856/202610-74f0875e32484aa3afb9e39043f29e36.jpg",
+      "photoUrls": [
+        "https://imagesdl.dealercenter.net/1289/856/202610-74f0875e32484aa3afb9e39043f29e36.jpg",
+        "https://imagesdl.dealercenter.net/1289/856/202610-d039285355b64b1a823693b83cee0281.jpg",
+        "https://imagesdl.dealercenter.net/1289/856/202610-111cba4401ac4b458561c0773649ee57.jpg",
+        "https://imagesdl.dealercenter.net/1289/856/202610-305988a971de4bfeb7927113af2f18f4.jpg",
+        "https://imagesdl.dealercenter.net/1289/856/202610-92033b010e334950919c94e910ecb49d.jpg",
+        "https://imagesdl.dealercenter.net/1289/856/202610-66df4c8a9b6440838887001626dc3716.jpg",
+        "https://imagesdl.dealercenter.net/1289/856/202610-821a2dc052364ce5800d14c1c32bda7f.jpg",
+        "https://imagesdl.dealercenter.net/1289/856/202610-fefdbfad48224c909153598a48462330.jpg",
+        "https://imagesdl.dealercenter.net/1289/856/202610-f60e48d623334495905b75a2505f6da0.jpg",
+        "https://imagesdl.dealercenter.net/1289/856/202610-65f344cbe3ed40b880ef26a77ae5f44b.jpg",
+        "https://imagesdl.dealercenter.net/1289/856/202610-038076bd0bec4541bf6a2ef620b9e520.jpg",
+        "https://imagesdl.dealercenter.net/1289/856/202610-80e944ac1d6049849e5b2fe9224c2b8d.jpg",
+        "https://imagesdl.dealercenter.net/1289/856/202610-73238e63c89e44d1b9f9244d482d9112.jpg",
+        "https://imagesdl.dealercenter.net/1289/856/202610-8e3bee65626d437cb4e93251deea855b.jpg",
+        "https://imagesdl.dealercenter.net/1289/856/202610-a60d273cc05e4c7989bf98a31d309958.jpg"
+      ],
+      "count": 15
+    },
+    "4S4BSAKCXJ3314086": {
+      "primaryPhotoUrl": "https://imagesdl.dealercenter.net/1289/856/202610-772195d5fabb499a922911d9ecf97755.jpg",
+      "photoUrls": [
+        "https://imagesdl.dealercenter.net/1289/856/202610-772195d5fabb499a922911d9ecf97755.jpg",
+        "https://imagesdl.dealercenter.net/1289/856/202610-0503fe5f85814c51bb9521c27651a1c0.jpg",
+        "https://imagesdl.dealercenter.net/1289/856/202610-8b3815b5fbc24c51933cfe6130a4b5d9.jpg",
+        "https://imagesdl.dealercenter.net/1289/856/202610-5a4bead8767f465fa407342675468028.jpg",
+        "https://imagesdl.dealercenter.net/1289/856/202610-c5709758faba4d4e96644c90426bec4e.jpg",
+        "https://imagesdl.dealercenter.net/1289/856/202610-6e58fff290744e81850e95db222121cd.jpg",
+        "https://imagesdl.dealercenter.net/1289/856/202610-9999908ca5b542cf9fdcea4ad8a308a8.jpg",
+        "https://imagesdl.dealercenter.net/1289/856/202610-7514dd426c24484bbda55fa89c23b7ca.jpg",
+        "https://imagesdl.dealercenter.net/1289/856/202610-0efdf0723a984899b6a91777379a5265.jpg",
+        "https://imagesdl.dealercenter.net/1289/856/202610-d7817122a3df4e699f756ab800c77726.jpg",
+        "https://imagesdl.dealercenter.net/1289/856/202610-cd53d0ef173a4a80b220694644576cb1.jpg",
+        "https://imagesdl.dealercenter.net/1289/856/202610-1662c69d1b3a44589ad73873e31fb061.jpg",
+        "https://imagesdl.dealercenter.net/1289/856/202610-94c4216cc5ec492596f7d2c90144e4a2.jpg",
+        "https://imagesdl.dealercenter.net/1289/856/202610-cc6ba21cda8d46ea8190f06b429aac16.jpg",
+        "https://imagesdl.dealercenter.net/1289/856/202610-89bb63a737a8468e9bf927e7c8a88797.jpg"
+      ],
+      "count": 15
     }
   }
 }
