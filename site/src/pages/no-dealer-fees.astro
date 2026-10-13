@@ -1,0 +1,259 @@
+---
+/**
+ * /no-dealer-fees  ::  the one page that explains the policy and proves it with numbers.
+ *
+ * Approach 1 of the 2026-10-13 proposal (website/otd-estimator-2026-10/design). This is the
+ * asset Google, the answer engines and the phone receptionist can cite for "no doc fee
+ * dealer Chicago", "doc fee illinois 2026" and "tax title and license calculator illinois",
+ * queries nobody in the radius owns. Every figure on it comes from facts.json; nothing is
+ * typed here (lint rules typed-doc-cap, unpaired-doc-cap). Spanish twin:
+ * es/sin-cargos-de-dealer.astro (guardrail D4).
+ */
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import OtdEstimate from '../components/OtdEstimate.astro';
+import Icon from '../components/Icon.astro';
+import facts from '../data/facts.json';
+import vehicles from '../data/vehicles.json';
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const T = facts.taxes;
+const F = facts.fees;
+
+const title = 'No Dealer Fees, No Doc Fee | Maxim Autos';
+const description = `No doc fee and no dealer fees at Maxim Autos in Skokie. Illinois allows up to ${F.docCapText}; here it is $0. See your estimated total at signing by ZIP.`;
+
+const titleOf = (v: any) => [v.year, v.make, v.model, v.trim].filter(Boolean).join(' ');
+const live = vehicles
+  .filter((v: any) => v && v.status !== 'sold' && Number(v.price) > 0)
+  .sort((a: any, b: any) => a.price - b.price);
+const first = live[0];
+
+// Illustrative tax on a round figure, so the table reads in dollars as well as percent.
+const EXAMPLE = 10000;
+const exTax = (rate: number) => '$' + Math.round(EXAMPLE * rate).toLocaleString('en-US');
+
+const faq = [
+  {
+    q: 'Does Maxim Autos charge a doc fee or dealer fees?',
+    a: `No. ${F.capLine} There is no processing fee and no add on, on every deal, cash or financed. ${F.addedLine}`,
+  },
+  {
+    q: 'What is the Illinois doc fee cap?',
+    a: `Illinois caps the documentary service fee a dealer may charge at ${F.docCapText} in ${F.docCapYear}, and the fee is taxable, so it costs ${F.docCapTaxedCookText} at the Cook County suburb rate. Maxim Autos charges $0.`,
+  },
+  {
+    q: 'How is Illinois sales tax on a used car calculated?',
+    a: `On the purchase price, at the rate for the address where you register the car: ${T.cookPct} in a Cook County suburb such as Skokie or Evanston, ${T.chicagoPct} for a Chicago address, ${T.collarPct} in DuPage, Kane, Lake, McHenry and Will, and the ${T.statePct} state rate elsewhere in Illinois plus any county vehicle tax. A trade in reduces the taxable amount.`,
+  },
+  {
+    q: 'What are the Illinois title and plate fees?',
+    a: `The Illinois title fee is ${F.titleText}. New passenger plates are ${F.platesText}, or ${F.transferText} to transfer plates you already own.${F.ert > 0 ? ` The ${F.ertText} ERT filing is the electronic title and registration transaction that lets us hand you metal plates the same visit, passed through at cost.` : ''}`,
+  },
+  {
+    q: 'Is the estimated total on each vehicle page the final number?',
+    a: 'It is an estimate for a cash purchase with no trade in, at the rate for your ZIP. The exact figure is calculated on your registration address at signing. The only thing that can move is the tax rate; no fee appears later.',
+  },
+  {
+    q: 'Do you sell to buyers outside Illinois?',
+    a: 'Yes. We sell and deliver out of state, insured door to door, with a personal video walkaround before you commit. What Illinois collects from an out of state buyer depends on your state, so text (847) 510-8947 with your ZIP for your exact total.',
+  },
+];
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faq.map(f => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })),
+};
+---
+
+<Layout
+  title={title}
+  description={description}
+  hreflangEn="https://www.maximautos.com/no-dealer-fees"
+  hreflangEs="https://www.maximautos.com/es/sin-cargos-de-dealer"
+>
+  <Fragment slot="structured-data">
+    <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify({
+      '@context': 'https://schema.org',
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.maximautos.com/' },
+        { '@type': 'ListItem', position: 2, name: 'No Dealer Fees', item: 'https://www.maximautos.com/no-dealer-fees' },
+      ],
+    })} />
+  </Fragment>
+  <Header slot="header" />
+
+  <!-- Hero -->
+  <section class="bg-navy py-12 lg:py-16">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+      <span class="text-orange font-bold uppercase tracking-widest text-sm mb-3 block">Pricing</span>
+      <h1 class="font-headline text-4xl md:text-5xl lg:text-6xl font-extrabold text-white leading-tight tracking-tight mb-4">
+        No Dealer Fees.<br class="hidden md:block" /> Ever.
+      </h1>
+      <p class="text-lg md:text-xl text-gray-200 max-w-2xl leading-relaxed mb-2">
+        {F.capShort}
+      </p>
+      <p class="text-base text-gray-300 max-w-2xl leading-relaxed mb-8">
+        The price on the car plus Illinois tax, title and plates is the whole deal, and every vehicle page shows your estimated total at signing before you pick up the phone.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-3">
+        <a href={`${base}/inventory`} data-cta="hero" data-cta-name="browse_inventory"
+           class="inline-flex items-center justify-center gap-2 bg-orange text-white px-7 py-3.5 rounded-xl font-bold text-base hover:bg-orange-light transition-colors">
+          <Icon name="directions_car" class="text-xl" fill />Browse Inventory
+        </a>
+        <a href={`sms:8475108947&body=${encodeURIComponent('Hi Jerry, I have a question about pricing at Maxim Autos.')}`} data-cta="hero"
+           class="inline-flex items-center justify-center gap-2 bg-white/10 text-white px-7 py-3.5 rounded-xl font-bold text-base hover:bg-white/20 transition-colors border border-white/20">
+          <Icon name="sms" class="text-xl" fill />Text Jerry
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- What you pay -->
+  <section class="py-12 lg:py-14 bg-surface">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-5 gap-8 lg:gap-12 items-start">
+        <div class="lg:col-span-3">
+          <h2 class="font-headline text-2xl md:text-3xl font-extrabold text-navy mb-2">What you pay at signing</h2>
+          <p class="text-gray-600 mb-6">Five lines. The tax, the title and the plates go to the State of Illinois. None of them is a dealer fee.</p>
+          <ol class="space-y-4">
+            <li class="flex gap-4 bg-white rounded-xl border border-gray-100 p-4">
+              <span class="w-9 h-9 rounded-lg bg-navy text-white font-headline font-extrabold flex items-center justify-center shrink-0">1</span>
+              <div>
+                <h3 class="font-headline font-bold text-navy">Vehicle price</h3>
+                <p class="text-sm text-gray-600 leading-relaxed">The advertised price is the full price of the car. No doc fee, no processing fee, no add on, no market adjustment. Cash or financed, every deal.</p>
+              </div>
+            </li>
+            <li class="flex gap-4 bg-white rounded-xl border border-green-100 p-4">
+              <span class="w-9 h-9 rounded-lg bg-green-700 text-white font-headline font-extrabold flex items-center justify-center shrink-0">2</span>
+              <div>
+                <h3 class="font-headline font-bold text-green-700">Dealer doc fee: $0</h3>
+                <p class="text-sm text-gray-600 leading-relaxed">Illinois lets dealers add up to {F.docCapText} in {F.docCapYear}, and the fee is taxable, so the capped fee costs {F.docCapTaxedCookText} at the Cook County suburb rate. Here that line is $0.</p>
+              </div>
+            </li>
+            <li class="flex gap-4 bg-white rounded-xl border border-gray-100 p-4">
+              <span class="w-9 h-9 rounded-lg bg-navy text-white font-headline font-extrabold flex items-center justify-center shrink-0">3</span>
+              <div>
+                <h3 class="font-headline font-bold text-navy">Illinois sales tax</h3>
+                <p class="text-sm text-gray-600 leading-relaxed">Charged at the rate for the address where the car is registered, not where it is bought. {T.cookPct} in a Cook County suburb, {T.chicagoPct} in Chicago, {T.collarPct} in the collar counties. The table below has every rate.</p>
+              </div>
+            </li>
+            <li class="flex gap-4 bg-white rounded-xl border border-gray-100 p-4">
+              <span class="w-9 h-9 rounded-lg bg-navy text-white font-headline font-extrabold flex items-center justify-center shrink-0">4</span>
+              <div>
+                <h3 class="font-headline font-bold text-navy">Title and plates</h3>
+                <p class="text-sm text-gray-600 leading-relaxed">Illinois title {F.titleText}. New passenger plates {F.platesText}, or {F.transferText} to transfer plates you already have.{F.ert > 0 && ` The ${F.ertText} electronic title and registration (ERT) filing is what lets us issue metal plates the same visit; it is passed through at cost.`}</p>
+              </div>
+            </li>
+            <li class="flex gap-4 bg-white rounded-xl border border-gray-100 p-4">
+              <span class="w-9 h-9 rounded-lg bg-navy text-white font-headline font-extrabold flex items-center justify-center shrink-0">5</span>
+              <div>
+                <h3 class="font-headline font-bold text-navy">Nothing else</h3>
+                <p class="text-sm text-gray-600 leading-relaxed">{F.addedLine} The estimate on every vehicle page is the whole list.</p>
+              </div>
+            </li>
+          </ol>
+        </div>
+        <div class="lg:col-span-2 lg:sticky lg:top-[90px]">
+          {first ? (
+            <OtdEstimate price={first.price} title={titleOf(first)} stockNumber={first.stockNumber} class="shadow-sm">
+              <label slot="picker" class="block mt-2 text-sm">
+                <span class="font-semibold text-navy">Pick a car</span>
+                <select data-otd-picker class="mt-1 w-full h-11 border border-gray-300 rounded-lg px-2.5 text-sm text-navy bg-white">
+                  {live.map((v: any) => (
+                    <option value={v.price} data-title={titleOf(v)} data-stock={v.stockNumber}>{titleOf(v)} · ${v.price.toLocaleString()}</option>
+                  ))}
+                </select>
+              </label>
+            </OtdEstimate>
+          ) : (
+            <p class="text-sm text-gray-600">Pricing for each vehicle is listed on its own page.</p>
+          )}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tax table -->
+  <section class="py-12 lg:py-14 bg-white">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+      <h2 class="font-headline text-2xl md:text-3xl font-extrabold text-navy mb-2">Illinois vehicle tax by where you live</h2>
+      <p class="text-gray-600 mb-6 max-w-3xl">Illinois taxes a used car at the vehicle rate for the buyer's registration address. The dealer's address does not matter. Rates verified with the Illinois Department of Revenue rate finder, effective {T.validFrom}.</p>
+      <div class="overflow-x-auto rounded-xl border border-gray-200">
+        <table class="w-full text-sm">
+          <thead class="bg-navy text-white text-left">
+            <tr><th class="px-4 py-3 font-bold">Where the car is registered</th><th class="px-4 py-3 font-bold">Vehicle tax rate</th><th class="px-4 py-3 font-bold">Tax on a $10,000 car</th></tr>
+          </thead>
+          <tbody class="divide-y divide-gray-100 tabular-nums">
+            <tr><td class="px-4 py-3">Cook County suburb (Skokie, Evanston, Niles, Morton Grove, Lincolnwood, Des Plaines, Glenview, Wilmette, Park Ridge)</td><td class="px-4 py-3 font-semibold text-navy">{T.cookPct}</td><td class="px-4 py-3">{exTax(T.cook)}</td></tr>
+            <tr><td class="px-4 py-3">Chicago address</td><td class="px-4 py-3 font-semibold text-navy">{T.chicagoPct}</td><td class="px-4 py-3">{exTax(T.chicago)}</td></tr>
+            <tr><td class="px-4 py-3">DuPage, Kane, Lake, McHenry or Will County</td><td class="px-4 py-3 font-semibold text-navy">{T.collarPct}</td><td class="px-4 py-3">{exTax(T.collar)}</td></tr>
+            <tr><td class="px-4 py-3">Rest of Illinois</td><td class="px-4 py-3 font-semibold text-navy">{T.statePct} plus any county vehicle tax</td><td class="px-4 py-3">{exTax(T.state)} plus county, confirmed at signing</td></tr>
+            <tr><td class="px-4 py-3">Outside Illinois</td><td class="px-4 py-3 font-semibold text-navy">Depends on your state</td><td class="px-4 py-3">Text us your ZIP for the exact figure</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6">
+        <div class="bg-surface rounded-xl p-4"><p class="text-xs font-bold uppercase tracking-wider text-gray-500">Illinois title</p><p class="font-headline text-2xl font-extrabold text-navy">{F.titleText}</p><p class="text-sm text-gray-600">Set by the Secretary of State</p></div>
+        <div class="bg-surface rounded-xl p-4"><p class="text-xs font-bold uppercase tracking-wider text-gray-500">Plates</p><p class="font-headline text-2xl font-extrabold text-navy">{F.platesText} <span class="text-base font-bold text-gray-500">new</span> · {F.transferText} <span class="text-base font-bold text-gray-500">transfer</span></p><p class="text-sm text-gray-600">Metal plates issued the same visit{F.ert > 0 && `, with the ${F.ertText} ERT filing at cost`}</p></div>
+        <div class="bg-green-50 rounded-xl p-4 border border-green-100"><p class="text-xs font-bold uppercase tracking-wider text-green-700">Dealer doc fee</p><p class="font-headline text-2xl font-extrabold text-green-700">$0</p><p class="text-sm text-gray-600">Illinois allows up to {F.docCapText} in {F.docCapYear}</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why -->
+  <section class="py-12 lg:py-14 bg-surface">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
+      <div>
+        <h2 class="font-headline text-2xl md:text-3xl font-extrabold text-navy mb-3">Why there is no doc fee here</h2>
+        <p class="text-gray-700 leading-relaxed mb-3">A doc fee is a dealer charge for paperwork. We decided that paperwork is part of selling a car, not a line on your contract. The price on the windshield is the price, and the money that goes anywhere else goes to the State of Illinois for tax, title and plates.</p>
+        <p class="text-gray-700 leading-relaxed mb-3"><span class="font-bold text-green-700">No dealer fees at Maxim Autos, ever.</span> The price you see is the price you pay, plus tax, title, and license.</p>
+        <p class="text-gray-700 leading-relaxed">Financing for all credit levels, including buyers building or rebuilding their credit. Approval is never guaranteed, and the fee policy is the same on a financed deal as on a cash deal.</p>
+      </div>
+      <div>
+        <h2 class="font-headline text-2xl md:text-3xl font-extrabold text-navy mb-3">Buying from outside Illinois</h2>
+        <p class="text-gray-700 leading-relaxed mb-3">We sell and deliver out of state, insured door to door. Before any money moves you get a personal video walkaround of the car, every scratch included, then digital paperwork and the car at your door.</p>
+        <p class="text-gray-700 leading-relaxed mb-4">Illinois collects tax from an out of state buyer under a schedule that depends on your state, so your total is not a ZIP lookup. Text us your ZIP and we answer with the exact number.</p>
+        <a href={`${base}/ship`} data-cta="body" data-cta-name="ship_how_it_works" class="inline-flex items-center gap-2 font-bold text-navy underline underline-offset-2">
+          <Icon name="local_shipping" class="text-xl" fill />How buying from out of state works
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="py-12 lg:py-14 bg-white">
+    <div class="max-w-4xl mx-auto px-6 lg:px-8">
+      <h2 class="font-headline text-2xl md:text-3xl font-extrabold text-navy mb-6">Questions buyers ask about fees</h2>
+      <div class="space-y-3">
+        {faq.map(f => (
+          <details class="group bg-surface rounded-xl border border-gray-100 p-4">
+            <summary class="flex items-center justify-between gap-3 cursor-pointer font-bold text-navy list-none">
+              {f.q}
+              <Icon name="expand_more" class="text-2xl text-gray-400 transition-transform group-open:rotate-180" />
+            </summary>
+            <p class="mt-2 text-gray-600 leading-relaxed">{f.a}</p>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-12 bg-navy">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8 text-center">
+      <h2 class="font-headline text-2xl md:text-3xl font-extrabold text-white mb-2">See the number on any car</h2>
+      <p class="text-white/70 text-lg mb-6">Every vehicle page has the estimate. Call or text Jerry for anything it does not answer.</p>
+      <div class="flex flex-col sm:flex-row gap-3 justify-center">
+        <a href={`${base}/inventory`} data-cta="footer_cta" data-cta-name="browse_inventory" class="inline-flex items-center justify-center gap-2 bg-orange text-white px-7 py-3.5 rounded-xl font-bold hover:bg-orange-light transition-colors">Browse Inventory</a>
+        <a href="tel:8475108947" data-cta="footer_cta" class="inline-flex items-center justify-center gap-2 bg-white/10 text-white px-7 py-3.5 rounded-xl font-bold hover:bg-white/20 transition-colors border border-white/20"><Icon name="call" class="text-xl" fill />(847) 510-8947</a>
+      </div>
+    </div>
+  </section>
+
+  <Footer slot="footer" />
+</Layout>

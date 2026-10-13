@@ -17,7 +17,7 @@
   },
   {
     "question": "Are there any hidden fees or dealer fees?",
-    "answer": "No. The price you see is the price you pay. Maxim Autos does not charge dealer fees, documentation fees, or any hidden charges. The only additions to the vehicle price are state-required tax, title, and license fees."
+    "answer": "No. The price you see is the price you pay. Maxim Autos does not charge dealer fees, documentation fees, or any hidden charges. The only additions to the vehicle price are state-required tax, title, and license fees. {{fees.capLine}}"
   },
   {
     "question": "Does Maxim Autos offer a warranty?",

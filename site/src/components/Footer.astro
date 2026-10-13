@@ -45,6 +45,7 @@ const finHref      = isSpanish ? `${base}/es/financiamiento`        : `${base}/f
 const applyHref    = isSpanish ? `${base}/es/aplicacion-de-credito` : `${base}/apply`;
 const sellHref     = isSpanish ? `${base}/es/vender-intercambiar`   : `${base}/sell-trade`;
 const shipHref     = isSpanish ? `${base}/es/compra-en-linea`       : `${base}/ship`;
+const noFeesHref   = isSpanish ? `${base}/es/sin-cargos-de-dealer` : `${base}/no-dealer-fees`;
 const aboutHref    = isSpanish ? `${base}/es/sobre-nosotros`        : `${base}/about`;
 const contactHref  = isSpanish ? `${base}/es/contacto`              : `${base}/contact`;
 // English-only fallback (no Spanish equivalents per scope)
@@ -70,6 +71,7 @@ const labels = isSpanish
       quickLinks:        'Enlaces',
       browseInventory:   'Ver Inventario',
       financing:         'Financiamiento',
+      noFees:            'Sin Cargos de Dealer',
       creditApp:         'Solicitud de Credito',
       sellTrade:         'Vender / Cambiar',
       deliveredAnywhere: 'Entrega en Todo EE.UU.',
@@ -105,6 +107,7 @@ const labels = isSpanish
       quickLinks:        'Quick Links',
       browseInventory:   'Browse Inventory',
       financing:         'Financing',
+      noFees:            'No Dealer Fees',
       creditApp:         'Credit Application',
       sellTrade:         'Sell / Trade',
       deliveredAnywhere: 'Delivered Anywhere in the U.S.',
@@ -190,6 +193,7 @@ const labels = isSpanish
       <ul class="space-y-3 text-sm">
         <li><a class="hover:text-white transition-colors" href={invHref}>{labels.browseInventory}</a></li>
         <li><a class="hover:text-white transition-colors" href={finHref}>{labels.financing}</a></li>
+        <li><a class="hover:text-white transition-colors" href={noFeesHref}>{labels.noFees}</a></li>
         <li><a class="hover:text-white transition-colors" href={applyHref}>{labels.creditApp}</a></li>
         <li><a class="hover:text-white transition-colors" href={sellHref}>{labels.sellTrade}</a></li>
         <li><a class="hover:text-white transition-colors" href={shipHref}>{labels.deliveredAnywhere}</a></li>

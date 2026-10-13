@@ -1,0 +1,254 @@
+---
+/**
+ * /es/sin-cargos-de-dealer  ::  gemelo en espanol de /no-dealer-fees (guardrail D4).
+ * Cada cifra viene de facts.json; nada se escribe aqui (reglas de lint typed-doc-cap y
+ * unpaired-doc-cap). Sin acentos, siguiendo la convencion de las demas paginas /es/.
+ */
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import OtdEstimate from '../../components/OtdEstimate.astro';
+import Icon from '../../components/Icon.astro';
+import facts from '../../data/facts.json';
+import vehicles from '../../data/vehicles.json';
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const T = facts.taxes;
+const F = facts.fees;
+
+const title = 'Sin Cargos de Dealer ni Documentacion | Maxim Autos';
+const description = `Sin cargo de documentacion ni cargos de dealer en Maxim Autos, Skokie. Illinois permite hasta ${F.docCapText}; aqui es $0. Tu total estimado al firmar por ZIP.`;
+
+const titleOf = (v: any) => [v.year, v.make, v.model, v.trim].filter(Boolean).join(' ');
+const live = vehicles
+  .filter((v: any) => v && v.status !== 'sold' && Number(v.price) > 0)
+  .sort((a: any, b: any) => a.price - b.price);
+const first = live[0];
+
+const EXAMPLE = 10000;
+const exTax = (rate: number) => '$' + Math.round(EXAMPLE * rate).toLocaleString('en-US');
+
+const faq = [
+  {
+    q: 'Maxim Autos cobra cargo de documentacion o cargos de dealer?',
+    a: `No. ${F.capLineEs} No hay cargo de procesamiento ni extras, en cada venta, de contado o financiada. ${F.addedLineEs}`,
+  },
+  {
+    q: 'Cual es el tope del cargo de documentacion en Illinois?',
+    a: `Illinois limita el cargo de documentacion que un dealer puede cobrar a ${F.docCapText} en ${F.docCapYear}, y ese cargo paga impuesto, asi que cuesta ${F.docCapTaxedCookText} con la tasa de un suburbio del condado de Cook. Maxim Autos cobra $0.`,
+  },
+  {
+    q: 'Como se calcula el impuesto de venta de Illinois en un auto usado?',
+    a: `Sobre el precio de compra, con la tasa de la direccion donde registras el auto: ${T.cookPct} en un suburbio del condado de Cook como Skokie o Evanston, ${T.chicagoPct} con direccion en Chicago, ${T.collarPct} en DuPage, Kane, Lake, McHenry y Will, y la tasa estatal de ${T.statePct} en el resto de Illinois mas cualquier impuesto vehicular del condado. Un auto a cuenta reduce el monto gravable.`,
+  },
+  {
+    q: 'Cuanto cuestan el titulo y las placas en Illinois?',
+    a: `El titulo de Illinois cuesta ${F.titleText}. Las placas nuevas cuestan ${F.platesText}, o ${F.transferText} para transferir placas que ya tienes.${F.ert > 0 ? ` Los ${F.ertText} del tramite ERT son la transaccion electronica de titulo y registro que nos permite entregarte placas de metal el mismo dia, cobrados al costo.` : ''}`,
+  },
+  {
+    q: 'El total estimado de cada pagina de vehiculo es la cifra final?',
+    a: 'Es un estimado para una compra de contado sin auto a cuenta, con la tasa de tu codigo postal. La cifra exacta se calcula con tu direccion de registro al firmar. Lo unico que puede cambiar es la tasa de impuesto; no aparece ningun cargo despues.',
+  },
+  {
+    q: 'Venden a compradores fuera de Illinois?',
+    a: 'Si. Vendemos y entregamos a otros estados, con envio asegurado puerta a puerta y un video personal del auto antes de que te comprometas. Lo que Illinois cobra a un comprador de otro estado depende de tu estado, asi que escribe al (847) 510-8947 con tu codigo postal para tu total exacto.',
+  },
+];
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faq.map(f => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })),
+};
+---
+
+<Layout
+  title={title}
+  description={description}
+  lang="es"
+  hreflangEn="https://www.maximautos.com/no-dealer-fees"
+  hreflangEs="https://www.maximautos.com/es/sin-cargos-de-dealer"
+>
+  <Fragment slot="structured-data">
+    <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify({
+      '@context': 'https://schema.org',
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'Inicio', item: 'https://www.maximautos.com/es' },
+        { '@type': 'ListItem', position: 2, name: 'Sin Cargos de Dealer', item: 'https://www.maximautos.com/es/sin-cargos-de-dealer' },
+      ],
+    })} />
+  </Fragment>
+  <Header slot="header" lang="es" />
+
+  <!-- Hero -->
+  <section class="bg-navy py-12 lg:py-16">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+      <span class="text-orange font-bold uppercase tracking-widest text-sm mb-3 block">Precios</span>
+      <h1 class="font-headline text-4xl md:text-5xl lg:text-6xl font-extrabold text-white leading-tight tracking-tight mb-4">
+        Cero Cargos de Dealer.<br class="hidden md:block" /> Siempre.
+      </h1>
+      <p class="text-lg md:text-xl text-gray-200 max-w-2xl leading-relaxed mb-2">
+        {F.capShortEs}
+      </p>
+      <p class="text-base text-gray-300 max-w-2xl leading-relaxed mb-8">
+        El precio del auto mas impuestos, titulo y placas de Illinois es el trato completo, y cada pagina de vehiculo muestra tu total estimado al firmar antes de que levantes el telefono.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-3">
+        <a href={`${base}/es/inventario`} data-cta="hero" data-cta-name="browse_inventory"
+           class="inline-flex items-center justify-center gap-2 bg-orange text-white px-7 py-3.5 rounded-xl font-bold text-base hover:bg-orange-light transition-colors">
+          <Icon name="directions_car" class="text-xl" fill />Ver Inventario
+        </a>
+        <a href={`sms:8475108947&body=${encodeURIComponent('Hola Jerry, tengo una pregunta sobre los precios de Maxim Autos.')}`} data-cta="hero"
+           class="inline-flex items-center justify-center gap-2 bg-white/10 text-white px-7 py-3.5 rounded-xl font-bold text-base hover:bg-white/20 transition-colors border border-white/20">
+          <Icon name="sms" class="text-xl" fill />Escribe a Jerry
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Lo que pagas -->
+  <section class="py-12 lg:py-14 bg-surface">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-5 gap-8 lg:gap-12 items-start">
+        <div class="lg:col-span-3">
+          <h2 class="font-headline text-2xl md:text-3xl font-extrabold text-navy mb-2">Lo que pagas al firmar</h2>
+          <p class="text-gray-600 mb-6">Cinco lineas. El impuesto, el titulo y las placas van al Estado de Illinois. Ninguna es un cargo de dealer.</p>
+          <ol class="space-y-4">
+            <li class="flex gap-4 bg-white rounded-xl border border-gray-100 p-4">
+              <span class="w-9 h-9 rounded-lg bg-navy text-white font-headline font-extrabold flex items-center justify-center shrink-0">1</span>
+              <div>
+                <h3 class="font-headline font-bold text-navy">Precio del vehiculo</h3>
+                <p class="text-sm text-gray-600 leading-relaxed">El precio anunciado es el precio completo del auto. Sin cargo de documentacion, sin cargo de procesamiento, sin extras, sin ajuste de mercado. De contado o financiado, en cada venta.</p>
+              </div>
+            </li>
+            <li class="flex gap-4 bg-white rounded-xl border border-green-100 p-4">
+              <span class="w-9 h-9 rounded-lg bg-green-700 text-white font-headline font-extrabold flex items-center justify-center shrink-0">2</span>
+              <div>
+                <h3 class="font-headline font-bold text-green-700">Cargo de documentacion del dealer: $0</h3>
+                <p class="text-sm text-gray-600 leading-relaxed">Illinois permite a los dealers agregar hasta {F.docCapText} en {F.docCapYear}, y ese cargo paga impuesto, asi que el cargo tope cuesta {F.docCapTaxedCookText} con la tasa de un suburbio del condado de Cook. Aqui esa linea es $0.</p>
+              </div>
+            </li>
+            <li class="flex gap-4 bg-white rounded-xl border border-gray-100 p-4">
+              <span class="w-9 h-9 rounded-lg bg-navy text-white font-headline font-extrabold flex items-center justify-center shrink-0">3</span>
+              <div>
+                <h3 class="font-headline font-bold text-navy">Impuesto de venta de Illinois</h3>
+                <p class="text-sm text-gray-600 leading-relaxed">Se cobra con la tasa de la direccion donde se registra el auto, no donde se compra. {T.cookPct} en un suburbio del condado de Cook, {T.chicagoPct} en Chicago, {T.collarPct} en los condados vecinos. La tabla de abajo tiene cada tasa.</p>
+              </div>
+            </li>
+            <li class="flex gap-4 bg-white rounded-xl border border-gray-100 p-4">
+              <span class="w-9 h-9 rounded-lg bg-navy text-white font-headline font-extrabold flex items-center justify-center shrink-0">4</span>
+              <div>
+                <h3 class="font-headline font-bold text-navy">Titulo y placas</h3>
+                <p class="text-sm text-gray-600 leading-relaxed">Titulo de Illinois {F.titleText}. Placas nuevas {F.platesText}, o {F.transferText} para transferir placas que ya tienes.{F.ert > 0 && ` Los ${F.ertText} del tramite electronico de titulo y registro (ERT) son lo que nos permite entregar placas de metal el mismo dia; se cobran al costo.`}</p>
+              </div>
+            </li>
+            <li class="flex gap-4 bg-white rounded-xl border border-gray-100 p-4">
+              <span class="w-9 h-9 rounded-lg bg-navy text-white font-headline font-extrabold flex items-center justify-center shrink-0">5</span>
+              <div>
+                <h3 class="font-headline font-bold text-navy">Nada mas</h3>
+                <p class="text-sm text-gray-600 leading-relaxed">{F.addedLineEs} El estimado en cada pagina de vehiculo es la lista completa.</p>
+              </div>
+            </li>
+          </ol>
+        </div>
+        <div class="lg:col-span-2 lg:sticky lg:top-[90px]">
+          {first ? (
+            <OtdEstimate lang="es" price={first.price} title={titleOf(first)} stockNumber={first.stockNumber} class="shadow-sm">
+              <label slot="picker" class="block mt-2 text-sm">
+                <span class="font-semibold text-navy">Elige un auto</span>
+                <select data-otd-picker class="mt-1 w-full h-11 border border-gray-300 rounded-lg px-2.5 text-sm text-navy bg-white">
+                  {live.map((v: any) => (
+                    <option value={v.price} data-title={titleOf(v)} data-stock={v.stockNumber}>{titleOf(v)} · ${v.price.toLocaleString()}</option>
+                  ))}
+                </select>
+              </label>
+            </OtdEstimate>
+          ) : (
+            <p class="text-sm text-gray-600">El precio de cada vehiculo aparece en su pagina.</p>
+          )}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tabla de impuestos -->
+  <section class="py-12 lg:py-14 bg-white">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+      <h2 class="font-headline text-2xl md:text-3xl font-extrabold text-navy mb-2">Impuesto vehicular de Illinois segun donde vives</h2>
+      <p class="text-gray-600 mb-6 max-w-3xl">Illinois grava un auto usado con la tasa vehicular de la direccion de registro del comprador. La direccion del dealer no importa. Tasas verificadas en el buscador de tasas del Departamento de Ingresos de Illinois, vigentes desde {T.validFrom}.</p>
+      <div class="overflow-x-auto rounded-xl border border-gray-200">
+        <table class="w-full text-sm">
+          <thead class="bg-navy text-white text-left">
+            <tr><th class="px-4 py-3 font-bold">Donde se registra el auto</th><th class="px-4 py-3 font-bold">Tasa vehicular</th><th class="px-4 py-3 font-bold">Impuesto en un auto de $10,000</th></tr>
+          </thead>
+          <tbody class="divide-y divide-gray-100 tabular-nums">
+            <tr><td class="px-4 py-3">Suburbio del condado de Cook (Skokie, Evanston, Niles, Morton Grove, Lincolnwood, Des Plaines, Glenview, Wilmette, Park Ridge)</td><td class="px-4 py-3 font-semibold text-navy">{T.cookPct}</td><td class="px-4 py-3">{exTax(T.cook)}</td></tr>
+            <tr><td class="px-4 py-3">Direccion en Chicago</td><td class="px-4 py-3 font-semibold text-navy">{T.chicagoPct}</td><td class="px-4 py-3">{exTax(T.chicago)}</td></tr>
+            <tr><td class="px-4 py-3">Condado de DuPage, Kane, Lake, McHenry o Will</td><td class="px-4 py-3 font-semibold text-navy">{T.collarPct}</td><td class="px-4 py-3">{exTax(T.collar)}</td></tr>
+            <tr><td class="px-4 py-3">Resto de Illinois</td><td class="px-4 py-3 font-semibold text-navy">{T.statePct} mas cualquier impuesto vehicular del condado</td><td class="px-4 py-3">{exTax(T.state)} mas condado, confirmado al firmar</td></tr>
+            <tr><td class="px-4 py-3">Fuera de Illinois</td><td class="px-4 py-3 font-semibold text-navy">Depende de tu estado</td><td class="px-4 py-3">Escribenos tu codigo postal para la cifra exacta</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6">
+        <div class="bg-surface rounded-xl p-4"><p class="text-xs font-bold uppercase tracking-wider text-gray-500">Titulo de Illinois</p><p class="font-headline text-2xl font-extrabold text-navy">{F.titleText}</p><p class="text-sm text-gray-600">Lo fija la Secretaria de Estado</p></div>
+        <div class="bg-surface rounded-xl p-4"><p class="text-xs font-bold uppercase tracking-wider text-gray-500">Placas</p><p class="font-headline text-2xl font-extrabold text-navy">{F.platesText} <span class="text-base font-bold text-gray-500">nuevas</span> · {F.transferText} <span class="text-base font-bold text-gray-500">transferencia</span></p><p class="text-sm text-gray-600">Placas de metal el mismo dia{F.ert > 0 && `, con los ${F.ertText} del tramite ERT al costo`}</p></div>
+        <div class="bg-green-50 rounded-xl p-4 border border-green-100"><p class="text-xs font-bold uppercase tracking-wider text-green-700">Cargo de documentacion del dealer</p><p class="font-headline text-2xl font-extrabold text-green-700">$0</p><p class="text-sm text-gray-600">Illinois permite hasta {F.docCapText} en {F.docCapYear}</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Por que -->
+  <section class="py-12 lg:py-14 bg-surface">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
+      <div>
+        <h2 class="font-headline text-2xl md:text-3xl font-extrabold text-navy mb-3">Por que aqui no hay cargo de documentacion</h2>
+        <p class="text-gray-700 leading-relaxed mb-3">Un cargo de documentacion es un cobro del dealer por el papeleo. Decidimos que el papeleo es parte de vender un auto, no una linea en tu contrato. El precio en el parabrisas es el precio, y el dinero que va a otro lado va al Estado de Illinois por impuestos, titulo y placas.</p>
+        <p class="text-gray-700 leading-relaxed mb-3"><span class="font-bold text-green-700">Nunca cobramos cargos de dealer en Maxim Autos.</span> El precio que ves es el precio que pagas, mas impuestos, titulo y placas.</p>
+        <p class="text-gray-700 leading-relaxed">Financiamiento para todos los niveles de credito, incluidos compradores que estan construyendo o reparando su credito. La aprobacion nunca esta garantizada, y la politica de cargos es la misma en una venta financiada que de contado.</p>
+      </div>
+      <div>
+        <h2 class="font-headline text-2xl md:text-3xl font-extrabold text-navy mb-3">Compra desde fuera de Illinois</h2>
+        <p class="text-gray-700 leading-relaxed mb-3">Vendemos y entregamos a otros estados, con envio asegurado puerta a puerta. Antes de que se mueva un solo dolar recibes un video personal del auto, con cada rayon incluido, luego papeleo digital y el auto en tu puerta.</p>
+        <p class="text-gray-700 leading-relaxed mb-4">Illinois cobra impuesto a un comprador de otro estado segun una tabla que depende de tu estado, asi que tu total no es una busqueda por codigo postal. Escribenos tu codigo postal y respondemos con la cifra exacta.</p>
+        <a href={`${base}/es/compra-en-linea`} data-cta="body" data-cta-name="ship_how_it_works" class="inline-flex items-center gap-2 font-bold text-navy underline underline-offset-2">
+          <Icon name="local_shipping" class="text-xl" fill />Como funciona la compra desde otro estado
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Preguntas -->
+  <section class="py-12 lg:py-14 bg-white">
+    <div class="max-w-4xl mx-auto px-6 lg:px-8">
+      <h2 class="font-headline text-2xl md:text-3xl font-extrabold text-navy mb-6">Preguntas sobre cargos</h2>
+      <div class="space-y-3">
+        {faq.map(f => (
+          <details class="group bg-surface rounded-xl border border-gray-100 p-4">
+            <summary class="flex items-center justify-between gap-3 cursor-pointer font-bold text-navy list-none">
+              {f.q}
+              <Icon name="expand_more" class="text-2xl text-gray-400 transition-transform group-open:rotate-180" />
+            </summary>
+            <p class="mt-2 text-gray-600 leading-relaxed">{f.a}</p>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-12 bg-navy">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8 text-center">
+      <h2 class="font-headline text-2xl md:text-3xl font-extrabold text-white mb-2">Mira la cifra en cualquier auto</h2>
+      <p class="text-white/70 text-lg mb-6">Cada pagina de vehiculo tiene el estimado. Llama o escribe a Jerry para lo que no responda.</p>
+      <div class="flex flex-col sm:flex-row gap-3 justify-center">
+        <a href={`${base}/es/inventario`} data-cta="footer_cta" data-cta-name="browse_inventory" class="inline-flex items-center justify-center gap-2 bg-orange text-white px-7 py-3.5 rounded-xl font-bold hover:bg-orange-light transition-colors">Ver Inventario</a>
+        <a href="tel:8475108947" data-cta="footer_cta" class="inline-flex items-center justify-center gap-2 bg-white/10 text-white px-7 py-3.5 rounded-xl font-bold hover:bg-white/20 transition-colors border border-white/20"><Icon name="call" class="text-xl" fill />(847) 510-8947</a>
+      </div>
+    </div>
+  </section>
+
+  <Footer slot="footer" lang="es" />
+</Layout>

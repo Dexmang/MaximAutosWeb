@@ -33,6 +33,66 @@ function usd(n) {
   return `$${US.format(Math.round(n))}`;
 }
 
+/** Money with cents, for the state fee figures the estimate block prints. */
+function usd2(n) {
+  return `$${n.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
+}
+
+function pct(rate) {
+  return `${(rate * 100).toFixed(2)}%`;
+}
+
+/**
+ * Illinois vehicle (ST-556) tax rates and Secretary of State fees, for the estimated total
+ * at signing (website/otd-estimator-2026-10/design/SPEC.md). These are the ONLY typed
+ * dollar figures in the ledger, and they are typed here for the same reason the price band
+ * is derived here: one place, dated, with a source, so a January or July change is a one
+ * line edit and every surface moves together.
+ *
+ * Rates change on fixed dates (January 1, July 1, and the special August 1, 2026 collar
+ * county change). Refresh validFrom and the figures when IDOR publishes a change, and the
+ * doc fee cap every January. Illinois has no vehicle rate API; the IDOR finder is a form.
+ *
+ * Verified 2026-10-11:
+ *   cook     IDOR MyTax Tax Rate Finder, address lookup 9101 Terminal Ave, Skokie 60077:
+ *            "Vehicle (ST-556 and ST-556-LSE) 7.500%" (6.25% state + 1.25% NITA; Skokie's own
+ *            home rule tax does not apply to titled vehicles).
+ *   chicago  Same lookup, the finder's own note: a Chicago registration adds the 1.25%
+ *            Chicago home rule tax on titled property, 8.75%.
+ *   collar   IDOR Informational Bulletin FY 2026-34: NITA on titled items 1.00% in DuPage,
+ *            Kane, Lake, McHenry and Will from 2026-08-01, plus 6.25% state.
+ *   state    6.25%. A handful of downstate counties add a local vehicle tax; the block says
+ *            "local rate confirmed at signing".
+ *   fees     ilsos.gov fee schedule: title $165, new passenger plates $151, plate transfer $25.
+ *   ert      Electronic Registration and Title (ERT) filing: the $35 per deal cost of the CVR
+ *            electronic filing that issues metal plates the same visit. ABSORBED. Jerry decided
+ *            2026-10-13 (task 330) that Maxim pays it and it is never a line on the buyer's
+ *            contract, so it is 0 here and no surface shows it. The plumbing stays: if it were
+ *            ever charged again it would be its own labelled line inside the title and plates
+ *            group on every surface that states a total, never a surprise at the desk.
+ *   docCap   Illinois 2026 documentary service fee cap, operations/pricing-policy.md,
+ *            taxable in Illinois. Maxim charges $0; the cap is quoted only beside that $0.
+ */
+export const IL_VEHICLE_TAX = {
+  validFrom: '2026-08-01',
+  source: 'IDOR MyTax Tax Rate Finder (9101 Terminal Ave, Skokie, read 2026-10-11); IDOR Informational Bulletin FY 2026-34',
+  cook: 0.075,
+  chicago: 0.0875,
+  collar: 0.0725,
+  state: 0.0625,
+};
+
+export const IL_FEES = {
+  validFrom: '2026-01-01',
+  source: 'Illinois Secretary of State fee schedule (ilsos.gov); 2026 documentary service fee cap per operations/pricing-policy.md',
+  title: 165,
+  plates: 151,
+  transfer: 25,
+  ert: 0,
+  docCap: 377.63,
+  docCapYear: 2026,
+};
+
 /**
  * Derive every live fact.
  *
@@ -166,6 +226,57 @@ export function deriveFacts({ vehicles = [], reviews = {}, suburbs = [], now = n
 
     cities,
     citiesText: cities.length ? cities.join(', ') : null,
+
+    // ── Illinois tax and fee figures for the estimated total at signing ─────────────
+    // Typed once above (IL_VEHICLE_TAX, IL_FEES), formatted once here. Consumers:
+    // OtdEstimate.astro (the block), the /no-dealer-fees pages, the FAQ and suburb
+    // templates ({{fees.capLine}}), llms.txt, and lint-copy.mjs (unpaired-doc-cap).
+    taxes: {
+      validFrom: IL_VEHICLE_TAX.validFrom,
+      source: IL_VEHICLE_TAX.source,
+      cook: IL_VEHICLE_TAX.cook,
+      chicago: IL_VEHICLE_TAX.chicago,
+      collar: IL_VEHICLE_TAX.collar,
+      state: IL_VEHICLE_TAX.state,
+      cookPct: pct(IL_VEHICLE_TAX.cook),
+      chicagoPct: pct(IL_VEHICLE_TAX.chicago),
+      collarPct: pct(IL_VEHICLE_TAX.collar),
+      statePct: pct(IL_VEHICLE_TAX.state),
+    },
+    fees: {
+      validFrom: IL_FEES.validFrom,
+      source: IL_FEES.source,
+      title: IL_FEES.title,
+      plates: IL_FEES.plates,
+      transfer: IL_FEES.transfer,
+      ert: IL_FEES.ert,
+      docCap: IL_FEES.docCap,
+      docCapYear: IL_FEES.docCapYear,
+      titleText: usd(IL_FEES.title),
+      platesText: usd(IL_FEES.plates),
+      transferText: usd(IL_FEES.transfer),
+      ertText: usd(IL_FEES.ert),
+      docCapText: usd2(IL_FEES.docCap),
+      // The complete list of what is added at signing, in one sentence, so every surface
+      // says the same thing. Drops the ERT clause automatically when ert is 0.
+      addedLine: IL_FEES.ert > 0
+        ? `At signing you add only Illinois sales tax, the state title and plate fees, and the ${usd(IL_FEES.ert)} electronic title and registration filing that issues your metal plates the same visit.`
+        : 'At signing you add only Illinois sales tax and the state title and plate fees.',
+      addedLineEs: IL_FEES.ert > 0
+        ? `Al firmar solo agregas el impuesto de venta de Illinois, las tarifas estatales de titulo y placas, y los ${usd(IL_FEES.ert)} del tramite electronico de titulo y registro que entrega tus placas el mismo dia.`
+        : 'Al firmar solo agregas el impuesto de venta de Illinois y las tarifas estatales de titulo y placas.',
+      // The cap is taxable, so this is what the capped fee costs a Cook suburb buyer.
+      docCapTaxedCookText: usd2(Math.round(IL_FEES.docCap * (1 + IL_VEHICLE_TAX.cook) * 100) / 100),
+
+      // The cap line: the one approved way to quote the cap, always with the $0 beside it.
+      // lint-copy.mjs fails the gate if the cap figure ever appears without "$0" or "zero"
+      // within 200 characters. The cap is never typed into a page, a description, a post
+      // or a print: it changes every January and only this ledger follows it.
+      capLine: `Illinois lets dealers add up to ${usd2(IL_FEES.docCap)} in doc fees in ${IL_FEES.docCapYear}. At Maxim Autos that line is $0.`,
+      capLineEs: `Illinois permite a los dealers agregar hasta ${usd2(IL_FEES.docCap)} en cargos de documentacion en ${IL_FEES.docCapYear}. En Maxim Autos esa linea es $0.`,
+      capShort: `Illinois allows up to ${usd2(IL_FEES.docCap)} in doc fees. Here it is $0.`,
+      capShortEs: `Illinois permite hasta ${usd2(IL_FEES.docCap)} en cargos de documentacion. Aqui es $0.`,
+    },
   };
 }
 
@@ -200,6 +311,22 @@ export function resolveTokens(text, facts) {
     'reviews.count': facts.reviews.count == null ? null : String(facts.reviews.count),
     'reviews.ratingText': facts.reviews.ratingText,
     'cities': facts.citiesText,
+    'fees.docCap': facts.fees?.docCapText,
+    'fees.capYear': facts.fees?.docCapYear == null ? null : String(facts.fees.docCapYear),
+    'fees.capLine': facts.fees?.capLine,
+    'fees.capLineEs': facts.fees?.capLineEs,
+    'fees.capShort': facts.fees?.capShort,
+    'fees.capShortEs': facts.fees?.capShortEs,
+    'fees.title': facts.fees?.titleText,
+    'fees.plates': facts.fees?.platesText,
+    'fees.transfer': facts.fees?.transferText,
+    'fees.ert': facts.fees?.ertText,
+    'fees.addedLine': facts.fees?.addedLine,
+    'fees.addedLineEs': facts.fees?.addedLineEs,
+    'taxes.cook': facts.taxes?.cookPct,
+    'taxes.chicago': facts.taxes?.chicagoPct,
+    'taxes.collar': facts.taxes?.collarPct,
+    'taxes.state': facts.taxes?.statePct,
   };
 
   return text.replace(/\{\{\s*([a-zA-Z.]+)\s*\}\}/g, (whole, key) => {
@@ -214,4 +341,7 @@ export const KNOWN_TOKENS = [
   'price.segment', 'price.segmentEs', 'price.stockLine', 'price.stockLineEs',
   'inventory.count', 'inventory.stock', 'inventory.stockEs',
   'reviews.rating', 'reviews.count', 'reviews.ratingText', 'cities',
+  'fees.docCap', 'fees.capYear', 'fees.capLine', 'fees.capLineEs', 'fees.capShort', 'fees.capShortEs',
+  'fees.title', 'fees.plates', 'fees.transfer', 'fees.ert', 'fees.addedLine', 'fees.addedLineEs',
+  'taxes.cook', 'taxes.chicago', 'taxes.collar', 'taxes.state',
 ];
