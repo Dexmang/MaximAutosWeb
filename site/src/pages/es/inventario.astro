@@ -134,6 +134,14 @@ const driveChips = [
     <div class="max-w-7xl mx-auto px-6 lg:px-8">
       <button id="clear-filters" class="hidden mb-3 text-sm text-orange-ink font-semibold hover:underline">Limpiar Filtros</button>
 
+      <!-- Invitacion al costo total (Jerry, 2026-10-13). Cada tarjeta abre una pagina con el estimado. -->
+      <a href={`${base}/es/sin-cargos-de-dealer#estimate`} data-cta="body" data-cta-name="out_the_door"
+         class="mb-4 flex items-center gap-3 bg-navy text-white rounded-xl px-4 py-3 hover:bg-navy/90 transition-colors">
+        <Icon name="calculate" class="text-2xl text-orange shrink-0" fill />
+        <span class="text-sm leading-snug"><span class="font-extrabold">Conoce tu costo total antes de llamar.</span> Abre cualquier auto para ver su total estimado al firmar por codigo postal, o prueba la calculadora.</span>
+        <Icon name="chevron_right" class="text-xl text-white/70 ml-auto shrink-0" />
+      </a>
+
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5" id="vehicle-grid">
         {liveVehicles.map((v, i) => (
           <div

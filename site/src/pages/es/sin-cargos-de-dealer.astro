@@ -89,6 +89,9 @@ const faqSchema = {
       <h1 class="font-headline text-4xl md:text-5xl lg:text-6xl font-extrabold text-white leading-tight tracking-tight mb-4">
         Cero Cargos de Dealer.<br class="hidden md:block" /> Siempre.
       </h1>
+      <p class="font-headline text-xl md:text-2xl font-extrabold text-orange max-w-2xl leading-tight mb-2">
+        Conoce tu costo total antes de llamar.
+      </p>
       <p class="text-lg md:text-xl text-gray-200 max-w-2xl leading-relaxed mb-2">
         {F.capShortEs}
       </p>
@@ -96,9 +99,9 @@ const faqSchema = {
         El precio del auto mas impuestos, titulo y placas de Illinois es el trato completo, y cada pagina de vehiculo muestra tu total estimado al firmar antes de que levantes el telefono.
       </p>
       <div class="flex flex-col sm:flex-row gap-3">
-        <a href={`${base}/es/inventario`} data-cta="hero" data-cta-name="browse_inventory"
+        <a href="#estimate" data-cta="hero" data-cta-name="out_the_door"
            class="inline-flex items-center justify-center gap-2 bg-orange text-white px-7 py-3.5 rounded-xl font-bold text-base hover:bg-orange-light transition-colors">
-          <Icon name="directions_car" class="text-xl" fill />Ver Inventario
+          <Icon name="calculate" class="text-xl" fill />Ver mi costo total
         </a>
         <a href={`sms:8475108947&body=${encodeURIComponent('Hola Jerry, tengo una pregunta sobre los precios de Maxim Autos.')}`} data-cta="hero"
            class="inline-flex items-center justify-center gap-2 bg-white/10 text-white px-7 py-3.5 rounded-xl font-bold text-base hover:bg-white/20 transition-colors border border-white/20">
@@ -155,7 +158,7 @@ const faqSchema = {
         </div>
         <div class="lg:col-span-2 lg:sticky lg:top-[90px]">
           {first ? (
-            <OtdEstimate lang="es" price={first.price} title={titleOf(first)} stockNumber={first.stockNumber} class="shadow-sm">
+            <OtdEstimate id="estimate" lang="es" price={first.price} title={titleOf(first)} stockNumber={first.stockNumber} class="scroll-mt-24">
               <label slot="picker" class="block mt-2 text-sm">
                 <span class="font-semibold text-navy">Elige un auto</span>
                 <select data-otd-picker class="mt-1 w-full h-11 border border-gray-300 rounded-lg px-2.5 text-sm text-navy bg-white">

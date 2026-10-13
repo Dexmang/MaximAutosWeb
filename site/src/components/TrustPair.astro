@@ -14,15 +14,21 @@ interface Props {
 }
 const { variant, lang = 'en', class: className = '' } = Astro.props;
 const es = lang === 'es';
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+// The strip's promise links to the page that proves it (Approach 1, 2026-10-13).
+const feeHref = es ? `${base}/es/sin-cargos-de-dealer` : `${base}/no-dealer-fees`;
 const r = facts.reviews;
 const full = Math.max(0, Math.min(5, Math.round(Number(r.rating))));
 const stars = '★'.repeat(full) + '☆'.repeat(5 - full);
 const googleReviews = 'https://www.google.com/search?q=Maxim+Autos+Skokie+IL+reviews';
 const t = es
-  ? { fee: 'Cero Cargos de Dealer', feeDetail: 'Sin cargo de documentacion', feeChip: '$0 cargos de dealer · $0 documentacion', reviews: 'resenas', stars: 'Estrellas en Google', count: 'Resenas' }
-  : { fee: 'No Dealer Fees Ever', feeDetail: 'No doc fee', feeChip: '$0 doc fee · $0 dealer fees', reviews: 'reviews', stars: 'Stars on Google', count: 'Reviews' };
-// Spanish feeDetail signed 2026-10-13 (Approach 1 build): "Sin cargo de documentacion" is the
-// exact twin of "No doc fee", not the broader "sin cargos ocultos" that R1-16 rejected.
+  ? { fee: 'Cero Cargos de Dealer', feeDetail: 'Tu costo total', feeChip: '$0 cargos de dealer · $0 documentacion', reviews: 'resenas', stars: 'Estrellas en Google', count: 'Resenas' }
+  : { fee: 'No Dealer Fees Ever', feeDetail: 'Your out the door cost', feeChip: '$0 doc fee · $0 dealer fees', reviews: 'reviews', stars: 'Stars on Google', count: 'Reviews' };
+// feeDetail (2026-10-13, Jerry: make the calculator prominent): the phone strip now invites the
+// buyer to the estimate instead of repeating "No doc fee", which the card chip and the hero cap
+// line already carry. Kept short so a 360 px phone never truncates it. The Spanish twin of
+// "No doc fee" is "Sin cargo de documentacion" (signed 2026-10-13, replacing the rejected
+// "sin cargos ocultos"); it lives on in the card chip.
 // feeChip is the inventory card's price label (Approach 1, 2026-10-13): the two zero lines,
 // so the card states a fact the buyer can check instead of repeating the slogan that is
 // already in the strip. The page level note under every grid carries the tax, title and
@@ -57,12 +63,13 @@ const feeTail = 'The price you see is the price you pay, plus tax, title, and li
   </a>
 )}
 {variant === 'strip' && (
-  <p class={`flex items-center gap-1.5 h-9 min-w-0 whitespace-nowrap text-white ${className}`}>
+  <a href={feeHref} data-cta="strip" data-cta-name="out_the_door"
+     class={`flex items-center gap-1.5 h-9 min-w-0 whitespace-nowrap text-white ${className}`}>
     <Icon name="sell" class="text-base" fill />
     <span class="font-extrabold text-[15px]">{t.fee}</span>
     {t.feeDetail && <span class="opacity-50" aria-hidden="true">·</span>}
-    {t.feeDetail && <span class="font-medium text-[13px] truncate">{t.feeDetail}</span>}
-  </p>
+    {t.feeDetail && <span class="font-medium text-[13px] truncate underline underline-offset-2 decoration-white/60">{t.feeDetail}</span>}
+  </a>
 )}
 {variant === 'fee' && (
   <p class={`inline-flex items-center gap-1 text-xs font-bold text-green-700 leading-[18px] text-right ${className}`}>

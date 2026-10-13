@@ -6,6 +6,7 @@ import VehicleCard from '../components/VehicleCard.astro';
 import PriceBandNote from '../components/PriceBandNote.astro';
 import ReviewRotator from '../components/ReviewRotator.astro';
 import Icon from '../components/Icon.astro';
+import OtdEstimate from '../components/OtdEstimate.astro';
 import vehicles from '../data/vehicles.json';
 import reviews from '../data/reviews.json';
 import reviewsMeta from '../data/reviews_meta.json';
@@ -13,6 +14,12 @@ import suburbs from '../data/suburbs.json';
 
 import facts from '../data/facts.json';
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+// Out the door cost section (Jerry, 2026-10-13). Same block as the vehicle page, fed by a picker.
+const otdTitle = (v: any) => [v.year, v.make, v.model, v.trim].filter(Boolean).join(' ');
+const otdLive = vehicles
+  .filter((v: any) => v && v.status !== 'sold' && Number(v.price) > 0)
+  .sort((a: any, b: any) => a.price - b.price);
+const otdFirst = otdLive[0];
 // Title 52 characters; description 153 today, 155 at the worst case band (D2-01, D2-02).
 // Every number comes from facts.json. The meta description is one of the two surfaces
 // allowed to carry the live band alone (D6), so no segment claim appears here.
@@ -204,6 +211,11 @@ const heroReviews = reviews.slice(0, 6);
             <Icon name="payments" class="text-lg" fill />
             Get Prequalified
           </a>
+          <a href="#out-the-door" data-cta="hero" data-cta-name="out_the_door"
+             class="inline-flex items-center justify-center gap-2 bg-white/15 backdrop-blur-sm border-2 border-white/40 text-white px-6 min-h-[48px] rounded-xl font-bold text-base hover:bg-white/25 transition-all">
+            <Icon name="calculate" class="text-lg" fill />
+            Know your out the door cost
+          </a>
         </div>
 
         {/* The mobile rotating review card used to sit here, in the hero flow, and it
@@ -213,6 +225,59 @@ const heroReviews = reviews.slice(0, 6);
             from lg up. On phones the pinned header chip carries the rating. */}
       </div>
     </div>
+  </section>
+
+  <!-- Out the door cost (Jerry, 2026-10-13: make the calculator prominent). Same component as
+       the vehicle page, fed by a car picker. On phones only the headline and a toggle show, so the
+       first car stays close to the fold (the September mobile first rule); from lg the full two
+       column band. Spanish twin in es/index.astro (guardrail D4). -->
+  <section id="out-the-door" class="bg-white border-b border-gray-100 py-6 lg:py-12 scroll-mt-20">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-5 gap-4 lg:gap-12 items-start">
+      <div class="lg:col-span-3">
+        <p class="text-orange font-bold uppercase tracking-widest text-xs mb-2">Out the door cost</p>
+        <h2 class="font-headline text-2xl md:text-3xl lg:text-4xl font-extrabold text-navy leading-tight">Know your out the door cost before you call.</h2>
+        <p class="hidden lg:block text-gray-600 mt-3 max-w-xl leading-relaxed">Pick a car and enter your ZIP. You get the estimated total at signing: the price, Illinois tax at your address rate, title and plates. {facts.fees.capShort}</p>
+        <ul class="hidden lg:grid mt-4 gap-2 text-sm text-gray-700">
+          <li class="flex items-start gap-2"><Icon name="check_circle" class="text-green-700 text-lg shrink-0" fill /><span>No dealer fees, no doc fee, no add ons. The advertised price is the full price of the car.</span></li>
+          <li class="flex items-start gap-2"><Icon name="check_circle" class="text-green-700 text-lg shrink-0" fill /><span>Illinois tax at the rate for where you live, not where you buy.</span></li>
+          <li class="flex items-start gap-2"><Icon name="check_circle" class="text-green-700 text-lg shrink-0" fill /><span>Metal plates issued the same visit, so the total is the whole trip.</span></li>
+        </ul>
+        <a href={`${base}/no-dealer-fees`} data-cta="body" data-cta-name="how_pricing_works" class="hidden lg:inline-flex items-center gap-1.5 mt-4 font-bold text-navy underline underline-offset-2">How our pricing works <Icon name="arrow_forward" class="text-lg" /></a>
+      </div>
+      <div class="lg:col-span-2">
+        <button id="otd-home-toggle" type="button" aria-expanded="false" aria-controls="otd-home-panel"
+                class="lg:hidden w-full h-12 flex items-center justify-between bg-navy text-white rounded-xl px-4 font-bold text-sm">
+          <span class="flex items-center gap-2"><Icon name="calculate" class="text-xl text-orange" fill />Show the calculator</span>
+          <Icon name="expand_more" class="text-xl" />
+        </button>
+        <div id="otd-home-panel" class="hidden lg:block mt-3 lg:mt-0">
+          {otdFirst && (
+            <OtdEstimate id="home-estimate" price={otdFirst.price} title={otdTitle(otdFirst)} stockNumber={otdFirst.stockNumber}>
+              <label slot="picker" class="block mt-2 text-sm">
+                <span class="font-semibold text-navy">Pick a car</span>
+                <select data-otd-picker class="mt-1 w-full h-11 border border-gray-300 rounded-lg px-2.5 text-sm text-navy bg-white">
+                  {otdLive.map((v: any) => (
+                    <option value={v.price} data-title={otdTitle(v)} data-stock={v.stockNumber}>{otdTitle(v)} · ${v.price.toLocaleString()}</option>
+                  ))}
+                </select>
+              </label>
+            </OtdEstimate>
+          )}
+        </div>
+      </div>
+    </div>
+    <script is:inline>
+      (function () {
+        var b = document.getElementById('otd-home-toggle'), p = document.getElementById('otd-home-panel');
+        if (!b || !p) return;
+        b.addEventListener('click', function () {
+          var open = p.classList.toggle('hidden') === false;
+          b.setAttribute('aria-expanded', open ? 'true' : 'false');
+          var i = b.querySelector('.material-symbols-outlined:last-child');
+          if (i) i.style.transform = open ? 'rotate(180deg)' : '';
+        });
+      })();
+    </script>
   </section>
 
   <!-- Featured Vehicles -->
