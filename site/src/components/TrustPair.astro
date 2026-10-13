@@ -15,8 +15,10 @@ interface Props {
 const { variant, lang = 'en', class: className = '' } = Astro.props;
 const es = lang === 'es';
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
-// The strip's promise links to the page that proves it (Approach 1, 2026-10-13).
-const feeHref = es ? `${base}/es/sin-cargos-de-dealer` : `${base}/no-dealer-fees`;
+// The strip's promise links to the page that proves it (Approach 1, 2026-10-13). On a vehicle
+// page it jumps to the estimate on that page instead, so the buyer never leaves the car.
+const onVdp = Astro.url.pathname.includes('/vehicle/');
+const feeHref = onVdp ? '#estimate' : (es ? `${base}/es/sin-cargos-de-dealer` : `${base}/no-dealer-fees`);
 const r = facts.reviews;
 const full = Math.max(0, Math.min(5, Math.round(Number(r.rating))));
 const stars = '★'.repeat(full) + '☆'.repeat(5 - full);

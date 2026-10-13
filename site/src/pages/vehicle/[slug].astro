@@ -499,7 +499,7 @@ if (v.vin && v.vin !== 'TBD') (vehicleSchema as any).vehicleIdentificationNumber
             <TrustPair variant="vdp" class="mt-2" />
             {/* Estimated total at signing by ZIP (Approach 1, 2026-10-13). No payment inside,
                 so Reg Z is not triggered here; the total is text-lg against the text-3xl price. */}
-            <OtdEstimate price={v.price} title={titleText} stockNumber={stockNumber} class="mt-3" />
+            <OtdEstimate id="estimate" price={v.price} title={titleText} stockNumber={stockNumber} class="mt-3 scroll-mt-28" />
 
             {showVinStats && vinStats && (
               <p class="mt-3.5 text-xs text-gray-500">
@@ -534,7 +534,7 @@ if (v.vin && v.vin !== 'TBD') (vehicleSchema as any).vehicleIdentificationNumber
                     value={Math.round(v.price * 0.10)}
                     class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-orange" />
                   <div class="flex justify-between text-xs text-gray-400 mt-1">
-                    <span>$0</span><span>${Math.round(v.price * 0.5).toLocaleString()}</span>
+                    <span>$0</span><span>up to half the price</span>
                   </div>
                 </div>
                 <div class="mb-4">
@@ -650,6 +650,14 @@ if (v.vin && v.vin !== 'TBD') (vehicleSchema as any).vehicleIdentificationNumber
                 <span>Above Market</span>
               </div>
               <p class="text-[10px] text-gray-400 mt-2 text-center">Price rating by <span class="font-semibold text-gray-500">CarGurus</span></p>
+            </div>
+          )}
+
+          {!isSold && (
+            <div class="hidden lg:block mb-6">
+              {/* Desktop estimate, under the title and quick specs (the Dealer.com placement). The
+                  phone block above the specs is the lg:hidden one; this one is lg only. */}
+              <OtdEstimate id="estimate-desktop" price={v.price} title={titleText} stockNumber={stockNumber} class="scroll-mt-28" />
             </div>
           )}
 
@@ -822,7 +830,9 @@ if (v.vin && v.vin !== 'TBD') (vehicleSchema as any).vehicleIdentificationNumber
                 </div>
               )}
               <TrustPair variant="vdp" class="mb-4" />
-              <OtdEstimate price={v.price} title={titleText} stockNumber={stockNumber} class="mb-4" />
+              {/* Compact: the full desktop block sits under the title and quick specs in the
+                  left column (#estimate-desktop). Keeps the financing button above the fold. */}
+              <OtdEstimate variant="summary" targetId="estimate-desktop" price={v.price} title={titleText} stockNumber={stockNumber} class="mb-4" />
               {showVinStats && vinStats && (
                 <p class="mb-4 text-xs text-gray-400 flex items-center gap-1">
                   <Icon name="visibility" class="text-[14px]" fill />
