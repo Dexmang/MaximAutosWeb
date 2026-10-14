@@ -2,6 +2,11 @@
 /**
  * OtdEstimate  ::  the estimated total at signing, by ZIP.
  *
+ * NOT IN USE. Jerry, 2026-10-14: reverse the final price calculation changes for now. Every
+ * call site was removed that day (vehicle page, fee pages); the homepage and inventory
+ * placements never merged (PR #3 closed). Kept with zip-regions.json and
+ * scripts/build-zip-regions.mjs so the decision can be revisited without a rebuild.
+ *
  * WHY
  * The site promises "the price you see is the price you pay, plus tax, title, and license."
  * Tax, title and license was the one blank left in that promise. This block fills it in on the

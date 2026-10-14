@@ -12,23 +12,15 @@
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
-import OtdEstimate from '../components/OtdEstimate.astro';
 import Icon from '../components/Icon.astro';
 import facts from '../data/facts.json';
-import vehicles from '../data/vehicles.json';
 
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 const T = facts.taxes;
 const F = facts.fees;
 
 const title = 'No Dealer Fees, No Doc Fee | Maxim Autos';
-const description = `No doc fee and no dealer fees at Maxim Autos in Skokie. Illinois allows up to ${F.docCapText}; here it is $0. See your estimated total at signing by ZIP.`;
-
-const titleOf = (v: any) => [v.year, v.make, v.model, v.trim].filter(Boolean).join(' ');
-const live = vehicles
-  .filter((v: any) => v && v.status !== 'sold' && Number(v.price) > 0)
-  .sort((a: any, b: any) => a.price - b.price);
-const first = live[0];
+const description = `No doc fee and no dealer fees at Maxim Autos in Skokie. Illinois allows up to ${F.docCapText}; here it is $0. The price on the car is the full price.`;
 
 // Illustrative tax on a round figure, so the table reads in dollars as well as percent.
 const EXAMPLE = 10000;
@@ -50,10 +42,6 @@ const faq = [
   {
     q: 'What are the Illinois title and plate fees?',
     a: `The Illinois title fee is ${F.titleText}. New passenger plates are ${F.platesText}, or ${F.transferText} to transfer plates you already own.${F.ert > 0 ? ` The ${F.ertText} ERT filing is the electronic title and registration transaction that lets us hand you metal plates the same visit, passed through at cost.` : ''}`,
-  },
-  {
-    q: 'Is the estimated total on each vehicle page the final number?',
-    a: 'It is an estimate for a cash purchase with no trade in, at the rate for your ZIP. The exact figure is calculated on your registration address at signing. The only thing that can move is the tax rate; no fee appears later.',
   },
   {
     q: 'Do you sell to buyers outside Illinois?',
@@ -98,7 +86,7 @@ const faqSchema = {
         {F.capShort}
       </p>
       <p class="text-base text-gray-300 max-w-2xl leading-relaxed mb-8">
-        The price on the car plus Illinois tax, title and plates is the whole deal, and every vehicle page shows your estimated total at signing before you pick up the phone.
+        The price on the car plus Illinois tax, title and plates is the whole deal.
       </p>
       <div class="flex flex-col sm:flex-row gap-3">
         <a href={`${base}/inventory`} data-cta="hero" data-cta-name="browse_inventory"
@@ -116,8 +104,8 @@ const faqSchema = {
   <!-- What you pay -->
   <section class="py-12 lg:py-14 bg-surface">
     <div class="max-w-7xl mx-auto px-6 lg:px-8">
-      <div class="grid grid-cols-1 lg:grid-cols-5 gap-8 lg:gap-12 items-start">
-        <div class="lg:col-span-3">
+      <div class="max-w-3xl">
+        <div>
           <h2 class="font-headline text-2xl md:text-3xl font-extrabold text-navy mb-2">What you pay at signing</h2>
           <p class="text-gray-600 mb-6">Five lines. The tax, the title and the plates go to the State of Illinois. None of them is a dealer fee.</p>
           <ol class="space-y-4">
@@ -153,26 +141,10 @@ const faqSchema = {
               <span class="w-9 h-9 rounded-lg bg-navy text-white font-headline font-extrabold flex items-center justify-center shrink-0">5</span>
               <div>
                 <h3 class="font-headline font-bold text-navy">Nothing else</h3>
-                <p class="text-sm text-gray-600 leading-relaxed">{F.addedLine} The estimate on every vehicle page is the whole list.</p>
+                <p class="text-sm text-gray-600 leading-relaxed">{F.addedLine}</p>
               </div>
             </li>
           </ol>
-        </div>
-        <div class="lg:col-span-2 lg:sticky lg:top-[90px]">
-          {first ? (
-            <OtdEstimate price={first.price} title={titleOf(first)} stockNumber={first.stockNumber} class="shadow-sm">
-              <label slot="picker" class="block mt-2 text-sm">
-                <span class="font-semibold text-navy">Pick a car</span>
-                <select data-otd-picker class="mt-1 w-full h-11 border border-gray-300 rounded-lg px-2.5 text-sm text-navy bg-white">
-                  {live.map((v: any) => (
-                    <option value={v.price} data-title={titleOf(v)} data-stock={v.stockNumber}>{titleOf(v)} · ${v.price.toLocaleString()}</option>
-                  ))}
-                </select>
-              </label>
-            </OtdEstimate>
-          ) : (
-            <p class="text-sm text-gray-600">Pricing for each vehicle is listed on its own page.</p>
-          )}
         </div>
       </div>
     </div>
@@ -246,8 +218,8 @@ const faqSchema = {
   <!-- CTA -->
   <section class="py-12 bg-navy">
     <div class="max-w-7xl mx-auto px-6 lg:px-8 text-center">
-      <h2 class="font-headline text-2xl md:text-3xl font-extrabold text-white mb-2">See the number on any car</h2>
-      <p class="text-white/70 text-lg mb-6">Every vehicle page has the estimate. Call or text Jerry for anything it does not answer.</p>
+      <h2 class="font-headline text-2xl md:text-3xl font-extrabold text-white mb-2">Ask about any car</h2>
+      <p class="text-white/70 text-lg mb-6">Call or text Jerry with any question about the price. The answer is the price plus Illinois tax, title and plates.</p>
       <div class="flex flex-col sm:flex-row gap-3 justify-center">
         <a href={`${base}/inventory`} data-cta="footer_cta" data-cta-name="browse_inventory" class="inline-flex items-center justify-center gap-2 bg-orange text-white px-7 py-3.5 rounded-xl font-bold hover:bg-orange-light transition-colors">Browse Inventory</a>
         <a href="tel:8475108947" data-cta="footer_cta" class="inline-flex items-center justify-center gap-2 bg-white/10 text-white px-7 py-3.5 rounded-xl font-bold hover:bg-white/20 transition-colors border border-white/20"><Icon name="call" class="text-xl" fill />(847) 510-8947</a>
