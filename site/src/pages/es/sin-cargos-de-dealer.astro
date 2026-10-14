@@ -7,23 +7,15 @@
 import Layout from '../../layouts/Layout.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
-import OtdEstimate from '../../components/OtdEstimate.astro';
 import Icon from '../../components/Icon.astro';
 import facts from '../../data/facts.json';
-import vehicles from '../../data/vehicles.json';
 
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 const T = facts.taxes;
 const F = facts.fees;
 
 const title = 'Sin Cargos de Dealer ni Documentacion | Maxim Autos';
-const description = `Sin cargo de documentacion ni cargos de dealer en Maxim Autos, Skokie. Illinois permite hasta ${F.docCapText}; aqui es $0. Tu total estimado al firmar por ZIP.`;
-
-const titleOf = (v: any) => [v.year, v.make, v.model, v.trim].filter(Boolean).join(' ');
-const live = vehicles
-  .filter((v: any) => v && v.status !== 'sold' && Number(v.price) > 0)
-  .sort((a: any, b: any) => a.price - b.price);
-const first = live[0];
+const description = `Sin cargo de documentacion ni cargos de dealer en Maxim Autos, Skokie. Illinois permite hasta ${F.docCapText}; aqui es $0. El precio es el precio completo.`;
 
 const EXAMPLE = 10000;
 const exTax = (rate: number) => '$' + Math.round(EXAMPLE * rate).toLocaleString('en-US');
@@ -44,10 +36,6 @@ const faq = [
   {
     q: 'Cuanto cuestan el titulo y las placas en Illinois?',
     a: `El titulo de Illinois cuesta ${F.titleText}. Las placas nuevas cuestan ${F.platesText}, o ${F.transferText} para transferir placas que ya tienes.${F.ert > 0 ? ` Los ${F.ertText} del tramite ERT son la transaccion electronica de titulo y registro que nos permite entregarte placas de metal el mismo dia, cobrados al costo.` : ''}`,
-  },
-  {
-    q: 'El total estimado de cada pagina de vehiculo es la cifra final?',
-    a: 'Es un estimado para una compra de contado sin auto a cuenta, con la tasa de tu codigo postal. La cifra exacta se calcula con tu direccion de registro al firmar. Lo unico que puede cambiar es la tasa de impuesto; no aparece ningun cargo despues.',
   },
   {
     q: 'Venden a compradores fuera de Illinois?',
@@ -93,7 +81,7 @@ const faqSchema = {
         {F.capShortEs}
       </p>
       <p class="text-base text-gray-300 max-w-2xl leading-relaxed mb-8">
-        El precio del auto mas impuestos, titulo y placas de Illinois es el trato completo, y cada pagina de vehiculo muestra tu total estimado al firmar antes de que levantes el telefono.
+        El precio del auto mas impuestos, titulo y placas de Illinois es el trato completo.
       </p>
       <div class="flex flex-col sm:flex-row gap-3">
         <a href={`${base}/es/inventario`} data-cta="hero" data-cta-name="browse_inventory"
@@ -111,8 +99,8 @@ const faqSchema = {
   <!-- Lo que pagas -->
   <section class="py-12 lg:py-14 bg-surface">
     <div class="max-w-7xl mx-auto px-6 lg:px-8">
-      <div class="grid grid-cols-1 lg:grid-cols-5 gap-8 lg:gap-12 items-start">
-        <div class="lg:col-span-3">
+      <div class="max-w-3xl">
+        <div>
           <h2 class="font-headline text-2xl md:text-3xl font-extrabold text-navy mb-2">Lo que pagas al firmar</h2>
           <p class="text-gray-600 mb-6">Cinco lineas. El impuesto, el titulo y las placas van al Estado de Illinois. Ninguna es un cargo de dealer.</p>
           <ol class="space-y-4">
@@ -148,26 +136,10 @@ const faqSchema = {
               <span class="w-9 h-9 rounded-lg bg-navy text-white font-headline font-extrabold flex items-center justify-center shrink-0">5</span>
               <div>
                 <h3 class="font-headline font-bold text-navy">Nada mas</h3>
-                <p class="text-sm text-gray-600 leading-relaxed">{F.addedLineEs} El estimado en cada pagina de vehiculo es la lista completa.</p>
+                <p class="text-sm text-gray-600 leading-relaxed">{F.addedLineEs}</p>
               </div>
             </li>
           </ol>
-        </div>
-        <div class="lg:col-span-2 lg:sticky lg:top-[90px]">
-          {first ? (
-            <OtdEstimate lang="es" price={first.price} title={titleOf(first)} stockNumber={first.stockNumber} class="shadow-sm">
-              <label slot="picker" class="block mt-2 text-sm">
-                <span class="font-semibold text-navy">Elige un auto</span>
-                <select data-otd-picker class="mt-1 w-full h-11 border border-gray-300 rounded-lg px-2.5 text-sm text-navy bg-white">
-                  {live.map((v: any) => (
-                    <option value={v.price} data-title={titleOf(v)} data-stock={v.stockNumber}>{titleOf(v)} · ${v.price.toLocaleString()}</option>
-                  ))}
-                </select>
-              </label>
-            </OtdEstimate>
-          ) : (
-            <p class="text-sm text-gray-600">El precio de cada vehiculo aparece en su pagina.</p>
-          )}
         </div>
       </div>
     </div>
@@ -241,8 +213,8 @@ const faqSchema = {
   <!-- CTA -->
   <section class="py-12 bg-navy">
     <div class="max-w-7xl mx-auto px-6 lg:px-8 text-center">
-      <h2 class="font-headline text-2xl md:text-3xl font-extrabold text-white mb-2">Mira la cifra en cualquier auto</h2>
-      <p class="text-white/70 text-lg mb-6">Cada pagina de vehiculo tiene el estimado. Llama o escribe a Jerry para lo que no responda.</p>
+      <h2 class="font-headline text-2xl md:text-3xl font-extrabold text-white mb-2">Pregunta por cualquier auto</h2>
+      <p class="text-white/70 text-lg mb-6">Llama o escribe a Jerry con cualquier pregunta sobre el precio. La respuesta es el precio mas impuestos, titulo y placas de Illinois.</p>
       <div class="flex flex-col sm:flex-row gap-3 justify-center">
         <a href={`${base}/es/inventario`} data-cta="footer_cta" data-cta-name="browse_inventory" class="inline-flex items-center justify-center gap-2 bg-orange text-white px-7 py-3.5 rounded-xl font-bold hover:bg-orange-light transition-colors">Ver Inventario</a>
         <a href="tel:8475108947" data-cta="footer_cta" class="inline-flex items-center justify-center gap-2 bg-white/10 text-white px-7 py-3.5 rounded-xl font-bold hover:bg-white/20 transition-colors border border-white/20"><Icon name="call" class="text-xl" fill />(847) 510-8947</a>

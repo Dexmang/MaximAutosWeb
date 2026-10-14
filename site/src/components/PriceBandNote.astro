@@ -55,14 +55,14 @@ const copy = isSpanish
       live: liveBand
         ? `Disponibles hoy: ${stockCount} ${stockCount === 1 ? 'auto' : 'autos'}, ${liveBand}.`
         : 'El precio de cada vehiculo aparece en su pagina.',
-      tail: 'El inventario cambia. Los precios no incluyen impuestos, titulo ni placas, y no cobramos cargos de dealer.',
+      tail: 'No cobramos cargos de dealer.',
     }
   : {
       lead: `Maxim Autos specializes in cars in the ${inv.segmentText} range.`,
       live: liveBand
         ? `In stock today: ${stockCount} ${stockCount === 1 ? 'car' : 'cars'}, ${liveBand}.`
         : 'Pricing for each vehicle is listed on its own page.',
-      tail: 'Inventory changes. Prices exclude tax, title, and license, and we charge no dealer fees.',
+      tail: 'We charge no dealer fees.',
     };
 ---
 
@@ -74,9 +74,12 @@ const copy = isSpanish
     closing tag and a following expression, which shipped the disclosure as
     "...$16,850.Inventory changes." on the live homepage. A disclosure that reads as a
     run-on is a disclosure a regulator can call unclear, so keep the spaces explicit. */}
-{/* Both variants are text-sm (14 px). This note carries the tax, title and license
-    qualifier on the fee claim, and a disclosure under the 10 pt floor (13.33 CSS px)
-    is one a regulator can call inconspicuous (R1-04, R2-06). Do not shrink it. */}
+{/* Both variants are text-sm (14 px): a disclosure under the 10 pt floor (13.33 CSS px)
+    is one a regulator can call inconspicuous (R1-04, R2-06). Do not shrink it.
+    Jerry, 2026-10-14: "Inventory changes. Prices exclude tax, title, and license, and" came
+    out of the tail on his instruction. The tax, title and license qualifier on the fee claim
+    now lives in the homepage pillar line ("The price you see is the price you pay, plus tax,
+    title, and license."), on the inventory page note and on every vehicle page callout. */}
 {variant === 'block' ? (
   <p class={`text-sm text-gray-500 leading-relaxed border-t border-gray-200 pt-3 mt-4 ${className}`}>
     {copy.lead}{' '}<span class="font-semibold text-gray-600">{copy.live}</span>{' '}{copy.tail}
