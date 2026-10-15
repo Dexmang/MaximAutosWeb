@@ -4,7 +4,7 @@
   <title>Maxim Autos Vehicle Inventory</title>
   <link>https://www.maximautos.com/</link>
   <description>Used vehicles for sale at Maxim Autos in Skokie, IL 60077. Phone +18475108947.</description>
-  <lastBuildDate>2026-10-15T05:30:13.164Z</lastBuildDate>
+  <lastBuildDate>2026-10-15T06:00:13.306Z</lastBuildDate>
   <item>
     <g:id>1FM5K8F88EGC35039</g:id>
     <g:title>2014 Ford Explorer Limited</g:title>
@@ -97,12 +97,12 @@
     <g:related_product>
       <g:relationship_type>substitute</g:relationship_type>
       <g:identifier_type>id</g:identifier_type>
-      <g:identifier>WA1ECCFS8JR006434</g:identifier>
+      <g:identifier>KM8J33A47HU369551</g:identifier>
     </g:related_product>
     <g:related_product>
       <g:relationship_type>substitute</g:relationship_type>
       <g:identifier_type>id</g:identifier_type>
-      <g:identifier>KM8J33A47HU369551</g:identifier>
+      <g:identifier>WA1ECCFS8JR006434</g:identifier>
     </g:related_product>
   </item>
   <item>
@@ -413,7 +413,7 @@
     <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202610-cd53d0ef173a4a80b220694644576cb1.jpg</g:additional_image_link>
     <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202610-1662c69d1b3a44589ad73873e31fb061.jpg</g:additional_image_link>
     <g:condition>used</g:condition>
-    <g:price>16995 USD</g:price>
+    <g:price>15995 USD</g:price>
     <g:availability>in_stock</g:availability>
     <g:brand>Subaru</g:brand>
     <g:google_product_category>Vehicles &amp; Parts &gt; Vehicles &gt; Motor Vehicles &gt; Cars, Trucks &amp; Vans</g:google_product_category>
@@ -433,7 +433,7 @@
     <g:custom_label_0>age_0_30</g:custom_label_0>
     <g:custom_label_1>station_wagon</g:custom_label_1>
     <g:custom_label_2>price_12k_plus</g:custom_label_2>
-    <g:custom_label_3>cg_unrated</g:custom_label_3>
+    <g:custom_label_3>cg_good_deal</g:custom_label_3>
     <g:custom_label_4>awd_4wd</g:custom_label_4>
     <g:question_and_answer>
       <g:question>Is this used Subaru Outback inspected before sale?</g:question>
@@ -577,7 +577,7 @@
     <g:related_product>
       <g:relationship_type>substitute</g:relationship_type>
       <g:identifier_type>id</g:identifier_type>
-      <g:identifier>5XYPH4A52JG399000</g:identifier>
+      <g:identifier>KM8J33A47HU369551</g:identifier>
     </g:related_product>
   </item>
   <item>
@@ -965,7 +965,7 @@
     <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202610-fda30b0ac557466684c30b5bc2b34754.jpg</g:additional_image_link>
     <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202610-95e848a4ee1242b786f8401f4f69174f.jpg</g:additional_image_link>
     <g:condition>used</g:condition>
-    <g:price>12995 USD</g:price>
+    <g:price>11998 USD</g:price>
     <g:availability>in_stock</g:availability>
     <g:brand>Hyundai</g:brand>
     <g:google_product_category>Vehicles &amp; Parts &gt; Vehicles &gt; Motor Vehicles &gt; Cars, Trucks &amp; Vans</g:google_product_category>
@@ -984,8 +984,8 @@
     <g:body_style>suv</g:body_style>
     <g:custom_label_0>age_0_30</g:custom_label_0>
     <g:custom_label_1>suv</g:custom_label_1>
-    <g:custom_label_2>price_12k_plus</g:custom_label_2>
-    <g:custom_label_3>cg_unrated</g:custom_label_3>
+    <g:custom_label_2>price_8k_to_12k</g:custom_label_2>
+    <g:custom_label_3>cg_good_deal</g:custom_label_3>
     <g:custom_label_4>two_wheel_drive</g:custom_label_4>
     <g:question_and_answer>
       <g:question>Is this used Hyundai Tucson inspected before sale?</g:question>
