@@ -427,12 +427,12 @@ if (v.vin && v.vin !== 'TBD') (vehicleSchema as any).vehicleIdentificationNumber
             rating pill and the attribution on one row. md and up: the pill, the market gap and a
             mini price meter. Rendered only when CarGurus returned a rating for this VIN. */}
         {dealBadge && (
-          <div class="flex-1 flex items-center justify-center h-11 md:h-auto md:py-2.5 px-2">
-            <div class="flex flex-row md:flex-col items-center gap-1.5 md:gap-1 leading-none">
-              <span class="inline-flex items-center rounded-full px-2.5 py-1 text-[11px] md:text-xs font-extrabold tracking-wide whitespace-nowrap" style={`background:${dealBg};color:${dealText}`}>{dealLabel}</span>
-              <span class="text-[11px] md:text-xs font-semibold text-gray-600 whitespace-nowrap">
+          <div class="flex-1 min-w-0 flex items-center justify-center h-11 md:h-auto md:py-2.5 px-1 md:px-2">
+            <div class="flex flex-col items-center gap-0.5 md:gap-1 leading-none">
+              <span class="inline-flex items-center rounded-full px-2 md:px-2.5 py-0.5 md:py-1 text-[10px] md:text-xs font-extrabold tracking-wide whitespace-nowrap" style={`background:${dealBg};color:${dealText}`}>{dealLabel}</span>
+              <span class="text-[9px] md:text-xs font-semibold text-gray-600 whitespace-nowrap">
                 {savingsStr && <span class="hidden md:inline">{savingsStr} · </span>}
-                <span class="text-gray-500">Price rating by</span> <span class="font-extrabold text-gray-700">CarGurus</span>
+                <span class="hidden md:inline text-gray-500">Price rating by </span><span class="font-extrabold text-gray-700">CarGurus</span>
               </span>
               {marketValue > 0 && (
                 <span class="hidden md:block w-44 relative pt-3" aria-hidden="true">
