@@ -134,6 +134,26 @@ const faqSchema = {
     </div>
   </section>
 
+  <!-- The Maxim Autos difference (Jerry, 2026-10-15): the doc fee is one of many lines a dealer can
+       add; here every one is $0. A general description of the trade, no competitor, no figure for
+       what anyone else charges (14 Ill. Adm. Code 475.360), the cap from the ledger beside the $0. -->
+  <section class="py-10 lg:py-12 bg-white border-b border-gray-100">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-start">
+      <div>
+        <span class="text-orange font-bold uppercase tracking-widest text-sm mb-2 block">What a dealer can add</span>
+        <h2 class="font-headline text-2xl md:text-3xl font-extrabold text-navy mb-3">The doc fee is only one of them</h2>
+        <p class="text-gray-700 leading-relaxed mb-3">A dealer can add a documentation fee on top of the price you saw. Illinois allows up to {F.docCapText} in {F.docCapYear}, and here it is $0. Some add more: a prep or reconditioning fee, a delivery or destination charge, add ons installed before the sale, an electronic filing fee, a market adjustment. They appear on the buyer’s order, at the desk, after the price that brought you in.</p>
+        <a href="#fee-glossary" data-cta="body" data-cta-name="fee_glossary" class="inline-flex items-center gap-1.5 font-bold text-navy underline underline-offset-2">See what each fee means <Icon name="arrow_downward" class="text-lg" /></a>
+      </div>
+      <div class="bg-navy rounded-2xl p-6 lg:p-8 text-white">
+        <span class="text-orange font-bold uppercase tracking-widest text-sm mb-2 block">The Maxim Autos difference</span>
+        <h2 class="font-headline text-2xl md:text-3xl font-extrabold mb-3">Zero dealer fees. Always.</h2>
+        <p class="text-white/85 leading-relaxed mb-3">Every one of those lines is $0 here, on every car, cash or financed. {FEE_LIST.en}</p>
+        <p class="text-white/85 leading-relaxed">The price on the car plus Illinois tax, title and plates is the whole deal. The calculator below shows it for your ZIP.</p>
+      </div>
+    </div>
+  </section>
+
   <!-- What you pay -->
   <section class="py-12 lg:py-14 bg-surface">
     <div class="max-w-7xl mx-auto px-6 lg:px-8">
