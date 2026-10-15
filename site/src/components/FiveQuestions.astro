@@ -15,19 +15,20 @@ const { lang = 'en', class: className = '' } = Astro.props;
 const es = lang === 'es';
 const F = facts.fees;
 
+// Each answer follows a "Here" badge in the markup, so no answer repeats the word.
 const qsEn = [
-  { q: 'What is the out the door total, in writing?', a: 'One number with the lines under it, before you drive over. Here it is the price plus Illinois tax, title and plates. Text us your ZIP and the exact figure comes back as a text.' },
-  { q: 'Is there a doc fee, and how much?', a: `Illinois allows up to ${F.docCapText} in ${F.docCapYear}. Here that line is $0.` },
-  { q: 'Is anything installed on the car that I have to pay for?', a: 'Here, no. No etching, no nitrogen, no protection package, no accessory you did not ask for.' },
-  { q: 'Does the price change if I pay cash, or if I do not finance with you?', a: 'Here, no. Same price, cash or financed, and the same price on this site, on CarGurus, on Facebook and on the paper you sign.' },
-  { q: 'Do I leave with metal plates, or a temporary tag?', a: 'Here, metal plates the same visit for an Illinois registration. No temporary tag, no second trip.' },
+  { q: 'What is the out the door total, in writing?', a: 'The price plus Illinois tax, title and plates, in writing before you drive over. Text us your ZIP and the exact figure comes back as a text.' },
+  { q: 'Is there a doc fee, and how much?', a: `$0. Illinois allows up to ${F.docCapText} in ${F.docCapYear}.` },
+  { q: 'Is anything installed on the car that I have to pay for?', a: 'No. No etching, no nitrogen, no protection package, no accessory you did not ask for.' },
+  { q: 'Does the price change if I pay cash, or if I do not finance with you?', a: 'No. Same price, cash or financed, and the same price on this site, on CarGurus, on Facebook and on the paper you sign.' },
+  { q: 'Do I leave with metal plates, or a temporary tag?', a: 'Metal plates the same visit for an Illinois registration. No temporary tag, no second trip.' },
 ];
 const qsEs = [
-  { q: 'Cual es el total final, por escrito?', a: 'Un solo numero con sus lineas debajo, antes de manejar hasta alla. Aqui es el precio mas el impuesto de Illinois, titulo y placas. Escribenos tu codigo postal y la cifra exacta llega por texto.' },
-  { q: 'Hay cargo de documentacion, y de cuanto?', a: `Illinois permite hasta ${F.docCapText} en ${F.docCapYear}. Aqui esa linea es $0.` },
-  { q: 'Hay algo instalado en el auto que tengo que pagar?', a: 'Aqui, no. Sin grabado, sin nitrogeno, sin paquete de proteccion, sin accesorios que no pediste.' },
-  { q: 'Cambia el precio si pago de contado, o si no financio con ustedes?', a: 'Aqui, no. El mismo precio de contado o financiado, y el mismo precio en este sitio, en CarGurus, en Facebook y en el papel que firmas.' },
-  { q: 'Salgo con placas de metal o con una placa temporal?', a: 'Aqui, con placas de metal el mismo dia para un registro de Illinois. Sin placa temporal, sin segundo viaje.' },
+  { q: 'Cual es el total final, por escrito?', a: 'El precio mas el impuesto de Illinois, titulo y placas, por escrito antes de manejar hasta alla. Escribenos tu codigo postal y la cifra exacta llega por texto.' },
+  { q: 'Hay cargo de documentacion, y de cuanto?', a: `$0. Illinois permite hasta ${F.docCapText} en ${F.docCapYear}.` },
+  { q: 'Hay algo instalado en el auto que tengo que pagar?', a: 'No. Sin grabado, sin nitrogeno, sin paquete de proteccion, sin accesorios que no pediste.' },
+  { q: 'Cambia el precio si pago de contado, o si no financio con ustedes?', a: 'No. El mismo precio de contado o financiado, y el mismo precio en este sitio, en CarGurus, en Facebook y en el papel que firmas.' },
+  { q: 'Salgo con placas de metal o con una placa temporal?', a: 'Placas de metal el mismo dia para un registro de Illinois. Sin placa temporal, sin segundo viaje.' },
 ];
 const qs = es ? qsEs : qsEn;
 const t = es
