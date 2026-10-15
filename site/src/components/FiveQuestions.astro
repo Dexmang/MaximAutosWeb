@@ -1,0 +1,56 @@
+---
+/**
+ * FiveQuestions: the five questions a buyer should ask any dealer before visiting, and
+ * Maxim's answer to each. The same five print on the back of the window card
+ * (marketing/no-dealer-fees-lot-cards-2026-10/cards.html) and in the text reply, so a
+ * shopper who takes the card elsewhere is carrying the same list (fee education pack,
+ * 2026-10-15). No competitor, no figure except the state's own, every answer true on
+ * every deal. One data table, two languages (guardrail D4).
+ */
+import facts from '../data/facts.json';
+import Icon from './Icon.astro';
+
+interface Props { lang?: 'en' | 'es'; class?: string }
+const { lang = 'en', class: className = '' } = Astro.props;
+const es = lang === 'es';
+const F = facts.fees;
+
+// Each answer follows a "Here" badge in the markup, so no answer repeats the word.
+const qsEn = [
+  { q: 'What is the out the door total, in writing?', a: 'The price plus Illinois tax, title and plates, in writing before you drive over. Text us your ZIP and the exact figure comes back as a text.' },
+  { q: 'Is there a doc fee, and how much?', a: `$0. Illinois allows up to ${F.docCapText} in ${F.docCapYear}.` },
+  { q: 'Is anything installed on the car that I have to pay for?', a: 'No. No etching, no nitrogen, no protection package, no accessory you did not ask for.' },
+  { q: 'Does the price change if I pay cash, or if I do not finance with you?', a: 'No. Same price, cash or financed, and the same price on this site, on CarGurus, on Facebook and on the paper you sign.' },
+  { q: 'Do I leave with metal plates, or a temporary tag?', a: 'Metal plates the same visit for an Illinois registration. No temporary tag, no second trip.' },
+];
+const qsEs = [
+  { q: 'Cual es el total final, por escrito?', a: 'El precio mas el impuesto de Illinois, titulo y placas, por escrito antes de manejar hasta alla. Escribenos tu codigo postal y la cifra exacta llega por texto.' },
+  { q: 'Hay cargo de documentacion, y de cuanto?', a: `$0. Illinois permite hasta ${F.docCapText} en ${F.docCapYear}.` },
+  { q: 'Hay algo instalado en el auto que tengo que pagar?', a: 'No. Sin grabado, sin nitrogeno, sin paquete de proteccion, sin accesorios que no pediste.' },
+  { q: 'Cambia el precio si pago de contado, o si no financio con ustedes?', a: 'No. El mismo precio de contado o financiado, y el mismo precio en este sitio, en CarGurus, en Facebook y en el papel que firmas.' },
+  { q: 'Salgo con placas de metal o con una placa temporal?', a: 'Placas de metal el mismo dia para un registro de Illinois. Sin placa temporal, sin segundo viaje.' },
+];
+const qs = es ? qsEs : qsEn;
+const t = es
+  ? { kicker: 'Llevalas a cualquier dealer', h2: 'Cinco preguntas que hacer antes de visitar cualquier dealer', lead: 'Una respuesta directa cabe en una linea. Si la respuesta es larga, esa es la respuesta.', here: 'Aqui' }
+  : { kicker: 'Take them to any dealer', h2: 'Five questions to ask before you visit any dealer', lead: 'A straight answer fits on one line. If the answer is long, that is the answer.', here: 'Here' };
+---
+
+<section class={`py-12 lg:py-14 bg-surface ${className}`} id="five-questions">
+  <div class="max-w-7xl mx-auto px-6 lg:px-8">
+    <span class="text-orange font-bold uppercase tracking-widest text-sm mb-2 block">{t.kicker}</span>
+    <h2 class="font-headline text-2xl md:text-3xl font-extrabold text-navy mb-2">{t.h2}</h2>
+    <p class="text-gray-600 mb-6 max-w-3xl">{t.lead}</p>
+    <ol class="grid grid-cols-1 lg:grid-cols-2 gap-4">
+      {qs.map((item, i) => (
+        <li class="flex gap-4 bg-white rounded-xl border border-gray-100 p-4">
+          <span class="w-9 h-9 rounded-lg bg-navy text-white font-headline font-extrabold flex items-center justify-center shrink-0">{i + 1}</span>
+          <div>
+            <h3 class="font-headline font-bold text-navy leading-snug">{item.q}</h3>
+            <p class="text-sm text-gray-600 leading-relaxed mt-1"><span class="inline-flex items-center gap-1 font-semibold text-green-700"><Icon name="price_check" class="text-sm" fill />{t.here}</span> {item.a}</p>
+          </div>
+        </li>
+      ))}
+    </ol>
+  </div>
+</section>

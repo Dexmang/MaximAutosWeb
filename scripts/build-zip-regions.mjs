@@ -29,10 +29,16 @@
  * buyer's registration address at signing, and the block says so.
  *
  * CHICAGO
- * The crosswalk knows counties, not city limits. Every 606xx ZIP is inside Chicago, so
- * those are listed as chicago. Two ZIPs are split between Chicago and a Cook suburb
- * (60707 Elmwood Park, 60827 Riverdale): they are cook, and the estimate shows the
- * "inside Chicago city limits" switch for every Cook ZIP so the buyer can say.
+ * The county crosswalk knows counties, not city limits. Every 606xx ZIP is inside Chicago, so
+ * those are listed as chicago by prefix. A Cook ZIP outside 606 that ALSO contains Chicago
+ * addresses (60707 Elmwood Park and Galewood, 60827 Riverdale and Altgeld Gardens, 60804
+ * Cicero's Chicago edge) is listed in `chicagoSplit`, read from the Census 2020 ZCTA to PLACE
+ * file (second argument): any ZCTA whose land inside the City of Chicago (place 1714000) is
+ * at least SPLIT_SHARE of its area. The estimate starts those ZIPs with the Chicago switch ON,
+ * so they overstate rather than understate (pax check 2026-10-13: the understatement was $68
+ * to $212 on today's cars). Slivers under the share (O'Hare land inside 60018, 60007, 60106,
+ * 60131, 60176) stay plain Cook: nobody lives on the airport.
+ *   https://www2.census.gov/geo/docs/maps-data/data/rel2020/zcta520/tab20_zcta520_place20_natl.txt
  *
  * ZCTAs are not USPS ZIPs. A PO box only ZIP has no ZCTA, so the estimate falls back to
  * the ZIP prefix (600 to 608 is treated as cook, the higher rate) and then to il.
@@ -49,10 +55,17 @@ const COOK = '17031';
 const COLLAR = new Set(['17043', '17089', '17097', '17111', '17197']); // DuPage, Kane, Lake, McHenry, Will
 
 const src = process.argv[2];
-if (!src) {
-  console.error('usage: node scripts/build-zip-regions.mjs <tab20_zcta520_county20_natl.txt>');
+const placeSrc = process.argv[3];
+if (!src || !placeSrc) {
+  console.error('usage: node scripts/build-zip-regions.mjs <tab20_zcta520_county20_natl.txt> <tab20_zcta520_place20_natl.txt>');
   process.exit(2);
 }
+const CHICAGO_PLACE = '1714000';
+const SPLIT_SHARE = 0.10;
+// Land share is the only measure the Census file offers, and O'Hare's runways are Chicago
+// land: 60018 Des Plaines reads 47% Chicago and 60106 Bensenville 28% on area alone, with no
+// one registering a car on the airfield. Those two are suburbs for the estimate.
+const AIRPORT_ZIPS = new Set(['60018', '60106']);
 
 const lines = readFileSync(src, 'utf8').replace(/^﻿/, '').split(/\r?\n/);
 const header = lines[0].split('|');
@@ -92,6 +105,27 @@ for (const [zip, a] of [...acc.entries()].sort()) {
   else il.push(zip);
 }
 
+// Chicago split ZIPs from the place file: Chicago land share of the ZCTA, outside the 606 prefix.
+const plines = readFileSync(placeSrc, 'utf8').replace(/^﻿/, '').split(/\r?\n/);
+const ph = plines[0].split('|');
+const pZip = ph.indexOf('GEOID_ZCTA5_20');
+const pPlace = ph.indexOf('GEOID_PLACE_20');
+const pZipLand = ph.indexOf('AREALAND_ZCTA5_20');
+const pPart = ph.indexOf('AREALAND_PART');
+const chicagoSplit = [];
+const shares = [];
+for (const line of plines.slice(1)) {
+  if (!line) continue;
+  const f = line.split('|');
+  if (f[pPlace] !== CHICAGO_PLACE) continue;
+  const zip = f[pZip];
+  if (!zip || zip.startsWith('606')) continue;
+  const share = (Number(f[pPart]) || 0) / (Number(f[pZipLand]) || 1);
+  shares.push(`${zip} ${(share * 100).toFixed(1)}%${AIRPORT_ZIPS.has(zip) ? ' (airport, excluded)' : ''}`);
+  if (share >= SPLIT_SHARE && !AIRPORT_ZIPS.has(zip)) chicagoSplit.push(zip);
+}
+chicagoSplit.sort();
+
 const out = {
   generated: new Date().toISOString(),
   source:
@@ -106,8 +140,12 @@ const out = {
   cook,
   collar,
   il,
+  // Cook ZIPs outside 606 with real Chicago land: the estimate starts them on the Chicago rate.
+  chicagoSplit,
 };
 
 writeFileSync(OUT, JSON.stringify(out) + '\n', 'utf8');
 console.log(`build-zip-regions: ${rows} Illinois rows, ${acc.size} ZCTAs`);
 console.log(`  cook ${cook.length}  collar ${collar.length}  il ${il.length}  -> ${OUT}`);
+console.log(`  Chicago land share outside 606: ${shares.join(', ')}`);
+console.log(`  chicagoSplit (>= ${SPLIT_SHARE * 100}%): ${chicagoSplit.join(', ') || 'none'}`);

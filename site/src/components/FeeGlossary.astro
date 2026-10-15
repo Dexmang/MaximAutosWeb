@@ -1,0 +1,273 @@
+---
+/**
+ * FeeGlossary: the fees a buyer may meet at a dealer, what each one is, and what it is here.
+ *
+ * The one place on the site that describes other dealers' fees, and it does so by category
+ * only (fee education pack, 2026-10-15). Rules it follows:
+ *  - never a competitor's name or a competitor's figure (14 Ill. Adm. Code 475.360, lint
+ *    rule named-competitor);
+ *  - never a savings claim or a strikethrough (475.370);
+ *  - the only dollar figures are the state's own (ledger: facts.fees, facts.taxes), so the
+ *    page regenerates when the cap changes every January;
+ *  - every "here" cell must be true on every deal, cash or financed (pricing-policy.md).
+ * Rendered on /no-dealer-fees and its Spanish twin; one data table, two languages, so the
+ * pages cannot drift apart (guardrail D4).
+ */
+import facts from '../data/facts.json';
+import Icon from './Icon.astro';
+
+interface Props { lang?: 'en' | 'es'; class?: string }
+const { lang = 'en', class: className = '' } = Astro.props;
+const es = lang === 'es';
+const F = facts.fees;
+const T = facts.taxes;
+
+type Row = { name: string; what: string; here: string; zero: boolean };
+
+const rowsEn: Row[] = [
+  {
+    name: 'Doc fee',
+    what: 'A dealer charge for paperwork, also called a documentary service fee, or a handling or processing fee. Illinois law says it is not an official fee and is not required by law. Illinois caps it, moves the cap each January with inflation, and taxes it, so the capped fee costs more than the cap.',
+    here: `$0. Illinois allows up to ${F.docCapText} in ${F.docCapYear}, and the capped fee costs ${F.docCapTaxedCookText} with tax at the Cook County suburb rate`,
+    zero: true,
+  },
+  {
+    name: 'Electronic filing, ERT, title processing',
+    what: 'The cost of filing the title and plates electronically so the buyer leaves with metal plates. Illinois rules call it an optional service, cap it, and require it to be labeled optional. Some dealers bill it as a line of its own, on top of the doc fee.',
+    here: 'Our cost, not yours',
+    zero: true,
+  },
+  {
+    name: 'Dealer prep, reconditioning, inspection fee',
+    what: 'A charge for cleaning, inspecting or repairing the car before sale. In Illinois that cost belongs inside the advertised price, not on top of it.',
+    here: '$0. Every car is inspected before it is listed; the inspection is part of the price',
+    zero: true,
+  },
+  {
+    name: 'Destination, freight, delivery',
+    what: 'The manufacturer’s charge for shipping a new car to the dealer, printed on the new car window sticker. A used car has no destination charge. On a used car this line is a dealer fee under another name.',
+    here: '$0',
+    zero: true,
+  },
+  {
+    name: 'Add ons installed before sale',
+    what: 'VIN etching, nitrogen in the tires, paint and fabric protection, theft protection, pinstripes, wheel locks: products presented as already on the car and not removable. In Illinois a charge the buyer cannot decline belongs inside the advertised price.',
+    here: '$0. Nothing is installed to be charged for',
+    zero: true,
+  },
+  {
+    name: 'Market adjustment, dealer markup',
+    what: 'A price above the advertised price, added at the desk.',
+    here: 'None. The listed price is the price',
+    zero: true,
+  },
+  {
+    name: 'Advertising fee',
+    what: 'A share of the dealer’s advertising bill passed to the buyer.',
+    here: '$0',
+    zero: true,
+  },
+  {
+    name: 'Finance fee, bank fee, acquisition fee',
+    what: 'A dealer charge for arranging the loan, separate from the interest rate.',
+    here: '$0, cash or financed',
+    zero: true,
+  },
+  {
+    name: 'Products inside the payment',
+    what: 'Service contract, GAP, credit life, tire and wheel coverage. Optional products, sometimes folded into the monthly payment or described as something the lender requires. The Illinois Attorney General’s advice: if you are told a bank requires one, ask for that in writing.',
+    here: 'Optional means optional. Nothing goes on your contract unless you choose it',
+    zero: false,
+  },
+  {
+    name: 'Temporary tag, transit permit',
+    what: 'A paper plate while the state processes the registration, sometimes billed as its own line.',
+    here: 'Not needed. Metal plates are issued here the same visit for Illinois registrations',
+    zero: true,
+  },
+  {
+    name: 'Conditional internet price',
+    what: 'An online price that only applies if you finance with the dealer, bring a trade in, or qualify for every rebate. The price on a dealer’s own site and the price on a listing site can differ by the fee.',
+    here: 'One price everywhere: this site, CarGurus, Facebook and the paper you sign',
+    zero: false,
+  },
+  {
+    name: 'Sales tax, title, plates',
+    what: `The State of Illinois’s money, the same at every dealer: sales tax at the rate for your registration address (${T.cookPct} in a Cook County suburb, ${T.chicagoPct} in Chicago, ${T.collarPct} in the collar counties), title ${F.titleText}, new plates ${F.platesText} or ${F.transferText} to transfer plates you own.`,
+    here: 'Passed through at the state’s figures. Nothing added',
+    zero: false,
+  },
+];
+
+const rowsEs: Row[] = [
+  {
+    name: 'Cargo de documentacion',
+    what: 'Un cobro del dealer por el papeleo, tambien llamado cargo por servicio documental, de manejo o de procesamiento. La ley de Illinois dice que no es un cargo oficial y que la ley no lo exige. Illinois lo limita, ajusta el tope cada enero con la inflacion y le cobra impuesto, asi que el cargo maximo cuesta mas que el tope.',
+    here: `$0. Illinois permite hasta ${F.docCapText} en ${F.docCapYear}, y el cargo maximo cuesta ${F.docCapTaxedCookText} con impuesto en un suburbio del condado de Cook`,
+    zero: true,
+  },
+  {
+    name: 'Tramite electronico, ERT, procesamiento de titulo',
+    what: 'El costo de registrar el titulo y las placas por via electronica para que el comprador salga con placas de metal. Las reglas de Illinois lo llaman un servicio opcional, lo limitan y exigen que se marque como opcional. Algunos dealers lo cobran como una linea aparte, encima del cargo de documentacion.',
+    here: 'Es nuestro costo, no el tuyo',
+    zero: true,
+  },
+  {
+    name: 'Preparacion, reacondicionamiento, inspeccion',
+    what: 'Un cobro por limpiar, inspeccionar o reparar el auto antes de la venta. En Illinois ese costo va dentro del precio anunciado, no encima.',
+    here: '$0. Cada auto se inspecciona antes de publicarse; la inspeccion es parte del precio',
+    zero: true,
+  },
+  {
+    name: 'Destino, flete, entrega',
+    what: 'El cobro del fabricante por enviar un auto nuevo al dealer, impreso en la etiqueta de un auto nuevo. Un auto usado no tiene cargo de destino. En un auto usado esta linea es un cargo del dealer con otro nombre.',
+    here: '$0',
+    zero: true,
+  },
+  {
+    name: 'Accesorios instalados antes de la venta',
+    what: 'Grabado del VIN, nitrogeno en las llantas, proteccion de pintura y tela, proteccion antirrobo, franjas, seguros de rines: productos presentados como ya puestos en el auto y no removibles. En Illinois un cobro que el comprador no puede rechazar va dentro del precio anunciado.',
+    here: '$0. No se instala nada para cobrarlo',
+    zero: true,
+  },
+  {
+    name: 'Ajuste de mercado, sobreprecio',
+    what: 'Un precio por encima del precio anunciado, agregado en el escritorio.',
+    here: 'Ninguno. El precio publicado es el precio',
+    zero: true,
+  },
+  {
+    name: 'Cargo de publicidad',
+    what: 'Una parte de la cuenta de publicidad del dealer que se pasa al comprador.',
+    here: '$0',
+    zero: true,
+  },
+  {
+    name: 'Cargo de financiamiento, del banco, de adquisicion',
+    what: 'Un cobro del dealer por gestionar el prestamo, aparte de la tasa de interes.',
+    here: '$0, de contado o financiado',
+    zero: true,
+  },
+  {
+    name: 'Productos dentro del pago',
+    what: 'Contrato de servicio, GAP, seguro de vida de credito, cobertura de llantas y rines. Productos opcionales, a veces metidos en el pago mensual o presentados como un requisito del banco. El consejo del Procurador General de Illinois: si te dicen que el banco exige uno, pide esa exigencia por escrito.',
+    here: 'Opcional significa opcional. Nada entra en tu contrato si no lo eliges',
+    zero: false,
+  },
+  {
+    name: 'Placa temporal, permiso de transito',
+    what: 'Una placa de papel mientras el estado procesa el registro, a veces cobrada como linea aparte.',
+    here: 'No hace falta. Aqui se entregan placas de metal el mismo dia para registros de Illinois',
+    zero: true,
+  },
+  {
+    name: 'Precio de internet con condiciones',
+    what: 'Un precio en linea que solo aplica si financias con el dealer, entregas un auto a cuenta o calificas para cada rebaja. El precio en el sitio del dealer y el precio en un portal de anuncios pueden diferir por el cargo.',
+    here: 'Un solo precio en todas partes: este sitio, CarGurus, Facebook y el papel que firmas',
+    zero: false,
+  },
+  {
+    name: 'Impuesto, titulo, placas',
+    what: `El dinero del Estado de Illinois, igual en cualquier dealer: impuesto de venta con la tasa de tu direccion de registro (${T.cookPct} en un suburbio del condado de Cook, ${T.chicagoPct} en Chicago, ${T.collarPct} en los condados vecinos), titulo ${F.titleText}, placas nuevas ${F.platesText} o ${F.transferText} para transferir las tuyas.`,
+    here: 'Se pasan con las cifras del estado. Nada mas',
+    zero: false,
+  },
+];
+
+const rows = es ? rowsEs : rowsEn;
+const t = es
+  ? {
+      kicker: 'Lo que puedes ver en otro escritorio',
+      h2: 'Los cargos que un dealer puede agregar, y lo que son aqui',
+      lead: 'En Illinois, un precio anunciado tiene que incluir cada cobro excepto el impuesto, el titulo y las placas, y un cargo de documentacion solo si el anuncio lo dice. La guia federal va mas lejos: cada cobro que el dealer exige va dentro del precio anunciado. Esta es la lista de lineas que un comprador puede encontrar en un contrato, lo que cada una significa y lo que es en Maxim Autos.',
+      colFee: 'La linea',
+      colWhat: 'Lo que es',
+      colHere: 'En Maxim Autos',
+      sources: 'Fuentes oficiales para comprobarlo:',
+      ag: 'Procurador General de Illinois, compra de autos',
+      ftc: 'FTC, comprar un auto usado',
+      sos: 'Secretario de Estado de Illinois, tarifas de titulo y placas',
+      idor: 'Departamento de Ingresos de Illinois, impuesto vehicular',
+    }
+  : {
+      kicker: 'What you may see at another desk',
+      h2: 'The fees a dealer can add, and what each one is here',
+      lead: 'In Illinois, an advertised price has to include every charge except tax, title and plates, and a doc fee only if the ad says so. Federal guidance goes further: every charge the dealer requires belongs inside the advertised price. This is the list of lines a buyer may meet on a contract, what each one means, and what it is at Maxim Autos.',
+      colFee: 'The line',
+      colWhat: 'What it is',
+      colHere: 'At Maxim Autos',
+      sources: 'Official sources to check it against:',
+      ag: 'Illinois Attorney General, auto buying',
+      ftc: 'FTC, buying a used car',
+      sos: 'Illinois Secretary of State, title and plate fees',
+      idor: 'Illinois Department of Revenue, vehicle tax',
+    };
+
+// Government pages only. Never a listing site, never a dealer. URLs as verified by the research
+// desk on 2026-10-15 (research/fee-glossary-verification-2026-10-15.md, table h): the AG and FTC
+// pages fetched; the IDOR bulletin fetched (it carries the Aug 2026 transit rates); the ILSOS
+// fee page blocks automated reads and was opened in a browser instead.
+const sources = [
+  { label: t.ag, href: 'https://illinoisattorneygeneral.gov/consumer-protection/auto-sales-and-repairs/' },
+  { label: t.ftc, href: 'https://consumer.ftc.gov/articles/buying-used-car-dealer' },
+  { label: t.sos, href: 'https://www.ilsos.gov/departments/vehicles/basicfees.html' },
+  { label: t.idor, href: 'https://tax.illinois.gov/research/publications/bulletins/fy-2026-34.html' },
+];
+---
+
+<section class={`py-12 lg:py-14 bg-white ${className}`} id="fee-glossary">
+  <div class="max-w-7xl mx-auto px-6 lg:px-8">
+    <span class="text-orange font-bold uppercase tracking-widest text-sm mb-2 block">{t.kicker}</span>
+    <h2 class="font-headline text-2xl md:text-3xl font-extrabold text-navy mb-3">{t.h2}</h2>
+    <p class="text-gray-600 mb-6 max-w-3xl leading-relaxed">{t.lead}</p>
+
+    <!-- Desktop: one table. Phones: stacked cards (the same rows, below). -->
+    <div class="hidden md:block overflow-x-auto rounded-xl border border-gray-200">
+      <table class="w-full text-sm">
+        <thead class="bg-navy text-white text-left">
+          <tr>
+            <th class="px-4 py-3 font-bold w-[22%]">{t.colFee}</th>
+            <th class="px-4 py-3 font-bold">{t.colWhat}</th>
+            <th class="px-4 py-3 font-bold w-[26%]">{t.colHere}</th>
+          </tr>
+        </thead>
+        <tbody class="divide-y divide-gray-100">
+          {rows.map(r => (
+            <tr>
+              <td class="px-4 py-3 font-bold text-navy align-top">{r.name}</td>
+              <td class="px-4 py-3 text-gray-600 leading-relaxed align-top">{r.what}</td>
+              <td class={`px-4 py-3 font-semibold align-top ${r.zero ? 'text-green-700' : 'text-navy'}`}>
+                <span class="inline-flex items-start gap-1.5">
+                  <Icon name={r.zero ? 'price_check' : 'check_circle'} class="text-base shrink-0 mt-0.5" fill />
+                  <span>{r.here}</span>
+                </span>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+    <div class="md:hidden space-y-3">
+      {rows.map(r => (
+        <div class="bg-surface rounded-xl border border-gray-100 p-4">
+          <h3 class="font-headline font-bold text-navy">{r.name}</h3>
+          <p class="text-sm text-gray-600 leading-relaxed mt-1">{r.what}</p>
+          <p class={`text-sm font-semibold mt-2 inline-flex items-start gap-1.5 ${r.zero ? 'text-green-700' : 'text-navy'}`}>
+            <Icon name={r.zero ? 'price_check' : 'check_circle'} class="text-base shrink-0 mt-0.5" fill />
+            <span>{t.colHere}: {r.here}</span>
+          </p>
+        </div>
+      ))}
+    </div>
+
+    <p class="text-sm text-gray-500 mt-6">
+      <span class="font-semibold text-gray-600">{t.sources}</span>
+      {sources.map((s, i) => (
+        <>
+          {i > 0 && <span aria-hidden="true"> · </span>}
+          <a href={s.href} target="_blank" rel="noopener" class="underline underline-offset-2 hover:text-navy">{s.label}</a>
+        </>
+      ))}
+    </p>
+  </div>
+</section>

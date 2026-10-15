@@ -47,7 +47,8 @@ const trust = isSpanish
       pricing: 'Cero Cargos de Dealer',
       // Signed 2026-10-13: the exact twin of "No doc fee". "Sin cargos ocultos" claimed no
       // hidden fees, broader than no doc fee, and was rejected (R1-16).
-      pricingDetail: 'Sin cargo de documentacion',
+      // 2026-10-15: the strip invites to the estimate; the named fee list sits beside every price.
+      pricingDetail: 'Calcula tu costo total',
       pricingHref: `${base}/es/sin-cargos-de-dealer`,
     }
   : {
@@ -58,7 +59,7 @@ const trust = isSpanish
       skipDmv: 'Skip the DMV',
       skipDmvDetail: 'Metal plates issued the same visit.',
       pricing: 'No Dealer Fees Ever',
-      pricingDetail: 'No doc fee',
+      pricingDetail: 'See your out the door cost before you call',
       // The promise links to the page that proves it (Approach 1, 2026-10-13).
       pricingHref: `${base}/no-dealer-fees`,
     };

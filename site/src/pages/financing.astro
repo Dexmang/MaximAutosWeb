@@ -92,9 +92,9 @@ const faqSchema = {
               </div>
               <input type="range" id="calc-down-slider" min="0" max="6000" step="250" value="1200"
                 class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-orange" />
-              <div class="flex justify-between text-xs text-gray-400 mt-1">
-                <span>$0</span><span id="calc-down-max-label">$6,000</span>
-              </div>
+              {/* No dollar end labels under the down payment slider: a half price figure
+                  printed under a slider was quoted back as a car's price twice in September
+                  2026 (note 319). The chosen value shows beside the label above. */}
             </div>
             <div>
               <div class="flex justify-between items-center mb-2">
@@ -342,7 +342,6 @@ const faqSchema = {
   var priceDisp   = document.getElementById('calc-price-display');
   var downDisp    = document.getElementById('calc-down-display');
   var aprDisp     = document.getElementById('calc-apr-display');
-  var downMaxLbl  = document.getElementById('calc-down-max-label');
   var result      = document.getElementById('calc-result');
   var activeTerm  = 60;
 
@@ -370,7 +369,6 @@ const faqSchema = {
     downSlider.max = newMax;
     if (parseFloat(downSlider.value) > newMax) downSlider.value = newMax;
     downDisp.textContent = fmt(downSlider.value);
-    downMaxLbl.textContent = fmt(newMax);
     calcPayment();
   });
 

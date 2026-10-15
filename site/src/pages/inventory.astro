@@ -215,6 +215,14 @@ const driveChips = [
       <button id="clear-filters" class="hidden mb-3 text-sm text-orange-ink font-semibold hover:underline">Clear Filters</button>
 
       <!-- Grid -->
+      <!-- Out the door cost invitation (back on 2026-10-15; one text line per the pax check so the
+           first card does not move down). Every card below opens a page with the estimate under the price. -->
+      <a href={`${base}/no-dealer-fees#estimate`} data-cta="body" data-cta-name="out_the_door"
+         class="mb-3 inline-flex items-start gap-2 text-sm font-semibold text-navy hover:text-orange-ink">
+        <Icon name="calculate" class="text-xl text-orange shrink-0" fill />
+        <span><span class="font-extrabold underline underline-offset-2">See your out the door cost before you call.</span> Every car page has the estimate for your ZIP, right under the price.</span>
+      </a>
+
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5" id="vehicle-grid">
         {liveVehicles.map((v, i) => (
           <div

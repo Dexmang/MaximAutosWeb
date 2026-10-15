@@ -6,6 +6,7 @@ import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 import VehicleCard from '../../components/VehicleCard.astro';
 import TrustPair from '../../components/TrustPair.astro';
+import OtdEstimate from '../../components/OtdEstimate.astro';
 import Icon from '../../components/Icon.astro';
 import vehicles from '../../data/vehicles.json';
 import facts from '../../data/facts.json';
@@ -235,7 +236,7 @@ const faqs = [
   { q: `Can I get pre-approved for financing on this ${v.make} ${v.model}?`, a: `Yes. Maxim Autos offers financing for all credit levels, including first time buyers and those rebuilding credit. Start with the short financing form or a call to Jerry: neither touches your credit. A full application does include a credit check, and approval is never guaranteed.` },
   { q: `Does this used ${v.make} ${v.model} come with a CARFAX report?`, a: `Yes. A CARFAX vehicle history report is included with every used vehicle at Maxim Autos at no extra cost. Review the full history of this ${titleText} before making a decision.` },
   { q: `Can I drive this ${v.make} ${v.model} home the same day?`, a: `Yes. Maxim Autos is an authorized Illinois CVR (Computer Vehicle Registration) electronic registration dealer. Metal plates issued the same visit, for cars registered in Illinois. If you are registering in another state we issue an Illinois drive away permit instead and you plate the car at home.` },
-  { q: `Are there any hidden fees on this used ${v.make} ${v.model}?`, a: `No. Maxim Autos never charges dealer fees. No doc fee, no processing fee, no surprise extras at signing. The listed price of $${v.price.toLocaleString()} is what you pay plus standard state tax, title and license.` },
+  { q: `Are there any hidden fees on this used ${v.make} ${v.model}?`, a: `No. Maxim Autos never charges dealer fees. No doc fee, no prep fee, no delivery or destination fee, no installed add ons, no filing fee, no surprise extras at signing. The listed price of $${v.price.toLocaleString()} is what you pay plus standard state tax, title and license.` },
 ];
 
 // Structured data
@@ -320,6 +321,74 @@ if (v.vin && v.vin !== 'TBD') (vehicleSchema as any).vehicleIdentificationNumber
       </div>
     </section>
   )}
+
+  <!-- ===== HEADER CARD: the car, the price and the facts before the pictures (Jerry, 2026-10-15,
+       after a peer dealer page): title and price on one line, mileage, drivetrain, engine, color,
+       stock, the CarGurus rating, the fee chip and shipping. The h1 lives here now; the left
+       column below the gallery no longer repeats the title. ===== -->
+  <section class="bg-white border-b border-gray-200">
+    <div class="max-w-7xl mx-auto px-4 md:px-6 lg:px-8 py-3 md:py-4">
+      <nav class="hidden md:flex items-center gap-1.5 text-sm text-gray-500 mb-2">
+        <a href={`${base}/`} class="hover:text-navy transition-colors">Home</a>
+        <Icon name="chevron_right" class="text-xs" />
+        <a href={`${base}/inventory`} class="hover:text-navy transition-colors">Inventory</a>
+        <Icon name="chevron_right" class="text-xs" />
+        <span class="text-gray-600 font-medium truncate">{titleText}</span>
+      </nav>
+      <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-3">
+        <div class="min-w-0">
+          <div class="flex flex-wrap items-center gap-x-3 gap-y-1">
+            <h1 class="font-headline text-xl md:text-3xl font-extrabold text-navy leading-tight">{titleText}</h1>
+            {!isSold && v.price > 0 && (
+              <span class="font-headline text-2xl md:text-3xl font-extrabold text-navy leading-tight tabular-nums" data-vehicle-price={v.price}>${v.price.toLocaleString()}</span>
+            )}
+            {isSold && <span class="inline-flex items-center bg-gray-800 text-white rounded-full px-3 py-1 text-xs font-extrabold tracking-wide">SOLD</span>}
+            {!isSold && (
+              <a href="#estimate" data-cta="vdp_header" data-cta-name="out_the_door"
+                 class="hidden md:inline-flex items-center gap-2 bg-navy text-white px-4 py-2 rounded-xl font-bold text-sm hover:bg-navy/90 transition-colors md:ml-1">
+                <Icon name="calculate" class="text-lg text-orange" fill />Calculate out the door cost
+              </a>
+            )}
+          </div>
+          <div class="flex flex-wrap items-center gap-x-1.5 gap-y-0.5 md:gap-2 text-[13px] md:text-sm text-gray-500 mt-1">
+            <span>{mileageStr}</span>
+            {v.drivetrain && <><span class="text-gray-300">·</span><span>{v.drivetrain}</span></>}
+            {v.engine && <><span class="text-gray-300">·</span><span>{v.engine}</span></>}
+            {v.exteriorColor && <><span class="text-gray-300">·</span><span>{v.exteriorColor}</span></>}
+            {stockNumber && <><span class="text-gray-300">·</span><span>Stock #{stockNumber}</span></>}
+          </div>
+          {!isSold && (
+            <div class="flex flex-wrap items-center gap-2 mt-2">
+              {dealLabel && (
+                <span class="inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-xs font-extrabold" style={`background:${dealBg};color:${dealText}`}>
+                  {dealLabel}{savingsStr ? ` · ${savingsStr}` : ''}<span class="font-semibold opacity-90">via CarGurus</span>
+                </span>
+              )}
+              <span class="inline-flex items-center gap-1.5 bg-green-50 text-green-800 border border-green-100 px-3 py-1 rounded-full text-xs font-semibold">
+                <Icon name="price_check" class="text-sm text-green-700" fill />
+                $0 doc fee · $0 dealer fees
+              </span>
+              <a href={`${base}/ship`} class="inline-flex items-center gap-1.5 bg-navy/5 text-navy border border-navy/15 px-3 py-1 rounded-full text-xs font-semibold hover:bg-navy/10 transition-colors">
+                <Icon name="local_shipping" class="text-sm text-navy" fill />
+                Ships nationwide
+              </a>
+            </div>
+          )}
+        </div>
+      </div>
+    </div>
+  </section>
+  <script is:inline>
+    // "#estimate" is the phone block (hidden at lg); the desktop sidebar block is
+    // "#estimate-desktop". Any link to #estimate scrolls to whichever one is visible.
+    document.addEventListener('click', function (e) {
+      var a = e.target && e.target.closest ? e.target.closest('a[href="#estimate"]') : null;
+      if (!a) return;
+      var m = document.getElementById('estimate'), d = document.getElementById('estimate-desktop');
+      var t = (m && m.offsetParent !== null) ? m : d;
+      if (t) { e.preventDefault(); t.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+    });
+  </script>
 
   <!-- ===== GALLERY ===== -->
   <section class="bg-gray-900">
@@ -422,14 +491,34 @@ if (v.vin && v.vin !== 'TBD') (vehicleSchema as any).vehicleIdentificationNumber
   {!isSold && (
     <section class="bg-white border-b border-gray-200 shadow-sm">
       <div class="max-w-7xl mx-auto flex divide-x divide-gray-200">
-        <!-- Phone: one 44 px row, gray label beside the wordmark, so the CARFAX cell stops
-             being the loudest thing above the price (D1-33). md and up: the stacked badge. -->
+        {/* CarGurus deal rating, to the left of the CARFAX cell (Jerry, 2026-10-15). Phones: the
+            rating pill and the attribution on one row. md and up: the pill, the market gap and a
+            mini price meter. Rendered only when CarGurus returned a rating for this VIN. */}
+        {dealBadge && (
+          <div class="flex-1 min-w-0 flex items-center justify-center h-11 md:h-auto md:py-2.5 px-1 md:px-2">
+            <div class="flex flex-col items-center gap-0.5 md:gap-1 leading-none">
+              <span class="inline-flex items-center rounded-full px-2 md:px-2.5 py-0.5 md:py-1 text-[10px] md:text-xs font-extrabold tracking-wide whitespace-nowrap" style={`background:${dealBg};color:${dealText}`}>{dealLabel}</span>
+              <span class="text-[9px] md:text-xs font-semibold text-gray-600 whitespace-nowrap">
+                {savingsStr && <span class="hidden md:inline">{savingsStr} · </span>}
+                <span class="hidden md:inline text-gray-500">Price rating by </span><span class="font-extrabold text-gray-700">CarGurus</span>
+              </span>
+              {marketValue > 0 && (
+                <span class="hidden md:block w-44 relative pt-3" aria-hidden="true">
+                  <span class="absolute text-[10px] font-bold leading-none" style={`left:${meterPct}%;transform:translateX(-50%);top:0;color:${dealBg}`}>▼</span>
+                  <span class="block h-1.5 rounded-full" style="background:linear-gradient(to right,#1a9b3b 0%,#4ade80 28%,#94a3b8 52%,#fb923c 75%,#ef4444 100%)"></span>
+                </span>
+              )}
+            </div>
+          </div>
+        )}
+        <!-- Phone: one 44 px row, label beside the wordmark. md and up: the stacked badge.
+             "SHOW ME THE" in the brand orange at every width (Jerry, 2026-10-15). -->
         <div class="flex-1 flex items-center justify-center h-11 md:h-auto md:py-2.5 px-2">
           {carfaxLink ? (
             <a href={carfaxLink} target="_blank" rel="noopener noreferrer" data-cta="vdp_trust" data-cta-name="carfax"
                class="flex flex-row md:flex-col items-center gap-1.5 md:gap-0 leading-none hover:opacity-75 transition-opacity"
                aria-label={`Show me the free CARFAX report for this ${v.year} ${v.make} ${v.model}`}>
-              <span class="text-[11px] md:text-sm font-bold md:font-extrabold tracking-wide md:tracking-[0.14em] text-gray-600 md:text-orange-ink whitespace-nowrap">SHOW ME THE</span>
+              <span class="text-[11px] md:text-sm font-bold md:font-extrabold tracking-wide md:tracking-[0.14em] text-orange whitespace-nowrap">SHOW ME THE</span>
               <span class="flex items-start md:mt-[3px]">
                 <span class="flex gap-[2px] border-2 border-black rounded-[5px] p-[2px] bg-white">
                   {'CARFA'.split('').map(ch => (
@@ -463,28 +552,8 @@ if (v.vin && v.vin !== 'TBD') (vehicleSchema as any).vehicleIdentificationNumber
         <!-- ===== LEFT COLUMN ===== -->
         <div class="flex-1 min-w-0">
 
-          <!-- Breadcrumb -->
-          <nav class="hidden md:flex items-center gap-1.5 text-sm text-gray-500 mb-4">
-            <a href={`${base}/`} class="hover:text-navy transition-colors">Home</a>
-            <Icon name="chevron_right" class="text-xs" />
-            <a href={`${base}/inventory`} class="hover:text-navy transition-colors">Inventory</a>
-            <Icon name="chevron_right" class="text-xs" />
-            <span class="text-gray-600 font-medium truncate">{titleText}</span>
-          </nav>
-
-          <!-- Title -->
-          <h1 class="font-headline text-xl md:text-3xl font-extrabold text-navy leading-tight mb-1 md:mb-2">{titleText}</h1>
-          <div class="flex flex-wrap items-center gap-x-1.5 gap-y-0.5 md:gap-2 text-[13px] md:text-sm text-gray-500 mb-3 md:mb-4">
-            <span>{mileageStr}</span>
-            <span class="text-gray-300">·</span>
-            <span>{v.drivetrain}</span>
-            <span class="text-gray-300">·</span>
-            <span>{v.engine}</span>
-            <span class="text-gray-300 hidden sm:inline">·</span>
-            <span class="hidden sm:inline">{v.exteriorColor}</span>
-            {stockNumber && <><span class="text-gray-300">·</span><span>Stock #{stockNumber}</span></>}
-          </div>
-
+          {/* The breadcrumb, the title and the spec line moved into the header card above the
+              gallery (2026-10-15). The column starts with the price block on phones. */}
           {!isSold && (
           <!-- Mobile price (shown below title on mobile, hidden on lg where sidebar shows) -->
           <div class="lg:hidden mb-4 pb-4 border-b border-gray-100">
@@ -495,7 +564,11 @@ if (v.vin && v.vin !== 'TBD') (vehicleSchema as any).vehicleIdentificationNumber
               )}
             </div>
 
-            <TrustPair variant="vdp" class="mt-2" />
+            {/* Estimated total at signing by ZIP, right under the price (Jerry, 2026-10-15). No
+                payment inside, so Reg Z is not triggered here; the total is text-lg against the
+                text-3xl price. The fee callout with the named list sits beneath it. */}
+            <OtdEstimate id="estimate" price={v.price} title={titleText} stockNumber={stockNumber} class="mt-3 scroll-mt-28" />
+            <TrustPair variant="vdp" class="mt-3" />
 
             {showVinStats && vinStats && (
               <p class="mt-3.5 text-xs text-gray-500">
@@ -529,9 +602,10 @@ if (v.vin && v.vin !== 'TBD') (vehicleSchema as any).vehicleIdentificationNumber
                     min="0" max={Math.round(v.price * 0.5)} step="250"
                     value={Math.round(v.price * 0.10)}
                     class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-orange" />
-                  <div class="flex justify-between text-xs text-gray-400 mt-1">
-                    <span>$0</span><span>${Math.round(v.price * 0.5).toLocaleString()}</span>
-                  </div>
+                  {/* No dollar end labels under this slider. The half price label was the only
+                      place on the internet that ever showed $8,425 for a $16,850 car, and two
+                      callers quoted it as the price (note 319, 2026-09-12). The chosen value
+                      shows beside the label above. */}
                 </div>
                 <div class="mb-4">
                   <div class="flex justify-between items-center mb-2">
@@ -817,6 +891,10 @@ if (v.vin && v.vin !== 'TBD') (vehicleSchema as any).vehicleIdentificationNumber
                   <span class="cg-vin-badge inline-block" data-cg-vin={v.vin} data-cg-price={v.price}></span>
                 </div>
               )}
+              {/* Desktop: the same block right under the price in the sidebar (Jerry, 2026-10-15),
+                  then the fee callout. The sidebar grows past the fold; the financing button
+                  follows the estimate, not the other way round. */}
+              <OtdEstimate id="estimate-desktop" price={v.price} title={titleText} stockNumber={stockNumber} class="mb-3 scroll-mt-28" />
               <TrustPair variant="vdp" class="mb-4" />
               {showVinStats && vinStats && (
                 <p class="mb-4 text-xs text-gray-400 flex items-center gap-1">

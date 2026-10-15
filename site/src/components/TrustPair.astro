@@ -6,6 +6,14 @@
  */
 import facts from '../data/facts.json';
 import Icon from './Icon.astro';
+import { existsSync } from 'node:fs';
+import { fileURLToPath } from 'node:url';
+import { FEE_LIST } from '../lib/fee-copy';
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+// The sample buyer's order link renders only once the PDF exists in web_assets/docs/, so a
+// missing file can never ship as a dead link (fee education pack, 2026-10-15).
+const hasSampleOrder = existsSync(fileURLToPath(new URL('../../../web_assets/docs/sample-buyers-order.pdf', import.meta.url)));
 
 interface Props {
   variant: 'chip' | 'strip' | 'fee' | 'vdp' | 'vdp-row';
@@ -18,9 +26,16 @@ const r = facts.reviews;
 const full = Math.max(0, Math.min(5, Math.round(Number(r.rating))));
 const stars = '★'.repeat(full) + '☆'.repeat(5 - full);
 const googleReviews = 'https://www.google.com/search?q=Maxim+Autos+Skokie+IL+reviews';
+// The strip's promise links to the page that proves it. On a vehicle page it jumps to the
+// estimate under the price instead, so the buyer never leaves the car (Jerry, 2026-10-15:
+// the calculator is back, right under the price).
+const onVdp = Astro.url.pathname.includes('/vehicle/');
+const feeHref = onVdp ? '#estimate' : (es ? `${base}/es/sin-cargos-de-dealer` : `${base}/no-dealer-fees`);
 const t = es
-  ? { fee: 'Cero Cargos de Dealer', feeDetail: 'Sin cargo de documentacion', feeChip: '$0 cargos de dealer · $0 documentacion', reviews: 'resenas', stars: 'Estrellas en Google', count: 'Resenas' }
-  : { fee: 'No Dealer Fees Ever', feeDetail: 'No doc fee', feeChip: '$0 doc fee · $0 dealer fees', reviews: 'reviews', stars: 'Stars on Google', count: 'Reviews' };
+  ? { fee: 'Cero Cargos de Dealer', feeDetail: 'Tu costo total', feeChip: '$0 cargos de dealer · $0 documentacion', reviews: 'resenas', stars: 'Estrellas en Google', count: 'Resenas' }
+  : { fee: 'No Dealer Fees Ever', feeDetail: 'Your out the door cost', feeChip: '$0 doc fee · $0 dealer fees', reviews: 'reviews', stars: 'Stars on Google', count: 'Reviews' };
+// feeDetail on the phone strip invites the buyer to the estimate; the named fee list and the
+// cap line live beside every price, so the strip does not need to repeat "No doc fee".
 // Spanish feeDetail signed 2026-10-13 (Approach 1 build): "Sin cargo de documentacion" is the
 // exact twin of "No doc fee", not the broader "sin cargos ocultos" that R1-16 rejected.
 // feeChip is the inventory card's price label (Approach 1, 2026-10-13): the two zero lines,
@@ -57,12 +72,13 @@ const feeTail = 'The price you see is the price you pay, plus tax, title, and li
   </a>
 )}
 {variant === 'strip' && (
-  <p class={`flex items-center gap-1.5 h-9 min-w-0 whitespace-nowrap text-white ${className}`}>
+  <a href={feeHref} data-cta="strip" data-cta-name="out_the_door"
+     class={`flex items-center gap-1.5 h-9 min-w-0 whitespace-nowrap text-white ${className}`}>
     <Icon name="sell" class="text-base" fill />
     <span class="font-extrabold text-[15px]">{t.fee}</span>
     {t.feeDetail && <span class="opacity-50" aria-hidden="true">·</span>}
-    {t.feeDetail && <span class="font-medium text-[13px] truncate">{t.feeDetail}</span>}
-  </p>
+    {t.feeDetail && <span class="font-medium text-[13px] truncate underline underline-offset-2 decoration-white/60">{t.feeDetail}</span>}
+  </a>
 )}
 {variant === 'fee' && (
   <p class={`inline-flex items-center gap-1 text-xs font-bold text-green-700 leading-[18px] text-right ${className}`}>
@@ -75,6 +91,20 @@ const feeTail = 'The price you see is the price you pay, plus tax, title, and li
       <Icon name="price_check" class="text-base text-green-700 shrink-0 mt-0.5" fill />
       <p class="text-sm text-gray-700 leading-snug"><span class="font-bold text-green-700">{feeLead}</span>{' '}{feeTail}</p>
     </div>
+    {/* The dollar proof beside the price (second look, 2026-10-15). The cap comes from the
+        ledger and is always paired with the $0 (lint rule unpaired-doc-cap). It lived inside
+        the estimate block until the 2026-10-14 reversal took the block, and the vehicle page,
+        the one page the CarGurus click lands on, lost it. 12 px: a disclosure, not decoration. */}
+    <p class="text-xs text-gray-500 leading-snug mt-1.5">
+      {es ? FEE_LIST.es : FEE_LIST.en}{' '}{es ? facts.fees.capShortEs : facts.fees.capShort}{' '}
+      <a href={`${base}/${es ? 'es/sin-cargos-de-dealer' : 'no-dealer-fees'}`} data-cta="vdp_body" data-cta-name="how_pricing_works" class="font-semibold text-navy underline underline-offset-2">{es ? 'Como funciona nuestro precio' : 'How our pricing works'}</a>
+      {hasSampleOrder && (
+        <>
+          {' · '}
+          <a href={`${base}/docs/sample-buyers-order.pdf`} target="_blank" rel="noopener" data-cta="vdp_body" data-cta-name="sample_buyers_order" class="font-semibold text-navy underline underline-offset-2">{es ? 'Ver un contrato de muestra (PDF)' : 'See a sample buyer’s order (PDF)'}</a>
+        </>
+      )}
+    </p>
     <Astro.self variant="vdp-row" lang={lang} />
   </div>
 )}

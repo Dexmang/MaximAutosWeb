@@ -242,6 +242,26 @@ const DESCRIPTION_RULES = [
     replace: 'powertrain protection on qualifying cars',
   },
   {
+    // Fee policy wording (second look, 2026-10-15). The pre October description template
+    // carried the bullet "Transparent pricing, no hidden fees": the phrase fee charging
+    // stores also use, and a weaker promise than the policy. Rewritten to the approved
+    // sentence (memory/context/maxim-autos-copy-playbook.md) so the site never renders the
+    // retired line even before the DealerCenter record is edited. CarGurus and Facebook
+    // read DealerCenter directly, so the DC edit is still required for those two.
+    name: 'retired fee bullet',
+    find: /Transparent pricing,?\s*no hidden fees\.?/gi,
+    replace: 'No dealer fees at Maxim Autos, ever. The price you see is the price you pay, plus tax, title, and license.',
+  },
+  {
+    // Fallback for the older template variants on sold units ("Transparent pricing with no
+    // hidden fees", "no hidden fees, upfront pricing"): the bare phrase becomes the policy's
+    // own words without touching the sentence around it. "No hidden fees" is retired
+    // everywhere (vocabulary lock, second look 2026-10-15).
+    name: 'retired phrase no hidden fees',
+    find: /\bno hidden fees/gi,
+    replace: 'no dealer fees',
+  },
+  {
     // Guardrail C8. Maxim sells AS IS and offers no dealer warranty, so any month
     // count paired with the word warranty is a claim it cannot document. Was found
     // live on GBP and on the site in July 2026 and purged from both.
