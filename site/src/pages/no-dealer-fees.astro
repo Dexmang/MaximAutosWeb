@@ -17,7 +17,7 @@ import facts from '../data/facts.json';
 import FeeGlossary from '../components/FeeGlossary.astro';
 import FiveQuestions from '../components/FiveQuestions.astro';
 import PriceVoices from '../components/PriceVoices.astro';
-import { FEE_LIST, FEE_ITEMS } from '../lib/fee-copy';
+import { FEE_LIST, FEE_ITEMS, SIGN_LINE, notEven } from '../lib/fee-copy';
 import OtdEstimate from '../components/OtdEstimate.astro';
 import vehicles from '../data/vehicles.json';
 
@@ -116,7 +116,7 @@ const faqSchema = {
         See your out the door cost before you call.
       </p>
       <p class="text-lg md:text-xl text-gray-200 max-w-2xl leading-relaxed mb-2">
-        {F.capShort}
+        {SIGN_LINE.en} {notEven('en', F)}
       </p>
       <p class="text-base text-gray-300 max-w-2xl leading-relaxed mb-8">
         {FEE_LIST.en} The price on the car plus Illinois tax, title and plates is the whole deal, all in, and every vehicle page shows your estimated total at signing before you pick up the phone.
@@ -140,15 +140,15 @@ const faqSchema = {
   <section class="py-10 lg:py-12 bg-white border-b border-gray-100">
     <div class="max-w-7xl mx-auto px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-start">
       <div>
-        <span class="text-orange font-bold uppercase tracking-widest text-sm mb-2 block">What a dealer can add</span>
-        <h2 class="font-headline text-2xl md:text-3xl font-extrabold text-navy mb-3">The doc fee is only one of them</h2>
-        <p class="text-gray-700 leading-relaxed mb-3">A dealer can add a documentation fee on top of the price you saw. Illinois allows up to {F.docCapText} in {F.docCapYear}, and here it is $0. Some add more: a prep or reconditioning fee, a delivery or destination charge, add ons installed before the sale, an electronic filing fee, a market adjustment. They appear on the buyer’s order, at the desk, after the price that brought you in.</p>
+        <span class="text-orange font-bold uppercase tracking-widest text-sm mb-2 block">What shows up when you sign</span>
+        <h2 class="font-headline text-2xl md:text-3xl font-extrabold text-navy mb-3">By the time the papers are in front of you, the extras can run into the thousands</h2>
+        <p class="text-gray-700 leading-relaxed mb-3">The price that brought you in is one line on the buyer’s order. Under it a dealer can add a documentation fee, a prep or reconditioning fee, a delivery or destination charge, add ons installed before the sale, an electronic filing fee, a market adjustment, products folded into the payment. Each one is small print. Together they are the difference between the price you saw and the number you sign.</p>
         <a href="#fee-glossary" data-cta="body" data-cta-name="fee_glossary" class="inline-flex items-center gap-1.5 font-bold text-navy underline underline-offset-2">See what each fee means <Icon name="arrow_downward" class="text-lg" /></a>
       </div>
       <div class="bg-navy rounded-2xl p-6 lg:p-8 text-white">
         <span class="text-orange font-bold uppercase tracking-widest text-sm mb-2 block">The Maxim Autos difference</span>
         <h2 class="font-headline text-2xl md:text-3xl font-extrabold mb-3">Zero dealer fees. Always.</h2>
-        <p class="text-white/85 leading-relaxed mb-3">Every one of those lines is $0 here, on every car, cash or financed. {FEE_LIST.en}</p>
+        <p class="text-white/85 leading-relaxed mb-3">Maxim Autos charges none of them. Not even the doc fee Illinois allows, up to {F.docCapText} in {F.docCapYear}: here it is $0, on every car, cash or financed. {FEE_LIST.en}</p>
         <p class="text-white/85 leading-relaxed">The price on the car plus Illinois tax, title and plates is the whole deal. The calculator below shows it for your ZIP.</p>
       </div>
     </div>
@@ -173,7 +173,7 @@ const faqSchema = {
               <span class="w-9 h-9 rounded-lg bg-green-700 text-white font-headline font-extrabold flex items-center justify-center shrink-0">2</span>
               <div>
                 <h3 class="font-headline font-bold text-green-700">Dealer fees: $0</h3>
-                <p class="text-sm text-gray-600 leading-relaxed">{FEE_ITEMS.en.join(', ')}: every one of those lines is $0 here. Illinois lets dealers add up to {F.docCapText} in doc fees in {F.docCapYear}, and that fee is taxable, so the capped fee costs {F.docCapTaxedCookText} at the Cook County suburb rate. The rest belong inside the advertised price by Illinois rule, never on top of it.</p>
+                <p class="text-sm text-gray-600 leading-relaxed">{FEE_ITEMS.en.join(', ')}: elsewhere those lines can add up to thousands by the time you sign. Here every one is $0, not even the doc fee Illinois allows, up to {F.docCapText} in {F.docCapYear}. The rest belong inside the advertised price by Illinois rule, never on top of it.</p>
               </div>
             </li>
             <li class="flex gap-4 bg-white rounded-xl border border-gray-100 p-4">

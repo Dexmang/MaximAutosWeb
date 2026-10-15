@@ -8,7 +8,7 @@ import ReviewRotator from '../../components/ReviewRotator.astro';
 import Icon from '../../components/Icon.astro';
 import vehicles from '../../data/vehicles.json';
 import reviews from '../../data/reviews.json';
-import { FEE_LIST } from '../../lib/fee-copy';
+import { FEE_LIST, SIGN_LINE, notEven } from '../../lib/fee-copy';
 import OtdEstimate from '../../components/OtdEstimate.astro';
 import reviewsMeta from '../../data/reviews_meta.json';
 import suburbs from '../../data/suburbs.json';
@@ -292,7 +292,7 @@ const heroReviews = reviews.slice(0, 6);
           </div>
           <div class="min-w-0">
             <h3 class="font-headline text-base font-bold mb-1">Nunca Cobramos Cargos de Dealer</h3>
-            <p class="text-gray-500 text-sm">{facts.fees.capShortEs} {FEE_LIST.es} El precio que ves es el precio que pagas, mas impuestos, titulo y placas. <a href={`${base}/es/sin-cargos-de-dealer`} class="font-semibold text-navy underline underline-offset-2" data-cta="body" data-cta-name="how_pricing_works">Mira lo que pagas al firmar</a></p>
+            <p class="text-gray-500 text-sm">{SIGN_LINE.es} {notEven('es', facts.fees)} {FEE_LIST.es} El precio que ves es el precio que pagas, mas impuestos, titulo y placas. <a href={`${base}/es/sin-cargos-de-dealer`} class="font-semibold text-navy underline underline-offset-2" data-cta="body" data-cta-name="how_pricing_works">Mira lo que pagas al firmar</a></p>
           </div>
         </div>
         <div class="flex items-start gap-4 p-4 md:p-6 rounded-xl border border-gray-100 hover:border-orange/20 hover:shadow-md transition-all">

@@ -8,7 +8,7 @@ import facts from '../data/facts.json';
 import Icon from './Icon.astro';
 import { existsSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
-import { FEE_LIST } from '../lib/fee-copy';
+import { FEE_LIST, SIGN_LINE, notEven } from '../lib/fee-copy';
 
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 // The sample buyer's order link renders only once the PDF exists in web_assets/docs/, so a
@@ -96,7 +96,7 @@ const feeTail = 'The price you see is the price you pay, plus tax, title, and li
         the estimate block until the 2026-10-14 reversal took the block, and the vehicle page,
         the one page the CarGurus click lands on, lost it. 12 px: a disclosure, not decoration. */}
     <p class="text-xs text-gray-500 leading-snug mt-1.5">
-      {es ? FEE_LIST.es : FEE_LIST.en}{' '}{es ? facts.fees.capShortEs : facts.fees.capShort}{' '}
+      {es ? SIGN_LINE.es : SIGN_LINE.en}{' '}{notEven(es ? 'es' : 'en', facts.fees)}{' '}{es ? FEE_LIST.es : FEE_LIST.en}{' '}
       <a href={`${base}/${es ? 'es/sin-cargos-de-dealer' : 'no-dealer-fees'}`} data-cta="vdp_body" data-cta-name="how_pricing_works" class="font-semibold text-navy underline underline-offset-2">{es ? 'Como funciona nuestro precio' : 'How our pricing works'}</a>
       {hasSampleOrder && (
         <>

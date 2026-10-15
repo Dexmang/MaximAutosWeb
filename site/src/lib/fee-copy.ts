@@ -15,6 +15,24 @@ export const FEE_LIST = {
   es: 'Sin cargo de documentacion, sin cargo de preparacion, sin cargo de entrega o destino, sin accesorios instalados, sin cargo de tramite.',
 } as const;
 
+/**
+ * The signing line (Jerry, 2026-10-15): the point is the pile of lines on the paper, not the
+ * doc fee. "Can run into the thousands" is a possibility, not a typical figure, backed by the
+ * regulator cases and the CarEdge Illinois quotes in research/fee-glossary-verification-2026-10-15.md;
+ * no dealer is named and no figure is given for what anyone else charges (475.360).
+ */
+export const SIGN_LINE = {
+  en: 'By the time you sign at a dealer, the extras can run into the thousands.',
+  es: 'Para cuando firmas en un dealer, los extras pueden sumar miles de dolares.',
+} as const;
+
+/** "Here they are zero, not even the doc fee Illinois allows." The cap comes from the ledger. */
+export function notEven(lang: 'en' | 'es', fees: { docCapText: string; docCapYear: number | string }): string {
+  return lang === 'es'
+    ? `Aqui son cero, ni siquiera el cargo de documentacion que Illinois permite, hasta ${fees.docCapText} en ${fees.docCapYear}.`
+    : `Here they are zero, not even the doc fee Illinois allows, up to ${fees.docCapText} in ${fees.docCapYear}.`;
+}
+
 /** The short form for the trust strip, where width is the limit. */
 export const FEE_STRIP = {
   en: 'No doc fee, no prep, no add ons',
