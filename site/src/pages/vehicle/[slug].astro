@@ -322,6 +322,74 @@ if (v.vin && v.vin !== 'TBD') (vehicleSchema as any).vehicleIdentificationNumber
     </section>
   )}
 
+  <!-- ===== HEADER CARD: the car, the price and the facts before the pictures (Jerry, 2026-10-15,
+       after a peer dealer page): title and price on one line, mileage, drivetrain, engine, color,
+       stock, the CarGurus rating, the fee chip and shipping. The h1 lives here now; the left
+       column below the gallery no longer repeats the title. ===== -->
+  <section class="bg-white border-b border-gray-200">
+    <div class="max-w-7xl mx-auto px-4 md:px-6 lg:px-8 py-3 md:py-4">
+      <nav class="hidden md:flex items-center gap-1.5 text-sm text-gray-500 mb-2">
+        <a href={`${base}/`} class="hover:text-navy transition-colors">Home</a>
+        <Icon name="chevron_right" class="text-xs" />
+        <a href={`${base}/inventory`} class="hover:text-navy transition-colors">Inventory</a>
+        <Icon name="chevron_right" class="text-xs" />
+        <span class="text-gray-600 font-medium truncate">{titleText}</span>
+      </nav>
+      <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-3">
+        <div class="min-w-0">
+          <div class="flex flex-wrap items-baseline gap-x-3 gap-y-1">
+            <h1 class="font-headline text-xl md:text-3xl font-extrabold text-navy leading-tight">{titleText}</h1>
+            {!isSold && v.price > 0 && (
+              <span class="font-headline text-2xl md:text-3xl font-extrabold text-navy leading-tight tabular-nums" data-vehicle-price={v.price}>${v.price.toLocaleString()}</span>
+            )}
+            {isSold && <span class="inline-flex items-center bg-gray-800 text-white rounded-full px-3 py-1 text-xs font-extrabold tracking-wide">SOLD</span>}
+          </div>
+          <div class="flex flex-wrap items-center gap-x-1.5 gap-y-0.5 md:gap-2 text-[13px] md:text-sm text-gray-500 mt-1">
+            <span>{mileageStr}</span>
+            {v.drivetrain && <><span class="text-gray-300">·</span><span>{v.drivetrain}</span></>}
+            {v.engine && <><span class="text-gray-300">·</span><span>{v.engine}</span></>}
+            {v.exteriorColor && <><span class="text-gray-300">·</span><span>{v.exteriorColor}</span></>}
+            {stockNumber && <><span class="text-gray-300">·</span><span>Stock #{stockNumber}</span></>}
+          </div>
+          {!isSold && (
+            <div class="flex flex-wrap items-center gap-2 mt-2">
+              {dealLabel && (
+                <span class="inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-xs font-extrabold" style={`background:${dealBg};color:${dealText}`}>
+                  {dealLabel}{savingsStr ? ` · ${savingsStr}` : ''}<span class="font-semibold opacity-90">via CarGurus</span>
+                </span>
+              )}
+              <span class="inline-flex items-center gap-1.5 bg-green-50 text-green-800 border border-green-100 px-3 py-1 rounded-full text-xs font-semibold">
+                <Icon name="price_check" class="text-sm text-green-700" fill />
+                $0 doc fee · $0 dealer fees<span class="text-green-700/80 font-medium">plus tax, title and license</span>
+              </span>
+              <a href={`${base}/ship`} class="inline-flex items-center gap-1.5 bg-navy/5 text-navy border border-navy/15 px-3 py-1 rounded-full text-xs font-semibold hover:bg-navy/10 transition-colors">
+                <Icon name="local_shipping" class="text-sm text-navy" fill />
+                Ships nationwide
+              </a>
+            </div>
+          )}
+        </div>
+        {!isSold && (
+          <a href="#estimate" data-cta="vdp_header" data-cta-name="out_the_door"
+             class="hidden md:inline-flex items-center gap-2 bg-navy text-white px-5 py-3 rounded-xl font-bold text-sm hover:bg-navy/90 transition-colors shrink-0">
+            <Icon name="calculate" class="text-lg text-orange" fill />See your out the door cost
+          </a>
+        )}
+      </div>
+    </div>
+  </section>
+  <script is:inline>
+    // "#estimate" is the phone block (hidden at lg); the desktop sidebar block is
+    // "#estimate-desktop". Any link to #estimate scrolls to whichever one is visible.
+    document.addEventListener('click', function (e) {
+      var a = e.target && e.target.closest ? e.target.closest('a[href="#estimate"]') : null;
+      if (!a) return;
+      var m = document.getElementById('estimate'), d = document.getElementById('estimate-desktop');
+      var t = (m && m.offsetParent !== null) ? m : d;
+      if (t) { e.preventDefault(); t.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+    });
+  </script>
+
   <!-- ===== GALLERY ===== -->
   <section class="bg-gray-900">
     <div class="max-w-7xl mx-auto">
@@ -484,28 +552,8 @@ if (v.vin && v.vin !== 'TBD') (vehicleSchema as any).vehicleIdentificationNumber
         <!-- ===== LEFT COLUMN ===== -->
         <div class="flex-1 min-w-0">
 
-          <!-- Breadcrumb -->
-          <nav class="hidden md:flex items-center gap-1.5 text-sm text-gray-500 mb-4">
-            <a href={`${base}/`} class="hover:text-navy transition-colors">Home</a>
-            <Icon name="chevron_right" class="text-xs" />
-            <a href={`${base}/inventory`} class="hover:text-navy transition-colors">Inventory</a>
-            <Icon name="chevron_right" class="text-xs" />
-            <span class="text-gray-600 font-medium truncate">{titleText}</span>
-          </nav>
-
-          <!-- Title -->
-          <h1 class="font-headline text-xl md:text-3xl font-extrabold text-navy leading-tight mb-1 md:mb-2">{titleText}</h1>
-          <div class="flex flex-wrap items-center gap-x-1.5 gap-y-0.5 md:gap-2 text-[13px] md:text-sm text-gray-500 mb-3 md:mb-4">
-            <span>{mileageStr}</span>
-            <span class="text-gray-300">·</span>
-            <span>{v.drivetrain}</span>
-            <span class="text-gray-300">·</span>
-            <span>{v.engine}</span>
-            <span class="text-gray-300 hidden sm:inline">·</span>
-            <span class="hidden sm:inline">{v.exteriorColor}</span>
-            {stockNumber && <><span class="text-gray-300">·</span><span>Stock #{stockNumber}</span></>}
-          </div>
-
+          {/* The breadcrumb, the title and the spec line moved into the header card above the
+              gallery (2026-10-15). The column starts with the price block on phones. */}
           {!isSold && (
           <!-- Mobile price (shown below title on mobile, hidden on lg where sidebar shows) -->
           <div class="lg:hidden mb-4 pb-4 border-b border-gray-100">
