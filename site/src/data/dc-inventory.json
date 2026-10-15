@@ -1,6 +1,6 @@
 {
   "source": "pka_hub.db ma_vehicles + vPIC",
-  "generated_at": "2026-10-14",
+  "generated_at": "2026-10-15",
   "by_vin": {
     "1FM5K8F88EGC35039": {
       "year": 2014,
@@ -396,8 +396,8 @@
       "dateAdded": "2026-09-15",
       "featured": true,
       "sortOrder": 0,
-      "dealRating": "",
-      "priceSavings": 0,
+      "dealRating": "GOOD_PRICE",
+      "priceSavings": 937,
       "description": "2015 Nissan Murano Platinum AWD: all wheel drive, Zero Gravity heated and ventilated seats, panoramic moonroof, 360 degree Around View camera, 3.5L V6. Black on black leather, automatic, all wheel drive, EPA estimated 21 city and 28 highway MPG. A near luxury midsize SUV for the buyer who wants the comfort without the badge premium. Key features: 3.5L V6 rated at 260 horsepower, all wheel drive for Chicago winters, NASA inspired Zero Gravity front seats with heating and ventilation, heated rear seats, panoramic moonroof, 360 degree Around View monitor for tight parking, leather upholstery with soft touch padding and wood accents, power folding rear seats, Bose premium audio, NissanConnect touchscreen with navigation, EPA estimated 21 city and 28 highway MPG. Seats five with 39.6 cubic feet of cargo behind the rear seat. The Maxim Autos Difference Independent inspection report included with every vehicle Metal plates issued on the spot, drive home today Transparent pricing, no hidden fees Financing for all credit levels Located in Skokie, IL, minutes from Evanston, Niles, Morton Grove, Lincolnwood, and Des Plaines, serving the North Shore Chicago area. Call (847) 510-8947 to schedule a same day appointment. Every car inspected. Every price transparent. Every customer protected.",
       "highlights": [
         "Platinum trim",
@@ -480,8 +480,8 @@
       "dateAdded": "2026-10-03",
       "featured": true,
       "sortOrder": 0,
-      "dealRating": "",
-      "priceSavings": 0,
+      "dealRating": "GOOD_PRICE",
+      "priceSavings": 1139,
       "description": "2018 Kia Sorento EX V6: seats seven, leather, heated front seats, blind spot monitor, Apple CarPlay and Android Auto, power liftgate. White on black, six speed automatic, 3.3L V6 with 290 horsepower, EPA rated 25 MPG highway. A family SUV with the room and equipment of the bigger crossovers at a price that undercuts them. Key features: 3.3L GDI V6 rated at 290 horsepower with a six speed Sportmatic automatic, EPA rated 18 city / 25 highway MPG, seating for seven with a third row that folds flat into the floor, leather seats, heated front seats, power driver seat, smart key with keyless entry and start, power liftgate, blind spot monitor with rear cross traffic alert, rear parking sensors, rearview camera, UVO touchscreen with Apple CarPlay and Android Auto, Bluetooth, rear air conditioning, rear window sunshades, alloy wheels. Up to 73 cubic feet of cargo space with both rear rows folded, and the V6 is rated to tow up to 5,000 pounds. The Maxim Autos Difference Independent inspection report included with every vehicle Metal plates issued on the spot, drive home today Transparent pricing, no hidden fees Financing for all credit levels Skokie, IL, serving Evanston, Niles, Morton Grove, Lincolnwood, Des Plaines, and North Shore Chicago. Call (847) 510-8947 for a same day appointment. Every car inspected. Every price transparent. Every car documented.",
       "highlights": [
         "EX trim",
@@ -535,7 +535,6 @@
         "https://imagesdl.dealercenter.net/1289/856/202610-b9863322ae0c43fca7736a2b42de8120.jpg",
         "https://imagesdl.dealercenter.net/1289/856/202610-5f1cfbb4051a43e79dd1d951fe9b6e34.jpg",
         "https://imagesdl.dealercenter.net/1289/856/202610-5f31bb8bd2404ee5a0be9f783c1c83cb.jpg",
-        "https://imagesdl.dealercenter.net/1289/856/202610-053bf03354ec4946ae1a6da62312a65b.jpg",
         "https://imagesdl.dealercenter.net/1289/856/202610-e56f0c87715c4711ab28eb174c10b4a8.jpg",
         "https://imagesdl.dealercenter.net/1289/856/202610-40046d24e8684c1389ea1bc73c728920.jpg",
         "https://imagesdl.dealercenter.net/1289/856/202610-98ea1d938b394b4d9830dde06a09f106.jpg",
@@ -557,7 +556,7 @@
         "https://imagesdl.dealercenter.net/1289/856/202610-98a7e024ff0747ad80360d2376f96410.jpg"
       ],
       "photos": {
-        "exterior": 37,
+        "exterior": 36,
         "interior": 0,
         "source": "dealercenter"
       },
@@ -566,8 +565,8 @@
       "dateAdded": "2026-10-07",
       "featured": true,
       "sortOrder": 0,
-      "dealRating": "",
-      "priceSavings": 0,
+      "dealRating": "GOOD_PRICE",
+      "priceSavings": 1108,
       "description": "2017 Kia Sorento EX V6 AWD: 290 horsepower 3.3 liter V6, all wheel drive, seven seats, leather, heated front seats, remote start, Apple CarPlay and Android Auto. White on black, automatic, 3.3L V6. The three row SUV for a Chicago family that tows, hauls and drives through winter, with no dealer fees. Key features: 3.3 liter V6 with 290 horsepower and 252 lb-ft of torque, all wheel drive, up to 5,000 lb towing with the factory tow hitch, leather seating for seven with a fold away third row, heated front seats, remote start to have the car warm and ready for you on a cold Chicago morning, power driver seat, smart key with push button start, rear view camera, front and rear parking sensors, Apple CarPlay and Android Auto, Bluetooth, satellite radio ready, alloy wheels, rear sunshades. An IIHS Top Safety Pick Plus for 2017 with a quiet, upscale cabin. The Maxim Autos Difference Independent inspection report included with every vehicle Metal plates issued on the spot, drive home today No dealer fees, transparent all in pricing Financing for all credit levels Skokie, IL, minutes from Evanston, Niles, Morton Grove, Lincolnwood, Des Plaines and the North Shore. Call or text (847) 510-8947 for a same day appointment. Every car inspected. Every price transparent. Every car documented.",
       "highlights": [
         "EX trim",
@@ -631,7 +630,7 @@
       "featured": true,
       "sortOrder": 0,
       "dealRating": "GOOD_PRICE",
-      "priceSavings": 904,
+      "priceSavings": 1456,
       "description": "2014 Subaru Impreza 2.0i Sport Hatchback AWD: standard Symmetrical All Wheel Drive, up to 35 MPG on the highway, and a roomy hatchback cargo area. Venetian Red Pearl on Black, CVT automatic, 2.0L four cylinder. A compact Subaru made for Chicago winters that stays easy on gas every day of the year. Key features: EPA rated 27 city, 35 highway and 30 combined MPG, Symmetrical All Wheel Drive standard, smooth CVT automatic, 60/40 split rear seat that folds flat, cruise control, Bluetooth phone connection, steering wheel audio controls, a comfortable ride with steady handling, and a spacious cabin for its size. Fold the rear seats and the hatch takes bikes, strollers or a full week of groceries with room to spare. The Maxim Autos Difference Independent inspection report included with every vehicle Metal plates issued on the spot, drive home today Transparent pricing, no hidden fees Financing for all credit levels Located in Skokie, IL, serving Evanston, Niles, Morton Grove, Lincolnwood, Des Plaines and the North Shore of Chicago. Call or text (847) 510-8947 to set up your test drive today. Every car inspected. Every price transparent. Every car documented.",
       "highlights": [
         "2.0i Sport Premium trim",
@@ -850,8 +849,8 @@
       "dateAdded": "2026-10-07",
       "featured": true,
       "sortOrder": 0,
-      "dealRating": "GOOD_PRICE",
-      "priceSavings": 317,
+      "dealRating": "FAIR_PRICE",
+      "priceSavings": 380,
       "description": "2018 Audi Q3 2.0T quattro Premium: turbocharged 2.0 liter, quattro all wheel drive, leather, panoramic sunroof, heated front seats, power liftgate. Black on black, 6 speed Tiptronic automatic, 2.0L TFSI. The Audi badge at a compact price, with quattro for the North Shore winter and no dealer fees. Key features: 2.0 liter TFSI turbo with 200 horsepower and 207 lb-ft, quattro all wheel drive for rain and snow, 6 speed Tiptronic automatic, leather seating, panoramic sunroof, heated front seats, power front seats, power liftgate, smart key, rear view camera, front and rear parking sensors, Bluetooth, satellite radio ready, S line style alloy wheels and sport exterior package. A quiet, upscale cabin in a crossover that fits a city garage. 20 city and 28 highway. The Maxim Autos Difference Independent inspection report included with every vehicle Metal plates issued on the spot, drive home today No dealer fees, transparent all in pricing Financing for all credit levels Skokie, IL, minutes from Evanston, Niles, Morton Grove, Lincolnwood, Des Plaines and the North Shore. Call or text (847) 510-8947 for a same day appointment. Every car inspected. Every price transparent. Every car documented.",
       "highlights": [
         "2.0T Premium quattro trim",
