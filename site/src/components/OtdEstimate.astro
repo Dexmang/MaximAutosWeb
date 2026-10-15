@@ -75,8 +75,9 @@ const t = es
   ? {
       headline: 'Calcula tu costo total antes de llamar.',
       sub: 'Todo incluido para tu codigo postal: el precio mas el impuesto de Illinois, titulo y placas, nada mas.',
-      capLead: 'Cargo de documentacion del dealer: $0.',
-      capRest: `Illinois permite hasta ${F.docCapText} en ${F.docCapYear}. Cargos de dealer: $0.`,
+      // Jerry, 2026-10-15: one line, no Illinois text inside the tool.
+      capLead: 'Cargos de dealer y documentacion: $0',
+      capRest: '',
       heading: 'Tu total estimado al firmar',
       zipLabel: 'Codigo postal',
       zipHint: 'Escribe tu codigo postal para ver el impuesto de Illinois de tu direccion.',
@@ -121,8 +122,8 @@ const t = es
       // "All in" is Jerry's word for the policy (2026-10-15); the estimate is still labelled
       // an estimate, with its assumptions beside the number.
       sub: 'All in for your ZIP: the price plus Illinois tax, title and plates, nothing else.',
-      capLead: 'Dealer doc fee: $0.',
-      capRest: `Illinois allows up to ${F.docCapText} in ${F.docCapYear}. Dealer fees: $0.`,
+      capLead: 'Dealer & doc fee: $0',
+      capRest: '',
       heading: 'Your estimated total at signing',
       zipLabel: 'ZIP code',
       zipHint: 'Enter your ZIP to see the Illinois tax for your address.',
@@ -182,7 +183,7 @@ const defaultSms = t.smsDefault.replace('{title}', title).replace('{stockPart}',
       </div>
     </div>
     <p class="text-sm text-gray-700 leading-snug">
-      <span class="font-bold text-green-700">{t.capLead}</span>{' '}{t.capRest}
+      <span class="font-bold text-green-700">{t.capLead}</span>{t.capRest && <>{' '}{t.capRest}</>}
     </p>
     <a href={`#${targetId}`} data-cta="vdp_otd" data-cta-name="out_the_door"
        class="mt-3 w-full h-11 inline-flex items-center justify-center gap-1.5 bg-orange text-white font-bold text-sm rounded-xl hover:bg-orange-light transition-colors">
@@ -213,7 +214,7 @@ const defaultSms = t.smsDefault.replace('{title}', title).replace('{stockPart}',
     </div>
   </div>
   <p class="text-sm text-gray-700 leading-snug">
-    <span class="font-bold text-green-700">{t.capLead}</span>{' '}{t.capRest}
+    <span class="font-bold text-green-700">{t.capLead}</span>{t.capRest && <>{' '}{t.capRest}</>}
   </p>
 
   <p class="font-headline text-sm font-bold text-navy mt-3 uppercase tracking-wide">{t.heading}</p>
