@@ -159,7 +159,8 @@ const heroReviews = reviews.slice(0, 6);
             state figure read from the ledger, never typed here, and it is always paired with
             the $0 (lint rule unpaired-doc-cap). 14 px on phones: a disclosure, not decoration. */}
         <p class="text-sm md:text-base text-white/90 mb-1 leading-snug text-balance">
-          {facts.fees.capShort}{' '}<a href={`${base}/no-dealer-fees`} class="font-semibold underline underline-offset-2 decoration-white/50 hover:decoration-white" data-cta="hero" data-cta-name="how_pricing_works">How our pricing works</a>
+          {/* Jerry, 2026-10-15: the hero carries the link only; the cap line lives in the pillar and on the fee page. */}
+          <a href={`${base}/no-dealer-fees`} class="font-semibold underline underline-offset-2 decoration-white/50 hover:decoration-white" data-cta="hero" data-cta-name="how_pricing_works">How our pricing works</a>
         </p>
         {/* Segment sentence, md and up. Phones show the live band note alone, which D6
             permits; on desktop the pair stays adjacent (D1-14). */}
