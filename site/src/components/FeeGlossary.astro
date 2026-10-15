@@ -27,13 +27,13 @@ type Row = { name: string; what: string; here: string; zero: boolean };
 const rowsEn: Row[] = [
   {
     name: 'Doc fee',
-    what: 'A dealer charge for preparing the paperwork, also called a documentary service fee. Illinois caps it and taxes it, so the capped fee costs more than the cap.',
+    what: 'A dealer charge for paperwork, also called a documentary service fee, or a handling or processing fee. Illinois law says it is not an official fee and is not required by law. Illinois caps it, moves the cap each January with inflation, and taxes it, so the capped fee costs more than the cap.',
     here: `$0. Illinois allows up to ${F.docCapText} in ${F.docCapYear}, and the capped fee costs ${F.docCapTaxedCookText} with tax at the Cook County suburb rate`,
     zero: true,
   },
   {
     name: 'Electronic filing, ERT, title processing',
-    what: 'The cost of filing the title and plates electronically so the buyer leaves with metal plates. Some dealers bill it as a line of its own, on top of the doc fee.',
+    what: 'The cost of filing the title and plates electronically so the buyer leaves with metal plates. Illinois rules call it an optional service, cap it, and require it to be labeled optional. Some dealers bill it as a line of its own, on top of the doc fee.',
     here: 'Our cost, not yours',
     zero: true,
   },
@@ -75,7 +75,7 @@ const rowsEn: Row[] = [
   },
   {
     name: 'Products inside the payment',
-    what: 'Service contract, GAP, credit life, tire and wheel coverage. Optional products, sometimes folded into the monthly payment or described as something the lender requires.',
+    what: 'Service contract, GAP, credit life, tire and wheel coverage. Optional products, sometimes folded into the monthly payment or described as something the lender requires. The Illinois Attorney General’s advice: if you are told a bank requires one, ask for that in writing.',
     here: 'Optional means optional. Nothing goes on your contract unless you choose it',
     zero: false,
   },
@@ -102,13 +102,13 @@ const rowsEn: Row[] = [
 const rowsEs: Row[] = [
   {
     name: 'Cargo de documentacion',
-    what: 'Un cobro del dealer por preparar el papeleo, tambien llamado cargo por servicio documental. Illinois lo limita y le cobra impuesto, asi que el cargo maximo cuesta mas que el tope.',
+    what: 'Un cobro del dealer por el papeleo, tambien llamado cargo por servicio documental, de manejo o de procesamiento. La ley de Illinois dice que no es un cargo oficial y que la ley no lo exige. Illinois lo limita, ajusta el tope cada enero con la inflacion y le cobra impuesto, asi que el cargo maximo cuesta mas que el tope.',
     here: `$0. Illinois permite hasta ${F.docCapText} en ${F.docCapYear}, y el cargo maximo cuesta ${F.docCapTaxedCookText} con impuesto en un suburbio del condado de Cook`,
     zero: true,
   },
   {
     name: 'Tramite electronico, ERT, procesamiento de titulo',
-    what: 'El costo de registrar el titulo y las placas por via electronica para que el comprador salga con placas de metal. Algunos dealers lo cobran como una linea aparte, encima del cargo de documentacion.',
+    what: 'El costo de registrar el titulo y las placas por via electronica para que el comprador salga con placas de metal. Las reglas de Illinois lo llaman un servicio opcional, lo limitan y exigen que se marque como opcional. Algunos dealers lo cobran como una linea aparte, encima del cargo de documentacion.',
     here: 'Es nuestro costo, no el tuyo',
     zero: true,
   },
@@ -150,7 +150,7 @@ const rowsEs: Row[] = [
   },
   {
     name: 'Productos dentro del pago',
-    what: 'Contrato de servicio, GAP, seguro de vida de credito, cobertura de llantas y rines. Productos opcionales, a veces metidos en el pago mensual o presentados como un requisito del banco.',
+    what: 'Contrato de servicio, GAP, seguro de vida de credito, cobertura de llantas y rines. Productos opcionales, a veces metidos en el pago mensual o presentados como un requisito del banco. El consejo del Procurador General de Illinois: si te dicen que el banco exige uno, pide esa exigencia por escrito.',
     here: 'Opcional significa opcional. Nada entra en tu contrato si no lo eliges',
     zero: false,
   },
@@ -179,7 +179,7 @@ const t = es
   ? {
       kicker: 'Lo que puedes ver en otro escritorio',
       h2: 'Los cargos que un dealer puede agregar, y lo que son aqui',
-      lead: 'En Illinois, un precio anunciado tiene que incluir cada cobro excepto el impuesto, el titulo y las placas, y un cargo de documentacion solo si el anuncio lo dice. Esta es la lista de lineas que un comprador puede encontrar en un contrato, lo que cada una significa y lo que es en Maxim Autos.',
+      lead: 'En Illinois, un precio anunciado tiene que incluir cada cobro excepto el impuesto, el titulo y las placas, y un cargo de documentacion solo si el anuncio lo dice. La guia federal va mas lejos: cada cobro que el dealer exige va dentro del precio anunciado. Esta es la lista de lineas que un comprador puede encontrar en un contrato, lo que cada una significa y lo que es en Maxim Autos.',
       colFee: 'La linea',
       colWhat: 'Lo que es',
       colHere: 'En Maxim Autos',
@@ -192,7 +192,7 @@ const t = es
   : {
       kicker: 'What you may see at another desk',
       h2: 'The fees a dealer can add, and what each one is here',
-      lead: 'In Illinois, an advertised price has to include every charge except tax, title and plates, and a doc fee only if the ad says so. This is the list of lines a buyer may meet on a contract, what each one means, and what it is at Maxim Autos.',
+      lead: 'In Illinois, an advertised price has to include every charge except tax, title and plates, and a doc fee only if the ad says so. Federal guidance goes further: every charge the dealer requires belongs inside the advertised price. This is the list of lines a buyer may meet on a contract, what each one means, and what it is at Maxim Autos.',
       colFee: 'The line',
       colWhat: 'What it is',
       colHere: 'At Maxim Autos',
@@ -203,13 +203,15 @@ const t = es
       idor: 'Illinois Department of Revenue, vehicle tax',
     };
 
-// Government pages only. Never a listing site, never a dealer. Verified by the research
-// desk before publish (research/fee-glossary-verification-2026-10-15.md).
+// Government pages only. Never a listing site, never a dealer. URLs as verified by the research
+// desk on 2026-10-15 (research/fee-glossary-verification-2026-10-15.md, table h): the AG and FTC
+// pages fetched; the IDOR bulletin fetched (it carries the Aug 2026 transit rates); the ILSOS
+// fee page blocks automated reads and was opened in a browser instead.
 const sources = [
   { label: t.ag, href: 'https://illinoisattorneygeneral.gov/consumer-protection/auto-sales-and-repairs/' },
   { label: t.ftc, href: 'https://consumer.ftc.gov/articles/buying-used-car-dealer' },
-  { label: t.sos, href: 'https://www.ilsos.gov/departments/vehicles/title_and_registration/home.html' },
-  { label: t.idor, href: 'https://tax.illinois.gov/research/taxinformation/sales/vehicle.html' },
+  { label: t.sos, href: 'https://www.ilsos.gov/departments/vehicles/basicfees.html' },
+  { label: t.idor, href: 'https://tax.illinois.gov/research/publications/bulletins/fy-2026-34.html' },
 ];
 ---
 

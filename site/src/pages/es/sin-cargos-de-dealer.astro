@@ -12,6 +12,7 @@ import facts from '../../data/facts.json';
 import FeeGlossary from '../../components/FeeGlossary.astro';
 import FiveQuestions from '../../components/FiveQuestions.astro';
 import PriceVoices from '../../components/PriceVoices.astro';
+import { FEE_LIST, FEE_ITEMS } from '../../lib/fee-copy';
 
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 const T = facts.taxes;
@@ -97,7 +98,7 @@ const faqSchema = {
         {F.capShortEs}
       </p>
       <p class="text-base text-gray-300 max-w-2xl leading-relaxed mb-8">
-        El precio del auto mas impuestos, titulo y placas de Illinois es el trato completo.
+        {FEE_LIST.es} El precio del auto mas impuestos, titulo y placas de Illinois es el trato completo.
       </p>
       <div class="flex flex-col sm:flex-row gap-3">
         <a href={`${base}/es/inventario`} data-cta="hero" data-cta-name="browse_inventory"
@@ -130,8 +131,8 @@ const faqSchema = {
             <li class="flex gap-4 bg-white rounded-xl border border-green-100 p-4">
               <span class="w-9 h-9 rounded-lg bg-green-700 text-white font-headline font-extrabold flex items-center justify-center shrink-0">2</span>
               <div>
-                <h3 class="font-headline font-bold text-green-700">Cargo de documentacion del dealer: $0</h3>
-                <p class="text-sm text-gray-600 leading-relaxed">Illinois permite a los dealers agregar hasta {F.docCapText} en {F.docCapYear}, y ese cargo paga impuesto, asi que el cargo tope cuesta {F.docCapTaxedCookText} con la tasa de un suburbio del condado de Cook. Aqui esa linea es $0.</p>
+                <h3 class="font-headline font-bold text-green-700">Cargos de dealer: $0</h3>
+                <p class="text-sm text-gray-600 leading-relaxed">{FEE_ITEMS.es.join(', ')}: cada una de esas lineas es $0 aqui. Illinois permite a los dealers agregar hasta {F.docCapText} en cargos de documentacion en {F.docCapYear}, y ese cargo paga impuesto, asi que el cargo tope cuesta {F.docCapTaxedCookText} con la tasa de un suburbio del condado de Cook. El resto va dentro del precio anunciado por regla de Illinois, nunca encima.</p>
               </div>
             </li>
             <li class="flex gap-4 bg-white rounded-xl border border-gray-100 p-4">

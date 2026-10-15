@@ -17,6 +17,7 @@ import facts from '../data/facts.json';
 import FeeGlossary from '../components/FeeGlossary.astro';
 import FiveQuestions from '../components/FiveQuestions.astro';
 import PriceVoices from '../components/PriceVoices.astro';
+import { FEE_LIST, FEE_ITEMS } from '../lib/fee-copy';
 
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 const T = facts.taxes;
@@ -102,7 +103,7 @@ const faqSchema = {
         {F.capShort}
       </p>
       <p class="text-base text-gray-300 max-w-2xl leading-relaxed mb-8">
-        The price on the car plus Illinois tax, title and plates is the whole deal.
+        {FEE_LIST.en} The price on the car plus Illinois tax, title and plates is the whole deal.
       </p>
       <div class="flex flex-col sm:flex-row gap-3">
         <a href={`${base}/inventory`} data-cta="hero" data-cta-name="browse_inventory"
@@ -135,8 +136,8 @@ const faqSchema = {
             <li class="flex gap-4 bg-white rounded-xl border border-green-100 p-4">
               <span class="w-9 h-9 rounded-lg bg-green-700 text-white font-headline font-extrabold flex items-center justify-center shrink-0">2</span>
               <div>
-                <h3 class="font-headline font-bold text-green-700">Dealer doc fee: $0</h3>
-                <p class="text-sm text-gray-600 leading-relaxed">Illinois lets dealers add up to {F.docCapText} in {F.docCapYear}, and the fee is taxable, so the capped fee costs {F.docCapTaxedCookText} at the Cook County suburb rate. Here that line is $0.</p>
+                <h3 class="font-headline font-bold text-green-700">Dealer fees: $0</h3>
+                <p class="text-sm text-gray-600 leading-relaxed">{FEE_ITEMS.en.join(', ')}: every one of those lines is $0 here. Illinois lets dealers add up to {F.docCapText} in doc fees in {F.docCapYear}, and that fee is taxable, so the capped fee costs {F.docCapTaxedCookText} at the Cook County suburb rate. The rest belong inside the advertised price by Illinois rule, never on top of it.</p>
               </div>
             </li>
             <li class="flex gap-4 bg-white rounded-xl border border-gray-100 p-4">

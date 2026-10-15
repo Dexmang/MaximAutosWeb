@@ -8,6 +8,7 @@ import ReviewRotator from '../components/ReviewRotator.astro';
 import Icon from '../components/Icon.astro';
 import vehicles from '../data/vehicles.json';
 import reviews from '../data/reviews.json';
+import { FEE_LIST } from '../lib/fee-copy';
 import reviewsMeta from '../data/reviews_meta.json';
 import suburbs from '../data/suburbs.json';
 
@@ -283,7 +284,7 @@ const heroReviews = reviews.slice(0, 6);
           </div>
           <div class="min-w-0">
             <h3 class="font-headline text-base font-bold mb-1">No Dealer Fees Ever</h3>
-            <p class="text-gray-500 text-sm">{facts.fees.capShort} The price you see is the price you pay, plus tax, title, and license. <a href={`${base}/no-dealer-fees`} class="font-semibold text-navy underline underline-offset-2" data-cta="body" data-cta-name="how_pricing_works">See what you pay at signing</a></p>
+            <p class="text-gray-500 text-sm">{facts.fees.capShort} {FEE_LIST.en} The price you see is the price you pay, plus tax, title, and license. <a href={`${base}/no-dealer-fees`} class="font-semibold text-navy underline underline-offset-2" data-cta="body" data-cta-name="how_pricing_works">See what you pay at signing</a></p>
           </div>
         </div>
         <div class="flex items-start gap-4 p-4 md:p-6 rounded-xl border border-gray-100 hover:border-orange/20 hover:shadow-md transition-all">
