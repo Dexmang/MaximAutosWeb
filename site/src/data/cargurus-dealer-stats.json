@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-10-15T21:30:18.656Z",
+  "last_updated": "2026-10-15T22:00:20.440Z",
   "period": {
     "start": "2026-10-08",
     "end": "2026-10-15"
@@ -13,7 +13,7 @@
     "leads_phone": 2,
     "leads_chat": 0,
     "website_clicks": 8,
-    "map_clicks": 6
+    "map_clicks": 7
   },
   "daily": [
     {
@@ -175,7 +175,7 @@
     "instagram_clicks": 0,
     "printouts": 0,
     "website_clicks": 8,
-    "map_clicks": 6,
+    "map_clicks": 7,
     "you_tube_clicks": 0,
     "success": true
   }
