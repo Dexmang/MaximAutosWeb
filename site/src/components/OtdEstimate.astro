@@ -2,11 +2,6 @@
 /**
  * OtdEstimate  ::  the estimated total at signing, by ZIP.
  *
- * NOT IN USE. Jerry, 2026-10-14: reverse the final price calculation changes for now. Every
- * call site was removed that day (vehicle page, fee pages); the homepage and inventory
- * placements never merged (PR #3 closed). Kept with zip-regions.json and
- * scripts/build-zip-regions.mjs so the decision can be revisited without a rebuild.
- *
  * WHY
  * The site promises "the price you see is the price you pay, plus tax, title, and license."
  * Tax, title and license was the one blank left in that promise. This block fills it in on the
@@ -25,8 +20,10 @@
  *   - The doc fee line quotes the state cap, a public figure, with the Maxim $0 beside it
  *     (lint rule unpaired-doc-cap). Never "most dealers charge". Never a strikethrough
  *     (475.360(d)). No savings counter.
- *   - Split ZIPs resolve to the higher rate (zip-regions.json), so the estimate can only
- *     overstate, never understate. Out of state ZIPs get no number (ST-58 varies by state).
+ *   - Split ZIPs resolve to the higher rate (zip-regions.json), and a Cook ZIP that contains
+ *     Chicago addresses (zip-regions.chicagoSplit, from the Census place file) starts with the
+ *     Chicago switch on, so the estimate can only overstate, never understate. Out of state
+ *     ZIPs get no number (ST-58 varies by state).
  *   - The ERT filing is a real per deal charge (Jerry, 2026-10-13). It is its own labelled
  *     line inside the title and plates group, on every surface that states a total, so no
  *     buyer meets it for the first time at the desk. Its value lives in the ledger; at 0 the
@@ -48,8 +45,19 @@ interface Props {
   stockNumber?: string;
   lang?: string;
   class?: string;
+  /** Anchor id, so a hero button or the strip can deep link to the block. */
+  id?: string;
+  /**
+   * 'full' is the block. 'summary' is the headline band, the cap line and one button that
+   * jumps to a full block elsewhere on the page (targetId). The desktop vehicle page uses it
+   * in the sticky sidebar so the sidebar stays short enough for the financing button to sit
+   * above the fold at 1280x800, while the full block sits under the title and quick specs,
+   * the placement Dealer.com measured a 23% lead lift for.
+   */
+  variant?: 'full' | 'summary';
+  targetId?: string;
 }
-const { price, title, stockNumber = '', lang = 'en', class: className = '' } = Astro.props;
+const { price, title, stockNumber = '', lang = 'en', class: className = '', id = undefined, variant = 'full', targetId = 'estimate' } = Astro.props;
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 const es = lang === 'es';
 const T = facts.taxes;
@@ -65,6 +73,8 @@ const defaultTotal = Math.round((price + defaultTax + F.title + (F.ert || 0) + F
 
 const t = es
   ? {
+      headline: 'Calcula tu costo total antes de llamar.',
+      sub: 'Todo incluido para tu codigo postal: el precio mas el impuesto de Illinois, titulo y placas, nada mas.',
       capLead: 'Cargo de documentacion del dealer: $0.',
       capRest: `Illinois permite hasta ${F.docCapText} en ${F.docCapYear}. Cargos de dealer: $0.`,
       heading: 'Tu total estimado al firmar',
@@ -99,13 +109,18 @@ const t = es
       outHref: `${base}/es/compra-en-linea`,
       ctaText: 'Enviame este estimado por texto',
       ctaCall: 'Llamar (847) 510-8947',
+      ctaSummary: 'Ver mi costo total',
       smsDefault: 'Hola Jerry, me interesa el {title}{stockPart}. Sigue disponible? Lo vi en MaximAutos.com.',
-      smsIn: 'Hola Jerry, me interesa el {title}{stockPart}. Mi codigo postal es {zip}. Su sitio estimo {total} al firmar con {plates}. Sigue disponible?',
+      smsIn: 'Hola Jerry, me interesa el {title}{stockPart}, precio {price}. Mi codigo postal es {zip}. Su sitio estimo {total} al firmar con {plates}. Sigue disponible?',
       smsOut: 'Hola Jerry, me interesa el {title}{stockPart}. Mi codigo postal es {zip}, fuera de Illinois. Cual seria mi total y pueden enviarmelo?',
       platesNewWord: 'placas nuevas',
       platesTransferWord: 'transferencia de placas',
     }
   : {
+      headline: 'See your out the door cost before you call.',
+      // "All in" is Jerry's word for the policy (2026-10-15); the estimate is still labelled
+      // an estimate, with its assumptions beside the number.
+      sub: 'All in for your ZIP: the price plus Illinois tax, title and plates, nothing else.',
       capLead: 'Dealer doc fee: $0.',
       capRest: `Illinois allows up to ${F.docCapText} in ${F.docCapYear}. Dealer fees: $0.`,
       heading: 'Your estimated total at signing',
@@ -140,33 +155,75 @@ const t = es
       outHref: `${base}/ship`,
       ctaText: 'Text me this estimate',
       ctaCall: 'Call (847) 510-8947',
+      ctaSummary: 'See your out the door cost',
       smsDefault: 'Hi Jerry, I am looking at the {title}{stockPart}. Is it still available? I saw it on MaximAutos.com.',
-      smsIn: 'Hi Jerry, I am looking at the {title}{stockPart}. My ZIP is {zip}. Your site estimated {total} at signing with {plates}. Is it still available?',
+      smsIn: 'Hi Jerry, I am looking at the {title}{stockPart}, price {price}. My ZIP is {zip}. Your site estimated {total} at signing with {plates}. Is it still available?',
       smsOut: 'Hi Jerry, I am looking at the {title}{stockPart}. My ZIP is {zip}, outside Illinois. What would my total be, and can you ship it to me?',
       platesNewWord: 'new plates',
       platesTransferWord: 'a plate transfer',
     };
 
 const stockPart = stockNumber ? ` (stock ${stockNumber})` : '';
+// Picker mode (homepage, fee page): no vehicle page price sits above the block, so the block
+// prints the chosen car's price as its largest number and the total steps down to text-lg
+// (FTC Pricing Transparency FAQ 4: the actual price is the most prominent amount).
+const hasPicker = Astro.slots.has('picker');
+const usd0 = (n: number) => '$' + Math.round(n).toLocaleString('en-US');
 const defaultSms = t.smsDefault.replace('{title}', title).replace('{stockPart}', stockPart);
 ---
 
+{variant === 'summary' && (
+  <section id={id} class={`rounded-xl border-2 border-navy/15 bg-white p-4 shadow-sm ${className}`} aria-label={t.headline}>
+    <div class="-mx-4 -mt-4 mb-3 px-4 py-3 bg-navy text-white rounded-t-[10px] flex items-start gap-2.5">
+      <Icon name="calculate" class="text-2xl text-orange shrink-0 mt-0.5" fill />
+      <div>
+        <h3 class="font-headline text-base md:text-lg font-extrabold leading-tight">{t.headline}</h3>
+        <p class="text-sm text-white/80 leading-snug mt-0.5">{t.sub}</p>
+      </div>
+    </div>
+    <p class="text-sm text-gray-700 leading-snug">
+      <span class="font-bold text-green-700">{t.capLead}</span>{' '}{t.capRest}
+    </p>
+    <a href={`#${targetId}`} data-cta="vdp_otd" data-cta-name="out_the_door"
+       class="mt-3 w-full h-11 inline-flex items-center justify-center gap-1.5 bg-orange text-white font-bold text-sm rounded-xl hover:bg-orange-light transition-colors">
+      <Icon name="calculate" class="text-base" fill />{t.ctaSummary}
+    </a>
+  </section>
+)}
+{variant === 'full' && (
 <section
+  id={id}
   data-otd
   data-otd-price={price}
   data-otd-title={title}
   data-otd-stock={stockNumber}
   data-otd-strings={JSON.stringify(t)}
   data-cta="vdp_otd"
-  class={`rounded-xl border border-gray-200 bg-white p-4 ${className}`}
-  aria-label={t.heading}
+  class={`rounded-xl border-2 border-navy/15 bg-white p-4 shadow-sm ${className}`}
+  aria-label={t.headline}
 >
+  {/* Headline band (Jerry, 2026-10-13: make the calculator prominent). "Out the door cost" is the
+      phrase buyers search for; the figure itself stays labelled "Estimated total at signing" with its
+      assumptions beside it, so the net impression is an estimate, not a quote. */}
+  <div class="-mx-4 -mt-4 mb-3 px-4 py-3 bg-navy text-white rounded-t-[10px] flex items-start gap-2.5">
+    <Icon name="calculate" class="text-2xl text-orange shrink-0 mt-0.5" fill />
+    <div>
+      <h3 class="font-headline text-base md:text-lg font-extrabold leading-tight">{t.headline}</h3>
+      <p class="text-sm text-white/80 leading-snug mt-0.5">{t.sub}</p>
+    </div>
+  </div>
   <p class="text-sm text-gray-700 leading-snug">
     <span class="font-bold text-green-700">{t.capLead}</span>{' '}{t.capRest}
   </p>
 
-  <h3 class="font-headline text-base font-bold text-navy mt-3">{t.heading}</h3>
+  <p class="font-headline text-sm font-bold text-navy mt-3 uppercase tracking-wide">{t.heading}</p>
   <slot name="picker" />
+  {hasPicker && (
+    <p class="mt-2 flex items-baseline justify-between gap-3">
+      <span class="text-sm font-semibold text-gray-700">{t.rowPrice}</span>
+      <span data-otd-price-big class="font-headline text-3xl font-extrabold text-navy tabular-nums">{usd0(price)}</span>
+    </p>
+  )}
 
   <div class="mt-2 flex flex-wrap items-center gap-x-4 gap-y-2 text-sm">
     <label class="flex items-center gap-2">
@@ -189,7 +246,7 @@ const defaultSms = t.smsDefault.replace('{title}', title).replace('{stockPart}',
   <dl class="mt-2 text-sm tabular-nums divide-y divide-gray-100">
     <div class="flex justify-between gap-3 py-1.5"><dt class="text-gray-700">{t.rowPrice}</dt><dd data-otd-price-out class="font-semibold text-navy">{money(price)}</dd></div>
     <div class="flex justify-between gap-3 py-1.5"><dt class="text-gray-700">{t.rowFees}</dt><dd class="font-bold text-green-700">{money(0)}</dd></div>
-    <div class="flex justify-between gap-3 py-1.5">
+    <div class="flex justify-between gap-3 py-1.5" data-nosnippet>
       <dt class="text-gray-700">{t.rowTax}<span data-otd-rate class="block text-sm text-gray-500">{t.regions.default}</span></dt>
       <dd data-otd-tax class="font-semibold text-navy shrink-0">{money(defaultTax)}</dd>
     </div>
@@ -198,9 +255,9 @@ const defaultSms = t.smsDefault.replace('{title}', title).replace('{stockPart}',
       <div class="flex justify-between gap-3 py-1.5"><dt class="text-gray-700">{t.rowErt}</dt><dd class="font-semibold text-navy shrink-0">{money(F.ert)}</dd></div>
     )}
     <div class="flex justify-between gap-3 py-1.5"><dt data-otd-plates-lbl class="text-gray-700">{t.rowPlatesNew}</dt><dd data-otd-plates-out class="font-semibold text-navy">{money(F.plates)}</dd></div>
-    <div class="flex justify-between items-baseline gap-3 pt-2.5">
+    <div class="flex justify-between items-baseline gap-3 pt-2.5" data-nosnippet>
       <dt class="font-bold text-navy">{t.rowTotal}</dt>
-      <dd data-otd-total class="font-headline text-lg font-extrabold text-navy text-right">{money(defaultTotal)}</dd>
+      <dd data-otd-total class={`font-headline ${hasPicker ? 'text-lg' : 'text-2xl'} font-extrabold text-navy text-right`}>{money(defaultTotal)}</dd>
     </div>
   </dl>
 
@@ -220,6 +277,7 @@ const defaultSms = t.smsDefault.replace('{title}', title).replace('{stockPart}',
     </a>
   </div>
 </section>
+)}
 
 <script>
   import regions from '../data/zip-regions.json';
@@ -230,6 +288,7 @@ const defaultSms = t.smsDefault.replace('{title}', title).replace('{stockPart}',
   const cook = new Set(regions.cook);
   const collar = new Set(regions.collar);
   const il = new Set(regions.il);
+  const chicagoSplit = new Set(regions.chicagoSplit || []);
   const rules = regions.rules;
 
   function region(zip) {
@@ -259,7 +318,9 @@ const defaultSms = t.smsDefault.replace('{title}', title).replace('{stockPart}',
       where: q('[data-otd-where]'), price: q('[data-otd-price-out]'), tax: q('[data-otd-tax]'),
       rate: q('[data-otd-rate]'), platesLbl: q('[data-otd-plates-lbl]'), plates: q('[data-otd-plates-out]'),
       total: q('[data-otd-total]'), out: q('[data-otd-out]'), sms: q('[data-otd-sms]'),
+      priceBig: q('[data-otd-price-big]'),
     };
+    let lastZip = null;
     if (!zipEl || !el.total) return;
     const picker = q('[data-otd-picker]');
 
@@ -279,6 +340,9 @@ const defaultSms = t.smsDefault.replace('{title}', title).replace('{stockPart}',
       const z = zipEl.value.replace(/\D/g, '').slice(0, 5);
       if (zipEl.value !== z) zipEl.value = z;
       const r = region(z);
+      // A Cook ZIP with Chicago addresses starts with the city rate on; the buyer can turn it
+      // off. Reset when the ZIP changes so one ZIP's choice never leaks into the next.
+      if (z !== lastZip) { lastZip = z; chi.checked = chicagoSplit.has(z); }
       const mode = platesMode();
       const platesFee = mode === 'new' ? F.plates : F.transfer;
       const platesWord = mode === 'new' ? s.platesNewWord : s.platesTransferWord;
@@ -286,6 +350,7 @@ const defaultSms = t.smsDefault.replace('{title}', title).replace('{stockPart}',
       el.platesLbl.textContent = mode === 'new' ? s.rowPlatesNew : s.rowPlatesTransfer;
       el.plates.textContent = money(platesFee);
       el.price.textContent = money(price);
+      if (el.priceBig) el.priceBig.textContent = '$' + Math.round(price).toLocaleString('en-US');
       chiWrap.classList.toggle('hidden', r !== 'cook');
       el.out.classList.toggle('hidden', r !== 'out');
 
@@ -309,7 +374,7 @@ const defaultSms = t.smsDefault.replace('{title}', title).replace('{stockPart}',
       el.tax.textContent = money(tax);
       el.total.textContent = money(total);
       el.sms.href = 'sms:8475108947&body=' + encodeURIComponent(
-        r ? fill(s.smsIn, { title, stockPart, zip: z, total: money(total), plates: platesWord })
+        r ? fill(s.smsIn, { title, stockPart, price: '$' + Math.round(price).toLocaleString('en-US'), zip: z, total: money(total), plates: platesWord })
           : fill(s.smsDefault, { title, stockPart })
       );
       if (r) { try { localStorage.setItem('maxim_zip', z); } catch (e) { /* private mode */ } }

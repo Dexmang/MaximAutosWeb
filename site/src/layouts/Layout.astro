@@ -1,5 +1,4 @@
 ---
-import { FEE_STRIP } from '../lib/fee-copy';
 // facts.json is the generated live number ledger (price band, unit count, review count,
 // rating, service cities). Never hardcode any of those in a page: a stated band no live
 // car falls inside violates 14 Ill. Adm. Code 475.390, which is what was found live on
@@ -48,8 +47,8 @@ const trust = isSpanish
       pricing: 'Cero Cargos de Dealer',
       // Signed 2026-10-13: the exact twin of "No doc fee". "Sin cargos ocultos" claimed no
       // hidden fees, broader than no doc fee, and was rejected (R1-16).
-      // 2026-10-15: the whole list, not the doc fee alone (lib/fee-copy.ts).
-      pricingDetail: FEE_STRIP.es,
+      // 2026-10-15: the strip invites to the estimate; the named fee list sits beside every price.
+      pricingDetail: 'Calcula tu costo total',
       pricingHref: `${base}/es/sin-cargos-de-dealer`,
     }
   : {
@@ -60,7 +59,7 @@ const trust = isSpanish
       skipDmv: 'Skip the DMV',
       skipDmvDetail: 'Metal plates issued the same visit.',
       pricing: 'No Dealer Fees Ever',
-      pricingDetail: FEE_STRIP.en,
+      pricingDetail: 'See your out the door cost before you call',
       // The promise links to the page that proves it (Approach 1, 2026-10-13).
       pricingHref: `${base}/no-dealer-fees`,
     };

@@ -6,6 +6,7 @@ import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 import VehicleCard from '../../components/VehicleCard.astro';
 import TrustPair from '../../components/TrustPair.astro';
+import OtdEstimate from '../../components/OtdEstimate.astro';
 import Icon from '../../components/Icon.astro';
 import vehicles from '../../data/vehicles.json';
 import facts from '../../data/facts.json';
@@ -495,7 +496,11 @@ if (v.vin && v.vin !== 'TBD') (vehicleSchema as any).vehicleIdentificationNumber
               )}
             </div>
 
-            <TrustPair variant="vdp" class="mt-2" />
+            {/* Estimated total at signing by ZIP, right under the price (Jerry, 2026-10-15). No
+                payment inside, so Reg Z is not triggered here; the total is text-lg against the
+                text-3xl price. The fee callout with the named list sits beneath it. */}
+            <OtdEstimate id="estimate" price={v.price} title={titleText} stockNumber={stockNumber} class="mt-3 scroll-mt-28" />
+            <TrustPair variant="vdp" class="mt-3" />
 
             {showVinStats && vinStats && (
               <p class="mt-3.5 text-xs text-gray-500">
@@ -818,6 +823,10 @@ if (v.vin && v.vin !== 'TBD') (vehicleSchema as any).vehicleIdentificationNumber
                   <span class="cg-vin-badge inline-block" data-cg-vin={v.vin} data-cg-price={v.price}></span>
                 </div>
               )}
+              {/* Desktop: the same block right under the price in the sidebar (Jerry, 2026-10-15),
+                  then the fee callout. The sidebar grows past the fold; the financing button
+                  follows the estimate, not the other way round. */}
+              <OtdEstimate id="estimate-desktop" price={v.price} title={titleText} stockNumber={stockNumber} class="mb-3 scroll-mt-28" />
               <TrustPair variant="vdp" class="mb-4" />
               {showVinStats && vinStats && (
                 <p class="mb-4 text-xs text-gray-400 flex items-center gap-1">
