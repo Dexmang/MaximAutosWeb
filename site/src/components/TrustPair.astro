@@ -6,6 +6,13 @@
  */
 import facts from '../data/facts.json';
 import Icon from './Icon.astro';
+import { existsSync } from 'node:fs';
+import { fileURLToPath } from 'node:url';
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+// The sample buyer's order link renders only once the PDF exists in web_assets/docs/, so a
+// missing file can never ship as a dead link (fee education pack, 2026-10-15).
+const hasSampleOrder = existsSync(fileURLToPath(new URL('../../../web_assets/docs/sample-buyers-order.pdf', import.meta.url)));
 
 interface Props {
   variant: 'chip' | 'strip' | 'fee' | 'vdp' | 'vdp-row';
@@ -75,6 +82,20 @@ const feeTail = 'The price you see is the price you pay, plus tax, title, and li
       <Icon name="price_check" class="text-base text-green-700 shrink-0 mt-0.5" fill />
       <p class="text-sm text-gray-700 leading-snug"><span class="font-bold text-green-700">{feeLead}</span>{' '}{feeTail}</p>
     </div>
+    {/* The dollar proof beside the price (second look, 2026-10-15). The cap comes from the
+        ledger and is always paired with the $0 (lint rule unpaired-doc-cap). It lived inside
+        the estimate block until the 2026-10-14 reversal took the block, and the vehicle page,
+        the one page the CarGurus click lands on, lost it. 12 px: a disclosure, not decoration. */}
+    <p class="text-xs text-gray-500 leading-snug mt-1.5">
+      {es ? facts.fees.capShortEs : facts.fees.capShort}{' '}
+      <a href={`${base}/${es ? 'es/sin-cargos-de-dealer' : 'no-dealer-fees'}`} data-cta="vdp_body" data-cta-name="how_pricing_works" class="font-semibold text-navy underline underline-offset-2">{es ? 'Como funciona nuestro precio' : 'How our pricing works'}</a>
+      {hasSampleOrder && (
+        <>
+          {' · '}
+          <a href={`${base}/docs/sample-buyers-order.pdf`} target="_blank" rel="noopener" data-cta="vdp_body" data-cta-name="sample_buyers_order" class="font-semibold text-navy underline underline-offset-2">{es ? 'Ver un contrato de muestra (PDF)' : 'See a sample buyer’s order (PDF)'}</a>
+        </>
+      )}
+    </p>
     <Astro.self variant="vdp-row" lang={lang} />
   </div>
 )}

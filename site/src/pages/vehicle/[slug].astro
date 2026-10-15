@@ -529,9 +529,10 @@ if (v.vin && v.vin !== 'TBD') (vehicleSchema as any).vehicleIdentificationNumber
                     min="0" max={Math.round(v.price * 0.5)} step="250"
                     value={Math.round(v.price * 0.10)}
                     class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-orange" />
-                  <div class="flex justify-between text-xs text-gray-400 mt-1">
-                    <span>$0</span><span>${Math.round(v.price * 0.5).toLocaleString()}</span>
-                  </div>
+                  {/* No dollar end labels under this slider. The half price label was the only
+                      place on the internet that ever showed $8,425 for a $16,850 car, and two
+                      callers quoted it as the price (note 319, 2026-09-12). The chosen value
+                      shows beside the label above. */}
                 </div>
                 <div class="mb-4">
                   <div class="flex justify-between items-center mb-2">
