@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-10-17T00:30:16.541Z",
+  "last_updated": "2026-10-17T01:00:13.780Z",
   "period_start": "2026-10-10",
   "period_end": "2026-10-17",
   "by_vin": {
@@ -33,11 +33,11 @@
     "1FM5K8F88EGC35039": {
       "srp_views": 259,
       "vdp_views": 32,
-      "leads_email": 0,
+      "leads_email": 1,
       "leads_phone": 0,
       "leads_chat": 0,
       "website_clicks": 2,
-      "map_clicks": 0
+      "map_clicks": 2
     },
     "3C4PDCBB7GT164698": {
       "srp_views": 439,
@@ -45,17 +45,17 @@
       "leads_email": 1,
       "leads_phone": 0,
       "leads_chat": 0,
-      "website_clicks": 0,
+      "website_clicks": 1,
       "map_clicks": 0
     },
     "5XYPHDA51HG304856": {
       "srp_views": 374,
       "vdp_views": 30,
-      "leads_email": 0,
+      "leads_email": 3,
       "leads_phone": 0,
       "leads_chat": 0,
       "website_clicks": 1,
-      "map_clicks": 0
+      "map_clicks": 2
     },
     "JM1CW2BL1F0183769": {
       "srp_views": 273,
@@ -69,11 +69,11 @@
     "JF1GPAL69E8230098": {
       "srp_views": 500,
       "vdp_views": 52,
-      "leads_email": 0,
+      "leads_email": 1,
       "leads_phone": 0,
       "leads_chat": 0,
       "website_clicks": 1,
-      "map_clicks": 0
+      "map_clicks": 2
     },
     "WA1ECCFS8JR006434": {
       "srp_views": 396,
@@ -81,7 +81,7 @@
       "leads_email": 2,
       "leads_phone": 0,
       "leads_chat": 0,
-      "website_clicks": 0,
+      "website_clicks": 1,
       "map_clicks": 0
     },
     "KM8J33A47HU369551": {
@@ -93,19 +93,19 @@
       "website_clicks": 0,
       "map_clicks": 0
     },
-    "2C4RC1BG0LR133382": {
-      "srp_views": 181,
-      "vdp_views": 15,
-      "leads_email": 2,
+    "1C3CDFBB6ED669896": {
+      "srp_views": 293,
+      "vdp_views": 16,
+      "leads_email": 1,
       "leads_phone": 0,
       "leads_chat": 0,
       "website_clicks": 0,
       "map_clicks": 0
     },
-    "1C3CDFBB6ED669896": {
-      "srp_views": 293,
-      "vdp_views": 16,
-      "leads_email": 1,
+    "2C4RC1BG0LR133382": {
+      "srp_views": 181,
+      "vdp_views": 15,
+      "leads_email": 2,
       "leads_phone": 0,
       "leads_chat": 0,
       "website_clicks": 0,
