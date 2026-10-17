@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-10-17T06:00:14.482Z",
+  "last_updated": "2026-10-17T06:30:15.557Z",
   "period_start": "2026-10-10",
   "period_end": "2026-10-17",
   "by_vin": {
@@ -31,34 +31,34 @@
       "map_clicks": 0
     },
     "1FM5K8F88EGC35039": {
-      "srp_views": 267,
+      "srp_views": 272,
       "vdp_views": 35,
-      "leads_email": 1,
+      "leads_email": 0,
       "leads_phone": 0,
       "leads_chat": 0,
       "website_clicks": 2,
-      "map_clicks": 2
+      "map_clicks": 0
     },
     "3C4PDCBB7GT164698": {
-      "srp_views": 462,
+      "srp_views": 466,
       "vdp_views": 23,
       "leads_email": 1,
+      "leads_phone": 0,
+      "leads_chat": 0,
+      "website_clicks": 0,
+      "map_clicks": 0
+    },
+    "5XYPHDA51HG304856": {
+      "srp_views": 400,
+      "vdp_views": 33,
+      "leads_email": 0,
       "leads_phone": 0,
       "leads_chat": 0,
       "website_clicks": 1,
       "map_clicks": 0
     },
-    "5XYPHDA51HG304856": {
-      "srp_views": 388,
-      "vdp_views": 31,
-      "leads_email": 3,
-      "leads_phone": 0,
-      "leads_chat": 0,
-      "website_clicks": 1,
-      "map_clicks": 2
-    },
     "JM1CW2BL1F0183769": {
-      "srp_views": 283,
+      "srp_views": 285,
       "vdp_views": 22,
       "leads_email": 0,
       "leads_phone": 0,
@@ -67,36 +67,27 @@
       "map_clicks": 0
     },
     "JF1GPAL69E8230098": {
-      "srp_views": 531,
+      "srp_views": 538,
       "vdp_views": 53,
-      "leads_email": 1,
-      "leads_phone": 0,
-      "leads_chat": 0,
-      "website_clicks": 1,
-      "map_clicks": 2
-    },
-    "WA1ECCFS8JR006434": {
-      "srp_views": 414,
-      "vdp_views": 26,
-      "leads_email": 2,
+      "leads_email": 0,
       "leads_phone": 0,
       "leads_chat": 0,
       "website_clicks": 1,
       "map_clicks": 0
     },
-    "KM8J33A47HU369551": {
-      "srp_views": 104,
-      "vdp_views": 13,
-      "leads_email": 0,
+    "WA1ECCFS8JR006434": {
+      "srp_views": 418,
+      "vdp_views": 27,
+      "leads_email": 2,
       "leads_phone": 0,
       "leads_chat": 0,
       "website_clicks": 0,
       "map_clicks": 0
     },
-    "1C3CDFBB6ED669896": {
-      "srp_views": 293,
-      "vdp_views": 16,
-      "leads_email": 1,
+    "KM8J33A47HU369551": {
+      "srp_views": 105,
+      "vdp_views": 13,
+      "leads_email": 0,
       "leads_phone": 0,
       "leads_chat": 0,
       "website_clicks": 0,
@@ -111,9 +102,18 @@
       "website_clicks": 0,
       "map_clicks": 0
     },
+    "1C3CDFBB6ED669896": {
+      "srp_views": 293,
+      "vdp_views": 16,
+      "leads_email": 1,
+      "leads_phone": 0,
+      "leads_chat": 0,
+      "website_clicks": 0,
+      "map_clicks": 0
+    },
     "2FMPK3J96GBC56381": {
-      "srp_views": 357,
-      "vdp_views": 31,
+      "srp_views": 362,
+      "vdp_views": 32,
       "leads_email": 4,
       "leads_phone": 0,
       "leads_chat": 0,
@@ -121,7 +121,7 @@
       "map_clicks": 0
     },
     "5XYPH4A52JG399000": {
-      "srp_views": 185,
+      "srp_views": 188,
       "vdp_views": 12,
       "leads_email": 0,
       "leads_phone": 0,
