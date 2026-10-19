@@ -1,6 +1,6 @@
 {
   "source": "pka_hub.db ma_vehicles + vPIC",
-  "generated_at": "2026-10-18",
+  "generated_at": "2026-10-19",
   "by_vin": {
     "2FMPK3J96GBC56381": {
       "year": 2016,
@@ -402,8 +402,8 @@
       "dateAdded": "2026-10-18",
       "featured": true,
       "sortOrder": 0,
-      "dealRating": "",
-      "priceSavings": 0,
+      "dealRating": "FAIR_PRICE",
+      "priceSavings": 208,
       "description": "2014 Subaru Impreza 2.0i Premium hatchback: Symmetrical all wheel drive, 36 mpg highway, heated seats, 52 cubic feet of cargo with the seats down. Venetian red on black cloth, Lineartronic CVT automatic, 2.0L boxer four. The all weather hatchback that costs a sedan to run, with no dealer fees. Key features: 2.0 liter boxer four with Subaru Symmetrical all wheel drive standard, Lineartronic CVT, 27 city and 36 highway, 22.4 cubic feet of cargo behind the rear seat and 52.4 with the 60/40 seats folded, heated front seats, Bluetooth hands free and audio streaming, cruise control, alloy wheels, rear spoiler, rear defroster. A longer wheelbase than most compacts gives the back seat real legroom. The Maxim Autos Difference Independent inspection report included with every vehicle Metal plates issued on the spot, drive home today No dealer fees, transparent all in pricing Financing for all credit levels Skokie, IL, minutes from Evanston, Niles, Morton Grove, Lincolnwood, Des Plaines and the North Shore. Call or text (847) 510-8947 for a same day appointment. Every car inspected. Every price transparent. Every car documented.",
       "highlights": [
         "2.0i Premium trim",
