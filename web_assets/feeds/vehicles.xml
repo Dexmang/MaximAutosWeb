@@ -4,7 +4,7 @@
   <title>Maxim Autos Vehicle Inventory</title>
   <link>https://www.maximautos.com/</link>
   <description>Used vehicles for sale at Maxim Autos in Skokie, IL 60077. Phone +18475108947.</description>
-  <lastBuildDate>2026-10-20T07:00:18.471Z</lastBuildDate>
+  <lastBuildDate>2026-10-20T07:30:17.658Z</lastBuildDate>
   <item>
     <g:id>2FMPK3J96GBC56381</g:id>
     <g:title>2016 Ford Edge SEL</g:title>
@@ -848,7 +848,299 @@
     <g:related_product>
       <g:relationship_type>substitute</g:relationship_type>
       <g:identifier_type>id</g:identifier_type>
-      <g:identifier>5XYPH4A52JG399000</g:identifier>
+      <g:identifier>KM8J3CA27HU276947</g:identifier>
+    </g:related_product>
+  </item>
+  <item>
+    <g:id>KM8J3CA27HU276947</g:id>
+    <g:title>2017 Hyundai Tucson Limited</g:title>
+    <g:description>2017 Hyundai Tucson Limited AWD with the Ultimate Package: 175 horsepower 1.6 liter turbo, leather, heated and ventilated front seats, panoramic sunroof, 8 inch navigation touchscreen with Apple CarPlay and Android Auto, blind spot monitor. White on beige, 7 speed dual clutch automatic, all wheel drive. The top trim compact SUV with the winter gear already on it, with no dealer fees. Key features: 1.6L turbocharged GDI four cylinder with 175 hp and 195 lb ft, 7 speed dual clutch automatic, all wheel drive with lock mode, leather seating with heated and ventilated front seats, heated rear seats and a power driver seat, panoramic sunroof, 8 inch touchscreen navigation with Apple CarPlay and Android Auto, Infinity premium audio, blind spot monitor with rear cross traffic alert, lane departure warning, rear camera with parking sensors, hands free smart liftgate, smart key with push button start, LED taillights, 19 inch alloy wheels, 31 cubic feet of cargo space behind the rear seat. The Maxim Autos Difference Independent inspection report included with every vehicle Metal plates issued on the spot, drive home today, skip the DMV No dealer fees at Maxim Autos, ever. The price you see is the price you pay, plus tax, title, and license. Financing for all credit levels Serving Skokie, Evanston, Niles, Morton Grove, Lincolnwood, Des Plaines and the North Shore of Chicago. Call or text (847) 510-8947 for a same day appointment. Every car inspected. Every price transparent. Every car documented.</g:description>
+    <g:link>https://www.maximautos.com/vehicle/2017-hyundai-tucson-limited-j10273</g:link>
+    <g:link_template>https://www.maximautos.com/vehicle/2017-hyundai-tucson-limited-j10273?store={store_code}</g:link_template>
+    <g:image_link>https://imagesdl.dealercenter.net/1289/856/202610-f01125d3f0d8487fbe1a786d35e37dd8.jpg</g:image_link>
+    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202610-5dd1bc37586e4fe99a73628c866dfadb.jpg</g:additional_image_link>
+    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202610-9b089cfe0a614edfb98458d49b20c978.jpg</g:additional_image_link>
+    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202610-686afb8ffb2640fd9d47abc38790a884.jpg</g:additional_image_link>
+    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202610-33a36a389c394cd5864b1253b822aafd.jpg</g:additional_image_link>
+    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202610-67e533ca8b7b4851a57e53c127971217.jpg</g:additional_image_link>
+    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202610-c459c87e507a46749630f9a7635835eb.jpg</g:additional_image_link>
+    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202610-195109f001e044b4a1f2311705029593.jpg</g:additional_image_link>
+    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202610-5ec79418b1084eed8bd88724ac8d11f0.jpg</g:additional_image_link>
+    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202610-0d2be4b2f6784318aaf670d686ec23c3.jpg</g:additional_image_link>
+    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202610-88ef757b6eb141398f27851f75c64a98.jpg</g:additional_image_link>
+    <g:condition>used</g:condition>
+    <g:price>13995 USD</g:price>
+    <g:availability>in_stock</g:availability>
+    <g:brand>Hyundai</g:brand>
+    <g:google_product_category>Vehicles &amp; Parts &gt; Vehicles &gt; Motor Vehicles &gt; Cars, Trucks &amp; Vans</g:google_product_category>
+    <g:excluded_destination>Shopping_ads</g:excluded_destination>
+    <g:excluded_destination>Free_listings</g:excluded_destination>
+    <g:vin>KM8J3CA27HU276947</g:vin>
+    <g:year>2017</g:year>
+    <g:model>Tucson</g:model>
+    <g:mileage>78435 Miles</g:mileage>
+    <g:store_code>08861907241419503398</g:store_code>
+    <g:vehicle_fulfillment>
+      <g:option>in_store</g:option>
+    </g:vehicle_fulfillment>
+    <g:color>White</g:color>
+    <g:trim>Limited</g:trim>
+    <g:body_style>suv</g:body_style>
+    <g:custom_label_0>age_0_30</g:custom_label_0>
+    <g:custom_label_1>suv</g:custom_label_1>
+    <g:custom_label_2>price_12k_plus</g:custom_label_2>
+    <g:custom_label_3>cg_fair_deal</g:custom_label_3>
+    <g:custom_label_4>awd_4wd</g:custom_label_4>
+    <g:question_and_answer>
+      <g:question>Is this used Hyundai Tucson inspected before sale?</g:question>
+      <g:answer>Every car is inspected before it goes on the lot, and a free CARFAX comes with it. Ask Jerry what was checked on any car before you decide.</g:answer>
+    </g:question_and_answer>
+    <g:question_and_answer>
+      <g:question>Does this Hyundai Tucson come with a CARFAX report?</g:question>
+      <g:answer>Yes. A CARFAX vehicle history report is included with every used vehicle at Maxim Autos at no extra cost.</g:answer>
+    </g:question_and_answer>
+    <g:question_and_answer>
+      <g:question>Can I get financing on this Hyundai Tucson?</g:question>
+      <g:answer>Yes. Maxim Autos offers financing for all credit levels, including first time buyers and those rebuilding credit. Start with the short financing form or a call to Jerry: neither touches your credit. A full application does include a credit check, and approval is never guaranteed.</g:answer>
+    </g:question_and_answer>
+    <g:question_and_answer>
+      <g:question>Are there dealer fees or doc fees on this Hyundai Tucson?</g:question>
+      <g:answer>No. Maxim Autos never charges dealer fees. No doc fee, no processing fee, no surprise extras at signing. The listed price is what you pay plus standard Illinois tax, title and license.</g:answer>
+    </g:question_and_answer>
+    <g:question_and_answer>
+      <g:question>Can I drive this Hyundai Tucson home the same day?</g:question>
+      <g:answer>Yes. Maxim Autos is an authorized Illinois CVR (Computer Vehicle Registration) electronic registration dealer. Metal plates are issued the same visit for cars registered in Illinois. Buyers registering in another state receive an Illinois drive away permit and plate the car at home.</g:answer>
+    </g:question_and_answer>
+    <g:question_and_answer>
+      <g:question>Is this Hyundai Tucson all wheel drive?</g:question>
+      <g:answer>Yes. This 2017 Hyundai Tucson Limited is all wheel drive (AWD).</g:answer>
+    </g:question_and_answer>
+    <g:question_and_answer>
+      <g:question>What transmission does this Hyundai Tucson have?</g:question>
+      <g:answer>This 2017 Hyundai Tucson Limited has an automatic transmission.</g:answer>
+    </g:question_and_answer>
+    <g:question_and_answer>
+      <g:question>What engine is in this Hyundai Tucson?</g:question>
+      <g:answer>This 2017 Hyundai Tucson Limited has a 175 hp 1.6L I4 engine.</g:answer>
+    </g:question_and_answer>
+    <g:question_and_answer>
+      <g:question>Where can I see this Hyundai Tucson in person?</g:question>
+      <g:answer>At Maxim Autos, 9101 Terminal Ave, Skokie, IL 60077, serving Evanston, Niles, Morton Grove, Lincolnwood, Des Plaines, Glenview, Wilmette and Park Ridge. Hours: Monday, Tuesday, Thursday and Friday 3 PM to 7 PM, Saturday 10 AM to 3 PM, Wednesday by appointment, Sunday closed. Call or text (847) 510-8947.</g:answer>
+    </g:question_and_answer>
+    <g:question_and_answer>
+      <g:question>Can I trade in my current car toward this Hyundai Tucson?</g:question>
+      <g:answer>Yes. Maxim Autos accepts trade ins and also buys cars outright. Text the VIN of your car to (847) 510-8947 for a quick offer, no obligation.</g:answer>
+    </g:question_and_answer>
+    <g:related_product>
+      <g:relationship_type>substitute</g:relationship_type>
+      <g:identifier_type>id</g:identifier_type>
+      <g:identifier>KM8SRDHF6FU104181</g:identifier>
+    </g:related_product>
+    <g:related_product>
+      <g:relationship_type>substitute</g:relationship_type>
+      <g:identifier_type>id</g:identifier_type>
+      <g:identifier>KNDEPCAA2M7044217</g:identifier>
+    </g:related_product>
+    <g:related_product>
+      <g:relationship_type>substitute</g:relationship_type>
+      <g:identifier_type>id</g:identifier_type>
+      <g:identifier>KM8J33A47HU369551</g:identifier>
+    </g:related_product>
+  </item>
+  <item>
+    <g:id>KM8SRDHF6FU104181</g:id>
+    <g:title>2015 Hyundai Santa Fe Limited</g:title>
+    <g:description>2015 Hyundai Santa Fe Limited AWD with the Ultimate Package: 290 horsepower 3.3 liter V6, three rows of seating, leather, heated and ventilated front seats, heated steering wheel, panoramic sunroof, navigation, second row captain&apos;s chairs, 19 inch alloys. Gray on gray, 6 speed automatic, all wheel drive. A fully equipped family SUV for a North Shore winter, with no dealer fees. Key features: 3.3L GDI V6 with 290 hp and a 6 speed automatic, active cornering all wheel drive, leather seating with heated and ventilated front seats, heated rear seats and a memory driver seat, heated steering wheel, panoramic sunroof, navigation touchscreen with Bluetooth and Infinity premium audio, blind spot monitor, rear camera with front and rear parking sensors, second row captain&apos;s chairs with a third row for six, rear sunshades, rear air conditioning, power liftgate, smart key with push button start, factory tow hitch with a 5,000 lb towing capacity, 19 inch alloy wheels, 80 cubic feet of cargo space with the rear rows folded. Four new tires on it. The Maxim Autos Difference Independent inspection report included with every vehicle Metal plates issued on the spot, drive home today, skip the DMV No dealer fees at Maxim Autos, ever. The price you see is the price you pay, plus tax, title, and license. Financing for all credit levels Serving Skokie, Evanston, Niles, Morton Grove, Lincolnwood, Des Plaines and the North Shore of Chicago. Call or text (847) 510-8947 for a same day appointment. Every car inspected. Every price transparent. Every car documented.</g:description>
+    <g:link>https://www.maximautos.com/vehicle/2015-hyundai-santa-fe-limited-j10272</g:link>
+    <g:link_template>https://www.maximautos.com/vehicle/2015-hyundai-santa-fe-limited-j10272?store={store_code}</g:link_template>
+    <g:image_link>https://imagesdl.dealercenter.net/1289/856/202610-e3b16e43f5fd4232b876a6a26969679b.jpg</g:image_link>
+    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202610-8720a6f101414c04b5e445db0c0f88de.jpg</g:additional_image_link>
+    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202610-c0c0e8e50d3a410b9ea8118909e6c579.jpg</g:additional_image_link>
+    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202610-0c0e299b9e0b4c3b84f5ba191b3c9519.jpg</g:additional_image_link>
+    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202610-75ba337def8a4aa48bec949dd96260bd.jpg</g:additional_image_link>
+    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202610-a88cd3833c614bdf9eb255f89236882f.jpg</g:additional_image_link>
+    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202610-110b6748e904496b8c14e3650bc09ecf.jpg</g:additional_image_link>
+    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202610-e4fb0a4ad1924c29b422512f62242ea6.jpg</g:additional_image_link>
+    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202610-dfe7f26b0c1a401eb6a12571b987548e.jpg</g:additional_image_link>
+    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202610-d763be7aceb74d5096e8ae076e85aca8.jpg</g:additional_image_link>
+    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202610-8aa256bf073b4a1d85485e8136074d5b.jpg</g:additional_image_link>
+    <g:condition>used</g:condition>
+    <g:price>13995 USD</g:price>
+    <g:availability>in_stock</g:availability>
+    <g:brand>Hyundai</g:brand>
+    <g:google_product_category>Vehicles &amp; Parts &gt; Vehicles &gt; Motor Vehicles &gt; Cars, Trucks &amp; Vans</g:google_product_category>
+    <g:excluded_destination>Shopping_ads</g:excluded_destination>
+    <g:excluded_destination>Free_listings</g:excluded_destination>
+    <g:vin>KM8SRDHF6FU104181</g:vin>
+    <g:year>2015</g:year>
+    <g:model>Santa Fe</g:model>
+    <g:mileage>86271 Miles</g:mileage>
+    <g:store_code>08861907241419503398</g:store_code>
+    <g:vehicle_fulfillment>
+      <g:option>in_store</g:option>
+    </g:vehicle_fulfillment>
+    <g:color>Gray</g:color>
+    <g:trim>Limited</g:trim>
+    <g:body_style>suv</g:body_style>
+    <g:custom_label_0>age_0_30</g:custom_label_0>
+    <g:custom_label_1>suv</g:custom_label_1>
+    <g:custom_label_2>price_12k_plus</g:custom_label_2>
+    <g:custom_label_3>cg_fair_deal</g:custom_label_3>
+    <g:custom_label_4>awd_4wd</g:custom_label_4>
+    <g:question_and_answer>
+      <g:question>Is this used Hyundai Santa Fe inspected before sale?</g:question>
+      <g:answer>Every car is inspected before it goes on the lot, and a free CARFAX comes with it. Ask Jerry what was checked on any car before you decide.</g:answer>
+    </g:question_and_answer>
+    <g:question_and_answer>
+      <g:question>Does this Hyundai Santa Fe come with a CARFAX report?</g:question>
+      <g:answer>Yes. A CARFAX vehicle history report is included with every used vehicle at Maxim Autos at no extra cost.</g:answer>
+    </g:question_and_answer>
+    <g:question_and_answer>
+      <g:question>Can I get financing on this Hyundai Santa Fe?</g:question>
+      <g:answer>Yes. Maxim Autos offers financing for all credit levels, including first time buyers and those rebuilding credit. Start with the short financing form or a call to Jerry: neither touches your credit. A full application does include a credit check, and approval is never guaranteed.</g:answer>
+    </g:question_and_answer>
+    <g:question_and_answer>
+      <g:question>Are there dealer fees or doc fees on this Hyundai Santa Fe?</g:question>
+      <g:answer>No. Maxim Autos never charges dealer fees. No doc fee, no processing fee, no surprise extras at signing. The listed price is what you pay plus standard Illinois tax, title and license.</g:answer>
+    </g:question_and_answer>
+    <g:question_and_answer>
+      <g:question>Can I drive this Hyundai Santa Fe home the same day?</g:question>
+      <g:answer>Yes. Maxim Autos is an authorized Illinois CVR (Computer Vehicle Registration) electronic registration dealer. Metal plates are issued the same visit for cars registered in Illinois. Buyers registering in another state receive an Illinois drive away permit and plate the car at home.</g:answer>
+    </g:question_and_answer>
+    <g:question_and_answer>
+      <g:question>Is this Hyundai Santa Fe all wheel drive?</g:question>
+      <g:answer>Yes. This 2015 Hyundai Santa Fe Limited is all wheel drive (AWD).</g:answer>
+    </g:question_and_answer>
+    <g:question_and_answer>
+      <g:question>What transmission does this Hyundai Santa Fe have?</g:question>
+      <g:answer>This 2015 Hyundai Santa Fe Limited has an automatic transmission.</g:answer>
+    </g:question_and_answer>
+    <g:question_and_answer>
+      <g:question>What engine is in this Hyundai Santa Fe?</g:question>
+      <g:answer>This 2015 Hyundai Santa Fe Limited has a 3.3L V6 engine.</g:answer>
+    </g:question_and_answer>
+    <g:question_and_answer>
+      <g:question>Where can I see this Hyundai Santa Fe in person?</g:question>
+      <g:answer>At Maxim Autos, 9101 Terminal Ave, Skokie, IL 60077, serving Evanston, Niles, Morton Grove, Lincolnwood, Des Plaines, Glenview, Wilmette and Park Ridge. Hours: Monday, Tuesday, Thursday and Friday 3 PM to 7 PM, Saturday 10 AM to 3 PM, Wednesday by appointment, Sunday closed. Call or text (847) 510-8947.</g:answer>
+    </g:question_and_answer>
+    <g:question_and_answer>
+      <g:question>Can I trade in my current car toward this Hyundai Santa Fe?</g:question>
+      <g:answer>Yes. Maxim Autos accepts trade ins and also buys cars outright. Text the VIN of your car to (847) 510-8947 for a quick offer, no obligation.</g:answer>
+    </g:question_and_answer>
+    <g:related_product>
+      <g:relationship_type>substitute</g:relationship_type>
+      <g:identifier_type>id</g:identifier_type>
+      <g:identifier>KM8J3CA27HU276947</g:identifier>
+    </g:related_product>
+    <g:related_product>
+      <g:relationship_type>substitute</g:relationship_type>
+      <g:identifier_type>id</g:identifier_type>
+      <g:identifier>KNDEPCAA2M7044217</g:identifier>
+    </g:related_product>
+    <g:related_product>
+      <g:relationship_type>substitute</g:relationship_type>
+      <g:identifier_type>id</g:identifier_type>
+      <g:identifier>KM8J33A47HU369551</g:identifier>
+    </g:related_product>
+  </item>
+  <item>
+    <g:id>KNDEPCAA2M7044217</g:id>
+    <g:title>2021 Kia Seltos LX</g:title>
+    <g:description>2021 Kia Seltos LX AWD: 146 horsepower 2.0 liter four cylinder, all wheel drive with a center locking differential, 8 inch touchscreen with Apple CarPlay and Android Auto, rear camera, 17 inch alloys. Blue on black, IVT automatic, all wheel drive. A low mileage compact SUV sized for city parking and built for a Chicago winter, with no dealer fees. Key features: 2.0L four cylinder with 146 hp and an IVT automatic, standard all wheel drive with torque vectoring and a center locking differential, 8 inch touchscreen with Apple CarPlay and Android Auto, Bluetooth, rear camera, automatic headlights, drive mode select with Snow mode, 60/40 split folding rear seat, 26 cubic feet of cargo space behind the rear seat and 63 with it folded, 17 inch alloy wheels, 27 city and 31 highway mpg. The Maxim Autos Difference Independent inspection report included with every vehicle Metal plates issued on the spot, drive home today, skip the DMV No dealer fees at Maxim Autos, ever. The price you see is the price you pay, plus tax, title, and license. Financing for all credit levels Serving Skokie, Evanston, Niles, Morton Grove, Lincolnwood, Des Plaines and the North Shore of Chicago. Call or text (847) 510-8947 for a same day appointment. Every car inspected. Every price transparent. Every car documented.</g:description>
+    <g:link>https://www.maximautos.com/vehicle/2021-kia-seltos-lx-j10274</g:link>
+    <g:link_template>https://www.maximautos.com/vehicle/2021-kia-seltos-lx-j10274?store={store_code}</g:link_template>
+    <g:image_link>https://imagesdl.dealercenter.net/1289/856/202610-56aa5eac9b3445c8989df0399e6c85a9.jpg</g:image_link>
+    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202610-1887b9f373fe487f84afc9f802195fc2.jpg</g:additional_image_link>
+    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202610-ea65b14c452044a294a70f60a0484213.jpg</g:additional_image_link>
+    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202610-500f4151d1e748ccb68d3b41ef6d603f.jpg</g:additional_image_link>
+    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202610-a9a62f99eb3044278ed0b6545da3f5f6.jpg</g:additional_image_link>
+    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202610-2b91ec90653b4e65a74892a16745596e.jpg</g:additional_image_link>
+    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202610-df215ffce9e34a6598ecc73dbf167711.jpg</g:additional_image_link>
+    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202610-3954a28ff31b487bbdb6f33ce52cf512.jpg</g:additional_image_link>
+    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202610-940645795c8440368cd9021f2e570c10.jpg</g:additional_image_link>
+    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202610-b29399fac21943fdb7ad54cdec679e22.jpg</g:additional_image_link>
+    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202610-7c14c605d89b48f7a700700853bbad8c.jpg</g:additional_image_link>
+    <g:condition>used</g:condition>
+    <g:price>15495 USD</g:price>
+    <g:availability>in_stock</g:availability>
+    <g:brand>Kia</g:brand>
+    <g:google_product_category>Vehicles &amp; Parts &gt; Vehicles &gt; Motor Vehicles &gt; Cars, Trucks &amp; Vans</g:google_product_category>
+    <g:excluded_destination>Shopping_ads</g:excluded_destination>
+    <g:excluded_destination>Free_listings</g:excluded_destination>
+    <g:vin>KNDEPCAA2M7044217</g:vin>
+    <g:year>2021</g:year>
+    <g:model>Seltos</g:model>
+    <g:mileage>51713 Miles</g:mileage>
+    <g:store_code>08861907241419503398</g:store_code>
+    <g:vehicle_fulfillment>
+      <g:option>in_store</g:option>
+    </g:vehicle_fulfillment>
+    <g:color>Blue</g:color>
+    <g:trim>LX</g:trim>
+    <g:body_style>suv</g:body_style>
+    <g:custom_label_0>age_0_30</g:custom_label_0>
+    <g:custom_label_1>suv</g:custom_label_1>
+    <g:custom_label_2>price_12k_plus</g:custom_label_2>
+    <g:custom_label_3>cg_good_deal</g:custom_label_3>
+    <g:custom_label_4>awd_4wd</g:custom_label_4>
+    <g:question_and_answer>
+      <g:question>Is this used Kia Seltos inspected before sale?</g:question>
+      <g:answer>Every car is inspected before it goes on the lot, and a free CARFAX comes with it. Ask Jerry what was checked on any car before you decide.</g:answer>
+    </g:question_and_answer>
+    <g:question_and_answer>
+      <g:question>Does this Kia Seltos come with a CARFAX report?</g:question>
+      <g:answer>Yes. A CARFAX vehicle history report is included with every used vehicle at Maxim Autos at no extra cost.</g:answer>
+    </g:question_and_answer>
+    <g:question_and_answer>
+      <g:question>Can I get financing on this Kia Seltos?</g:question>
+      <g:answer>Yes. Maxim Autos offers financing for all credit levels, including first time buyers and those rebuilding credit. Start with the short financing form or a call to Jerry: neither touches your credit. A full application does include a credit check, and approval is never guaranteed.</g:answer>
+    </g:question_and_answer>
+    <g:question_and_answer>
+      <g:question>Are there dealer fees or doc fees on this Kia Seltos?</g:question>
+      <g:answer>No. Maxim Autos never charges dealer fees. No doc fee, no processing fee, no surprise extras at signing. The listed price is what you pay plus standard Illinois tax, title and license.</g:answer>
+    </g:question_and_answer>
+    <g:question_and_answer>
+      <g:question>Can I drive this Kia Seltos home the same day?</g:question>
+      <g:answer>Yes. Maxim Autos is an authorized Illinois CVR (Computer Vehicle Registration) electronic registration dealer. Metal plates are issued the same visit for cars registered in Illinois. Buyers registering in another state receive an Illinois drive away permit and plate the car at home.</g:answer>
+    </g:question_and_answer>
+    <g:question_and_answer>
+      <g:question>Is this Kia Seltos all wheel drive?</g:question>
+      <g:answer>Yes. This 2021 Kia Seltos LX is all wheel drive (AWD).</g:answer>
+    </g:question_and_answer>
+    <g:question_and_answer>
+      <g:question>What transmission does this Kia Seltos have?</g:question>
+      <g:answer>This 2021 Kia Seltos LX has an automatic transmission.</g:answer>
+    </g:question_and_answer>
+    <g:question_and_answer>
+      <g:question>What is the fuel economy of this Kia Seltos?</g:question>
+      <g:answer>EPA estimated 27 city and 31 highway MPG for this 2021 Kia Seltos LX.</g:answer>
+    </g:question_and_answer>
+    <g:question_and_answer>
+      <g:question>What engine is in this Kia Seltos?</g:question>
+      <g:answer>This 2021 Kia Seltos LX has a 147 hp 2.0L I4 engine.</g:answer>
+    </g:question_and_answer>
+    <g:question_and_answer>
+      <g:question>Where can I see this Kia Seltos in person?</g:question>
+      <g:answer>At Maxim Autos, 9101 Terminal Ave, Skokie, IL 60077, serving Evanston, Niles, Morton Grove, Lincolnwood, Des Plaines, Glenview, Wilmette and Park Ridge. Hours: Monday, Tuesday, Thursday and Friday 3 PM to 7 PM, Saturday 10 AM to 3 PM, Wednesday by appointment, Sunday closed. Call or text (847) 510-8947.</g:answer>
+    </g:question_and_answer>
+    <g:question_and_answer>
+      <g:question>Can I trade in my current car toward this Kia Seltos?</g:question>
+      <g:answer>Yes. Maxim Autos accepts trade ins and also buys cars outright. Text the VIN of your car to (847) 510-8947 for a quick offer, no obligation.</g:answer>
+    </g:question_and_answer>
+    <g:related_product>
+      <g:relationship_type>substitute</g:relationship_type>
+      <g:identifier_type>id</g:identifier_type>
+      <g:identifier>KM8J3CA27HU276947</g:identifier>
+    </g:related_product>
+    <g:related_product>
+      <g:relationship_type>substitute</g:relationship_type>
+      <g:identifier_type>id</g:identifier_type>
+      <g:identifier>KM8SRDHF6FU104181</g:identifier>
+    </g:related_product>
+    <g:related_product>
+      <g:relationship_type>substitute</g:relationship_type>
+      <g:identifier_type>id</g:identifier_type>
+      <g:identifier>KM8J33A47HU369551</g:identifier>
     </g:related_product>
   </item>
   <item>
