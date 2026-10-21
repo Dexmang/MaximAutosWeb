@@ -1,10 +1,10 @@
 {
-  "last_updated": "2026-10-21T05:30:17.041Z",
+  "last_updated": "2026-10-21T06:30:16.899Z",
   "period_start": "2026-10-14",
   "period_end": "2026-10-21",
   "by_vin": {
     "4S4BSAKCXJ3314086": {
-      "srp_views": 213,
+      "srp_views": 216,
       "vdp_views": 18,
       "leads_email": 0,
       "leads_phone": 0,
@@ -13,7 +13,7 @@
       "map_clicks": 0
     },
     "5N1AZ2MH6FN251280": {
-      "srp_views": 230,
+      "srp_views": 231,
       "vdp_views": 10,
       "leads_email": 0,
       "leads_phone": 1,
@@ -40,8 +40,8 @@
       "map_clicks": 0
     },
     "3C4PDCBB7GT164698": {
-      "srp_views": 553,
-      "vdp_views": 19,
+      "srp_views": 565,
+      "vdp_views": 20,
       "leads_email": 0,
       "leads_phone": 0,
       "leads_chat": 0,
@@ -58,7 +58,7 @@
       "map_clicks": 0
     },
     "JF1GPAC63EH339804": {
-      "srp_views": 107,
+      "srp_views": 113,
       "vdp_views": 2,
       "leads_email": 0,
       "leads_phone": 0,
@@ -67,8 +67,8 @@
       "map_clicks": 0
     },
     "JM1CW2BL1F0183769": {
-      "srp_views": 480,
-      "vdp_views": 39,
+      "srp_views": 490,
+      "vdp_views": 42,
       "leads_email": 0,
       "leads_phone": 0,
       "leads_chat": 0,
@@ -76,8 +76,8 @@
       "map_clicks": 0
     },
     "JF1GPAL69E8230098": {
-      "srp_views": 597,
-      "vdp_views": 43,
+      "srp_views": 611,
+      "vdp_views": 45,
       "leads_email": 0,
       "leads_phone": 0,
       "leads_chat": 0,
@@ -85,7 +85,7 @@
       "map_clicks": 0
     },
     "WA1ECCFS8JR006434": {
-      "srp_views": 369,
+      "srp_views": 373,
       "vdp_views": 18,
       "leads_email": 0,
       "leads_phone": 0,
@@ -121,7 +121,7 @@
       "map_clicks": 0
     },
     "2FMPK3J96GBC56381": {
-      "srp_views": 413,
+      "srp_views": 419,
       "vdp_views": 34,
       "leads_email": 0,
       "leads_phone": 0,
@@ -130,7 +130,7 @@
       "map_clicks": 1
     },
     "5XYPH4A52JG399000": {
-      "srp_views": 261,
+      "srp_views": 263,
       "vdp_views": 19,
       "leads_email": 0,
       "leads_phone": 0,
