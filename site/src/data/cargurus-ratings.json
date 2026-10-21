@@ -1,14 +1,14 @@
 {
   "source": "https://www.cargurus.com/Cars/m-Maxim-Autos-sp457703",
-  "fetchedAt": "2026-10-20T23:30:04Z",
+  "fetchedAt": "2026-10-21T00:00:03Z",
   "note": "CarGurus deal ratings read from the PKA machine (the GitHub runner gets HTTP 406). build-inventory.js uses this when its own fetch fails and only applies a rating whose cgPrice equals the DealerCenter price.",
   "by_vin": {
     "2FMPK3J96GBC56381": {
       "stock": "J10252",
-      "dealRating": "GREAT_PRICE",
-      "priceSavings": 1804,
+      "dealRating": "GOOD_PRICE",
+      "priceSavings": 1589,
       "cgPrice": 8450,
-      "imv": 10254,
+      "imv": 10039,
       "daysOnMarket": 35
     },
     "3C4PDCBB7GT164698": {
@@ -25,14 +25,14 @@
       "priceSavings": 939,
       "cgPrice": 15995,
       "imv": 16934,
-      "daysOnMarket": 6
+      "daysOnMarket": 7
     },
     "5N1AZ2MH6FN251280": {
       "stock": "J10251",
       "dealRating": "GOOD_PRICE",
-      "priceSavings": 937,
+      "priceSavings": 1188,
       "cgPrice": 11350,
-      "imv": 12287,
+      "imv": 12538,
       "daysOnMarket": 35
     },
     "5XYPH4A52JG399000": {
@@ -41,7 +41,7 @@
       "priceSavings": 1139,
       "cgPrice": 9950,
       "imv": 11089,
-      "daysOnMarket": 26
+      "daysOnMarket": 27
     },
     "JF1GPAC63EH339804": {
       "stock": "J10263",
@@ -73,15 +73,7 @@
       "priceSavings": 632,
       "cgPrice": 11998,
       "imv": 12630,
-      "daysOnMarket": 6
-    },
-    "KM8J3CA27HU276947": {
-      "stock": "J10273",
-      "dealRating": "FAIR_PRICE",
-      "priceSavings": 471,
-      "cgPrice": 13995,
-      "imv": 14466,
-      "daysOnMarket": null
+      "daysOnMarket": 7
     },
     "KM8SRDHF6FU104181": {
       "stock": "J10272",
@@ -91,21 +83,13 @@
       "imv": 12153,
       "daysOnMarket": null
     },
-    "KNDEPCAA2M7044217": {
-      "stock": "J10274",
-      "dealRating": "GOOD_PRICE",
-      "priceSavings": 1231,
-      "cgPrice": 15495,
-      "imv": 16726,
-      "daysOnMarket": null
-    },
     "WA1ECCFS8JR006434": {
       "stock": "J10262",
       "dealRating": "FAIR_PRICE",
       "priceSavings": 380,
       "cgPrice": 10950,
       "imv": 11330,
-      "daysOnMarket": 13
+      "daysOnMarket": 14
     }
   }
 }
