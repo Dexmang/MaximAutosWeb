@@ -79,7 +79,7 @@
       "featured": true,
       "sortOrder": 0,
       "dealRating": "GOOD_PRICE",
-      "priceSavings": 1831,
+      "priceSavings": 2375,
       "description": "2014 Ford Explorer Limited AWD: 290 horsepower 3.5 liter V6, intelligent all wheel drive, seven seats with a power folding third row, leather, heated and cooled front seats, heated steering wheel, dual panel moonroof, remote start, navigation, Sony audio. White on black, 6 speed SelectShift automatic, 3.5L V6. The loaded three row family SUV with a smooth car like ride, with no dealer fees. Key features: 3.5 liter Ti-VCT V6 with 290 horsepower and 255 lb-ft of torque, 6 speed SelectShift automatic, intelligent all wheel drive with Terrain Management, up to 5,000 lb towing with the factory tow hitch, leather seating for seven with a power folding third row, heated and cooled front seats, heated second row seats, heated steering wheel, memory driver seat, power tilt and telescoping wheel, dual panel panoramic moonroof, remote start, push button start with intelligent access, SYNC with navigation and Bluetooth, Sony premium audio, rear view camera, front and rear parking sensors, rear air conditioning, 20 inch alloy wheels, flex fuel capable. 17 city and 23 highway, with 80 cubic feet of cargo behind the front seats. The Maxim Autos Difference Independent inspection report included with every vehicle Metal plates issued on the spot, drive home today No dealer fees, transparent all in pricing Financing for all credit levels Skokie, IL, minutes from Evanston, Niles, Morton Grove, Lincolnwood, Des Plaines and the North Shore. Call or text (847) 510-8947 for a same day appointment. Every car inspected. Every price transparent. Every car documented.",
       "highlights": [
         "Limited trim",
@@ -89,9 +89,7 @@
       "features": [],
       "photoPrefix": "2014-ford-explorer-limited",
       "photoPath": "",
-      "dealerCenterUrl": "",
-      "sold_date": "2026-10-17",
-      "missing_since": "2026-10-17T06:30:16.508Z"
+      "dealerCenterUrl": ""
     },
     "2FMPK3J96GBC56381": {
       "year": 2016,
@@ -756,7 +754,6 @@
         "https://imagesdl.dealercenter.net/1289/856/202610-4cc2beb7dbb14d03b1768b647559690e.jpg",
         "https://imagesdl.dealercenter.net/1289/856/202610-e6f6897747f14f8bb500a82375d377e5.jpg",
         "https://imagesdl.dealercenter.net/1289/856/202610-da4c7780ccfe4a0bbb710e92668c80cf.jpg",
-        "https://imagesdl.dealercenter.net/1289/856/202610-adf19afb16da46efaa5062a5b600da0c.jpg",
         "https://imagesdl.dealercenter.net/1289/856/202610-2195b96105ba47719bf7bbf0f1fcd697.jpg",
         "https://imagesdl.dealercenter.net/1289/856/202610-121b64ccd1e74583a19450d1dc1b5707.jpg",
         "https://imagesdl.dealercenter.net/1289/856/202610-d98d7a15e2534ff0ad0916e27ae0e649.jpg",
@@ -773,7 +770,7 @@
         "https://imagesdl.dealercenter.net/1289/856/202610-3833c01214004f1d957f646e14dc293b.jpg"
       ],
       "photos": {
-        "exterior": 33,
+        "exterior": 32,
         "interior": 0,
         "source": "dealercenter"
       },
