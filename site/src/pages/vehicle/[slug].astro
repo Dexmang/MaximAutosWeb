@@ -392,10 +392,15 @@ if (v.vin && v.vin !== 'TBD') (vehicleSchema as any).vehicleIdentificationNumber
                   </span>
                 </div>
               )}
-              <span class="inline-flex items-center gap-1.5 bg-green-50 text-green-800 border border-green-100 px-3 py-1 rounded-full text-xs font-semibold">
-                <Icon name="price_check" class="text-sm text-green-700" fill />
-                $0 doc fee · $0 dealer fees
-              </span>
+              {/* The chip form of the fee promise, redesigned 2026-10-20 (Jerry): a solid block at
+                  the badge's 40 px height instead of a pale 26 px pill, dealer fees first, linking
+                  to the fee page. The same string in the same order is TrustPair's feeChip on the
+                  inventory cards; change both or neither (vocabulary lock, 2026-10-13). */}
+              <a href={`${base}/no-dealer-fees`} data-cta="vdp_header" data-cta-name="no_dealer_fees"
+                 class="inline-flex items-center gap-2 h-10 px-3.5 rounded-xl bg-green-700 text-white hover:bg-green-800 transition-colors">
+                <Icon name="price_check" class="text-xl" fill />
+                <span class="font-extrabold text-sm md:text-[15px] leading-none whitespace-nowrap">$0 dealer fees · $0 doc fee</span>
+              </a>
             </div>
           )}
         </div>

@@ -33,7 +33,9 @@ const onVdp = Astro.url.pathname.includes('/vehicle/');
 const feeHref = onVdp ? '#estimate' : (es ? `${base}/es/sin-cargos-de-dealer` : `${base}/no-dealer-fees`);
 const t = es
   ? { fee: 'Cero Cargos de Dealer', feeDetail: 'Tu costo total', feeChip: '$0 cargos de dealer · $0 documentacion', reviews: 'resenas', stars: 'Estrellas en Google', count: 'Resenas' }
-  : { fee: 'No Dealer Fees Ever', feeDetail: 'Your out the door cost', feeChip: '$0 doc fee · $0 dealer fees', reviews: 'reviews', stars: 'Stars on Google', count: 'Reviews' };
+  : { fee: 'No Dealer Fees Ever', feeDetail: 'Your out the door cost', feeChip: '$0 dealer fees · $0 doc fee', reviews: 'reviews', stars: 'Stars on Google', count: 'Reviews' };
+// feeChip order flipped 2026-10-20 (Jerry): dealer fees first, doc fee second, which the Spanish
+// chip already did. The vehicle page header carries the same string; change both or neither.
 // feeDetail on the phone strip invites the buyer to the estimate; the named fee list and the
 // cap line live beside every price, so the strip does not need to repeat "No doc fee".
 // Spanish feeDetail signed 2026-10-13 (Approach 1 build): "Sin cargo de documentacion" is the
