@@ -1,6 +1,6 @@
 {
   "source": "pka_hub.db ma_vehicles",
-  "generated_at": "2026-10-20T17:00:04.732Z",
+  "generated_at": "2026-10-21T00:30:04.846Z",
   "by_vin": {
     "WA1L2AFP8GA046658": {
       "primaryPhotoUrl": "https://imagesdl.dealercenter.net/1289/856/202605-5a3a7b53ec574aeeb79048aec9ba6173/202604-6e50c97293ab4318bea70628625c02b9.jpg",
@@ -1378,11 +1378,11 @@
       "count": 15
     },
     "KM8SRDHF6FU104181": {
-      "primaryPhotoUrl": "https://imagesdl.dealercenter.net/1289/856/202610-8af47bd8cbf14c238bc1cca8cdaef8ce.jpg",
+      "primaryPhotoUrl": "https://imagesdl.dealercenter.net/1289/856/202610-d02bbea256fe4c609b9ed6416b9412a8.jpg",
       "photoUrls": [
-        "https://imagesdl.dealercenter.net/1289/856/202610-8af47bd8cbf14c238bc1cca8cdaef8ce.jpg",
+        "https://imagesdl.dealercenter.net/1289/856/202610-d02bbea256fe4c609b9ed6416b9412a8.jpg",
         "https://imagesdl.dealercenter.net/1289/856/202610-8720a6f101414c04b5e445db0c0f88de.jpg",
-        "https://imagesdl.dealercenter.net/1289/856/202610-e3b16e43f5fd4232b876a6a26969679b.jpg",
+        "https://imagesdl.dealercenter.net/1289/856/202610-c60fcddbb74b448b8c711c1624788c8f.jpg",
         "https://imagesdl.dealercenter.net/1289/856/202610-c0c0e8e50d3a410b9ea8118909e6c579.jpg",
         "https://imagesdl.dealercenter.net/1289/856/202610-0c0e299b9e0b4c3b84f5ba191b3c9519.jpg",
         "https://imagesdl.dealercenter.net/1289/856/202610-75ba337def8a4aa48bec949dd96260bd.jpg",
@@ -1393,7 +1393,7 @@
         "https://imagesdl.dealercenter.net/1289/856/202610-d763be7aceb74d5096e8ae076e85aca8.jpg",
         "https://imagesdl.dealercenter.net/1289/856/202610-8aa256bf073b4a1d85485e8136074d5b.jpg",
         "https://imagesdl.dealercenter.net/1289/856/202610-94ed7a207a2b400db9f2ec4ad0b2359a.jpg",
-        "https://imagesdl.dealercenter.net/1289/856/202610-b8eb191731484876b784f862347b82ac.jpg",
+        "https://imagesdl.dealercenter.net/1289/856/202610-5dc70b5508394dfc9b6500aa68a2ae81.jpg",
         "https://imagesdl.dealercenter.net/1289/856/202610-87f0dc55c3274de3b61ff88c73c63da0.jpg"
       ],
       "count": 15
