@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-10-23T10:48:12.812Z",
+  "last_updated": "2026-10-23T12:30:13.805Z",
   "period_start": "2026-10-16",
   "period_end": "2026-10-23",
   "by_vin": {
@@ -13,7 +13,7 @@
       "map_clicks": 0
     },
     "5N1AZ2MH6FN251280": {
-      "srp_views": 232,
+      "srp_views": 233,
       "vdp_views": 10,
       "leads_email": 0,
       "leads_phone": 1,
@@ -31,8 +31,8 @@
       "map_clicks": 0
     },
     "1FM5K8F88EGC35039": {
-      "srp_views": 187,
-      "vdp_views": 26,
+      "srp_views": 190,
+      "vdp_views": 27,
       "leads_email": 0,
       "leads_phone": 0,
       "leads_chat": 0,
@@ -55,7 +55,7 @@
       "leads_phone": 0,
       "leads_chat": 0,
       "website_clicks": 1,
-      "map_clicks": 0
+      "map_clicks": 1
     },
     "JF1GPAC63EH339804": {
       "srp_views": 224,
@@ -67,7 +67,7 @@
       "map_clicks": 0
     },
     "JM1CW2BL1F0183769": {
-      "srp_views": 435,
+      "srp_views": 439,
       "vdp_views": 29,
       "leads_email": 0,
       "leads_phone": 0,
@@ -76,22 +76,22 @@
       "map_clicks": 0
     },
     "JF1GPAL69E8230098": {
-      "srp_views": 659,
+      "srp_views": 662,
       "vdp_views": 47,
       "leads_email": 1,
       "leads_phone": 0,
       "leads_chat": 0,
-      "website_clicks": 0,
+      "website_clicks": 3,
       "map_clicks": 0
     },
     "WA1ECCFS8JR006434": {
-      "srp_views": 353,
+      "srp_views": 357,
       "vdp_views": 20,
       "leads_email": 0,
       "leads_phone": 0,
       "leads_chat": 0,
       "website_clicks": 1,
-      "map_clicks": 0
+      "map_clicks": 1
     },
     "KM8J3CA27HU276947": {
       "srp_views": 13,
@@ -112,12 +112,12 @@
       "map_clicks": 0
     },
     "2FMPK3J96GBC56381": {
-      "srp_views": 321,
+      "srp_views": 322,
       "vdp_views": 30,
-      "leads_email": 0,
+      "leads_email": 2,
       "leads_phone": 0,
       "leads_chat": 0,
-      "website_clicks": 0,
+      "website_clicks": 2,
       "map_clicks": 1
     },
     "5XYPH4A52JG399000": {
