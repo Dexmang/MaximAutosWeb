@@ -1,6 +1,6 @@
 {
   "source": "pka_hub.db ma_vehicles + vPIC",
-  "generated_at": "2026-10-23",
+  "generated_at": "2026-10-24",
   "by_vin": {
     "1FM5K8F88EGC35039": {
       "year": 2014,
@@ -405,8 +405,8 @@
       "primaryPhotoUrl": "https://imagesdl.dealercenter.net/1289/856/202610-bc4452e1c54145d2a3f725e2710b7bb9.jpg",
       "photoUrls": [
         "https://imagesdl.dealercenter.net/1289/856/202610-bc4452e1c54145d2a3f725e2710b7bb9.jpg",
-        "https://imagesdl.dealercenter.net/1289/856/202610-36fc2551dd7d4cb28cf733fffa9c707f.jpg",
-        "https://imagesdl.dealercenter.net/1289/856/202610-26fd8e328a134457a82136c1291aa4de.jpg",
+        "https://imagesdl.dealercenter.net/1289/856/202610-7cc61db9c46341a7a37f3ae623ddea86.jpg",
+        "https://imagesdl.dealercenter.net/1289/856/202610-575716d962bf44d7a59897f1d6946f23.jpg",
         "https://imagesdl.dealercenter.net/1289/856/202610-35cf7798c7284a66babbb5e494df3c93.jpg",
         "https://imagesdl.dealercenter.net/1289/856/202610-97a4bcb9b87248e09d0fe0a1b90cd318.jpg",
         "https://imagesdl.dealercenter.net/1289/856/202610-72cf158c88a94cfb81a709f06fe28551.jpg",
@@ -857,8 +857,8 @@
       "dateAdded": "2026-10-23",
       "featured": true,
       "sortOrder": 0,
-      "dealRating": "",
-      "priceSavings": 0,
+      "dealRating": "FAIR_PRICE",
+      "priceSavings": -688,
       "description": "2016 Volvo XC90 T6 Momentum AWD: 316 horsepower supercharged and turbocharged 2.0 liter, all wheel drive, seven seats, leather, panoramic sunroof, heated steering wheel, navigation, adaptive cruise control. Gray on black, 8 speed Geartronic automatic, 2.0L T6. The three row Volvo with Scandinavian design and the safety technology families want, with no dealer fees. Key features: 2.0 liter T6 with a supercharger and a turbocharger making 316 horsepower and 295 lb-ft of torque, 8 speed Geartronic automatic, all wheel drive, leather seating for seven with a fold away third row, panoramic sunroof, heated front seats, heated steering wheel, memory driver seat, head up display, 9 inch vertical touchscreen with navigation, Bluetooth and satellite radio ready, blind spot monitor, lane departure warning, adaptive cruise control, front and rear parking sensors, rear view camera, power liftgate, rear air conditioning, Thor's hammer LED running lights, smart key with push button start, alloy wheels. 20 city and 25 highway from a four cylinder in a full size three row SUV. The Maxim Autos Difference Independent inspection report included with every vehicle Metal plates issued on the spot, drive home today No dealer fees, transparent all in pricing Financing for all credit levels Skokie, IL, minutes from Evanston, Niles, Morton Grove, Lincolnwood, Des Plaines and the North Shore. Call or text (847) 510-8947 for a same day appointment. Every car inspected. Every price transparent. Every car documented.",
       "highlights": [
         "T6 Momentum trim",
