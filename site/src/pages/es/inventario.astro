@@ -141,6 +141,11 @@ const driveChips = [
         <span><span class="font-extrabold underline underline-offset-2">Calcula tu costo total antes de llamar.</span> Cada pagina de auto tiene el estimado para tu codigo postal, justo debajo del precio.</span>
       </a>
 
+      <!-- Linea de llamar antes (2026-10-24): una sola vez aqui, no en cada tarjeta. -->
+      <p class="mb-3 flex items-start gap-2 text-sm text-gray-700 max-w-3xl">
+        <Icon name="sms" class="text-xl text-orange shrink-0" fill />
+        <span><span class="font-extrabold text-navy">Nuestros autos se venden rapido</span> y el sitio se actualiza unas veces al dia, asi que un auto puede venderse antes de que baje su pagina. Llama o escribe al <a href="tel:8475108947" data-cta="body" data-cta-name="confirm_availability" class="font-bold text-navy underline underline-offset-2 whitespace-nowrap">(847) 510-8947</a> antes de venir y Jerry confirma que el auto que buscas sigue aqui.</span>
+      </p>
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5" id="vehicle-grid">
         {liveVehicles.map((v, i) => (
           <div

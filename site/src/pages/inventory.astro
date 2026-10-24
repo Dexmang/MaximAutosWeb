@@ -223,6 +223,13 @@ const driveChips = [
         <span><span class="font-extrabold underline underline-offset-2">See your out the door cost before you call.</span> Every car page has the estimate for your ZIP, right under the price.</span>
       </a>
 
+      <!-- Call ahead line (2026-10-24): once, here, instead of on every card. Honest reason: the
+           site updates a few times a day, so a car can sell before its page comes down. Same one
+           line pattern as the invitation above so the first card barely moves. -->
+      <p class="mb-3 flex items-start gap-2 text-sm text-gray-700 max-w-3xl">
+        <Icon name="sms" class="text-xl text-orange shrink-0" fill />
+        <span><span class="font-extrabold text-navy">Our cars sell fast</span> and the site updates a few times a day, so a car can sell before its page comes down. Call or text <a href="tel:8475108947" data-cta="body" data-cta-name="confirm_availability" class="font-bold text-navy underline underline-offset-2 whitespace-nowrap">(847) 510-8947</a> before you drive over and Jerry will confirm the one you want is still here.</span>
+      </p>
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5" id="vehicle-grid">
         {liveVehicles.map((v, i) => (
           <div
