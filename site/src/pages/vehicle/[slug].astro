@@ -10,7 +10,6 @@ import OtdEstimate from '../../components/OtdEstimate.astro';
 import Icon from '../../components/Icon.astro';
 import vehicles from '../../data/vehicles.json';
 import facts from '../../data/facts.json';
-import inventoryMeta from '../../data/inventory-meta.json';
 // CarGurus VIN-level stats (refreshed by scripts/sync-cargurus-vin-stats.js).
 // Optional — the placeholder JSON shipped with the repo guarantees the import
 // always resolves, so the site builds even before the first sync runs.
@@ -174,20 +173,8 @@ const mpg: string = (v as any).mpg || '';
 // ahead build, 2026-10-24; layout review item 9). Still no price or payment in the body.
 const smsBody = encodeURIComponent(`Hi Jerry, is the ${titleText}${stockNumber ? ` (stock ${stockNumber})` : ''} still available? I am thinking of coming by [day] around [time]. I saw it on MaximAutos.com.`);
 
-// Call ahead line (2026-10-24). The reason is honest and specific: cars sell fast and the site
-// updates a few times a day, so a car can sell before its page comes down. "Listed" is the car's
-// dateAdded; "inventory updated" is the last DealerCenter publish from inventory-meta.json, the
-// same stamp as the footer heartbeat, in Chicago time. Absolute stamps, never "today": the page
-// is static and a stale "today" would be a lie.
-const chicagoDay = new Intl.DateTimeFormat('en-US', { timeZone: 'America/Chicago', month: 'short', day: 'numeric' });
-const chicagoStamp = new Intl.DateTimeFormat('en-US', { timeZone: 'America/Chicago', month: 'short', day: 'numeric', hour: 'numeric', minute: '2-digit' });
-const dateAddedRaw: string = (v as any).dateAdded || '';
-// A bare YYYY-MM-DD parses as UTC midnight, which is the evening before in Chicago; pin it to
-// noon Central so the day never shifts.
-const listedStr = /^\d{4}-\d{2}-\d{2}$/.test(dateAddedRaw) ? chicagoDay.format(new Date(`${dateAddedRaw}T12:00:00-06:00`)) : '';
-const feedIso: string = (inventoryMeta as any)?.lastUpdated || '';
-const feedUpdatedStr = feedIso && !isNaN(Date.parse(feedIso)) ? `${chicagoStamp.format(new Date(feedIso))} CT` : '';
-const freshnessStr = [listedStr ? `Listed ${listedStr}` : '', feedUpdatedStr ? `inventory updated ${feedUpdatedStr}` : ''].filter(Boolean).join(' · ');
+// Call ahead line (2026-10-24): the sentence and the buttons only. No listed date and no feed
+// stamp beside it (Jerry, 2026-10-24: do not mention when it was listed or other info).
 
 // CARFAX "Show Me The CARFAX" per-VIN report link.
 // partner=DVW_1 is Maxim Autos' CARFAX Advantage link code (dealer portal →
@@ -427,12 +414,12 @@ if (v.vin && v.vin !== 'TBD') (vehicleSchema as any).vehicleIdentificationNumber
       {/* Call ahead line (2026-10-24), full width under the title block on every screen. One tap
           texts Jerry the car, the stock number and a visit time; the Call button shows from md up
           (the phone has the sticky bar) and is the first Text or Call on the desktop page (layout
-          review F4, F8, F9). data-cta-name confirm_availability for GA4. */}
+          review F4, F9). data-cta-name confirm_availability for GA4. No date or feed stamp here
+          (Jerry, 2026-10-24). */}
       {!isSold && (
         <div class="flex flex-col md:flex-row md:flex-wrap md:items-center gap-x-4 gap-y-2.5 mt-3 rounded-xl border border-amber-200 bg-amber-50 px-3.5 py-3 md:px-4 md:py-2.5">
           <p class="text-sm text-gray-800 leading-snug">
             <span class="font-extrabold text-navy">Sells fast.</span> Text or call before you drive over and Jerry will confirm it is still here.
-            {freshnessStr && <span class="block text-xs text-gray-500 mt-0.5">{freshnessStr}</span>}
           </p>
           <span class="flex items-center gap-2 md:ml-auto">
             <a href={`sms:8475108947&body=${smsBody}`} data-cta="vdp_header" data-cta-name="confirm_availability"
