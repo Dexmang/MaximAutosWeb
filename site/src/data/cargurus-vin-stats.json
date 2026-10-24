@@ -1,10 +1,10 @@
 {
-  "last_updated": "2026-10-24T00:00:16.252Z",
+  "last_updated": "2026-10-24T00:30:14.560Z",
   "period_start": "2026-10-17",
   "period_end": "2026-10-24",
   "by_vin": {
     "4S4BSAKCXJ3314086": {
-      "srp_views": 198,
+      "srp_views": 201,
       "vdp_views": 13,
       "leads_email": 0,
       "leads_phone": 0,
@@ -13,7 +13,7 @@
       "map_clicks": 0
     },
     "5N1AZ2MH6FN251280": {
-      "srp_views": 227,
+      "srp_views": 228,
       "vdp_views": 9,
       "leads_email": 1,
       "leads_phone": 0,
@@ -31,7 +31,7 @@
       "map_clicks": 0
     },
     "1FM5K8F88EGC35039": {
-      "srp_views": 168,
+      "srp_views": 171,
       "vdp_views": 18,
       "leads_email": 0,
       "leads_phone": 0,
@@ -58,7 +58,7 @@
       "map_clicks": 0
     },
     "JF1GPAC63EH339804": {
-      "srp_views": 244,
+      "srp_views": 251,
       "vdp_views": 6,
       "leads_email": 0,
       "leads_phone": 0,
@@ -67,8 +67,8 @@
       "map_clicks": 0
     },
     "JM1CW2BL1F0183769": {
-      "srp_views": 380,
-      "vdp_views": 25,
+      "srp_views": 390,
+      "vdp_views": 27,
       "leads_email": 0,
       "leads_phone": 0,
       "leads_chat": 0,
@@ -76,7 +76,7 @@
       "map_clicks": 0
     },
     "JF1GPAL69E8230098": {
-      "srp_views": 635,
+      "srp_views": 643,
       "vdp_views": 46,
       "leads_email": 1,
       "leads_phone": 0,
@@ -85,7 +85,7 @@
       "map_clicks": 0
     },
     "WA1ECCFS8JR006434": {
-      "srp_views": 328,
+      "srp_views": 333,
       "vdp_views": 22,
       "leads_email": 0,
       "leads_phone": 0,
@@ -103,7 +103,7 @@
       "map_clicks": 0
     },
     "KM8J33A47HU369551": {
-      "srp_views": 202,
+      "srp_views": 205,
       "vdp_views": 9,
       "leads_email": 0,
       "leads_phone": 0,
@@ -112,8 +112,8 @@
       "map_clicks": 0
     },
     "2FMPK3J96GBC56381": {
-      "srp_views": 294,
-      "vdp_views": 35,
+      "srp_views": 297,
+      "vdp_views": 37,
       "leads_email": 0,
       "leads_phone": 0,
       "leads_chat": 0,
@@ -121,7 +121,7 @@
       "map_clicks": 0
     },
     "5XYPH4A52JG399000": {
-      "srp_views": 275,
+      "srp_views": 276,
       "vdp_views": 15,
       "leads_email": 0,
       "leads_phone": 0,
