@@ -6,7 +6,7 @@ import reviewsMeta from '../../data/reviews_meta.json';
 
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 const title = 'Sobre Nosotros | Maxim Autos Skokie, IL';
-const description = 'Conoce a Jerry, dueno de Maxim Autos. Cada vehiculo inspeccionado personalmente, cada precio transparente, cada vehiculo documentado. Resenas de 5 estrellas en Google. Skokie, IL.';
+const description = `Conoce a Jerry, dueno de Maxim Autos. Cada vehiculo inspeccionado personalmente, cada precio transparente, cada vehiculo documentado. Calificacion de ${reviewsMeta.rating.toFixed(1)} en Google. Skokie, IL.`;
 ---
 
 <Layout
@@ -121,7 +121,7 @@ const description = 'Conoce a Jerry, dueno de Maxim Autos. Cada vehiculo inspecc
         <ul class="space-y-4">
           {[
             { icon: 'person', text: 'Trato directo con Jerry, el dueno. Sin vendedores a comision.' },
-            { icon: 'star', text: `Resenas de 5 estrellas en Google (${reviewsMeta.count} y contando)` },
+            { icon: 'star', text: `Calificacion de ${reviewsMeta.rating.toFixed(1)} en Google (${reviewsMeta.count} resenas y contando)` },
             { icon: 'fact_check', text: 'Reporte de inspeccion independiente incluido con cada vehiculo' },
             { icon: 'shield', text: 'Cada vehiculo completamente inspeccionado por un mecanico independiente' },
             { icon: 'credit_card', text: 'Placas de metal en el momento. Sin tramites del DMV.' },

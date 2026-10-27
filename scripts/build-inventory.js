@@ -295,6 +295,19 @@ const DESCRIPTION_RULES = [
     find: /\ball credit\b(?!\s+levels)/gi,
     replace: 'all credit levels',
   },
+  {
+    // Guardrails A9 and D2: a rating shown on the site must equal the live Google figure.
+    // Old DealerCenter copy and sold records say "Rated 5 stars on Google", which went
+    // false when Google moved to 4.9 on 2026-10-27 (3 sold VDPs). The replacement reads
+    // reviews_meta.json at build time, so it can never be a typed number that goes stale
+    // again. NHTSA "5 star safety rating" is untouched: the pattern requires Google.
+    name: 'stale aggregate rating claim',
+    find: /\b(?:Rated\s+)?(?:5|5\.0|five)[-\s]stars?\s+(?:on\s+)?Google(?:\s+(?:reviews?|rating))?/gi,
+    replace: () => {
+      const rating = readJsonSafe(REVIEWS_META_PATH, {}).rating;
+      return rating == null ? 'Reviewed on Google' : `Rated ${Number(rating).toFixed(1)} on Google`;
+    },
+  },
 
   // ── House style ──────────────────────────────────────────────────────────────
   {

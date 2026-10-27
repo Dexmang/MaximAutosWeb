@@ -2,10 +2,11 @@
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import facts from '../data/facts.json';
 
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 const title = 'About Maxim Autos | Used Car Dealer in Skokie, IL Run by the Owner';
-const description = 'Meet Jerry, owner of Maxim Autos. Every vehicle personally inspected, every price transparent, every car documented. 5-star Google reviews. Skokie, IL.';
+const description = `Meet Jerry, owner of Maxim Autos. Every vehicle personally inspected, every price transparent, every car documented. ${facts.reviews.ratingText}. Skokie, IL.`;
 
 const personSchema = {
   "@context": "https://schema.org",
@@ -154,7 +155,7 @@ const personSchema = {
         <ul class="space-y-4">
           {[
             { icon: 'person', text: 'Deal directly with Jerry, the owner. No commissioned salespeople.' },
-            { icon: 'star', text: 'Rated 5.0 across Google reviews' },
+            { icon: 'star', text: `Rated ${facts.reviews.ratingValue} across Google reviews` },
             { icon: 'fact_check', text: 'Independent inspection report included with every vehicle' },
             { icon: 'shield', text: 'Every vehicle fully inspected by an independent mechanic' },
             { icon: 'credit_card', text: 'Metal plates on the spot. Skip the DMV.' },

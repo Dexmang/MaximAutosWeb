@@ -6,8 +6,8 @@ import reviews from '../data/reviews.json';
 import reviewsMeta from '../data/reviews_meta.json';
 
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
-const title = 'Customer Reviews | Maxim Autos Skokie IL | 5-Star Google Reviews';
-const description = 'Read 5-star customer reviews for Maxim Autos in Skokie, IL. Rated 5 stars on Google. No games, no hidden fees. Just honest cars and personal service from Jerry Franco.';
+const title = `Customer Reviews | Maxim Autos Skokie IL | Rated ${reviewsMeta.rating.toFixed(1)} on Google`;
+const description = `Read reviews for Maxim Autos in Skokie, IL. Rated ${reviewsMeta.rating.toFixed(1)} on Google. No games, no hidden fees. Just honest cars and personal service from Jerry Franco.`;
 
 const ratingSchema = {
   "@context": "https://schema.org",
