@@ -1,6 +1,6 @@
 {
   "source": "pka_hub.db ma_vehicles",
-  "generated_at": "2026-10-27T06:00:05.862Z",
+  "generated_at": "2026-10-27T18:00:06.104Z",
   "by_vin": {
     "JTJBK1BA4E2462410": "AWD",
     "1FMCU0J95HUE21095": "Titanium",
@@ -184,6 +184,7 @@
     "WA1VAAF73JD013438": "3.0T Prestige",
     "WA1D7AFP0GA094726": "3.0T Premium Plus",
     "KM8J3CA48HU259737": "SE",
-    "3N1AB7APXEY279332": "SR"
+    "3N1AB7APXEY279332": "SR",
+    "KM8R4DGE3RU668011": "SEL"
   }
 }
