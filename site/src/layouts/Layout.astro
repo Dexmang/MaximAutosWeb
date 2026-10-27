@@ -32,7 +32,7 @@ const {
 
 const isSpanish = lang === 'es';
 const defaultDescription = isSpanish
-  ? `Maxim Autos: autos usados completamente inspeccionados ${facts.inventory.bandTextEs} en Skokie, IL. Placas el mismo dia. Sin tramites del DMV. Financiamiento para todos los niveles de credito. Resenas de 5 estrellas en Google.`
+  ? `Maxim Autos: autos usados completamente inspeccionados ${facts.inventory.bandTextEs} en Skokie, IL. Placas el mismo dia. Sin tramites del DMV. Financiamiento para todos los niveles de credito. ${facts.reviews.ratingTextEs}.`
   : 'Quality used cars in Skokie, IL. Every vehicle inspected, every price transparent. Metal plates on the spot. Skip the DMV. Financing for all credit levels. Maxim Autos.';
 const resolvedDescription = description ?? defaultDescription;
 
