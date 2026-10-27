@@ -36,6 +36,20 @@
       "reason": "inbound",
       "since": "2026-09-26",
       "note": "Damaged 2026-09-26. Jerry set DealerCenter to Inbound until repaired. Coming back to retail once fixed; hold releases on its own when the VIN returns to the DC feed."
+    },
+    "JF1GPAL69E8230098": {
+      "stock": "J10258",
+      "reason": "moving-out",
+      "since": "2026-10-27",
+      "note": "Jerry 2026-10-26: has issues, not sold, to be moved out. Set to Inbound in DealerCenter; left the feed 2026-10-24. Bridged so it is omitted, never shown as SOLD.",
+      "bridge": true
+    },
+    "JF1GPAC63EH339804": {
+      "stock": "J10263",
+      "reason": "moving-out",
+      "since": "2026-10-27",
+      "note": "Jerry 2026-10-26: has issues, not sold, to be moved out. Set to Inbound in DealerCenter; left the feed 2026-10-25. Bridged so it is omitted, never shown as SOLD.",
+      "bridge": true
     }
   }
 }
