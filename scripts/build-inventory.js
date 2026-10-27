@@ -43,6 +43,7 @@ import { fileURLToPath } from 'url';
 import { dirname, resolve } from 'path';
 import { deriveFacts } from './facts-core.mjs';
 import { isExcludedStock } from './stock-rules.mjs';
+import { notReadyReasons } from './listing-readiness.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const CARGURUS_URL = 'https://www.cargurus.com/Cars/m-Maxim-Autos-sp457703';
@@ -881,7 +882,21 @@ async function main() {
     console.log(`\nWeb hold — hiding ${heldNow.length} inbound/off-web unit(s) (omitted, NOT sold):`);
     heldNow.forEach(v => console.log(`  ⊘ ${v.year} ${v.make} ${v.model} ${v.trim} [${v.vin}] stock ${v.stockNumber || '—'}`));
   }
-  const visible = vehicles.filter(v => !isHeld(v.vin));
+  // Readiness hold (scripts/listing-readiness.mjs, the one predicate shared with
+  // build-gmc-feed.js and the parity audit): a unit that is in the DC feed but has no
+  // price or no photos has not passed the owner's go-live checklist (decision-rights.md:
+  // photos uploaded, all in price set), so it is held off the site the same way a web
+  // hold is: omitted, never SOLD. It releases itself on the first build where
+  // DealerCenter carries both. Without this, J10280EV (2024 Palisade) went live on
+  // 2026-10-27 as a featured "$0" card with no photo while the Google feed correctly
+  // left it out, and both feed checkers called that correct absence a mismatch.
+  const notReady = vehicles.filter(v => v.status !== 'sold' && !isHeld(v.vin) && notReadyReasons(v).length > 0);
+  if (notReady.length) {
+    console.log(`\nNot ready: holding ${notReady.length} unit(s) off the site until DealerCenter has a price and photos (omitted, NOT sold):`);
+    notReady.forEach(v => console.log(`  ⊘ ${v.year} ${v.make} ${v.model} ${v.trim} [${v.vin}] stock ${v.stockNumber || '—'}: ${notReadyReasons(v).join(', ')}`));
+  }
+  const notReadyVins = new Set(notReady.map(v => v.vin));
+  const visible = vehicles.filter(v => !isHeld(v.vin) && !notReadyVins.has(v.vin));
 
   // Guarantee unique slugs so two same-trim units never collide on the VDP route.
   ensureUniqueSlugs(visible, existingByVin);

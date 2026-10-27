@@ -39,6 +39,7 @@ import { readFileSync, writeFileSync, mkdirSync, existsSync } from "fs";
 import { fileURLToPath } from "url";
 import { dirname, join } from "path";
 import { isExcludedStock } from "./stock-rules.mjs";
+import { notReadyReasons } from "./listing-readiness.mjs";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -628,19 +629,22 @@ function buildFeed() {
   const vehicleVins = new Set(vehicles.map((v) => (v.vin || "").toUpperCase()));
   const dcMissingFromSite = [...dcVins].filter((vin) => !vehicleVins.has(vin));
 
-  // A DC VIN whose feed row carries no photos yet is not a skip, it is a car
-  // DealerCenter has not finished publishing: photos land in the OAP feed a few
-  // hours after the Media tab is saved (J10252 and J10253, 2026-09-15, uploaded
-  // the evening before, still photo-less in the 00:51 feed). Google would
-  // disapprove an image-less item anyway, so it waits for the next feed drop.
+  // A DC VIN whose row has no price or no photos is not a skip, it is a car that has
+  // not passed the go-live checklist (scripts/listing-readiness.mjs, the one predicate
+  // shared with build-inventory.js and the parity audit). Photos land in the OAP feed a
+  // few hours after the Media tab is saved (J10252 and J10253, 2026-09-15, uploaded the
+  // evening before, still photo-less in the 00:51 feed), and a unit flipped to In
+  // Inventory early carries SpecialPrice 0 (J10280EV, 2026-10-27). Google would
+  // disapprove either item, so it waits for the next feed drop. build-inventory.js
+  // already omits such a unit from vehicles.json; this is the second net.
   // Leaving it out must not fail --strict: that froze the inventory commit and
   // kept every other new car off the site while the emails piled up.
-  const awaitingPhotos = available.filter((v) => (v.photoUrls || []).length === 0);
-  const ready = available.filter((v) => (v.photoUrls || []).length > 0);
+  const awaitingPhotos = available.filter((v) => notReadyReasons(v).length > 0);
+  const ready = available.filter((v) => notReadyReasons(v).length === 0);
   if (awaitingPhotos.length) {
     console.warn(
-      `  AWAITING PHOTOS (left out of the feed until DealerCenter publishes them): ` +
-        awaitingPhotos.map((v) => v.slug || v.stockNumber || v.vin).join(", ")
+      `  NOT READY (left out of the feed until DealerCenter has a price and photos): ` +
+        awaitingPhotos.map((v) => `${v.slug || v.stockNumber || v.vin} (${notReadyReasons(v).join(", ")})`).join(", ")
     );
   }
 
@@ -678,7 +682,7 @@ ${itemsXml}</channel>
   console.log(`  VINs in newest DC feed (book of record): ${dcVins.size}`);
   console.log(`  total rows in vehicles.json: ${vehicles.length}`);
   console.log(`  matched to a DC VIN: ${available.length}`);
-  console.log(`  awaiting photos in the DC feed: ${awaitingPhotos.length}`);
+  console.log(`  not ready (no price or no photos) in the DC feed: ${awaitingPhotos.length}`);
   console.log(`  written to feed: ${written}`);
 
   // Parity must be exact: feed VINs == DC feed VINs. Anything else is drift.
@@ -703,8 +707,8 @@ ${itemsXml}</channel>
 
   if (STRICT && (written === 0 || written < ready.length || dcMissingFromSite.length)) {
     console.error(
-      `STRICT FAILURE: wrote ${written} of ${ready.length} photo-ready vehicles` +
-        (awaitingPhotos.length ? ` (${awaitingPhotos.length} awaiting photos, not counted)` : "") +
+      `STRICT FAILURE: wrote ${written} of ${ready.length} ready vehicles` +
+        (awaitingPhotos.length ? ` (${awaitingPhotos.length} not ready, not counted)` : "") +
         (written === 0 ? " (feed is empty)" : "")
     );
     if (skippedRows.length > 0) {

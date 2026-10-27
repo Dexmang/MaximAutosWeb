@@ -18,8 +18,11 @@
  *      (falls back to GET when the CDN rejects HEAD)
  *
  * When the repo checkout is present (site/src/data/vehicles.json readable) it
- * also cross-checks set parity: every non-sold vehicle with a valid VIN must
- * be in the feed, and the feed must not contain extra VINs.
+ * also cross-checks set parity: every non-sold vehicle with a valid VIN that is
+ * ready to advertise (price set, photos present: scripts/listing-readiness.mjs,
+ * the same predicate both builders use) must be in the feed, a not ready unit is
+ * expected to be absent and is listed as held, and the feed must not contain
+ * extra VINs.
  *
  * Prints a per-VIN PASS/FAIL table. Exits 1 on any failure.
  *
@@ -33,6 +36,7 @@
 import { readFileSync, existsSync } from 'fs';
 import { fileURLToPath } from 'url';
 import { dirname, resolve } from 'path';
+import { notReadyReasons } from './listing-readiness.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const VEHICLES_JSON = resolve(__dirname, '../site/src/data/vehicles.json');
@@ -203,21 +207,29 @@ async function auditItem(item) {
 function crossCheckVehiclesJson(feedVins) {
   const findings = [];
   if (!existsSync(VEHICLES_JSON)) {
-    return { skipped: true, findings };
+    return { skipped: true, findings, held: [] };
   }
   const vehicles = JSON.parse(readFileSync(VEHICLES_JSON, 'utf8'));
-  const expected = new Set(
-    vehicles
-      .filter((v) => v.status !== 'sold' && v.vin && v.vin !== 'TBD' && String(v.vin).length === 17)
-      .map((v) => v.vin)
+  const active = vehicles.filter(
+    (v) => v.status !== 'sold' && v.vin && v.vin !== 'TBD' && String(v.vin).length === 17
   );
+  // Readiness hold: a unit with no price or no photos is kept out of the feed on
+  // purpose by build-gmc-feed.js, so its absence is expected, not drift. Before this,
+  // J10280EV (price 0, no photos, 2026-10-27) failed the audit three runs in a row for
+  // being correctly absent. If such a unit IS in the feed, that is EXTRA and fails.
+  const held = active.filter((v) => notReadyReasons(v).length > 0);
+  const expected = new Set(active.filter((v) => notReadyReasons(v).length === 0).map((v) => v.vin));
   for (const vin of expected) {
     if (!feedVins.has(vin)) findings.push(`MISSING from feed: ${vin} (active in vehicles.json)`);
   }
   for (const vin of feedVins) {
-    if (!expected.has(vin)) findings.push(`EXTRA in feed: ${vin} (not an active vehicle in vehicles.json)`);
+    if (!expected.has(vin)) findings.push(`EXTRA in feed: ${vin} (not an active, ready vehicle in vehicles.json)`);
   }
-  return { skipped: false, findings };
+  return {
+    skipped: false,
+    findings,
+    held: held.map((v) => `${v.stockNumber || v.vin} [${v.vin}]: ${notReadyReasons(v).join(', ')}`),
+  };
 }
 
 // ── Main ─────────────────────────────────────────────────────────────────────
@@ -279,6 +291,10 @@ async function main() {
     } else {
       console.log('Cross-check vs vehicles.json: FAIL');
       for (const f of cross.findings) console.log(`  ${f}`);
+    }
+    if (cross.held && cross.held.length) {
+      console.log(`Held, not ready (no price or no photos), expected absent from feed: ${cross.held.length}`);
+      for (const h of cross.held) console.log(`  ${h}`);
     }
     if (items.length === 0) console.log('FAIL: feed contains zero items');
     console.log(`\n${results.length - failedItems.length}/${results.length} items passed.`);
