@@ -4,7 +4,7 @@
   <title>Maxim Autos Vehicle Inventory</title>
   <link>https://www.maximautos.com/</link>
   <description>Used vehicles for sale at Maxim Autos in Skokie, IL 60077. Phone +18475108947.</description>
-  <lastBuildDate>2026-10-27T17:08:56.436Z</lastBuildDate>
+  <lastBuildDate>2026-10-27T18:00:43.500Z</lastBuildDate>
   <item>
     <g:id>2FMPK3J96GBC56381</g:id>
     <g:title>2016 Ford Edge SEL</g:title>
@@ -372,7 +372,7 @@
     <g:related_product>
       <g:relationship_type>substitute</g:relationship_type>
       <g:identifier_type>id</g:identifier_type>
-      <g:identifier>KM8J3CA48HU259737</g:identifier>
+      <g:identifier>5XYPH4A52JG399000</g:identifier>
     </g:related_product>
   </item>
   <item>
@@ -562,117 +562,17 @@
     <g:related_product>
       <g:relationship_type>substitute</g:relationship_type>
       <g:identifier_type>id</g:identifier_type>
-      <g:identifier>KM8J3CA48HU259737</g:identifier>
-    </g:related_product>
-    <g:related_product>
-      <g:relationship_type>substitute</g:relationship_type>
-      <g:identifier_type>id</g:identifier_type>
-      <g:identifier>WA1D7AFP0GA094726</g:identifier>
-    </g:related_product>
-    <g:related_product>
-      <g:relationship_type>substitute</g:relationship_type>
-      <g:identifier_type>id</g:identifier_type>
       <g:identifier>5N1AZ2MH6FN251280</g:identifier>
     </g:related_product>
-  </item>
-  <item>
-    <g:id>KM8J3CA48HU259737</g:id>
-    <g:title>2017 Hyundai Tucson SE</g:title>
-    <g:description>2017 Hyundai Tucson SE AWD: all wheel drive, rear view camera, Bluetooth, power driver seat, alloy wheels. Burgundy over tan cloth, 6 speed Shiftronic automatic, 2.0L four cylinder. The compact SUV for a Skokie commuter who wants all wheel drive for the snow and an easy monthly payment, with no dealer fees. Key features: 2.0L four cylinder with 164 horsepower and 151 lb ft of torque, all wheel drive with a lockable mode for slush and snow, 6 speed Shiftronic automatic, rear view camera, Bluetooth hands free phone and audio streaming, steering wheel audio controls, power driver seat, cruise control, SiriusXM satellite radio ready, CD and auxiliary input, alloy wheels, side and overhead airbags, traction control and ABS. 21 city, 26 highway mpg. The Maxim Autos Difference Independent inspection report included with every vehicle Metal plates issued on the spot, drive home today, skip the DMV No dealer fees at Maxim Autos, ever. The price you see is the price you pay, plus tax, title, and license. Financing for all credit levels Located in Skokie, IL, minutes from Evanston, Niles, Morton Grove, Lincolnwood, Des Plaines and the North Shore Chicago area. Call or text (847) 510-8947 to confirm it is still available. Every car inspected. Every price transparent. Every car documented.</g:description>
-    <g:link>https://www.maximautos.com/vehicle/2017-hyundai-tucson-se-j10277</g:link>
-    <g:link_template>https://www.maximautos.com/vehicle/2017-hyundai-tucson-se-j10277?store={store_code}</g:link_template>
-    <g:image_link>https://imagesdl.dealercenter.net/1289/856/202610-0742a23e032748ab82f968d094ef84e1.jpg</g:image_link>
-    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202610-4eb90a4bd381476db78379d6aa6f34ef.jpg</g:additional_image_link>
-    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202610-043b41fc9cec4a7b962121befaa2707c.jpg</g:additional_image_link>
-    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202610-e314aae218d04e86bc5f635a4a195b94.jpg</g:additional_image_link>
-    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202610-d48a9cdb72b24c6e821983c43d85c917.jpg</g:additional_image_link>
-    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202610-3d2efad28f0d4b1cb32f20ff07bfad73.jpg</g:additional_image_link>
-    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202610-9287626093b944b6b948e9b347f9d12a.jpg</g:additional_image_link>
-    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202610-85e9013db5d840799051c5c6a127a196.jpg</g:additional_image_link>
-    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202610-3c1541eda736404cb625b9cd99a304c8.jpg</g:additional_image_link>
-    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202610-4ecd822978ee4e7c97efea6a932dee74.jpg</g:additional_image_link>
-    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202610-4a0f110bb724474399d5a09cde7c9eb0.jpg</g:additional_image_link>
-    <g:condition>used</g:condition>
-    <g:price>12495 USD</g:price>
-    <g:availability>in_stock</g:availability>
-    <g:brand>Hyundai</g:brand>
-    <g:google_product_category>Vehicles &amp; Parts &gt; Vehicles &gt; Motor Vehicles &gt; Cars, Trucks &amp; Vans</g:google_product_category>
-    <g:excluded_destination>Shopping_ads</g:excluded_destination>
-    <g:excluded_destination>Free_listings</g:excluded_destination>
-    <g:vin>KM8J3CA48HU259737</g:vin>
-    <g:year>2017</g:year>
-    <g:model>Tucson</g:model>
-    <g:mileage>94859 Miles</g:mileage>
-    <g:store_code>08861907241419503398</g:store_code>
-    <g:vehicle_fulfillment>
-      <g:option>in_store</g:option>
-    </g:vehicle_fulfillment>
-    <g:color>Burgundy</g:color>
-    <g:trim>SE</g:trim>
-    <g:body_style>suv</g:body_style>
-    <g:custom_label_0>age_0_30</g:custom_label_0>
-    <g:custom_label_1>suv</g:custom_label_1>
-    <g:custom_label_2>price_12k_plus</g:custom_label_2>
-    <g:custom_label_3>cg_unrated</g:custom_label_3>
-    <g:custom_label_4>awd_4wd</g:custom_label_4>
-    <g:question_and_answer>
-      <g:question>Is this used Hyundai Tucson inspected before sale?</g:question>
-      <g:answer>Every car is inspected before it goes on the lot, and a free CARFAX comes with it. Ask Jerry what was checked on any car before you decide.</g:answer>
-    </g:question_and_answer>
-    <g:question_and_answer>
-      <g:question>Does this Hyundai Tucson come with a CARFAX report?</g:question>
-      <g:answer>Yes. A CARFAX vehicle history report is included with every used vehicle at Maxim Autos at no extra cost.</g:answer>
-    </g:question_and_answer>
-    <g:question_and_answer>
-      <g:question>Can I get financing on this Hyundai Tucson?</g:question>
-      <g:answer>Yes. Maxim Autos offers financing for all credit levels, including first time buyers and those rebuilding credit. Start with the short financing form or a call to Jerry: neither touches your credit. A full application does include a credit check, and approval is never guaranteed.</g:answer>
-    </g:question_and_answer>
-    <g:question_and_answer>
-      <g:question>Are there dealer fees or doc fees on this Hyundai Tucson?</g:question>
-      <g:answer>No. Maxim Autos never charges dealer fees. No doc fee, no processing fee, no surprise extras at signing. The listed price is what you pay plus standard Illinois tax, title and license.</g:answer>
-    </g:question_and_answer>
-    <g:question_and_answer>
-      <g:question>Can I drive this Hyundai Tucson home the same day?</g:question>
-      <g:answer>Yes. Maxim Autos is an authorized Illinois CVR (Computer Vehicle Registration) electronic registration dealer. Metal plates are issued the same visit for cars registered in Illinois. Buyers registering in another state receive an Illinois drive away permit and plate the car at home.</g:answer>
-    </g:question_and_answer>
-    <g:question_and_answer>
-      <g:question>Is this Hyundai Tucson all wheel drive?</g:question>
-      <g:answer>Yes. This 2017 Hyundai Tucson SE is all wheel drive (AWD).</g:answer>
-    </g:question_and_answer>
-    <g:question_and_answer>
-      <g:question>What transmission does this Hyundai Tucson have?</g:question>
-      <g:answer>This 2017 Hyundai Tucson SE has an automatic transmission.</g:answer>
-    </g:question_and_answer>
-    <g:question_and_answer>
-      <g:question>What is the fuel economy of this Hyundai Tucson?</g:question>
-      <g:answer>EPA estimated 21 city and 26 highway MPG for this 2017 Hyundai Tucson SE.</g:answer>
-    </g:question_and_answer>
-    <g:question_and_answer>
-      <g:question>What engine is in this Hyundai Tucson?</g:question>
-      <g:answer>This 2017 Hyundai Tucson SE has a 164 hp 2.0L I4 engine.</g:answer>
-    </g:question_and_answer>
-    <g:question_and_answer>
-      <g:question>Where can I see this Hyundai Tucson in person?</g:question>
-      <g:answer>At Maxim Autos, 9101 Terminal Ave, Skokie, IL 60077, serving Evanston, Niles, Morton Grove, Lincolnwood, Des Plaines, Glenview, Wilmette and Park Ridge. Hours: Monday, Tuesday, Thursday and Friday 3 PM to 7 PM, Saturday 10 AM to 3 PM, Wednesday by appointment, Sunday closed. Call or text (847) 510-8947.</g:answer>
-    </g:question_and_answer>
-    <g:question_and_answer>
-      <g:question>Can I trade in my current car toward this Hyundai Tucson?</g:question>
-      <g:answer>Yes. Maxim Autos accepts trade ins and also buys cars outright. Text the VIN of your car to (847) 510-8947 for a quick offer, no obligation.</g:answer>
-    </g:question_and_answer>
     <g:related_product>
       <g:relationship_type>substitute</g:relationship_type>
       <g:identifier_type>id</g:identifier_type>
-      <g:identifier>WA1D7AFP0GA094726</g:identifier>
+      <g:identifier>WA1ECCFS8JR006434</g:identifier>
     </g:related_product>
     <g:related_product>
       <g:relationship_type>substitute</g:relationship_type>
       <g:identifier_type>id</g:identifier_type>
-      <g:identifier>KM8J33A47HU369551</g:identifier>
-    </g:related_product>
-    <g:related_product>
-      <g:relationship_type>substitute</g:relationship_type>
-      <g:identifier_type>id</g:identifier_type>
-      <g:identifier>5N1AZ2MH6FN251280</g:identifier>
+      <g:identifier>KM8SRDHF6FU104181</g:identifier>
     </g:related_product>
   </item>
   <item>
@@ -758,192 +658,7 @@
     <g:related_product>
       <g:relationship_type>substitute</g:relationship_type>
       <g:identifier_type>id</g:identifier_type>
-      <g:identifier>WA1VAAF73JD013438</g:identifier>
-    </g:related_product>
-    <g:related_product>
-      <g:relationship_type>substitute</g:relationship_type>
-      <g:identifier_type>id</g:identifier_type>
       <g:identifier>YV4A22PK8G1072955</g:identifier>
-    </g:related_product>
-    <g:related_product>
-      <g:relationship_type>substitute</g:relationship_type>
-      <g:identifier_type>id</g:identifier_type>
-      <g:identifier>KM8J3CA48HU259737</g:identifier>
-    </g:related_product>
-  </item>
-  <item>
-    <g:id>KNDMB5C14G6201419</g:id>
-    <g:title>2016 Kia Sedona LX</g:title>
-    <g:description>2016 Kia Sedona LX: seven passenger minivan, power sliding doors, rear entertainment system, heated front seats, rear view camera. Gray over gray cloth, 6 speed Sportmatic automatic, 3.3L V6. The family van for a North Shore household that wants room for seven and a screen for the back row at a used car price, with no dealer fees. Key features: 3.3L V6 with 276 horsepower and 248 lb ft of torque, 6 speed automatic, seating for seven with second row quad seats that slide and stow and a fold away third row, power sliding doors on both sides, rear entertainment system, heated front seats, power driver seat, rear air conditioning with rear sunshades, rear view camera with parking sensors, Bluetooth, cruise control, Yes Essentials stain and odor resistant cloth, tow hitch, alloy wheels, side and overhead airbags, traction control and ABS. 18 city, 24 highway mpg. The Maxim Autos Difference Independent inspection report included with every vehicle Metal plates issued on the spot, drive home today, skip the DMV No dealer fees at Maxim Autos, ever. The price you see is the price you pay, plus tax, title, and license. Financing for all credit levels Located in Skokie, IL, minutes from Evanston, Niles, Morton Grove, Lincolnwood, Des Plaines and the North Shore Chicago area. Call or text (847) 510-8947 to confirm it is still available. Every car inspected. Every price transparent. Every car documented.</g:description>
-    <g:link>https://www.maximautos.com/vehicle/2016-kia-sedona-lx-j10278</g:link>
-    <g:link_template>https://www.maximautos.com/vehicle/2016-kia-sedona-lx-j10278?store={store_code}</g:link_template>
-    <g:image_link>https://imagesdl.dealercenter.net/1289/856/202610-4227ac0a5be14bdc9beae96563cb4a57.jpg</g:image_link>
-    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202610-0cb21dfb6d1849419c1a431802561f58.jpg</g:additional_image_link>
-    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202610-5a578326e911406d85e6adf610fcbd32.jpg</g:additional_image_link>
-    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202610-f92a99fd853f4a3a9147f249d6ef159b.jpg</g:additional_image_link>
-    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202610-47095c0aeedf4a04ae021e525817326d.jpg</g:additional_image_link>
-    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202610-5a68aab469b6451c9e0529ee2147a7a4.jpg</g:additional_image_link>
-    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202610-f4a8a1fbbb2a499b9ba5d0f25f4b867d.jpg</g:additional_image_link>
-    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202610-cf82b686005d4abbb5b2bccae405aeac.jpg</g:additional_image_link>
-    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202610-a392a16b519b46b59926b54ee9b947b2.jpg</g:additional_image_link>
-    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202610-eed681794d1842148ff61af38ebca6cb.jpg</g:additional_image_link>
-    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202610-a14bbc1dd0e84fb8b46eb40465fdd4f3.jpg</g:additional_image_link>
-    <g:condition>used</g:condition>
-    <g:price>9495 USD</g:price>
-    <g:availability>in_stock</g:availability>
-    <g:brand>Kia</g:brand>
-    <g:google_product_category>Vehicles &amp; Parts &gt; Vehicles &gt; Motor Vehicles &gt; Cars, Trucks &amp; Vans</g:google_product_category>
-    <g:excluded_destination>Shopping_ads</g:excluded_destination>
-    <g:excluded_destination>Free_listings</g:excluded_destination>
-    <g:vin>KNDMB5C14G6201419</g:vin>
-    <g:year>2016</g:year>
-    <g:model>Sedona</g:model>
-    <g:mileage>106414 Miles</g:mileage>
-    <g:store_code>08861907241419503398</g:store_code>
-    <g:vehicle_fulfillment>
-      <g:option>in_store</g:option>
-    </g:vehicle_fulfillment>
-    <g:color>Gray</g:color>
-    <g:trim>LX</g:trim>
-    <g:body_style>minivan</g:body_style>
-    <g:custom_label_0>age_0_30</g:custom_label_0>
-    <g:custom_label_1>minivan</g:custom_label_1>
-    <g:custom_label_2>price_8k_to_12k</g:custom_label_2>
-    <g:custom_label_3>cg_unrated</g:custom_label_3>
-    <g:custom_label_4>two_wheel_drive</g:custom_label_4>
-    <g:question_and_answer>
-      <g:question>Is this used Kia Sedona inspected before sale?</g:question>
-      <g:answer>Every car is inspected before it goes on the lot, and a free CARFAX comes with it. Ask Jerry what was checked on any car before you decide.</g:answer>
-    </g:question_and_answer>
-    <g:question_and_answer>
-      <g:question>Does this Kia Sedona come with a CARFAX report?</g:question>
-      <g:answer>Yes. A CARFAX vehicle history report is included with every used vehicle at Maxim Autos at no extra cost.</g:answer>
-    </g:question_and_answer>
-    <g:question_and_answer>
-      <g:question>Can I get financing on this Kia Sedona?</g:question>
-      <g:answer>Yes. Maxim Autos offers financing for all credit levels, including first time buyers and those rebuilding credit. Start with the short financing form or a call to Jerry: neither touches your credit. A full application does include a credit check, and approval is never guaranteed.</g:answer>
-    </g:question_and_answer>
-    <g:question_and_answer>
-      <g:question>Are there dealer fees or doc fees on this Kia Sedona?</g:question>
-      <g:answer>No. Maxim Autos never charges dealer fees. No doc fee, no processing fee, no surprise extras at signing. The listed price is what you pay plus standard Illinois tax, title and license.</g:answer>
-    </g:question_and_answer>
-    <g:question_and_answer>
-      <g:question>Can I drive this Kia Sedona home the same day?</g:question>
-      <g:answer>Yes. Maxim Autos is an authorized Illinois CVR (Computer Vehicle Registration) electronic registration dealer. Metal plates are issued the same visit for cars registered in Illinois. Buyers registering in another state receive an Illinois drive away permit and plate the car at home.</g:answer>
-    </g:question_and_answer>
-    <g:question_and_answer>
-      <g:question>Is this Kia Sedona all wheel drive?</g:question>
-      <g:answer>No. This 2016 Kia Sedona LX is front wheel drive.</g:answer>
-    </g:question_and_answer>
-    <g:question_and_answer>
-      <g:question>What transmission does this Kia Sedona have?</g:question>
-      <g:answer>This 2016 Kia Sedona LX has an automatic transmission.</g:answer>
-    </g:question_and_answer>
-    <g:question_and_answer>
-      <g:question>What is the fuel economy of this Kia Sedona?</g:question>
-      <g:answer>EPA estimated 18 city and 24 highway MPG for this 2016 Kia Sedona LX.</g:answer>
-    </g:question_and_answer>
-    <g:question_and_answer>
-      <g:question>What engine is in this Kia Sedona?</g:question>
-      <g:answer>This 2016 Kia Sedona LX has a 3.3L V6 engine.</g:answer>
-    </g:question_and_answer>
-    <g:question_and_answer>
-      <g:question>Where can I see this Kia Sedona in person?</g:question>
-      <g:answer>At Maxim Autos, 9101 Terminal Ave, Skokie, IL 60077, serving Evanston, Niles, Morton Grove, Lincolnwood, Des Plaines, Glenview, Wilmette and Park Ridge. Hours: Monday, Tuesday, Thursday and Friday 3 PM to 7 PM, Saturday 10 AM to 3 PM, Wednesday by appointment, Sunday closed. Call or text (847) 510-8947.</g:answer>
-    </g:question_and_answer>
-    <g:question_and_answer>
-      <g:question>Can I trade in my current car toward this Kia Sedona?</g:question>
-      <g:answer>Yes. Maxim Autos accepts trade ins and also buys cars outright. Text the VIN of your car to (847) 510-8947 for a quick offer, no obligation.</g:answer>
-    </g:question_and_answer>
-  </item>
-  <item>
-    <g:id>WA1D7AFP0GA094726</g:id>
-    <g:title>2016 Audi Q5 3.0T Premium Plus</g:title>
-    <g:description>2016 Audi Q5 3.0T Premium Plus quattro: supercharged V6, quattro all wheel drive, S line, panoramic sunroof, navigation, heated leather seats. White over tan leather, 8 speed Tiptronic automatic, 3.0L supercharged V6. The compact luxury SUV for a North Shore winter, with sports sedan power and the grip to use it, and no dealer fees. Key features: 3.0L supercharged V6 with 272 horsepower and 295 lb ft of torque, quattro all wheel drive, 8 speed Tiptronic automatic, S line package with 20 inch alloy wheels, panoramic sunroof, navigation system, leather seats with heated and memory front seats, power seats, rear view camera with front and rear parking sensors, smart key, Bluetooth, satellite radio ready, power hatch, full roof rack, cruise control, side and overhead airbags, traction control and ABS. About 6 seconds to 60 and 18 city, 26 highway mpg. The Maxim Autos Difference Independent inspection report included with every vehicle Metal plates issued on the spot, drive home today, skip the DMV No dealer fees at Maxim Autos, ever. The price you see is the price you pay, plus tax, title, and license. Financing for all credit levels Located in Skokie, IL, minutes from Evanston, Niles, Morton Grove, Lincolnwood, Des Plaines and the North Shore Chicago area. Call or text (847) 510-8947 to confirm it is still available. Every car inspected. Every price transparent. Every car documented.</g:description>
-    <g:link>https://www.maximautos.com/vehicle/2016-audi-q5-3-0t-premium-plus-j10275</g:link>
-    <g:link_template>https://www.maximautos.com/vehicle/2016-audi-q5-3-0t-premium-plus-j10275?store={store_code}</g:link_template>
-    <g:image_link>https://imagesdl.dealercenter.net/1289/856/202610-8d63eb91c30741148f59dd63a13f7cd6.jpg</g:image_link>
-    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202610-13c3f3ea9d1446e792cd6a975daddef3.jpg</g:additional_image_link>
-    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202610-ed7a29425ec745d08983dddfa58c058c.jpg</g:additional_image_link>
-    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202610-9a116b4dbb274ff68ebb098fb94e1d29.jpg</g:additional_image_link>
-    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202610-a13086a96a3947488b8e818cf88a5434.jpg</g:additional_image_link>
-    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202610-b0451ead75ee46549b9772dd7851a361.jpg</g:additional_image_link>
-    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202610-7a91f63816ac46f6a1a46864b4e851fa.jpg</g:additional_image_link>
-    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202610-1836ae808365470f998fb8b2ca299281.jpg</g:additional_image_link>
-    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202610-c46473990f2d4a489aee0164a2a31adb.jpg</g:additional_image_link>
-    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202610-4771bcbf35454156ae2c5a7077410b90.jpg</g:additional_image_link>
-    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202610-6099068d8a2746169789da8dc0dd073b.jpg</g:additional_image_link>
-    <g:condition>used</g:condition>
-    <g:price>12495 USD</g:price>
-    <g:availability>in_stock</g:availability>
-    <g:brand>Audi</g:brand>
-    <g:google_product_category>Vehicles &amp; Parts &gt; Vehicles &gt; Motor Vehicles &gt; Cars, Trucks &amp; Vans</g:google_product_category>
-    <g:excluded_destination>Shopping_ads</g:excluded_destination>
-    <g:excluded_destination>Free_listings</g:excluded_destination>
-    <g:vin>WA1D7AFP0GA094726</g:vin>
-    <g:year>2016</g:year>
-    <g:model>Q5</g:model>
-    <g:mileage>106207 Miles</g:mileage>
-    <g:store_code>08861907241419503398</g:store_code>
-    <g:vehicle_fulfillment>
-      <g:option>in_store</g:option>
-    </g:vehicle_fulfillment>
-    <g:color>White</g:color>
-    <g:trim>3.0T Premium Plus</g:trim>
-    <g:body_style>suv</g:body_style>
-    <g:custom_label_0>age_0_30</g:custom_label_0>
-    <g:custom_label_1>suv</g:custom_label_1>
-    <g:custom_label_2>price_12k_plus</g:custom_label_2>
-    <g:custom_label_3>cg_unrated</g:custom_label_3>
-    <g:custom_label_4>awd_4wd</g:custom_label_4>
-    <g:question_and_answer>
-      <g:question>Is this used Audi Q5 inspected before sale?</g:question>
-      <g:answer>Every car is inspected before it goes on the lot, and a free CARFAX comes with it. Ask Jerry what was checked on any car before you decide.</g:answer>
-    </g:question_and_answer>
-    <g:question_and_answer>
-      <g:question>Does this Audi Q5 come with a CARFAX report?</g:question>
-      <g:answer>Yes. A CARFAX vehicle history report is included with every used vehicle at Maxim Autos at no extra cost.</g:answer>
-    </g:question_and_answer>
-    <g:question_and_answer>
-      <g:question>Can I get financing on this Audi Q5?</g:question>
-      <g:answer>Yes. Maxim Autos offers financing for all credit levels, including first time buyers and those rebuilding credit. Start with the short financing form or a call to Jerry: neither touches your credit. A full application does include a credit check, and approval is never guaranteed.</g:answer>
-    </g:question_and_answer>
-    <g:question_and_answer>
-      <g:question>Are there dealer fees or doc fees on this Audi Q5?</g:question>
-      <g:answer>No. Maxim Autos never charges dealer fees. No doc fee, no processing fee, no surprise extras at signing. The listed price is what you pay plus standard Illinois tax, title and license.</g:answer>
-    </g:question_and_answer>
-    <g:question_and_answer>
-      <g:question>Can I drive this Audi Q5 home the same day?</g:question>
-      <g:answer>Yes. Maxim Autos is an authorized Illinois CVR (Computer Vehicle Registration) electronic registration dealer. Metal plates are issued the same visit for cars registered in Illinois. Buyers registering in another state receive an Illinois drive away permit and plate the car at home.</g:answer>
-    </g:question_and_answer>
-    <g:question_and_answer>
-      <g:question>Is this Audi Q5 all wheel drive?</g:question>
-      <g:answer>Yes. This 2016 Audi Q5 3.0T Premium Plus is all wheel drive (AWD).</g:answer>
-    </g:question_and_answer>
-    <g:question_and_answer>
-      <g:question>What transmission does this Audi Q5 have?</g:question>
-      <g:answer>This 2016 Audi Q5 3.0T Premium Plus has an automatic transmission.</g:answer>
-    </g:question_and_answer>
-    <g:question_and_answer>
-      <g:question>What is the fuel economy of this Audi Q5?</g:question>
-      <g:answer>EPA estimated 18 city and 26 highway MPG for this 2016 Audi Q5 3.0T Premium Plus.</g:answer>
-    </g:question_and_answer>
-    <g:question_and_answer>
-      <g:question>What engine is in this Audi Q5?</g:question>
-      <g:answer>This 2016 Audi Q5 3.0T Premium Plus has a 272 hp 3.0L V6 engine.</g:answer>
-    </g:question_and_answer>
-    <g:question_and_answer>
-      <g:question>Where can I see this Audi Q5 in person?</g:question>
-      <g:answer>At Maxim Autos, 9101 Terminal Ave, Skokie, IL 60077, serving Evanston, Niles, Morton Grove, Lincolnwood, Des Plaines, Glenview, Wilmette and Park Ridge. Hours: Monday, Tuesday, Thursday and Friday 3 PM to 7 PM, Saturday 10 AM to 3 PM, Wednesday by appointment, Sunday closed. Call or text (847) 510-8947.</g:answer>
-    </g:question_and_answer>
-    <g:question_and_answer>
-      <g:question>Can I trade in my current car toward this Audi Q5?</g:question>
-      <g:answer>Yes. Maxim Autos accepts trade ins and also buys cars outright. Text the VIN of your car to (847) 510-8947 for a quick offer, no obligation.</g:answer>
-    </g:question_and_answer>
-    <g:related_product>
-      <g:relationship_type>substitute</g:relationship_type>
-      <g:identifier_type>id</g:identifier_type>
-      <g:identifier>KM8J3CA48HU259737</g:identifier>
     </g:related_product>
     <g:related_product>
       <g:relationship_type>substitute</g:relationship_type>
@@ -1057,106 +772,6 @@
     </g:related_product>
   </item>
   <item>
-    <g:id>WA1VAAF73JD013438</g:id>
-    <g:title>2018 Audi Q7 3.0T Prestige</g:title>
-    <g:description>2018 Audi Q7 3.0T Prestige quattro: three rows, supercharged V6, quattro all wheel drive, panoramic sunroof, Bose, head up display, heated and ventilated leather. Brown over tan leather, 8 speed Tiptronic automatic, 3.0L supercharged V6. The seven seat luxury SUV for a North Shore family that wants Audi quattro for winter without the new car price, and no dealer fees. Key features: 3.0L supercharged V6 with 333 horsepower and 325 lb ft of torque, quattro all wheel drive, 8 speed Tiptronic automatic, three rows with a power folding third row, leather seats with heated and ventilated front seats, heated rear seats, heated steering wheel and the Cold Weather Package, panoramic sunroof, navigation, Bose sound system, Apple CarPlay and Android Auto, head up display, Driver Assistance Package with adaptive cruise control, lane departure warning and blind spot monitor, rear view camera with parking sensors, memory seats, smart key, power hatch, rear air conditioning, rear sunshades, tow hitch, 20 inch alloy wheels on run flat tires. 0 to 60 in about 5.7 seconds, tows up to 7,700 pounds when equipped, 19 city, 25 highway mpg. The Maxim Autos Difference Independent inspection report included with every vehicle Metal plates issued on the spot, drive home today, skip the DMV No dealer fees at Maxim Autos, ever. The price you see is the price you pay, plus tax, title, and license. Financing for all credit levels Located in Skokie, IL, minutes from Evanston, Niles, Morton Grove, Lincolnwood, Des Plaines and the North Shore Chicago area. Call or text (847) 510-8947 to confirm it is still available. Every car inspected. Every price transparent. Every car documented.</g:description>
-    <g:link>https://www.maximautos.com/vehicle/2018-audi-q7-3-0t-prestige-j10276</g:link>
-    <g:link_template>https://www.maximautos.com/vehicle/2018-audi-q7-3-0t-prestige-j10276?store={store_code}</g:link_template>
-    <g:image_link>https://imagesdl.dealercenter.net/1289/856/202610-9baaeb018566451f843e7709d3429e58.jpg</g:image_link>
-    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202610-80f5cb89803b4f69bfb7df31680b9f2b.jpg</g:additional_image_link>
-    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202610-cbb10afe1f4d4a6aae91261e45e129e2.jpg</g:additional_image_link>
-    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202610-b24096a4f9184178905cdfe91ed1ed12.jpg</g:additional_image_link>
-    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202610-80e02cec6bea4973ba45c095f14c0731.jpg</g:additional_image_link>
-    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202610-db9afdc67d1c41ec8348aacb6fe727de.jpg</g:additional_image_link>
-    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202610-ad00b485e6274f469dc12e9266c8d59d.jpg</g:additional_image_link>
-    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202610-d5cbd8a0c2804948a0b752ca98b3d103.jpg</g:additional_image_link>
-    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202610-8fdde8426e2a4207ba42a34450d457e1.jpg</g:additional_image_link>
-    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202610-cff78ccc6aad48d4bdf5065644d8fef7.jpg</g:additional_image_link>
-    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202610-6ea669f21bc743af965d7f6e756ebc8c.jpg</g:additional_image_link>
-    <g:condition>used</g:condition>
-    <g:price>14495 USD</g:price>
-    <g:availability>in_stock</g:availability>
-    <g:brand>Audi</g:brand>
-    <g:google_product_category>Vehicles &amp; Parts &gt; Vehicles &gt; Motor Vehicles &gt; Cars, Trucks &amp; Vans</g:google_product_category>
-    <g:excluded_destination>Shopping_ads</g:excluded_destination>
-    <g:excluded_destination>Free_listings</g:excluded_destination>
-    <g:vin>WA1VAAF73JD013438</g:vin>
-    <g:year>2018</g:year>
-    <g:model>Q7</g:model>
-    <g:mileage>107104 Miles</g:mileage>
-    <g:store_code>08861907241419503398</g:store_code>
-    <g:vehicle_fulfillment>
-      <g:option>in_store</g:option>
-    </g:vehicle_fulfillment>
-    <g:color>Brown</g:color>
-    <g:trim>3.0T Prestige</g:trim>
-    <g:body_style>suv</g:body_style>
-    <g:custom_label_0>age_0_30</g:custom_label_0>
-    <g:custom_label_1>suv</g:custom_label_1>
-    <g:custom_label_2>price_12k_plus</g:custom_label_2>
-    <g:custom_label_3>cg_unrated</g:custom_label_3>
-    <g:custom_label_4>awd_4wd</g:custom_label_4>
-    <g:question_and_answer>
-      <g:question>Is this used Audi Q7 inspected before sale?</g:question>
-      <g:answer>Every car is inspected before it goes on the lot, and a free CARFAX comes with it. Ask Jerry what was checked on any car before you decide.</g:answer>
-    </g:question_and_answer>
-    <g:question_and_answer>
-      <g:question>Does this Audi Q7 come with a CARFAX report?</g:question>
-      <g:answer>Yes. A CARFAX vehicle history report is included with every used vehicle at Maxim Autos at no extra cost.</g:answer>
-    </g:question_and_answer>
-    <g:question_and_answer>
-      <g:question>Can I get financing on this Audi Q7?</g:question>
-      <g:answer>Yes. Maxim Autos offers financing for all credit levels, including first time buyers and those rebuilding credit. Start with the short financing form or a call to Jerry: neither touches your credit. A full application does include a credit check, and approval is never guaranteed.</g:answer>
-    </g:question_and_answer>
-    <g:question_and_answer>
-      <g:question>Are there dealer fees or doc fees on this Audi Q7?</g:question>
-      <g:answer>No. Maxim Autos never charges dealer fees. No doc fee, no processing fee, no surprise extras at signing. The listed price is what you pay plus standard Illinois tax, title and license.</g:answer>
-    </g:question_and_answer>
-    <g:question_and_answer>
-      <g:question>Can I drive this Audi Q7 home the same day?</g:question>
-      <g:answer>Yes. Maxim Autos is an authorized Illinois CVR (Computer Vehicle Registration) electronic registration dealer. Metal plates are issued the same visit for cars registered in Illinois. Buyers registering in another state receive an Illinois drive away permit and plate the car at home.</g:answer>
-    </g:question_and_answer>
-    <g:question_and_answer>
-      <g:question>Is this Audi Q7 all wheel drive?</g:question>
-      <g:answer>Yes. This 2018 Audi Q7 3.0T Prestige is all wheel drive (AWD).</g:answer>
-    </g:question_and_answer>
-    <g:question_and_answer>
-      <g:question>What transmission does this Audi Q7 have?</g:question>
-      <g:answer>This 2018 Audi Q7 3.0T Prestige has an automatic transmission.</g:answer>
-    </g:question_and_answer>
-    <g:question_and_answer>
-      <g:question>What is the fuel economy of this Audi Q7?</g:question>
-      <g:answer>EPA estimated 19 city and 25 highway MPG for this 2018 Audi Q7 3.0T Prestige.</g:answer>
-    </g:question_and_answer>
-    <g:question_and_answer>
-      <g:question>What engine is in this Audi Q7?</g:question>
-      <g:answer>This 2018 Audi Q7 3.0T Prestige has a 333 hp 3.0L V6 engine.</g:answer>
-    </g:question_and_answer>
-    <g:question_and_answer>
-      <g:question>Where can I see this Audi Q7 in person?</g:question>
-      <g:answer>At Maxim Autos, 9101 Terminal Ave, Skokie, IL 60077, serving Evanston, Niles, Morton Grove, Lincolnwood, Des Plaines, Glenview, Wilmette and Park Ridge. Hours: Monday, Tuesday, Thursday and Friday 3 PM to 7 PM, Saturday 10 AM to 3 PM, Wednesday by appointment, Sunday closed. Call or text (847) 510-8947.</g:answer>
-    </g:question_and_answer>
-    <g:question_and_answer>
-      <g:question>Can I trade in my current car toward this Audi Q7?</g:question>
-      <g:answer>Yes. Maxim Autos accepts trade ins and also buys cars outright. Text the VIN of your car to (847) 510-8947 for a quick offer, no obligation.</g:answer>
-    </g:question_and_answer>
-    <g:related_product>
-      <g:relationship_type>substitute</g:relationship_type>
-      <g:identifier_type>id</g:identifier_type>
-      <g:identifier>YV4A22PK8G1072955</g:identifier>
-    </g:related_product>
-    <g:related_product>
-      <g:relationship_type>substitute</g:relationship_type>
-      <g:identifier_type>id</g:identifier_type>
-      <g:identifier>KM8SRDHF6FU104181</g:identifier>
-    </g:related_product>
-    <g:related_product>
-      <g:relationship_type>substitute</g:relationship_type>
-      <g:identifier_type>id</g:identifier_type>
-      <g:identifier>KM8J3CA48HU259737</g:identifier>
-    </g:related_product>
-  </item>
-  <item>
     <g:id>YV4A22PK8G1072955</g:id>
     <g:title>2016 Volvo XC90 T6 Momentum</g:title>
     <g:description>2016 Volvo XC90 T6 Momentum AWD: 316 horsepower supercharged and turbocharged 2.0 liter, all wheel drive, seven seats, leather, panoramic sunroof, heated steering wheel, navigation, adaptive cruise control. Gray on black, 8 speed Geartronic automatic, 2.0L T6. The three row Volvo with Scandinavian design and the safety technology families want, with no dealer fees. Key features: 2.0 liter T6 with a supercharger and a turbocharger making 316 horsepower and 295 lb-ft of torque, 8 speed Geartronic automatic, all wheel drive, leather seating for seven with a fold away third row, panoramic sunroof, heated front seats, heated steering wheel, memory driver seat, head up display, 9 inch vertical touchscreen with navigation, Bluetooth and satellite radio ready, blind spot monitor, lane departure warning, adaptive cruise control, front and rear parking sensors, rear view camera, power liftgate, rear air conditioning, Thor&apos;s hammer LED running lights, smart key with push button start, alloy wheels. 20 city and 25 highway from a four cylinder in a full size three row SUV. The Maxim Autos Difference Independent inspection report included with every vehicle Metal plates issued on the spot, drive home today No dealer fees, transparent all in pricing Financing for all credit levels Skokie, IL, minutes from Evanston, Niles, Morton Grove, Lincolnwood, Des Plaines and the North Shore. Call or text (847) 510-8947 for a same day appointment. Every car inspected. Every price transparent. Every car documented.</g:description>
@@ -1243,17 +858,17 @@
     <g:related_product>
       <g:relationship_type>substitute</g:relationship_type>
       <g:identifier_type>id</g:identifier_type>
-      <g:identifier>WA1VAAF73JD013438</g:identifier>
-    </g:related_product>
-    <g:related_product>
-      <g:relationship_type>substitute</g:relationship_type>
-      <g:identifier_type>id</g:identifier_type>
       <g:identifier>KM8SRDHF6FU104181</g:identifier>
     </g:related_product>
     <g:related_product>
       <g:relationship_type>substitute</g:relationship_type>
       <g:identifier_type>id</g:identifier_type>
-      <g:identifier>KM8J3CA48HU259737</g:identifier>
+      <g:identifier>KM8J33A47HU369551</g:identifier>
+    </g:related_product>
+    <g:related_product>
+      <g:relationship_type>substitute</g:relationship_type>
+      <g:identifier_type>id</g:identifier_type>
+      <g:identifier>5N1AZ2MH6FN251280</g:identifier>
     </g:related_product>
   </item>
 </channel>
