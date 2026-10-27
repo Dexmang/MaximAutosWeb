@@ -30,6 +30,18 @@
       "stockNumber": "J10223",
       "retired_at": "2026-10-11",
       "redirect_to": "/vehicle/2015-kia-soul-j10223"
+    },
+    "2014-subaru-impreza-2-0i-premium-j10263": {
+      "vin": "JF1GPAC63EH339804",
+      "stockNumber": "J10263",
+      "retired_at": "2026-10-27",
+      "redirect_to": "/inventory"
+    },
+    "2014-subaru-impreza-2-0i-sport-premium-j10258": {
+      "vin": "JF1GPAL69E8230098",
+      "stockNumber": "J10258",
+      "retired_at": "2026-10-27",
+      "redirect_to": "/inventory"
     }
   }
 }

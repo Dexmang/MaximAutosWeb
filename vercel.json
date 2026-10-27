@@ -338,6 +338,26 @@
       "source": "/vehicle/2015-kia-soul-gl-middle-low-grade-j10223/",
       "destination": "/vehicle/2015-kia-soul-j10223",
       "permanent": true
+    },
+    {
+      "source": "/vehicle/2014-subaru-impreza-2-0i-premium-j10263",
+      "destination": "/inventory",
+      "permanent": true
+    },
+    {
+      "source": "/vehicle/2014-subaru-impreza-2-0i-premium-j10263/",
+      "destination": "/inventory",
+      "permanent": true
+    },
+    {
+      "source": "/vehicle/2014-subaru-impreza-2-0i-sport-premium-j10258",
+      "destination": "/inventory",
+      "permanent": true
+    },
+    {
+      "source": "/vehicle/2014-subaru-impreza-2-0i-sport-premium-j10258/",
+      "destination": "/inventory",
+      "permanent": true
     }
   ],
   "headers": [
