@@ -624,10 +624,27 @@ function buildFeed() {
   // not a signal — report it rather than letting it change the feed.
   const staleSold = available.filter((v) => v.status === "sold");
 
+  // Readiness hold, first net: a DC VIN with no price or no photos has not passed the
+  // go-live checklist, and build-inventory.js holds it off the site (no row in
+  // vehicles.json at all; scripts/listing-readiness.mjs is the one predicate shared by
+  // both builders and the parity audit). It is expected to be absent here too, so it
+  // leaves the parity count before "missing from the site" is judged. Without this the
+  // first build after the hold landed failed --strict on the very unit it had just
+  // held (J10280EV, 2026-10-27 22:03 UTC) and nothing was committed.
+  const dcNotReady = Object.entries(dcByVin).filter(([, r]) => notReadyReasons(r).length > 0);
+  const dcNotReadyVins = new Set(dcNotReady.map(([vin]) => vin.toUpperCase()));
+  if (dcNotReady.length) {
+    console.warn(
+      `  NOT READY in the DC feed (held off the site and the feed until DealerCenter has a price and photos): ` +
+        dcNotReady.map(([vin, r]) => `${r?.stockNumber || vin} (${notReadyReasons(r).join(", ")})`).join(", ")
+    );
+  }
+
   // Parity check in the other direction: a DC VIN we cannot represent (no row in
-  // vehicles.json yet) would silently shrink the feed.
+  // vehicles.json yet) would silently shrink the feed. A not ready VIN is not missing,
+  // it is held.
   const vehicleVins = new Set(vehicles.map((v) => (v.vin || "").toUpperCase()));
-  const dcMissingFromSite = [...dcVins].filter((vin) => !vehicleVins.has(vin));
+  const dcMissingFromSite = [...dcVins].filter((vin) => !vehicleVins.has(vin) && !dcNotReadyVins.has(vin));
 
   // A DC VIN whose row has no price or no photos is not a skip, it is a car that has
   // not passed the go-live checklist (scripts/listing-readiness.mjs, the one predicate
@@ -647,6 +664,8 @@ function buildFeed() {
         awaitingPhotos.map((v) => `${v.slug || v.stockNumber || v.vin} (${notReadyReasons(v).join(", ")})`).join(", ")
     );
   }
+  // Every DC VIN held for readiness, whichever net caught it.
+  const heldVins = new Set([...dcNotReadyVins, ...awaitingPhotos.map((v) => (v.vin || "").toUpperCase())]);
 
   const now = new Date().toISOString();
   const skippedRows = [];
@@ -682,7 +701,7 @@ ${itemsXml}</channel>
   console.log(`  VINs in newest DC feed (book of record): ${dcVins.size}`);
   console.log(`  total rows in vehicles.json: ${vehicles.length}`);
   console.log(`  matched to a DC VIN: ${available.length}`);
-  console.log(`  not ready (no price or no photos) in the DC feed: ${awaitingPhotos.length}`);
+  console.log(`  held, not ready (no price or no photos) in the DC feed: ${heldVins.size}`);
   console.log(`  written to feed: ${written}`);
 
   // Parity must be exact: feed VINs == DC feed VINs. Anything else is drift.
@@ -701,6 +720,11 @@ ${itemsXml}</channel>
   }
   if (written === dcVins.size) {
     console.log(`  PARITY OK: feed matches the newest DC feed exactly (${written}/${dcVins.size})`);
+  } else if (written === dcVins.size - heldVins.size && !dcMissingFromSite.length) {
+    console.log(
+      `  PARITY OK: feed has ${written} of ${dcVins.size} DC VINs; the other ${heldVins.size} ` +
+        `held, not ready (no price or no photos), by design`
+    );
   } else {
     console.warn(`  PARITY DRIFT: feed has ${written} of ${dcVins.size} DC VINs`);
   }
@@ -708,7 +732,7 @@ ${itemsXml}</channel>
   if (STRICT && (written === 0 || written < ready.length || dcMissingFromSite.length)) {
     console.error(
       `STRICT FAILURE: wrote ${written} of ${ready.length} ready vehicles` +
-        (awaitingPhotos.length ? ` (${awaitingPhotos.length} not ready, not counted)` : "") +
+        (heldVins.size ? ` (${heldVins.size} held, not ready, not counted)` : "") +
         (written === 0 ? " (feed is empty)" : "")
     );
     if (skippedRows.length > 0) {
