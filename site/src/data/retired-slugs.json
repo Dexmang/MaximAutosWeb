@@ -42,6 +42,12 @@
       "stockNumber": "J10258",
       "retired_at": "2026-10-27",
       "redirect_to": "/inventory"
+    },
+    "2024-hyundai-palisade-sel-j10280ev": {
+      "vin": "KM8R4DGE3RU668011",
+      "stockNumber": "J10280EV",
+      "retired_at": "2026-10-27",
+      "redirect_to": "/inventory"
     }
   }
 }

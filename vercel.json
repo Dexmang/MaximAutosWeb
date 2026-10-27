@@ -358,6 +358,16 @@
       "source": "/vehicle/2014-subaru-impreza-2-0i-sport-premium-j10258/",
       "destination": "/inventory",
       "permanent": true
+    },
+    {
+      "source": "/vehicle/2024-hyundai-palisade-sel-j10280ev",
+      "destination": "/inventory",
+      "permanent": true
+    },
+    {
+      "source": "/vehicle/2024-hyundai-palisade-sel-j10280ev/",
+      "destination": "/inventory",
+      "permanent": true
     }
   ],
   "headers": [
