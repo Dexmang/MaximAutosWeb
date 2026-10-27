@@ -1,11 +1,11 @@
 {
-  "lastUpdated": "2026-10-27T05:13:43Z",
+  "lastUpdated": "2026-10-27T06:00:04Z",
   "recent": [
+    "2026-10-27T06:00:04Z",
     "2026-10-27T05:13:43Z",
     "2026-10-24T06:00:03Z",
     "2026-10-24T00:30:03Z",
-    "2026-10-23T17:00:03Z",
-    "2026-10-23T06:00:03Z"
+    "2026-10-23T17:00:03Z"
   ],
   "note": "DealerCenter feed publishes, newest first. lastUpdated drives IUlive/IUverify in the site footer; the footer also renders the top two entries of `recent` as the last two updates."
 }
