@@ -1,11 +1,11 @@
 {
-  "last_updated": "2026-10-28T03:23:51.079Z",
+  "last_updated": "2026-10-28T06:30:18.227Z",
   "period_start": "2026-10-21",
   "period_end": "2026-10-28",
   "by_vin": {
     "4S4BSAKCXJ3314086": {
-      "srp_views": 177,
-      "vdp_views": 5,
+      "srp_views": 183,
+      "vdp_views": 6,
       "leads_email": 0,
       "leads_phone": 0,
       "leads_chat": 0,
@@ -13,7 +13,7 @@
       "map_clicks": 0
     },
     "5N1AZ2MH6FN251280": {
-      "srp_views": 235,
+      "srp_views": 243,
       "vdp_views": 14,
       "leads_email": 0,
       "leads_phone": 0,
@@ -31,7 +31,7 @@
       "map_clicks": 0
     },
     "KM8SRDHF6FU104181": {
-      "srp_views": 70,
+      "srp_views": 73,
       "vdp_views": 6,
       "leads_email": 0,
       "leads_phone": 0,
@@ -85,7 +85,7 @@
       "map_clicks": 0
     },
     "YV4A22PK8G1072955": {
-      "srp_views": 114,
+      "srp_views": 118,
       "vdp_views": 6,
       "leads_email": 0,
       "leads_phone": 0,
@@ -94,8 +94,8 @@
       "map_clicks": 0
     },
     "WA1ECCFS8JR006434": {
-      "srp_views": 409,
-      "vdp_views": 23,
+      "srp_views": 426,
+      "vdp_views": 24,
       "leads_email": 0,
       "leads_phone": 0,
       "leads_chat": 0,
@@ -103,7 +103,7 @@
       "map_clicks": 0
     },
     "KM8J33A47HU369551": {
-      "srp_views": 195,
+      "srp_views": 200,
       "vdp_views": 13,
       "leads_email": 0,
       "leads_phone": 0,
@@ -112,7 +112,7 @@
       "map_clicks": 0
     },
     "2FMPK3J96GBC56381": {
-      "srp_views": 240,
+      "srp_views": 253,
       "vdp_views": 31,
       "leads_email": 0,
       "leads_phone": 1,
@@ -121,7 +121,7 @@
       "map_clicks": 0
     },
     "5XYPH4A52JG399000": {
-      "srp_views": 293,
+      "srp_views": 313,
       "vdp_views": 16,
       "leads_email": 0,
       "leads_phone": 0,
@@ -130,7 +130,7 @@
       "map_clicks": 0
     },
     "3N1AB7APXEY279332": {
-      "srp_views": 16,
+      "srp_views": 17,
       "vdp_views": 1,
       "leads_email": 0,
       "leads_phone": 0,
