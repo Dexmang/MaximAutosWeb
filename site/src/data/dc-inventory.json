@@ -1,6 +1,6 @@
 {
   "source": "pka_hub.db ma_vehicles + vPIC",
-  "generated_at": "2026-10-27",
+  "generated_at": "2026-10-28",
   "by_vin": {
     "2FMPK3J96GBC56381": {
       "year": 2016,
@@ -450,7 +450,7 @@
       },
       "status": "available",
       "slug": "2024-hyundai-palisade-sel-j10280ev",
-      "dateAdded": "2026-10-27",
+      "dateAdded": "2026-10-28",
       "featured": true,
       "sortOrder": 0,
       "dealRating": "",
