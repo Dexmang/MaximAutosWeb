@@ -1,6 +1,6 @@
 {
   "source": "pka_hub.db ma_vehicles + vPIC",
-  "generated_at": "2026-10-28",
+  "generated_at": "2026-10-29",
   "by_vin": {
     "2FMPK3J96GBC56381": {
       "year": 2016,
@@ -480,9 +480,7 @@
       "features": [],
       "photoPrefix": "2017-hyundai-tucson-se",
       "photoPath": "",
-      "dealerCenterUrl": "",
-      "sold_date": "2026-10-27",
-      "missing_since": "2026-10-27T18:00:43.429Z"
+      "dealerCenterUrl": ""
     },
     "KM8SRDHF6FU104181": {
       "year": 2015,
