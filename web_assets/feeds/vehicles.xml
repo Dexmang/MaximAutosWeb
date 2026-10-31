@@ -4,7 +4,7 @@
   <title>Maxim Autos Vehicle Inventory</title>
   <link>https://www.maximautos.com/</link>
   <description>Used vehicles for sale at Maxim Autos in Skokie, IL 60077. Phone +18475108947.</description>
-  <lastBuildDate>2026-10-31T18:00:16.478Z</lastBuildDate>
+  <lastBuildDate>2026-10-31T20:20:55.130Z</lastBuildDate>
   <item>
     <g:id>2C4RC1BG0LR133382</g:id>
     <g:title>2020 Chrysler Pacifica Touring L</g:title>
@@ -462,7 +462,7 @@
     <g:related_product>
       <g:relationship_type>substitute</g:relationship_type>
       <g:identifier_type>id</g:identifier_type>
-      <g:identifier>KM8J33A47HU369551</g:identifier>
+      <g:identifier>WA1D7AFP0GA094726</g:identifier>
     </g:related_product>
   </item>
   <item>
@@ -563,106 +563,6 @@
       <g:relationship_type>substitute</g:relationship_type>
       <g:identifier_type>id</g:identifier_type>
       <g:identifier>2FMPK3J96GBC56381</g:identifier>
-    </g:related_product>
-  </item>
-  <item>
-    <g:id>KM8J33A47HU369551</g:id>
-    <g:title>2017 Hyundai Tucson SE Plus</g:title>
-    <g:description>2017 Hyundai Tucson SE Plus: 30 mpg highway, heated front seats, touchscreen navigation, Infinity premium audio, Apple CarPlay, blind spot monitor, smart key with push button start. White on tan, 6 speed Shiftronic automatic, 2.0L four cylinder. The easy to own compact SUV with a conventional automatic and low running costs, with no dealer fees. Key features: 2.0 liter Nu four cylinder with 164 horsepower paired with a conventional 6 speed automatic, 23 city and 30 highway, heated front seats, power driver seat with lumbar support, dual zone automatic climate control, 8 inch touchscreen navigation, Infinity premium audio, Apple CarPlay, Bluetooth hands free and audio streaming, rear view camera, blind spot monitor with rear cross traffic alert, smart key with push button start, cruise control, alloy wheels, satellite radio ready. 31 cubic feet of cargo behind the rear seat and 61.9 with the seats folded, in a footprint that fits a city garage. The Maxim Autos Difference Independent inspection report included with every vehicle Metal plates issued on the spot, drive home today No dealer fees, transparent all in pricing Financing for all credit levels Skokie, IL, minutes from Evanston, Niles, Morton Grove, Lincolnwood, Des Plaines and the North Shore. Call or text (847) 510-8947 for a same day appointment. Every car inspected. Every price transparent. Every car documented.</g:description>
-    <g:link>https://www.maximautos.com/vehicle/2017-hyundai-tucson-se-plus-j10269</g:link>
-    <g:link_template>https://www.maximautos.com/vehicle/2017-hyundai-tucson-se-plus-j10269?store={store_code}</g:link_template>
-    <g:image_link>https://imagesdl.dealercenter.net/1289/856/202610-19a18ba4325b4e7d9a6b0d568a343ee0.jpg</g:image_link>
-    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202610-5f338cbc4a4548bf92ea3b0ed77a46cc.jpg</g:additional_image_link>
-    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202610-9498f96ea8904fd58e69ee47670b6320.jpg</g:additional_image_link>
-    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202610-7626606a5e7c477aaa0b233a56b689d5.jpg</g:additional_image_link>
-    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202610-65bf785bc66e41379591b9d055ca3df9.jpg</g:additional_image_link>
-    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202610-2425affc179d414490aadf23ad4f1e6c.jpg</g:additional_image_link>
-    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202610-4d3a4eb982fd4735939fc5b3cf3bab0c.jpg</g:additional_image_link>
-    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202610-d397b49389d64628be329dfb69a5316f.jpg</g:additional_image_link>
-    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202610-3434771a24d04070879fd1f778fd6e0f.jpg</g:additional_image_link>
-    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202610-87ef32f5031a4f9f9024b8b8d56f168b.jpg</g:additional_image_link>
-    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202610-08d71bd2ce574cfaadc95eb1219df54d.jpg</g:additional_image_link>
-    <g:condition>used</g:condition>
-    <g:price>11998 USD</g:price>
-    <g:availability>in_stock</g:availability>
-    <g:brand>Hyundai</g:brand>
-    <g:google_product_category>Vehicles &amp; Parts &gt; Vehicles &gt; Motor Vehicles &gt; Cars, Trucks &amp; Vans</g:google_product_category>
-    <g:excluded_destination>Shopping_ads</g:excluded_destination>
-    <g:excluded_destination>Free_listings</g:excluded_destination>
-    <g:vin>KM8J33A47HU369551</g:vin>
-    <g:year>2017</g:year>
-    <g:model>Tucson</g:model>
-    <g:mileage>90794 Miles</g:mileage>
-    <g:store_code>08861907241419503398</g:store_code>
-    <g:vehicle_fulfillment>
-      <g:option>in_store</g:option>
-    </g:vehicle_fulfillment>
-    <g:color>White</g:color>
-    <g:trim>SE Plus</g:trim>
-    <g:body_style>suv</g:body_style>
-    <g:custom_label_0>age_0_30</g:custom_label_0>
-    <g:custom_label_1>suv</g:custom_label_1>
-    <g:custom_label_2>price_8k_to_12k</g:custom_label_2>
-    <g:custom_label_3>cg_good_deal</g:custom_label_3>
-    <g:custom_label_4>two_wheel_drive</g:custom_label_4>
-    <g:question_and_answer>
-      <g:question>Is this used Hyundai Tucson inspected before sale?</g:question>
-      <g:answer>Every car is inspected before it goes on the lot, and a free CARFAX comes with it. Ask Jerry what was checked on any car before you decide.</g:answer>
-    </g:question_and_answer>
-    <g:question_and_answer>
-      <g:question>Does this Hyundai Tucson come with a CARFAX report?</g:question>
-      <g:answer>Yes. A CARFAX vehicle history report is included with every used vehicle at Maxim Autos at no extra cost.</g:answer>
-    </g:question_and_answer>
-    <g:question_and_answer>
-      <g:question>Can I get financing on this Hyundai Tucson?</g:question>
-      <g:answer>Yes. Maxim Autos offers financing for all credit levels, including first time buyers and those rebuilding credit. Start with the short financing form or a call to Jerry: neither touches your credit. A full application does include a credit check, and approval is never guaranteed.</g:answer>
-    </g:question_and_answer>
-    <g:question_and_answer>
-      <g:question>Are there dealer fees or doc fees on this Hyundai Tucson?</g:question>
-      <g:answer>No. Maxim Autos never charges dealer fees. No doc fee, no processing fee, no surprise extras at signing. The listed price is what you pay plus standard Illinois tax, title and license.</g:answer>
-    </g:question_and_answer>
-    <g:question_and_answer>
-      <g:question>Can I drive this Hyundai Tucson home the same day?</g:question>
-      <g:answer>Yes. Maxim Autos is an authorized Illinois CVR (Computer Vehicle Registration) electronic registration dealer. Metal plates are issued the same visit for cars registered in Illinois. Buyers registering in another state receive an Illinois drive away permit and plate the car at home.</g:answer>
-    </g:question_and_answer>
-    <g:question_and_answer>
-      <g:question>Is this Hyundai Tucson all wheel drive?</g:question>
-      <g:answer>No. This 2017 Hyundai Tucson SE Plus is front wheel drive.</g:answer>
-    </g:question_and_answer>
-    <g:question_and_answer>
-      <g:question>What transmission does this Hyundai Tucson have?</g:question>
-      <g:answer>This 2017 Hyundai Tucson SE Plus has an automatic transmission.</g:answer>
-    </g:question_and_answer>
-    <g:question_and_answer>
-      <g:question>What is the fuel economy of this Hyundai Tucson?</g:question>
-      <g:answer>EPA estimated 23 city and 30 highway MPG for this 2017 Hyundai Tucson SE Plus.</g:answer>
-    </g:question_and_answer>
-    <g:question_and_answer>
-      <g:question>What engine is in this Hyundai Tucson?</g:question>
-      <g:answer>This 2017 Hyundai Tucson SE Plus has a 164 hp 2.0L I4 engine.</g:answer>
-    </g:question_and_answer>
-    <g:question_and_answer>
-      <g:question>Where can I see this Hyundai Tucson in person?</g:question>
-      <g:answer>At Maxim Autos, 9101 Terminal Ave, Skokie, IL 60077, serving Evanston, Niles, Morton Grove, Lincolnwood, Des Plaines, Glenview, Wilmette and Park Ridge. Hours: Monday, Tuesday, Thursday and Friday 3 PM to 7 PM, Saturday 10 AM to 3 PM, Wednesday by appointment, Sunday closed. Call or text (847) 510-8947.</g:answer>
-    </g:question_and_answer>
-    <g:question_and_answer>
-      <g:question>Can I trade in my current car toward this Hyundai Tucson?</g:question>
-      <g:answer>Yes. Maxim Autos accepts trade ins and also buys cars outright. Text the VIN of your car to (847) 510-8947 for a quick offer, no obligation.</g:answer>
-    </g:question_and_answer>
-    <g:related_product>
-      <g:relationship_type>substitute</g:relationship_type>
-      <g:identifier_type>id</g:identifier_type>
-      <g:identifier>KM8J3CA48HU259737</g:identifier>
-    </g:related_product>
-    <g:related_product>
-      <g:relationship_type>substitute</g:relationship_type>
-      <g:identifier_type>id</g:identifier_type>
-      <g:identifier>WA1D7AFP0GA094726</g:identifier>
-    </g:related_product>
-    <g:related_product>
-      <g:relationship_type>substitute</g:relationship_type>
-      <g:identifier_type>id</g:identifier_type>
-      <g:identifier>5N1AZ2MH6FN251280</g:identifier>
     </g:related_product>
   </item>
   <item>
@@ -848,17 +748,17 @@
     <g:related_product>
       <g:relationship_type>substitute</g:relationship_type>
       <g:identifier_type>id</g:identifier_type>
-      <g:identifier>KM8J33A47HU369551</g:identifier>
-    </g:related_product>
-    <g:related_product>
-      <g:relationship_type>substitute</g:relationship_type>
-      <g:identifier_type>id</g:identifier_type>
       <g:identifier>WA1D7AFP0GA094726</g:identifier>
     </g:related_product>
     <g:related_product>
       <g:relationship_type>substitute</g:relationship_type>
       <g:identifier_type>id</g:identifier_type>
       <g:identifier>5N1AZ2MH6FN251280</g:identifier>
+    </g:related_product>
+    <g:related_product>
+      <g:relationship_type>substitute</g:relationship_type>
+      <g:identifier_type>id</g:identifier_type>
+      <g:identifier>WA1ECCFS8JR006434</g:identifier>
     </g:related_product>
   </item>
   <item>
@@ -1134,17 +1034,17 @@
     <g:related_product>
       <g:relationship_type>substitute</g:relationship_type>
       <g:identifier_type>id</g:identifier_type>
-      <g:identifier>KM8J33A47HU369551</g:identifier>
-    </g:related_product>
-    <g:related_product>
-      <g:relationship_type>substitute</g:relationship_type>
-      <g:identifier_type>id</g:identifier_type>
       <g:identifier>KM8J3CA48HU259737</g:identifier>
     </g:related_product>
     <g:related_product>
       <g:relationship_type>substitute</g:relationship_type>
       <g:identifier_type>id</g:identifier_type>
       <g:identifier>5N1AZ2MH6FN251280</g:identifier>
+    </g:related_product>
+    <g:related_product>
+      <g:relationship_type>substitute</g:relationship_type>
+      <g:identifier_type>id</g:identifier_type>
+      <g:identifier>WA1VAAF73JD013438</g:identifier>
     </g:related_product>
   </item>
   <item>
