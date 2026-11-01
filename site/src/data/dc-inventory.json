@@ -1,6 +1,6 @@
 {
   "source": "pka_hub.db ma_vehicles + vPIC",
-  "generated_at": "2026-10-31",
+  "generated_at": "2026-11-01",
   "by_vin": {
     "2C4RC1BG0LR133382": {
       "year": 2020,
@@ -956,70 +956,6 @@
       ],
       "features": [],
       "photoPrefix": "2018-audi-q7-3-0t-prestige",
-      "photoPath": "",
-      "dealerCenterUrl": ""
-    },
-    "YV4A22PK8G1072955": {
-      "year": 2016,
-      "make": "Volvo",
-      "model": "XC90",
-      "trim": "T6 Momentum",
-      "price": 14495,
-      "mileage": 102137,
-      "exteriorColor": "Gray",
-      "interiorColor": "Black",
-      "engine": "316 hp 2.0L I4",
-      "transmission": "Automatic",
-      "drivetrain": "AWD",
-      "fuelType": "Gasoline",
-      "bodyStyle": "SUV",
-      "bodyStyleSlug": "suvs",
-      "makeSlug": "volvo",
-      "vin": "YV4A22PK8G1072955",
-      "condition": "Used",
-      "inspected": true,
-      "inspection": true,
-      "carfax": true,
-      "warranty": "Illinois 15 day / 500 mile statutory powertrain protection on qualifying cars",
-      "stockNumber": "J10268",
-      "primaryPhotoUrl": "https://imagesdl.dealercenter.net/1289/856/202610-22e82846c00445a1a7e25ff3a0a0aa99.jpg",
-      "photoUrls": [
-        "https://imagesdl.dealercenter.net/1289/856/202610-22e82846c00445a1a7e25ff3a0a0aa99.jpg",
-        "https://imagesdl.dealercenter.net/1289/856/202610-8c7df69de25d40afae216158269a2586.jpg",
-        "https://imagesdl.dealercenter.net/1289/856/202610-778634bd5b4a41fbba58276f103251e4.jpg",
-        "https://imagesdl.dealercenter.net/1289/856/202610-3aaadb1930c5462dbe39197ced1e6b3c.jpg",
-        "https://imagesdl.dealercenter.net/1289/856/202610-1265e0cb08ca4e08a841e7be285c7197.jpg",
-        "https://imagesdl.dealercenter.net/1289/856/202610-d95e63ce68914eb8b65b7ba664e0c816.jpg",
-        "https://imagesdl.dealercenter.net/1289/856/202610-3f9d83813dd24fe093fd545a4f9066f9.jpg",
-        "https://imagesdl.dealercenter.net/1289/856/202610-8e9e0b040c284af98cb859f7e29e7fca.jpg",
-        "https://imagesdl.dealercenter.net/1289/856/202610-03c6fa1ab3884320b458f31cfe953146.jpg",
-        "https://imagesdl.dealercenter.net/1289/856/202610-ca05f0bf6e364b85af04791e145439f4.jpg",
-        "https://imagesdl.dealercenter.net/1289/856/202610-6da525139c68410989695e90dd7dd9d0.jpg",
-        "https://imagesdl.dealercenter.net/1289/856/202610-0e9f46a6dd4a40c09a6202e85b1871cf.jpg",
-        "https://imagesdl.dealercenter.net/1289/856/202610-3895f8066077414bb4d9a76c9d422420.jpg",
-        "https://imagesdl.dealercenter.net/1289/856/202610-98981b70f23c4da182ca1c44580a65be.jpg",
-        "https://imagesdl.dealercenter.net/1289/856/202610-003f8b3f96474b009a4313ab67dc1370.jpg"
-      ],
-      "photos": {
-        "exterior": 15,
-        "interior": 0,
-        "source": "dealercenter"
-      },
-      "status": "available",
-      "slug": "2016-volvo-xc90-t6-momentum-j10268",
-      "dateAdded": "2026-10-23",
-      "featured": true,
-      "sortOrder": 0,
-      "dealRating": "FAIR_PRICE",
-      "priceSavings": -688,
-      "description": "2016 Volvo XC90 T6 Momentum AWD: 316 horsepower supercharged and turbocharged 2.0 liter, all wheel drive, seven seats, leather, panoramic sunroof, heated steering wheel, navigation, adaptive cruise control. Gray on black, 8 speed Geartronic automatic, 2.0L T6. The three row Volvo with Scandinavian design and the safety technology families want, with no dealer fees. Key features: 2.0 liter T6 with a supercharger and a turbocharger making 316 horsepower and 295 lb-ft of torque, 8 speed Geartronic automatic, all wheel drive, leather seating for seven with a fold away third row, panoramic sunroof, heated front seats, heated steering wheel, memory driver seat, head up display, 9 inch vertical touchscreen with navigation, Bluetooth and satellite radio ready, blind spot monitor, lane departure warning, adaptive cruise control, front and rear parking sensors, rear view camera, power liftgate, rear air conditioning, Thor's hammer LED running lights, smart key with push button start, alloy wheels. 20 city and 25 highway from a four cylinder in a full size three row SUV. The Maxim Autos Difference Independent inspection report included with every vehicle Metal plates issued on the spot, drive home today No dealer fees, transparent all in pricing Financing for all credit levels Skokie, IL, minutes from Evanston, Niles, Morton Grove, Lincolnwood, Des Plaines and the North Shore. Call or text (847) 510-8947 for a same day appointment. Every car inspected. Every price transparent. Every car documented.",
-      "highlights": [
-        "T6 Momentum trim",
-        "102,137 miles",
-        "Fully inspected, free CARFAX"
-      ],
-      "features": [],
-      "photoPrefix": "2016-volvo-xc90-t6-momentum",
       "photoPath": "",
       "dealerCenterUrl": ""
     }
