@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-11-06T17:30:14.800Z",
+  "last_updated": "2026-11-06T18:00:22.917Z",
   "period_start": "2026-10-30",
   "period_end": "2026-11-06",
   "by_vin": {
@@ -15,7 +15,7 @@
     "5N1AZ2MH6FN251280": {
       "srp_views": 512,
       "vdp_views": 25,
-      "leads_email": 0,
+      "leads_email": 2,
       "leads_phone": 0,
       "leads_chat": 0,
       "website_clicks": 0,
@@ -51,7 +51,16 @@
     "JF1GPAL69E8230098": {
       "srp_views": 1673,
       "vdp_views": 70,
-      "leads_email": 0,
+      "leads_email": 2,
+      "leads_phone": 0,
+      "leads_chat": 0,
+      "website_clicks": 1,
+      "map_clicks": 1
+    },
+    "KM8J3CA27HU276947": {
+      "srp_views": 381,
+      "vdp_views": 33,
+      "leads_email": 1,
       "leads_phone": 0,
       "leads_chat": 0,
       "website_clicks": 0,
@@ -66,15 +75,6 @@
       "website_clicks": 0,
       "map_clicks": 1
     },
-    "KM8J3CA27HU276947": {
-      "srp_views": 381,
-      "vdp_views": 33,
-      "leads_email": 1,
-      "leads_phone": 0,
-      "leads_chat": 0,
-      "website_clicks": 0,
-      "map_clicks": 0
-    },
     "KM8J33A47HU369551": {
       "srp_views": 263,
       "vdp_views": 5,
@@ -87,7 +87,7 @@
     "2C4RC1BG0LR133382": {
       "srp_views": 542,
       "vdp_views": 33,
-      "leads_email": 0,
+      "leads_email": 1,
       "leads_phone": 0,
       "leads_chat": 0,
       "website_clicks": 1,
@@ -105,10 +105,10 @@
     "2FMPK3J96GBC56381": {
       "srp_views": 3041,
       "vdp_views": 68,
-      "leads_email": 0,
+      "leads_email": 2,
       "leads_phone": 0,
       "leads_chat": 0,
-      "website_clicks": 0,
+      "website_clicks": 2,
       "map_clicks": 1
     },
     "KNDMB5C14G6201419": {
@@ -126,16 +126,16 @@
       "leads_email": 1,
       "leads_phone": 0,
       "leads_chat": 0,
-      "website_clicks": 0,
+      "website_clicks": 4,
       "map_clicks": 0
     },
     "5XYPH4A52JG399000": {
       "srp_views": 1321,
       "vdp_views": 18,
-      "leads_email": 0,
+      "leads_email": 2,
       "leads_phone": 1,
       "leads_chat": 0,
-      "website_clicks": 0,
+      "website_clicks": 1,
       "map_clicks": 0
     },
     "3N1AB7APXEY279332": {
