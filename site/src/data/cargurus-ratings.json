@@ -1,6 +1,143 @@
 {
   "source": "https://www.cargurus.com/Cars/m-Maxim-Autos-sp457703",
-  "fetchedAt": "2026-10-27T05:13:44Z",
+  "fetchedAt": "2026-11-06T02:36:39Z",
   "note": "CarGurus deal ratings read from the PKA machine (the GitHub runner gets HTTP 406). build-inventory.js uses this when its own fetch fails and only applies a rating whose cgPrice equals the DealerCenter price.",
-  "by_vin": {}
+  "by_vin": {
+    "1G1PC5SB9E7454238": {
+      "stock": "J10285",
+      "dealRating": "POOR_PRICE",
+      "priceSavings": -1260,
+      "cgPrice": 7495,
+      "imv": 6235,
+      "daysOnMarket": null
+    },
+    "1N4AL3AP5DC227543": {
+      "stock": "J10284",
+      "dealRating": "FAIR_PRICE",
+      "priceSavings": -325,
+      "cgPrice": 7495,
+      "imv": 7170,
+      "daysOnMarket": null
+    },
+    "2FMPK3J96GBC56381": {
+      "stock": "J10252",
+      "dealRating": "GOOD_PRICE",
+      "priceSavings": 1188,
+      "cgPrice": 8450,
+      "imv": 9638,
+      "daysOnMarket": 51
+    },
+    "3N1AB7APXEY279332": {
+      "stock": "J10279",
+      "dealRating": "FAIR_PRICE",
+      "priceSavings": -921,
+      "cgPrice": 8495,
+      "imv": 7574,
+      "daysOnMarket": 9
+    },
+    "4S4BSAKCXJ3314086": {
+      "stock": "J10271",
+      "dealRating": "GOOD_PRICE",
+      "priceSavings": 503,
+      "cgPrice": 15995,
+      "imv": 16498,
+      "daysOnMarket": 23
+    },
+    "5N1AZ2MH6FN251280": {
+      "stock": "J10251",
+      "dealRating": "GOOD_PRICE",
+      "priceSavings": 1088,
+      "cgPrice": 11350,
+      "imv": 12438,
+      "daysOnMarket": 51
+    },
+    "5XYPH4A52JG399000": {
+      "stock": "J10256",
+      "dealRating": "FAIR_PRICE",
+      "priceSavings": 343,
+      "cgPrice": 9950,
+      "imv": 10293,
+      "daysOnMarket": 43
+    },
+    "JF1GPAL69E8230098": {
+      "stock": "J10258",
+      "dealRating": "GOOD_PRICE",
+      "priceSavings": 454,
+      "cgPrice": 9950,
+      "imv": 10404,
+      "daysOnMarket": 37
+    },
+    "KM8J33A47HU369551": {
+      "stock": "J10269",
+      "dealRating": "FAIR_PRICE",
+      "priceSavings": -434,
+      "cgPrice": 11998,
+      "imv": 11564,
+      "daysOnMarket": 23
+    },
+    "KM8J3CA27HU276947": {
+      "stock": "J10273",
+      "dealRating": "FAIR_PRICE",
+      "priceSavings": 570,
+      "cgPrice": 13995,
+      "imv": 14565,
+      "daysOnMarket": 16
+    },
+    "KM8J3CA48HU259737": {
+      "stock": "J10277",
+      "dealRating": "FAIR_PRICE",
+      "priceSavings": -627,
+      "cgPrice": 11950,
+      "imv": 11323,
+      "daysOnMarket": 9
+    },
+    "KM8SRDHF6FU104181": {
+      "stock": "J10272",
+      "dealRating": "POOR_PRICE",
+      "priceSavings": -1862,
+      "cgPrice": 13995,
+      "imv": 12133,
+      "daysOnMarket": 16
+    },
+    "KNAFU4A25D5728313": {
+      "stock": "J10283",
+      "dealRating": "GOOD_PRICE",
+      "priceSavings": 604,
+      "cgPrice": 6495,
+      "imv": 7099,
+      "daysOnMarket": null
+    },
+    "KNDMB5C14G6201419": {
+      "stock": "J10278",
+      "dealRating": "FAIR_PRICE",
+      "priceSavings": -482,
+      "cgPrice": 9495,
+      "imv": 9013,
+      "daysOnMarket": 9
+    },
+    "WA1D7AFP0GA094726": {
+      "stock": "J10275",
+      "dealRating": "POOR_PRICE",
+      "priceSavings": -1094,
+      "cgPrice": 12495,
+      "imv": 11401,
+      "daysOnMarket": 9
+    },
+    "WA1ECCFS8JR006434": {
+      "stock": "J10262",
+      "dealRating": "FAIR_PRICE",
+      "priceSavings": 267,
+      "cgPrice": 10950,
+      "imv": 11217,
+      "daysOnMarket": 30
+    },
+    "WA1VAAF73JD013438": {
+      "stock": "J10276",
+      "dealRating": "GOOD_PRICE",
+      "priceSavings": 1565,
+      "cgPrice": 13950,
+      "imv": 15515,
+      "daysOnMarket": 9
+    }
+  }
 }
