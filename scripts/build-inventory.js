@@ -520,14 +520,18 @@ async function buildCargurusRatingOverlay() {
       const n = t.data;
       const vin = (n.vin || '').toUpperCase();
       if (!vin) continue;
+      // CarGurus renamed this object priceData -> priceDto in late October 2026 (the
+      // snapshot script hit the same rename). Read both so the next rename degrades
+      // to the snapshot instead of an empty overlay.
+      const pd = n.priceDto || n.priceData;
       // Only trust a live price row — a null current price means CarGurus is mid-edit
       // and its rating/savings are unreliable this pass; skip so the DC-carried value holds.
-      if (n.priceData?.current == null) continue;
+      if (pd?.current == null) continue;
       if (overlay[vin]) continue; // first tile per VIN wins (spotlight + standard dupes)
       overlay[vin] = {
         dealRating: n.dealRating || '',
-        priceSavings: n.priceData?.differential ?? 0,
-        cgPrice: n.priceData.current,
+        priceSavings: pd.differential ?? 0,
+        cgPrice: pd.current,
       };
     }
     console.log(`  Got ratings for ${Object.keys(overlay).length} VIN(s).`);
