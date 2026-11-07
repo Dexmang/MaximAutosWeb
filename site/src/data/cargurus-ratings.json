@@ -1,6 +1,6 @@
 {
   "source": "https://www.cargurus.com/Cars/m-Maxim-Autos-sp457703",
-  "fetchedAt": "2026-11-06T17:30:03Z",
+  "fetchedAt": "2026-11-07T00:30:03Z",
   "note": "CarGurus deal ratings read from the PKA machine (the GitHub runner gets HTTP 406). build-inventory.js uses this when its own fetch fails and only applies a rating whose cgPrice equals the DealerCenter price.",
   "by_vin": {
     "1G1PC5SB9E7454238": {
@@ -9,7 +9,7 @@
       "priceSavings": -1260,
       "cgPrice": 7495,
       "imv": 6235,
-      "daysOnMarket": null
+      "daysOnMarket": 1
     },
     "1N4AL3AP5DC227543": {
       "stock": "J10284",
@@ -17,7 +17,7 @@
       "priceSavings": -325,
       "cgPrice": 7495,
       "imv": 7170,
-      "daysOnMarket": null
+      "daysOnMarket": 1
     },
     "2FMPK3J96GBC56381": {
       "stock": "J10252",
@@ -57,7 +57,7 @@
       "priceSavings": 343,
       "cgPrice": 9950,
       "imv": 10293,
-      "daysOnMarket": 43
+      "daysOnMarket": 44
     },
     "JF1GPAL69E8230098": {
       "stock": "J10258",
@@ -105,7 +105,7 @@
       "priceSavings": 604,
       "cgPrice": 6495,
       "imv": 7099,
-      "daysOnMarket": null
+      "daysOnMarket": 1
     },
     "KNDMB5C14G6201419": {
       "stock": "J10278",
@@ -138,6 +138,14 @@
       "cgPrice": 13950,
       "imv": 15515,
       "daysOnMarket": 10
+    },
+    "WAUGFAFC8GN006353": {
+      "stock": "J10282",
+      "dealRating": "FAIR_PRICE",
+      "priceSavings": -966,
+      "cgPrice": 11995,
+      "imv": 11029,
+      "daysOnMarket": null
     }
   }
 }
