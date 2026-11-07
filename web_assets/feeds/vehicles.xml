@@ -4,7 +4,7 @@
   <title>Maxim Autos Vehicle Inventory</title>
   <link>https://www.maximautos.com/</link>
   <description>Used vehicles for sale at Maxim Autos in Skokie, IL 60077. Phone +18475108947.</description>
-  <lastBuildDate>2026-11-07T06:00:16.627Z</lastBuildDate>
+  <lastBuildDate>2026-11-07T06:30:17.545Z</lastBuildDate>
   <item>
     <g:id>1G1PC5SB9E7454238</g:id>
     <g:title>2014 Chevrolet Cruze 1LT</g:title>
@@ -23,7 +23,7 @@
     <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202611-f2375e5e0b9645e2a748c5b6de07a906.jpg</g:additional_image_link>
     <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202611-7bce638c31ef44e98f025f629bbccdc6.jpg</g:additional_image_link>
     <g:condition>used</g:condition>
-    <g:price>7495 USD</g:price>
+    <g:price>6045 USD</g:price>
     <g:availability>in_stock</g:availability>
     <g:brand>Chevrolet</g:brand>
     <g:google_product_category>Vehicles &amp; Parts &gt; Vehicles &gt; Motor Vehicles &gt; Cars, Trucks &amp; Vans</g:google_product_category>
@@ -43,7 +43,7 @@
     <g:custom_label_0>age_0_30</g:custom_label_0>
     <g:custom_label_1>sedan</g:custom_label_1>
     <g:custom_label_2>price_under_8k</g:custom_label_2>
-    <g:custom_label_3>cg_unrated</g:custom_label_3>
+    <g:custom_label_3>cg_fair_deal</g:custom_label_3>
     <g:custom_label_4>two_wheel_drive</g:custom_label_4>
     <g:question_and_answer>
       <g:question>Is this used Chevrolet Cruze inspected before sale?</g:question>
@@ -92,17 +92,17 @@
     <g:related_product>
       <g:relationship_type>substitute</g:relationship_type>
       <g:identifier_type>id</g:identifier_type>
+      <g:identifier>KNAFU4A25D5728313</g:identifier>
+    </g:related_product>
+    <g:related_product>
+      <g:relationship_type>substitute</g:relationship_type>
+      <g:identifier_type>id</g:identifier_type>
       <g:identifier>1N4AL3AP5DC227543</g:identifier>
     </g:related_product>
     <g:related_product>
       <g:relationship_type>substitute</g:relationship_type>
       <g:identifier_type>id</g:identifier_type>
       <g:identifier>3N1AB7APXEY279332</g:identifier>
-    </g:related_product>
-    <g:related_product>
-      <g:relationship_type>substitute</g:relationship_type>
-      <g:identifier_type>id</g:identifier_type>
-      <g:identifier>KNAFU4A25D5728313</g:identifier>
     </g:related_product>
   </item>
   <item>
@@ -192,17 +192,17 @@
     <g:related_product>
       <g:relationship_type>substitute</g:relationship_type>
       <g:identifier_type>id</g:identifier_type>
-      <g:identifier>1G1PC5SB9E7454238</g:identifier>
-    </g:related_product>
-    <g:related_product>
-      <g:relationship_type>substitute</g:relationship_type>
-      <g:identifier_type>id</g:identifier_type>
       <g:identifier>3N1AB7APXEY279332</g:identifier>
     </g:related_product>
     <g:related_product>
       <g:relationship_type>substitute</g:relationship_type>
       <g:identifier_type>id</g:identifier_type>
       <g:identifier>KNAFU4A25D5728313</g:identifier>
+    </g:related_product>
+    <g:related_product>
+      <g:relationship_type>substitute</g:relationship_type>
+      <g:identifier_type>id</g:identifier_type>
+      <g:identifier>1G1PC5SB9E7454238</g:identifier>
     </g:related_product>
   </item>
   <item>
@@ -392,17 +392,17 @@
     <g:related_product>
       <g:relationship_type>substitute</g:relationship_type>
       <g:identifier_type>id</g:identifier_type>
-      <g:identifier>1G1PC5SB9E7454238</g:identifier>
-    </g:related_product>
-    <g:related_product>
-      <g:relationship_type>substitute</g:relationship_type>
-      <g:identifier_type>id</g:identifier_type>
       <g:identifier>1N4AL3AP5DC227543</g:identifier>
     </g:related_product>
     <g:related_product>
       <g:relationship_type>substitute</g:relationship_type>
       <g:identifier_type>id</g:identifier_type>
       <g:identifier>KNAFU4A25D5728313</g:identifier>
+    </g:related_product>
+    <g:related_product>
+      <g:relationship_type>substitute</g:relationship_type>
+      <g:identifier_type>id</g:identifier_type>
+      <g:identifier>1G1PC5SB9E7454238</g:identifier>
     </g:related_product>
   </item>
   <item>
@@ -423,7 +423,7 @@
     <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202610-1704d78daa354ec0b55765bccb1d3c77.jpg</g:additional_image_link>
     <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202610-4508a915ce4440feab50d8e6b1dab6d2.jpg</g:additional_image_link>
     <g:condition>used</g:condition>
-    <g:price>15995 USD</g:price>
+    <g:price>14995 USD</g:price>
     <g:availability>in_stock</g:availability>
     <g:brand>Subaru</g:brand>
     <g:google_product_category>Vehicles &amp; Parts &gt; Vehicles &gt; Motor Vehicles &gt; Cars, Trucks &amp; Vans</g:google_product_category>
@@ -443,7 +443,7 @@
     <g:custom_label_0>age_0_30</g:custom_label_0>
     <g:custom_label_1>station_wagon</g:custom_label_1>
     <g:custom_label_2>price_12k_plus</g:custom_label_2>
-    <g:custom_label_3>cg_unrated</g:custom_label_3>
+    <g:custom_label_3>cg_good_deal</g:custom_label_3>
     <g:custom_label_4>awd_4wd</g:custom_label_4>
     <g:question_and_answer>
       <g:question>Is this used Subaru Outback inspected before sale?</g:question>
@@ -577,17 +577,17 @@
     <g:related_product>
       <g:relationship_type>substitute</g:relationship_type>
       <g:identifier_type>id</g:identifier_type>
-      <g:identifier>WA1ECCFS8JR006434</g:identifier>
-    </g:related_product>
-    <g:related_product>
-      <g:relationship_type>substitute</g:relationship_type>
-      <g:identifier_type>id</g:identifier_type>
-      <g:identifier>KM8J3CA48HU259737</g:identifier>
+      <g:identifier>KM8SRDHF6FU104181</g:identifier>
     </g:related_product>
     <g:related_product>
       <g:relationship_type>substitute</g:relationship_type>
       <g:identifier_type>id</g:identifier_type>
       <g:identifier>WA1D7AFP0GA094726</g:identifier>
+    </g:related_product>
+    <g:related_product>
+      <g:relationship_type>substitute</g:relationship_type>
+      <g:identifier_type>id</g:identifier_type>
+      <g:identifier>KM8J3CA48HU259737</g:identifier>
     </g:related_product>
   </item>
   <item>
@@ -773,17 +773,17 @@
     <g:related_product>
       <g:relationship_type>substitute</g:relationship_type>
       <g:identifier_type>id</g:identifier_type>
-      <g:identifier>KM8SRDHF6FU104181</g:identifier>
-    </g:related_product>
-    <g:related_product>
-      <g:relationship_type>substitute</g:relationship_type>
-      <g:identifier_type>id</g:identifier_type>
       <g:identifier>WA1VAAF73JD013438</g:identifier>
     </g:related_product>
     <g:related_product>
       <g:relationship_type>substitute</g:relationship_type>
       <g:identifier_type>id</g:identifier_type>
-      <g:identifier>WA1D7AFP0GA094726</g:identifier>
+      <g:identifier>KM8J3CA48HU259737</g:identifier>
+    </g:related_product>
+    <g:related_product>
+      <g:relationship_type>substitute</g:relationship_type>
+      <g:identifier_type>id</g:identifier_type>
+      <g:identifier>KM8SRDHF6FU104181</g:identifier>
     </g:related_product>
   </item>
   <item>
@@ -873,17 +873,17 @@
     <g:related_product>
       <g:relationship_type>substitute</g:relationship_type>
       <g:identifier_type>id</g:identifier_type>
+      <g:identifier>KM8SRDHF6FU104181</g:identifier>
+    </g:related_product>
+    <g:related_product>
+      <g:relationship_type>substitute</g:relationship_type>
+      <g:identifier_type>id</g:identifier_type>
       <g:identifier>WA1D7AFP0GA094726</g:identifier>
     </g:related_product>
     <g:related_product>
       <g:relationship_type>substitute</g:relationship_type>
       <g:identifier_type>id</g:identifier_type>
       <g:identifier>5N1AZ2MH6FN251280</g:identifier>
-    </g:related_product>
-    <g:related_product>
-      <g:relationship_type>substitute</g:relationship_type>
-      <g:identifier_type>id</g:identifier_type>
-      <g:identifier>WA1ECCFS8JR006434</g:identifier>
     </g:related_product>
   </item>
   <item>
@@ -904,7 +904,7 @@
     <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202610-099cc6c2a77b4b4fa56e3d18b67194cf.jpg</g:additional_image_link>
     <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202610-36b6ab6785834644938a36ed186c14cb.jpg</g:additional_image_link>
     <g:condition>used</g:condition>
-    <g:price>13995 USD</g:price>
+    <g:price>11745 USD</g:price>
     <g:availability>in_stock</g:availability>
     <g:brand>Hyundai</g:brand>
     <g:google_product_category>Vehicles &amp; Parts &gt; Vehicles &gt; Motor Vehicles &gt; Cars, Trucks &amp; Vans</g:google_product_category>
@@ -923,8 +923,8 @@
     <g:body_style>suv</g:body_style>
     <g:custom_label_0>age_0_30</g:custom_label_0>
     <g:custom_label_1>suv</g:custom_label_1>
-    <g:custom_label_2>price_12k_plus</g:custom_label_2>
-    <g:custom_label_3>cg_unrated</g:custom_label_3>
+    <g:custom_label_2>price_8k_to_12k</g:custom_label_2>
+    <g:custom_label_3>cg_fair_deal</g:custom_label_3>
     <g:custom_label_4>awd_4wd</g:custom_label_4>
     <g:question_and_answer>
       <g:question>Is this used Hyundai Santa Fe inspected before sale?</g:question>
@@ -969,17 +969,17 @@
     <g:related_product>
       <g:relationship_type>substitute</g:relationship_type>
       <g:identifier_type>id</g:identifier_type>
-      <g:identifier>KM8J3CA27HU276947</g:identifier>
-    </g:related_product>
-    <g:related_product>
-      <g:relationship_type>substitute</g:relationship_type>
-      <g:identifier_type>id</g:identifier_type>
-      <g:identifier>WA1VAAF73JD013438</g:identifier>
-    </g:related_product>
-    <g:related_product>
-      <g:relationship_type>substitute</g:relationship_type>
-      <g:identifier_type>id</g:identifier_type>
       <g:identifier>WA1D7AFP0GA094726</g:identifier>
+    </g:related_product>
+    <g:related_product>
+      <g:relationship_type>substitute</g:relationship_type>
+      <g:identifier_type>id</g:identifier_type>
+      <g:identifier>KM8J3CA48HU259737</g:identifier>
+    </g:related_product>
+    <g:related_product>
+      <g:relationship_type>substitute</g:relationship_type>
+      <g:identifier_type>id</g:identifier_type>
+      <g:identifier>5N1AZ2MH6FN251280</g:identifier>
     </g:related_product>
   </item>
   <item>
@@ -1185,7 +1185,7 @@
     <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202610-88f81137c1234a10b15ef70bafadb9f2.jpg</g:additional_image_link>
     <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202610-40eb5cb775a1432bb7fd58bc9c6e49a9.jpg</g:additional_image_link>
     <g:condition>used</g:condition>
-    <g:price>12495 USD</g:price>
+    <g:price>11745 USD</g:price>
     <g:availability>in_stock</g:availability>
     <g:brand>Audi</g:brand>
     <g:google_product_category>Vehicles &amp; Parts &gt; Vehicles &gt; Motor Vehicles &gt; Cars, Trucks &amp; Vans</g:google_product_category>
@@ -1204,8 +1204,8 @@
     <g:body_style>suv</g:body_style>
     <g:custom_label_0>age_0_30</g:custom_label_0>
     <g:custom_label_1>suv</g:custom_label_1>
-    <g:custom_label_2>price_12k_plus</g:custom_label_2>
-    <g:custom_label_3>cg_unrated</g:custom_label_3>
+    <g:custom_label_2>price_8k_to_12k</g:custom_label_2>
+    <g:custom_label_3>cg_fair_deal</g:custom_label_3>
     <g:custom_label_4>awd_4wd</g:custom_label_4>
     <g:question_and_answer>
       <g:question>Is this used Audi Q5 inspected before sale?</g:question>
@@ -1254,17 +1254,17 @@
     <g:related_product>
       <g:relationship_type>substitute</g:relationship_type>
       <g:identifier_type>id</g:identifier_type>
+      <g:identifier>KM8SRDHF6FU104181</g:identifier>
+    </g:related_product>
+    <g:related_product>
+      <g:relationship_type>substitute</g:relationship_type>
+      <g:identifier_type>id</g:identifier_type>
       <g:identifier>KM8J3CA48HU259737</g:identifier>
     </g:related_product>
     <g:related_product>
       <g:relationship_type>substitute</g:relationship_type>
       <g:identifier_type>id</g:identifier_type>
       <g:identifier>5N1AZ2MH6FN251280</g:identifier>
-    </g:related_product>
-    <g:related_product>
-      <g:relationship_type>substitute</g:relationship_type>
-      <g:identifier_type>id</g:identifier_type>
-      <g:identifier>WA1VAAF73JD013438</g:identifier>
     </g:related_product>
   </item>
   <item>
@@ -1285,7 +1285,7 @@
     <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202610-cc2e96cd509f4803bc2780004b6b1313.jpg</g:additional_image_link>
     <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202610-87ed5361fe3d45cb86735c8bfb43fe2a.jpg</g:additional_image_link>
     <g:condition>used</g:condition>
-    <g:price>10950 USD</g:price>
+    <g:price>10650 USD</g:price>
     <g:availability>in_stock</g:availability>
     <g:brand>Audi</g:brand>
     <g:google_product_category>Vehicles &amp; Parts &gt; Vehicles &gt; Motor Vehicles &gt; Cars, Trucks &amp; Vans</g:google_product_category>
@@ -1305,7 +1305,7 @@
     <g:custom_label_0>age_31_60</g:custom_label_0>
     <g:custom_label_1>suv</g:custom_label_1>
     <g:custom_label_2>price_8k_to_12k</g:custom_label_2>
-    <g:custom_label_3>cg_unrated</g:custom_label_3>
+    <g:custom_label_3>cg_good_deal</g:custom_label_3>
     <g:custom_label_4>awd_4wd</g:custom_label_4>
     <g:question_and_answer>
       <g:question>Is this used Audi Q3 inspected before sale?</g:question>
@@ -1364,7 +1364,7 @@
     <g:related_product>
       <g:relationship_type>substitute</g:relationship_type>
       <g:identifier_type>id</g:identifier_type>
-      <g:identifier>KM8J3CA48HU259737</g:identifier>
+      <g:identifier>KM8SRDHF6FU104181</g:identifier>
     </g:related_product>
   </item>
   <item>
@@ -1459,12 +1459,12 @@
     <g:related_product>
       <g:relationship_type>substitute</g:relationship_type>
       <g:identifier_type>id</g:identifier_type>
-      <g:identifier>KM8SRDHF6FU104181</g:identifier>
+      <g:identifier>KM8J3CA48HU259737</g:identifier>
     </g:related_product>
     <g:related_product>
       <g:relationship_type>substitute</g:relationship_type>
       <g:identifier_type>id</g:identifier_type>
-      <g:identifier>WA1D7AFP0GA094726</g:identifier>
+      <g:identifier>KM8SRDHF6FU104181</g:identifier>
     </g:related_product>
   </item>
   <item>
@@ -1559,12 +1559,12 @@
     <g:related_product>
       <g:relationship_type>substitute</g:relationship_type>
       <g:identifier_type>id</g:identifier_type>
-      <g:identifier>1G1PC5SB9E7454238</g:identifier>
+      <g:identifier>1N4AL3AP5DC227543</g:identifier>
     </g:related_product>
     <g:related_product>
       <g:relationship_type>substitute</g:relationship_type>
       <g:identifier_type>id</g:identifier_type>
-      <g:identifier>1N4AL3AP5DC227543</g:identifier>
+      <g:identifier>KNAFU4A25D5728313</g:identifier>
     </g:related_product>
   </item>
 </channel>
