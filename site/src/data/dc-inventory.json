@@ -1505,7 +1505,104 @@
         "84,812 miles",
         "Fully inspected, free CARFAX"
       ],
-      "features": [],
+      "features": [
+        "All wheel drive",
+        "Heated front seats",
+        "Bluetooth",
+        "Alloy wheels",
+        "Cruise control",
+        "Rear spoiler"
+      ],
+      "featureTiers": {
+        "headline": [
+          {
+            "label": "35 MPG highway",
+            "sub": "27 city, EPA estimate",
+            "icon": "local_gas_station"
+          },
+          {
+            "label": "All wheel drive",
+            "sub": "Chicago winters",
+            "icon": "ac_unit"
+          }
+        ],
+        "love": [
+          {
+            "label": "Heated front seats",
+            "icon": "whatshot",
+            "group": "Winter ready"
+          },
+          {
+            "label": "Bluetooth",
+            "icon": "bluetooth",
+            "group": "Tech"
+          },
+          {
+            "label": "Alloy wheels",
+            "icon": "radio_button_unchecked",
+            "group": "Wheels and exterior"
+          },
+          {
+            "label": "Cruise control",
+            "icon": "speed",
+            "group": "Comfort"
+          }
+        ],
+        "comfort": [
+          "Rear spoiler"
+        ],
+        "standard": [
+          "Air conditioning",
+          "Power locks",
+          "Power mirrors",
+          "Power windows",
+          "Rear defroster",
+          "AM/FM stereo",
+          "Aux input",
+          "CD player",
+          "Cloth seats",
+          "ABS brakes",
+          "Automatic transmission",
+          "Overhead airbags",
+          "Side airbags",
+          "Traction control"
+        ],
+        "groups": {
+          "Winter ready": [
+            "All wheel drive",
+            "Heated front seats"
+          ],
+          "Tech": [
+            "Bluetooth"
+          ],
+          "Comfort": [
+            "Cruise control"
+          ],
+          "Wheels and exterior": [
+            "Alloy wheels",
+            "Rear spoiler"
+          ],
+          "Standard": [
+            "Air conditioning",
+            "Power locks",
+            "Power mirrors",
+            "Power windows",
+            "Rear defroster",
+            "AM/FM stereo",
+            "Aux input",
+            "CD player",
+            "Cloth seats",
+            "ABS brakes",
+            "Automatic transmission",
+            "Overhead airbags",
+            "Side airbags",
+            "Traction control"
+          ]
+        }
+      },
+      "mpg": "27 city / 35 hwy",
+      "mpgCity": 27,
+      "mpgHwy": 35,
       "photoPrefix": "2014-subaru-impreza-2-0i-premium",
       "photoPath": "",
       "dealerCenterUrl": ""
