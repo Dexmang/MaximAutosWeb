@@ -7,6 +7,7 @@ import Footer from '../../components/Footer.astro';
 import VehicleCard from '../../components/VehicleCard.astro';
 import TrustPair from '../../components/TrustPair.astro';
 import OtdEstimate from '../../components/OtdEstimate.astro';
+import WinterReady from '../../components/WinterReady.astro';
 import Icon from '../../components/Icon.astro';
 import vehicles from '../../data/vehicles.json';
 import facts from '../../data/facts.json';
@@ -45,6 +46,12 @@ const showVinStats = !isSold && vinStats !== null && vinStats.vdp_views >= 3;
 // A base car has an empty trim (e.g. 2015 Kia Soul); join on non-empty parts so
 // the <title>, H1, schema name and SMS body never carry a double space.
 const titleText = [v.year, v.make, v.model, v.trim].filter(Boolean).join(' ');
+// Winter ready row (Jerry, 2026-11-07): the car's cold weather kit from the `winter` field the
+// DealerCenter snapshot carries (feature_rank.winter_kit over the CarMax option list), shown in
+// the header card November to March. The AWD count feeds the link a front wheel drive car shows.
+const winterKit = (v as any).winter || null;
+const awdCount = (vehicles as any[]).filter((x) => x.status === 'available'
+  && Array.isArray(x.winter?.have) && x.winter.have.some((h: any) => h.key === 'awd')).length;
 
 // Title and description are measured, not hoped for (D2-09, D2-10). Caps: title 58,
 // description 155, the lengths a phone SERP shows before it cuts. Every title rung
@@ -433,6 +440,10 @@ if (v.vin && v.vin !== 'TBD') (vehicleSchema as any).vehicleIdentificationNumber
           </span>
         </div>
       )}
+      {/* Winter ready row (2026-11-07): the last row of the header card, full width, in season
+          only. Renders nothing for a car with no winter feature in its record and nothing from
+          April to October, so the header is unchanged for them. */}
+      {!isSold && <WinterReady winter={winterKit} awdCount={awdCount} class="mt-3" />}
     </div>
   </section>
   <script is:inline>
