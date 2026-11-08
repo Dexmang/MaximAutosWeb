@@ -4,7 +4,7 @@
   <title>Maxim Autos Vehicle Inventory</title>
   <link>https://www.maximautos.com/</link>
   <description>Used vehicles for sale at Maxim Autos in Skokie, IL 60077. Phone +18475108947.</description>
-  <lastBuildDate>2026-11-08T06:00:24.823Z</lastBuildDate>
+  <lastBuildDate>2026-11-08T06:30:15.744Z</lastBuildDate>
   <item>
     <g:id>1G1PC5SB9E7454238</g:id>
     <g:title>2014 Chevrolet Cruze 1LT</g:title>
@@ -92,12 +92,12 @@
     <g:related_product>
       <g:relationship_type>substitute</g:relationship_type>
       <g:identifier_type>id</g:identifier_type>
-      <g:identifier>KNAFU4A25D5728313</g:identifier>
+      <g:identifier>1N4AL3AP5DC227543</g:identifier>
     </g:related_product>
     <g:related_product>
       <g:relationship_type>substitute</g:relationship_type>
       <g:identifier_type>id</g:identifier_type>
-      <g:identifier>1N4AL3AP5DC227543</g:identifier>
+      <g:identifier>KNAFU4A25D5728313</g:identifier>
     </g:related_product>
     <g:related_product>
       <g:relationship_type>substitute</g:relationship_type>
@@ -123,7 +123,7 @@
     <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202611-d93563b7c8e4459985861caf6a7cafc2.jpg</g:additional_image_link>
     <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202611-bfb07277a191475ea9a9105989c66478.jpg</g:additional_image_link>
     <g:condition>used</g:condition>
-    <g:price>6950 USD</g:price>
+    <g:price>6450 USD</g:price>
     <g:availability>in_stock</g:availability>
     <g:brand>Nissan</g:brand>
     <g:google_product_category>Vehicles &amp; Parts &gt; Vehicles &gt; Motor Vehicles &gt; Cars, Trucks &amp; Vans</g:google_product_category>
@@ -143,7 +143,7 @@
     <g:custom_label_0>age_0_30</g:custom_label_0>
     <g:custom_label_1>sedan</g:custom_label_1>
     <g:custom_label_2>price_under_8k</g:custom_label_2>
-    <g:custom_label_3>cg_unrated</g:custom_label_3>
+    <g:custom_label_3>cg_good_deal</g:custom_label_3>
     <g:custom_label_4>two_wheel_drive</g:custom_label_4>
     <g:question_and_answer>
       <g:question>Is this used Nissan Altima inspected before sale?</g:question>
@@ -297,7 +297,7 @@
     <g:related_product>
       <g:relationship_type>substitute</g:relationship_type>
       <g:identifier_type>id</g:identifier_type>
-      <g:identifier>WA1ECCFS8JR006434</g:identifier>
+      <g:identifier>KM8J3CA48HU259737</g:identifier>
     </g:related_product>
     <g:related_product>
       <g:relationship_type>substitute</g:relationship_type>
@@ -323,7 +323,7 @@
     <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202610-1d75310deb924d48a62c3fc62fdf6261.jpg</g:additional_image_link>
     <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202610-3c86a2181e1b4046ba72d7a8c5fb25b8.jpg</g:additional_image_link>
     <g:condition>used</g:condition>
-    <g:price>8495 USD</g:price>
+    <g:price>7450 USD</g:price>
     <g:availability>in_stock</g:availability>
     <g:brand>Nissan</g:brand>
     <g:google_product_category>Vehicles &amp; Parts &gt; Vehicles &gt; Motor Vehicles &gt; Cars, Trucks &amp; Vans</g:google_product_category>
@@ -342,8 +342,8 @@
     <g:body_style>sedan</g:body_style>
     <g:custom_label_0>age_0_30</g:custom_label_0>
     <g:custom_label_1>sedan</g:custom_label_1>
-    <g:custom_label_2>price_8k_to_12k</g:custom_label_2>
-    <g:custom_label_3>cg_unrated</g:custom_label_3>
+    <g:custom_label_2>price_under_8k</g:custom_label_2>
+    <g:custom_label_3>cg_fair_deal</g:custom_label_3>
     <g:custom_label_4>two_wheel_drive</g:custom_label_4>
     <g:question_and_answer>
       <g:question>Is this used Nissan Sentra inspected before sale?</g:question>
@@ -392,17 +392,17 @@
     <g:related_product>
       <g:relationship_type>substitute</g:relationship_type>
       <g:identifier_type>id</g:identifier_type>
+      <g:identifier>KNAFU4A25D5728313</g:identifier>
+    </g:related_product>
+    <g:related_product>
+      <g:relationship_type>substitute</g:relationship_type>
+      <g:identifier_type>id</g:identifier_type>
       <g:identifier>1N4AL3AP5DC227543</g:identifier>
     </g:related_product>
     <g:related_product>
       <g:relationship_type>substitute</g:relationship_type>
       <g:identifier_type>id</g:identifier_type>
-      <g:identifier>WAUGFAFC8GN006353</g:identifier>
-    </g:related_product>
-    <g:related_product>
-      <g:relationship_type>substitute</g:relationship_type>
-      <g:identifier_type>id</g:identifier_type>
-      <g:identifier>KNAFU4A25D5728313</g:identifier>
+      <g:identifier>1G1PC5SB9E7454238</g:identifier>
     </g:related_product>
   </item>
   <item>
@@ -508,7 +508,7 @@
     <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202610-9e2faa03aa2f46139a6fa6e7ac02b034.jpg</g:additional_image_link>
     <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202610-8e3b0b6001f24fea9aa76538db0aa3a7.jpg</g:additional_image_link>
     <g:condition>used</g:condition>
-    <g:price>11950 USD</g:price>
+    <g:price>11450 USD</g:price>
     <g:availability>in_stock</g:availability>
     <g:brand>Nissan</g:brand>
     <g:google_product_category>Vehicles &amp; Parts &gt; Vehicles &gt; Motor Vehicles &gt; Cars, Trucks &amp; Vans</g:google_product_category>
@@ -528,7 +528,7 @@
     <g:custom_label_0>age_31_60</g:custom_label_0>
     <g:custom_label_1>suv</g:custom_label_1>
     <g:custom_label_2>price_8k_to_12k</g:custom_label_2>
-    <g:custom_label_3>cg_unrated</g:custom_label_3>
+    <g:custom_label_3>cg_good_deal</g:custom_label_3>
     <g:custom_label_4>awd_4wd</g:custom_label_4>
     <g:question_and_answer>
       <g:question>Is this used Nissan Murano inspected before sale?</g:question>
@@ -577,17 +577,17 @@
     <g:related_product>
       <g:relationship_type>substitute</g:relationship_type>
       <g:identifier_type>id</g:identifier_type>
+      <g:identifier>KM8J3CA27HU276947</g:identifier>
+    </g:related_product>
+    <g:related_product>
+      <g:relationship_type>substitute</g:relationship_type>
+      <g:identifier_type>id</g:identifier_type>
       <g:identifier>KM8J3CA48HU259737</g:identifier>
     </g:related_product>
     <g:related_product>
       <g:relationship_type>substitute</g:relationship_type>
       <g:identifier_type>id</g:identifier_type>
       <g:identifier>KM8SRDHF6FU104181</g:identifier>
-    </g:related_product>
-    <g:related_product>
-      <g:relationship_type>substitute</g:relationship_type>
-      <g:identifier_type>id</g:identifier_type>
-      <g:identifier>WA1D7AFP0GA094726</g:identifier>
     </g:related_product>
   </item>
   <item>
@@ -677,7 +677,7 @@
     <g:related_product>
       <g:relationship_type>substitute</g:relationship_type>
       <g:identifier_type>id</g:identifier_type>
-      <g:identifier>WA1ECCFS8JR006434</g:identifier>
+      <g:identifier>KM8J3CA48HU259737</g:identifier>
     </g:related_product>
     <g:related_product>
       <g:relationship_type>substitute</g:relationship_type>
@@ -793,7 +793,7 @@
     <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202610-47c96bd144364a7798bd9aec34e971b8.jpg</g:additional_image_link>
     <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202610-4634311777ca4b6e8e39f61a18837499.jpg</g:additional_image_link>
     <g:condition>used</g:condition>
-    <g:price>13995 USD</g:price>
+    <g:price>12450 USD</g:price>
     <g:availability>in_stock</g:availability>
     <g:brand>Hyundai</g:brand>
     <g:google_product_category>Vehicles &amp; Parts &gt; Vehicles &gt; Motor Vehicles &gt; Cars, Trucks &amp; Vans</g:google_product_category>
@@ -813,7 +813,7 @@
     <g:custom_label_0>age_0_30</g:custom_label_0>
     <g:custom_label_1>suv</g:custom_label_1>
     <g:custom_label_2>price_12k_plus</g:custom_label_2>
-    <g:custom_label_3>cg_unrated</g:custom_label_3>
+    <g:custom_label_3>cg_good_deal</g:custom_label_3>
     <g:custom_label_4>awd_4wd</g:custom_label_4>
     <g:question_and_answer>
       <g:question>Is this used Hyundai Tucson inspected before sale?</g:question>
@@ -858,12 +858,12 @@
     <g:related_product>
       <g:relationship_type>substitute</g:relationship_type>
       <g:identifier_type>id</g:identifier_type>
-      <g:identifier>WA1VAAF73JD013438</g:identifier>
+      <g:identifier>5N1AZ2MH6FN251280</g:identifier>
     </g:related_product>
     <g:related_product>
       <g:relationship_type>substitute</g:relationship_type>
       <g:identifier_type>id</g:identifier_type>
-      <g:identifier>5N1AZ2MH6FN251280</g:identifier>
+      <g:identifier>WA1VAAF73JD013438</g:identifier>
     </g:related_product>
     <g:related_product>
       <g:relationship_type>substitute</g:relationship_type>
@@ -889,7 +889,7 @@
     <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202610-f85ebed20aeb493f9cf0dde20c626a40.jpg</g:additional_image_link>
     <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202610-ae9ca73e43b94ea783a79d7ac64e55df.jpg</g:additional_image_link>
     <g:condition>used</g:condition>
-    <g:price>11950 USD</g:price>
+    <g:price>10450 USD</g:price>
     <g:availability>in_stock</g:availability>
     <g:brand>Hyundai</g:brand>
     <g:google_product_category>Vehicles &amp; Parts &gt; Vehicles &gt; Motor Vehicles &gt; Cars, Trucks &amp; Vans</g:google_product_category>
@@ -909,7 +909,7 @@
     <g:custom_label_0>age_0_30</g:custom_label_0>
     <g:custom_label_1>suv</g:custom_label_1>
     <g:custom_label_2>price_8k_to_12k</g:custom_label_2>
-    <g:custom_label_3>cg_unrated</g:custom_label_3>
+    <g:custom_label_3>cg_good_deal</g:custom_label_3>
     <g:custom_label_4>awd_4wd</g:custom_label_4>
     <g:question_and_answer>
       <g:question>Is this used Hyundai Tucson inspected before sale?</g:question>
@@ -958,17 +958,17 @@
     <g:related_product>
       <g:relationship_type>substitute</g:relationship_type>
       <g:identifier_type>id</g:identifier_type>
-      <g:identifier>5N1AZ2MH6FN251280</g:identifier>
-    </g:related_product>
-    <g:related_product>
-      <g:relationship_type>substitute</g:relationship_type>
-      <g:identifier_type>id</g:identifier_type>
       <g:identifier>KM8SRDHF6FU104181</g:identifier>
     </g:related_product>
     <g:related_product>
       <g:relationship_type>substitute</g:relationship_type>
       <g:identifier_type>id</g:identifier_type>
       <g:identifier>WA1D7AFP0GA094726</g:identifier>
+    </g:related_product>
+    <g:related_product>
+      <g:relationship_type>substitute</g:relationship_type>
+      <g:identifier_type>id</g:identifier_type>
+      <g:identifier>WA1ECCFS8JR006434</g:identifier>
     </g:related_product>
   </item>
   <item>
@@ -989,7 +989,7 @@
     <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202610-099cc6c2a77b4b4fa56e3d18b67194cf.jpg</g:additional_image_link>
     <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202610-36b6ab6785834644938a36ed186c14cb.jpg</g:additional_image_link>
     <g:condition>used</g:condition>
-    <g:price>11745 USD</g:price>
+    <g:price>10450 USD</g:price>
     <g:availability>in_stock</g:availability>
     <g:brand>Hyundai</g:brand>
     <g:google_product_category>Vehicles &amp; Parts &gt; Vehicles &gt; Motor Vehicles &gt; Cars, Trucks &amp; Vans</g:google_product_category>
@@ -1009,7 +1009,7 @@
     <g:custom_label_0>age_0_30</g:custom_label_0>
     <g:custom_label_1>suv</g:custom_label_1>
     <g:custom_label_2>price_8k_to_12k</g:custom_label_2>
-    <g:custom_label_3>cg_unrated</g:custom_label_3>
+    <g:custom_label_3>cg_good_deal</g:custom_label_3>
     <g:custom_label_4>awd_4wd</g:custom_label_4>
     <g:question_and_answer>
       <g:question>Is this used Hyundai Santa Fe inspected before sale?</g:question>
@@ -1054,17 +1054,17 @@
     <g:related_product>
       <g:relationship_type>substitute</g:relationship_type>
       <g:identifier_type>id</g:identifier_type>
+      <g:identifier>KM8J3CA48HU259737</g:identifier>
+    </g:related_product>
+    <g:related_product>
+      <g:relationship_type>substitute</g:relationship_type>
+      <g:identifier_type>id</g:identifier_type>
       <g:identifier>WA1D7AFP0GA094726</g:identifier>
     </g:related_product>
     <g:related_product>
       <g:relationship_type>substitute</g:relationship_type>
       <g:identifier_type>id</g:identifier_type>
-      <g:identifier>5N1AZ2MH6FN251280</g:identifier>
-    </g:related_product>
-    <g:related_product>
-      <g:relationship_type>substitute</g:relationship_type>
-      <g:identifier_type>id</g:identifier_type>
-      <g:identifier>KM8J3CA48HU259737</g:identifier>
+      <g:identifier>WA1ECCFS8JR006434</g:identifier>
     </g:related_product>
   </item>
   <item>
@@ -1154,12 +1154,12 @@
     <g:related_product>
       <g:relationship_type>substitute</g:relationship_type>
       <g:identifier_type>id</g:identifier_type>
-      <g:identifier>1G1PC5SB9E7454238</g:identifier>
+      <g:identifier>1N4AL3AP5DC227543</g:identifier>
     </g:related_product>
     <g:related_product>
       <g:relationship_type>substitute</g:relationship_type>
       <g:identifier_type>id</g:identifier_type>
-      <g:identifier>1N4AL3AP5DC227543</g:identifier>
+      <g:identifier>1G1PC5SB9E7454238</g:identifier>
     </g:related_product>
     <g:related_product>
       <g:relationship_type>substitute</g:relationship_type>
@@ -1185,7 +1185,7 @@
     <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202610-e5868a4f32b647b8ae2011ad802c2f4d.jpg</g:additional_image_link>
     <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202610-29224cd640c9492d90d4f02066fa15a1.jpg</g:additional_image_link>
     <g:condition>used</g:condition>
-    <g:price>9495 USD</g:price>
+    <g:price>8450 USD</g:price>
     <g:availability>in_stock</g:availability>
     <g:brand>Kia</g:brand>
     <g:google_product_category>Vehicles &amp; Parts &gt; Vehicles &gt; Motor Vehicles &gt; Cars, Trucks &amp; Vans</g:google_product_category>
@@ -1205,7 +1205,7 @@
     <g:custom_label_0>age_0_30</g:custom_label_0>
     <g:custom_label_1>minivan</g:custom_label_1>
     <g:custom_label_2>price_8k_to_12k</g:custom_label_2>
-    <g:custom_label_3>cg_unrated</g:custom_label_3>
+    <g:custom_label_3>cg_fair_deal</g:custom_label_3>
     <g:custom_label_4>two_wheel_drive</g:custom_label_4>
     <g:question_and_answer>
       <g:question>Is this used Kia Sedona inspected before sale?</g:question>
@@ -1270,7 +1270,7 @@
     <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202610-88f81137c1234a10b15ef70bafadb9f2.jpg</g:additional_image_link>
     <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202610-40eb5cb775a1432bb7fd58bc9c6e49a9.jpg</g:additional_image_link>
     <g:condition>used</g:condition>
-    <g:price>11745 USD</g:price>
+    <g:price>10450 USD</g:price>
     <g:availability>in_stock</g:availability>
     <g:brand>Audi</g:brand>
     <g:google_product_category>Vehicles &amp; Parts &gt; Vehicles &gt; Motor Vehicles &gt; Cars, Trucks &amp; Vans</g:google_product_category>
@@ -1290,7 +1290,7 @@
     <g:custom_label_0>age_0_30</g:custom_label_0>
     <g:custom_label_1>suv</g:custom_label_1>
     <g:custom_label_2>price_8k_to_12k</g:custom_label_2>
-    <g:custom_label_3>cg_unrated</g:custom_label_3>
+    <g:custom_label_3>cg_good_deal</g:custom_label_3>
     <g:custom_label_4>awd_4wd</g:custom_label_4>
     <g:question_and_answer>
       <g:question>Is this used Audi Q5 inspected before sale?</g:question>
@@ -1339,17 +1339,17 @@
     <g:related_product>
       <g:relationship_type>substitute</g:relationship_type>
       <g:identifier_type>id</g:identifier_type>
+      <g:identifier>KM8J3CA48HU259737</g:identifier>
+    </g:related_product>
+    <g:related_product>
+      <g:relationship_type>substitute</g:relationship_type>
+      <g:identifier_type>id</g:identifier_type>
       <g:identifier>KM8SRDHF6FU104181</g:identifier>
     </g:related_product>
     <g:related_product>
       <g:relationship_type>substitute</g:relationship_type>
       <g:identifier_type>id</g:identifier_type>
-      <g:identifier>5N1AZ2MH6FN251280</g:identifier>
-    </g:related_product>
-    <g:related_product>
-      <g:relationship_type>substitute</g:relationship_type>
-      <g:identifier_type>id</g:identifier_type>
-      <g:identifier>KM8J3CA48HU259737</g:identifier>
+      <g:identifier>WA1ECCFS8JR006434</g:identifier>
     </g:related_product>
   </item>
   <item>
@@ -1439,7 +1439,7 @@
     <g:related_product>
       <g:relationship_type>substitute</g:relationship_type>
       <g:identifier_type>id</g:identifier_type>
-      <g:identifier>5XYPH4A52JG399000</g:identifier>
+      <g:identifier>KM8J3CA48HU259737</g:identifier>
     </g:related_product>
     <g:related_product>
       <g:relationship_type>substitute</g:relationship_type>
@@ -1644,12 +1644,12 @@
     <g:related_product>
       <g:relationship_type>substitute</g:relationship_type>
       <g:identifier_type>id</g:identifier_type>
-      <g:identifier>1N4AL3AP5DC227543</g:identifier>
+      <g:identifier>KNAFU4A25D5728313</g:identifier>
     </g:related_product>
     <g:related_product>
       <g:relationship_type>substitute</g:relationship_type>
       <g:identifier_type>id</g:identifier_type>
-      <g:identifier>KNAFU4A25D5728313</g:identifier>
+      <g:identifier>1N4AL3AP5DC227543</g:identifier>
     </g:related_product>
   </item>
 </channel>
