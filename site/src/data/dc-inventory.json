@@ -179,8 +179,7 @@
           {
             "key": "remote_start",
             "label": "Remote start",
-            "icon": "key",
-            "source": "carmax"
+            "icon": "key"
           }
         ],
         "count": 1,
@@ -193,7 +192,7 @@
       "make": "Nissan",
       "model": "Altima",
       "trim": "2.5 SV",
-      "price": 6950,
+      "price": 6450,
       "mileage": 94730,
       "exteriorColor": "Gray",
       "interiorColor": "Black",
@@ -356,8 +355,7 @@
           {
             "key": "remote_start",
             "label": "Remote start",
-            "icon": "key",
-            "source": "carmax"
+            "icon": "key"
           }
         ],
         "count": 1,
@@ -366,8 +364,7 @@
           {
             "key": "fog_led",
             "label": "Fog lamps",
-            "icon": "flare",
-            "source": "description"
+            "icon": "flare"
           }
         ]
       }
@@ -582,14 +579,12 @@
           {
             "key": "heated_front",
             "label": "Heated front seats",
-            "icon": "whatshot",
-            "source": "carmax"
+            "icon": "whatshot"
           },
           {
             "key": "remote_start",
             "label": "Remote start",
-            "icon": "key",
-            "source": "carmax"
+            "icon": "key"
           }
         ],
         "count": 2,
@@ -602,7 +597,7 @@
       "make": "Nissan",
       "model": "Sentra",
       "trim": "SR",
-      "price": 8495,
+      "price": 7450,
       "mileage": 102445,
       "exteriorColor": "Blue",
       "interiorColor": "Black",
@@ -800,8 +795,7 @@
           {
             "key": "fog_led",
             "label": "Fog lamps",
-            "icon": "flare",
-            "source": "description"
+            "icon": "flare"
           }
         ]
       }
@@ -1032,26 +1026,22 @@
           {
             "key": "awd",
             "label": "All wheel drive",
-            "icon": "ac_unit",
-            "source": "carmax"
+            "icon": "ac_unit"
           },
           {
             "key": "heated_front",
             "label": "Heated front seats",
-            "icon": "whatshot",
-            "source": "carmax"
+            "icon": "whatshot"
           },
           {
             "key": "heated_rear",
             "label": "Heated rear seats",
-            "icon": "whatshot",
-            "source": "carmax"
+            "icon": "whatshot"
           },
           {
             "key": "snow_mode",
             "label": "Snow or lock mode",
-            "icon": "landscape",
-            "source": "description"
+            "icon": "landscape"
           }
         ],
         "count": 4,
@@ -1060,8 +1050,7 @@
           {
             "key": "clearance",
             "label": "8.7 inches of ground clearance",
-            "icon": "height",
-            "source": "description"
+            "icon": "height"
           }
         ]
       }
@@ -1071,7 +1060,7 @@
       "make": "Nissan",
       "model": "Murano",
       "trim": "Platinum",
-      "price": 11950,
+      "price": 11450,
       "mileage": 94653,
       "exteriorColor": "Black",
       "interiorColor": "Black",
@@ -1323,32 +1312,27 @@
           {
             "key": "awd",
             "label": "All wheel drive",
-            "icon": "ac_unit",
-            "source": "carmax"
+            "icon": "ac_unit"
           },
           {
             "key": "heated_front",
             "label": "Heated front seats",
-            "icon": "whatshot",
-            "source": "carmax"
+            "icon": "whatshot"
           },
           {
             "key": "heated_rear",
             "label": "Heated rear seats",
-            "icon": "whatshot",
-            "source": "carmax"
+            "icon": "whatshot"
           },
           {
             "key": "remote_start",
             "label": "Remote start",
-            "icon": "key",
-            "source": "carmax"
+            "icon": "key"
           },
           {
             "key": "heated_wheel",
             "label": "Heated steering wheel",
-            "icon": "thermostat",
-            "source": "carmax"
+            "icon": "thermostat"
           }
         ],
         "count": 5,
@@ -1592,8 +1576,7 @@
           {
             "key": "heated_front",
             "label": "Heated front seats",
-            "icon": "whatshot",
-            "source": "carmax"
+            "icon": "whatshot"
           }
         ],
         "count": 1,
@@ -1764,14 +1747,12 @@
           {
             "key": "awd",
             "label": "All wheel drive",
-            "icon": "ac_unit",
-            "source": "carmax"
+            "icon": "ac_unit"
           },
           {
             "key": "heated_front",
             "label": "Heated front seats",
-            "icon": "whatshot",
-            "source": "carmax"
+            "icon": "whatshot"
           }
         ],
         "count": 2,
@@ -1784,7 +1765,7 @@
       "make": "Hyundai",
       "model": "Tucson",
       "trim": "Limited",
-      "price": 13995,
+      "price": 12450,
       "mileage": 78435,
       "exteriorColor": "White",
       "interiorColor": "Beige",
@@ -2027,26 +2008,22 @@
           {
             "key": "awd",
             "label": "All wheel drive",
-            "icon": "ac_unit",
-            "source": "carmax"
+            "icon": "ac_unit"
           },
           {
             "key": "heated_front",
             "label": "Heated front seats",
-            "icon": "whatshot",
-            "source": "carmax"
+            "icon": "whatshot"
           },
           {
             "key": "heated_rear",
             "label": "Heated rear seats",
-            "icon": "whatshot",
-            "source": "carmax"
+            "icon": "whatshot"
           },
           {
             "key": "snow_mode",
             "label": "Snow or lock mode",
-            "icon": "landscape",
-            "source": "description"
+            "icon": "landscape"
           }
         ],
         "count": 4,
@@ -2059,7 +2036,7 @@
       "make": "Hyundai",
       "model": "Tucson",
       "trim": "SE",
-      "price": 11950,
+      "price": 10450,
       "mileage": 94859,
       "exteriorColor": "Burgundy",
       "interiorColor": "Tan",
@@ -2228,14 +2205,12 @@
           {
             "key": "awd",
             "label": "All wheel drive",
-            "icon": "ac_unit",
-            "source": "carmax"
+            "icon": "ac_unit"
           },
           {
             "key": "snow_mode",
             "label": "Snow or lock mode",
-            "icon": "landscape",
-            "source": "description"
+            "icon": "landscape"
           }
         ],
         "count": 2,
@@ -2248,7 +2223,7 @@
       "make": "Hyundai",
       "model": "Santa Fe",
       "trim": "Limited",
-      "price": 11745,
+      "price": 10450,
       "mileage": 86271,
       "exteriorColor": "Gray",
       "interiorColor": "Gray",
@@ -2542,26 +2517,22 @@
           {
             "key": "awd",
             "label": "All wheel drive",
-            "icon": "ac_unit",
-            "source": "carmax"
+            "icon": "ac_unit"
           },
           {
             "key": "heated_front",
             "label": "Heated front seats",
-            "icon": "whatshot",
-            "source": "carmax"
+            "icon": "whatshot"
           },
           {
             "key": "heated_rear",
             "label": "Heated rear seats",
-            "icon": "whatshot",
-            "source": "carmax"
+            "icon": "whatshot"
           },
           {
             "key": "heated_wheel",
             "label": "Heated steering wheel",
-            "icon": "thermostat",
-            "source": "carmax"
+            "icon": "thermostat"
           }
         ],
         "count": 4,
@@ -2570,8 +2541,7 @@
           {
             "key": "new_tires",
             "label": "New tires",
-            "icon": "tire_repair",
-            "source": "description"
+            "icon": "tire_repair"
           }
         ]
       }
@@ -2723,7 +2693,7 @@
       "make": "Kia",
       "model": "Sedona",
       "trim": "LX",
-      "price": 9495,
+      "price": 8450,
       "mileage": 106414,
       "exteriorColor": "Gray",
       "interiorColor": "Gray",
@@ -2951,8 +2921,7 @@
           {
             "key": "heated_front",
             "label": "Heated front seats",
-            "icon": "whatshot",
-            "source": "carmax"
+            "icon": "whatshot"
           }
         ],
         "count": 1,
@@ -2965,7 +2934,7 @@
       "make": "Audi",
       "model": "Q5",
       "trim": "3.0T Premium Plus",
-      "price": 11745,
+      "price": 10450,
       "mileage": 106207,
       "exteriorColor": "White",
       "interiorColor": "Tan",
@@ -3216,14 +3185,12 @@
           {
             "key": "awd",
             "label": "All wheel drive",
-            "icon": "ac_unit",
-            "source": "carmax"
+            "icon": "ac_unit"
           },
           {
             "key": "heated_front",
             "label": "Heated front seats",
-            "icon": "whatshot",
-            "source": "carmax"
+            "icon": "whatshot"
           }
         ],
         "count": 2,
@@ -3449,14 +3416,12 @@
           {
             "key": "awd",
             "label": "All wheel drive",
-            "icon": "ac_unit",
-            "source": "carmax"
+            "icon": "ac_unit"
           },
           {
             "key": "heated_front",
             "label": "Heated front seats",
-            "icon": "whatshot",
-            "source": "carmax"
+            "icon": "whatshot"
           }
         ],
         "count": 2,
@@ -3802,26 +3767,22 @@
           {
             "key": "awd",
             "label": "All wheel drive",
-            "icon": "ac_unit",
-            "source": "carmax"
+            "icon": "ac_unit"
           },
           {
             "key": "heated_front",
             "label": "Heated front seats",
-            "icon": "whatshot",
-            "source": "carmax"
+            "icon": "whatshot"
           },
           {
             "key": "heated_rear",
             "label": "Heated rear seats",
-            "icon": "whatshot",
-            "source": "carmax"
+            "icon": "whatshot"
           },
           {
             "key": "heated_wheel",
             "label": "Heated steering wheel",
-            "icon": "thermostat",
-            "source": "carmax"
+            "icon": "thermostat"
           }
         ],
         "count": 4,
@@ -3830,8 +3791,7 @@
           {
             "key": "cold_pkg",
             "label": "Cold Weather Package",
-            "icon": "inventory_2",
-            "source": "carmax"
+            "icon": "inventory_2"
           }
         ]
       }
@@ -4069,26 +4029,22 @@
           {
             "key": "awd",
             "label": "All wheel drive",
-            "icon": "ac_unit",
-            "source": "carmax"
+            "icon": "ac_unit"
           },
           {
             "key": "heated_front",
             "label": "Heated front seats",
-            "icon": "whatshot",
-            "source": "carmax"
+            "icon": "whatshot"
           },
           {
             "key": "heated_rear",
             "label": "Heated rear seats",
-            "icon": "whatshot",
-            "source": "carmax"
+            "icon": "whatshot"
           },
           {
             "key": "heated_wheel",
             "label": "Heated steering wheel",
-            "icon": "thermostat",
-            "source": "carmax"
+            "icon": "thermostat"
           }
         ],
         "count": 4,
