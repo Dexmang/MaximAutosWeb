@@ -173,7 +173,20 @@
       },
       "mpg": "26 city / 36 hwy",
       "mpgCity": 26,
-      "mpgHwy": 36
+      "mpgHwy": 36,
+      "winter": {
+        "have": [
+          {
+            "key": "remote_start",
+            "label": "Remote start",
+            "icon": "key",
+            "source": "carmax"
+          }
+        ],
+        "count": 1,
+        "total": 6,
+        "extras": []
+      }
     },
     "1N4AL3AP5DC227543": {
       "year": 2013,
@@ -226,8 +239,8 @@
       "dateAdded": "2026-11-06",
       "featured": true,
       "sortOrder": 0,
-      "dealRating": "",
-      "priceSavings": 0,
+      "dealRating": "FAIR_PRICE",
+      "priceSavings": 220,
       "description": "2013 Nissan Altima 2.5 SV: 38 highway mpg, remote start, push button start, rear view camera, power driver seat, alloy wheels, Bluetooth. Gray over black cloth, Xtronic CVT automatic, 2.5L four cylinder. The midsize sedan for a North Shore commuter who wants real room for the family and a small fuel bill, with no dealer fees. Key features: 2.5L four cylinder with 182 horsepower and 180 lb ft of torque, Xtronic CVT automatic, 27 city and 38 highway mpg, remote engine start for cold mornings, Nissan Intelligent Key with push button start, rear view camera, power driver seat, dual zone automatic climate control, Bluetooth hands free phone and audio streaming, steering wheel audio controls, cruise control, Advanced Drive Assist display in the gauge cluster, fog lights, 16 inch alloy wheels, power windows, locks and mirrors, AM FM CD audio with satellite radio ready and an auxiliary input, cloth seats, rear defroster, side and overhead airbags, traction control and ABS. A 15.4 cubic foot trunk and one of the roomiest back seats in the midsize class. The Maxim Autos Difference Independent inspection report included with every vehicle Metal plates issued on the spot, drive home today, skip the DMV No dealer fees at Maxim Autos, ever. The price you see is the price you pay, plus tax, title, and license. Financing for all credit levels Located in Skokie, IL, minutes from Evanston, Niles, Morton Grove, Lincolnwood, Des Plaines and the North Shore Chicago area. Call or text (847) 510-8947 to confirm it is still available. Every car inspected. Every price transparent. Every car documented.",
       "highlights": [
         "2.5 SV trim",
@@ -337,7 +350,27 @@
       },
       "mpg": "27 city / 38 hwy",
       "mpgCity": 27,
-      "mpgHwy": 38
+      "mpgHwy": 38,
+      "winter": {
+        "have": [
+          {
+            "key": "remote_start",
+            "label": "Remote start",
+            "icon": "key",
+            "source": "carmax"
+          }
+        ],
+        "count": 1,
+        "total": 6,
+        "extras": [
+          {
+            "key": "fog_led",
+            "label": "Fog lamps",
+            "icon": "flare",
+            "source": "description"
+          }
+        ]
+      }
     },
     "2FMPK3J96GBC56381": {
       "year": 2016,
@@ -390,8 +423,8 @@
       "dateAdded": "2026-09-15",
       "featured": true,
       "sortOrder": 0,
-      "dealRating": "",
-      "priceSavings": 0,
+      "dealRating": "GREAT_PRICE",
+      "priceSavings": 1688,
       "description": "2016 Ford Edge SEL: 2.0L EcoBoost turbo, leather trimmed seats, rear parking sensors, dual zone climate control. Black on black, automatic, front wheel drive, EPA estimated 20 city and 30 highway MPG. A roomy midsize SUV for the buyer who wants a quiet highway ride and a big back seat. Key features: 2.0L EcoBoost turbocharged four cylinder rated at 245 horsepower with a six speed automatic, leather trimmed seating for five with generous rear legroom, rear seat release buttons that fold the back seats flat, rear parking sensors, dual zone automatic climate control, SYNC hands free calling with Bluetooth audio, rearview camera, noise reducing acoustic windshield, 18 inch alloy wheels, EPA estimated 20 city and 30 highway MPG. Up to 73.4 cubic feet of cargo with the rear seats folded. The Maxim Autos Difference Independent inspection report included with every vehicle Metal plates issued on the spot, drive home today No dealer fees at Maxim Autos, ever. The price you see is the price you pay, plus tax, title, and license. Financing for all credit levels Located in Skokie, IL, minutes from Evanston, Niles, Morton Grove, Lincolnwood, and Des Plaines, serving the North Shore Chicago area. Call (847) 510-8947 to schedule a same day appointment. Every car inspected. Every price transparent. Every customer protected.",
       "highlights": [
         "SEL trim",
@@ -543,7 +576,26 @@
       },
       "mpg": "20 city / 30 hwy",
       "mpgCity": 20,
-      "mpgHwy": 30
+      "mpgHwy": 30,
+      "winter": {
+        "have": [
+          {
+            "key": "heated_front",
+            "label": "Heated front seats",
+            "icon": "whatshot",
+            "source": "carmax"
+          },
+          {
+            "key": "remote_start",
+            "label": "Remote start",
+            "icon": "key",
+            "source": "carmax"
+          }
+        ],
+        "count": 2,
+        "total": 6,
+        "extras": []
+      }
     },
     "3N1AB7APXEY279332": {
       "year": 2014,
@@ -739,7 +791,20 @@
       },
       "mpg": "30 city / 39 hwy",
       "mpgCity": 30,
-      "mpgHwy": 39
+      "mpgHwy": 39,
+      "winter": {
+        "have": [],
+        "count": 0,
+        "total": 6,
+        "extras": [
+          {
+            "key": "fog_led",
+            "label": "Fog lamps",
+            "icon": "flare",
+            "source": "description"
+          }
+        ]
+      }
     },
     "4S4BSAKCXJ3314086": {
       "year": 2018,
@@ -792,8 +857,8 @@
       "dateAdded": "2026-10-13",
       "featured": true,
       "sortOrder": 0,
-      "dealRating": "",
-      "priceSavings": 0,
+      "dealRating": "GREAT_PRICE",
+      "priceSavings": 1901,
       "description": "2018 Subaru Outback 2.5i Limited: Symmetrical all wheel drive, 32 mpg highway, 8.7 inches of ground clearance, perforated leather, heated front and rear seats, Harman Kardon audio, power liftgate, moonroof, Apple CarPlay and Android Auto. White on black, Lineartronic CVT, 2.5L boxer four. The all weather wagon Chicago buyers ask for by name, with no dealer fees. Key features: 2.5 liter boxer four with 175 horsepower, Lineartronic CVT, Subaru Symmetrical all wheel drive with X Mode and 8.7 inches of ground clearance, 25 city and 32 highway, perforated leather trimmed seats, heated front and rear seats, power driver seat with memory and power passenger seat, power rear liftgate with memory height, power moonroof, Harman Kardon 12 speaker premium audio, 8 inch Starlink touchscreen with Apple CarPlay and Android Auto, Bluetooth, blind spot detection with rear cross traffic alert, rear view camera, smart key with push button start, roof rails with integrated cross bars, factory tow hitch, rear spoiler, alloy wheels. 35.5 cubic feet of cargo behind the rear seat and 73.3 with the seats folded. The Maxim Autos Difference Independent inspection report included with every vehicle Metal plates issued on the spot, drive home today No dealer fees, transparent all in pricing Financing for all credit levels Skokie, IL, minutes from Evanston, Niles, Morton Grove, Lincolnwood, Des Plaines and the North Shore. Call or text (847) 510-8947 for a same day appointment. Every car inspected. Every price transparent. Every car documented.",
       "highlights": [
         "2.5i Limited trim",
@@ -961,7 +1026,45 @@
       },
       "mpg": "25 city / 32 hwy",
       "mpgCity": 25,
-      "mpgHwy": 32
+      "mpgHwy": 32,
+      "winter": {
+        "have": [
+          {
+            "key": "awd",
+            "label": "All wheel drive",
+            "icon": "ac_unit",
+            "source": "carmax"
+          },
+          {
+            "key": "heated_front",
+            "label": "Heated front seats",
+            "icon": "whatshot",
+            "source": "carmax"
+          },
+          {
+            "key": "heated_rear",
+            "label": "Heated rear seats",
+            "icon": "whatshot",
+            "source": "carmax"
+          },
+          {
+            "key": "snow_mode",
+            "label": "Snow or lock mode",
+            "icon": "landscape",
+            "source": "description"
+          }
+        ],
+        "count": 4,
+        "total": 6,
+        "extras": [
+          {
+            "key": "clearance",
+            "label": "8.7 inches of ground clearance",
+            "icon": "height",
+            "source": "description"
+          }
+        ]
+      }
     },
     "5N1AZ2MH6FN251280": {
       "year": 2015,
@@ -1026,8 +1129,8 @@
       "dateAdded": "2026-09-15",
       "featured": true,
       "sortOrder": 0,
-      "dealRating": "",
-      "priceSavings": 0,
+      "dealRating": "FAIR_PRICE",
+      "priceSavings": 488,
       "description": "2015 Nissan Murano Platinum AWD: all wheel drive, Zero Gravity heated and ventilated seats, panoramic moonroof, 360 degree Around View camera, 3.5L V6. Black on black leather, automatic, all wheel drive, EPA estimated 21 city and 28 highway MPG. A near luxury midsize SUV for the buyer who wants the comfort without the badge premium. Key features: 3.5L V6 rated at 260 horsepower, all wheel drive for Chicago winters, NASA inspired Zero Gravity front seats with heating and ventilation, heated rear seats, panoramic moonroof, 360 degree Around View monitor for tight parking, leather upholstery with soft touch padding and wood accents, power folding rear seats, Bose premium audio, NissanConnect touchscreen with navigation, EPA estimated 21 city and 28 highway MPG. Seats five with 39.6 cubic feet of cargo behind the rear seat. The Maxim Autos Difference Independent inspection report included with every vehicle Metal plates issued on the spot, drive home today No dealer fees at Maxim Autos, ever. The price you see is the price you pay, plus tax, title, and license. Financing for all credit levels Located in Skokie, IL, minutes from Evanston, Niles, Morton Grove, Lincolnwood, and Des Plaines, serving the North Shore Chicago area. Call (847) 510-8947 to schedule a same day appointment. Every car inspected. Every price transparent. Every customer protected.",
       "highlights": [
         "Platinum trim",
@@ -1214,7 +1317,44 @@
       },
       "mpg": "21 city / 28 hwy",
       "mpgCity": 21,
-      "mpgHwy": 28
+      "mpgHwy": 28,
+      "winter": {
+        "have": [
+          {
+            "key": "awd",
+            "label": "All wheel drive",
+            "icon": "ac_unit",
+            "source": "carmax"
+          },
+          {
+            "key": "heated_front",
+            "label": "Heated front seats",
+            "icon": "whatshot",
+            "source": "carmax"
+          },
+          {
+            "key": "heated_rear",
+            "label": "Heated rear seats",
+            "icon": "whatshot",
+            "source": "carmax"
+          },
+          {
+            "key": "remote_start",
+            "label": "Remote start",
+            "icon": "key",
+            "source": "carmax"
+          },
+          {
+            "key": "heated_wheel",
+            "label": "Heated steering wheel",
+            "icon": "thermostat",
+            "source": "carmax"
+          }
+        ],
+        "count": 5,
+        "total": 6,
+        "extras": []
+      }
     },
     "5XYPH4A52JG399000": {
       "year": 2018,
@@ -1446,7 +1586,20 @@
       },
       "mpg": "18 city / 25 hwy",
       "mpgCity": 18,
-      "mpgHwy": 25
+      "mpgHwy": 25,
+      "winter": {
+        "have": [
+          {
+            "key": "heated_front",
+            "label": "Heated front seats",
+            "icon": "whatshot",
+            "source": "carmax"
+          }
+        ],
+        "count": 1,
+        "total": 6,
+        "extras": []
+      }
     },
     "JF1GPAC63EH339804": {
       "year": 2014,
@@ -1497,8 +1650,8 @@
       "dateAdded": "2026-11-08",
       "featured": true,
       "sortOrder": 0,
-      "dealRating": "",
-      "priceSavings": 0,
+      "dealRating": "GOOD_PRICE",
+      "priceSavings": 1152,
       "description": "2014 Subaru Impreza 2.0i Premium hatchback: Symmetrical all wheel drive, 36 mpg highway, heated seats, 52 cubic feet of cargo with the seats down. Venetian red on black cloth, Lineartronic CVT automatic, 2.0L boxer four. The all weather hatchback that costs a sedan to run, with no dealer fees. Key features: 2.0 liter boxer four with Subaru Symmetrical all wheel drive standard, Lineartronic CVT, 27 city and 36 highway, 22.4 cubic feet of cargo behind the rear seat and 52.4 with the 60/40 seats folded, heated front seats, Bluetooth hands free and audio streaming, cruise control, alloy wheels, rear spoiler, rear defroster. A longer wheelbase than most compacts gives the back seat real legroom. The Maxim Autos Difference Independent inspection report included with every vehicle Metal plates issued on the spot, drive home today No dealer fees, transparent all in pricing Financing for all credit levels Skokie, IL, minutes from Evanston, Niles, Morton Grove, Lincolnwood, Des Plaines and the North Shore. Call or text (847) 510-8947 for a same day appointment. Every car inspected. Every price transparent. Every car documented.",
       "highlights": [
         "2.0i Premium trim",
@@ -1605,7 +1758,26 @@
       "mpgHwy": 35,
       "photoPrefix": "2014-subaru-impreza-2-0i-premium",
       "photoPath": "",
-      "dealerCenterUrl": ""
+      "dealerCenterUrl": "",
+      "winter": {
+        "have": [
+          {
+            "key": "awd",
+            "label": "All wheel drive",
+            "icon": "ac_unit",
+            "source": "carmax"
+          },
+          {
+            "key": "heated_front",
+            "label": "Heated front seats",
+            "icon": "whatshot",
+            "source": "carmax"
+          }
+        ],
+        "count": 2,
+        "total": 6,
+        "extras": []
+      }
     },
     "KM8J3CA27HU276947": {
       "year": 2017,
@@ -1849,7 +2021,38 @@
       },
       "mpg": "24 city / 28 hwy",
       "mpgCity": 24,
-      "mpgHwy": 28
+      "mpgHwy": 28,
+      "winter": {
+        "have": [
+          {
+            "key": "awd",
+            "label": "All wheel drive",
+            "icon": "ac_unit",
+            "source": "carmax"
+          },
+          {
+            "key": "heated_front",
+            "label": "Heated front seats",
+            "icon": "whatshot",
+            "source": "carmax"
+          },
+          {
+            "key": "heated_rear",
+            "label": "Heated rear seats",
+            "icon": "whatshot",
+            "source": "carmax"
+          },
+          {
+            "key": "snow_mode",
+            "label": "Snow or lock mode",
+            "icon": "landscape",
+            "source": "description"
+          }
+        ],
+        "count": 4,
+        "total": 6,
+        "extras": []
+      }
     },
     "KM8J3CA48HU259737": {
       "year": 2017,
@@ -2019,7 +2222,26 @@
       },
       "mpg": "21 city / 26 hwy",
       "mpgCity": 21,
-      "mpgHwy": 26
+      "mpgHwy": 26,
+      "winter": {
+        "have": [
+          {
+            "key": "awd",
+            "label": "All wheel drive",
+            "icon": "ac_unit",
+            "source": "carmax"
+          },
+          {
+            "key": "snow_mode",
+            "label": "Snow or lock mode",
+            "icon": "landscape",
+            "source": "description"
+          }
+        ],
+        "count": 2,
+        "total": 6,
+        "extras": []
+      }
     },
     "KM8SRDHF6FU104181": {
       "year": 2015,
@@ -2314,7 +2536,45 @@
       },
       "mpg": "18 city / 24 hwy",
       "mpgCity": 18,
-      "mpgHwy": 24
+      "mpgHwy": 24,
+      "winter": {
+        "have": [
+          {
+            "key": "awd",
+            "label": "All wheel drive",
+            "icon": "ac_unit",
+            "source": "carmax"
+          },
+          {
+            "key": "heated_front",
+            "label": "Heated front seats",
+            "icon": "whatshot",
+            "source": "carmax"
+          },
+          {
+            "key": "heated_rear",
+            "label": "Heated rear seats",
+            "icon": "whatshot",
+            "source": "carmax"
+          },
+          {
+            "key": "heated_wheel",
+            "label": "Heated steering wheel",
+            "icon": "thermostat",
+            "source": "carmax"
+          }
+        ],
+        "count": 4,
+        "total": 6,
+        "extras": [
+          {
+            "key": "new_tires",
+            "label": "New tires",
+            "icon": "tire_repair",
+            "source": "description"
+          }
+        ]
+      }
     },
     "KNAFU4A25D5728313": {
       "year": 2013,
@@ -2450,7 +2710,13 @@
       },
       "mpg": "25 city / 35 hwy",
       "mpgCity": 25,
-      "mpgHwy": 35
+      "mpgHwy": 35,
+      "winter": {
+        "have": [],
+        "count": 0,
+        "total": 6,
+        "extras": []
+      }
     },
     "KNDMB5C14G6201419": {
       "year": 2016,
@@ -2679,7 +2945,20 @@
       },
       "mpg": "18 city / 24 hwy",
       "mpgCity": 18,
-      "mpgHwy": 24
+      "mpgHwy": 24,
+      "winter": {
+        "have": [
+          {
+            "key": "heated_front",
+            "label": "Heated front seats",
+            "icon": "whatshot",
+            "source": "carmax"
+          }
+        ],
+        "count": 1,
+        "total": 6,
+        "extras": []
+      }
     },
     "WA1D7AFP0GA094726": {
       "year": 2016,
@@ -2931,7 +3210,26 @@
       },
       "mpg": "18 city / 26 hwy",
       "mpgCity": 18,
-      "mpgHwy": 26
+      "mpgHwy": 26,
+      "winter": {
+        "have": [
+          {
+            "key": "awd",
+            "label": "All wheel drive",
+            "icon": "ac_unit",
+            "source": "carmax"
+          },
+          {
+            "key": "heated_front",
+            "label": "Heated front seats",
+            "icon": "whatshot",
+            "source": "carmax"
+          }
+        ],
+        "count": 2,
+        "total": 6,
+        "extras": []
+      }
     },
     "WA1ECCFS8JR006434": {
       "year": 2018,
@@ -2997,8 +3295,8 @@
       "dateAdded": "2026-10-07",
       "featured": true,
       "sortOrder": 0,
-      "dealRating": "",
-      "priceSavings": 0,
+      "dealRating": "GOOD_PRICE",
+      "priceSavings": 767,
       "description": "2018 Audi Q3 2.0T quattro Premium: turbocharged 2.0 liter, quattro all wheel drive, leather, panoramic sunroof, heated front seats, power liftgate. Black on black, 6 speed Tiptronic automatic, 2.0L TFSI. The Audi badge at a compact price, with quattro for the North Shore winter and no dealer fees. Key features: 2.0 liter TFSI turbo with 200 horsepower and 207 lb-ft, quattro all wheel drive for rain and snow, 6 speed Tiptronic automatic, leather seating, panoramic sunroof, heated front seats, power front seats, power liftgate, smart key, rear view camera, front and rear parking sensors, Bluetooth, satellite radio ready, S line style alloy wheels and sport exterior package. A quiet, upscale cabin in a crossover that fits a city garage. 20 city and 28 highway. The Maxim Autos Difference Independent inspection report included with every vehicle Metal plates issued on the spot, drive home today No dealer fees, transparent all in pricing Financing for all credit levels Skokie, IL, minutes from Evanston, Niles, Morton Grove, Lincolnwood, Des Plaines and the North Shore. Call or text (847) 510-8947 for a same day appointment. Every car inspected. Every price transparent. Every car documented.",
       "highlights": [
         "2.0T Premium quattro trim",
@@ -3145,7 +3443,26 @@
       },
       "mpg": "20 city / 28 hwy",
       "mpgCity": 20,
-      "mpgHwy": 28
+      "mpgHwy": 28,
+      "winter": {
+        "have": [
+          {
+            "key": "awd",
+            "label": "All wheel drive",
+            "icon": "ac_unit",
+            "source": "carmax"
+          },
+          {
+            "key": "heated_front",
+            "label": "Heated front seats",
+            "icon": "whatshot",
+            "source": "carmax"
+          }
+        ],
+        "count": 2,
+        "total": 6,
+        "extras": []
+      }
     },
     "WA1VAAF73JD013438": {
       "year": 2018,
@@ -3479,7 +3796,45 @@
       },
       "mpg": "19 city / 25 hwy",
       "mpgCity": 19,
-      "mpgHwy": 25
+      "mpgHwy": 25,
+      "winter": {
+        "have": [
+          {
+            "key": "awd",
+            "label": "All wheel drive",
+            "icon": "ac_unit",
+            "source": "carmax"
+          },
+          {
+            "key": "heated_front",
+            "label": "Heated front seats",
+            "icon": "whatshot",
+            "source": "carmax"
+          },
+          {
+            "key": "heated_rear",
+            "label": "Heated rear seats",
+            "icon": "whatshot",
+            "source": "carmax"
+          },
+          {
+            "key": "heated_wheel",
+            "label": "Heated steering wheel",
+            "icon": "thermostat",
+            "source": "carmax"
+          }
+        ],
+        "count": 4,
+        "total": 6,
+        "extras": [
+          {
+            "key": "cold_pkg",
+            "label": "Cold Weather Package",
+            "icon": "inventory_2",
+            "source": "carmax"
+          }
+        ]
+      }
     },
     "WAUGFAFC8GN006353": {
       "year": 2016,
@@ -3532,8 +3887,8 @@
       "dateAdded": "2026-11-07",
       "featured": true,
       "sortOrder": 0,
-      "dealRating": "",
-      "priceSavings": 0,
+      "dealRating": "GOOD_PRICE",
+      "priceSavings": 1355,
       "description": "2016 Audi A6 2.0T Premium Plus quattro: quattro all wheel drive, navigation, sunroof, heated leather seats front and rear, heated steering wheel, blind spot monitor. White over black leather, 8 speed Tiptronic automatic, 2.0L turbocharged four cylinder. The midsize luxury sedan for a North Shore commuter who wants Audi quattro grip for winter and 32 highway mpg, with no dealer fees. Key features: 2.0L TFSI turbocharged four cylinder with 252 horsepower and 273 lb ft of torque, quattro all wheel drive, 8 speed Tiptronic automatic, 22 city and 32 highway mpg, Premium Plus with the Technology Package, MMI navigation system, leather seats with heated front and rear seats, heated steering wheel, memory power front seats, power sunroof, rear view camera with front and rear parking sensors, blind spot monitor, smart key with push button start, Bluetooth hands free phone and audio streaming, satellite radio ready, CD and auxiliary input, cruise control, alloy wheels, side and overhead airbags, traction control and ABS. Around 6 seconds to 60 and a 14.1 cubic foot trunk. The Maxim Autos Difference Independent inspection report included with every vehicle Metal plates issued on the spot, drive home today, skip the DMV No dealer fees at Maxim Autos, ever. The price you see is the price you pay, plus tax, title, and license. Financing for all credit levels Located in Skokie, IL, minutes from Evanston, Niles, Morton Grove, Lincolnwood, Des Plaines and the North Shore Chicago area. Call or text (847) 510-8947 to confirm it is still available. Every car inspected. Every price transparent. Every car documented.",
       "highlights": [
         "2.0T Premium Plus trim",
@@ -3708,7 +4063,38 @@
       },
       "mpg": "22 city / 32 hwy",
       "mpgCity": 22,
-      "mpgHwy": 32
+      "mpgHwy": 32,
+      "winter": {
+        "have": [
+          {
+            "key": "awd",
+            "label": "All wheel drive",
+            "icon": "ac_unit",
+            "source": "carmax"
+          },
+          {
+            "key": "heated_front",
+            "label": "Heated front seats",
+            "icon": "whatshot",
+            "source": "carmax"
+          },
+          {
+            "key": "heated_rear",
+            "label": "Heated rear seats",
+            "icon": "whatshot",
+            "source": "carmax"
+          },
+          {
+            "key": "heated_wheel",
+            "label": "Heated steering wheel",
+            "icon": "thermostat",
+            "source": "carmax"
+          }
+        ],
+        "count": 4,
+        "total": 6,
+        "extras": []
+      }
     }
   }
 }
