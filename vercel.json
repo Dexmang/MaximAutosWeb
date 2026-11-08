@@ -340,16 +340,6 @@
       "permanent": true
     },
     {
-      "source": "/vehicle/2014-subaru-impreza-2-0i-premium-j10263",
-      "destination": "/inventory",
-      "permanent": true
-    },
-    {
-      "source": "/vehicle/2014-subaru-impreza-2-0i-premium-j10263/",
-      "destination": "/inventory",
-      "permanent": true
-    },
-    {
       "source": "/vehicle/2014-subaru-impreza-2-0i-sport-premium-j10258",
       "destination": "/inventory",
       "permanent": true
