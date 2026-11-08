@@ -1,6 +1,6 @@
 {
   "source": "pka_hub.db ma_vehicles + vPIC",
-  "generated_at": "2026-11-07",
+  "generated_at": "2026-11-08",
   "by_vin": {
     "1G1PC5SB9E7454238": {
       "year": 2014,
@@ -53,25 +53,134 @@
       "dateAdded": "2026-11-06",
       "featured": true,
       "sortOrder": 0,
-      "dealRating": "",
-      "priceSavings": 0,
+      "dealRating": "FAIR_PRICE",
+      "priceSavings": 190,
       "description": "2014 Chevrolet Cruze 1LT: 38 highway mpg, turbocharged, remote start, power driver seat, Bluetooth, alloy wheels. Black over black cloth, 6 speed automatic, 1.4L turbocharged four cylinder. The compact sedan for a Skokie commuter who wants a quiet, solid feeling car with a small fuel bill and a small payment, with no dealer fees. Key features: 1.4L ECOTEC turbocharged four cylinder with 138 horsepower and 148 lb ft of torque, 6 speed automatic, 26 city and 38 highway mpg, remote vehicle start for cold mornings, remote keyless entry, power driver seat, Bluetooth hands free phone, cruise control, air conditioning, 16 inch alloy wheels, AM FM CD audio with SiriusXM satellite radio ready and an auxiliary input, cloth seats, power windows, locks and mirrors, rear defroster, ten standard airbags including side and overhead airbags, traction control and ABS. A 15 cubic foot trunk, one of the biggest in the compact class. The Maxim Autos Difference Independent inspection report included with every vehicle Metal plates issued on the spot, drive home today, skip the DMV No dealer fees at Maxim Autos, ever. The price you see is the price you pay, plus tax, title, and license. Financing for all credit levels Located in Skokie, IL, minutes from Evanston, Niles, Morton Grove, Lincolnwood, Des Plaines and the North Shore Chicago area. Call or text (847) 510-8947 to confirm it is still available. Every car inspected. Every price transparent. Every car documented.",
       "highlights": [
         "1LT trim",
         "103,597 miles",
         "Fully inspected, free CARFAX"
       ],
-      "features": [],
+      "features": [
+        "Remote start",
+        "Push button start",
+        "Turbocharged engine",
+        "Bluetooth",
+        "Power driver seat",
+        "Alloy wheels",
+        "Cruise control",
+        "SiriusXM ready"
+      ],
       "photoPrefix": "2014-chevrolet-cruze-1lt",
       "photoPath": "",
-      "dealerCenterUrl": ""
+      "dealerCenterUrl": "",
+      "featureTiers": {
+        "headline": [
+          {
+            "label": "36 MPG highway",
+            "sub": "26 city, EPA estimate",
+            "icon": "local_gas_station"
+          }
+        ],
+        "love": [
+          {
+            "label": "Remote start",
+            "icon": "key",
+            "group": "Winter ready"
+          },
+          {
+            "label": "Push button start",
+            "icon": "power_settings_new",
+            "group": "Comfort"
+          },
+          {
+            "label": "Turbocharged engine",
+            "icon": "bolt",
+            "group": "Performance"
+          },
+          {
+            "label": "Bluetooth",
+            "icon": "bluetooth",
+            "group": "Tech"
+          },
+          {
+            "label": "Power driver seat",
+            "icon": "chair",
+            "group": "Comfort"
+          },
+          {
+            "label": "Alloy wheels",
+            "icon": "radio_button_unchecked",
+            "group": "Wheels and exterior"
+          }
+        ],
+        "comfort": [
+          "Cruise control",
+          "SiriusXM ready"
+        ],
+        "standard": [
+          "Air conditioning",
+          "Power locks",
+          "Power mirrors",
+          "Power windows",
+          "Rear defroster",
+          "AM/FM stereo",
+          "Aux input",
+          "CD player",
+          "Cloth seats",
+          "ABS brakes",
+          "Automatic transmission",
+          "Overhead airbags",
+          "Side airbags",
+          "Traction control"
+        ],
+        "groups": {
+          "Winter ready": [
+            "Remote start"
+          ],
+          "Tech": [
+            "Bluetooth",
+            "SiriusXM ready"
+          ],
+          "Comfort": [
+            "Push button start",
+            "Power driver seat",
+            "Cruise control"
+          ],
+          "Performance": [
+            "Turbocharged engine"
+          ],
+          "Wheels and exterior": [
+            "Alloy wheels"
+          ],
+          "Standard": [
+            "Air conditioning",
+            "Power locks",
+            "Power mirrors",
+            "Power windows",
+            "Rear defroster",
+            "AM/FM stereo",
+            "Aux input",
+            "CD player",
+            "Cloth seats",
+            "ABS brakes",
+            "Automatic transmission",
+            "Overhead airbags",
+            "Side airbags",
+            "Traction control"
+          ]
+        }
+      },
+      "mpg": "26 city / 36 hwy",
+      "mpgCity": 26,
+      "mpgHwy": 36
     },
     "1N4AL3AP5DC227543": {
       "year": 2013,
       "make": "Nissan",
       "model": "Altima",
       "trim": "2.5 SV",
-      "price": 7495,
+      "price": 6950,
       "mileage": 94730,
       "exteriorColor": "Gray",
       "interiorColor": "Black",
@@ -117,25 +226,125 @@
       "dateAdded": "2026-11-06",
       "featured": true,
       "sortOrder": 0,
-      "dealRating": "FAIR_PRICE",
-      "priceSavings": -325,
+      "dealRating": "",
+      "priceSavings": 0,
       "description": "2013 Nissan Altima 2.5 SV: 38 highway mpg, remote start, push button start, rear view camera, power driver seat, alloy wheels, Bluetooth. Gray over black cloth, Xtronic CVT automatic, 2.5L four cylinder. The midsize sedan for a North Shore commuter who wants real room for the family and a small fuel bill, with no dealer fees. Key features: 2.5L four cylinder with 182 horsepower and 180 lb ft of torque, Xtronic CVT automatic, 27 city and 38 highway mpg, remote engine start for cold mornings, Nissan Intelligent Key with push button start, rear view camera, power driver seat, dual zone automatic climate control, Bluetooth hands free phone and audio streaming, steering wheel audio controls, cruise control, Advanced Drive Assist display in the gauge cluster, fog lights, 16 inch alloy wheels, power windows, locks and mirrors, AM FM CD audio with satellite radio ready and an auxiliary input, cloth seats, rear defroster, side and overhead airbags, traction control and ABS. A 15.4 cubic foot trunk and one of the roomiest back seats in the midsize class. The Maxim Autos Difference Independent inspection report included with every vehicle Metal plates issued on the spot, drive home today, skip the DMV No dealer fees at Maxim Autos, ever. The price you see is the price you pay, plus tax, title, and license. Financing for all credit levels Located in Skokie, IL, minutes from Evanston, Niles, Morton Grove, Lincolnwood, Des Plaines and the North Shore Chicago area. Call or text (847) 510-8947 to confirm it is still available. Every car inspected. Every price transparent. Every car documented.",
       "highlights": [
         "2.5 SV trim",
         "94,730 miles",
         "Fully inspected, free CARFAX"
       ],
-      "features": [],
+      "features": [
+        "Remote start",
+        "Backup camera",
+        "Push button start",
+        "Bluetooth",
+        "Power driver seat",
+        "Cruise control"
+      ],
       "photoPrefix": "2013-nissan-altima-2-5-sv",
       "photoPath": "",
-      "dealerCenterUrl": ""
+      "dealerCenterUrl": "",
+      "featureTiers": {
+        "headline": [
+          {
+            "label": "38 MPG highway",
+            "sub": "27 city, EPA estimate",
+            "icon": "local_gas_station"
+          }
+        ],
+        "love": [
+          {
+            "label": "Remote start",
+            "icon": "key",
+            "group": "Winter ready"
+          },
+          {
+            "label": "Backup camera",
+            "icon": "photo_camera",
+            "group": "Safety"
+          },
+          {
+            "label": "Push button start",
+            "icon": "power_settings_new",
+            "group": "Comfort"
+          },
+          {
+            "label": "Bluetooth",
+            "icon": "bluetooth",
+            "group": "Tech"
+          },
+          {
+            "label": "Power driver seat",
+            "icon": "chair",
+            "group": "Comfort"
+          },
+          {
+            "label": "Cruise control",
+            "icon": "speed",
+            "group": "Comfort"
+          }
+        ],
+        "comfort": [],
+        "standard": [
+          "Air conditioning",
+          "Power locks",
+          "Power mirrors",
+          "Power windows",
+          "Rear defroster",
+          "AM/FM stereo",
+          "Aux input",
+          "CD player",
+          "Cloth seats",
+          "ABS brakes",
+          "Automatic transmission",
+          "Overhead airbags",
+          "Side airbags",
+          "Traction control"
+        ],
+        "groups": {
+          "Winter ready": [
+            "Remote start"
+          ],
+          "Tech": [
+            "Bluetooth"
+          ],
+          "Comfort": [
+            "Push button start",
+            "Power driver seat",
+            "Cruise control"
+          ],
+          "Safety": [
+            "Backup camera"
+          ],
+          "Standard": [
+            "Air conditioning",
+            "Power locks",
+            "Power mirrors",
+            "Power windows",
+            "Rear defroster",
+            "AM/FM stereo",
+            "Aux input",
+            "CD player",
+            "Cloth seats",
+            "ABS brakes",
+            "Automatic transmission",
+            "Overhead airbags",
+            "Side airbags",
+            "Traction control"
+          ]
+        }
+      },
+      "mpg": "27 city / 38 hwy",
+      "mpgCity": 27,
+      "mpgHwy": 38
     },
     "2FMPK3J96GBC56381": {
       "year": 2016,
       "make": "Ford",
       "model": "Edge",
       "trim": "SEL",
-      "price": 8450,
+      "price": 7950,
       "mileage": 104816,
       "exteriorColor": "Black",
       "interiorColor": "Black",
@@ -181,18 +390,160 @@
       "dateAdded": "2026-09-15",
       "featured": true,
       "sortOrder": 0,
-      "dealRating": "GOOD_PRICE",
-      "priceSavings": 1188,
+      "dealRating": "",
+      "priceSavings": 0,
       "description": "2016 Ford Edge SEL: 2.0L EcoBoost turbo, leather trimmed seats, rear parking sensors, dual zone climate control. Black on black, automatic, front wheel drive, EPA estimated 20 city and 30 highway MPG. A roomy midsize SUV for the buyer who wants a quiet highway ride and a big back seat. Key features: 2.0L EcoBoost turbocharged four cylinder rated at 245 horsepower with a six speed automatic, leather trimmed seating for five with generous rear legroom, rear seat release buttons that fold the back seats flat, rear parking sensors, dual zone automatic climate control, SYNC hands free calling with Bluetooth audio, rearview camera, noise reducing acoustic windshield, 18 inch alloy wheels, EPA estimated 20 city and 30 highway MPG. Up to 73.4 cubic feet of cargo with the rear seats folded. The Maxim Autos Difference Independent inspection report included with every vehicle Metal plates issued on the spot, drive home today No dealer fees at Maxim Autos, ever. The price you see is the price you pay, plus tax, title, and license. Financing for all credit levels Located in Skokie, IL, minutes from Evanston, Niles, Morton Grove, Lincolnwood, and Des Plaines, serving the North Shore Chicago area. Call (847) 510-8947 to schedule a same day appointment. Every car inspected. Every price transparent. Every customer protected.",
       "highlights": [
         "SEL trim",
         "104,816 miles",
         "Fully inspected, free CARFAX"
       ],
-      "features": [],
+      "features": [
+        "Heated front seats",
+        "Remote start",
+        "Leather seats",
+        "Blind spot monitor",
+        "Backup camera",
+        "Navigation",
+        "Push button start",
+        "Parking sensors",
+        "Technology Package",
+        "Bluetooth",
+        "Power driver seat",
+        "Alloy wheels",
+        "Ford SYNC",
+        "Cruise control",
+        "SiriusXM ready"
+      ],
       "photoPrefix": "2016-ford-edge-sel",
       "photoPath": "",
-      "dealerCenterUrl": ""
+      "dealerCenterUrl": "",
+      "featureTiers": {
+        "headline": [
+          {
+            "label": "30 MPG highway",
+            "sub": "20 city, EPA estimate",
+            "icon": "local_gas_station"
+          }
+        ],
+        "love": [
+          {
+            "label": "Heated front seats",
+            "icon": "whatshot",
+            "group": "Winter ready"
+          },
+          {
+            "label": "Remote start",
+            "icon": "key",
+            "group": "Winter ready"
+          },
+          {
+            "label": "Leather seats",
+            "icon": "chair",
+            "group": "Comfort"
+          },
+          {
+            "label": "Blind spot monitor",
+            "icon": "visibility",
+            "group": "Safety"
+          },
+          {
+            "label": "Backup camera",
+            "icon": "photo_camera",
+            "group": "Safety"
+          },
+          {
+            "label": "Navigation",
+            "icon": "navigation",
+            "group": "Tech"
+          },
+          {
+            "label": "Push button start",
+            "icon": "power_settings_new",
+            "group": "Comfort"
+          },
+          {
+            "label": "Parking sensors",
+            "icon": "sensors",
+            "group": "Safety"
+          },
+          {
+            "label": "Technology Package",
+            "icon": "inventory_2",
+            "group": "Packages"
+          }
+        ],
+        "comfort": [
+          "Bluetooth",
+          "Power driver seat",
+          "Alloy wheels",
+          "Ford SYNC",
+          "Cruise control",
+          "SiriusXM ready"
+        ],
+        "standard": [
+          "Air conditioning",
+          "Power locks",
+          "Power mirrors",
+          "Power windows",
+          "Rear defroster",
+          "AM/FM stereo",
+          "Aux input",
+          "CD player",
+          "ABS brakes",
+          "Automatic transmission",
+          "Overhead airbags",
+          "Side airbags",
+          "Traction control"
+        ],
+        "groups": {
+          "Winter ready": [
+            "Heated front seats",
+            "Remote start"
+          ],
+          "Tech": [
+            "Navigation",
+            "Bluetooth",
+            "Ford SYNC",
+            "SiriusXM ready"
+          ],
+          "Comfort": [
+            "Leather seats",
+            "Push button start",
+            "Power driver seat",
+            "Cruise control"
+          ],
+          "Safety": [
+            "Blind spot monitor",
+            "Backup camera",
+            "Parking sensors"
+          ],
+          "Packages": [
+            "Technology Package"
+          ],
+          "Wheels and exterior": [
+            "Alloy wheels"
+          ],
+          "Standard": [
+            "Air conditioning",
+            "Power locks",
+            "Power mirrors",
+            "Power windows",
+            "Rear defroster",
+            "AM/FM stereo",
+            "Aux input",
+            "CD player",
+            "ABS brakes",
+            "Automatic transmission",
+            "Overhead airbags",
+            "Side airbags",
+            "Traction control"
+          ]
+        }
+      },
+      "mpg": "20 city / 30 hwy",
+      "mpgCity": 20,
+      "mpgHwy": 30
     },
     "3N1AB7APXEY279332": {
       "year": 2014,
@@ -267,17 +618,135 @@
         "102,445 miles",
         "Fully inspected, free CARFAX"
       ],
-      "features": [],
+      "features": [
+        "Backup camera",
+        "Sunroof",
+        "Navigation",
+        "Bose audio",
+        "Push button start",
+        "Premium Package",
+        "Bluetooth",
+        "Alloy wheels",
+        "Cruise control",
+        "Rear spoiler",
+        "SiriusXM ready"
+      ],
       "photoPrefix": "2014-nissan-sentra-sr",
       "photoPath": "",
-      "dealerCenterUrl": ""
+      "dealerCenterUrl": "",
+      "featureTiers": {
+        "headline": [
+          {
+            "label": "39 MPG highway",
+            "sub": "30 city, EPA estimate",
+            "icon": "local_gas_station"
+          }
+        ],
+        "love": [
+          {
+            "label": "Backup camera",
+            "icon": "photo_camera",
+            "group": "Safety"
+          },
+          {
+            "label": "Sunroof",
+            "icon": "wb_sunny",
+            "group": "Comfort"
+          },
+          {
+            "label": "Navigation",
+            "icon": "navigation",
+            "group": "Tech"
+          },
+          {
+            "label": "Bose audio",
+            "icon": "speaker",
+            "group": "Tech"
+          },
+          {
+            "label": "Push button start",
+            "icon": "power_settings_new",
+            "group": "Comfort"
+          },
+          {
+            "label": "Premium Package",
+            "icon": "inventory_2",
+            "group": "Packages"
+          }
+        ],
+        "comfort": [
+          "Bluetooth",
+          "Alloy wheels",
+          "Cruise control",
+          "Rear spoiler",
+          "SiriusXM ready"
+        ],
+        "standard": [
+          "Air conditioning",
+          "Power locks",
+          "Power mirrors",
+          "Power windows",
+          "Rear defroster",
+          "AM/FM stereo",
+          "Aux input",
+          "CD player",
+          "Cloth seats",
+          "ABS brakes",
+          "Automatic transmission",
+          "Overhead airbags",
+          "Side airbags",
+          "Traction control"
+        ],
+        "groups": {
+          "Tech": [
+            "Navigation",
+            "Bose audio",
+            "Bluetooth",
+            "SiriusXM ready"
+          ],
+          "Comfort": [
+            "Sunroof",
+            "Push button start",
+            "Cruise control"
+          ],
+          "Safety": [
+            "Backup camera"
+          ],
+          "Packages": [
+            "Premium Package"
+          ],
+          "Wheels and exterior": [
+            "Alloy wheels",
+            "Rear spoiler"
+          ],
+          "Standard": [
+            "Air conditioning",
+            "Power locks",
+            "Power mirrors",
+            "Power windows",
+            "Rear defroster",
+            "AM/FM stereo",
+            "Aux input",
+            "CD player",
+            "Cloth seats",
+            "ABS brakes",
+            "Automatic transmission",
+            "Overhead airbags",
+            "Side airbags",
+            "Traction control"
+          ]
+        }
+      },
+      "mpg": "30 city / 39 hwy",
+      "mpgCity": 30,
+      "mpgHwy": 39
     },
     "4S4BSAKCXJ3314086": {
       "year": 2018,
       "make": "Subaru",
       "model": "Outback",
       "trim": "2.5i Limited",
-      "price": 14995,
+      "price": 14450,
       "mileage": 85459,
       "exteriorColor": "White",
       "interiorColor": "Black",
@@ -331,17 +800,175 @@
         "85,459 miles",
         "Fully inspected, free CARFAX"
       ],
-      "features": [],
+      "features": [
+        "All wheel drive",
+        "Apple CarPlay and Android Auto",
+        "Heated front and rear seats",
+        "Leather seats",
+        "Blind spot monitor",
+        "Sunroof",
+        "Power liftgate",
+        "Harman Kardon audio",
+        "Push button start",
+        "Tow hitch",
+        "Bluetooth",
+        "Backup camera",
+        "Power driver seat",
+        "Memory seats",
+        "Roof rack",
+        "Alloy wheels",
+        "Cruise control",
+        "Rear spoiler",
+        "SiriusXM ready"
+      ],
       "photoPrefix": "2018-subaru-outback-2-5i-limited",
       "photoPath": "",
-      "dealerCenterUrl": ""
+      "dealerCenterUrl": "",
+      "featureTiers": {
+        "headline": [
+          {
+            "label": "32 MPG highway",
+            "sub": "25 city, EPA estimate",
+            "icon": "local_gas_station"
+          },
+          {
+            "label": "All wheel drive",
+            "sub": "Chicago winters",
+            "icon": "ac_unit"
+          }
+        ],
+        "love": [
+          {
+            "label": "Apple CarPlay and Android Auto",
+            "icon": "smartphone",
+            "group": "Tech"
+          },
+          {
+            "label": "Heated front and rear seats",
+            "icon": "whatshot",
+            "group": "Winter ready"
+          },
+          {
+            "label": "Leather seats",
+            "icon": "chair",
+            "group": "Comfort"
+          },
+          {
+            "label": "Blind spot monitor",
+            "icon": "visibility",
+            "group": "Safety"
+          },
+          {
+            "label": "Sunroof",
+            "icon": "wb_sunny",
+            "group": "Comfort"
+          },
+          {
+            "label": "Power liftgate",
+            "icon": "luggage",
+            "group": "Family and cargo"
+          },
+          {
+            "label": "Harman Kardon audio",
+            "icon": "speaker",
+            "group": "Tech"
+          },
+          {
+            "label": "Push button start",
+            "icon": "power_settings_new",
+            "group": "Comfort"
+          },
+          {
+            "label": "Tow hitch",
+            "icon": "rv_hookup",
+            "group": "Family and cargo"
+          }
+        ],
+        "comfort": [
+          "Bluetooth",
+          "Backup camera",
+          "Power driver seat",
+          "Memory seats",
+          "Roof rack",
+          "Alloy wheels",
+          "Cruise control",
+          "Rear spoiler",
+          "SiriusXM ready"
+        ],
+        "standard": [
+          "Air conditioning",
+          "Power locks",
+          "Power mirrors",
+          "Power windows",
+          "Rear defroster",
+          "AM/FM stereo",
+          "Aux input",
+          "CD player",
+          "ABS brakes",
+          "Automatic transmission",
+          "Overhead airbags",
+          "Side airbags",
+          "Traction control"
+        ],
+        "groups": {
+          "Winter ready": [
+            "All wheel drive",
+            "Heated front and rear seats"
+          ],
+          "Tech": [
+            "Apple CarPlay and Android Auto",
+            "Harman Kardon audio",
+            "Bluetooth",
+            "SiriusXM ready"
+          ],
+          "Comfort": [
+            "Leather seats",
+            "Sunroof",
+            "Push button start",
+            "Power driver seat",
+            "Memory seats",
+            "Cruise control"
+          ],
+          "Safety": [
+            "Blind spot monitor",
+            "Backup camera"
+          ],
+          "Family and cargo": [
+            "Power liftgate",
+            "Tow hitch",
+            "Roof rack"
+          ],
+          "Wheels and exterior": [
+            "Alloy wheels",
+            "Rear spoiler"
+          ],
+          "Standard": [
+            "Air conditioning",
+            "Power locks",
+            "Power mirrors",
+            "Power windows",
+            "Rear defroster",
+            "AM/FM stereo",
+            "Aux input",
+            "CD player",
+            "ABS brakes",
+            "Automatic transmission",
+            "Overhead airbags",
+            "Side airbags",
+            "Traction control"
+          ]
+        }
+      },
+      "mpg": "25 city / 32 hwy",
+      "mpgCity": 25,
+      "mpgHwy": 32
     },
     "5N1AZ2MH6FN251280": {
       "year": 2015,
       "make": "Nissan",
       "model": "Murano",
       "trim": "Platinum",
-      "price": 11350,
+      "price": 11950,
       "mileage": 94653,
       "exteriorColor": "Black",
       "interiorColor": "Black",
@@ -399,18 +1026,195 @@
       "dateAdded": "2026-09-15",
       "featured": true,
       "sortOrder": 0,
-      "dealRating": "GOOD_PRICE",
-      "priceSavings": 1088,
+      "dealRating": "",
+      "priceSavings": 0,
       "description": "2015 Nissan Murano Platinum AWD: all wheel drive, Zero Gravity heated and ventilated seats, panoramic moonroof, 360 degree Around View camera, 3.5L V6. Black on black leather, automatic, all wheel drive, EPA estimated 21 city and 28 highway MPG. A near luxury midsize SUV for the buyer who wants the comfort without the badge premium. Key features: 3.5L V6 rated at 260 horsepower, all wheel drive for Chicago winters, NASA inspired Zero Gravity front seats with heating and ventilation, heated rear seats, panoramic moonroof, 360 degree Around View monitor for tight parking, leather upholstery with soft touch padding and wood accents, power folding rear seats, Bose premium audio, NissanConnect touchscreen with navigation, EPA estimated 21 city and 28 highway MPG. Seats five with 39.6 cubic feet of cargo behind the rear seat. The Maxim Autos Difference Independent inspection report included with every vehicle Metal plates issued on the spot, drive home today No dealer fees at Maxim Autos, ever. The price you see is the price you pay, plus tax, title, and license. Financing for all credit levels Located in Skokie, IL, minutes from Evanston, Niles, Morton Grove, Lincolnwood, and Des Plaines, serving the North Shore Chicago area. Call (847) 510-8947 to schedule a same day appointment. Every car inspected. Every price transparent. Every customer protected.",
       "highlights": [
         "Platinum trim",
         "94,653 miles",
         "Fully inspected, free CARFAX"
       ],
-      "features": [],
+      "features": [
+        "All wheel drive",
+        "Heated front and rear seats",
+        "Remote start",
+        "Heated steering wheel",
+        "Leather seats",
+        "Panoramic sunroof",
+        "Blind spot monitor",
+        "Ventilated front seats",
+        "Backup camera",
+        "Adaptive cruise control",
+        "Navigation",
+        "Power liftgate",
+        "Bose audio",
+        "Push button start",
+        "Bluetooth",
+        "Power driver seat",
+        "Memory seats",
+        "20 inch wheels",
+        "Alloy wheels",
+        "SiriusXM ready"
+      ],
       "photoPrefix": "2015-nissan-murano-platinum",
       "photoPath": "",
-      "dealerCenterUrl": ""
+      "dealerCenterUrl": "",
+      "featureTiers": {
+        "headline": [
+          {
+            "label": "28 MPG highway",
+            "sub": "21 city, EPA estimate",
+            "icon": "local_gas_station"
+          },
+          {
+            "label": "All wheel drive",
+            "sub": "Chicago winters",
+            "icon": "ac_unit"
+          }
+        ],
+        "love": [
+          {
+            "label": "Heated front and rear seats",
+            "icon": "whatshot",
+            "group": "Winter ready"
+          },
+          {
+            "label": "Remote start",
+            "icon": "key",
+            "group": "Winter ready"
+          },
+          {
+            "label": "Heated steering wheel",
+            "icon": "thermostat",
+            "group": "Winter ready"
+          },
+          {
+            "label": "Leather seats",
+            "icon": "chair",
+            "group": "Comfort"
+          },
+          {
+            "label": "Panoramic sunroof",
+            "icon": "wb_sunny",
+            "group": "Comfort"
+          },
+          {
+            "label": "Blind spot monitor",
+            "icon": "visibility",
+            "group": "Safety"
+          },
+          {
+            "label": "Ventilated front seats",
+            "icon": "air",
+            "group": "Comfort"
+          },
+          {
+            "label": "Backup camera",
+            "icon": "photo_camera",
+            "group": "Safety"
+          },
+          {
+            "label": "Adaptive cruise control",
+            "icon": "speed",
+            "group": "Safety"
+          },
+          {
+            "label": "Navigation",
+            "icon": "navigation",
+            "group": "Tech"
+          },
+          {
+            "label": "Power liftgate",
+            "icon": "luggage",
+            "group": "Family and cargo"
+          },
+          {
+            "label": "Bose audio",
+            "icon": "speaker",
+            "group": "Tech"
+          },
+          {
+            "label": "Push button start",
+            "icon": "power_settings_new",
+            "group": "Comfort"
+          }
+        ],
+        "comfort": [
+          "Bluetooth",
+          "Power driver seat",
+          "Memory seats",
+          "20 inch wheels",
+          "Alloy wheels",
+          "SiriusXM ready"
+        ],
+        "standard": [
+          "Air conditioning",
+          "Power locks",
+          "Power mirrors",
+          "Power windows",
+          "Rear defroster",
+          "AM/FM stereo",
+          "Aux input",
+          "CD player",
+          "ABS brakes",
+          "Automatic transmission",
+          "Overhead airbags",
+          "Side airbags",
+          "Traction control"
+        ],
+        "groups": {
+          "Winter ready": [
+            "All wheel drive",
+            "Heated front and rear seats",
+            "Remote start",
+            "Heated steering wheel"
+          ],
+          "Tech": [
+            "Navigation",
+            "Bose audio",
+            "Bluetooth",
+            "SiriusXM ready"
+          ],
+          "Comfort": [
+            "Leather seats",
+            "Panoramic sunroof",
+            "Ventilated front seats",
+            "Push button start",
+            "Power driver seat",
+            "Memory seats"
+          ],
+          "Safety": [
+            "Blind spot monitor",
+            "Backup camera",
+            "Adaptive cruise control"
+          ],
+          "Family and cargo": [
+            "Power liftgate"
+          ],
+          "Wheels and exterior": [
+            "20 inch wheels",
+            "Alloy wheels"
+          ],
+          "Standard": [
+            "Air conditioning",
+            "Power locks",
+            "Power mirrors",
+            "Power windows",
+            "Rear defroster",
+            "AM/FM stereo",
+            "Aux input",
+            "CD player",
+            "ABS brakes",
+            "Automatic transmission",
+            "Overhead airbags",
+            "Side airbags",
+            "Traction control"
+          ]
+        }
+      },
+      "mpg": "21 city / 28 hwy",
+      "mpgCity": 21,
+      "mpgHwy": 28
     },
     "5XYPH4A52JG399000": {
       "year": 2018,
@@ -491,8 +1295,218 @@
         "113,878 miles",
         "Fully inspected, free CARFAX"
       ],
-      "features": [],
+      "features": [
+        "Third row seating",
+        "Apple CarPlay and Android Auto",
+        "Heated front seats",
+        "Leather seats",
+        "Blind spot monitor",
+        "Power liftgate",
+        "Push button start",
+        "Parking sensors",
+        "Rear climate control",
+        "Bluetooth",
+        "Backup camera",
+        "Power driver seat",
+        "Fold flat third row",
+        "Alloy wheels",
+        "Rear sunshades",
+        "Cruise control",
+        "SiriusXM ready"
+      ],
       "photoPrefix": "2018-kia-sorento-ex",
+      "photoPath": "",
+      "dealerCenterUrl": "",
+      "featureTiers": {
+        "headline": [
+          {
+            "label": "25 MPG highway",
+            "sub": "18 city, EPA estimate",
+            "icon": "local_gas_station"
+          },
+          {
+            "label": "Third row seating",
+            "sub": "seats six or seven",
+            "icon": "groups"
+          }
+        ],
+        "love": [
+          {
+            "label": "Apple CarPlay and Android Auto",
+            "icon": "smartphone",
+            "group": "Tech"
+          },
+          {
+            "label": "Heated front seats",
+            "icon": "whatshot",
+            "group": "Winter ready"
+          },
+          {
+            "label": "Leather seats",
+            "icon": "chair",
+            "group": "Comfort"
+          },
+          {
+            "label": "Blind spot monitor",
+            "icon": "visibility",
+            "group": "Safety"
+          },
+          {
+            "label": "Power liftgate",
+            "icon": "luggage",
+            "group": "Family and cargo"
+          },
+          {
+            "label": "Push button start",
+            "icon": "power_settings_new",
+            "group": "Comfort"
+          },
+          {
+            "label": "Parking sensors",
+            "icon": "sensors",
+            "group": "Safety"
+          },
+          {
+            "label": "Rear climate control",
+            "icon": "mode_fan",
+            "group": "Family and cargo"
+          }
+        ],
+        "comfort": [
+          "Bluetooth",
+          "Backup camera",
+          "Power driver seat",
+          "Fold flat third row",
+          "Alloy wheels",
+          "Rear sunshades",
+          "Cruise control",
+          "SiriusXM ready"
+        ],
+        "standard": [
+          "Air conditioning",
+          "Power locks",
+          "Power mirrors",
+          "Power windows",
+          "Rear defroster",
+          "AM/FM stereo",
+          "Aux input",
+          "CD player",
+          "ABS brakes",
+          "Automatic transmission",
+          "Overhead airbags",
+          "Side airbags",
+          "Traction control"
+        ],
+        "groups": {
+          "Winter ready": [
+            "Heated front seats"
+          ],
+          "Tech": [
+            "Apple CarPlay and Android Auto",
+            "Bluetooth",
+            "SiriusXM ready"
+          ],
+          "Comfort": [
+            "Leather seats",
+            "Push button start",
+            "Power driver seat",
+            "Cruise control"
+          ],
+          "Safety": [
+            "Blind spot monitor",
+            "Parking sensors",
+            "Backup camera"
+          ],
+          "Family and cargo": [
+            "Third row seating",
+            "Power liftgate",
+            "Rear climate control",
+            "Fold flat third row",
+            "Rear sunshades"
+          ],
+          "Wheels and exterior": [
+            "Alloy wheels"
+          ],
+          "Standard": [
+            "Air conditioning",
+            "Power locks",
+            "Power mirrors",
+            "Power windows",
+            "Rear defroster",
+            "AM/FM stereo",
+            "Aux input",
+            "CD player",
+            "ABS brakes",
+            "Automatic transmission",
+            "Overhead airbags",
+            "Side airbags",
+            "Traction control"
+          ]
+        }
+      },
+      "mpg": "18 city / 25 hwy",
+      "mpgCity": 18,
+      "mpgHwy": 25
+    },
+    "JF1GPAC63EH339804": {
+      "year": 2014,
+      "make": "Subaru",
+      "model": "Impreza",
+      "trim": "2.0i Premium",
+      "price": 9950,
+      "mileage": 84812,
+      "exteriorColor": "Red",
+      "interiorColor": "Black",
+      "engine": "2.0L H4",
+      "transmission": "CVT",
+      "drivetrain": "AWD",
+      "fuelType": "Gasoline",
+      "bodyStyle": "Hatchback",
+      "bodyStyleSlug": "hatchbacks",
+      "makeSlug": "subaru",
+      "vin": "JF1GPAC63EH339804",
+      "condition": "Used",
+      "inspected": true,
+      "inspection": true,
+      "carfax": true,
+      "warranty": "Illinois 15 day / 500 mile statutory powertrain protection on qualifying cars",
+      "stockNumber": "J10263",
+      "primaryPhotoUrl": "https://imagesdl.dealercenter.net/1289/856/202610-bc4452e1c54145d2a3f725e2710b7bb9.jpg",
+      "photoUrls": [
+        "https://imagesdl.dealercenter.net/1289/856/202610-bc4452e1c54145d2a3f725e2710b7bb9.jpg",
+        "https://imagesdl.dealercenter.net/1289/856/202610-7cc61db9c46341a7a37f3ae623ddea86.jpg",
+        "https://imagesdl.dealercenter.net/1289/856/202610-575716d962bf44d7a59897f1d6946f23.jpg",
+        "https://imagesdl.dealercenter.net/1289/856/202610-35cf7798c7284a66babbb5e494df3c93.jpg",
+        "https://imagesdl.dealercenter.net/1289/856/202610-97a4bcb9b87248e09d0fe0a1b90cd318.jpg",
+        "https://imagesdl.dealercenter.net/1289/856/202610-72cf158c88a94cfb81a709f06fe28551.jpg",
+        "https://imagesdl.dealercenter.net/1289/856/202610-0d64d899c85d4f52b9029b280b659b71.jpg",
+        "https://imagesdl.dealercenter.net/1289/856/202610-7c7d604401864b909fa07c8db03265aa.jpg",
+        "https://imagesdl.dealercenter.net/1289/856/202610-9451236c8d16460da9f3433cda83dc8d.jpg",
+        "https://imagesdl.dealercenter.net/1289/856/202610-1e062b91d2034a67b8c673e7e6ff546c.jpg",
+        "https://imagesdl.dealercenter.net/1289/856/202610-19eb1fbfecdb4b599026e69a422ba039.jpg",
+        "https://imagesdl.dealercenter.net/1289/856/202610-0c3a225678064c8bb896cf685c56364c.jpg",
+        "https://imagesdl.dealercenter.net/1289/856/202610-cea520ff647a45d6b62c6e541534ce41.jpg"
+      ],
+      "photos": {
+        "exterior": 13,
+        "interior": 0,
+        "source": "dealercenter"
+      },
+      "status": "available",
+      "slug": "2014-subaru-impreza-2-0i-premium-j10263",
+      "dateAdded": "2026-11-08",
+      "featured": true,
+      "sortOrder": 0,
+      "dealRating": "",
+      "priceSavings": 0,
+      "description": "2014 Subaru Impreza 2.0i Premium hatchback: Symmetrical all wheel drive, 36 mpg highway, heated seats, 52 cubic feet of cargo with the seats down. Venetian red on black cloth, Lineartronic CVT automatic, 2.0L boxer four. The all weather hatchback that costs a sedan to run, with no dealer fees. Key features: 2.0 liter boxer four with Subaru Symmetrical all wheel drive standard, Lineartronic CVT, 27 city and 36 highway, 22.4 cubic feet of cargo behind the rear seat and 52.4 with the 60/40 seats folded, heated front seats, Bluetooth hands free and audio streaming, cruise control, alloy wheels, rear spoiler, rear defroster. A longer wheelbase than most compacts gives the back seat real legroom. The Maxim Autos Difference Independent inspection report included with every vehicle Metal plates issued on the spot, drive home today No dealer fees, transparent all in pricing Financing for all credit levels Skokie, IL, minutes from Evanston, Niles, Morton Grove, Lincolnwood, Des Plaines and the North Shore. Call or text (847) 510-8947 for a same day appointment. Every car inspected. Every price transparent. Every car documented.",
+      "highlights": [
+        "2.0i Premium trim",
+        "84,812 miles",
+        "Fully inspected, free CARFAX"
+      ],
+      "features": [],
+      "photoPrefix": "2014-subaru-impreza-2-0i-premium",
       "photoPath": "",
       "dealerCenterUrl": ""
     },
@@ -554,10 +1568,191 @@
         "78,435 miles",
         "Fully inspected, free CARFAX"
       ],
-      "features": [],
+      "features": [
+        "All wheel drive",
+        "Apple CarPlay and Android Auto",
+        "Heated front and rear seats",
+        "Leather seats",
+        "Panoramic sunroof",
+        "Blind spot monitor",
+        "Ventilated front seats",
+        "Backup camera",
+        "Navigation",
+        "Power liftgate",
+        "Infinity audio",
+        "Push button start",
+        "Lane departure warning",
+        "Parking sensors",
+        "Turbocharged engine",
+        "Bluetooth",
+        "Power driver seat",
+        "Alloy wheels",
+        "Cruise control",
+        "SiriusXM ready"
+      ],
       "photoPrefix": "2017-hyundai-tucson-limited",
       "photoPath": "",
-      "dealerCenterUrl": ""
+      "dealerCenterUrl": "",
+      "featureTiers": {
+        "headline": [
+          {
+            "label": "28 MPG highway",
+            "sub": "24 city, EPA estimate",
+            "icon": "local_gas_station"
+          },
+          {
+            "label": "All wheel drive",
+            "sub": "Chicago winters",
+            "icon": "ac_unit"
+          }
+        ],
+        "love": [
+          {
+            "label": "Apple CarPlay and Android Auto",
+            "icon": "smartphone",
+            "group": "Tech"
+          },
+          {
+            "label": "Heated front and rear seats",
+            "icon": "whatshot",
+            "group": "Winter ready"
+          },
+          {
+            "label": "Leather seats",
+            "icon": "chair",
+            "group": "Comfort"
+          },
+          {
+            "label": "Panoramic sunroof",
+            "icon": "wb_sunny",
+            "group": "Comfort"
+          },
+          {
+            "label": "Blind spot monitor",
+            "icon": "visibility",
+            "group": "Safety"
+          },
+          {
+            "label": "Ventilated front seats",
+            "icon": "air",
+            "group": "Comfort"
+          },
+          {
+            "label": "Backup camera",
+            "icon": "photo_camera",
+            "group": "Safety"
+          },
+          {
+            "label": "Navigation",
+            "icon": "navigation",
+            "group": "Tech"
+          },
+          {
+            "label": "Power liftgate",
+            "icon": "luggage",
+            "group": "Family and cargo"
+          },
+          {
+            "label": "Infinity audio",
+            "icon": "speaker",
+            "group": "Tech"
+          },
+          {
+            "label": "Push button start",
+            "icon": "power_settings_new",
+            "group": "Comfort"
+          },
+          {
+            "label": "Lane departure warning",
+            "icon": "add_road",
+            "group": "Safety"
+          },
+          {
+            "label": "Parking sensors",
+            "icon": "sensors",
+            "group": "Safety"
+          },
+          {
+            "label": "Turbocharged engine",
+            "icon": "bolt",
+            "group": "Performance"
+          }
+        ],
+        "comfort": [
+          "Bluetooth",
+          "Power driver seat",
+          "Alloy wheels",
+          "Cruise control",
+          "SiriusXM ready"
+        ],
+        "standard": [
+          "Air conditioning",
+          "Power locks",
+          "Power mirrors",
+          "Power windows",
+          "Rear defroster",
+          "AM/FM stereo",
+          "Aux input",
+          "ABS brakes",
+          "Automatic transmission",
+          "Overhead airbags",
+          "Side airbags",
+          "Traction control"
+        ],
+        "groups": {
+          "Winter ready": [
+            "All wheel drive",
+            "Heated front and rear seats"
+          ],
+          "Tech": [
+            "Apple CarPlay and Android Auto",
+            "Navigation",
+            "Infinity audio",
+            "Bluetooth",
+            "SiriusXM ready"
+          ],
+          "Comfort": [
+            "Leather seats",
+            "Panoramic sunroof",
+            "Ventilated front seats",
+            "Push button start",
+            "Power driver seat",
+            "Cruise control"
+          ],
+          "Safety": [
+            "Blind spot monitor",
+            "Backup camera",
+            "Lane departure warning",
+            "Parking sensors"
+          ],
+          "Family and cargo": [
+            "Power liftgate"
+          ],
+          "Performance": [
+            "Turbocharged engine"
+          ],
+          "Wheels and exterior": [
+            "Alloy wheels"
+          ],
+          "Standard": [
+            "Air conditioning",
+            "Power locks",
+            "Power mirrors",
+            "Power windows",
+            "Rear defroster",
+            "AM/FM stereo",
+            "Aux input",
+            "ABS brakes",
+            "Automatic transmission",
+            "Overhead airbags",
+            "Side airbags",
+            "Traction control"
+          ]
+        }
+      },
+      "mpg": "24 city / 28 hwy",
+      "mpgCity": 24,
+      "mpgHwy": 28
     },
     "KM8J3CA48HU259737": {
       "year": 2017,
@@ -618,10 +1813,116 @@
         "94,859 miles",
         "Fully inspected, free CARFAX"
       ],
-      "features": [],
+      "features": [
+        "All wheel drive",
+        "Backup camera",
+        "Bluetooth",
+        "Power driver seat",
+        "Alloy wheels",
+        "Cruise control",
+        "SiriusXM ready"
+      ],
       "photoPrefix": "2017-hyundai-tucson-se",
       "photoPath": "",
-      "dealerCenterUrl": ""
+      "dealerCenterUrl": "",
+      "featureTiers": {
+        "headline": [
+          {
+            "label": "26 MPG highway",
+            "sub": "21 city, EPA estimate",
+            "icon": "local_gas_station"
+          },
+          {
+            "label": "All wheel drive",
+            "sub": "Chicago winters",
+            "icon": "ac_unit"
+          }
+        ],
+        "love": [
+          {
+            "label": "Backup camera",
+            "icon": "photo_camera",
+            "group": "Safety"
+          },
+          {
+            "label": "Bluetooth",
+            "icon": "bluetooth",
+            "group": "Tech"
+          },
+          {
+            "label": "Power driver seat",
+            "icon": "chair",
+            "group": "Comfort"
+          },
+          {
+            "label": "Alloy wheels",
+            "icon": "radio_button_unchecked",
+            "group": "Wheels and exterior"
+          },
+          {
+            "label": "Cruise control",
+            "icon": "speed",
+            "group": "Comfort"
+          }
+        ],
+        "comfort": [
+          "SiriusXM ready"
+        ],
+        "standard": [
+          "Air conditioning",
+          "Power locks",
+          "Power mirrors",
+          "Power windows",
+          "Rear defroster",
+          "AM/FM stereo",
+          "Aux input",
+          "CD player",
+          "Cloth seats",
+          "ABS brakes",
+          "Automatic transmission",
+          "Overhead airbags",
+          "Side airbags",
+          "Traction control"
+        ],
+        "groups": {
+          "Winter ready": [
+            "All wheel drive"
+          ],
+          "Tech": [
+            "Bluetooth",
+            "SiriusXM ready"
+          ],
+          "Comfort": [
+            "Power driver seat",
+            "Cruise control"
+          ],
+          "Safety": [
+            "Backup camera"
+          ],
+          "Wheels and exterior": [
+            "Alloy wheels"
+          ],
+          "Standard": [
+            "Air conditioning",
+            "Power locks",
+            "Power mirrors",
+            "Power windows",
+            "Rear defroster",
+            "AM/FM stereo",
+            "Aux input",
+            "CD player",
+            "Cloth seats",
+            "ABS brakes",
+            "Automatic transmission",
+            "Overhead airbags",
+            "Side airbags",
+            "Traction control"
+          ]
+        }
+      },
+      "mpg": "21 city / 26 hwy",
+      "mpgCity": 21,
+      "mpgHwy": 26
     },
     "KM8SRDHF6FU104181": {
       "year": 2015,
@@ -692,18 +1993,231 @@
       "dateAdded": "2026-10-20",
       "featured": true,
       "sortOrder": 0,
-      "dealRating": "",
-      "priceSavings": 0,
+      "dealRating": "FAIR_PRICE",
+      "priceSavings": 388,
       "description": "2015 Hyundai Santa Fe Limited AWD with the Ultimate Package: 290 horsepower 3.3 liter V6, three rows of seating, leather, heated and ventilated front seats, heated steering wheel, panoramic sunroof, navigation, second row captain's chairs, 19 inch alloys. Gray on gray, 6 speed automatic, all wheel drive. A fully equipped family SUV for a North Shore winter, with no dealer fees. Key features: 3.3L GDI V6 with 290 hp and a 6 speed automatic, active cornering all wheel drive, leather seating with heated and ventilated front seats, heated rear seats and a memory driver seat, heated steering wheel, panoramic sunroof, navigation touchscreen with Bluetooth and Infinity premium audio, blind spot monitor, rear camera with front and rear parking sensors, second row captain's chairs with a third row for six, rear sunshades, rear air conditioning, power liftgate, smart key with push button start, factory tow hitch with a 5,000 lb towing capacity, 19 inch alloy wheels, 80 cubic feet of cargo space with the rear rows folded. Four new tires on it. The Maxim Autos Difference Independent inspection report included with every vehicle Metal plates issued on the spot, drive home today, skip the DMV No dealer fees at Maxim Autos, ever. The price you see is the price you pay, plus tax, title, and license. Financing for all credit levels Serving Skokie, Evanston, Niles, Morton Grove, Lincolnwood, Des Plaines and the North Shore of Chicago. Call or text (847) 510-8947 for a same day appointment. Every car inspected. Every price transparent. Every car documented.",
       "highlights": [
         "Limited trim",
         "86,271 miles",
         "Fully inspected, free CARFAX"
       ],
-      "features": [],
+      "features": [
+        "All wheel drive",
+        "Third row seating",
+        "Heated front and rear seats",
+        "Heated steering wheel",
+        "Leather seats",
+        "Panoramic sunroof",
+        "Blind spot monitor",
+        "Ventilated front seats",
+        "Backup camera",
+        "Navigation",
+        "Power liftgate",
+        "Second row captain's chairs",
+        "Infinity audio",
+        "Push button start",
+        "Parking sensors",
+        "Tow hitch",
+        "Rear climate control",
+        "Ultimate Package",
+        "Bluetooth",
+        "Power driver seat",
+        "Memory seats",
+        "Fold flat third row",
+        "Alloy wheels",
+        "Rear sunshades",
+        "Cruise control",
+        "SiriusXM ready"
+      ],
       "photoPrefix": "2015-hyundai-santa-fe-limited",
       "photoPath": "",
-      "dealerCenterUrl": ""
+      "dealerCenterUrl": "",
+      "featureTiers": {
+        "headline": [
+          {
+            "label": "24 MPG highway",
+            "sub": "18 city, EPA estimate",
+            "icon": "local_gas_station"
+          },
+          {
+            "label": "All wheel drive",
+            "sub": "Chicago winters",
+            "icon": "ac_unit"
+          },
+          {
+            "label": "Third row seating",
+            "sub": "seats six or seven",
+            "icon": "groups"
+          }
+        ],
+        "love": [
+          {
+            "label": "Heated front and rear seats",
+            "icon": "whatshot",
+            "group": "Winter ready"
+          },
+          {
+            "label": "Heated steering wheel",
+            "icon": "thermostat",
+            "group": "Winter ready"
+          },
+          {
+            "label": "Leather seats",
+            "icon": "chair",
+            "group": "Comfort"
+          },
+          {
+            "label": "Panoramic sunroof",
+            "icon": "wb_sunny",
+            "group": "Comfort"
+          },
+          {
+            "label": "Blind spot monitor",
+            "icon": "visibility",
+            "group": "Safety"
+          },
+          {
+            "label": "Ventilated front seats",
+            "icon": "air",
+            "group": "Comfort"
+          },
+          {
+            "label": "Backup camera",
+            "icon": "photo_camera",
+            "group": "Safety"
+          },
+          {
+            "label": "Navigation",
+            "icon": "navigation",
+            "group": "Tech"
+          },
+          {
+            "label": "Power liftgate",
+            "icon": "luggage",
+            "group": "Family and cargo"
+          },
+          {
+            "label": "Second row captain's chairs",
+            "icon": "event_seat",
+            "group": "Family and cargo"
+          },
+          {
+            "label": "Infinity audio",
+            "icon": "speaker",
+            "group": "Tech"
+          },
+          {
+            "label": "Push button start",
+            "icon": "power_settings_new",
+            "group": "Comfort"
+          },
+          {
+            "label": "Parking sensors",
+            "icon": "sensors",
+            "group": "Safety"
+          },
+          {
+            "label": "Tow hitch",
+            "icon": "rv_hookup",
+            "group": "Family and cargo"
+          },
+          {
+            "label": "Rear climate control",
+            "icon": "mode_fan",
+            "group": "Family and cargo"
+          },
+          {
+            "label": "Ultimate Package",
+            "icon": "inventory_2",
+            "group": "Packages"
+          }
+        ],
+        "comfort": [
+          "Bluetooth",
+          "Power driver seat",
+          "Memory seats",
+          "Fold flat third row",
+          "Alloy wheels",
+          "Rear sunshades",
+          "Cruise control",
+          "SiriusXM ready"
+        ],
+        "standard": [
+          "Air conditioning",
+          "Power locks",
+          "Power mirrors",
+          "Power windows",
+          "Rear defroster",
+          "AM/FM stereo",
+          "Aux input",
+          "CD player",
+          "ABS brakes",
+          "Automatic transmission",
+          "Overhead airbags",
+          "Side airbags",
+          "Traction control"
+        ],
+        "groups": {
+          "Winter ready": [
+            "All wheel drive",
+            "Heated front and rear seats",
+            "Heated steering wheel"
+          ],
+          "Tech": [
+            "Navigation",
+            "Infinity audio",
+            "Bluetooth",
+            "SiriusXM ready"
+          ],
+          "Comfort": [
+            "Leather seats",
+            "Panoramic sunroof",
+            "Ventilated front seats",
+            "Push button start",
+            "Power driver seat",
+            "Memory seats",
+            "Cruise control"
+          ],
+          "Safety": [
+            "Blind spot monitor",
+            "Backup camera",
+            "Parking sensors"
+          ],
+          "Family and cargo": [
+            "Third row seating",
+            "Power liftgate",
+            "Second row captain's chairs",
+            "Tow hitch",
+            "Rear climate control",
+            "Fold flat third row",
+            "Rear sunshades"
+          ],
+          "Packages": [
+            "Ultimate Package"
+          ],
+          "Wheels and exterior": [
+            "Alloy wheels"
+          ],
+          "Standard": [
+            "Air conditioning",
+            "Power locks",
+            "Power mirrors",
+            "Power windows",
+            "Rear defroster",
+            "AM/FM stereo",
+            "Aux input",
+            "CD player",
+            "ABS brakes",
+            "Automatic transmission",
+            "Overhead airbags",
+            "Side airbags",
+            "Traction control"
+          ]
+        }
+      },
+      "mpg": "18 city / 24 hwy",
+      "mpgCity": 18,
+      "mpgHwy": 24
     },
     "KNAFU4A25D5728313": {
       "year": 2013,
@@ -764,10 +2278,82 @@
         "97,101 miles",
         "Fully inspected, free CARFAX"
       ],
-      "features": [],
+      "features": [
+        "Bluetooth",
+        "Cruise control",
+        "SiriusXM ready"
+      ],
       "photoPrefix": "2013-kia-forte-ex",
       "photoPath": "",
-      "dealerCenterUrl": ""
+      "dealerCenterUrl": "",
+      "featureTiers": {
+        "headline": [
+          {
+            "label": "35 MPG highway",
+            "sub": "25 city, EPA estimate",
+            "icon": "local_gas_station"
+          }
+        ],
+        "love": [
+          {
+            "label": "Bluetooth",
+            "icon": "bluetooth",
+            "group": "Tech"
+          },
+          {
+            "label": "Cruise control",
+            "icon": "speed",
+            "group": "Comfort"
+          }
+        ],
+        "comfort": [
+          "SiriusXM ready"
+        ],
+        "standard": [
+          "Air conditioning",
+          "Power locks",
+          "Power mirrors",
+          "Power windows",
+          "Rear defroster",
+          "AM/FM stereo",
+          "Aux input",
+          "CD player",
+          "Cloth seats",
+          "ABS brakes",
+          "Automatic transmission",
+          "Overhead airbags",
+          "Side airbags",
+          "Traction control"
+        ],
+        "groups": {
+          "Tech": [
+            "Bluetooth",
+            "SiriusXM ready"
+          ],
+          "Comfort": [
+            "Cruise control"
+          ],
+          "Standard": [
+            "Air conditioning",
+            "Power locks",
+            "Power mirrors",
+            "Power windows",
+            "Rear defroster",
+            "AM/FM stereo",
+            "Aux input",
+            "CD player",
+            "Cloth seats",
+            "ABS brakes",
+            "Automatic transmission",
+            "Overhead airbags",
+            "Side airbags",
+            "Traction control"
+          ]
+        }
+      },
+      "mpg": "25 city / 35 hwy",
+      "mpgCity": 25,
+      "mpgHwy": 35
     },
     "KNDMB5C14G6201419": {
       "year": 2016,
@@ -846,10 +2432,157 @@
         "106,414 miles",
         "Fully inspected, free CARFAX"
       ],
-      "features": [],
+      "features": [
+        "Third row seating",
+        "Heated front seats",
+        "Backup camera",
+        "Rear seat entertainment",
+        "Power sliding doors",
+        "Second row captain's chairs",
+        "Parking sensors",
+        "Tow hitch",
+        "Rear climate control",
+        "Bluetooth",
+        "Power driver seat",
+        "Fold flat third row",
+        "Alloy wheels",
+        "Rear sunshades",
+        "Cruise control",
+        "SiriusXM ready"
+      ],
       "photoPrefix": "2016-kia-sedona-lx",
       "photoPath": "",
-      "dealerCenterUrl": ""
+      "dealerCenterUrl": "",
+      "featureTiers": {
+        "headline": [
+          {
+            "label": "24 MPG highway",
+            "sub": "18 city, EPA estimate",
+            "icon": "local_gas_station"
+          },
+          {
+            "label": "Third row seating",
+            "sub": "seats six or seven",
+            "icon": "groups"
+          }
+        ],
+        "love": [
+          {
+            "label": "Heated front seats",
+            "icon": "whatshot",
+            "group": "Winter ready"
+          },
+          {
+            "label": "Backup camera",
+            "icon": "photo_camera",
+            "group": "Safety"
+          },
+          {
+            "label": "Rear seat entertainment",
+            "icon": "tv",
+            "group": "Family and cargo"
+          },
+          {
+            "label": "Power sliding doors",
+            "icon": "door_sliding",
+            "group": "Family and cargo"
+          },
+          {
+            "label": "Second row captain's chairs",
+            "icon": "event_seat",
+            "group": "Family and cargo"
+          },
+          {
+            "label": "Parking sensors",
+            "icon": "sensors",
+            "group": "Safety"
+          },
+          {
+            "label": "Tow hitch",
+            "icon": "rv_hookup",
+            "group": "Family and cargo"
+          },
+          {
+            "label": "Rear climate control",
+            "icon": "mode_fan",
+            "group": "Family and cargo"
+          }
+        ],
+        "comfort": [
+          "Bluetooth",
+          "Power driver seat",
+          "Fold flat third row",
+          "Alloy wheels",
+          "Rear sunshades",
+          "Cruise control",
+          "SiriusXM ready"
+        ],
+        "standard": [
+          "Air conditioning",
+          "Power locks",
+          "Power mirrors",
+          "Power windows",
+          "Rear defroster",
+          "AM/FM stereo",
+          "Aux input",
+          "CD player",
+          "Cloth seats",
+          "ABS brakes",
+          "Automatic transmission",
+          "Overhead airbags",
+          "Side airbags",
+          "Traction control"
+        ],
+        "groups": {
+          "Winter ready": [
+            "Heated front seats"
+          ],
+          "Tech": [
+            "Bluetooth",
+            "SiriusXM ready"
+          ],
+          "Comfort": [
+            "Power driver seat",
+            "Cruise control"
+          ],
+          "Safety": [
+            "Backup camera",
+            "Parking sensors"
+          ],
+          "Family and cargo": [
+            "Third row seating",
+            "Rear seat entertainment",
+            "Power sliding doors",
+            "Second row captain's chairs",
+            "Tow hitch",
+            "Rear climate control",
+            "Fold flat third row",
+            "Rear sunshades"
+          ],
+          "Wheels and exterior": [
+            "Alloy wheels"
+          ],
+          "Standard": [
+            "Air conditioning",
+            "Power locks",
+            "Power mirrors",
+            "Power windows",
+            "Rear defroster",
+            "AM/FM stereo",
+            "Aux input",
+            "CD player",
+            "Cloth seats",
+            "ABS brakes",
+            "Automatic transmission",
+            "Overhead airbags",
+            "Side airbags",
+            "Traction control"
+          ]
+        }
+      },
+      "mpg": "18 city / 24 hwy",
+      "mpgCity": 18,
+      "mpgHwy": 24
     },
     "WA1D7AFP0GA094726": {
       "year": 2016,
@@ -924,25 +2657,191 @@
       "dateAdded": "2026-10-27",
       "featured": true,
       "sortOrder": 0,
-      "dealRating": "",
-      "priceSavings": 0,
+      "dealRating": "FAIR_PRICE",
+      "priceSavings": -344,
       "description": "2016 Audi Q5 3.0T Premium Plus quattro: supercharged V6, quattro all wheel drive, S line, panoramic sunroof, navigation, heated leather seats. White over tan leather, 8 speed Tiptronic automatic, 3.0L supercharged V6. The compact luxury SUV for a North Shore winter, with sports sedan power and the grip to use it, and no dealer fees. Key features: 3.0L supercharged V6 with 272 horsepower and 295 lb ft of torque, quattro all wheel drive, 8 speed Tiptronic automatic, S line package with 20 inch alloy wheels, panoramic sunroof, navigation system, leather seats with heated and memory front seats, power seats, rear view camera with front and rear parking sensors, smart key, Bluetooth, satellite radio ready, power hatch, full roof rack, cruise control, side and overhead airbags, traction control and ABS. About 6 seconds to 60 and 18 city, 26 highway mpg. The Maxim Autos Difference Independent inspection report included with every vehicle Metal plates issued on the spot, drive home today, skip the DMV No dealer fees at Maxim Autos, ever. The price you see is the price you pay, plus tax, title, and license. Financing for all credit levels Located in Skokie, IL, minutes from Evanston, Niles, Morton Grove, Lincolnwood, Des Plaines and the North Shore Chicago area. Call or text (847) 510-8947 to confirm it is still available. Every car inspected. Every price transparent. Every car documented.",
       "highlights": [
         "3.0T Premium Plus trim",
         "106,207 miles",
         "Fully inspected, free CARFAX"
       ],
-      "features": [],
+      "features": [
+        "All wheel drive",
+        "Heated front seats",
+        "Leather seats",
+        "Panoramic sunroof",
+        "Backup camera",
+        "Navigation",
+        "Power liftgate",
+        "Push button start",
+        "Parking sensors",
+        "Supercharged engine",
+        "S line package",
+        "Bluetooth",
+        "Power driver seat",
+        "Memory seats",
+        "20 inch wheels",
+        "Roof rack",
+        "Alloy wheels",
+        "Cruise control",
+        "SiriusXM ready"
+      ],
       "photoPrefix": "2016-audi-q5-3-0t-premium-plus",
       "photoPath": "",
-      "dealerCenterUrl": ""
+      "dealerCenterUrl": "",
+      "featureTiers": {
+        "headline": [
+          {
+            "label": "26 MPG highway",
+            "sub": "18 city, EPA estimate",
+            "icon": "local_gas_station"
+          },
+          {
+            "label": "All wheel drive",
+            "sub": "Chicago winters",
+            "icon": "ac_unit"
+          }
+        ],
+        "love": [
+          {
+            "label": "Heated front seats",
+            "icon": "whatshot",
+            "group": "Winter ready"
+          },
+          {
+            "label": "Leather seats",
+            "icon": "chair",
+            "group": "Comfort"
+          },
+          {
+            "label": "Panoramic sunroof",
+            "icon": "wb_sunny",
+            "group": "Comfort"
+          },
+          {
+            "label": "Backup camera",
+            "icon": "photo_camera",
+            "group": "Safety"
+          },
+          {
+            "label": "Navigation",
+            "icon": "navigation",
+            "group": "Tech"
+          },
+          {
+            "label": "Power liftgate",
+            "icon": "luggage",
+            "group": "Family and cargo"
+          },
+          {
+            "label": "Push button start",
+            "icon": "power_settings_new",
+            "group": "Comfort"
+          },
+          {
+            "label": "Parking sensors",
+            "icon": "sensors",
+            "group": "Safety"
+          },
+          {
+            "label": "Supercharged engine",
+            "icon": "bolt",
+            "group": "Performance"
+          },
+          {
+            "label": "S line package",
+            "icon": "inventory_2",
+            "group": "Packages"
+          }
+        ],
+        "comfort": [
+          "Bluetooth",
+          "Power driver seat",
+          "Memory seats",
+          "20 inch wheels",
+          "Roof rack",
+          "Alloy wheels",
+          "Cruise control",
+          "SiriusXM ready"
+        ],
+        "standard": [
+          "Air conditioning",
+          "Power locks",
+          "Power mirrors",
+          "Power windows",
+          "Rear defroster",
+          "AM/FM stereo",
+          "Aux input",
+          "CD player",
+          "ABS brakes",
+          "Automatic transmission",
+          "Overhead airbags",
+          "Side airbags",
+          "Traction control"
+        ],
+        "groups": {
+          "Winter ready": [
+            "All wheel drive",
+            "Heated front seats"
+          ],
+          "Tech": [
+            "Navigation",
+            "Bluetooth",
+            "SiriusXM ready"
+          ],
+          "Comfort": [
+            "Leather seats",
+            "Panoramic sunroof",
+            "Push button start",
+            "Power driver seat",
+            "Memory seats",
+            "Cruise control"
+          ],
+          "Safety": [
+            "Backup camera",
+            "Parking sensors"
+          ],
+          "Family and cargo": [
+            "Power liftgate",
+            "Roof rack"
+          ],
+          "Performance": [
+            "Supercharged engine"
+          ],
+          "Packages": [
+            "S line package"
+          ],
+          "Wheels and exterior": [
+            "20 inch wheels",
+            "Alloy wheels"
+          ],
+          "Standard": [
+            "Air conditioning",
+            "Power locks",
+            "Power mirrors",
+            "Power windows",
+            "Rear defroster",
+            "AM/FM stereo",
+            "Aux input",
+            "CD player",
+            "ABS brakes",
+            "Automatic transmission",
+            "Overhead airbags",
+            "Side airbags",
+            "Traction control"
+          ]
+        }
+      },
+      "mpg": "18 city / 26 hwy",
+      "mpgCity": 18,
+      "mpgHwy": 26
     },
     "WA1ECCFS8JR006434": {
       "year": 2018,
       "make": "Audi",
       "model": "Q3",
       "trim": "2.0T Premium quattro",
-      "price": 10650,
+      "price": 10450,
       "mileage": 107610,
       "exteriorColor": "Black",
       "interiorColor": "Black",
@@ -1009,10 +2908,147 @@
         "107,610 miles",
         "Fully inspected, free CARFAX"
       ],
-      "features": [],
+      "features": [
+        "All wheel drive",
+        "Heated front seats",
+        "Leather seats",
+        "Panoramic sunroof",
+        "Power liftgate",
+        "Push button start",
+        "Parking sensors",
+        "Turbocharged engine",
+        "Bluetooth",
+        "Backup camera",
+        "Power driver seat",
+        "Alloy wheels",
+        "Cruise control",
+        "SiriusXM ready"
+      ],
       "photoPrefix": "2018-audi-q3-premium",
       "photoPath": "",
-      "dealerCenterUrl": ""
+      "dealerCenterUrl": "",
+      "featureTiers": {
+        "headline": [
+          {
+            "label": "28 MPG highway",
+            "sub": "20 city, EPA estimate",
+            "icon": "local_gas_station"
+          },
+          {
+            "label": "All wheel drive",
+            "sub": "Chicago winters",
+            "icon": "ac_unit"
+          }
+        ],
+        "love": [
+          {
+            "label": "Heated front seats",
+            "icon": "whatshot",
+            "group": "Winter ready"
+          },
+          {
+            "label": "Leather seats",
+            "icon": "chair",
+            "group": "Comfort"
+          },
+          {
+            "label": "Panoramic sunroof",
+            "icon": "wb_sunny",
+            "group": "Comfort"
+          },
+          {
+            "label": "Power liftgate",
+            "icon": "luggage",
+            "group": "Family and cargo"
+          },
+          {
+            "label": "Push button start",
+            "icon": "power_settings_new",
+            "group": "Comfort"
+          },
+          {
+            "label": "Parking sensors",
+            "icon": "sensors",
+            "group": "Safety"
+          },
+          {
+            "label": "Turbocharged engine",
+            "icon": "bolt",
+            "group": "Performance"
+          }
+        ],
+        "comfort": [
+          "Bluetooth",
+          "Backup camera",
+          "Power driver seat",
+          "Alloy wheels",
+          "Cruise control",
+          "SiriusXM ready"
+        ],
+        "standard": [
+          "Air conditioning",
+          "Power locks",
+          "Power mirrors",
+          "Power windows",
+          "Rear defroster",
+          "AM/FM stereo",
+          "Aux input",
+          "CD player",
+          "ABS brakes",
+          "Automatic transmission",
+          "Overhead airbags",
+          "Side airbags",
+          "Traction control"
+        ],
+        "groups": {
+          "Winter ready": [
+            "All wheel drive",
+            "Heated front seats"
+          ],
+          "Tech": [
+            "Bluetooth",
+            "SiriusXM ready"
+          ],
+          "Comfort": [
+            "Leather seats",
+            "Panoramic sunroof",
+            "Push button start",
+            "Power driver seat",
+            "Cruise control"
+          ],
+          "Safety": [
+            "Parking sensors",
+            "Backup camera"
+          ],
+          "Family and cargo": [
+            "Power liftgate"
+          ],
+          "Performance": [
+            "Turbocharged engine"
+          ],
+          "Wheels and exterior": [
+            "Alloy wheels"
+          ],
+          "Standard": [
+            "Air conditioning",
+            "Power locks",
+            "Power mirrors",
+            "Power windows",
+            "Rear defroster",
+            "AM/FM stereo",
+            "Aux input",
+            "CD player",
+            "ABS brakes",
+            "Automatic transmission",
+            "Overhead airbags",
+            "Side airbags",
+            "Traction control"
+          ]
+        }
+      },
+      "mpg": "20 city / 28 hwy",
+      "mpgCity": 20,
+      "mpgHwy": 28
     },
     "WA1VAAF73JD013438": {
       "year": 2018,
@@ -1096,17 +3132,264 @@
         "107,104 miles",
         "Fully inspected, free CARFAX"
       ],
-      "features": [],
+      "features": [
+        "All wheel drive",
+        "Third row seating",
+        "Apple CarPlay and Android Auto",
+        "Heated front and rear seats",
+        "Heated steering wheel",
+        "Leather seats",
+        "Panoramic sunroof",
+        "Blind spot monitor",
+        "Ventilated front seats",
+        "Adaptive cruise control",
+        "Navigation",
+        "Power liftgate",
+        "Bose audio",
+        "Head up display",
+        "Push button start",
+        "Lane departure warning",
+        "Parking sensors",
+        "Supercharged engine",
+        "Tow hitch",
+        "Rear climate control",
+        "Driver Assistance Package",
+        "Cold Weather Package",
+        "Bluetooth",
+        "Backup camera",
+        "Power driver seat",
+        "Memory seats",
+        "Power folding third row",
+        "20 inch wheels",
+        "Alloy wheels",
+        "Rear sunshades",
+        "Run flat tires",
+        "SiriusXM ready"
+      ],
       "photoPrefix": "2018-audi-q7-3-0t-prestige",
       "photoPath": "",
-      "dealerCenterUrl": ""
+      "dealerCenterUrl": "",
+      "featureTiers": {
+        "headline": [
+          {
+            "label": "25 MPG highway",
+            "sub": "19 city, EPA estimate",
+            "icon": "local_gas_station"
+          },
+          {
+            "label": "All wheel drive",
+            "sub": "Chicago winters",
+            "icon": "ac_unit"
+          },
+          {
+            "label": "Third row seating",
+            "sub": "seats six or seven",
+            "icon": "groups"
+          }
+        ],
+        "love": [
+          {
+            "label": "Apple CarPlay and Android Auto",
+            "icon": "smartphone",
+            "group": "Tech"
+          },
+          {
+            "label": "Heated front and rear seats",
+            "icon": "whatshot",
+            "group": "Winter ready"
+          },
+          {
+            "label": "Heated steering wheel",
+            "icon": "thermostat",
+            "group": "Winter ready"
+          },
+          {
+            "label": "Leather seats",
+            "icon": "chair",
+            "group": "Comfort"
+          },
+          {
+            "label": "Panoramic sunroof",
+            "icon": "wb_sunny",
+            "group": "Comfort"
+          },
+          {
+            "label": "Blind spot monitor",
+            "icon": "visibility",
+            "group": "Safety"
+          },
+          {
+            "label": "Ventilated front seats",
+            "icon": "air",
+            "group": "Comfort"
+          },
+          {
+            "label": "Adaptive cruise control",
+            "icon": "speed",
+            "group": "Safety"
+          },
+          {
+            "label": "Navigation",
+            "icon": "navigation",
+            "group": "Tech"
+          },
+          {
+            "label": "Power liftgate",
+            "icon": "luggage",
+            "group": "Family and cargo"
+          },
+          {
+            "label": "Bose audio",
+            "icon": "speaker",
+            "group": "Tech"
+          },
+          {
+            "label": "Head up display",
+            "icon": "dashboard",
+            "group": "Tech"
+          },
+          {
+            "label": "Push button start",
+            "icon": "power_settings_new",
+            "group": "Comfort"
+          },
+          {
+            "label": "Lane departure warning",
+            "icon": "add_road",
+            "group": "Safety"
+          },
+          {
+            "label": "Parking sensors",
+            "icon": "sensors",
+            "group": "Safety"
+          },
+          {
+            "label": "Supercharged engine",
+            "icon": "bolt",
+            "group": "Performance"
+          },
+          {
+            "label": "Tow hitch",
+            "icon": "rv_hookup",
+            "group": "Family and cargo"
+          },
+          {
+            "label": "Rear climate control",
+            "icon": "mode_fan",
+            "group": "Family and cargo"
+          },
+          {
+            "label": "Driver Assistance Package",
+            "icon": "inventory_2",
+            "group": "Packages"
+          },
+          {
+            "label": "Cold Weather Package",
+            "icon": "inventory_2",
+            "group": "Packages"
+          }
+        ],
+        "comfort": [
+          "Bluetooth",
+          "Backup camera",
+          "Power driver seat",
+          "Memory seats",
+          "Power folding third row",
+          "20 inch wheels",
+          "Alloy wheels",
+          "Rear sunshades",
+          "Run flat tires",
+          "SiriusXM ready"
+        ],
+        "standard": [
+          "Air conditioning",
+          "Power locks",
+          "Power mirrors",
+          "Power windows",
+          "Rear defroster",
+          "AM/FM stereo",
+          "Aux input",
+          "ABS brakes",
+          "Automatic transmission",
+          "Overhead airbags",
+          "Side airbags",
+          "Traction control"
+        ],
+        "groups": {
+          "Winter ready": [
+            "All wheel drive",
+            "Heated front and rear seats",
+            "Heated steering wheel"
+          ],
+          "Tech": [
+            "Apple CarPlay and Android Auto",
+            "Navigation",
+            "Bose audio",
+            "Head up display",
+            "Bluetooth",
+            "SiriusXM ready"
+          ],
+          "Comfort": [
+            "Leather seats",
+            "Panoramic sunroof",
+            "Ventilated front seats",
+            "Push button start",
+            "Power driver seat",
+            "Memory seats"
+          ],
+          "Safety": [
+            "Blind spot monitor",
+            "Adaptive cruise control",
+            "Lane departure warning",
+            "Parking sensors",
+            "Backup camera"
+          ],
+          "Family and cargo": [
+            "Third row seating",
+            "Power liftgate",
+            "Tow hitch",
+            "Rear climate control",
+            "Power folding third row",
+            "Rear sunshades"
+          ],
+          "Performance": [
+            "Supercharged engine"
+          ],
+          "Packages": [
+            "Driver Assistance Package",
+            "Cold Weather Package"
+          ],
+          "Wheels and exterior": [
+            "20 inch wheels",
+            "Alloy wheels",
+            "Run flat tires"
+          ],
+          "Standard": [
+            "Air conditioning",
+            "Power locks",
+            "Power mirrors",
+            "Power windows",
+            "Rear defroster",
+            "AM/FM stereo",
+            "Aux input",
+            "ABS brakes",
+            "Automatic transmission",
+            "Overhead airbags",
+            "Side airbags",
+            "Traction control"
+          ]
+        }
+      },
+      "mpg": "19 city / 25 hwy",
+      "mpgCity": 19,
+      "mpgHwy": 25
     },
     "WAUGFAFC8GN006353": {
       "year": 2016,
       "make": "Audi",
       "model": "A6",
       "trim": "2.0T Premium Plus",
-      "price": 11995,
+      "price": 10450,
       "mileage": 108940,
       "exteriorColor": "White",
       "interiorColor": "Black",
@@ -1152,18 +3435,183 @@
       "dateAdded": "2026-11-07",
       "featured": true,
       "sortOrder": 0,
-      "dealRating": "FAIR_PRICE",
-      "priceSavings": -200,
+      "dealRating": "",
+      "priceSavings": 0,
       "description": "2016 Audi A6 2.0T Premium Plus quattro: quattro all wheel drive, navigation, sunroof, heated leather seats front and rear, heated steering wheel, blind spot monitor. White over black leather, 8 speed Tiptronic automatic, 2.0L turbocharged four cylinder. The midsize luxury sedan for a North Shore commuter who wants Audi quattro grip for winter and 32 highway mpg, with no dealer fees. Key features: 2.0L TFSI turbocharged four cylinder with 252 horsepower and 273 lb ft of torque, quattro all wheel drive, 8 speed Tiptronic automatic, 22 city and 32 highway mpg, Premium Plus with the Technology Package, MMI navigation system, leather seats with heated front and rear seats, heated steering wheel, memory power front seats, power sunroof, rear view camera with front and rear parking sensors, blind spot monitor, smart key with push button start, Bluetooth hands free phone and audio streaming, satellite radio ready, CD and auxiliary input, cruise control, alloy wheels, side and overhead airbags, traction control and ABS. Around 6 seconds to 60 and a 14.1 cubic foot trunk. The Maxim Autos Difference Independent inspection report included with every vehicle Metal plates issued on the spot, drive home today, skip the DMV No dealer fees at Maxim Autos, ever. The price you see is the price you pay, plus tax, title, and license. Financing for all credit levels Located in Skokie, IL, minutes from Evanston, Niles, Morton Grove, Lincolnwood, Des Plaines and the North Shore Chicago area. Call or text (847) 510-8947 to confirm it is still available. Every car inspected. Every price transparent. Every car documented.",
       "highlights": [
         "2.0T Premium Plus trim",
         "108,940 miles",
         "Fully inspected, free CARFAX"
       ],
-      "features": [],
+      "features": [
+        "All wheel drive",
+        "Heated front and rear seats",
+        "Heated steering wheel",
+        "Leather seats",
+        "Blind spot monitor",
+        "Backup camera",
+        "Sunroof",
+        "Navigation",
+        "Push button start",
+        "Parking sensors",
+        "Turbocharged engine",
+        "Technology Package",
+        "Bluetooth",
+        "Power driver seat",
+        "Memory seats",
+        "Alloy wheels",
+        "Cruise control",
+        "SiriusXM ready"
+      ],
       "photoPrefix": "2016-audi-a6-2-0t-premium-plus",
       "photoPath": "",
-      "dealerCenterUrl": ""
+      "dealerCenterUrl": "",
+      "featureTiers": {
+        "headline": [
+          {
+            "label": "32 MPG highway",
+            "sub": "22 city, EPA estimate",
+            "icon": "local_gas_station"
+          },
+          {
+            "label": "All wheel drive",
+            "sub": "Chicago winters",
+            "icon": "ac_unit"
+          }
+        ],
+        "love": [
+          {
+            "label": "Heated front and rear seats",
+            "icon": "whatshot",
+            "group": "Winter ready"
+          },
+          {
+            "label": "Heated steering wheel",
+            "icon": "thermostat",
+            "group": "Winter ready"
+          },
+          {
+            "label": "Leather seats",
+            "icon": "chair",
+            "group": "Comfort"
+          },
+          {
+            "label": "Blind spot monitor",
+            "icon": "visibility",
+            "group": "Safety"
+          },
+          {
+            "label": "Backup camera",
+            "icon": "photo_camera",
+            "group": "Safety"
+          },
+          {
+            "label": "Sunroof",
+            "icon": "wb_sunny",
+            "group": "Comfort"
+          },
+          {
+            "label": "Navigation",
+            "icon": "navigation",
+            "group": "Tech"
+          },
+          {
+            "label": "Push button start",
+            "icon": "power_settings_new",
+            "group": "Comfort"
+          },
+          {
+            "label": "Parking sensors",
+            "icon": "sensors",
+            "group": "Safety"
+          },
+          {
+            "label": "Turbocharged engine",
+            "icon": "bolt",
+            "group": "Performance"
+          },
+          {
+            "label": "Technology Package",
+            "icon": "inventory_2",
+            "group": "Packages"
+          }
+        ],
+        "comfort": [
+          "Bluetooth",
+          "Power driver seat",
+          "Memory seats",
+          "Alloy wheels",
+          "Cruise control",
+          "SiriusXM ready"
+        ],
+        "standard": [
+          "Air conditioning",
+          "Power locks",
+          "Power mirrors",
+          "Power windows",
+          "Rear defroster",
+          "AM/FM stereo",
+          "Aux input",
+          "CD player",
+          "ABS brakes",
+          "Automatic transmission",
+          "Overhead airbags",
+          "Side airbags",
+          "Traction control"
+        ],
+        "groups": {
+          "Winter ready": [
+            "All wheel drive",
+            "Heated front and rear seats",
+            "Heated steering wheel"
+          ],
+          "Tech": [
+            "Navigation",
+            "Bluetooth",
+            "SiriusXM ready"
+          ],
+          "Comfort": [
+            "Leather seats",
+            "Sunroof",
+            "Push button start",
+            "Power driver seat",
+            "Memory seats",
+            "Cruise control"
+          ],
+          "Safety": [
+            "Blind spot monitor",
+            "Backup camera",
+            "Parking sensors"
+          ],
+          "Performance": [
+            "Turbocharged engine"
+          ],
+          "Packages": [
+            "Technology Package"
+          ],
+          "Wheels and exterior": [
+            "Alloy wheels"
+          ],
+          "Standard": [
+            "Air conditioning",
+            "Power locks",
+            "Power mirrors",
+            "Power windows",
+            "Rear defroster",
+            "AM/FM stereo",
+            "Aux input",
+            "CD player",
+            "ABS brakes",
+            "Automatic transmission",
+            "Overhead airbags",
+            "Side airbags",
+            "Traction control"
+          ]
+        }
+      },
+      "mpg": "22 city / 32 hwy",
+      "mpgCity": 22,
+      "mpgHwy": 32
     }
   }
 }
