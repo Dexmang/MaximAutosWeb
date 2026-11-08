@@ -170,7 +170,20 @@
     },
     "mpg": "26 city / 36 hwy",
     "mpgCity": 26,
-    "mpgHwy": 36
+    "mpgHwy": 36,
+    "winter": {
+      "have": [
+        {
+          "key": "remote_start",
+          "label": "Remote start",
+          "icon": "key",
+          "source": "carmax"
+        }
+      ],
+      "count": 1,
+      "total": 6,
+      "extras": []
+    }
   },
   {
     "year": 2013,
@@ -334,7 +347,27 @@
     },
     "mpg": "27 city / 38 hwy",
     "mpgCity": 27,
-    "mpgHwy": 38
+    "mpgHwy": 38,
+    "winter": {
+      "have": [
+        {
+          "key": "remote_start",
+          "label": "Remote start",
+          "icon": "key",
+          "source": "carmax"
+        }
+      ],
+      "count": 1,
+      "total": 6,
+      "extras": [
+        {
+          "key": "fog_led",
+          "label": "Fog lamps",
+          "icon": "flare",
+          "source": "description"
+        }
+      ]
+    }
   },
   {
     "year": 2016,
@@ -540,7 +573,26 @@
     },
     "mpg": "20 city / 30 hwy",
     "mpgCity": 20,
-    "mpgHwy": 30
+    "mpgHwy": 30,
+    "winter": {
+      "have": [
+        {
+          "key": "heated_front",
+          "label": "Heated front seats",
+          "icon": "whatshot",
+          "source": "carmax"
+        },
+        {
+          "key": "remote_start",
+          "label": "Remote start",
+          "icon": "key",
+          "source": "carmax"
+        }
+      ],
+      "count": 2,
+      "total": 6,
+      "extras": []
+    }
   },
   {
     "year": 2014,
@@ -736,7 +788,20 @@
     },
     "mpg": "30 city / 39 hwy",
     "mpgCity": 30,
-    "mpgHwy": 39
+    "mpgHwy": 39,
+    "winter": {
+      "have": [],
+      "count": 0,
+      "total": 6,
+      "extras": [
+        {
+          "key": "fog_led",
+          "label": "Fog lamps",
+          "icon": "flare",
+          "source": "description"
+        }
+      ]
+    }
   },
   {
     "year": 2018,
@@ -958,7 +1023,45 @@
     },
     "mpg": "25 city / 32 hwy",
     "mpgCity": 25,
-    "mpgHwy": 32
+    "mpgHwy": 32,
+    "winter": {
+      "have": [
+        {
+          "key": "awd",
+          "label": "All wheel drive",
+          "icon": "ac_unit",
+          "source": "carmax"
+        },
+        {
+          "key": "heated_front",
+          "label": "Heated front seats",
+          "icon": "whatshot",
+          "source": "carmax"
+        },
+        {
+          "key": "heated_rear",
+          "label": "Heated rear seats",
+          "icon": "whatshot",
+          "source": "carmax"
+        },
+        {
+          "key": "snow_mode",
+          "label": "Snow or lock mode",
+          "icon": "landscape",
+          "source": "description"
+        }
+      ],
+      "count": 4,
+      "total": 6,
+      "extras": [
+        {
+          "key": "clearance",
+          "label": "8.7 inches of ground clearance",
+          "icon": "height",
+          "source": "description"
+        }
+      ]
+    }
   },
   {
     "year": 2015,
@@ -1211,7 +1314,44 @@
     },
     "mpg": "21 city / 28 hwy",
     "mpgCity": 21,
-    "mpgHwy": 28
+    "mpgHwy": 28,
+    "winter": {
+      "have": [
+        {
+          "key": "awd",
+          "label": "All wheel drive",
+          "icon": "ac_unit",
+          "source": "carmax"
+        },
+        {
+          "key": "heated_front",
+          "label": "Heated front seats",
+          "icon": "whatshot",
+          "source": "carmax"
+        },
+        {
+          "key": "heated_rear",
+          "label": "Heated rear seats",
+          "icon": "whatshot",
+          "source": "carmax"
+        },
+        {
+          "key": "remote_start",
+          "label": "Remote start",
+          "icon": "key",
+          "source": "carmax"
+        },
+        {
+          "key": "heated_wheel",
+          "label": "Heated steering wheel",
+          "icon": "thermostat",
+          "source": "carmax"
+        }
+      ],
+      "count": 5,
+      "total": 6,
+      "extras": []
+    }
   },
   {
     "year": 2018,
@@ -1443,7 +1583,20 @@
     },
     "mpg": "18 city / 25 hwy",
     "mpgCity": 18,
-    "mpgHwy": 25
+    "mpgHwy": 25,
+    "winter": {
+      "have": [
+        {
+          "key": "heated_front",
+          "label": "Heated front seats",
+          "icon": "whatshot",
+          "source": "carmax"
+        }
+      ],
+      "count": 1,
+      "total": 6,
+      "extras": []
+    }
   },
   {
     "year": 2014,
@@ -1602,7 +1755,26 @@
     "mpgHwy": 35,
     "photoPrefix": "2014-subaru-impreza-2-0i-premium",
     "photoPath": "",
-    "dealerCenterUrl": ""
+    "dealerCenterUrl": "",
+    "winter": {
+      "have": [
+        {
+          "key": "awd",
+          "label": "All wheel drive",
+          "icon": "ac_unit",
+          "source": "carmax"
+        },
+        {
+          "key": "heated_front",
+          "label": "Heated front seats",
+          "icon": "whatshot",
+          "source": "carmax"
+        }
+      ],
+      "count": 2,
+      "total": 6,
+      "extras": []
+    }
   },
   {
     "year": 2017,
@@ -1846,7 +2018,38 @@
     },
     "mpg": "24 city / 28 hwy",
     "mpgCity": 24,
-    "mpgHwy": 28
+    "mpgHwy": 28,
+    "winter": {
+      "have": [
+        {
+          "key": "awd",
+          "label": "All wheel drive",
+          "icon": "ac_unit",
+          "source": "carmax"
+        },
+        {
+          "key": "heated_front",
+          "label": "Heated front seats",
+          "icon": "whatshot",
+          "source": "carmax"
+        },
+        {
+          "key": "heated_rear",
+          "label": "Heated rear seats",
+          "icon": "whatshot",
+          "source": "carmax"
+        },
+        {
+          "key": "snow_mode",
+          "label": "Snow or lock mode",
+          "icon": "landscape",
+          "source": "description"
+        }
+      ],
+      "count": 4,
+      "total": 6,
+      "extras": []
+    }
   },
   {
     "year": 2017,
@@ -2016,7 +2219,26 @@
     },
     "mpg": "21 city / 26 hwy",
     "mpgCity": 21,
-    "mpgHwy": 26
+    "mpgHwy": 26,
+    "winter": {
+      "have": [
+        {
+          "key": "awd",
+          "label": "All wheel drive",
+          "icon": "ac_unit",
+          "source": "carmax"
+        },
+        {
+          "key": "snow_mode",
+          "label": "Snow or lock mode",
+          "icon": "landscape",
+          "source": "description"
+        }
+      ],
+      "count": 2,
+      "total": 6,
+      "extras": []
+    }
   },
   {
     "year": 2015,
@@ -2311,7 +2533,45 @@
     },
     "mpg": "18 city / 24 hwy",
     "mpgCity": 18,
-    "mpgHwy": 24
+    "mpgHwy": 24,
+    "winter": {
+      "have": [
+        {
+          "key": "awd",
+          "label": "All wheel drive",
+          "icon": "ac_unit",
+          "source": "carmax"
+        },
+        {
+          "key": "heated_front",
+          "label": "Heated front seats",
+          "icon": "whatshot",
+          "source": "carmax"
+        },
+        {
+          "key": "heated_rear",
+          "label": "Heated rear seats",
+          "icon": "whatshot",
+          "source": "carmax"
+        },
+        {
+          "key": "heated_wheel",
+          "label": "Heated steering wheel",
+          "icon": "thermostat",
+          "source": "carmax"
+        }
+      ],
+      "count": 4,
+      "total": 6,
+      "extras": [
+        {
+          "key": "new_tires",
+          "label": "New tires",
+          "icon": "tire_repair",
+          "source": "description"
+        }
+      ]
+    }
   },
   {
     "year": 2013,
@@ -2447,7 +2707,13 @@
     },
     "mpg": "25 city / 35 hwy",
     "mpgCity": 25,
-    "mpgHwy": 35
+    "mpgHwy": 35,
+    "winter": {
+      "have": [],
+      "count": 0,
+      "total": 6,
+      "extras": []
+    }
   },
   {
     "year": 2016,
@@ -2676,7 +2942,20 @@
     },
     "mpg": "18 city / 24 hwy",
     "mpgCity": 18,
-    "mpgHwy": 24
+    "mpgHwy": 24,
+    "winter": {
+      "have": [
+        {
+          "key": "heated_front",
+          "label": "Heated front seats",
+          "icon": "whatshot",
+          "source": "carmax"
+        }
+      ],
+      "count": 1,
+      "total": 6,
+      "extras": []
+    }
   },
   {
     "year": 2016,
@@ -2928,7 +3207,26 @@
     },
     "mpg": "18 city / 26 hwy",
     "mpgCity": 18,
-    "mpgHwy": 26
+    "mpgHwy": 26,
+    "winter": {
+      "have": [
+        {
+          "key": "awd",
+          "label": "All wheel drive",
+          "icon": "ac_unit",
+          "source": "carmax"
+        },
+        {
+          "key": "heated_front",
+          "label": "Heated front seats",
+          "icon": "whatshot",
+          "source": "carmax"
+        }
+      ],
+      "count": 2,
+      "total": 6,
+      "extras": []
+    }
   },
   {
     "year": 2018,
@@ -3142,7 +3440,26 @@
     },
     "mpg": "20 city / 28 hwy",
     "mpgCity": 20,
-    "mpgHwy": 28
+    "mpgHwy": 28,
+    "winter": {
+      "have": [
+        {
+          "key": "awd",
+          "label": "All wheel drive",
+          "icon": "ac_unit",
+          "source": "carmax"
+        },
+        {
+          "key": "heated_front",
+          "label": "Heated front seats",
+          "icon": "whatshot",
+          "source": "carmax"
+        }
+      ],
+      "count": 2,
+      "total": 6,
+      "extras": []
+    }
   },
   {
     "year": 2018,
@@ -3476,7 +3793,45 @@
     },
     "mpg": "19 city / 25 hwy",
     "mpgCity": 19,
-    "mpgHwy": 25
+    "mpgHwy": 25,
+    "winter": {
+      "have": [
+        {
+          "key": "awd",
+          "label": "All wheel drive",
+          "icon": "ac_unit",
+          "source": "carmax"
+        },
+        {
+          "key": "heated_front",
+          "label": "Heated front seats",
+          "icon": "whatshot",
+          "source": "carmax"
+        },
+        {
+          "key": "heated_rear",
+          "label": "Heated rear seats",
+          "icon": "whatshot",
+          "source": "carmax"
+        },
+        {
+          "key": "heated_wheel",
+          "label": "Heated steering wheel",
+          "icon": "thermostat",
+          "source": "carmax"
+        }
+      ],
+      "count": 4,
+      "total": 6,
+      "extras": [
+        {
+          "key": "cold_pkg",
+          "label": "Cold Weather Package",
+          "icon": "inventory_2",
+          "source": "carmax"
+        }
+      ]
+    }
   },
   {
     "year": 2016,
@@ -3705,7 +4060,38 @@
     },
     "mpg": "22 city / 32 hwy",
     "mpgCity": 22,
-    "mpgHwy": 32
+    "mpgHwy": 32,
+    "winter": {
+      "have": [
+        {
+          "key": "awd",
+          "label": "All wheel drive",
+          "icon": "ac_unit",
+          "source": "carmax"
+        },
+        {
+          "key": "heated_front",
+          "label": "Heated front seats",
+          "icon": "whatshot",
+          "source": "carmax"
+        },
+        {
+          "key": "heated_rear",
+          "label": "Heated rear seats",
+          "icon": "whatshot",
+          "source": "carmax"
+        },
+        {
+          "key": "heated_wheel",
+          "label": "Heated steering wheel",
+          "icon": "thermostat",
+          "source": "carmax"
+        }
+      ],
+      "count": 4,
+      "total": 6,
+      "extras": []
+    }
   },
   {
     "year": 2020,
