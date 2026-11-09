@@ -1,6 +1,6 @@
 {
   "source": "pka_hub.db ma_vehicles",
-  "generated_at": "2026-11-09T06:30:05.485Z",
+  "generated_at": "2026-11-09T17:30:05.341Z",
   "by_vin": {
     "JTJBK1BA4E2462410": "AWD",
     "1FMCU0J95HUE21095": "Titanium",
@@ -190,6 +190,7 @@
     "WAUGFAFC8GN006353": "2.0T Premium Plus",
     "KNAFU4A25D5728313": "EX",
     "1N4AL3AP5DC227543": "2.5 SV",
-    "1G1PC5SB9E7454238": "1LT"
+    "1G1PC5SB9E7454238": "1LT",
+    "5XYZUDLB3FG235494": "Base"
   }
 }
