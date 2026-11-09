@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-11-09T06:00:16.091Z",
+  "last_updated": "2026-11-09T06:30:20.435Z",
   "period_start": "2026-11-02",
   "period_end": "2026-11-09",
   "by_vin": {
@@ -15,7 +15,7 @@
     "5N1AZ2MH6FN251280": {
       "srp_views": 564,
       "vdp_views": 28,
-      "leads_email": 0,
+      "leads_email": 2,
       "leads_phone": 0,
       "leads_chat": 0,
       "website_clicks": 0,
@@ -91,7 +91,7 @@
       "leads_phone": 0,
       "leads_chat": 0,
       "website_clicks": 0,
-      "map_clicks": 0
+      "map_clicks": 1
     },
     "WA1ECCFS8JR006434": {
       "srp_views": 822,
@@ -153,14 +153,14 @@
       "leads_email": 2,
       "leads_phone": 0,
       "leads_chat": 0,
-      "website_clicks": 0,
+      "website_clicks": 2,
       "map_clicks": 0
     },
     "5XYPH4A52JG399000": {
       "srp_views": 1423,
       "vdp_views": 24,
-      "leads_email": 0,
-      "leads_phone": 0,
+      "leads_email": 1,
+      "leads_phone": 1,
       "leads_chat": 0,
       "website_clicks": 4,
       "map_clicks": 0
