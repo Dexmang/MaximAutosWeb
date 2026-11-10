@@ -367,229 +367,6 @@
     }
   },
   {
-    "year": 2016,
-    "make": "Ford",
-    "model": "Edge",
-    "trim": "SEL",
-    "price": 7950,
-    "mileage": 104816,
-    "exteriorColor": "Black",
-    "interiorColor": "Black",
-    "engine": "245 hp 2.0L I4",
-    "transmission": "Automatic",
-    "drivetrain": "FWD",
-    "fuelType": "Gasoline",
-    "bodyStyle": "SUV",
-    "bodyStyleSlug": "suvs",
-    "makeSlug": "ford",
-    "vin": "2FMPK3J96GBC56381",
-    "condition": "Used",
-    "inspected": true,
-    "inspection": true,
-    "carfax": true,
-    "warranty": "Illinois 15 day / 500 mile statutory powertrain protection on qualifying cars",
-    "stockNumber": "J10252",
-    "primaryPhotoUrl": "https://imagesdl.dealercenter.net/1289/856/202610-0c0d4f8c6c4e45ea8b1e0ea676f9c02a.jpg",
-    "photoUrls": [
-      "https://imagesdl.dealercenter.net/1289/856/202610-0c0d4f8c6c4e45ea8b1e0ea676f9c02a.jpg",
-      "https://imagesdl.dealercenter.net/1289/856/202610-c0682e5d23354138ba83278a0cc10e3c.jpg",
-      "https://imagesdl.dealercenter.net/1289/856/202610-44545082bc4448569ac1be2ff5264099.jpg",
-      "https://imagesdl.dealercenter.net/1289/856/202610-dd615cc3ab0049a8b78ab572d8da58dd.jpg",
-      "https://imagesdl.dealercenter.net/1289/856/202610-2e0c89690a2241668a2b9f34dc4cde60.jpg",
-      "https://imagesdl.dealercenter.net/1289/856/202610-48a967e864804f249c95cb49990f1d79.jpg",
-      "https://imagesdl.dealercenter.net/1289/856/202610-3c844b94145b455f8a4cccd80423f71f.jpg",
-      "https://imagesdl.dealercenter.net/1289/856/202610-b8645dc059f74aeeb77328e383c35a59.jpg",
-      "https://imagesdl.dealercenter.net/1289/856/202610-2293125995074be29048da7ec0e66416.jpg",
-      "https://imagesdl.dealercenter.net/1289/856/202610-6f342b45aa384c6f8b5b70bd669cceab.jpg",
-      "https://imagesdl.dealercenter.net/1289/856/202610-e08b5ac3c0f349e9b00a57148510c983.jpg",
-      "https://imagesdl.dealercenter.net/1289/856/202610-ddc2cdec3b3a4c1da5b960f6bb6cbad4.jpg",
-      "https://imagesdl.dealercenter.net/1289/856/202610-61b254574a1746349929b1581504145b.jpg",
-      "https://imagesdl.dealercenter.net/1289/856/202610-24bbc7a2a0ae42e581c4ec562340ed90.jpg",
-      "https://imagesdl.dealercenter.net/1289/856/202610-cb748b46870c47169f8269d9aa70f7c5.jpg"
-    ],
-    "photos": {
-      "exterior": 15,
-      "interior": 0,
-      "source": "dealercenter"
-    },
-    "status": "available",
-    "slug": "2016-ford-edge-sel-j10252",
-    "dateAdded": "2026-09-15",
-    "featured": true,
-    "sortOrder": 0,
-    "dealRating": "GREAT_PRICE",
-    "priceSavings": 1688,
-    "description": "2016 Ford Edge SEL: 2.0L EcoBoost turbo, leather trimmed seats, rear parking sensors, dual zone climate control. Black on black, automatic, front wheel drive, EPA estimated 20 city and 30 highway MPG. A roomy midsize SUV for the buyer who wants a quiet highway ride and a big back seat. Key features: 2.0L EcoBoost turbocharged four cylinder rated at 245 horsepower with a six speed automatic, leather trimmed seating for five with generous rear legroom, rear seat release buttons that fold the back seats flat, rear parking sensors, dual zone automatic climate control, SYNC hands free calling with Bluetooth audio, rearview camera, noise reducing acoustic windshield, 18 inch alloy wheels, EPA estimated 20 city and 30 highway MPG. Up to 73.4 cubic feet of cargo with the rear seats folded. The Maxim Autos Difference Independent inspection report included with every vehicle Metal plates issued on the spot, drive home today No dealer fees at Maxim Autos, ever. The price you see is the price you pay, plus tax, title, and license. Financing for all credit levels Located in Skokie, IL, minutes from Evanston, Niles, Morton Grove, Lincolnwood, and Des Plaines, serving the North Shore Chicago area. Call (847) 510-8947 to schedule a same day appointment. Every car inspected. Every price transparent. Every car documented.",
-    "highlights": [
-      "SEL trim",
-      "104,816 miles",
-      "Fully inspected, free CARFAX"
-    ],
-    "features": [
-      "Heated front seats",
-      "Remote start",
-      "Leather seats",
-      "Blind spot monitor",
-      "Backup camera",
-      "Navigation",
-      "Push button start",
-      "Parking sensors",
-      "Technology Package",
-      "Bluetooth",
-      "Power driver seat",
-      "Alloy wheels",
-      "Ford SYNC",
-      "Cruise control",
-      "SiriusXM ready"
-    ],
-    "photoPrefix": "2016-ford-edge-sel",
-    "photoPath": "",
-    "dealerCenterUrl": "",
-    "featureTiers": {
-      "headline": [
-        {
-          "label": "30 MPG highway",
-          "sub": "20 city, EPA estimate",
-          "icon": "local_gas_station"
-        }
-      ],
-      "love": [
-        {
-          "label": "Heated front seats",
-          "icon": "whatshot",
-          "group": "Winter ready"
-        },
-        {
-          "label": "Remote start",
-          "icon": "key",
-          "group": "Winter ready"
-        },
-        {
-          "label": "Leather seats",
-          "icon": "chair",
-          "group": "Comfort"
-        },
-        {
-          "label": "Blind spot monitor",
-          "icon": "visibility",
-          "group": "Safety"
-        },
-        {
-          "label": "Backup camera",
-          "icon": "photo_camera",
-          "group": "Safety"
-        },
-        {
-          "label": "Navigation",
-          "icon": "navigation",
-          "group": "Tech"
-        },
-        {
-          "label": "Push button start",
-          "icon": "power_settings_new",
-          "group": "Comfort"
-        },
-        {
-          "label": "Parking sensors",
-          "icon": "sensors",
-          "group": "Safety"
-        },
-        {
-          "label": "Technology Package",
-          "icon": "inventory_2",
-          "group": "Packages"
-        }
-      ],
-      "comfort": [
-        "Bluetooth",
-        "Power driver seat",
-        "Alloy wheels",
-        "Ford SYNC",
-        "Cruise control",
-        "SiriusXM ready"
-      ],
-      "standard": [
-        "Air conditioning",
-        "Power locks",
-        "Power mirrors",
-        "Power windows",
-        "Rear defroster",
-        "AM/FM stereo",
-        "Aux input",
-        "CD player",
-        "ABS brakes",
-        "Automatic transmission",
-        "Overhead airbags",
-        "Side airbags",
-        "Traction control"
-      ],
-      "groups": {
-        "Winter ready": [
-          "Heated front seats",
-          "Remote start"
-        ],
-        "Tech": [
-          "Navigation",
-          "Bluetooth",
-          "Ford SYNC",
-          "SiriusXM ready"
-        ],
-        "Comfort": [
-          "Leather seats",
-          "Push button start",
-          "Power driver seat",
-          "Cruise control"
-        ],
-        "Safety": [
-          "Blind spot monitor",
-          "Backup camera",
-          "Parking sensors"
-        ],
-        "Packages": [
-          "Technology Package"
-        ],
-        "Wheels and exterior": [
-          "Alloy wheels"
-        ],
-        "Standard": [
-          "Air conditioning",
-          "Power locks",
-          "Power mirrors",
-          "Power windows",
-          "Rear defroster",
-          "AM/FM stereo",
-          "Aux input",
-          "CD player",
-          "ABS brakes",
-          "Automatic transmission",
-          "Overhead airbags",
-          "Side airbags",
-          "Traction control"
-        ]
-      }
-    },
-    "mpg": "20 city / 30 hwy",
-    "mpgCity": 20,
-    "mpgHwy": 30,
-    "winter": {
-      "have": [
-        {
-          "key": "heated_front",
-          "label": "Heated front seats",
-          "icon": "whatshot"
-        },
-        {
-          "key": "remote_start",
-          "label": "Remote start",
-          "icon": "key"
-        }
-      ],
-      "count": 2,
-      "total": 6,
-      "extras": []
-    }
-  },
-  {
     "year": 2014,
     "make": "Nissan",
     "model": "Sentra",
@@ -4048,6 +3825,231 @@
       "total": 6,
       "extras": []
     }
+  },
+  {
+    "year": 2016,
+    "make": "Ford",
+    "model": "Edge",
+    "trim": "SEL",
+    "price": 7950,
+    "mileage": 104816,
+    "exteriorColor": "Black",
+    "interiorColor": "Black",
+    "engine": "245 hp 2.0L I4",
+    "transmission": "Automatic",
+    "drivetrain": "FWD",
+    "fuelType": "Gasoline",
+    "bodyStyle": "SUV",
+    "bodyStyleSlug": "suvs",
+    "makeSlug": "ford",
+    "vin": "2FMPK3J96GBC56381",
+    "condition": "Used",
+    "inspected": true,
+    "inspection": true,
+    "carfax": true,
+    "warranty": "Illinois 15 day / 500 mile statutory powertrain protection on qualifying cars",
+    "stockNumber": "J10252",
+    "primaryPhotoUrl": "https://imagesdl.dealercenter.net/1289/856/202610-0c0d4f8c6c4e45ea8b1e0ea676f9c02a.jpg",
+    "photoUrls": [
+      "https://imagesdl.dealercenter.net/1289/856/202610-0c0d4f8c6c4e45ea8b1e0ea676f9c02a.jpg",
+      "https://imagesdl.dealercenter.net/1289/856/202610-c0682e5d23354138ba83278a0cc10e3c.jpg",
+      "https://imagesdl.dealercenter.net/1289/856/202610-44545082bc4448569ac1be2ff5264099.jpg",
+      "https://imagesdl.dealercenter.net/1289/856/202610-dd615cc3ab0049a8b78ab572d8da58dd.jpg",
+      "https://imagesdl.dealercenter.net/1289/856/202610-2e0c89690a2241668a2b9f34dc4cde60.jpg",
+      "https://imagesdl.dealercenter.net/1289/856/202610-48a967e864804f249c95cb49990f1d79.jpg",
+      "https://imagesdl.dealercenter.net/1289/856/202610-3c844b94145b455f8a4cccd80423f71f.jpg",
+      "https://imagesdl.dealercenter.net/1289/856/202610-b8645dc059f74aeeb77328e383c35a59.jpg",
+      "https://imagesdl.dealercenter.net/1289/856/202610-2293125995074be29048da7ec0e66416.jpg",
+      "https://imagesdl.dealercenter.net/1289/856/202610-6f342b45aa384c6f8b5b70bd669cceab.jpg",
+      "https://imagesdl.dealercenter.net/1289/856/202610-e08b5ac3c0f349e9b00a57148510c983.jpg",
+      "https://imagesdl.dealercenter.net/1289/856/202610-ddc2cdec3b3a4c1da5b960f6bb6cbad4.jpg",
+      "https://imagesdl.dealercenter.net/1289/856/202610-61b254574a1746349929b1581504145b.jpg",
+      "https://imagesdl.dealercenter.net/1289/856/202610-24bbc7a2a0ae42e581c4ec562340ed90.jpg",
+      "https://imagesdl.dealercenter.net/1289/856/202610-cb748b46870c47169f8269d9aa70f7c5.jpg"
+    ],
+    "photos": {
+      "exterior": 15,
+      "interior": 0,
+      "source": "dealercenter"
+    },
+    "status": "sold",
+    "slug": "2016-ford-edge-sel-j10252",
+    "dateAdded": "2026-09-15",
+    "featured": true,
+    "sortOrder": 0,
+    "dealRating": "GREAT_PRICE",
+    "priceSavings": 1688,
+    "description": "2016 Ford Edge SEL: 2.0L EcoBoost turbo, leather trimmed seats, rear parking sensors, dual zone climate control. Black on black, automatic, front wheel drive, EPA estimated 20 city and 30 highway MPG. A roomy midsize SUV for the buyer who wants a quiet highway ride and a big back seat. Key features: 2.0L EcoBoost turbocharged four cylinder rated at 245 horsepower with a six speed automatic, leather trimmed seating for five with generous rear legroom, rear seat release buttons that fold the back seats flat, rear parking sensors, dual zone automatic climate control, SYNC hands free calling with Bluetooth audio, rearview camera, noise reducing acoustic windshield, 18 inch alloy wheels, EPA estimated 20 city and 30 highway MPG. Up to 73.4 cubic feet of cargo with the rear seats folded. The Maxim Autos Difference Independent inspection report included with every vehicle Metal plates issued on the spot, drive home today No dealer fees at Maxim Autos, ever. The price you see is the price you pay, plus tax, title, and license. Financing for all credit levels Located in Skokie, IL, minutes from Evanston, Niles, Morton Grove, Lincolnwood, and Des Plaines, serving the North Shore Chicago area. Call (847) 510-8947 to schedule a same day appointment. Every car inspected. Every price transparent. Every car documented.",
+    "highlights": [
+      "SEL trim",
+      "104,816 miles",
+      "Fully inspected, free CARFAX"
+    ],
+    "features": [
+      "Heated front seats",
+      "Remote start",
+      "Leather seats",
+      "Blind spot monitor",
+      "Backup camera",
+      "Navigation",
+      "Push button start",
+      "Parking sensors",
+      "Technology Package",
+      "Bluetooth",
+      "Power driver seat",
+      "Alloy wheels",
+      "Ford SYNC",
+      "Cruise control",
+      "SiriusXM ready"
+    ],
+    "photoPrefix": "2016-ford-edge-sel",
+    "photoPath": "",
+    "dealerCenterUrl": "",
+    "featureTiers": {
+      "headline": [
+        {
+          "label": "30 MPG highway",
+          "sub": "20 city, EPA estimate",
+          "icon": "local_gas_station"
+        }
+      ],
+      "love": [
+        {
+          "label": "Heated front seats",
+          "icon": "whatshot",
+          "group": "Winter ready"
+        },
+        {
+          "label": "Remote start",
+          "icon": "key",
+          "group": "Winter ready"
+        },
+        {
+          "label": "Leather seats",
+          "icon": "chair",
+          "group": "Comfort"
+        },
+        {
+          "label": "Blind spot monitor",
+          "icon": "visibility",
+          "group": "Safety"
+        },
+        {
+          "label": "Backup camera",
+          "icon": "photo_camera",
+          "group": "Safety"
+        },
+        {
+          "label": "Navigation",
+          "icon": "navigation",
+          "group": "Tech"
+        },
+        {
+          "label": "Push button start",
+          "icon": "power_settings_new",
+          "group": "Comfort"
+        },
+        {
+          "label": "Parking sensors",
+          "icon": "sensors",
+          "group": "Safety"
+        },
+        {
+          "label": "Technology Package",
+          "icon": "inventory_2",
+          "group": "Packages"
+        }
+      ],
+      "comfort": [
+        "Bluetooth",
+        "Power driver seat",
+        "Alloy wheels",
+        "Ford SYNC",
+        "Cruise control",
+        "SiriusXM ready"
+      ],
+      "standard": [
+        "Air conditioning",
+        "Power locks",
+        "Power mirrors",
+        "Power windows",
+        "Rear defroster",
+        "AM/FM stereo",
+        "Aux input",
+        "CD player",
+        "ABS brakes",
+        "Automatic transmission",
+        "Overhead airbags",
+        "Side airbags",
+        "Traction control"
+      ],
+      "groups": {
+        "Winter ready": [
+          "Heated front seats",
+          "Remote start"
+        ],
+        "Tech": [
+          "Navigation",
+          "Bluetooth",
+          "Ford SYNC",
+          "SiriusXM ready"
+        ],
+        "Comfort": [
+          "Leather seats",
+          "Push button start",
+          "Power driver seat",
+          "Cruise control"
+        ],
+        "Safety": [
+          "Blind spot monitor",
+          "Backup camera",
+          "Parking sensors"
+        ],
+        "Packages": [
+          "Technology Package"
+        ],
+        "Wheels and exterior": [
+          "Alloy wheels"
+        ],
+        "Standard": [
+          "Air conditioning",
+          "Power locks",
+          "Power mirrors",
+          "Power windows",
+          "Rear defroster",
+          "AM/FM stereo",
+          "Aux input",
+          "CD player",
+          "ABS brakes",
+          "Automatic transmission",
+          "Overhead airbags",
+          "Side airbags",
+          "Traction control"
+        ]
+      }
+    },
+    "mpg": "20 city / 30 hwy",
+    "mpgCity": 20,
+    "mpgHwy": 30,
+    "winter": {
+      "have": [
+        {
+          "key": "heated_front",
+          "label": "Heated front seats",
+          "icon": "whatshot"
+        },
+        {
+          "key": "remote_start",
+          "label": "Remote start",
+          "icon": "key"
+        }
+      ],
+      "count": 2,
+      "total": 6,
+      "extras": []
+    },
+    "sold_date": "2026-11-10",
+    "missing_since": "2026-11-10T06:30:21.130Z"
   },
   {
     "year": 2020,
