@@ -3204,6 +3204,262 @@
     }
   },
   {
+    "year": 2016,
+    "make": "Audi",
+    "model": "A6",
+    "trim": "2.0T Premium Plus",
+    "price": 10450,
+    "mileage": 108940,
+    "exteriorColor": "White",
+    "interiorColor": "Black",
+    "engine": "252 hp 2.0L I4",
+    "transmission": "Automatic",
+    "drivetrain": "4WD",
+    "fuelType": "Gasoline",
+    "bodyStyle": "Sedan",
+    "bodyStyleSlug": "sedans",
+    "makeSlug": "audi",
+    "vin": "WAUGFAFC8GN006353",
+    "condition": "Used",
+    "inspected": true,
+    "inspection": true,
+    "carfax": true,
+    "warranty": "Illinois 15 day / 500 mile statutory powertrain protection on qualifying cars",
+    "stockNumber": "J10282",
+    "primaryPhotoUrl": "https://imagesdl.dealercenter.net/1289/856/202611-17d6bcd6498d417491cfe311a0c199fb.jpg",
+    "photoUrls": [
+      "https://imagesdl.dealercenter.net/1289/856/202611-17d6bcd6498d417491cfe311a0c199fb.jpg",
+      "https://imagesdl.dealercenter.net/1289/856/202611-df7b699feec044d39c8dc6b6520801ad.jpg",
+      "https://imagesdl.dealercenter.net/1289/856/202611-26912430720c4a33a11ff57261971f0b.jpg",
+      "https://imagesdl.dealercenter.net/1289/856/202611-edcd9da875934371a6baf8eeb1e9dd14.jpg",
+      "https://imagesdl.dealercenter.net/1289/856/202611-0e05786cec414e8f8b235f7dea1dff8d.jpg",
+      "https://imagesdl.dealercenter.net/1289/856/202611-0092f272c76748fc9b87211f60783996.jpg",
+      "https://imagesdl.dealercenter.net/1289/856/202611-21fcebf4f009455e97a70bbb718944a6.jpg",
+      "https://imagesdl.dealercenter.net/1289/856/202611-75ecc979578a4a5aa7912f398eff7ce5.jpg",
+      "https://imagesdl.dealercenter.net/1289/856/202611-1e1cc6cff1a74253b895d51e5374db81.jpg",
+      "https://imagesdl.dealercenter.net/1289/856/202611-649c8dce8f2d4bcba4cbfd560add0ab8.jpg",
+      "https://imagesdl.dealercenter.net/1289/856/202611-c3001d6ec93847dd88be2b6f5e933122.jpg",
+      "https://imagesdl.dealercenter.net/1289/856/202611-59bd0ec830424dae82f9c68e21495426.jpg",
+      "https://imagesdl.dealercenter.net/1289/856/202611-e804217379a04654a06c8ddec53187c7.jpg",
+      "https://imagesdl.dealercenter.net/1289/856/202611-dffa54118f2d41c2800bed383e4b2760.jpg",
+      "https://imagesdl.dealercenter.net/1289/856/202611-30fda9217bab479192d820ab83d67ff6.jpg"
+    ],
+    "photos": {
+      "exterior": 15,
+      "interior": 0,
+      "source": "dealercenter"
+    },
+    "status": "available",
+    "slug": "2016-audi-a6-2-0t-premium-plus-j10282",
+    "dateAdded": "2026-11-07",
+    "featured": true,
+    "sortOrder": 0,
+    "dealRating": "GOOD_PRICE",
+    "priceSavings": 955,
+    "description": "2016 Audi A6 2.0T Premium Plus quattro: quattro all wheel drive, navigation, sunroof, heated leather seats front and rear, heated steering wheel, blind spot monitor. White over black leather, 8 speed Tiptronic automatic, 2.0L turbocharged four cylinder. The midsize luxury sedan for a North Shore commuter who wants Audi quattro grip for winter and 32 highway mpg, with no dealer fees. Key features: 2.0L TFSI turbocharged four cylinder with 252 horsepower and 273 lb ft of torque, quattro all wheel drive, 8 speed Tiptronic automatic, 22 city and 32 highway mpg, Premium Plus with the Technology Package, MMI navigation system, leather seats with heated front and rear seats, heated steering wheel, memory power front seats, power sunroof, rear view camera with front and rear parking sensors, blind spot monitor, smart key with push button start, Bluetooth hands free phone and audio streaming, satellite radio ready, CD and auxiliary input, cruise control, alloy wheels, side and overhead airbags, traction control and ABS. Around 6 seconds to 60 and a 14.1 cubic foot trunk. The Maxim Autos Difference Independent inspection report included with every vehicle Metal plates issued on the spot, drive home today, skip the DMV No dealer fees at Maxim Autos, ever. The price you see is the price you pay, plus tax, title, and license. Financing for all credit levels Located in Skokie, IL, minutes from Evanston, Niles, Morton Grove, Lincolnwood, Des Plaines and the North Shore Chicago area. Call or text (847) 510-8947 to confirm it is still available. Every car inspected. Every price transparent. Every car documented.",
+    "highlights": [
+      "2.0T Premium Plus trim",
+      "108,940 miles",
+      "Fully inspected, free CARFAX"
+    ],
+    "features": [
+      "All wheel drive",
+      "Heated front and rear seats",
+      "Heated steering wheel",
+      "Leather seats",
+      "Blind spot monitor",
+      "Backup camera",
+      "Sunroof",
+      "Navigation",
+      "Push button start",
+      "Parking sensors",
+      "Turbocharged engine",
+      "Technology Package",
+      "Bluetooth",
+      "Power driver seat",
+      "Memory seats",
+      "Alloy wheels",
+      "Cruise control",
+      "SiriusXM ready"
+    ],
+    "photoPrefix": "2016-audi-a6-2-0t-premium-plus",
+    "photoPath": "",
+    "dealerCenterUrl": "",
+    "featureTiers": {
+      "headline": [
+        {
+          "label": "32 MPG highway",
+          "sub": "22 city, EPA estimate",
+          "icon": "local_gas_station"
+        },
+        {
+          "label": "All wheel drive",
+          "sub": "Chicago winters",
+          "icon": "ac_unit"
+        }
+      ],
+      "love": [
+        {
+          "label": "Heated front and rear seats",
+          "icon": "whatshot",
+          "group": "Winter ready"
+        },
+        {
+          "label": "Heated steering wheel",
+          "icon": "thermostat",
+          "group": "Winter ready"
+        },
+        {
+          "label": "Leather seats",
+          "icon": "chair",
+          "group": "Comfort"
+        },
+        {
+          "label": "Blind spot monitor",
+          "icon": "visibility",
+          "group": "Safety"
+        },
+        {
+          "label": "Backup camera",
+          "icon": "photo_camera",
+          "group": "Safety"
+        },
+        {
+          "label": "Sunroof",
+          "icon": "wb_sunny",
+          "group": "Comfort"
+        },
+        {
+          "label": "Navigation",
+          "icon": "navigation",
+          "group": "Tech"
+        },
+        {
+          "label": "Push button start",
+          "icon": "power_settings_new",
+          "group": "Comfort"
+        },
+        {
+          "label": "Parking sensors",
+          "icon": "sensors",
+          "group": "Safety"
+        },
+        {
+          "label": "Turbocharged engine",
+          "icon": "bolt",
+          "group": "Performance"
+        },
+        {
+          "label": "Technology Package",
+          "icon": "inventory_2",
+          "group": "Packages"
+        }
+      ],
+      "comfort": [
+        "Bluetooth",
+        "Power driver seat",
+        "Memory seats",
+        "Alloy wheels",
+        "Cruise control",
+        "SiriusXM ready"
+      ],
+      "standard": [
+        "Air conditioning",
+        "Power locks",
+        "Power mirrors",
+        "Power windows",
+        "Rear defroster",
+        "AM/FM stereo",
+        "Aux input",
+        "CD player",
+        "ABS brakes",
+        "Automatic transmission",
+        "Overhead airbags",
+        "Side airbags",
+        "Traction control"
+      ],
+      "groups": {
+        "Winter ready": [
+          "All wheel drive",
+          "Heated front and rear seats",
+          "Heated steering wheel"
+        ],
+        "Tech": [
+          "Navigation",
+          "Bluetooth",
+          "SiriusXM ready"
+        ],
+        "Comfort": [
+          "Leather seats",
+          "Sunroof",
+          "Push button start",
+          "Power driver seat",
+          "Memory seats",
+          "Cruise control"
+        ],
+        "Safety": [
+          "Blind spot monitor",
+          "Backup camera",
+          "Parking sensors"
+        ],
+        "Performance": [
+          "Turbocharged engine"
+        ],
+        "Packages": [
+          "Technology Package"
+        ],
+        "Wheels and exterior": [
+          "Alloy wheels"
+        ],
+        "Standard": [
+          "Air conditioning",
+          "Power locks",
+          "Power mirrors",
+          "Power windows",
+          "Rear defroster",
+          "AM/FM stereo",
+          "Aux input",
+          "CD player",
+          "ABS brakes",
+          "Automatic transmission",
+          "Overhead airbags",
+          "Side airbags",
+          "Traction control"
+        ]
+      }
+    },
+    "mpg": "22 city / 32 hwy",
+    "mpgCity": 22,
+    "mpgHwy": 32,
+    "winter": {
+      "have": [
+        {
+          "key": "awd",
+          "label": "All wheel drive",
+          "icon": "ac_unit"
+        },
+        {
+          "key": "heated_front",
+          "label": "Heated front seats",
+          "icon": "whatshot"
+        },
+        {
+          "key": "heated_rear",
+          "label": "Heated rear seats",
+          "icon": "whatshot"
+        },
+        {
+          "key": "heated_wheel",
+          "label": "Heated steering wheel",
+          "icon": "thermostat"
+        }
+      ],
+      "count": 4,
+      "total": 6,
+      "extras": []
+    }
+  },
+  {
     "year": 2018,
     "make": "Audi",
     "model": "Q7",
@@ -3272,7 +3528,7 @@
       "interior": 0,
       "source": "dealercenter"
     },
-    "status": "available",
+    "status": "sold",
     "slug": "2018-audi-q7-3-0t-prestige-j10276",
     "dateAdded": "2026-10-27",
     "featured": true,
@@ -3568,263 +3824,9 @@
           "icon": "inventory_2"
         }
       ]
-    }
-  },
-  {
-    "year": 2016,
-    "make": "Audi",
-    "model": "A6",
-    "trim": "2.0T Premium Plus",
-    "price": 10450,
-    "mileage": 108940,
-    "exteriorColor": "White",
-    "interiorColor": "Black",
-    "engine": "252 hp 2.0L I4",
-    "transmission": "Automatic",
-    "drivetrain": "4WD",
-    "fuelType": "Gasoline",
-    "bodyStyle": "Sedan",
-    "bodyStyleSlug": "sedans",
-    "makeSlug": "audi",
-    "vin": "WAUGFAFC8GN006353",
-    "condition": "Used",
-    "inspected": true,
-    "inspection": true,
-    "carfax": true,
-    "warranty": "Illinois 15 day / 500 mile statutory powertrain protection on qualifying cars",
-    "stockNumber": "J10282",
-    "primaryPhotoUrl": "https://imagesdl.dealercenter.net/1289/856/202611-17d6bcd6498d417491cfe311a0c199fb.jpg",
-    "photoUrls": [
-      "https://imagesdl.dealercenter.net/1289/856/202611-17d6bcd6498d417491cfe311a0c199fb.jpg",
-      "https://imagesdl.dealercenter.net/1289/856/202611-df7b699feec044d39c8dc6b6520801ad.jpg",
-      "https://imagesdl.dealercenter.net/1289/856/202611-26912430720c4a33a11ff57261971f0b.jpg",
-      "https://imagesdl.dealercenter.net/1289/856/202611-edcd9da875934371a6baf8eeb1e9dd14.jpg",
-      "https://imagesdl.dealercenter.net/1289/856/202611-0e05786cec414e8f8b235f7dea1dff8d.jpg",
-      "https://imagesdl.dealercenter.net/1289/856/202611-0092f272c76748fc9b87211f60783996.jpg",
-      "https://imagesdl.dealercenter.net/1289/856/202611-21fcebf4f009455e97a70bbb718944a6.jpg",
-      "https://imagesdl.dealercenter.net/1289/856/202611-75ecc979578a4a5aa7912f398eff7ce5.jpg",
-      "https://imagesdl.dealercenter.net/1289/856/202611-1e1cc6cff1a74253b895d51e5374db81.jpg",
-      "https://imagesdl.dealercenter.net/1289/856/202611-649c8dce8f2d4bcba4cbfd560add0ab8.jpg",
-      "https://imagesdl.dealercenter.net/1289/856/202611-c3001d6ec93847dd88be2b6f5e933122.jpg",
-      "https://imagesdl.dealercenter.net/1289/856/202611-59bd0ec830424dae82f9c68e21495426.jpg",
-      "https://imagesdl.dealercenter.net/1289/856/202611-e804217379a04654a06c8ddec53187c7.jpg",
-      "https://imagesdl.dealercenter.net/1289/856/202611-dffa54118f2d41c2800bed383e4b2760.jpg",
-      "https://imagesdl.dealercenter.net/1289/856/202611-30fda9217bab479192d820ab83d67ff6.jpg"
-    ],
-    "photos": {
-      "exterior": 15,
-      "interior": 0,
-      "source": "dealercenter"
     },
-    "status": "available",
-    "slug": "2016-audi-a6-2-0t-premium-plus-j10282",
-    "dateAdded": "2026-11-07",
-    "featured": true,
-    "sortOrder": 0,
-    "dealRating": "GOOD_PRICE",
-    "priceSavings": 955,
-    "description": "2016 Audi A6 2.0T Premium Plus quattro: quattro all wheel drive, navigation, sunroof, heated leather seats front and rear, heated steering wheel, blind spot monitor. White over black leather, 8 speed Tiptronic automatic, 2.0L turbocharged four cylinder. The midsize luxury sedan for a North Shore commuter who wants Audi quattro grip for winter and 32 highway mpg, with no dealer fees. Key features: 2.0L TFSI turbocharged four cylinder with 252 horsepower and 273 lb ft of torque, quattro all wheel drive, 8 speed Tiptronic automatic, 22 city and 32 highway mpg, Premium Plus with the Technology Package, MMI navigation system, leather seats with heated front and rear seats, heated steering wheel, memory power front seats, power sunroof, rear view camera with front and rear parking sensors, blind spot monitor, smart key with push button start, Bluetooth hands free phone and audio streaming, satellite radio ready, CD and auxiliary input, cruise control, alloy wheels, side and overhead airbags, traction control and ABS. Around 6 seconds to 60 and a 14.1 cubic foot trunk. The Maxim Autos Difference Independent inspection report included with every vehicle Metal plates issued on the spot, drive home today, skip the DMV No dealer fees at Maxim Autos, ever. The price you see is the price you pay, plus tax, title, and license. Financing for all credit levels Located in Skokie, IL, minutes from Evanston, Niles, Morton Grove, Lincolnwood, Des Plaines and the North Shore Chicago area. Call or text (847) 510-8947 to confirm it is still available. Every car inspected. Every price transparent. Every car documented.",
-    "highlights": [
-      "2.0T Premium Plus trim",
-      "108,940 miles",
-      "Fully inspected, free CARFAX"
-    ],
-    "features": [
-      "All wheel drive",
-      "Heated front and rear seats",
-      "Heated steering wheel",
-      "Leather seats",
-      "Blind spot monitor",
-      "Backup camera",
-      "Sunroof",
-      "Navigation",
-      "Push button start",
-      "Parking sensors",
-      "Turbocharged engine",
-      "Technology Package",
-      "Bluetooth",
-      "Power driver seat",
-      "Memory seats",
-      "Alloy wheels",
-      "Cruise control",
-      "SiriusXM ready"
-    ],
-    "photoPrefix": "2016-audi-a6-2-0t-premium-plus",
-    "photoPath": "",
-    "dealerCenterUrl": "",
-    "featureTiers": {
-      "headline": [
-        {
-          "label": "32 MPG highway",
-          "sub": "22 city, EPA estimate",
-          "icon": "local_gas_station"
-        },
-        {
-          "label": "All wheel drive",
-          "sub": "Chicago winters",
-          "icon": "ac_unit"
-        }
-      ],
-      "love": [
-        {
-          "label": "Heated front and rear seats",
-          "icon": "whatshot",
-          "group": "Winter ready"
-        },
-        {
-          "label": "Heated steering wheel",
-          "icon": "thermostat",
-          "group": "Winter ready"
-        },
-        {
-          "label": "Leather seats",
-          "icon": "chair",
-          "group": "Comfort"
-        },
-        {
-          "label": "Blind spot monitor",
-          "icon": "visibility",
-          "group": "Safety"
-        },
-        {
-          "label": "Backup camera",
-          "icon": "photo_camera",
-          "group": "Safety"
-        },
-        {
-          "label": "Sunroof",
-          "icon": "wb_sunny",
-          "group": "Comfort"
-        },
-        {
-          "label": "Navigation",
-          "icon": "navigation",
-          "group": "Tech"
-        },
-        {
-          "label": "Push button start",
-          "icon": "power_settings_new",
-          "group": "Comfort"
-        },
-        {
-          "label": "Parking sensors",
-          "icon": "sensors",
-          "group": "Safety"
-        },
-        {
-          "label": "Turbocharged engine",
-          "icon": "bolt",
-          "group": "Performance"
-        },
-        {
-          "label": "Technology Package",
-          "icon": "inventory_2",
-          "group": "Packages"
-        }
-      ],
-      "comfort": [
-        "Bluetooth",
-        "Power driver seat",
-        "Memory seats",
-        "Alloy wheels",
-        "Cruise control",
-        "SiriusXM ready"
-      ],
-      "standard": [
-        "Air conditioning",
-        "Power locks",
-        "Power mirrors",
-        "Power windows",
-        "Rear defroster",
-        "AM/FM stereo",
-        "Aux input",
-        "CD player",
-        "ABS brakes",
-        "Automatic transmission",
-        "Overhead airbags",
-        "Side airbags",
-        "Traction control"
-      ],
-      "groups": {
-        "Winter ready": [
-          "All wheel drive",
-          "Heated front and rear seats",
-          "Heated steering wheel"
-        ],
-        "Tech": [
-          "Navigation",
-          "Bluetooth",
-          "SiriusXM ready"
-        ],
-        "Comfort": [
-          "Leather seats",
-          "Sunroof",
-          "Push button start",
-          "Power driver seat",
-          "Memory seats",
-          "Cruise control"
-        ],
-        "Safety": [
-          "Blind spot monitor",
-          "Backup camera",
-          "Parking sensors"
-        ],
-        "Performance": [
-          "Turbocharged engine"
-        ],
-        "Packages": [
-          "Technology Package"
-        ],
-        "Wheels and exterior": [
-          "Alloy wheels"
-        ],
-        "Standard": [
-          "Air conditioning",
-          "Power locks",
-          "Power mirrors",
-          "Power windows",
-          "Rear defroster",
-          "AM/FM stereo",
-          "Aux input",
-          "CD player",
-          "ABS brakes",
-          "Automatic transmission",
-          "Overhead airbags",
-          "Side airbags",
-          "Traction control"
-        ]
-      }
-    },
-    "mpg": "22 city / 32 hwy",
-    "mpgCity": 22,
-    "mpgHwy": 32,
-    "winter": {
-      "have": [
-        {
-          "key": "awd",
-          "label": "All wheel drive",
-          "icon": "ac_unit"
-        },
-        {
-          "key": "heated_front",
-          "label": "Heated front seats",
-          "icon": "whatshot"
-        },
-        {
-          "key": "heated_rear",
-          "label": "Heated rear seats",
-          "icon": "whatshot"
-        },
-        {
-          "key": "heated_wheel",
-          "label": "Heated steering wheel",
-          "icon": "thermostat"
-        }
-      ],
-      "count": 4,
-      "total": 6,
-      "extras": []
-    }
+    "sold_date": "2026-11-11",
+    "missing_since": "2026-11-11T06:30:18.301Z"
   },
   {
     "year": 2016,
