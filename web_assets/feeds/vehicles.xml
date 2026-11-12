@@ -4,7 +4,7 @@
   <title>Maxim Autos Vehicle Inventory</title>
   <link>https://www.maximautos.com/</link>
   <description>Used vehicles for sale at Maxim Autos in Skokie, IL 60077. Phone +18475108947.</description>
-  <lastBuildDate>2026-11-12T14:24:10.987Z</lastBuildDate>
+  <lastBuildDate>2026-11-12T17:30:20.495Z</lastBuildDate>
   <item>
     <g:id>1G1PC5SB9E7454238</g:id>
     <g:title>2014 Chevrolet Cruze 1LT</g:title>
@@ -92,12 +92,12 @@
     <g:related_product>
       <g:relationship_type>substitute</g:relationship_type>
       <g:identifier_type>id</g:identifier_type>
-      <g:identifier>1N4AL3AP5DC227543</g:identifier>
+      <g:identifier>KNAFU4A25D5728313</g:identifier>
     </g:related_product>
     <g:related_product>
       <g:relationship_type>substitute</g:relationship_type>
       <g:identifier_type>id</g:identifier_type>
-      <g:identifier>KNAFU4A25D5728313</g:identifier>
+      <g:identifier>1N4AL3AP5DC227543</g:identifier>
     </g:related_product>
     <g:related_product>
       <g:relationship_type>substitute</g:relationship_type>
@@ -123,7 +123,7 @@
     <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202611-d93563b7c8e4459985861caf6a7cafc2.jpg</g:additional_image_link>
     <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202611-bfb07277a191475ea9a9105989c66478.jpg</g:additional_image_link>
     <g:condition>used</g:condition>
-    <g:price>6450 USD</g:price>
+    <g:price>6950 USD</g:price>
     <g:availability>in_stock</g:availability>
     <g:brand>Nissan</g:brand>
     <g:google_product_category>Vehicles &amp; Parts &gt; Vehicles &gt; Motor Vehicles &gt; Cars, Trucks &amp; Vans</g:google_product_category>
@@ -143,7 +143,7 @@
     <g:custom_label_0>age_0_30</g:custom_label_0>
     <g:custom_label_1>sedan</g:custom_label_1>
     <g:custom_label_2>price_under_8k</g:custom_label_2>
-    <g:custom_label_3>cg_unrated</g:custom_label_3>
+    <g:custom_label_3>cg_good_deal</g:custom_label_3>
     <g:custom_label_4>two_wheel_drive</g:custom_label_4>
     <g:question_and_answer>
       <g:question>Is this used Nissan Altima inspected before sale?</g:question>
@@ -223,7 +223,7 @@
     <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202610-1d75310deb924d48a62c3fc62fdf6261.jpg</g:additional_image_link>
     <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202610-3c86a2181e1b4046ba72d7a8c5fb25b8.jpg</g:additional_image_link>
     <g:condition>used</g:condition>
-    <g:price>7450 USD</g:price>
+    <g:price>7950 USD</g:price>
     <g:availability>in_stock</g:availability>
     <g:brand>Nissan</g:brand>
     <g:google_product_category>Vehicles &amp; Parts &gt; Vehicles &gt; Motor Vehicles &gt; Cars, Trucks &amp; Vans</g:google_product_category>
@@ -243,7 +243,7 @@
     <g:custom_label_0>age_0_30</g:custom_label_0>
     <g:custom_label_1>sedan</g:custom_label_1>
     <g:custom_label_2>price_under_8k</g:custom_label_2>
-    <g:custom_label_3>cg_unrated</g:custom_label_3>
+    <g:custom_label_3>cg_fair_deal</g:custom_label_3>
     <g:custom_label_4>two_wheel_drive</g:custom_label_4>
     <g:question_and_answer>
       <g:question>Is this used Nissan Sentra inspected before sale?</g:question>
@@ -292,12 +292,12 @@
     <g:related_product>
       <g:relationship_type>substitute</g:relationship_type>
       <g:identifier_type>id</g:identifier_type>
-      <g:identifier>KNAFU4A25D5728313</g:identifier>
+      <g:identifier>1N4AL3AP5DC227543</g:identifier>
     </g:related_product>
     <g:related_product>
       <g:relationship_type>substitute</g:relationship_type>
       <g:identifier_type>id</g:identifier_type>
-      <g:identifier>1N4AL3AP5DC227543</g:identifier>
+      <g:identifier>KNAFU4A25D5728313</g:identifier>
     </g:related_product>
     <g:related_product>
       <g:relationship_type>substitute</g:relationship_type>
@@ -1054,12 +1054,12 @@
     <g:related_product>
       <g:relationship_type>substitute</g:relationship_type>
       <g:identifier_type>id</g:identifier_type>
-      <g:identifier>1N4AL3AP5DC227543</g:identifier>
+      <g:identifier>1G1PC5SB9E7454238</g:identifier>
     </g:related_product>
     <g:related_product>
       <g:relationship_type>substitute</g:relationship_type>
       <g:identifier_type>id</g:identifier_type>
-      <g:identifier>1G1PC5SB9E7454238</g:identifier>
+      <g:identifier>1N4AL3AP5DC227543</g:identifier>
     </g:related_product>
     <g:related_product>
       <g:relationship_type>substitute</g:relationship_type>
@@ -1079,9 +1079,9 @@
     <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202610-72be9dcfb46f4776bf6eadbd1acf9f23.jpg</g:additional_image_link>
     <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202610-ce89c30bf698414f91f24ace47b6a03c.jpg</g:additional_image_link>
     <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202610-ee4c58824f9749fd968ee8cf0e37057a.jpg</g:additional_image_link>
-    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202610-f182533d92b540d9a2078b3947076a53.jpg</g:additional_image_link>
+    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202611-14be0a346c134010945d0a37a3dc32ae.jpg</g:additional_image_link>
     <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202610-b0de701ccc564836b9a234324f9ca297.jpg</g:additional_image_link>
-    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202610-e466756facec4314b0cf9538dc979d94.jpg</g:additional_image_link>
+    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202611-8ee700fe2fce4e2e9d843994355b31a8.jpg</g:additional_image_link>
     <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202610-e5868a4f32b647b8ae2011ad802c2f4d.jpg</g:additional_image_link>
     <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202610-29224cd640c9492d90d4f02066fa15a1.jpg</g:additional_image_link>
     <g:condition>used</g:condition>
@@ -1370,7 +1370,7 @@
     <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202611-c3001d6ec93847dd88be2b6f5e933122.jpg</g:additional_image_link>
     <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202611-59bd0ec830424dae82f9c68e21495426.jpg</g:additional_image_link>
     <g:condition>used</g:condition>
-    <g:price>10450 USD</g:price>
+    <g:price>10995 USD</g:price>
     <g:availability>in_stock</g:availability>
     <g:brand>Audi</g:brand>
     <g:google_product_category>Vehicles &amp; Parts &gt; Vehicles &gt; Motor Vehicles &gt; Cars, Trucks &amp; Vans</g:google_product_category>
@@ -1390,7 +1390,7 @@
     <g:custom_label_0>age_0_30</g:custom_label_0>
     <g:custom_label_1>sedan</g:custom_label_1>
     <g:custom_label_2>price_8k_to_12k</g:custom_label_2>
-    <g:custom_label_3>cg_unrated</g:custom_label_3>
+    <g:custom_label_3>cg_good_deal</g:custom_label_3>
     <g:custom_label_4>awd_4wd</g:custom_label_4>
     <g:question_and_answer>
       <g:question>Is this used Audi A6 inspected before sale?</g:question>
@@ -1444,12 +1444,12 @@
     <g:related_product>
       <g:relationship_type>substitute</g:relationship_type>
       <g:identifier_type>id</g:identifier_type>
-      <g:identifier>KNAFU4A25D5728313</g:identifier>
+      <g:identifier>1N4AL3AP5DC227543</g:identifier>
     </g:related_product>
     <g:related_product>
       <g:relationship_type>substitute</g:relationship_type>
       <g:identifier_type>id</g:identifier_type>
-      <g:identifier>1N4AL3AP5DC227543</g:identifier>
+      <g:identifier>KNAFU4A25D5728313</g:identifier>
     </g:related_product>
   </item>
 </channel>
