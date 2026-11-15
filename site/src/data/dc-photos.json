@@ -1,6 +1,6 @@
 {
   "source": "pka_hub.db ma_vehicles",
-  "generated_at": "2026-11-14T17:30:05.474Z",
+  "generated_at": "2026-11-15T01:00:05.310Z",
   "by_vin": {
     "WA1L2AFP8GA046658": {
       "primaryPhotoUrl": "https://imagesdl.dealercenter.net/1289/856/202605-5a3a7b53ec574aeeb79048aec9ba6173/202604-6e50c97293ab4318bea70628625c02b9.jpg",
@@ -1477,7 +1477,6 @@
         "https://imagesdl.dealercenter.net/1289/856/202611-ab0c01b068c442b8af510570213df0b8.jpg",
         "https://imagesdl.dealercenter.net/1289/856/202610-47c96bd144364a7798bd9aec34e971b8.jpg",
         "https://imagesdl.dealercenter.net/1289/856/202610-4634311777ca4b6e8e39f61a18837499.jpg",
-        "https://imagesdl.dealercenter.net/1289/856/202610-147635799a4f49728d49a6686a597d2f.jpg",
         "https://imagesdl.dealercenter.net/1289/856/202610-a9f7c31841154e09b64f04171cfbbdf7.jpg",
         "https://imagesdl.dealercenter.net/1289/856/202610-b15dfd7158af482f842b74d70a2a84af.jpg",
         "https://imagesdl.dealercenter.net/1289/856/202611-532feb96b807431b8a4e977f283b08f5.jpg",
@@ -1494,6 +1493,7 @@
         "https://imagesdl.dealercenter.net/1289/856/202611-76a1d9d5a78f412ba970590b1840e545.jpg",
         "https://imagesdl.dealercenter.net/1289/856/202611-ffde4e9f583d4f839f346e57c82cc5b3.jpg",
         "https://imagesdl.dealercenter.net/1289/856/202611-db514b1f821a44778e77f3790c4ed666.jpg",
+        "https://imagesdl.dealercenter.net/1289/856/202611-054aa86d3bbe473fb21ff12662b67266.jpg",
         "https://imagesdl.dealercenter.net/1289/856/202611-c1e604276a0d40f484ce091e6860b7dd.jpg"
       ],
       "count": 30
