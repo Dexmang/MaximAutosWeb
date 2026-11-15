@@ -358,6 +358,16 @@
       "source": "/vehicle/2024-hyundai-palisade-sel-j10280ev/",
       "destination": "/inventory",
       "permanent": true
+    },
+    {
+      "source": "/vehicle/2018-kia-sorento-ex-j10256",
+      "destination": "/inventory",
+      "permanent": true
+    },
+    {
+      "source": "/vehicle/2018-kia-sorento-ex-j10256/",
+      "destination": "/inventory",
+      "permanent": true
     }
   ],
   "headers": [
