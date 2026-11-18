@@ -4,7 +4,7 @@
   <title>Maxim Autos Vehicle Inventory</title>
   <link>https://www.maximautos.com/</link>
   <description>Used vehicles for sale at Maxim Autos in Skokie, IL 60077. Phone +18475108947.</description>
-  <lastBuildDate>2026-11-18T06:00:18.077Z</lastBuildDate>
+  <lastBuildDate>2026-11-18T06:30:20.720Z</lastBuildDate>
   <item>
     <g:id>1G1PC5SB9E7454238</g:id>
     <g:title>2014 Chevrolet Cruze 1LT</g:title>
@@ -477,17 +477,17 @@
     <g:related_product>
       <g:relationship_type>substitute</g:relationship_type>
       <g:identifier_type>id</g:identifier_type>
+      <g:identifier>JTEZT14R470027866</g:identifier>
+    </g:related_product>
+    <g:related_product>
+      <g:relationship_type>substitute</g:relationship_type>
+      <g:identifier_type>id</g:identifier_type>
       <g:identifier>KM8J3CA48HU259737</g:identifier>
     </g:related_product>
     <g:related_product>
       <g:relationship_type>substitute</g:relationship_type>
       <g:identifier_type>id</g:identifier_type>
       <g:identifier>KM8SRDHF6FU104181</g:identifier>
-    </g:related_product>
-    <g:related_product>
-      <g:relationship_type>substitute</g:relationship_type>
-      <g:identifier_type>id</g:identifier_type>
-      <g:identifier>WA1D7AFP0GA094726</g:identifier>
     </g:related_product>
   </item>
   <item>
@@ -576,9 +576,209 @@
     </g:question_and_answer>
   </item>
   <item>
+    <g:id>JN8AF5MR5FT510459</g:id>
+    <g:title>2015 Nissan Juke SV</g:title>
+    <g:description>2015 Nissan Juke SV: a Florida car its whole life that has never been driven through a northern winter or on salted roads, with a 1.6 liter turbo, 32 MPG highway, power moonroof and only 65,531 miles. Red on black and red cloth, automatic, front wheel drive. A quick, easy to park crossover for the commuter who wants real fuel savings and a clean southern body, with no dealer fees. Key features: EPA estimated 28 city and 32 highway MPG, 1.6 liter direct injection turbo engine with 188 horsepower and 177 pound feet of torque, Xtronic automatic transmission, power moonroof, I-CON drive mode selector with Normal, Sport and Eco settings, touchscreen audio with Bluetooth, rearview camera, push button start with Nissan Intelligent Key, automatic climate control, alloy wheels and red interior accents. Registered in Miami and Miami Beach, Florida since new, so it has never spent a winter in snow and road salt. The Maxim Autos Difference Independent inspection report included with every vehicle Metal plates issued on the spot, drive home today, skip the DMV No dealer fees at Maxim Autos, ever. The price you see is the price you pay, plus tax, title, and license. Financing for all credit levels Skokie, IL, Evanston, Niles, Morton Grove, Lincolnwood, Des Plaines, North Shore Chicago. Call or text (847) 510-8947 to confirm it is still available. Every car inspected. Every price transparent. Every car documented.</g:description>
+    <g:link>https://www.maximautos.com/vehicle/2015-nissan-juke-sv-j10288</g:link>
+    <g:link_template>https://www.maximautos.com/vehicle/2015-nissan-juke-sv-j10288?store={store_code}</g:link_template>
+    <g:image_link>https://imagesdl.dealercenter.net/1289/856/202611-59f75b76e8e64624a3a369ab55de97c3.jpg</g:image_link>
+    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202611-194aff9583ff42539958ca0ecd8204fb.jpg</g:additional_image_link>
+    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202611-b47089320b124d57add558da504b7a47.jpg</g:additional_image_link>
+    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202611-657157b087894e2380e68053642816d1.jpg</g:additional_image_link>
+    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202611-dbd6422971dc44cd99ddff2dd4055ca9.jpg</g:additional_image_link>
+    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202611-668d11aa7b7948429b44a9534174acb8.jpg</g:additional_image_link>
+    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202611-553299e5c19146c9b30ee2ec7fb329a2.jpg</g:additional_image_link>
+    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202611-71d5681418da4e589fb8623992c22887.jpg</g:additional_image_link>
+    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202611-e98118fd67274e08afb79ba51843d147.jpg</g:additional_image_link>
+    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202611-3c29a2767cc04bc99ab09ade61d2d8b8.jpg</g:additional_image_link>
+    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202611-dfd1c9f9e43f4248a501a870eb08cd53.jpg</g:additional_image_link>
+    <g:condition>used</g:condition>
+    <g:price>9995 USD</g:price>
+    <g:availability>in_stock</g:availability>
+    <g:brand>Nissan</g:brand>
+    <g:google_product_category>Vehicles &amp; Parts &gt; Vehicles &gt; Motor Vehicles &gt; Cars, Trucks &amp; Vans</g:google_product_category>
+    <g:excluded_destination>Shopping_ads</g:excluded_destination>
+    <g:excluded_destination>Free_listings</g:excluded_destination>
+    <g:vin>JN8AF5MR5FT510459</g:vin>
+    <g:year>2015</g:year>
+    <g:model>Juke</g:model>
+    <g:mileage>65531 Miles</g:mileage>
+    <g:store_code>08861907241419503398</g:store_code>
+    <g:vehicle_fulfillment>
+      <g:option>in_store</g:option>
+    </g:vehicle_fulfillment>
+    <g:color>Red</g:color>
+    <g:trim>SV</g:trim>
+    <g:body_style>suv</g:body_style>
+    <g:custom_label_0>age_0_30</g:custom_label_0>
+    <g:custom_label_1>suv</g:custom_label_1>
+    <g:custom_label_2>price_8k_to_12k</g:custom_label_2>
+    <g:custom_label_3>cg_fair_deal</g:custom_label_3>
+    <g:custom_label_4>two_wheel_drive</g:custom_label_4>
+    <g:question_and_answer>
+      <g:question>Is this used Nissan Juke inspected before sale?</g:question>
+      <g:answer>Every car is inspected before it goes on the lot, and a free CARFAX comes with it. Ask Jerry what was checked on any car before you decide.</g:answer>
+    </g:question_and_answer>
+    <g:question_and_answer>
+      <g:question>Does this Nissan Juke come with a CARFAX report?</g:question>
+      <g:answer>Yes. A CARFAX vehicle history report is included with every used vehicle at Maxim Autos at no extra cost.</g:answer>
+    </g:question_and_answer>
+    <g:question_and_answer>
+      <g:question>Can I get financing on this Nissan Juke?</g:question>
+      <g:answer>Yes. Maxim Autos offers financing for all credit levels, including first time buyers and those rebuilding credit. Start with the short financing form or a call to Jerry: neither touches your credit. A full application does include a credit check, and approval is never guaranteed.</g:answer>
+    </g:question_and_answer>
+    <g:question_and_answer>
+      <g:question>Are there dealer fees or doc fees on this Nissan Juke?</g:question>
+      <g:answer>No. Maxim Autos never charges dealer fees. No doc fee, no processing fee, no surprise extras at signing. The listed price is what you pay plus standard Illinois tax, title and license.</g:answer>
+    </g:question_and_answer>
+    <g:question_and_answer>
+      <g:question>Can I drive this Nissan Juke home the same day?</g:question>
+      <g:answer>Yes. Maxim Autos is an authorized Illinois CVR (Computer Vehicle Registration) electronic registration dealer. Metal plates are issued the same visit for cars registered in Illinois. Buyers registering in another state receive an Illinois drive away permit and plate the car at home.</g:answer>
+    </g:question_and_answer>
+    <g:question_and_answer>
+      <g:question>Is this Nissan Juke all wheel drive?</g:question>
+      <g:answer>No. This 2015 Nissan Juke SV is front wheel drive.</g:answer>
+    </g:question_and_answer>
+    <g:question_and_answer>
+      <g:question>What transmission does this Nissan Juke have?</g:question>
+      <g:answer>This 2015 Nissan Juke SV has a continuously variable automatic (CVT) transmission.</g:answer>
+    </g:question_and_answer>
+    <g:question_and_answer>
+      <g:question>What is the fuel economy of this Nissan Juke?</g:question>
+      <g:answer>EPA estimated 28 city and 32 highway MPG for this 2015 Nissan Juke SV.</g:answer>
+    </g:question_and_answer>
+    <g:question_and_answer>
+      <g:question>What engine is in this Nissan Juke?</g:question>
+      <g:answer>This 2015 Nissan Juke SV has a 1.6L I4 engine.</g:answer>
+    </g:question_and_answer>
+    <g:question_and_answer>
+      <g:question>Where can I see this Nissan Juke in person?</g:question>
+      <g:answer>At Maxim Autos, 9101 Terminal Ave, Skokie, IL 60077, serving Evanston, Niles, Morton Grove, Lincolnwood, Des Plaines, Glenview, Wilmette and Park Ridge. Hours: Monday, Tuesday, Thursday and Friday 3 PM to 7 PM, Saturday 10 AM to 3 PM, Wednesday by appointment, Sunday closed. Call or text (847) 510-8947.</g:answer>
+    </g:question_and_answer>
+    <g:question_and_answer>
+      <g:question>Can I trade in my current car toward this Nissan Juke?</g:question>
+      <g:answer>Yes. Maxim Autos accepts trade ins and also buys cars outright. Text the VIN of your car to (847) 510-8947 for a quick offer, no obligation.</g:answer>
+    </g:question_and_answer>
+    <g:related_product>
+      <g:relationship_type>substitute</g:relationship_type>
+      <g:identifier_type>id</g:identifier_type>
+      <g:identifier>KM8J3CA48HU259737</g:identifier>
+    </g:related_product>
+    <g:related_product>
+      <g:relationship_type>substitute</g:relationship_type>
+      <g:identifier_type>id</g:identifier_type>
+      <g:identifier>KM8SRDHF6FU104181</g:identifier>
+    </g:related_product>
+    <g:related_product>
+      <g:relationship_type>substitute</g:relationship_type>
+      <g:identifier_type>id</g:identifier_type>
+      <g:identifier>WA1D7AFP0GA094726</g:identifier>
+    </g:related_product>
+  </item>
+  <item>
+    <g:id>JTEZT14R470027866</g:id>
+    <g:title>2007 Toyota 4Runner SR5</g:title>
+    <g:description>2007 Toyota 4Runner SR5: 4.7 liter V8 with 260 horsepower, tow hitch, running boards, full roof rack and only 104,016 miles. White on gray cloth, automatic, rear wheel drive. A low mileage Toyota SUV built on a truck frame for the family that tows a boat or a camper, with no dealer fees. Key features: 4.7 liter V8 with 260 horsepower, towing capacity up to 7,300 pounds, tow hitch, running boards, full roof rack, alloy wheels, power driver seat, power windows, locks and mirrors, cruise control, traction control, ABS brakes, CD audio with auxiliary input and air conditioning. EPA estimated 15 city and 19 highway MPG, strong numbers for a V8 that tows this much. The Maxim Autos Difference Independent inspection report included with every vehicle Metal plates issued on the spot, drive home today, skip the DMV No dealer fees at Maxim Autos, ever. The price you see is the price you pay, plus tax, title, and license. Financing for all credit levels Skokie, IL, Evanston, Niles, Morton Grove, Lincolnwood, Des Plaines, North Shore Chicago. Call or text (847) 510-8947 to confirm it is still available. Every car inspected. Every price transparent. Every car documented.</g:description>
+    <g:link>https://www.maximautos.com/vehicle/2007-toyota-4runner-sr5-j10287</g:link>
+    <g:link_template>https://www.maximautos.com/vehicle/2007-toyota-4runner-sr5-j10287?store={store_code}</g:link_template>
+    <g:image_link>https://imagesdl.dealercenter.net/1289/856/202611-a397994058be4f59bac5245124416650.jpg</g:image_link>
+    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202611-3cee49f9201b4750a9ff1d6ee9b37536.jpg</g:additional_image_link>
+    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202611-20dc656113da43b0b03929a337c8e81c.jpg</g:additional_image_link>
+    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202611-db6854f622124de682d286181c7c46fb.jpg</g:additional_image_link>
+    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202611-3f82fbb8dc2b453ab58397f3b1fdee59.jpg</g:additional_image_link>
+    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202611-36b48f6a8371444dbc4af5eae7a3e9fd.jpg</g:additional_image_link>
+    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202611-79dd5b2bfa1a454da398d040bb029e8f.jpg</g:additional_image_link>
+    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202611-4130aec3edb143dc8d39a2d6cd664d52.jpg</g:additional_image_link>
+    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202611-87b103c320a84ec8acb5900ed5052237.jpg</g:additional_image_link>
+    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202611-9b295dfdf64b4133a0ee592521514a05.jpg</g:additional_image_link>
+    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202611-246349d4cde9495b96bf21372d98998e.jpg</g:additional_image_link>
+    <g:condition>used</g:condition>
+    <g:price>10995 USD</g:price>
+    <g:availability>in_stock</g:availability>
+    <g:brand>Toyota</g:brand>
+    <g:google_product_category>Vehicles &amp; Parts &gt; Vehicles &gt; Motor Vehicles &gt; Cars, Trucks &amp; Vans</g:google_product_category>
+    <g:excluded_destination>Shopping_ads</g:excluded_destination>
+    <g:excluded_destination>Free_listings</g:excluded_destination>
+    <g:vin>JTEZT14R470027866</g:vin>
+    <g:year>2007</g:year>
+    <g:model>4Runner</g:model>
+    <g:mileage>104016 Miles</g:mileage>
+    <g:store_code>08861907241419503398</g:store_code>
+    <g:vehicle_fulfillment>
+      <g:option>in_store</g:option>
+    </g:vehicle_fulfillment>
+    <g:color>White</g:color>
+    <g:trim>SR5</g:trim>
+    <g:body_style>suv</g:body_style>
+    <g:custom_label_0>age_0_30</g:custom_label_0>
+    <g:custom_label_1>suv</g:custom_label_1>
+    <g:custom_label_2>price_8k_to_12k</g:custom_label_2>
+    <g:custom_label_3>cg_great_deal</g:custom_label_3>
+    <g:custom_label_4>two_wheel_drive</g:custom_label_4>
+    <g:question_and_answer>
+      <g:question>Is this used Toyota 4Runner inspected before sale?</g:question>
+      <g:answer>Every car is inspected before it goes on the lot, and a free CARFAX comes with it. Ask Jerry what was checked on any car before you decide.</g:answer>
+    </g:question_and_answer>
+    <g:question_and_answer>
+      <g:question>Does this Toyota 4Runner come with a CARFAX report?</g:question>
+      <g:answer>Yes. A CARFAX vehicle history report is included with every used vehicle at Maxim Autos at no extra cost.</g:answer>
+    </g:question_and_answer>
+    <g:question_and_answer>
+      <g:question>Can I get financing on this Toyota 4Runner?</g:question>
+      <g:answer>Yes. Maxim Autos offers financing for all credit levels, including first time buyers and those rebuilding credit. Start with the short financing form or a call to Jerry: neither touches your credit. A full application does include a credit check, and approval is never guaranteed.</g:answer>
+    </g:question_and_answer>
+    <g:question_and_answer>
+      <g:question>Are there dealer fees or doc fees on this Toyota 4Runner?</g:question>
+      <g:answer>No. Maxim Autos never charges dealer fees. No doc fee, no processing fee, no surprise extras at signing. The listed price is what you pay plus standard Illinois tax, title and license.</g:answer>
+    </g:question_and_answer>
+    <g:question_and_answer>
+      <g:question>Can I drive this Toyota 4Runner home the same day?</g:question>
+      <g:answer>Yes. Maxim Autos is an authorized Illinois CVR (Computer Vehicle Registration) electronic registration dealer. Metal plates are issued the same visit for cars registered in Illinois. Buyers registering in another state receive an Illinois drive away permit and plate the car at home.</g:answer>
+    </g:question_and_answer>
+    <g:question_and_answer>
+      <g:question>Is this Toyota 4Runner all wheel drive?</g:question>
+      <g:answer>No. This 2007 Toyota 4Runner SR5 is rear wheel drive.</g:answer>
+    </g:question_and_answer>
+    <g:question_and_answer>
+      <g:question>What transmission does this Toyota 4Runner have?</g:question>
+      <g:answer>This 2007 Toyota 4Runner SR5 has an automatic transmission.</g:answer>
+    </g:question_and_answer>
+    <g:question_and_answer>
+      <g:question>What is the fuel economy of this Toyota 4Runner?</g:question>
+      <g:answer>EPA estimated 15 city and 19 highway MPG for this 2007 Toyota 4Runner SR5.</g:answer>
+    </g:question_and_answer>
+    <g:question_and_answer>
+      <g:question>What engine is in this Toyota 4Runner?</g:question>
+      <g:answer>This 2007 Toyota 4Runner SR5 has a 260 hp 4.7L V8 engine.</g:answer>
+    </g:question_and_answer>
+    <g:question_and_answer>
+      <g:question>Where can I see this Toyota 4Runner in person?</g:question>
+      <g:answer>At Maxim Autos, 9101 Terminal Ave, Skokie, IL 60077, serving Evanston, Niles, Morton Grove, Lincolnwood, Des Plaines, Glenview, Wilmette and Park Ridge. Hours: Monday, Tuesday, Thursday and Friday 3 PM to 7 PM, Saturday 10 AM to 3 PM, Wednesday by appointment, Sunday closed. Call or text (847) 510-8947.</g:answer>
+    </g:question_and_answer>
+    <g:question_and_answer>
+      <g:question>Can I trade in my current car toward this Toyota 4Runner?</g:question>
+      <g:answer>Yes. Maxim Autos accepts trade ins and also buys cars outright. Text the VIN of your car to (847) 510-8947 for a quick offer, no obligation.</g:answer>
+    </g:question_and_answer>
+    <g:related_product>
+      <g:relationship_type>substitute</g:relationship_type>
+      <g:identifier_type>id</g:identifier_type>
+      <g:identifier>5N1AZ2MH6FN251280</g:identifier>
+    </g:related_product>
+    <g:related_product>
+      <g:relationship_type>substitute</g:relationship_type>
+      <g:identifier_type>id</g:identifier_type>
+      <g:identifier>KM8J3CA48HU259737</g:identifier>
+    </g:related_product>
+    <g:related_product>
+      <g:relationship_type>substitute</g:relationship_type>
+      <g:identifier_type>id</g:identifier_type>
+      <g:identifier>KM8SRDHF6FU104181</g:identifier>
+    </g:related_product>
+  </item>
+  <item>
     <g:id>KM8J3CA48HU259737</g:id>
     <g:title>2017 Hyundai Tucson SE</g:title>
-    <g:description>2017 Hyundai Tucson SE AWD: all wheel drive, rear view camera, Bluetooth, power driver seat, alloy wheels. Burgundy over tan cloth, 6 speed Shiftronic automatic, 2.0L four cylinder. The compact SUV for a Skokie commuter who wants all wheel drive for the snow and an easy monthly payment, with no dealer fees. Key features: 2.0L four cylinder with 164 horsepower and 151 lb ft of torque, all wheel drive with a lockable mode for slush and snow, 6 speed Shiftronic automatic, rear view camera, Bluetooth hands free phone and audio streaming, steering wheel audio controls, power driver seat, cruise control, SiriusXM satellite radio ready, CD and auxiliary input, alloy wheels, side and overhead airbags, traction control and ABS. 21 city, 26 highway mpg. The Maxim Autos Difference Independent inspection report included with every vehicle Metal plates issued on the spot, drive home today, skip the DMV No dealer fees at Maxim Autos, ever. The price you see is the price you pay, plus tax, title, and license. Financing for all credit levels Located in Skokie, IL, minutes from Evanston, Niles, Morton Grove, Lincolnwood, Des Plaines and the North Shore Chicago area. Call or text (847) 510-8947 to confirm it is still available. Every car inspected. Every price transparent. Every car documented.</g:description>
+    <g:description>2017 Hyundai Tucson SE AWD: all wheel drive, remote start, rear view camera, Bluetooth, power driver seat, alloy wheels. Burgundy over tan cloth, 6 speed Shiftronic automatic, 2.0L four cylinder. The compact SUV for a Skokie commuter who wants all wheel drive for the snow and an easy monthly payment, with no dealer fees. Key features: 2.0L four cylinder with 164 horsepower and 151 lb ft of torque, all wheel drive with a lockable mode for slush and snow, remote start to warm up the cabin before you head out on a cold morning, 6 speed Shiftronic automatic, rear view camera, Bluetooth hands free phone and audio streaming, steering wheel audio controls, power driver seat, cruise control, SiriusXM satellite radio ready, CD and auxiliary input, alloy wheels, side and overhead airbags, traction control and ABS. 21 city, 26 highway mpg. The Maxim Autos Difference Independent inspection report included with every vehicle Metal plates issued on the spot, drive home today, skip the DMV No dealer fees at Maxim Autos, ever. The price you see is the price you pay, plus tax, title, and license. Financing for all credit levels Located in Skokie, IL, minutes from Evanston, Niles, Morton Grove, Lincolnwood, Des Plaines and the North Shore Chicago area. Call or text (847) 510-8947 to confirm it is still available. Every car inspected. Every price transparent. Every car documented.</g:description>
     <g:link>https://www.maximautos.com/vehicle/2017-hyundai-tucson-se-j10277</g:link>
     <g:link_template>https://www.maximautos.com/vehicle/2017-hyundai-tucson-se-j10277?store={store_code}</g:link_template>
     <g:image_link>https://imagesdl.dealercenter.net/1289/856/202610-fb0b167250814bd9bbcc51d5d898e0ab.jpg</g:image_link>
@@ -672,7 +872,7 @@
     <g:related_product>
       <g:relationship_type>substitute</g:relationship_type>
       <g:identifier_type>id</g:identifier_type>
-      <g:identifier>5N1AZ2MH6FN251280</g:identifier>
+      <g:identifier>JN8AF5MR5FT510459</g:identifier>
     </g:related_product>
   </item>
   <item>
@@ -768,7 +968,7 @@
     <g:related_product>
       <g:relationship_type>substitute</g:relationship_type>
       <g:identifier_type>id</g:identifier_type>
-      <g:identifier>5N1AZ2MH6FN251280</g:identifier>
+      <g:identifier>JN8AF5MR5FT510459</g:identifier>
     </g:related_product>
   </item>
   <item>
@@ -1053,7 +1253,7 @@
     <g:related_product>
       <g:relationship_type>substitute</g:relationship_type>
       <g:identifier_type>id</g:identifier_type>
-      <g:identifier>5N1AZ2MH6FN251280</g:identifier>
+      <g:identifier>JN8AF5MR5FT510459</g:identifier>
     </g:related_product>
   </item>
   <item>
