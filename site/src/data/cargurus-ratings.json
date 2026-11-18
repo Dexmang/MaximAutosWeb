@@ -1,6 +1,6 @@
 {
   "source": "https://www.cargurus.com/Cars/m-Maxim-Autos-sp457703",
-  "fetchedAt": "2026-11-18T00:00:03Z",
+  "fetchedAt": "2026-11-18T00:30:03Z",
   "note": "CarGurus deal ratings read from the PKA machine (the GitHub runner gets HTTP 406). build-inventory.js uses this when its own fetch fails and only applies a rating whose cgPrice equals the DealerCenter price.",
   "by_vin": {
     "1G1PC5SB9E7454238": {
@@ -9,7 +9,7 @@
       "priceSavings": 274,
       "cgPrice": 6045,
       "imv": 6319,
-      "daysOnMarket": 11
+      "daysOnMarket": 12
     },
     "1N4AL3AP5DC227543": {
       "stock": "J10284",
@@ -17,14 +17,14 @@
       "priceSavings": 467,
       "cgPrice": 6950,
       "imv": 7417,
-      "daysOnMarket": 11
+      "daysOnMarket": 12
     },
     "3N1AB7APXEY279332": {
       "stock": "J10279",
       "dealRating": "FAIR_PRICE",
-      "priceSavings": -242,
+      "priceSavings": -266,
       "cgPrice": 7950,
-      "imv": 7708,
+      "imv": 7684,
       "daysOnMarket": 21
     },
     "4S4BSAKCXJ3314086": {
@@ -62,17 +62,17 @@
     "KM8J3CA48HU259737": {
       "stock": "J10277",
       "dealRating": "GOOD_PRICE",
-      "priceSavings": 1048,
+      "priceSavings": 970,
       "cgPrice": 10450,
-      "imv": 11498,
+      "imv": 11420,
       "daysOnMarket": 21
     },
     "KM8SRDHF6FU104181": {
       "stock": "J10272",
       "dealRating": "GOOD_PRICE",
-      "priceSavings": 1312,
+      "priceSavings": 1310,
       "cgPrice": 10450,
-      "imv": 11762,
+      "imv": 11760,
       "daysOnMarket": 28
     },
     "KNAFU4A25D5728313": {
@@ -81,22 +81,22 @@
       "priceSavings": 472,
       "cgPrice": 6495,
       "imv": 6967,
-      "daysOnMarket": 11
+      "daysOnMarket": 12
     },
     "KNDMB5C14G6201419": {
       "stock": "J10278",
       "dealRating": "FAIR_PRICE",
-      "priceSavings": 379,
+      "priceSavings": 335,
       "cgPrice": 8450,
-      "imv": 8829,
+      "imv": 8785,
       "daysOnMarket": 21
     },
     "WA1D7AFP0GA094726": {
       "stock": "J10275",
       "dealRating": "GOOD_PRICE",
-      "priceSavings": 872,
+      "priceSavings": 839,
       "cgPrice": 10450,
-      "imv": 11322,
+      "imv": 11289,
       "daysOnMarket": 21
     },
     "WAUGFAFC8GN006353": {
@@ -105,7 +105,7 @@
       "priceSavings": 410,
       "cgPrice": 10995,
       "imv": 11405,
-      "daysOnMarket": 10
+      "daysOnMarket": 11
     }
   }
 }
