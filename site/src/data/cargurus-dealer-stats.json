@@ -1,27 +1,27 @@
 {
-  "last_updated": "2026-11-20T01:00:14.128Z",
+  "last_updated": "2026-11-20T14:41:52.250Z",
   "period": {
     "start": "2026-11-13",
     "end": "2026-11-20"
   },
   "totals": {
     "impressions": 0,
-    "srp_views": 5758,
-    "vdp_views": 429,
+    "srp_views": 6160,
+    "vdp_views": 473,
     "leads_total": 0,
-    "leads_email": 15,
-    "leads_phone": 2,
+    "leads_email": 18,
+    "leads_phone": 3,
     "leads_chat": 0,
-    "website_clicks": 13,
-    "map_clicks": 3
+    "website_clicks": 15,
+    "map_clicks": 6
   },
   "daily": [
     {
       "date": "2026-11-20",
-      "impressions": 0,
+      "impressions": 91,
       "srp_views": 0,
       "vdp_views": 0,
-      "leads_total": 0,
+      "leads_total": 2,
       "leads_email": 0,
       "leads_phone": 0,
       "leads_chat": 0,
@@ -30,10 +30,10 @@
     },
     {
       "date": "2026-11-19",
-      "impressions": 580,
+      "impressions": 891,
       "srp_views": 0,
       "vdp_views": 0,
-      "leads_total": 4,
+      "leads_total": 5,
       "leads_email": 0,
       "leads_phone": 0,
       "leads_chat": 0,
@@ -116,15 +116,15 @@
   "raw": {
     "daily_stats": [
       {
-        "impressions": 0,
-        "leads": 0,
-        "clicks": 0,
+        "impressions": 91,
+        "leads": 2,
+        "clicks": 14,
         "date": "2026-11-20"
       },
       {
-        "impressions": 580,
-        "leads": 4,
-        "clicks": 48,
+        "impressions": 891,
+        "leads": 5,
+        "clicks": 78,
         "date": "2026-11-19"
       },
       {
@@ -164,18 +164,18 @@
         "date": "2026-11-13"
       }
     ],
-    "leads_email": 15,
-    "srps": 5758,
-    "vdps": 429,
+    "leads_email": 18,
+    "srps": 6160,
+    "vdps": 473,
     "chat_leads": 0,
     "sms_leads": 0,
-    "phone_leads": 2,
+    "phone_leads": 3,
     "facebook_clicks": 0,
     "twitter_clicks": 0,
     "instagram_clicks": 0,
     "printouts": 0,
-    "website_clicks": 13,
-    "map_clicks": 3,
+    "website_clicks": 15,
+    "map_clicks": 6,
     "you_tube_clicks": 0,
     "success": true
   }
