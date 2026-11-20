@@ -4,7 +4,7 @@
   <title>Maxim Autos Vehicle Inventory</title>
   <link>https://www.maximautos.com/</link>
   <description>Used vehicles for sale at Maxim Autos in Skokie, IL 60077. Phone +18475108947.</description>
-  <lastBuildDate>2026-11-20T00:30:14.485Z</lastBuildDate>
+  <lastBuildDate>2026-11-20T01:00:15.915Z</lastBuildDate>
   <item>
     <g:id>1G1PC5SB9E7454238</g:id>
     <g:title>2014 Chevrolet Cruze 1LT</g:title>
@@ -102,7 +102,7 @@
     <g:related_product>
       <g:relationship_type>substitute</g:relationship_type>
       <g:identifier_type>id</g:identifier_type>
-      <g:identifier>3N1AB7APXEY279332</g:identifier>
+      <g:identifier>WAUGFAFC8GN006353</g:identifier>
     </g:related_product>
   </item>
   <item>
@@ -202,107 +202,7 @@
     <g:related_product>
       <g:relationship_type>substitute</g:relationship_type>
       <g:identifier_type>id</g:identifier_type>
-      <g:identifier>3N1AB7APXEY279332</g:identifier>
-    </g:related_product>
-  </item>
-  <item>
-    <g:id>3N1AB7APXEY279332</g:id>
-    <g:title>2014 Nissan Sentra SR</g:title>
-    <g:description>2014 Nissan Sentra SR: Premium Package, sunroof, navigation, Bose audio, rear view camera, smart key. Blue over black cloth, Xtronic CVT automatic, 1.8L four cylinder. The sporty looking compact sedan for a first car or a commuter who wants 39 highway mpg and a small payment, with no dealer fees. Key features: 1.8L four cylinder with the Xtronic CVT, 30 city and 39 highway mpg, SR Premium Package with power sunroof, NissanConnect 5.8 inch touchscreen navigation, Bose premium audio, rear view camera, smart key with push button start, Bluetooth hands free calling and audio streaming, premium cloth seats, 17 inch gunmetal alloy wheels, rear spoiler, fog lamps, cruise control, SiriusXM satellite radio ready, CD and auxiliary input, side and overhead airbags, traction control and ABS. One of the roomiest back seats and trunks in the compact class. The Maxim Autos Difference Independent inspection report included with every vehicle Metal plates issued on the spot, drive home today, skip the DMV No dealer fees at Maxim Autos, ever. The price you see is the price you pay, plus tax, title, and license. Financing for all credit levels Located in Skokie, IL, minutes from Evanston, Niles, Morton Grove, Lincolnwood, Des Plaines and the North Shore Chicago area. Call or text (847) 510-8947 to confirm it is still available. Every car inspected. Every price transparent. Every car documented.</g:description>
-    <g:link>https://www.maximautos.com/vehicle/2014-nissan-sentra-sr-j10279</g:link>
-    <g:link_template>https://www.maximautos.com/vehicle/2014-nissan-sentra-sr-j10279?store={store_code}</g:link_template>
-    <g:image_link>https://imagesdl.dealercenter.net/1289/856/202610-ee8c0ba6314b4915b500da895757a3eb.jpg</g:image_link>
-    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202610-d9f09bb1106043158d8e67f6ae9059bf.jpg</g:additional_image_link>
-    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202610-d52b304add7646ccaa27a6dc99ed121a.jpg</g:additional_image_link>
-    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202610-49a2087c38c1497c98e2548c15401642.jpg</g:additional_image_link>
-    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202610-cac9233882f948a5a54b079250b877a0.jpg</g:additional_image_link>
-    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202610-dee06ff71dd24679ba8e8d717002a7f9.jpg</g:additional_image_link>
-    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202610-2848187711344ce4a4e3c2ed1e03d5f3.jpg</g:additional_image_link>
-    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202610-0bd817d98dc642e88fd9c93765da34a5.jpg</g:additional_image_link>
-    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202611-ef7b0ce216b44ce8a387784059bdef3b.jpg</g:additional_image_link>
-    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202610-1d75310deb924d48a62c3fc62fdf6261.jpg</g:additional_image_link>
-    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202610-3c86a2181e1b4046ba72d7a8c5fb25b8.jpg</g:additional_image_link>
-    <g:condition>used</g:condition>
-    <g:price>7950 USD</g:price>
-    <g:availability>in_stock</g:availability>
-    <g:brand>Nissan</g:brand>
-    <g:google_product_category>Vehicles &amp; Parts &gt; Vehicles &gt; Motor Vehicles &gt; Cars, Trucks &amp; Vans</g:google_product_category>
-    <g:excluded_destination>Shopping_ads</g:excluded_destination>
-    <g:excluded_destination>Free_listings</g:excluded_destination>
-    <g:vin>3N1AB7APXEY279332</g:vin>
-    <g:year>2014</g:year>
-    <g:model>Sentra</g:model>
-    <g:mileage>102445 Miles</g:mileage>
-    <g:store_code>08861907241419503398</g:store_code>
-    <g:vehicle_fulfillment>
-      <g:option>in_store</g:option>
-    </g:vehicle_fulfillment>
-    <g:color>Blue</g:color>
-    <g:trim>SR</g:trim>
-    <g:body_style>sedan</g:body_style>
-    <g:custom_label_0>age_0_30</g:custom_label_0>
-    <g:custom_label_1>sedan</g:custom_label_1>
-    <g:custom_label_2>price_under_8k</g:custom_label_2>
-    <g:custom_label_3>cg_fair_deal</g:custom_label_3>
-    <g:custom_label_4>two_wheel_drive</g:custom_label_4>
-    <g:question_and_answer>
-      <g:question>Is this used Nissan Sentra inspected before sale?</g:question>
-      <g:answer>Every car is inspected before it goes on the lot, and a free CARFAX comes with it. Ask Jerry what was checked on any car before you decide.</g:answer>
-    </g:question_and_answer>
-    <g:question_and_answer>
-      <g:question>Does this Nissan Sentra come with a CARFAX report?</g:question>
-      <g:answer>Yes. A CARFAX vehicle history report is included with every used vehicle at Maxim Autos at no extra cost.</g:answer>
-    </g:question_and_answer>
-    <g:question_and_answer>
-      <g:question>Can I get financing on this Nissan Sentra?</g:question>
-      <g:answer>Yes. Maxim Autos offers financing for all credit levels, including first time buyers and those rebuilding credit. Start with the short financing form or a call to Jerry: neither touches your credit. A full application does include a credit check, and approval is never guaranteed.</g:answer>
-    </g:question_and_answer>
-    <g:question_and_answer>
-      <g:question>Are there dealer fees or doc fees on this Nissan Sentra?</g:question>
-      <g:answer>No. Maxim Autos never charges dealer fees. No doc fee, no processing fee, no surprise extras at signing. The listed price is what you pay plus standard Illinois tax, title and license.</g:answer>
-    </g:question_and_answer>
-    <g:question_and_answer>
-      <g:question>Can I drive this Nissan Sentra home the same day?</g:question>
-      <g:answer>Yes. Maxim Autos is an authorized Illinois CVR (Computer Vehicle Registration) electronic registration dealer. Metal plates are issued the same visit for cars registered in Illinois. Buyers registering in another state receive an Illinois drive away permit and plate the car at home.</g:answer>
-    </g:question_and_answer>
-    <g:question_and_answer>
-      <g:question>Is this Nissan Sentra all wheel drive?</g:question>
-      <g:answer>No. This 2014 Nissan Sentra SR is front wheel drive.</g:answer>
-    </g:question_and_answer>
-    <g:question_and_answer>
-      <g:question>What transmission does this Nissan Sentra have?</g:question>
-      <g:answer>This 2014 Nissan Sentra SR has a continuously variable automatic (CVT) transmission.</g:answer>
-    </g:question_and_answer>
-    <g:question_and_answer>
-      <g:question>What is the fuel economy of this Nissan Sentra?</g:question>
-      <g:answer>EPA estimated 30 city and 39 highway MPG for this 2014 Nissan Sentra SR.</g:answer>
-    </g:question_and_answer>
-    <g:question_and_answer>
-      <g:question>What engine is in this Nissan Sentra?</g:question>
-      <g:answer>This 2014 Nissan Sentra SR has a 1.8L I4 engine.</g:answer>
-    </g:question_and_answer>
-    <g:question_and_answer>
-      <g:question>Where can I see this Nissan Sentra in person?</g:question>
-      <g:answer>At Maxim Autos, 9101 Terminal Ave, Skokie, IL 60077, serving Evanston, Niles, Morton Grove, Lincolnwood, Des Plaines, Glenview, Wilmette and Park Ridge. Hours: Monday, Tuesday, Thursday and Friday 3 PM to 7 PM, Saturday 10 AM to 3 PM, Wednesday by appointment, Sunday closed. Call or text (847) 510-8947.</g:answer>
-    </g:question_and_answer>
-    <g:question_and_answer>
-      <g:question>Can I trade in my current car toward this Nissan Sentra?</g:question>
-      <g:answer>Yes. Maxim Autos accepts trade ins and also buys cars outright. Text the VIN of your car to (847) 510-8947 for a quick offer, no obligation.</g:answer>
-    </g:question_and_answer>
-    <g:related_product>
-      <g:relationship_type>substitute</g:relationship_type>
-      <g:identifier_type>id</g:identifier_type>
-      <g:identifier>1N4AL3AP5DC227543</g:identifier>
-    </g:related_product>
-    <g:related_product>
-      <g:relationship_type>substitute</g:relationship_type>
-      <g:identifier_type>id</g:identifier_type>
-      <g:identifier>KNAFU4A25D5728313</g:identifier>
-    </g:related_product>
-    <g:related_product>
-      <g:relationship_type>substitute</g:relationship_type>
-      <g:identifier_type>id</g:identifier_type>
-      <g:identifier>1G1PC5SB9E7454238</g:identifier>
+      <g:identifier>WAUGFAFC8GN006353</g:identifier>
     </g:related_product>
   </item>
   <item>
@@ -477,6 +377,11 @@
     <g:related_product>
       <g:relationship_type>substitute</g:relationship_type>
       <g:identifier_type>id</g:identifier_type>
+      <g:identifier>5XYZUDLB3FG235494</g:identifier>
+    </g:related_product>
+    <g:related_product>
+      <g:relationship_type>substitute</g:relationship_type>
+      <g:identifier_type>id</g:identifier_type>
       <g:identifier>KM8J3CA48HU259737</g:identifier>
     </g:related_product>
     <g:related_product>
@@ -484,10 +389,104 @@
       <g:identifier_type>id</g:identifier_type>
       <g:identifier>KM8SRDHF6FU104181</g:identifier>
     </g:related_product>
+  </item>
+  <item>
+    <g:id>5XYZUDLB3FG235494</g:id>
+    <g:title>2015 Hyundai Santa Fe Sport</g:title>
+    <g:description>2015 Hyundai Santa Fe Sport AWD: all wheel drive, heated front seats, rearview camera, Bluetooth, a tow hitch and 25 MPG highway with 87,135 miles. White on gray cloth, 6 speed Shiftronic automatic, 2.4 liter four cylinder. A roomy five passenger crossover that handles a Chicago winter and still fits the family budget, with no dealer fees. Key features: EPA estimated 19 city and 25 highway MPG, 2.4 liter direct injection four cylinder with 190 horsepower and 181 pound feet of torque, all wheel drive with traction control, heated front seats, rearview camera, Bluetooth, steering wheel audio and cruise controls, AM/FM/CD audio with satellite radio ready and auxiliary input, power windows, locks and mirrors, rear defroster, alloy wheels, tow hitch, and front, side and overhead airbags. Cargo space runs 35.4 cubic feet behind the rear seat and 71.5 cubic feet with it folded, and the 2015 Santa Fe Sport earned a 5 star overall NHTSA safety rating. The Maxim Autos Difference Independent inspection report included with every vehicle Metal plates issued on the spot, drive home today, skip the DMV No dealer fees at Maxim Autos, ever. The price you see is the price you pay, plus tax, title, and license. Financing for all credit levels Skokie, IL, Evanston, Niles, Morton Grove, Lincolnwood, Des Plaines, North Shore Chicago. Call or text (847) 510-8947 to confirm it is still available. Every car inspected. Every price transparent. Every car documented.</g:description>
+    <g:link>https://www.maximautos.com/vehicle/2015-hyundai-santa-fe-sport-j10289</g:link>
+    <g:link_template>https://www.maximautos.com/vehicle/2015-hyundai-santa-fe-sport-j10289?store={store_code}</g:link_template>
+    <g:image_link>https://imagesdl.dealercenter.net/1289/856/202611-b0cf996ef3e34e0eb681c40096191b86.jpg</g:image_link>
+    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202611-ffb3edef8dd14d95959a54089e0a3305.jpg</g:additional_image_link>
+    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202611-7e09c84df2994e0cb7c09c43f2185172.jpg</g:additional_image_link>
+    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202611-12419a1b97994a56b4cb957aeb21f222.jpg</g:additional_image_link>
+    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202611-4969b55aa1b94fd4978f5b823d5366c2.jpg</g:additional_image_link>
+    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202611-c9cae402c1f34682a17e0f0d96263ba8.jpg</g:additional_image_link>
+    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202611-9011b598f9004e0785d132e03cbe6abf.jpg</g:additional_image_link>
+    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202611-63c046551be64165be3189898f8f78cc.jpg</g:additional_image_link>
+    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202611-9305d45c130d46178660aa0484695395.jpg</g:additional_image_link>
+    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202611-4a78112070a641a08e5ca7d3f4351a6d.jpg</g:additional_image_link>
+    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202611-f92a1ae4ed97489295b4a6e493ba4271.jpg</g:additional_image_link>
+    <g:condition>used</g:condition>
+    <g:price>10995 USD</g:price>
+    <g:availability>in_stock</g:availability>
+    <g:brand>Hyundai</g:brand>
+    <g:google_product_category>Vehicles &amp; Parts &gt; Vehicles &gt; Motor Vehicles &gt; Cars, Trucks &amp; Vans</g:google_product_category>
+    <g:excluded_destination>Shopping_ads</g:excluded_destination>
+    <g:excluded_destination>Free_listings</g:excluded_destination>
+    <g:vin>5XYZUDLB3FG235494</g:vin>
+    <g:year>2015</g:year>
+    <g:model>Santa Fe Sport</g:model>
+    <g:mileage>87135 Miles</g:mileage>
+    <g:store_code>08861907241419503398</g:store_code>
+    <g:vehicle_fulfillment>
+      <g:option>in_store</g:option>
+    </g:vehicle_fulfillment>
+    <g:color>White</g:color>
+    <g:body_style>suv</g:body_style>
+    <g:custom_label_0>age_0_30</g:custom_label_0>
+    <g:custom_label_1>suv</g:custom_label_1>
+    <g:custom_label_2>price_8k_to_12k</g:custom_label_2>
+    <g:custom_label_3>cg_fair_deal</g:custom_label_3>
+    <g:custom_label_4>awd_4wd</g:custom_label_4>
+    <g:question_and_answer>
+      <g:question>Is this used Hyundai Santa Fe Sport inspected before sale?</g:question>
+      <g:answer>Every car is inspected before it goes on the lot, and a free CARFAX comes with it. Ask Jerry what was checked on any car before you decide.</g:answer>
+    </g:question_and_answer>
+    <g:question_and_answer>
+      <g:question>Does this Hyundai Santa Fe Sport come with a CARFAX report?</g:question>
+      <g:answer>Yes. A CARFAX vehicle history report is included with every used vehicle at Maxim Autos at no extra cost.</g:answer>
+    </g:question_and_answer>
+    <g:question_and_answer>
+      <g:question>Can I get financing on this Hyundai Santa Fe Sport?</g:question>
+      <g:answer>Yes. Maxim Autos offers financing for all credit levels, including first time buyers and those rebuilding credit. Start with the short financing form or a call to Jerry: neither touches your credit. A full application does include a credit check, and approval is never guaranteed.</g:answer>
+    </g:question_and_answer>
+    <g:question_and_answer>
+      <g:question>Are there dealer fees or doc fees on this Hyundai Santa Fe Sport?</g:question>
+      <g:answer>No. Maxim Autos never charges dealer fees. No doc fee, no processing fee, no surprise extras at signing. The listed price is what you pay plus standard Illinois tax, title and license.</g:answer>
+    </g:question_and_answer>
+    <g:question_and_answer>
+      <g:question>Can I drive this Hyundai Santa Fe Sport home the same day?</g:question>
+      <g:answer>Yes. Maxim Autos is an authorized Illinois CVR (Computer Vehicle Registration) electronic registration dealer. Metal plates are issued the same visit for cars registered in Illinois. Buyers registering in another state receive an Illinois drive away permit and plate the car at home.</g:answer>
+    </g:question_and_answer>
+    <g:question_and_answer>
+      <g:question>Is this Hyundai Santa Fe Sport all wheel drive?</g:question>
+      <g:answer>Yes. This 2015 Hyundai Santa Fe Sport is all wheel drive (AWD).</g:answer>
+    </g:question_and_answer>
+    <g:question_and_answer>
+      <g:question>What transmission does this Hyundai Santa Fe Sport have?</g:question>
+      <g:answer>This 2015 Hyundai Santa Fe Sport has an automatic transmission.</g:answer>
+    </g:question_and_answer>
+    <g:question_and_answer>
+      <g:question>What is the fuel economy of this Hyundai Santa Fe Sport?</g:question>
+      <g:answer>EPA estimated 19 city and 25 highway MPG for this 2015 Hyundai Santa Fe Sport.</g:answer>
+    </g:question_and_answer>
+    <g:question_and_answer>
+      <g:question>What engine is in this Hyundai Santa Fe Sport?</g:question>
+      <g:answer>This 2015 Hyundai Santa Fe Sport has a 2.4L I4 engine.</g:answer>
+    </g:question_and_answer>
+    <g:question_and_answer>
+      <g:question>Where can I see this Hyundai Santa Fe Sport in person?</g:question>
+      <g:answer>At Maxim Autos, 9101 Terminal Ave, Skokie, IL 60077, serving Evanston, Niles, Morton Grove, Lincolnwood, Des Plaines, Glenview, Wilmette and Park Ridge. Hours: Monday, Tuesday, Thursday and Friday 3 PM to 7 PM, Saturday 10 AM to 3 PM, Wednesday by appointment, Sunday closed. Call or text (847) 510-8947.</g:answer>
+    </g:question_and_answer>
+    <g:question_and_answer>
+      <g:question>Can I trade in my current car toward this Hyundai Santa Fe Sport?</g:question>
+      <g:answer>Yes. Maxim Autos accepts trade ins and also buys cars outright. Text the VIN of your car to (847) 510-8947 for a quick offer, no obligation.</g:answer>
+    </g:question_and_answer>
     <g:related_product>
       <g:relationship_type>substitute</g:relationship_type>
       <g:identifier_type>id</g:identifier_type>
-      <g:identifier>WA1D7AFP0GA094726</g:identifier>
+      <g:identifier>5N1AZ2MH6FN251280</g:identifier>
+    </g:related_product>
+    <g:related_product>
+      <g:relationship_type>substitute</g:relationship_type>
+      <g:identifier_type>id</g:identifier_type>
+      <g:identifier>KM8J3CA48HU259737</g:identifier>
+    </g:related_product>
+    <g:related_product>
+      <g:relationship_type>substitute</g:relationship_type>
+      <g:identifier_type>id</g:identifier_type>
+      <g:identifier>KM8SRDHF6FU104181</g:identifier>
     </g:related_product>
   </item>
   <item>
@@ -767,12 +766,12 @@
     <g:related_product>
       <g:relationship_type>substitute</g:relationship_type>
       <g:identifier_type>id</g:identifier_type>
-      <g:identifier>KM8J3CA48HU259737</g:identifier>
+      <g:identifier>5XYZUDLB3FG235494</g:identifier>
     </g:related_product>
     <g:related_product>
       <g:relationship_type>substitute</g:relationship_type>
       <g:identifier_type>id</g:identifier_type>
-      <g:identifier>KM8SRDHF6FU104181</g:identifier>
+      <g:identifier>KM8J3CA48HU259737</g:identifier>
     </g:related_product>
   </item>
   <item>
@@ -1068,7 +1067,7 @@
     <g:related_product>
       <g:relationship_type>substitute</g:relationship_type>
       <g:identifier_type>id</g:identifier_type>
-      <g:identifier>3N1AB7APXEY279332</g:identifier>
+      <g:identifier>WAUGFAFC8GN006353</g:identifier>
     </g:related_product>
   </item>
   <item>
@@ -1343,17 +1342,17 @@
     <g:related_product>
       <g:relationship_type>substitute</g:relationship_type>
       <g:identifier_type>id</g:identifier_type>
-      <g:identifier>3N1AB7APXEY279332</g:identifier>
-    </g:related_product>
-    <g:related_product>
-      <g:relationship_type>substitute</g:relationship_type>
-      <g:identifier_type>id</g:identifier_type>
       <g:identifier>1N4AL3AP5DC227543</g:identifier>
     </g:related_product>
     <g:related_product>
       <g:relationship_type>substitute</g:relationship_type>
       <g:identifier_type>id</g:identifier_type>
       <g:identifier>KNAFU4A25D5728313</g:identifier>
+    </g:related_product>
+    <g:related_product>
+      <g:relationship_type>substitute</g:relationship_type>
+      <g:identifier_type>id</g:identifier_type>
+      <g:identifier>1G1PC5SB9E7454238</g:identifier>
     </g:related_product>
   </item>
 </channel>
