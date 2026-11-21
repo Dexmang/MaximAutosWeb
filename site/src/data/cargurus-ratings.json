@@ -1,6 +1,6 @@
 {
   "source": "https://www.cargurus.com/Cars/m-Maxim-Autos-sp457703",
-  "fetchedAt": "2026-11-21T17:00:03Z",
+  "fetchedAt": "2026-11-21T17:30:03Z",
   "note": "CarGurus deal ratings read from the PKA machine (the GitHub runner gets HTTP 406). build-inventory.js uses this when its own fetch fails and only applies a rating whose cgPrice equals the DealerCenter price.",
   "by_vin": {
     "1G1PC5SB9E7454238": {
@@ -33,7 +33,7 @@
       "priceSavings": 1702,
       "cgPrice": 14450,
       "imv": 16152,
-      "daysOnMarket": 38
+      "daysOnMarket": 39
     },
     "5N1AZ2MH6FN251280": {
       "stock": "J10251",
@@ -67,22 +67,6 @@
       "imv": 9950,
       "daysOnMarket": 3
     },
-    "JTEZT14R470027866": {
-      "stock": "J10287",
-      "dealRating": "FAIR_PRICE",
-      "priceSavings": -1155,
-      "cgPrice": 15950,
-      "imv": 14795,
-      "daysOnMarket": 3
-    },
-    "KM8J33A47HU369551": {
-      "stock": "J10269",
-      "dealRating": "GOOD_PRICE",
-      "priceSavings": 672,
-      "cgPrice": 11450,
-      "imv": 12122,
-      "daysOnMarket": 38
-    },
     "KM8J3CA48HU259737": {
       "stock": "J10277",
       "dealRating": "GOOD_PRICE",
@@ -97,7 +81,7 @@
       "priceSavings": 1310,
       "cgPrice": 10450,
       "imv": 11760,
-      "daysOnMarket": 31
+      "daysOnMarket": 32
     },
     "KNAFU4A25D5728313": {
       "stock": "J10283",
