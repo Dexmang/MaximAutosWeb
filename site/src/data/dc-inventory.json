@@ -2291,7 +2291,7 @@
       "sortOrder": 0,
       "dealRating": "",
       "priceSavings": 0,
-      "description": "2016 Kia Sedona LX: seven passenger minivan, power sliding doors, rear entertainment system, heated front seats, rear view camera. Gray over gray cloth, 6 speed Sportmatic automatic, 3.3L V6. The family van for a North Shore household that wants room for seven and a screen for the back row at a used car price, with no dealer fees. Key features: 3.3L V6 with 276 horsepower and 248 lb ft of torque, 6 speed automatic, seating for seven with second row quad seats that slide and stow and a fold away third row, power sliding doors on both sides, rear entertainment system, heated front seats, power driver seat, rear air conditioning with rear sunshades, rear view camera with parking sensors, Bluetooth, cruise control, Yes Essentials stain and odor resistant cloth, tow hitch, alloy wheels, side and overhead airbags, traction control and ABS. 18 city, 24 highway mpg. The Maxim Autos Difference Independent inspection report included with every vehicle Metal plates issued on the spot, drive home today, skip the DMV No dealer fees at Maxim Autos, ever. The price you see is the price you pay, plus tax, title, and license. Financing for all credit levels Located in Skokie, IL, minutes from Evanston, Niles, Morton Grove, Lincolnwood, Des Plaines and the North Shore Chicago area. Call or text (847) 510-8947 to confirm it is still available. Every car inspected. Every price transparent. Every car documented.",
+      "description": "2016 Kia Sedona LX: seven passenger minivan, power sliding doors, rear entertainment system, heated front seats, rear view camera. Gray over gray cloth, 6 speed Sportmatic automatic, 3.3L V6. The family van for a North Shore household that wants room for seven and a screen for the back row at a used car price, with no dealer fees. Key features: 3.3L V6 with 276 horsepower and 248 lb ft of torque, 6 speed automatic, seating for seven with second row quad seats that slide and stow and a fold away third row, power sliding doors on both sides, rear entertainment system, heated front seats, power driver seat, rear air conditioning with rear sunshades, rear view camera with parking sensors, Bluetooth, cruise control, Yes Essentials stain and odor resistant cloth, alloy wheels, side and overhead airbags, traction control and ABS. 18 city, 24 highway mpg. The Maxim Autos Difference Independent inspection report included with every vehicle Metal plates issued on the spot, drive home today, skip the DMV No dealer fees at Maxim Autos, ever. The price you see is the price you pay, plus tax, title, and license. Financing for all credit levels Located in Skokie, IL, minutes from Evanston, Niles, Morton Grove, Lincolnwood, Des Plaines and the North Shore Chicago area. Call or text (847) 510-8947 to confirm it is still available. Every car inspected. Every price transparent. Every car documented.",
       "highlights": [
         "LX trim",
         "106,414 miles",
@@ -2305,7 +2305,6 @@
         "Power sliding doors",
         "Second row captain's chairs",
         "Parking sensors",
-        "Tow hitch",
         "Rear climate control",
         "Bluetooth",
         "Power driver seat",
@@ -2363,11 +2362,6 @@
             "group": "Safety"
           },
           {
-            "label": "Tow hitch",
-            "icon": "rv_hookup",
-            "group": "Family and cargo"
-          },
-          {
             "label": "Rear climate control",
             "icon": "mode_fan",
             "group": "Family and cargo"
@@ -2419,7 +2413,6 @@
             "Rear seat entertainment",
             "Power sliding doors",
             "Second row captain's chairs",
-            "Tow hitch",
             "Rear climate control",
             "Fold flat third row",
             "Rear sunshades"
