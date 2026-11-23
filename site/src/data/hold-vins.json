@@ -43,6 +43,13 @@
       "since": "2026-10-27",
       "note": "Jerry 2026-10-26: has issues, not sold, to be moved out. Set to Inbound in DealerCenter; left the feed 2026-10-24. Bridged so it is omitted, never shown as SOLD.",
       "bridge": true
+    },
+    "3VVVX7B25RM005747": {
+      "stock": "J10290",
+      "reason": "arb-return-manheim",
+      "since": "2026-11-23",
+      "note": "transmission issue, Manheim arbitration entered 2026-11-23",
+      "bridge": true
     }
   }
 }
