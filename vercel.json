@@ -368,6 +368,16 @@
       "source": "/vehicle/2018-kia-sorento-ex-j10256/",
       "destination": "/inventory",
       "permanent": true
+    },
+    {
+      "source": "/vehicle/2024-volkswagen-taos-se-4motion-j10290",
+      "destination": "/inventory",
+      "permanent": true
+    },
+    {
+      "source": "/vehicle/2024-volkswagen-taos-se-4motion-j10290/",
+      "destination": "/inventory",
+      "permanent": true
     }
   ],
   "headers": [

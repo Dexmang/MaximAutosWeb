@@ -48,6 +48,12 @@
       "stockNumber": "J10256",
       "retired_at": "2026-11-15",
       "redirect_to": "/inventory"
+    },
+    "2024-volkswagen-taos-se-4motion-j10290": {
+      "vin": "3VVVX7B25RM005747",
+      "stockNumber": "J10290",
+      "retired_at": "2026-11-23",
+      "redirect_to": "/inventory"
     }
   }
 }
