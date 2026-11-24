@@ -4,7 +4,7 @@
   <title>Maxim Autos Vehicle Inventory</title>
   <link>https://www.maximautos.com/</link>
   <description>Used vehicles for sale at Maxim Autos in Skokie, IL 60077. Phone +18475108947.</description>
-  <lastBuildDate>2026-11-24T01:30:14.758Z</lastBuildDate>
+  <lastBuildDate>2026-11-24T01:44:37.420Z</lastBuildDate>
   <item>
     <g:id>1G1PC5SB9E7454238</g:id>
     <g:title>2014 Chevrolet Cruze 1LT</g:title>
@@ -472,12 +472,12 @@
     <g:related_product>
       <g:relationship_type>substitute</g:relationship_type>
       <g:identifier_type>id</g:identifier_type>
-      <g:identifier>KM8SRDHF6FU104181</g:identifier>
+      <g:identifier>WA1D7AFP0GA094726</g:identifier>
     </g:related_product>
     <g:related_product>
       <g:relationship_type>substitute</g:relationship_type>
       <g:identifier_type>id</g:identifier_type>
-      <g:identifier>WA1D7AFP0GA094726</g:identifier>
+      <g:identifier>5XYZUDLB3FG235494</g:identifier>
     </g:related_product>
   </item>
   <item>
@@ -576,7 +576,7 @@
     <g:related_product>
       <g:relationship_type>substitute</g:relationship_type>
       <g:identifier_type>id</g:identifier_type>
-      <g:identifier>KM8SRDHF6FU104181</g:identifier>
+      <g:identifier>WA1D7AFP0GA094726</g:identifier>
     </g:related_product>
   </item>
   <item>
@@ -766,7 +766,7 @@
     <g:related_product>
       <g:relationship_type>substitute</g:relationship_type>
       <g:identifier_type>id</g:identifier_type>
-      <g:identifier>KM8SRDHF6FU104181</g:identifier>
+      <g:identifier>WA1D7AFP0GA094726</g:identifier>
     </g:related_product>
   </item>
   <item>
@@ -856,11 +856,6 @@
     <g:related_product>
       <g:relationship_type>substitute</g:relationship_type>
       <g:identifier_type>id</g:identifier_type>
-      <g:identifier>KM8SRDHF6FU104181</g:identifier>
-    </g:related_product>
-    <g:related_product>
-      <g:relationship_type>substitute</g:relationship_type>
-      <g:identifier_type>id</g:identifier_type>
       <g:identifier>WA1D7AFP0GA094726</g:identifier>
     </g:related_product>
     <g:related_product>
@@ -868,101 +863,10 @@
       <g:identifier_type>id</g:identifier_type>
       <g:identifier>5XYZUDLB3FG235494</g:identifier>
     </g:related_product>
-  </item>
-  <item>
-    <g:id>KM8SRDHF6FU104181</g:id>
-    <g:title>2015 Hyundai Santa Fe Limited</g:title>
-    <g:description>2015 Hyundai Santa Fe Limited AWD with the Ultimate Package: 290 horsepower 3.3 liter V6, three rows of seating, leather, heated and ventilated front seats, heated steering wheel, panoramic sunroof, navigation, second row captain&apos;s chairs, 19 inch alloys. Gray on gray, 6 speed automatic, all wheel drive. A fully equipped family SUV for a North Shore winter, with no dealer fees. This Santa Fe runs the 3.3L V6, not one of the four cylinder engines in Hyundai&apos;s engine recalls, and the federal NHTSA check on this VIN shows zero open recalls as of November 18, 2026. Key features: 3.3L GDI V6 with 290 hp and a 6 speed automatic, active cornering all wheel drive, leather seating with heated and ventilated front seats, heated rear seats and a memory driver seat, heated steering wheel, panoramic sunroof, navigation touchscreen with Bluetooth and Infinity premium audio, blind spot monitor, rear camera with front and rear parking sensors, second row captain&apos;s chairs with a third row for six, rear sunshades, rear air conditioning, power liftgate, smart key with push button start, factory tow hitch with a 5,000 lb towing capacity, 19 inch alloy wheels, 80 cubic feet of cargo space with the rear rows folded. Four new tires on it. The Maxim Autos Difference Independent inspection report included with every vehicle Metal plates issued on the spot, drive home today, skip the DMV No dealer fees at Maxim Autos, ever. The price you see is the price you pay, plus tax, title, and license. Financing for all credit levels Serving Skokie, Evanston, Niles, Morton Grove, Lincolnwood, Des Plaines and the North Shore of Chicago. Call or text (847) 510-8947 for a same day appointment. Every car inspected. Every price transparent. Every car documented.</g:description>
-    <g:link>https://www.maximautos.com/vehicle/2015-hyundai-santa-fe-limited-j10272</g:link>
-    <g:link_template>https://www.maximautos.com/vehicle/2015-hyundai-santa-fe-limited-j10272?store={store_code}</g:link_template>
-    <g:image_link>https://imagesdl.dealercenter.net/1289/856/202610-c5a9a1337f1d476aae3067feab64c9a3.jpg</g:image_link>
-    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202610-4eb8158ab22f439c86b5cf1ed3171d31.jpg</g:additional_image_link>
-    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202610-b3cbd0acdfe74597bc50714f735d2c94.jpg</g:additional_image_link>
-    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202610-6fd9dd389b544de6a338a3217e43b5b8.jpg</g:additional_image_link>
-    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202610-b63fe0502d4b4ac1b3f41744518ccbde.jpg</g:additional_image_link>
-    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202610-607412f430a24f4c9e9f639a7d6b0b41.jpg</g:additional_image_link>
-    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202610-dcf8e7211d8148c9be9efa63a769722d.jpg</g:additional_image_link>
-    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202610-260a403905524e9eac9f94607f9c83e6.jpg</g:additional_image_link>
-    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202610-94f40b4859ad4912ac7e3b2c5f22567c.jpg</g:additional_image_link>
-    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202610-099cc6c2a77b4b4fa56e3d18b67194cf.jpg</g:additional_image_link>
-    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202610-36b6ab6785834644938a36ed186c14cb.jpg</g:additional_image_link>
-    <g:condition>used</g:condition>
-    <g:price>10450 USD</g:price>
-    <g:availability>in_stock</g:availability>
-    <g:brand>Hyundai</g:brand>
-    <g:google_product_category>Vehicles &amp; Parts &gt; Vehicles &gt; Motor Vehicles &gt; Cars, Trucks &amp; Vans</g:google_product_category>
-    <g:excluded_destination>Shopping_ads</g:excluded_destination>
-    <g:excluded_destination>Free_listings</g:excluded_destination>
-    <g:vin>KM8SRDHF6FU104181</g:vin>
-    <g:year>2015</g:year>
-    <g:model>Santa Fe</g:model>
-    <g:mileage>86271 Miles</g:mileage>
-    <g:store_code>08861907241419503398</g:store_code>
-    <g:vehicle_fulfillment>
-      <g:option>in_store</g:option>
-    </g:vehicle_fulfillment>
-    <g:color>Gray</g:color>
-    <g:trim>Limited</g:trim>
-    <g:body_style>suv</g:body_style>
-    <g:custom_label_0>age_31_60</g:custom_label_0>
-    <g:custom_label_1>suv</g:custom_label_1>
-    <g:custom_label_2>price_8k_to_12k</g:custom_label_2>
-    <g:custom_label_3>cg_good_deal</g:custom_label_3>
-    <g:custom_label_4>awd_4wd</g:custom_label_4>
-    <g:question_and_answer>
-      <g:question>Is this used Hyundai Santa Fe inspected before sale?</g:question>
-      <g:answer>Every car is inspected before it goes on the lot, and a free CARFAX comes with it. Ask Jerry what was checked on any car before you decide.</g:answer>
-    </g:question_and_answer>
-    <g:question_and_answer>
-      <g:question>Does this Hyundai Santa Fe come with a CARFAX report?</g:question>
-      <g:answer>Yes. A CARFAX vehicle history report is included with every used vehicle at Maxim Autos at no extra cost.</g:answer>
-    </g:question_and_answer>
-    <g:question_and_answer>
-      <g:question>Can I get financing on this Hyundai Santa Fe?</g:question>
-      <g:answer>Yes. Maxim Autos offers financing for all credit levels, including first time buyers and those rebuilding credit. Start with the short financing form or a call to Jerry: neither touches your credit. A full application does include a credit check, and approval is never guaranteed.</g:answer>
-    </g:question_and_answer>
-    <g:question_and_answer>
-      <g:question>Are there dealer fees or doc fees on this Hyundai Santa Fe?</g:question>
-      <g:answer>No. Maxim Autos never charges dealer fees. No doc fee, no processing fee, no surprise extras at signing. The listed price is what you pay plus standard Illinois tax, title and license.</g:answer>
-    </g:question_and_answer>
-    <g:question_and_answer>
-      <g:question>Can I drive this Hyundai Santa Fe home the same day?</g:question>
-      <g:answer>Yes. Maxim Autos is an authorized Illinois CVR (Computer Vehicle Registration) electronic registration dealer. Metal plates are issued the same visit for cars registered in Illinois. Buyers registering in another state receive an Illinois drive away permit and plate the car at home.</g:answer>
-    </g:question_and_answer>
-    <g:question_and_answer>
-      <g:question>Is this Hyundai Santa Fe all wheel drive?</g:question>
-      <g:answer>Yes. This 2015 Hyundai Santa Fe Limited is all wheel drive (AWD).</g:answer>
-    </g:question_and_answer>
-    <g:question_and_answer>
-      <g:question>What transmission does this Hyundai Santa Fe have?</g:question>
-      <g:answer>This 2015 Hyundai Santa Fe Limited has an automatic transmission.</g:answer>
-    </g:question_and_answer>
-    <g:question_and_answer>
-      <g:question>What engine is in this Hyundai Santa Fe?</g:question>
-      <g:answer>This 2015 Hyundai Santa Fe Limited has a 3.3L V6 engine.</g:answer>
-    </g:question_and_answer>
-    <g:question_and_answer>
-      <g:question>Where can I see this Hyundai Santa Fe in person?</g:question>
-      <g:answer>At Maxim Autos, 9101 Terminal Ave, Skokie, IL 60077, serving Evanston, Niles, Morton Grove, Lincolnwood, Des Plaines, Glenview, Wilmette and Park Ridge. Hours: Monday, Tuesday, Thursday and Friday 3 PM to 7 PM, Saturday 10 AM to 3 PM, Wednesday by appointment, Sunday closed. Call or text (847) 510-8947.</g:answer>
-    </g:question_and_answer>
-    <g:question_and_answer>
-      <g:question>Can I trade in my current car toward this Hyundai Santa Fe?</g:question>
-      <g:answer>Yes. Maxim Autos accepts trade ins and also buys cars outright. Text the VIN of your car to (847) 510-8947 for a quick offer, no obligation.</g:answer>
-    </g:question_and_answer>
     <g:related_product>
       <g:relationship_type>substitute</g:relationship_type>
       <g:identifier_type>id</g:identifier_type>
-      <g:identifier>KM8J3CA48HU259737</g:identifier>
-    </g:related_product>
-    <g:related_product>
-      <g:relationship_type>substitute</g:relationship_type>
-      <g:identifier_type>id</g:identifier_type>
-      <g:identifier>WA1D7AFP0GA094726</g:identifier>
-    </g:related_product>
-    <g:related_product>
-      <g:relationship_type>substitute</g:relationship_type>
-      <g:identifier_type>id</g:identifier_type>
-      <g:identifier>5XYZUDLB3FG235494</g:identifier>
+      <g:identifier>JN8AF5MR5FT510459</g:identifier>
     </g:related_product>
   </item>
   <item>
@@ -1342,12 +1246,12 @@
     <g:related_product>
       <g:relationship_type>substitute</g:relationship_type>
       <g:identifier_type>id</g:identifier_type>
-      <g:identifier>KM8SRDHF6FU104181</g:identifier>
+      <g:identifier>5XYZUDLB3FG235494</g:identifier>
     </g:related_product>
     <g:related_product>
       <g:relationship_type>substitute</g:relationship_type>
       <g:identifier_type>id</g:identifier_type>
-      <g:identifier>5XYZUDLB3FG235494</g:identifier>
+      <g:identifier>JN8AF5MR5FT510459</g:identifier>
     </g:related_product>
   </item>
   <item>
