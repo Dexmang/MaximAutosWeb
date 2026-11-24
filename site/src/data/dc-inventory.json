@@ -1,6 +1,6 @@
 {
   "source": "pka_hub.db ma_vehicles + vPIC",
-  "generated_at": "2026-11-23",
+  "generated_at": "2026-11-24",
   "by_vin": {
     "1G1PC5SB9E7454238": {
       "year": 2014,
@@ -368,6 +368,215 @@
           }
         ]
       }
+    },
+    "3VW217AU4GM047262": {
+      "year": 2016,
+      "make": "Volkswagen",
+      "model": "Golf",
+      "trim": "TSI SE Hatchback",
+      "price": 9495,
+      "mileage": 117527,
+      "exteriorColor": "Red",
+      "interiorColor": "Black",
+      "engine": "170.00 hp 1.8L I4",
+      "transmission": "Automatic",
+      "drivetrain": "FWD",
+      "fuelType": "Gasoline",
+      "bodyStyle": "Hatchback",
+      "bodyStyleSlug": "hatchbacks",
+      "makeSlug": "volkswagen",
+      "vin": "3VW217AU4GM047262",
+      "condition": "Used",
+      "inspected": true,
+      "inspection": true,
+      "carfax": true,
+      "warranty": "Illinois 15 day / 500 mile statutory powertrain protection on qualifying cars",
+      "stockNumber": "J10291",
+      "primaryPhotoUrl": "https://imagesdl.dealercenter.net/1289/856/202611-46ff1cfa5bcc4debb7f808e8ef1e49a0.jpg",
+      "photoUrls": [
+        "https://imagesdl.dealercenter.net/1289/856/202611-46ff1cfa5bcc4debb7f808e8ef1e49a0.jpg",
+        "https://imagesdl.dealercenter.net/1289/856/202611-1bf0189204324877a04f6bae1753df9f.jpg",
+        "https://imagesdl.dealercenter.net/1289/856/202611-d2af058ec6cc464b9655651c6780663b.jpg",
+        "https://imagesdl.dealercenter.net/1289/856/202611-6b3bc248cf2842388c07d47b53f10bae.jpg",
+        "https://imagesdl.dealercenter.net/1289/856/202611-6aca0b943f21443899de51ad521996f9.jpg",
+        "https://imagesdl.dealercenter.net/1289/856/202611-ce61966949e04f98bcbfabdbbb0b0189.jpg",
+        "https://imagesdl.dealercenter.net/1289/856/202611-dc4dca6c0f844464b47e645552f57215.jpg",
+        "https://imagesdl.dealercenter.net/1289/856/202611-503bdf0654e04daa8082c3a367a3d779.jpg",
+        "https://imagesdl.dealercenter.net/1289/856/202611-f7fdb30b353e444e9b4e35acb204a374.jpg",
+        "https://imagesdl.dealercenter.net/1289/856/202611-6993e44639ce4e25b93397311f8c0e78.jpg",
+        "https://imagesdl.dealercenter.net/1289/856/202611-a0cd5c066c0f4b889728466bffccb44b.jpg",
+        "https://imagesdl.dealercenter.net/1289/856/202611-52c78b781ed44e59acbe4dad41fa4fe2.jpg",
+        "https://imagesdl.dealercenter.net/1289/856/202611-75adaf81c09747e0ac3a6946e3569c8c.jpg",
+        "https://imagesdl.dealercenter.net/1289/856/202611-fb7e6307764b4877bbd26204ea1f68f4.jpg",
+        "https://imagesdl.dealercenter.net/1289/856/202611-afa1c547d3d64e5c9da72ead806b6a81.jpg"
+      ],
+      "photos": {
+        "exterior": 15,
+        "interior": 0,
+        "source": "dealercenter"
+      },
+      "status": "available",
+      "slug": "2016-volkswagen-golf-tsi-se-hatchback-j10291",
+      "dateAdded": "2026-11-24",
+      "featured": true,
+      "sortOrder": 0,
+      "dealRating": "",
+      "priceSavings": 0,
+      "description": "2016 Volkswagen Golf SE: turbocharged 1.8 liter with 170 horsepower, panoramic sunroof, Fender premium audio and 35 MPG highway. Red on black leatherette, automatic, front wheel drive. A fun, practical hatchback for the commuter who wants German road manners and real fuel savings, with no dealer fees. Key features: EPA estimated 25 city and 35 highway MPG, 1.8 liter turbo engine with 170 horsepower and 199 pound feet of torque, 6 speed automatic transmission, panoramic sunroof, Fender premium audio, heated front seats, leatherette seating, rearview camera, keyless access with push button start, Bluetooth, satellite radio ready, alloy wheels and cruise control. 22.8 cubic feet of cargo space behind the rear seat and 52.7 with the seat folded. The Maxim Autos Difference Independent inspection report included with every vehicle Metal plates issued on the spot, drive home today, skip the DMV No dealer fees at Maxim Autos, ever. The price you see is the price you pay, plus tax, title, and license. Financing for all credit levels Skokie, IL, Evanston, Niles, Morton Grove, Lincolnwood, Des Plaines, North Shore Chicago. Call or text (847) 510-8947 to confirm it is still available. Every car inspected. Every price transparent. Every car documented.",
+      "highlights": [
+        "TSI SE Hatchback trim",
+        "117,527 miles",
+        "Fully inspected, free CARFAX"
+      ],
+      "features": [
+        "All wheel drive",
+        "Heated front seats",
+        "Panoramic sunroof",
+        "Backup camera",
+        "Fender audio",
+        "Push button start",
+        "Turbocharged engine",
+        "Bluetooth",
+        "Power driver seat",
+        "Alloy wheels",
+        "Leatherette seats",
+        "Cruise control",
+        "SiriusXM ready"
+      ],
+      "featureTiers": {
+        "headline": [
+          {
+            "label": "35 MPG highway",
+            "sub": "25 city, EPA estimate",
+            "icon": "local_gas_station"
+          },
+          {
+            "label": "All wheel drive",
+            "sub": "Chicago winters",
+            "icon": "ac_unit"
+          }
+        ],
+        "love": [
+          {
+            "label": "Heated front seats",
+            "icon": "whatshot",
+            "group": "Winter ready"
+          },
+          {
+            "label": "Panoramic sunroof",
+            "icon": "wb_sunny",
+            "group": "Comfort"
+          },
+          {
+            "label": "Backup camera",
+            "icon": "photo_camera",
+            "group": "Safety"
+          },
+          {
+            "label": "Fender audio",
+            "icon": "speaker",
+            "group": "Tech"
+          },
+          {
+            "label": "Push button start",
+            "icon": "power_settings_new",
+            "group": "Comfort"
+          },
+          {
+            "label": "Turbocharged engine",
+            "icon": "bolt",
+            "group": "Performance"
+          }
+        ],
+        "comfort": [
+          "Bluetooth",
+          "Power driver seat",
+          "Alloy wheels",
+          "Leatherette seats",
+          "Cruise control",
+          "SiriusXM ready"
+        ],
+        "standard": [
+          "Air conditioning",
+          "Power locks",
+          "Power mirrors",
+          "Power windows",
+          "Rear defroster",
+          "AM/FM stereo",
+          "Aux input",
+          "CD player",
+          "ABS brakes",
+          "Automatic transmission",
+          "Overhead airbags",
+          "Side airbags",
+          "Traction control"
+        ],
+        "groups": {
+          "Winter ready": [
+            "All wheel drive",
+            "Heated front seats"
+          ],
+          "Tech": [
+            "Fender audio",
+            "Bluetooth",
+            "SiriusXM ready"
+          ],
+          "Comfort": [
+            "Panoramic sunroof",
+            "Push button start",
+            "Power driver seat",
+            "Leatherette seats",
+            "Cruise control"
+          ],
+          "Safety": [
+            "Backup camera"
+          ],
+          "Performance": [
+            "Turbocharged engine"
+          ],
+          "Wheels and exterior": [
+            "Alloy wheels"
+          ],
+          "Standard": [
+            "Air conditioning",
+            "Power locks",
+            "Power mirrors",
+            "Power windows",
+            "Rear defroster",
+            "AM/FM stereo",
+            "Aux input",
+            "CD player",
+            "ABS brakes",
+            "Automatic transmission",
+            "Overhead airbags",
+            "Side airbags",
+            "Traction control"
+          ]
+        }
+      },
+      "mpg": "25 city / 35 hwy",
+      "mpgCity": 25,
+      "mpgHwy": 35,
+      "winter": {
+        "have": [
+          {
+            "key": "awd",
+            "label": "All wheel drive",
+            "icon": "ac_unit"
+          },
+          {
+            "key": "heated_front",
+            "label": "Heated front seats",
+            "icon": "whatshot"
+          }
+        ],
+        "count": 2,
+        "total": 6,
+        "extras": []
+      },
+      "photoPrefix": "2016-volkswagen-golf-tsi-se-hatchback",
+      "photoPath": "",
+      "dealerCenterUrl": ""
     },
     "4S4BSAKCXJ3314086": {
       "year": 2018,
@@ -2055,6 +2264,205 @@
         "total": 6,
         "extras": []
       }
+    },
+    "KNALN4D73F5184873": {
+      "year": 2015,
+      "make": "Kia",
+      "model": "Cadenza",
+      "trim": "Premium",
+      "price": 9495,
+      "mileage": 114984,
+      "exteriorColor": "White",
+      "interiorColor": "Cream",
+      "engine": "3.3L V6",
+      "transmission": "Automatic",
+      "drivetrain": "FWD",
+      "fuelType": "Gasoline",
+      "bodyStyle": "Sedan",
+      "bodyStyleSlug": "sedans",
+      "makeSlug": "kia",
+      "vin": "KNALN4D73F5184873",
+      "condition": "Used",
+      "inspected": true,
+      "inspection": true,
+      "carfax": true,
+      "warranty": "Illinois 15 day / 500 mile statutory powertrain protection on qualifying cars",
+      "stockNumber": "J10292",
+      "primaryPhotoUrl": "https://imagesdl.dealercenter.net/1289/856/202611-e93b5c14006947e9b66177c6ee6208a2.jpg",
+      "photoUrls": [
+        "https://imagesdl.dealercenter.net/1289/856/202611-e93b5c14006947e9b66177c6ee6208a2.jpg",
+        "https://imagesdl.dealercenter.net/1289/856/202611-f6e66d4ff2ea472fab79744479d452a9.jpg",
+        "https://imagesdl.dealercenter.net/1289/856/202611-da1c95dd9eba432dbe09b9c9ae66ed9c.jpg",
+        "https://imagesdl.dealercenter.net/1289/856/202611-1170577db532426d83908f26bc9d8176.jpg",
+        "https://imagesdl.dealercenter.net/1289/856/202611-b9b8fa0732bd42c392ff5f4f22b5ea84.jpg",
+        "https://imagesdl.dealercenter.net/1289/856/202611-c9d6b2cf8b10423eb3dbd04823012e44.jpg",
+        "https://imagesdl.dealercenter.net/1289/856/202611-5e0407ddf8ab4cd9a828a41f8c700537.jpg",
+        "https://imagesdl.dealercenter.net/1289/856/202611-aeade54e071d4d2996b43a528b06b1de.jpg",
+        "https://imagesdl.dealercenter.net/1289/856/202611-b5b8b692899343feb7ab973142113dcf.jpg",
+        "https://imagesdl.dealercenter.net/1289/856/202611-e4a6329629714f44829e58404bb34458.jpg",
+        "https://imagesdl.dealercenter.net/1289/856/202611-d2944404c2c44541b5a0b89c5fe6b6ee.jpg",
+        "https://imagesdl.dealercenter.net/1289/856/202611-1834fcabea204e50a21600ca0c219ccb.jpg",
+        "https://imagesdl.dealercenter.net/1289/856/202611-7a77d91c165a418a80d560790ecdf8df.jpg",
+        "https://imagesdl.dealercenter.net/1289/856/202611-a9f9c5b9878848009a2c23eefc0d2bb8.jpg",
+        "https://imagesdl.dealercenter.net/1289/856/202611-948295a8c4604d9da55da2bd6f55d9af.jpg"
+      ],
+      "photos": {
+        "exterior": 15,
+        "interior": 0,
+        "source": "dealercenter"
+      },
+      "status": "available",
+      "slug": "2015-kia-cadenza-premium-j10292",
+      "dateAdded": "2026-11-24",
+      "featured": true,
+      "sortOrder": 0,
+      "dealRating": "",
+      "priceSavings": 0,
+      "description": "2015 Kia Cadenza Premium: 3.3 liter V6 with 293 horsepower, leather, navigation, Infinity premium audio and heated front seats. White on cream leather, automatic, front wheel drive. A full size luxury sedan for the driver who wants a quiet, roomy highway car at a compact car price, with no dealer fees. Key features: EPA estimated 19 city and 28 highway MPG, 3.3 liter direct injection V6 with 293 horsepower and 255 pound feet of torque, 6 speed automatic transmission, leather seats, heated and power front seats, navigation system, Infinity sound system, rearview camera, parking sensors, smart key with push button start, Bluetooth, satellite radio ready, alloy wheels and cruise control. A 15.9 cubic foot trunk and rear seat legroom that rivals cars costing far more. The Maxim Autos Difference Independent inspection report included with every vehicle Metal plates issued on the spot, drive home today, skip the DMV No dealer fees at Maxim Autos, ever. The price you see is the price you pay, plus tax, title, and license. Financing for all credit levels Skokie, IL, Evanston, Niles, Morton Grove, Lincolnwood, Des Plaines, North Shore Chicago. Call or text (847) 510-8947 to confirm it is still available. Every car inspected. Every price transparent. Every car documented.",
+      "highlights": [
+        "Premium trim",
+        "114,984 miles",
+        "Fully inspected, free CARFAX"
+      ],
+      "features": [
+        "Heated front seats",
+        "Leather seats",
+        "Backup camera",
+        "Navigation",
+        "Infinity audio",
+        "Push button start",
+        "Parking sensors",
+        "Bluetooth",
+        "Power driver seat",
+        "Alloy wheels",
+        "Cruise control",
+        "SiriusXM ready"
+      ],
+      "featureTiers": {
+        "headline": [
+          {
+            "label": "28 MPG highway",
+            "sub": "19 city, EPA estimate",
+            "icon": "local_gas_station"
+          }
+        ],
+        "love": [
+          {
+            "label": "Heated front seats",
+            "icon": "whatshot",
+            "group": "Winter ready"
+          },
+          {
+            "label": "Leather seats",
+            "icon": "chair",
+            "group": "Comfort"
+          },
+          {
+            "label": "Backup camera",
+            "icon": "photo_camera",
+            "group": "Safety"
+          },
+          {
+            "label": "Navigation",
+            "icon": "navigation",
+            "group": "Tech"
+          },
+          {
+            "label": "Infinity audio",
+            "icon": "speaker",
+            "group": "Tech"
+          },
+          {
+            "label": "Push button start",
+            "icon": "power_settings_new",
+            "group": "Comfort"
+          },
+          {
+            "label": "Parking sensors",
+            "icon": "sensors",
+            "group": "Safety"
+          }
+        ],
+        "comfort": [
+          "Bluetooth",
+          "Power driver seat",
+          "Alloy wheels",
+          "Cruise control",
+          "SiriusXM ready"
+        ],
+        "standard": [
+          "Air conditioning",
+          "Power locks",
+          "Power mirrors",
+          "Power windows",
+          "Rear defroster",
+          "AM/FM stereo",
+          "Aux input",
+          "CD player",
+          "ABS brakes",
+          "Automatic transmission",
+          "Overhead airbags",
+          "Side airbags",
+          "Traction control"
+        ],
+        "groups": {
+          "Winter ready": [
+            "Heated front seats"
+          ],
+          "Tech": [
+            "Navigation",
+            "Infinity audio",
+            "Bluetooth",
+            "SiriusXM ready"
+          ],
+          "Comfort": [
+            "Leather seats",
+            "Push button start",
+            "Power driver seat",
+            "Cruise control"
+          ],
+          "Safety": [
+            "Backup camera",
+            "Parking sensors"
+          ],
+          "Wheels and exterior": [
+            "Alloy wheels"
+          ],
+          "Standard": [
+            "Air conditioning",
+            "Power locks",
+            "Power mirrors",
+            "Power windows",
+            "Rear defroster",
+            "AM/FM stereo",
+            "Aux input",
+            "CD player",
+            "ABS brakes",
+            "Automatic transmission",
+            "Overhead airbags",
+            "Side airbags",
+            "Traction control"
+          ]
+        }
+      },
+      "mpg": "19 city / 28 hwy",
+      "mpgCity": 19,
+      "mpgHwy": 28,
+      "winter": {
+        "have": [
+          {
+            "key": "heated_front",
+            "label": "Heated front seats",
+            "icon": "whatshot"
+          }
+        ],
+        "count": 1,
+        "total": 6,
+        "extras": []
+      },
+      "photoPrefix": "2015-kia-cadenza-premium",
+      "photoPath": "",
+      "dealerCenterUrl": ""
     },
     "KNDMB5C14G6201419": {
       "year": 2016,
