@@ -374,7 +374,7 @@
       "make": "Volkswagen",
       "model": "Golf",
       "trim": "TSI SE Hatchback",
-      "price": 9495,
+      "price": 9945,
       "mileage": 117527,
       "exteriorColor": "Red",
       "interiorColor": "Black",
@@ -397,7 +397,7 @@
         "https://imagesdl.dealercenter.net/1289/856/202611-46ff1cfa5bcc4debb7f808e8ef1e49a0.jpg",
         "https://imagesdl.dealercenter.net/1289/856/202611-1bf0189204324877a04f6bae1753df9f.jpg",
         "https://imagesdl.dealercenter.net/1289/856/202611-d2af058ec6cc464b9655651c6780663b.jpg",
-        "https://imagesdl.dealercenter.net/1289/856/202611-6b3bc248cf2842388c07d47b53f10bae.jpg",
+        "https://imagesdl.dealercenter.net/1289/856/202611-639321e0b306400a9793d9b10946b357.jpg",
         "https://imagesdl.dealercenter.net/1289/856/202611-6aca0b943f21443899de51ad521996f9.jpg",
         "https://imagesdl.dealercenter.net/1289/856/202611-ce61966949e04f98bcbfabdbbb0b0189.jpg",
         "https://imagesdl.dealercenter.net/1289/856/202611-dc4dca6c0f844464b47e645552f57215.jpg",
@@ -420,8 +420,8 @@
       "dateAdded": "2026-11-24",
       "featured": true,
       "sortOrder": 0,
-      "dealRating": "GOOD_PRICE",
-      "priceSavings": 301,
+      "dealRating": "",
+      "priceSavings": 0,
       "description": "2016 Volkswagen Golf SE: turbocharged 1.8 liter with 170 horsepower, panoramic sunroof, Fender premium audio and 35 MPG highway. Red on black leatherette, automatic, front wheel drive. A fun, practical hatchback for the commuter who wants German road manners and real fuel savings, with no dealer fees. Key features: EPA estimated 25 city and 35 highway MPG, 1.8 liter turbo engine with 170 horsepower and 199 pound feet of torque, 6 speed automatic transmission, panoramic sunroof, Fender premium audio, heated front seats, leatherette seating, rearview camera, keyless access with push button start, Bluetooth, satellite radio ready, alloy wheels and cruise control. 22.8 cubic feet of cargo space behind the rear seat and 52.7 with the seat folded. The Maxim Autos Difference Independent inspection report included with every vehicle Metal plates issued on the spot, drive home today, skip the DMV No dealer fees at Maxim Autos, ever. The price you see is the price you pay, plus tax, title, and license. Financing for all credit levels Skokie, IL, Evanston, Niles, Morton Grove, Lincolnwood, Des Plaines, North Shore Chicago. Call or text (847) 510-8947 to confirm it is still available. Every car inspected. Every price transparent. Every car documented.",
       "highlights": [
         "TSI SE Hatchback trim",
@@ -1549,10 +1549,19 @@
         "https://imagesdl.dealercenter.net/1289/856/202611-fea5cbfe760549a0b165b5b700fc8853.jpg",
         "https://imagesdl.dealercenter.net/1289/856/202611-d6e1137eb7d7435d937214e50c8d6484.jpg",
         "https://imagesdl.dealercenter.net/1289/856/202611-f4e133e5266342d498469707b701c42a.jpg",
-        "https://imagesdl.dealercenter.net/1289/856/202611-1ebbca6d6d5e4854904b74810997b001.jpg"
+        "https://imagesdl.dealercenter.net/1289/856/202611-1ebbca6d6d5e4854904b74810997b001.jpg",
+        "https://imagesdl.dealercenter.net/1289/856/202611-b93abfa5bec14861abad6ba1d33f85e8.jpg",
+        "https://imagesdl.dealercenter.net/1289/856/202611-f8434af467de41f3bbca47efb275885e.jpg",
+        "https://imagesdl.dealercenter.net/1289/856/202611-a468deec288446adaf13d844b47fbc3d.jpg",
+        "https://imagesdl.dealercenter.net/1289/856/202611-643afbfccdab48d48ffcbd7e01a843d5.jpg",
+        "https://imagesdl.dealercenter.net/1289/856/202611-c0dc91506d87498fa1d90748979be558.jpg",
+        "https://imagesdl.dealercenter.net/1289/856/202611-a49b1bcfa0974524971b61a42581a6d7.jpg",
+        "https://imagesdl.dealercenter.net/1289/856/202611-263a7401381b4cdc8c49433c893f066f.jpg",
+        "https://imagesdl.dealercenter.net/1289/856/202611-45b7c6f6c20d46a09f297e6491ea0482.jpg",
+        "https://imagesdl.dealercenter.net/1289/856/202611-0636d66729274f999001193389e95b86.jpg"
       ],
       "photos": {
-        "exterior": 15,
+        "exterior": 24,
         "interior": 0,
         "source": "dealercenter"
       },
@@ -1595,6 +1604,178 @@
       "photoPrefix": "2015-nissan-juke-sv",
       "photoPath": "",
       "dealerCenterUrl": ""
+    },
+    "JTEZT14R470027866": {
+      "year": 2007,
+      "make": "Toyota",
+      "model": "4Runner",
+      "trim": "SR5",
+      "price": 14950,
+      "mileage": 104016,
+      "exteriorColor": "White",
+      "interiorColor": "Gray",
+      "engine": "260 hp 4.7L V8",
+      "transmission": "Automatic",
+      "drivetrain": "RWD",
+      "fuelType": "Gasoline",
+      "bodyStyle": "SUV",
+      "bodyStyleSlug": "suvs",
+      "makeSlug": "toyota",
+      "vin": "JTEZT14R470027866",
+      "condition": "Used",
+      "inspected": true,
+      "inspection": true,
+      "carfax": true,
+      "warranty": "Illinois 15 day / 500 mile statutory powertrain protection on qualifying cars",
+      "stockNumber": "J10287",
+      "primaryPhotoUrl": "https://imagesdl.dealercenter.net/1289/856/202611-0cb071eaebdb4e979934b6df11f27ef8.jpg",
+      "photoUrls": [
+        "https://imagesdl.dealercenter.net/1289/856/202611-0cb071eaebdb4e979934b6df11f27ef8.jpg",
+        "https://imagesdl.dealercenter.net/1289/856/202611-7c1bc3933103475787079391de90332f.jpg",
+        "https://imagesdl.dealercenter.net/1289/856/202611-b1079cfcd64a4f948206bc672d4c4ac3.jpg",
+        "https://imagesdl.dealercenter.net/1289/856/202611-3c16c8ab5f5f437dbcc423a065bafb49.jpg",
+        "https://imagesdl.dealercenter.net/1289/856/202611-2d4904c73462478dae44c7931f8570c8.jpg",
+        "https://imagesdl.dealercenter.net/1289/856/202611-f11cbf6cadc446b49ebc0366d4c4b4c1.jpg",
+        "https://imagesdl.dealercenter.net/1289/856/202611-78fca8fdaadf4e089ba174a26885e9d2.jpg",
+        "https://imagesdl.dealercenter.net/1289/856/202611-58c59e588dc14ff7ad609e540b3270dd.jpg",
+        "https://imagesdl.dealercenter.net/1289/856/202611-51bcbebd77d8429799d89307e1f543b2.jpg",
+        "https://imagesdl.dealercenter.net/1289/856/202611-d925618cf33142e89b0da97c6ef49548.jpg",
+        "https://imagesdl.dealercenter.net/1289/856/202611-8b250e5656d543bc8af3ebfcc033dfce.jpg",
+        "https://imagesdl.dealercenter.net/1289/856/202611-645e390950a5414d994d5e95a6e455e7.jpg",
+        "https://imagesdl.dealercenter.net/1289/856/202611-c93d1cb964f34df9885b61490801d087.jpg",
+        "https://imagesdl.dealercenter.net/1289/856/202611-993ff8a78e304bc191c76b3a9b33eb0c.jpg",
+        "https://imagesdl.dealercenter.net/1289/856/202611-8fd0eba07ebe44a59fdd75872c4ce22a.jpg",
+        "https://imagesdl.dealercenter.net/1289/856/202611-e62ed206fbcb43e4b9f70531e00c48a8.jpg",
+        "https://imagesdl.dealercenter.net/1289/856/202611-9f65ca85392c4c579c4dfd82217fba68.jpg",
+        "https://imagesdl.dealercenter.net/1289/856/202611-5883084906344a609ee7a12661fdf451.jpg",
+        "https://imagesdl.dealercenter.net/1289/856/202611-5f0111046b6740c18b6f008437e5225d.jpg",
+        "https://imagesdl.dealercenter.net/1289/856/202611-a61661c423e24ce6a4edefc94430d12e.jpg",
+        "https://imagesdl.dealercenter.net/1289/856/202611-8d128e7619c14ab39e6fb6d28792f30b.jpg"
+      ],
+      "photos": {
+        "exterior": 21,
+        "interior": 0,
+        "source": "dealercenter"
+      },
+      "status": "available",
+      "slug": "2007-toyota-4runner-sr5-j10287",
+      "dateAdded": "2026-11-18",
+      "featured": true,
+      "sortOrder": 0,
+      "dealRating": "GOOD_PRICE",
+      "priceSavings": 1845,
+      "description": "2007 Toyota 4Runner SR5: 4.7 liter V8 with 260 horsepower, tow hitch, running boards, full roof rack and only 104,016 miles. White on gray cloth, automatic, rear wheel drive. A low mileage Toyota SUV built on a truck frame for the family that tows a boat or a camper, with no dealer fees. Key features: 4.7 liter V8 with 260 horsepower, towing capacity up to 7,300 pounds, tow hitch, running boards, full roof rack, alloy wheels, power driver seat, power windows, locks and mirrors, cruise control, traction control, ABS brakes, CD audio with auxiliary input and air conditioning. EPA estimated 15 city and 19 highway MPG, strong numbers for a V8 that tows this much. The Maxim Autos Difference Independent inspection report included with every vehicle Metal plates issued on the spot, drive home today, skip the DMV No dealer fees at Maxim Autos, ever. The price you see is the price you pay, plus tax, title, and license. Financing for all credit levels Skokie, IL, Evanston, Niles, Morton Grove, Lincolnwood, Des Plaines, North Shore Chicago. Call or text (847) 510-8947 to confirm it is still available. Every car inspected. Every price transparent. Every car documented.",
+      "highlights": [
+        "SR5 trim",
+        "104,016 miles",
+        "Fully inspected, free CARFAX"
+      ],
+      "features": [
+        "Tow hitch",
+        "Power driver seat",
+        "Roof rack",
+        "Running boards",
+        "Alloy wheels",
+        "Cruise control"
+      ],
+      "featureTiers": {
+        "headline": [
+          {
+            "label": "19 MPG highway",
+            "sub": "15 city, EPA estimate",
+            "icon": "local_gas_station"
+          }
+        ],
+        "love": [
+          {
+            "label": "Tow hitch",
+            "icon": "rv_hookup",
+            "group": "Family and cargo"
+          },
+          {
+            "label": "Power driver seat",
+            "icon": "chair",
+            "group": "Comfort"
+          },
+          {
+            "label": "Roof rack",
+            "icon": "luggage",
+            "group": "Family and cargo"
+          },
+          {
+            "label": "Running boards",
+            "icon": "stairs",
+            "group": "Wheels and exterior"
+          },
+          {
+            "label": "Alloy wheels",
+            "icon": "radio_button_unchecked",
+            "group": "Wheels and exterior"
+          },
+          {
+            "label": "Cruise control",
+            "icon": "speed",
+            "group": "Comfort"
+          }
+        ],
+        "comfort": [],
+        "standard": [
+          "Air conditioning",
+          "Power locks",
+          "Power mirrors",
+          "Power windows",
+          "Rear defroster",
+          "AM/FM stereo",
+          "Aux input",
+          "CD player",
+          "Cloth seats",
+          "ABS brakes",
+          "Automatic transmission",
+          "Traction control"
+        ],
+        "groups": {
+          "Comfort": [
+            "Power driver seat",
+            "Cruise control"
+          ],
+          "Family and cargo": [
+            "Tow hitch",
+            "Roof rack"
+          ],
+          "Wheels and exterior": [
+            "Running boards",
+            "Alloy wheels"
+          ],
+          "Standard": [
+            "Air conditioning",
+            "Power locks",
+            "Power mirrors",
+            "Power windows",
+            "Rear defroster",
+            "AM/FM stereo",
+            "Aux input",
+            "CD player",
+            "Cloth seats",
+            "ABS brakes",
+            "Automatic transmission",
+            "Traction control"
+          ]
+        }
+      },
+      "mpg": "15 city / 19 hwy",
+      "mpgCity": 15,
+      "mpgHwy": 19,
+      "winter": {
+        "have": [],
+        "count": 0,
+        "total": 6,
+        "extras": []
+      },
+      "photoPrefix": "2007-toyota-4runner-sr5",
+      "photoPath": "",
+      "dealerCenterUrl": "",
+      "sold_date": "2026-11-21",
+      "missing_since": "2026-11-21T18:00:17.987Z"
     },
     "KM8J3CA48HU259737": {
       "year": 2017,
@@ -2913,6 +3094,91 @@
         "total": 6,
         "extras": []
       }
+    },
+    "YV4A22PK8G1072955": {
+      "year": 2016,
+      "make": "Volvo",
+      "model": "XC90",
+      "trim": "T6 Momentum",
+      "price": 14495,
+      "mileage": 102137,
+      "exteriorColor": "Gray",
+      "interiorColor": "Black",
+      "engine": "316 hp 2.0L I4",
+      "transmission": "Automatic",
+      "drivetrain": "AWD",
+      "fuelType": "Gasoline",
+      "bodyStyle": "SUV",
+      "bodyStyleSlug": "suvs",
+      "makeSlug": "volvo",
+      "vin": "YV4A22PK8G1072955",
+      "condition": "Used",
+      "inspected": true,
+      "inspection": true,
+      "carfax": true,
+      "warranty": "Illinois 15 day / 500 mile statutory powertrain protection on qualifying cars",
+      "stockNumber": "J10268",
+      "primaryPhotoUrl": "https://imagesdl.dealercenter.net/1289/856/202610-22e82846c00445a1a7e25ff3a0a0aa99.jpg",
+      "photoUrls": [
+        "https://imagesdl.dealercenter.net/1289/856/202610-22e82846c00445a1a7e25ff3a0a0aa99.jpg",
+        "https://imagesdl.dealercenter.net/1289/856/202610-8c7df69de25d40afae216158269a2586.jpg",
+        "https://imagesdl.dealercenter.net/1289/856/202610-778634bd5b4a41fbba58276f103251e4.jpg",
+        "https://imagesdl.dealercenter.net/1289/856/202610-3aaadb1930c5462dbe39197ced1e6b3c.jpg",
+        "https://imagesdl.dealercenter.net/1289/856/202610-1265e0cb08ca4e08a841e7be285c7197.jpg",
+        "https://imagesdl.dealercenter.net/1289/856/202610-d95e63ce68914eb8b65b7ba664e0c816.jpg",
+        "https://imagesdl.dealercenter.net/1289/856/202610-3f9d83813dd24fe093fd545a4f9066f9.jpg",
+        "https://imagesdl.dealercenter.net/1289/856/202610-8e9e0b040c284af98cb859f7e29e7fca.jpg",
+        "https://imagesdl.dealercenter.net/1289/856/202610-03c6fa1ab3884320b458f31cfe953146.jpg",
+        "https://imagesdl.dealercenter.net/1289/856/202610-ca05f0bf6e364b85af04791e145439f4.jpg",
+        "https://imagesdl.dealercenter.net/1289/856/202610-6da525139c68410989695e90dd7dd9d0.jpg",
+        "https://imagesdl.dealercenter.net/1289/856/202610-0e9f46a6dd4a40c09a6202e85b1871cf.jpg",
+        "https://imagesdl.dealercenter.net/1289/856/202610-3895f8066077414bb4d9a76c9d422420.jpg",
+        "https://imagesdl.dealercenter.net/1289/856/202610-98981b70f23c4da182ca1c44580a65be.jpg",
+        "https://imagesdl.dealercenter.net/1289/856/202610-003f8b3f96474b009a4313ab67dc1370.jpg",
+        "https://imagesdl.dealercenter.net/1289/856/202611-801740821ec6442b82537b7cf4e95230.jpg",
+        "https://imagesdl.dealercenter.net/1289/856/202611-7e7340f1a3274549ab3d41f4c670d028.jpg",
+        "https://imagesdl.dealercenter.net/1289/856/202611-9cdb44dc24cc4073815dfe15a287929d.jpg",
+        "https://imagesdl.dealercenter.net/1289/856/202611-aa8044cb271e41db8ec0d6d402cdd225.jpg",
+        "https://imagesdl.dealercenter.net/1289/856/202611-2532fa136ddf405a9321d8e98f0d5362.jpg",
+        "https://imagesdl.dealercenter.net/1289/856/202611-0d3b4297e8ee4b7381174c1b605ea23f.jpg",
+        "https://imagesdl.dealercenter.net/1289/856/202611-edbfacaa35d744f1894cc3cdb31b4a3e.jpg",
+        "https://imagesdl.dealercenter.net/1289/856/202611-45c4e670dd8545fa9f4c557649658d4c.jpg",
+        "https://imagesdl.dealercenter.net/1289/856/202611-3b10a4433db3449da57d3b3e313150ed.jpg",
+        "https://imagesdl.dealercenter.net/1289/856/202611-24c39afde2b2452d92a8d2b2b1a9e5a2.jpg",
+        "https://imagesdl.dealercenter.net/1289/856/202611-c7d5fb90e15545d1bc3377c91b0d4c80.jpg",
+        "https://imagesdl.dealercenter.net/1289/856/202611-24d37ae1d5084bbfbec24571a70dc804.jpg",
+        "https://imagesdl.dealercenter.net/1289/856/202611-b8f8200f75634994b12f4231ebec43a6.jpg",
+        "https://imagesdl.dealercenter.net/1289/856/202611-c2a835ffa78a42b88bdecfeba104497e.jpg",
+        "https://imagesdl.dealercenter.net/1289/856/202611-8097f324970d423eb3a935c1e6fd8912.jpg",
+        "https://imagesdl.dealercenter.net/1289/856/202611-3db0914945b749b891f8f8fce055217c.jpg",
+        "https://imagesdl.dealercenter.net/1289/856/202611-d87f80d42459499c9383707025856a37.jpg",
+        "https://imagesdl.dealercenter.net/1289/856/202611-8588e02afb5d47cc914c2bac21a36da9.jpg",
+        "https://imagesdl.dealercenter.net/1289/856/202611-3647bc043f0e43088f0003fcc02b8b06.jpg"
+      ],
+      "photos": {
+        "exterior": 34,
+        "interior": 0,
+        "source": "dealercenter"
+      },
+      "status": "available",
+      "slug": "2016-volvo-xc90-t6-momentum-j10268",
+      "dateAdded": "2026-10-23",
+      "featured": true,
+      "sortOrder": 0,
+      "dealRating": "FAIR_PRICE",
+      "priceSavings": -688,
+      "description": "2016 Volvo XC90 T6 Momentum AWD: 316 horsepower supercharged and turbocharged 2.0 liter, all wheel drive, seven seats, leather, panoramic sunroof, heated steering wheel, navigation, adaptive cruise control. Gray on black, 8 speed Geartronic automatic, 2.0L T6. The three row Volvo with Scandinavian design and the safety technology families want, with no dealer fees. Key features: 2.0 liter T6 with a supercharger and a turbocharger making 316 horsepower and 295 lb-ft of torque, 8 speed Geartronic automatic, all wheel drive, leather seating for seven with a fold away third row, panoramic sunroof, heated front seats, heated steering wheel, memory driver seat, head up display, 9 inch vertical touchscreen with navigation, Bluetooth and satellite radio ready, blind spot monitor, lane departure warning, adaptive cruise control, front and rear parking sensors, rear view camera, power liftgate, rear air conditioning, Thor's hammer LED running lights, smart key with push button start, alloy wheels. 20 city and 25 highway from a four cylinder in a full size three row SUV. The Maxim Autos Difference Independent inspection report included with every vehicle Metal plates issued on the spot, drive home today No dealer fees, transparent all in pricing Financing for all credit levels Skokie, IL, minutes from Evanston, Niles, Morton Grove, Lincolnwood, Des Plaines and the North Shore. Call or text (847) 510-8947 for a same day appointment. Every car inspected. Every price transparent. Every car documented.",
+      "highlights": [
+        "T6 Momentum trim",
+        "102,137 miles",
+        "Fully inspected, free CARFAX"
+      ],
+      "features": [],
+      "photoPrefix": "2016-volvo-xc90-t6-momentum",
+      "photoPath": "",
+      "dealerCenterUrl": "",
+      "sold_date": "2026-11-01",
+      "missing_since": "2026-11-01T00:30:27.712Z"
     }
   }
 }
