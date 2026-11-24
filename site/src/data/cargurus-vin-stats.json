@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-11-24T06:00:23.611Z",
+  "last_updated": "2026-11-24T06:30:24.683Z",
   "period_start": "2026-11-17",
   "period_end": "2026-11-24",
   "by_vin": {
@@ -106,6 +106,15 @@
       "srp_views": 108,
       "vdp_views": 11,
       "leads_email": 3,
+      "leads_phone": 0,
+      "leads_chat": 0,
+      "website_clicks": 0,
+      "map_clicks": 0
+    },
+    "KNALN4D73F5184873": {
+      "srp_views": 4,
+      "vdp_views": 0,
+      "leads_email": 1,
       "leads_phone": 0,
       "leads_chat": 0,
       "website_clicks": 0,
