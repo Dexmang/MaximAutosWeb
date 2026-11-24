@@ -4,7 +4,7 @@
   <title>Maxim Autos Vehicle Inventory</title>
   <link>https://www.maximautos.com/</link>
   <description>Used vehicles for sale at Maxim Autos in Skokie, IL 60077. Phone +18475108947.</description>
-  <lastBuildDate>2026-11-24T01:00:14.296Z</lastBuildDate>
+  <lastBuildDate>2026-11-24T01:30:14.758Z</lastBuildDate>
   <item>
     <g:id>1G1PC5SB9E7454238</g:id>
     <g:title>2014 Chevrolet Cruze 1LT</g:title>
@@ -102,7 +102,7 @@
     <g:related_product>
       <g:relationship_type>substitute</g:relationship_type>
       <g:identifier_type>id</g:identifier_type>
-      <g:identifier>WAUGFAFC8GN006353</g:identifier>
+      <g:identifier>KNALN4D73F5184873</g:identifier>
     </g:related_product>
   </item>
   <item>
@@ -202,7 +202,97 @@
     <g:related_product>
       <g:relationship_type>substitute</g:relationship_type>
       <g:identifier_type>id</g:identifier_type>
-      <g:identifier>WAUGFAFC8GN006353</g:identifier>
+      <g:identifier>KNALN4D73F5184873</g:identifier>
+    </g:related_product>
+  </item>
+  <item>
+    <g:id>3VW217AU4GM047262</g:id>
+    <g:title>2016 Volkswagen Golf TSI SE Hatchback</g:title>
+    <g:description>2016 Volkswagen Golf SE: turbocharged 1.8 liter with 170 horsepower, panoramic sunroof, Fender premium audio and 35 MPG highway. Red on black leatherette, automatic, front wheel drive. A fun, practical hatchback for the commuter who wants German road manners and real fuel savings, with no dealer fees. Key features: EPA estimated 25 city and 35 highway MPG, 1.8 liter turbo engine with 170 horsepower and 199 pound feet of torque, 6 speed automatic transmission, panoramic sunroof, Fender premium audio, heated front seats, leatherette seating, rearview camera, keyless access with push button start, Bluetooth, satellite radio ready, alloy wheels and cruise control. 22.8 cubic feet of cargo space behind the rear seat and 52.7 with the seat folded. The Maxim Autos Difference Independent inspection report included with every vehicle Metal plates issued on the spot, drive home today, skip the DMV No dealer fees at Maxim Autos, ever. The price you see is the price you pay, plus tax, title, and license. Financing for all credit levels Skokie, IL, Evanston, Niles, Morton Grove, Lincolnwood, Des Plaines, North Shore Chicago. Call or text (847) 510-8947 to confirm it is still available. Every car inspected. Every price transparent. Every car documented.</g:description>
+    <g:link>https://www.maximautos.com/vehicle/2016-volkswagen-golf-tsi-se-hatchback-j10291</g:link>
+    <g:link_template>https://www.maximautos.com/vehicle/2016-volkswagen-golf-tsi-se-hatchback-j10291?store={store_code}</g:link_template>
+    <g:image_link>https://imagesdl.dealercenter.net/1289/856/202611-d2af058ec6cc464b9655651c6780663b.jpg</g:image_link>
+    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202611-1bf0189204324877a04f6bae1753df9f.jpg</g:additional_image_link>
+    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202611-6b3bc248cf2842388c07d47b53f10bae.jpg</g:additional_image_link>
+    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202611-6aca0b943f21443899de51ad521996f9.jpg</g:additional_image_link>
+    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202611-ce61966949e04f98bcbfabdbbb0b0189.jpg</g:additional_image_link>
+    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202611-dc4dca6c0f844464b47e645552f57215.jpg</g:additional_image_link>
+    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202611-503bdf0654e04daa8082c3a367a3d779.jpg</g:additional_image_link>
+    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202611-f7fdb30b353e444e9b4e35acb204a374.jpg</g:additional_image_link>
+    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202611-6993e44639ce4e25b93397311f8c0e78.jpg</g:additional_image_link>
+    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202611-a0cd5c066c0f4b889728466bffccb44b.jpg</g:additional_image_link>
+    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202611-52c78b781ed44e59acbe4dad41fa4fe2.jpg</g:additional_image_link>
+    <g:condition>used</g:condition>
+    <g:price>9495 USD</g:price>
+    <g:availability>in_stock</g:availability>
+    <g:brand>Volkswagen</g:brand>
+    <g:google_product_category>Vehicles &amp; Parts &gt; Vehicles &gt; Motor Vehicles &gt; Cars, Trucks &amp; Vans</g:google_product_category>
+    <g:excluded_destination>Shopping_ads</g:excluded_destination>
+    <g:excluded_destination>Free_listings</g:excluded_destination>
+    <g:vin>3VW217AU4GM047262</g:vin>
+    <g:year>2016</g:year>
+    <g:model>Golf</g:model>
+    <g:mileage>117527 Miles</g:mileage>
+    <g:store_code>08861907241419503398</g:store_code>
+    <g:vehicle_fulfillment>
+      <g:option>in_store</g:option>
+    </g:vehicle_fulfillment>
+    <g:color>Red</g:color>
+    <g:trim>TSI SE Hatchback</g:trim>
+    <g:body_style>hatchback</g:body_style>
+    <g:custom_label_0>age_0_30</g:custom_label_0>
+    <g:custom_label_1>hatchback</g:custom_label_1>
+    <g:custom_label_2>price_8k_to_12k</g:custom_label_2>
+    <g:custom_label_3>cg_good_deal</g:custom_label_3>
+    <g:custom_label_4>two_wheel_drive</g:custom_label_4>
+    <g:question_and_answer>
+      <g:question>Is this used Volkswagen Golf inspected before sale?</g:question>
+      <g:answer>Every car is inspected before it goes on the lot, and a free CARFAX comes with it. Ask Jerry what was checked on any car before you decide.</g:answer>
+    </g:question_and_answer>
+    <g:question_and_answer>
+      <g:question>Does this Volkswagen Golf come with a CARFAX report?</g:question>
+      <g:answer>Yes. A CARFAX vehicle history report is included with every used vehicle at Maxim Autos at no extra cost.</g:answer>
+    </g:question_and_answer>
+    <g:question_and_answer>
+      <g:question>Can I get financing on this Volkswagen Golf?</g:question>
+      <g:answer>Yes. Maxim Autos offers financing for all credit levels, including first time buyers and those rebuilding credit. Start with the short financing form or a call to Jerry: neither touches your credit. A full application does include a credit check, and approval is never guaranteed.</g:answer>
+    </g:question_and_answer>
+    <g:question_and_answer>
+      <g:question>Are there dealer fees or doc fees on this Volkswagen Golf?</g:question>
+      <g:answer>No. Maxim Autos never charges dealer fees. No doc fee, no processing fee, no surprise extras at signing. The listed price is what you pay plus standard Illinois tax, title and license.</g:answer>
+    </g:question_and_answer>
+    <g:question_and_answer>
+      <g:question>Can I drive this Volkswagen Golf home the same day?</g:question>
+      <g:answer>Yes. Maxim Autos is an authorized Illinois CVR (Computer Vehicle Registration) electronic registration dealer. Metal plates are issued the same visit for cars registered in Illinois. Buyers registering in another state receive an Illinois drive away permit and plate the car at home.</g:answer>
+    </g:question_and_answer>
+    <g:question_and_answer>
+      <g:question>Is this Volkswagen Golf all wheel drive?</g:question>
+      <g:answer>No. This 2016 Volkswagen Golf TSI SE Hatchback is front wheel drive.</g:answer>
+    </g:question_and_answer>
+    <g:question_and_answer>
+      <g:question>What transmission does this Volkswagen Golf have?</g:question>
+      <g:answer>This 2016 Volkswagen Golf TSI SE Hatchback has an automatic transmission.</g:answer>
+    </g:question_and_answer>
+    <g:question_and_answer>
+      <g:question>What is the fuel economy of this Volkswagen Golf?</g:question>
+      <g:answer>EPA estimated 25 city and 35 highway MPG for this 2016 Volkswagen Golf TSI SE Hatchback.</g:answer>
+    </g:question_and_answer>
+    <g:question_and_answer>
+      <g:question>What engine is in this Volkswagen Golf?</g:question>
+      <g:answer>This 2016 Volkswagen Golf TSI SE Hatchback has a 170.00 hp 1.8L I4 engine.</g:answer>
+    </g:question_and_answer>
+    <g:question_and_answer>
+      <g:question>Where can I see this Volkswagen Golf in person?</g:question>
+      <g:answer>At Maxim Autos, 9101 Terminal Ave, Skokie, IL 60077, serving Evanston, Niles, Morton Grove, Lincolnwood, Des Plaines, Glenview, Wilmette and Park Ridge. Hours: Monday, Tuesday, Thursday and Friday 3 PM to 7 PM, Saturday 10 AM to 3 PM, Wednesday by appointment, Sunday closed. Call or text (847) 510-8947.</g:answer>
+    </g:question_and_answer>
+    <g:question_and_answer>
+      <g:question>Can I trade in my current car toward this Volkswagen Golf?</g:question>
+      <g:answer>Yes. Maxim Autos accepts trade ins and also buys cars outright. Text the VIN of your car to (847) 510-8947 for a quick offer, no obligation.</g:answer>
+    </g:question_and_answer>
+    <g:related_product>
+      <g:relationship_type>substitute</g:relationship_type>
+      <g:identifier_type>id</g:identifier_type>
+      <g:identifier>JF1GPAC63EH339804</g:identifier>
     </g:related_product>
   </item>
   <item>
@@ -573,6 +663,11 @@
       <g:question>Can I trade in my current car toward this Subaru Impreza?</g:question>
       <g:answer>Yes. Maxim Autos accepts trade ins and also buys cars outright. Text the VIN of your car to (847) 510-8947 for a quick offer, no obligation.</g:answer>
     </g:question_and_answer>
+    <g:related_product>
+      <g:relationship_type>substitute</g:relationship_type>
+      <g:identifier_type>id</g:identifier_type>
+      <g:identifier>3VW217AU4GM047262</g:identifier>
+    </g:related_product>
   </item>
   <item>
     <g:id>JN8AF5MR5FT510459</g:id>
@@ -967,7 +1062,107 @@
     <g:related_product>
       <g:relationship_type>substitute</g:relationship_type>
       <g:identifier_type>id</g:identifier_type>
+      <g:identifier>KNALN4D73F5184873</g:identifier>
+    </g:related_product>
+  </item>
+  <item>
+    <g:id>KNALN4D73F5184873</g:id>
+    <g:title>2015 Kia Cadenza Premium</g:title>
+    <g:description>2015 Kia Cadenza Premium: 3.3 liter V6 with 293 horsepower, leather, navigation, Infinity premium audio and heated front seats. White on cream leather, automatic, front wheel drive. A full size luxury sedan for the driver who wants a quiet, roomy highway car at a compact car price, with no dealer fees. Key features: EPA estimated 19 city and 28 highway MPG, 3.3 liter direct injection V6 with 293 horsepower and 255 pound feet of torque, 6 speed automatic transmission, leather seats, heated and power front seats, navigation system, Infinity sound system, rearview camera, parking sensors, smart key with push button start, Bluetooth, satellite radio ready, alloy wheels and cruise control. A 15.9 cubic foot trunk and rear seat legroom that rivals cars costing far more. The Maxim Autos Difference Independent inspection report included with every vehicle Metal plates issued on the spot, drive home today, skip the DMV No dealer fees at Maxim Autos, ever. The price you see is the price you pay, plus tax, title, and license. Financing for all credit levels Skokie, IL, Evanston, Niles, Morton Grove, Lincolnwood, Des Plaines, North Shore Chicago. Call or text (847) 510-8947 to confirm it is still available. Every car inspected. Every price transparent. Every car documented.</g:description>
+    <g:link>https://www.maximautos.com/vehicle/2015-kia-cadenza-premium-j10292</g:link>
+    <g:link_template>https://www.maximautos.com/vehicle/2015-kia-cadenza-premium-j10292?store={store_code}</g:link_template>
+    <g:image_link>https://imagesdl.dealercenter.net/1289/856/202611-da1c95dd9eba432dbe09b9c9ae66ed9c.jpg</g:image_link>
+    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202611-f6e66d4ff2ea472fab79744479d452a9.jpg</g:additional_image_link>
+    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202611-1170577db532426d83908f26bc9d8176.jpg</g:additional_image_link>
+    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202611-b9b8fa0732bd42c392ff5f4f22b5ea84.jpg</g:additional_image_link>
+    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202611-c9d6b2cf8b10423eb3dbd04823012e44.jpg</g:additional_image_link>
+    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202611-5e0407ddf8ab4cd9a828a41f8c700537.jpg</g:additional_image_link>
+    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202611-aeade54e071d4d2996b43a528b06b1de.jpg</g:additional_image_link>
+    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202611-b5b8b692899343feb7ab973142113dcf.jpg</g:additional_image_link>
+    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202611-e4a6329629714f44829e58404bb34458.jpg</g:additional_image_link>
+    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202611-d2944404c2c44541b5a0b89c5fe6b6ee.jpg</g:additional_image_link>
+    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202611-1834fcabea204e50a21600ca0c219ccb.jpg</g:additional_image_link>
+    <g:condition>used</g:condition>
+    <g:price>9495 USD</g:price>
+    <g:availability>in_stock</g:availability>
+    <g:brand>Kia</g:brand>
+    <g:google_product_category>Vehicles &amp; Parts &gt; Vehicles &gt; Motor Vehicles &gt; Cars, Trucks &amp; Vans</g:google_product_category>
+    <g:excluded_destination>Shopping_ads</g:excluded_destination>
+    <g:excluded_destination>Free_listings</g:excluded_destination>
+    <g:vin>KNALN4D73F5184873</g:vin>
+    <g:year>2015</g:year>
+    <g:model>Cadenza</g:model>
+    <g:mileage>114984 Miles</g:mileage>
+    <g:store_code>08861907241419503398</g:store_code>
+    <g:vehicle_fulfillment>
+      <g:option>in_store</g:option>
+    </g:vehicle_fulfillment>
+    <g:color>White</g:color>
+    <g:trim>Premium</g:trim>
+    <g:body_style>sedan</g:body_style>
+    <g:custom_label_0>age_0_30</g:custom_label_0>
+    <g:custom_label_1>sedan</g:custom_label_1>
+    <g:custom_label_2>price_8k_to_12k</g:custom_label_2>
+    <g:custom_label_3>cg_fair_deal</g:custom_label_3>
+    <g:custom_label_4>two_wheel_drive</g:custom_label_4>
+    <g:question_and_answer>
+      <g:question>Is this used Kia Cadenza inspected before sale?</g:question>
+      <g:answer>Every car is inspected before it goes on the lot, and a free CARFAX comes with it. Ask Jerry what was checked on any car before you decide.</g:answer>
+    </g:question_and_answer>
+    <g:question_and_answer>
+      <g:question>Does this Kia Cadenza come with a CARFAX report?</g:question>
+      <g:answer>Yes. A CARFAX vehicle history report is included with every used vehicle at Maxim Autos at no extra cost.</g:answer>
+    </g:question_and_answer>
+    <g:question_and_answer>
+      <g:question>Can I get financing on this Kia Cadenza?</g:question>
+      <g:answer>Yes. Maxim Autos offers financing for all credit levels, including first time buyers and those rebuilding credit. Start with the short financing form or a call to Jerry: neither touches your credit. A full application does include a credit check, and approval is never guaranteed.</g:answer>
+    </g:question_and_answer>
+    <g:question_and_answer>
+      <g:question>Are there dealer fees or doc fees on this Kia Cadenza?</g:question>
+      <g:answer>No. Maxim Autos never charges dealer fees. No doc fee, no processing fee, no surprise extras at signing. The listed price is what you pay plus standard Illinois tax, title and license.</g:answer>
+    </g:question_and_answer>
+    <g:question_and_answer>
+      <g:question>Can I drive this Kia Cadenza home the same day?</g:question>
+      <g:answer>Yes. Maxim Autos is an authorized Illinois CVR (Computer Vehicle Registration) electronic registration dealer. Metal plates are issued the same visit for cars registered in Illinois. Buyers registering in another state receive an Illinois drive away permit and plate the car at home.</g:answer>
+    </g:question_and_answer>
+    <g:question_and_answer>
+      <g:question>Is this Kia Cadenza all wheel drive?</g:question>
+      <g:answer>No. This 2015 Kia Cadenza Premium is front wheel drive.</g:answer>
+    </g:question_and_answer>
+    <g:question_and_answer>
+      <g:question>What transmission does this Kia Cadenza have?</g:question>
+      <g:answer>This 2015 Kia Cadenza Premium has an automatic transmission.</g:answer>
+    </g:question_and_answer>
+    <g:question_and_answer>
+      <g:question>What is the fuel economy of this Kia Cadenza?</g:question>
+      <g:answer>EPA estimated 19 city and 28 highway MPG for this 2015 Kia Cadenza Premium.</g:answer>
+    </g:question_and_answer>
+    <g:question_and_answer>
+      <g:question>What engine is in this Kia Cadenza?</g:question>
+      <g:answer>This 2015 Kia Cadenza Premium has a 3.3L V6 engine.</g:answer>
+    </g:question_and_answer>
+    <g:question_and_answer>
+      <g:question>Where can I see this Kia Cadenza in person?</g:question>
+      <g:answer>At Maxim Autos, 9101 Terminal Ave, Skokie, IL 60077, serving Evanston, Niles, Morton Grove, Lincolnwood, Des Plaines, Glenview, Wilmette and Park Ridge. Hours: Monday, Tuesday, Thursday and Friday 3 PM to 7 PM, Saturday 10 AM to 3 PM, Wednesday by appointment, Sunday closed. Call or text (847) 510-8947.</g:answer>
+    </g:question_and_answer>
+    <g:question_and_answer>
+      <g:question>Can I trade in my current car toward this Kia Cadenza?</g:question>
+      <g:answer>Yes. Maxim Autos accepts trade ins and also buys cars outright. Text the VIN of your car to (847) 510-8947 for a quick offer, no obligation.</g:answer>
+    </g:question_and_answer>
+    <g:related_product>
+      <g:relationship_type>substitute</g:relationship_type>
+      <g:identifier_type>id</g:identifier_type>
       <g:identifier>WAUGFAFC8GN006353</g:identifier>
+    </g:related_product>
+    <g:related_product>
+      <g:relationship_type>substitute</g:relationship_type>
+      <g:identifier_type>id</g:identifier_type>
+      <g:identifier>1N4AL3AP5DC227543</g:identifier>
+    </g:related_product>
+    <g:related_product>
+      <g:relationship_type>substitute</g:relationship_type>
+      <g:identifier_type>id</g:identifier_type>
+      <g:identifier>KNAFU4A25D5728313</g:identifier>
     </g:related_product>
   </item>
   <item>
@@ -1242,17 +1437,17 @@
     <g:related_product>
       <g:relationship_type>substitute</g:relationship_type>
       <g:identifier_type>id</g:identifier_type>
+      <g:identifier>KNALN4D73F5184873</g:identifier>
+    </g:related_product>
+    <g:related_product>
+      <g:relationship_type>substitute</g:relationship_type>
+      <g:identifier_type>id</g:identifier_type>
       <g:identifier>1N4AL3AP5DC227543</g:identifier>
     </g:related_product>
     <g:related_product>
       <g:relationship_type>substitute</g:relationship_type>
       <g:identifier_type>id</g:identifier_type>
       <g:identifier>KNAFU4A25D5728313</g:identifier>
-    </g:related_product>
-    <g:related_product>
-      <g:relationship_type>substitute</g:relationship_type>
-      <g:identifier_type>id</g:identifier_type>
-      <g:identifier>1G1PC5SB9E7454238</g:identifier>
     </g:related_product>
   </item>
 </channel>
