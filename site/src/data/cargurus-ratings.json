@@ -1,23 +1,23 @@
 {
   "source": "https://www.cargurus.com/Cars/m-Maxim-Autos-sp457703",
-  "fetchedAt": "2026-11-25T00:30:04Z",
+  "fetchedAt": "2026-11-25T01:00:04Z",
   "note": "CarGurus deal ratings read from the PKA machine (the GitHub runner gets HTTP 406). build-inventory.js uses this when its own fetch fails and only applies a rating whose cgPrice equals the DealerCenter price.",
   "by_vin": {
     "1G1PC5SB9E7454238": {
       "stock": "J10285",
       "dealRating": "FAIR_PRICE",
-      "priceSavings": 233,
+      "priceSavings": 225,
       "cgPrice": 5995,
-      "imv": 6228,
-      "daysOnMarket": 18
+      "imv": 6220,
+      "daysOnMarket": 19
     },
     "1N4AL3AP5DC227543": {
       "stock": "J10284",
       "dealRating": "GOOD_PRICE",
-      "priceSavings": 387,
+      "priceSavings": 337,
       "cgPrice": 6950,
-      "imv": 7337,
-      "daysOnMarket": 18
+      "imv": 7287,
+      "daysOnMarket": 19
     },
     "3VW217AU4GM047262": {
       "stock": "J10291",
@@ -25,7 +25,7 @@
       "priceSavings": -149,
       "cgPrice": 9945,
       "imv": 9796,
-      "daysOnMarket": null
+      "daysOnMarket": 1
     },
     "4S4BSAKCXJ3314086": {
       "stock": "J10271",
@@ -49,7 +49,7 @@
       "priceSavings": 398,
       "cgPrice": 9995,
       "imv": 10393,
-      "daysOnMarket": 4
+      "daysOnMarket": 5
     },
     "JF1GPAC63EH339804": {
       "stock": "J10263",
@@ -86,10 +86,10 @@
     "KNAFU4A25D5728313": {
       "stock": "J10283",
       "dealRating": "FAIR_PRICE",
-      "priceSavings": 236,
+      "priceSavings": 507,
       "cgPrice": 6495,
-      "imv": 6731,
-      "daysOnMarket": 18
+      "imv": 7002,
+      "daysOnMarket": 19
     },
     "KNALN4D73F5184873": {
       "stock": "J10292",
@@ -97,7 +97,7 @@
       "priceSavings": -56,
       "cgPrice": 9495,
       "imv": 9439,
-      "daysOnMarket": null
+      "daysOnMarket": 1
     },
     "KNDMB5C14G6201419": {
       "stock": "J10278",
@@ -117,11 +117,11 @@
     },
     "WAUGFAFC8GN006353": {
       "stock": "J10282",
-      "dealRating": "GOOD_PRICE",
-      "priceSavings": 475,
+      "dealRating": "FAIR_PRICE",
+      "priceSavings": 232,
       "cgPrice": 10995,
-      "imv": 11470,
-      "daysOnMarket": 17
+      "imv": 11227,
+      "daysOnMarket": 18
     },
     "YV4A22PK8G1072955": {
       "stock": "J10268",
