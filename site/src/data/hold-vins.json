@@ -62,6 +62,12 @@
       "reason": "inbound",
       "since": "2026-11-25",
       "note": "Jerry 2026-11-25: set to Inbound in DealerCenter to fix issues. Plain hold, releases itself when the VIN is back in the feed."
+    },
+    "WA1D7AFP0GA094726": {
+      "stock": "J10275",
+      "reason": "deposit",
+      "since": "2026-11-25",
+      "note": "Jerry 2026-11-25: deposit taken, set to Inbound in DealerCenter. Plain hold, releases itself if the VIN returns to the feed."
     }
   }
 }
