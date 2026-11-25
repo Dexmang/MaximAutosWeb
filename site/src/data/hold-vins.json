@@ -56,6 +56,12 @@
       "reason": "inbound",
       "since": "2026-11-25",
       "note": "Jerry 2026-11-25: set to Inbound in DealerCenter to fix issues. Plain hold, releases itself when the VIN is back in the feed."
+    },
+    "JF1GPAC63EH339804": {
+      "stock": "J10263",
+      "reason": "inbound",
+      "since": "2026-11-25",
+      "note": "Jerry 2026-11-25: set to Inbound in DealerCenter to fix issues. Plain hold, releases itself when the VIN is back in the feed."
     }
   }
 }
