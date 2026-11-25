@@ -50,6 +50,12 @@
       "since": "2026-11-23",
       "note": "transmission issue, Manheim arbitration entered 2026-11-23",
       "bridge": true
+    },
+    "4S4BSAKCXJ3314086": {
+      "stock": "J10271",
+      "reason": "inbound",
+      "since": "2026-11-25",
+      "note": "Jerry 2026-11-25: set to Inbound in DealerCenter to fix issues. Plain hold, releases itself when the VIN is back in the feed."
     }
   }
 }
