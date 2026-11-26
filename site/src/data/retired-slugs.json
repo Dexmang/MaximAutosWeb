@@ -54,6 +54,24 @@
       "stockNumber": "J10290",
       "retired_at": "2026-11-23",
       "redirect_to": "/inventory"
+    },
+    "2018-subaru-outback-2-5i-limited-j10271": {
+      "vin": "4S4BSAKCXJ3314086",
+      "stockNumber": "J10271",
+      "retired_at": "2026-11-26",
+      "redirect_to": "/inventory"
+    },
+    "2014-subaru-impreza-2-0i-premium-j10263": {
+      "vin": "JF1GPAC63EH339804",
+      "stockNumber": "J10263",
+      "retired_at": "2026-11-26",
+      "redirect_to": "/inventory"
+    },
+    "2016-audi-q5-3-0t-premium-plus-j10275": {
+      "vin": "WA1D7AFP0GA094726",
+      "stockNumber": "J10275",
+      "retired_at": "2026-11-26",
+      "redirect_to": "/inventory"
     }
   }
 }
