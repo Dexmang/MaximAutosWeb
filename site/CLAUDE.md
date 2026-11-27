@@ -109,6 +109,8 @@ Other data files:
 
 `src/pages/vehicle/[slug].astro` — vehicle detail page. Has two separate slider-based payment calculators: mobile (prefix `m-fin-`) and desktop sidebar (prefix `sb-fin-`). The page reads vehicle price from `data-vehicle-price` on a DOM element.
 
+Two layouts share one source (Jerry, 2026-11-26). **Desktop, lg and up:** header card, photo grid, two columns with the sidebar; unchanged apart from the 4:3 main photo. **Below lg:** photos first (the gallery section is shown ahead of the header card with CSS `order`, so the h1 stays first in the source), on phones as a swipe strip whose slides after the first load on approach; then name and price, the facts line with MPG, the estimate folded to its total (`OtdEstimate collapsible`, a `<details>` that opens in place), the cap line (`TrustPair vdp-cap`), the call ahead box, the features as chips (`VdpFeatures variant="chips"`), then specs and description, and `Price and payment` (fee chip, fee sentence, Google row, payment estimate with its Reg Z line, payment calculator) ahead of the FAQ. The vehicle price must stay the largest dollar figure on the page: 30 px in the header against 18 px for the folded total and 20 px open.
+
 ## Design Tokens
 
 Defined in `tailwind.config.mjs`:

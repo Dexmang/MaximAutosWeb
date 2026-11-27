@@ -58,9 +58,20 @@ interface Props {
   targetId?: string;
   /** h3 under a section h2 (fee page, home). The vehicle page passes h2: it follows the h1. */
   headingTag?: 'h2' | 'h3';
+  /**
+   * Phone vehicle page (Jerry, 2026-11-26): the block starts folded to its total and its
+   * assumptions, right under the price, and opens in place on a tap. Open, it is the same
+   * block with the same inputs. The full block filled a whole phone screen between the
+   * price and the first fact about the car. The fence above still holds folded: the figure
+   * is labelled "Estimated total at signing", its assumptions sit beside it at 14 px, and
+   * it is smaller than the vehicle price: 18 px folded and 20 px open, against the 30 px
+   * price in the vehicle page header.
+   */
+  collapsible?: boolean;
 }
-const { price, title, stockNumber = '', lang = 'en', class: className = '', id = undefined, variant = 'full', targetId = 'estimate', headingTag = 'h3' } = Astro.props;
+const { price, title, stockNumber = '', lang = 'en', class: className = '', id = undefined, variant = 'full', targetId = 'estimate', headingTag = 'h3', collapsible = false } = Astro.props;
 const Heading = headingTag;
+const Root = collapsible ? 'details' : 'section';
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 const es = lang === 'es';
 const T = facts.taxes;
@@ -107,6 +118,8 @@ const t = es
       },
       taxVaries: 'varia',
       totalOut: 'Escribenos para tu total exacto',
+      totalOutShort: 'Escribenos',
+      foldOpen: 'Ver el desglose',
       note: `Estimado para una compra de contado sin auto a cuenta. Illinois cobra el impuesto segun la direccion donde se registra el auto, asi que la cifra exacta se calcula con tu direccion al firmar. Las tarifas de titulo y placas las fija la Secretaria de Estado de Illinois.${F.ert > 0 ? ' La linea ERT es el tramite electronico que entrega tus placas de metal el mismo dia, cobrado al costo.' : ''} Nada mas se agrega.`,
       out: 'Fuera de Illinois? Vendemos y entregamos a otros estados, con envio asegurado puerta a puerta y un video personal del auto antes de que te comprometas. Lo que cobra Illinois depende de tu estado, asi que escribenos tu codigo postal para el total exacto.',
       outLink: 'Como funciona la compra desde otro estado',
@@ -153,6 +166,8 @@ const t = es
       },
       taxVaries: 'varies',
       totalOut: 'Text us for your exact total',
+      totalOutShort: 'Text us',
+      foldOpen: 'See the breakdown',
       note: `Estimate for a cash purchase with no trade in. Illinois taxes the car at the rate for the address where it is registered, so the exact figure is calculated on your address at signing. Title and plate fees are set by the Illinois Secretary of State.${F.ert > 0 ? ' The ERT line is the electronic filing that issues your metal plates the same visit, passed through at cost.' : ''} Nothing else is added.`,
       out: 'Outside Illinois? We sell and deliver out of state, insured door to door, with a personal video walkaround before you commit. What Illinois collects depends on your state, so text us your ZIP for the exact total.',
       outLink: 'How buying from out of state works',
@@ -195,7 +210,7 @@ const defaultSms = t.smsDefault.replace('{title}', title).replace('{stockPart}',
   </section>
 )}
 {variant === 'full' && (
-<section
+<Root
   id={id}
   data-otd
   data-otd-price={price}
@@ -203,24 +218,46 @@ const defaultSms = t.smsDefault.replace('{title}', title).replace('{stockPart}',
   data-otd-stock={stockNumber}
   data-otd-strings={JSON.stringify(t)}
   data-cta="vdp_otd"
-  class={`rounded-xl border-2 border-navy/15 bg-white p-4 shadow-sm ${className}`}
-  aria-label={t.headline}
+  class={collapsible
+    ? `group rounded-xl border-2 border-navy/15 bg-white px-3.5 py-2.5 shadow-sm ${className}`
+    : `rounded-xl border-2 border-navy/15 bg-white p-4 shadow-sm ${className}`}
+  aria-label={collapsible ? undefined : t.headline}
 >
-  {/* Headline band (Jerry, 2026-10-13: make the calculator prominent). "Out the door cost" is the
-      phrase buyers search for; the figure itself stays labelled "Estimated total at signing" with its
-      assumptions beside it, so the net impression is an estimate, not a quote. */}
-  <div class="-mx-4 -mt-4 mb-3 px-4 py-3 bg-navy text-white rounded-t-[10px] flex items-start gap-2.5">
-    <Icon name="calculate" class="text-2xl text-orange shrink-0 mt-0.5" fill />
-    <div>
-      <Heading class="font-headline text-base md:text-lg font-extrabold leading-tight">{t.headline}</Heading>
-      <p class="text-sm text-white/80 leading-snug mt-0.5">{t.sub}</p>
-    </div>
-  </div>
-  <p class="text-sm text-gray-700 leading-snug">
-    <span class="font-bold text-green-700">{t.capLead}</span>{t.capRest && <>{' '}{t.capRest}</>}
-  </p>
+  {/* Folded form: the total and what it assumes. The whole summary is the tap target. */}
+  {collapsible && (
+    <summary class="list-none [&::-webkit-details-marker]:hidden cursor-pointer select-none">
+      <span class="flex items-baseline justify-between gap-3">
+        <span class="font-headline text-sm font-bold text-navy">{t.rowTotal}</span>
+        <span class="inline-flex items-center gap-1 shrink-0">
+          <span data-otd-mini-total class="font-headline text-lg font-extrabold text-navy tabular-nums">{money(defaultTotal)}</span>
+          <Icon name="expand_more" class="text-xl text-gray-500 transition-transform duration-200 group-open:rotate-180" />
+        </span>
+      </span>
+      <span class="block mt-0.5 text-sm leading-snug text-gray-600" data-nosnippet>
+        <span data-otd-mini-rate>{t.regions.default}</span><span aria-hidden="true"> · </span><span data-otd-mini-plates>{t.platesNewWord}</span><span class="group-open:hidden"><span aria-hidden="true"> · </span><span class="font-semibold text-navy underline underline-offset-2">{t.foldOpen}</span></span>
+      </span>
+    </summary>
+  )}
+  {!collapsible && (
+    <>
+      {/* Headline band (Jerry, 2026-10-13: make the calculator prominent). "Out the door cost" is the
+          phrase buyers search for; the figure itself stays labelled "Estimated total at signing" with its
+          assumptions beside it, so the net impression is an estimate, not a quote. */}
+      <div class="-mx-4 -mt-4 mb-3 px-4 py-3 bg-navy text-white rounded-t-[10px] flex items-start gap-2.5">
+        <Icon name="calculate" class="text-2xl text-orange shrink-0 mt-0.5" fill />
+        <div>
+          <Heading class="font-headline text-base md:text-lg font-extrabold leading-tight">{t.headline}</Heading>
+          <p class="text-sm text-white/80 leading-snug mt-0.5">{t.sub}</p>
+        </div>
+      </div>
+      <p class="text-sm text-gray-700 leading-snug">
+        <span class="font-bold text-green-700">{t.capLead}</span>{t.capRest && <>{' '}{t.capRest}</>}
+      </p>
 
-  <p class="font-headline text-sm font-bold text-navy mt-3 uppercase tracking-wide">{t.heading}</p>
+      <p class="font-headline text-sm font-bold text-navy mt-3 uppercase tracking-wide">{t.heading}</p>
+    </>
+  )}
+  {collapsible && <div class="mt-2.5 border-t border-gray-200" aria-hidden="true"></div>}
   <slot name="picker" />
   {hasPicker && (
     <p class="mt-2 flex items-baseline justify-between gap-3">
@@ -261,7 +298,7 @@ const defaultSms = t.smsDefault.replace('{title}', title).replace('{stockPart}',
     <div class="flex justify-between gap-3 py-1.5"><dt data-otd-plates-lbl class="text-gray-700">{t.rowPlatesNew}</dt><dd data-otd-plates-out class="font-semibold text-navy">{money(F.plates)}</dd></div>
     <div class="flex justify-between items-baseline gap-3 pt-2.5" data-nosnippet>
       <dt class="font-bold text-navy">{t.rowTotal}</dt>
-      <dd data-otd-total class={`font-headline ${hasPicker ? 'text-lg' : 'text-2xl'} font-extrabold text-navy text-right`}>{money(defaultTotal)}</dd>
+      <dd data-otd-total class={`font-headline ${hasPicker ? 'text-lg' : collapsible ? 'text-xl' : 'text-2xl'} font-extrabold text-navy text-right`}>{money(defaultTotal)}</dd>
     </div>
   </dl>
 
@@ -280,7 +317,7 @@ const defaultSms = t.smsDefault.replace('{title}', title).replace('{stockPart}',
       <Icon name="call" class="text-base" fill />{t.ctaCall}
     </a>
   </div>
-</section>
+</Root>
 )}
 
 <script>
@@ -323,6 +360,14 @@ const defaultSms = t.smsDefault.replace('{title}', title).replace('{stockPart}',
       rate: q('[data-otd-rate]'), platesLbl: q('[data-otd-plates-lbl]'), plates: q('[data-otd-plates-out]'),
       total: q('[data-otd-total]'), out: q('[data-otd-out]'), sms: q('[data-otd-sms]'),
       priceBig: q('[data-otd-price-big]'),
+      miniTotal: q('[data-otd-mini-total]'), miniRate: q('[data-otd-mini-rate]'), miniPlates: q('[data-otd-mini-plates]'),
+    };
+    // Folded form (vehicle page on a phone): the summary repeats the total, the rate text and
+    // the plates choice the block is using, so the folded figure never disagrees with the open one.
+    const mirror = (totalText, platesWord) => {
+      if (el.miniTotal) el.miniTotal.textContent = totalText;
+      if (el.miniRate) el.miniRate.textContent = el.rate.textContent;
+      if (el.miniPlates) el.miniPlates.textContent = platesWord;
     };
     let lastZip = null;
     if (!zipEl || !el.total) return;
@@ -364,6 +409,7 @@ const defaultSms = t.smsDefault.replace('{title}', title).replace('{stockPart}',
         el.tax.textContent = s.taxVaries;
         el.total.textContent = s.totalOut;
         el.sms.href = 'sms:8475108947&body=' + encodeURIComponent(fill(s.smsOut, { title, stockPart, zip: z }));
+        mirror(s.totalOutShort || s.totalOut, platesWord);
         return;
       }
 
@@ -382,6 +428,7 @@ const defaultSms = t.smsDefault.replace('{title}', title).replace('{stockPart}',
           : fill(s.smsDefault, { title, stockPart })
       );
       if (r) { try { localStorage.setItem('maxim_zip', z); } catch (e) { /* private mode */ } }
+      mirror(money(total), platesWord);
     }
 
     zipEl.addEventListener('input', render);
@@ -398,6 +445,17 @@ const defaultSms = t.smsDefault.replace('{title}', title).replace('{stockPart}',
       });
     }
     render();
+    // Folded block: count the first open, so the numbers show whether buyers use it (the
+    // 2026-10-20 layout review asked for that measure before the fold was approved).
+    if (sec.tagName === 'DETAILS') {
+      let counted = false;
+      sec.addEventListener('toggle', () => {
+        if (!sec.open || counted) return;
+        counted = true;
+        const g = window.gtag;
+        if (typeof g === 'function') g('event', 'cta_click', { cta_name: 'otd_open', cta_location: 'vdp_otd', page_type: 'vdp', transport_type: 'beacon' });
+      });
+    }
   }
 
   document.querySelectorAll('[data-otd]').forEach(wire);

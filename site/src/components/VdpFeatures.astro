@@ -1,0 +1,134 @@
+---
+/**
+ * VdpFeatures: what the car has, in the two forms the vehicle page needs.
+ *
+ *   columns  the Safety / Comfort / Technology columns that have always sat in the left
+ *            column under "Features & Specifications". Desktop keeps them there.
+ *   chips    the phone form (Jerry, 2026-11-26): the same list as chips, the first eight
+ *            showing, directly under the call ahead box. On a phone the features used to
+ *            start 2.6 screens down, after the price, the estimate and the fee text.
+ *
+ * The list arrives ranked from the hub (operations/feature_rank.py), most wanted first, so
+ * the first eight are the ones worth a buyer's first look. Nothing is typed here: every
+ * label is the car's own data. With script off, every chip shows.
+ */
+import Icon from './Icon.astro';
+
+interface Props {
+  features: string[];
+  variant: 'columns' | 'chips';
+  class?: string;
+}
+const { features = [], variant, class: className = '' } = Astro.props;
+const FIRST = 8;
+
+const safetyKeywords = ['eyesight','blind spot','backup camera','backup','lane','collision','abs','airbag','alert','safety','stability','traction','monitor','sensor','assist','warning'];
+const comfortKeywords = ['leather','heated','sunroof','moonroof','ventilat','memory','massage','lumbar','seat','climate','panoramic','pano','comfort','power seat'];
+const techKeywords = ['carplay','android auto','bluetooth','navigation','nav','sync','wifi','usb','display','audio','harman','bose','premium sound','satellite','sirius','wireless','touchscreen'];
+
+function categorize(list: string[]) {
+  const safety: string[] = [], comfort: string[] = [], tech: string[] = [], other: string[] = [];
+  list.forEach(f => {
+    const fl = f.toLowerCase();
+    if (safetyKeywords.some(k => fl.includes(k))) safety.push(f);
+    else if (techKeywords.some(k => fl.includes(k))) tech.push(f);
+    else if (comfortKeywords.some(k => fl.includes(k))) comfort.push(f);
+    else other.push(f);
+  });
+  return { safety, comfort, tech, other };
+}
+const cats = categorize(features);
+const hasCategories = cats.safety.length > 0 || cats.comfort.length > 0 || cats.tech.length > 0;
+---
+{variant === 'columns' && features.length > 0 && (
+  <div class={className}>
+    {hasCategories ? (
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-2">
+        {cats.safety.length > 0 && (
+          <div>
+            <p class="text-xs font-bold text-gray-500 uppercase tracking-widest mb-2 flex items-center gap-1">
+              <Icon name="shield" class="text-sm text-green-600" />Safety
+            </p>
+            <ul class="space-y-1.5">
+              {cats.safety.map((f: string) => (
+                <li class="flex items-center gap-2 text-sm text-gray-700">
+                  <Icon name="check_circle" class="text-sm text-orange" fill />{f}
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
+        {cats.comfort.length > 0 && (
+          <div>
+            <p class="text-xs font-bold text-gray-500 uppercase tracking-widest mb-2 flex items-center gap-1">
+              <Icon name="chair" class="text-sm text-blue-500" />Comfort
+            </p>
+            <ul class="space-y-1.5">
+              {cats.comfort.map((f: string) => (
+                <li class="flex items-center gap-2 text-sm text-gray-700">
+                  <Icon name="check_circle" class="text-sm text-orange" fill />{f}
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
+        {(cats.tech.length > 0 || cats.other.length > 0) && (
+          <div>
+            <p class="text-xs font-bold text-gray-500 uppercase tracking-widest mb-2 flex items-center gap-1">
+              <Icon name="devices" class="text-sm text-purple-500" />Technology
+            </p>
+            <ul class="space-y-1.5">
+              {[...cats.tech, ...cats.other].map((f: string) => (
+                <li class="flex items-center gap-2 text-sm text-gray-700">
+                  <Icon name="check_circle" class="text-sm text-orange" fill />{f}
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
+      </div>
+    ) : (
+      <div class="flex flex-wrap gap-2 mb-4">
+        {features.map((feat: string) => (
+          <span class="inline-flex items-center gap-1 bg-surface text-gray-700 px-3 py-1.5 rounded-full text-sm font-medium border border-gray-200">
+            <Icon name="check_circle" class="text-sm text-orange" fill />{feat}
+          </span>
+        ))}
+      </div>
+    )}
+  </div>
+)}
+{variant === 'chips' && features.length > 0 && (
+  <div class={className} data-feature-chips>
+    <h2 class="font-headline text-base font-bold text-navy mb-2.5">Features</h2>
+    <ul class="flex flex-wrap gap-2">
+      {features.map((feat: string, i: number) => (
+        <li class:list={['items-center gap-1 bg-surface text-gray-700 px-3 py-1.5 rounded-full text-sm font-medium border border-gray-200', i >= FIRST ? 'hidden' : 'inline-flex']}
+            data-feature-extra={i >= FIRST ? '' : undefined}>
+          <Icon name="check_circle" class="text-sm text-orange" fill />{feat}
+        </li>
+      ))}
+    </ul>
+    {features.length > FIRST && (
+      <button type="button" data-feature-more
+              class="mt-1 inline-flex items-center gap-1 min-h-[44px] text-sm font-bold text-navy underline underline-offset-2">
+        Show all {features.length} features
+      </button>
+    )}
+    <noscript><style>{`[data-feature-extra]{display:inline-flex!important}[data-feature-more]{display:none!important}`}</style></noscript>
+  </div>
+)}
+
+<script>
+  document.querySelectorAll('[data-feature-chips]').forEach((box) => {
+    const more = box.querySelector('[data-feature-more]');
+    if (!more) return;
+    more.addEventListener('click', () => {
+      box.querySelectorAll('[data-feature-extra]').forEach((li) => {
+        li.classList.remove('hidden');
+        li.classList.add('inline-flex');
+      });
+      more.remove();
+    });
+  });
+</script>
