@@ -82,8 +82,16 @@ Other data files:
   `operations/inventory-pipeline.md`.
 - `reviews.json` — on-page review content, MIXED platforms, newest first. Every entry needs a
   `source` (`"Google"`, `"Cars.com"`, ...) and a real `rating`; both drive rendering (see
-  `ReviewRotator.astro`). Hero rotators take `slice(0, 6)`; the grids and testimonials show all.
-  Hand-curated, not scraped — the scraper was retired 2026-05-25.
+  `ReviewRotator.astro`). An optional `lang` (`"es"`) marks a review written in Spanish, and an optional
+  `"home": false` keeps a review that needs its context off the home pages. The
+  home pages show six: the newest with 300 characters or fewer (a review is picked or not,
+  never trimmed), English on `/`, Spanish first on `/es`. `/testimonials` shows all, under a
+  line that says it is a selection. `PriceVoices` ranks by how many price words a review uses.
+  Hand-curated, not scraped — the scraper was retired 2026-05-25. Refresh recipe (2026-11-26):
+  text copied from the Google Maps "Newest" list in the owner's Chrome (clipboard, checksum
+  checked, never retyped), `date` = the Chicago date of Google's "left a review" email, and
+  every name checked against `reviews-excluded.json` first. A review under 4 stars is held
+  for the owner's decision, not published and not silently dropped.
 - `reviews_meta.json` — aggregate rating + count. **Must equal the LIVE Google figure**
   (guardrail A9/D2), Google-only regardless of what platforms `reviews.json` mixes in.
   Also mirrored in prose in `web_assets/llms.txt` — update both together.

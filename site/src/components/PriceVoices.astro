@@ -11,7 +11,9 @@
  *    whatever the lint rule would catch later;
  *  - no Review JSON-LD from this component (the pages that emit it filter to Google).
  * Selection is by keyword so a new review about the price appears on the next build
- * without anyone editing a list.
+ * without anyone editing a list. Since 2026-11-26 the matches are ranked by how many of
+ * the price words they use, newest first on a tie: with 28 reviews in the file, the first
+ * four in file order were reviews that say "honest" once and are about something else.
  */
 import reviews from '../data/reviews.json';
 import excluded from '../data/reviews-excluded.json';
@@ -25,11 +27,14 @@ for (const e of (excluded as any).excluded || []) {
   deny.add(String(e.name).toLowerCase());
   for (const a of e.aliases || []) deny.add(String(a).toLowerCase());
 }
-const aboutPrice = /\b(fee|fees|price|prices|pricing|surprise|surprises|honest|transparent|hidden|cost|straightforward|pressure)\b/i;
+const aboutPrice = /\b(fee|fees|price|prices|pricing|surprise|surprises|honest|transparent|hidden|cost|straightforward|pressure)\b/gi;
 const picks = (reviews as any[])
   .filter(r => r.text && r.source && r.rating && !deny.has(String(r.name).toLowerCase()))
-  .filter(r => aboutPrice.test(r.text))
-  .slice(0, max);
+  .map((r, i) => ({ r, i, hits: (String(r.text).match(aboutPrice) || []).length }))
+  .filter(x => x.hits > 0)
+  .sort((a, b) => b.hits - a.hits || a.i - b.i)
+  .slice(0, max)
+  .map(x => x.r);
 
 const t = es
   ? { kicker: 'En sus propias palabras', h2: 'Lo que dicen los compradores sobre el precio', review: 'resena en' }
@@ -46,7 +51,7 @@ const stars = (n: number) => '★'.repeat(Math.max(0, Math.min(5, Math.round(n))
           <figure class="bg-surface rounded-xl border border-gray-100 p-5">
             <div class="text-orange text-sm tracking-wider" role="img" aria-label={`${r.rating} of 5`}>{stars(Number(r.rating))}</div>
             <blockquote class="text-gray-700 leading-relaxed mt-2">{r.text}</blockquote>
-            <figcaption class="text-xs text-gray-500 mt-3"><span class="font-semibold text-gray-700">{r.name}</span>, {t.review} {r.source}</figcaption>
+            <figcaption class="text-xs text-gray-500 mt-3"><span class="font-semibold text-gray-700">{r.name}</span>{`, ${t.review} ${r.source}`}</figcaption>
           </figure>
         ))}
       </div>

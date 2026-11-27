@@ -27,13 +27,15 @@ const otdFirst = otdLive[0];
 const title = 'Used Cars in Skokie IL, No Dealer Fees | Maxim Autos';
 const description = `${facts.reviews.ratingText} from ${facts.reviews.count} reviews. No dealer fees, ever. ${facts.inventory.stockLineText}, in Skokie, IL. Metal plates issued the same visit.`;
 const featured = vehicles.filter(v => (v as any).status !== 'sold');
-// Non-Google platforms present in the review set. Drives the review-grid source
-// label, which is only shown when the cards are NOT all Google (otherwise the
-// "Stars on Google" heading already says it).
-const offGoogleSources = [...new Set(reviews.filter(r => r.source !== 'Google').map(r => r.source))];
-// The hero rotators take a subset; the full set would put a dot row too long to
-// tap under a 288px card. reviews.json is ordered newest first.
-const heroReviews = reviews.slice(0, 6);
+// The home page shows six reviews, in the hero rotators and in the review section: the
+// newest ones short enough for a 288px card (300 characters), English on this page. A
+// review is picked or not, never trimmed. The full set (28 since 2026-11-26) lives on
+// /testimonials. reviews.json is ordered newest first.
+const heroReviews = (reviews as any[]).filter(r => r.text.length <= 300 && r.lang !== 'es' && r.home !== false).slice(0, 6);
+// Non-Google platforms among the cards shown. Drives the review-grid source label, which
+// is only shown when the cards are NOT all Google (otherwise the "Stars on Google"
+// heading already says it).
+const offGoogleSources = [...new Set(heroReviews.filter(r => r.source !== 'Google').map(r => r.source))];
 ---
 
 <Layout
@@ -410,10 +412,10 @@ const heroReviews = reviews.slice(0, 6);
         )}
       </div>
       {reviews.length > 0 && (
-      <!-- Mobile: swipeable snap carousel (12 stacked cards is an unusable scroll).
-           Desktop: unchanged 3-up grid. -->
+      <!-- Mobile: swipeable snap carousel (stacked cards are an unusable scroll).
+           Desktop: 3-up grid. Six reviews here; all of them on /testimonials. -->
       <div class="flex gap-6 overflow-x-auto snap-x snap-mandatory pb-4 -mx-6 px-6 md:mx-0 md:px-0 md:pb-0 md:grid md:grid-cols-3 md:overflow-x-visible">
-        {reviews.map(review => (
+        {heroReviews.map(review => (
           <div class="bg-white/5 p-8 rounded-xl border border-white/10 shrink-0 w-[85vw] snap-center md:w-auto md:shrink">
             <div class="flex items-center gap-1 mb-4" role="img" aria-label={review.rating + ' stars'}>
               {Array.from({ length: review.rating }).map(() => (
