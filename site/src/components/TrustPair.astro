@@ -16,7 +16,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 const hasSampleOrder = existsSync(fileURLToPath(new URL('../../../web_assets/docs/sample-buyers-order.pdf', import.meta.url)));
 
 interface Props {
-  variant: 'chip' | 'strip' | 'fee' | 'vdp' | 'vdp-row';
+  variant: 'chip' | 'strip' | 'fee' | 'vdp' | 'vdp-fee' | 'vdp-cap' | 'vdp-row';
   lang?: string;
   class?: string;
 }
@@ -89,17 +89,29 @@ const feeTail = 'The price you see is the price you pay, plus tax, title, and li
     <Icon name="price_check" class="text-sm shrink-0" fill />{t.feeChip}
   </p>
 )}
+{/* The vehicle page block is three pieces. Desktop renders them together in the sidebar (variant
+    vdp, unchanged). The phone page places them apart since 2026-11-26: the cap line under the
+    price, the fee sentence and the Google row lower down with the payment detail. One source
+    for each piece, so the wording cannot drift between the two layouts. */}
 {variant === 'vdp' && (
   <div class={className}>
-    <div class="flex items-start gap-2 bg-green-50 border border-green-100 rounded-lg px-3 py-2 mb-0.5">
-      <Icon name="price_check" class="text-base text-green-700 shrink-0 mt-0.5" fill />
-      <p class="text-sm text-gray-700 leading-snug"><span class="font-bold text-green-700">{feeLead}</span>{' '}{feeTail}</p>
-    </div>
-    {/* The dollar proof beside the price (second look, 2026-10-15). The cap comes from the
-        ledger and is always paired with the $0 (lint rule unpaired-doc-cap). It lived inside
-        the estimate block until the 2026-10-14 reversal took the block, and the vehicle page,
-        the one page the CarGurus click lands on, lost it. 12 px: a disclosure, not decoration. */}
-    <p class="text-xs text-gray-500 leading-snug mt-1.5">
+    <Astro.self variant="vdp-fee" lang={lang} class="mb-0.5" />
+    <Astro.self variant="vdp-cap" lang={lang} class="mt-1.5" />
+    <Astro.self variant="vdp-row" lang={lang} />
+  </div>
+)}
+{variant === 'vdp-fee' && (
+  <div class={`flex items-start gap-2 bg-green-50 border border-green-100 rounded-lg px-3 py-2 ${className}`}>
+    <Icon name="price_check" class="text-base text-green-700 shrink-0 mt-0.5" fill />
+    <p class="text-sm text-gray-700 leading-snug"><span class="font-bold text-green-700">{feeLead}</span>{' '}{feeTail}</p>
+  </div>
+)}
+{variant === 'vdp-cap' && (
+    /* The dollar proof beside the price (second look, 2026-10-15). The cap comes from the
+       ledger and is always paired with the $0 (lint rule unpaired-doc-cap). It lived inside
+       the estimate block until the 2026-10-14 reversal took the block, and the vehicle page,
+       the one page the CarGurus click lands on, lost it. 12 px: a disclosure, not decoration. */
+    <p class={`text-xs text-gray-500 leading-snug ${className}`}>
       {es ? SIGN_LINE.es : SIGN_LINE.en}{' '}{notEven(es ? 'es' : 'en', facts.fees)}{' '}{es ? FEE_LIST.es : FEE_LIST.en}{' '}
       <a href={`${base}/${es ? 'es/sin-cargos-de-dealer' : 'no-dealer-fees'}`} data-cta="vdp_body" data-cta-name="how_pricing_works" class="font-semibold text-navy underline underline-offset-2">{es ? 'Como funciona nuestro precio' : 'How our pricing works'}</a>
       {hasSampleOrder && (
@@ -109,8 +121,6 @@ const feeTail = 'The price you see is the price you pay, plus tax, title, and li
         </>
       )}
     </p>
-    <Astro.self variant="vdp-row" lang={lang} />
-  </div>
 )}
 {variant === 'vdp-row' && (
     <a href={googleReviews} target="_blank" rel="noopener" data-cta="vdp_body" data-cta-name="google_reviews"
