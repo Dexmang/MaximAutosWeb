@@ -1,0 +1,56 @@
+---
+/**
+ * CarfaxButton: the "SHOW ME THE CARFAX" lockup as a button that opens the car's free
+ * CARFAX report in a new tab (Jerry, 2026-11-27: more prominent, one of the first pieces of
+ * information wherever a car appears). Used in the vehicle page header, right under the
+ * name and price, and on every inventory card under the car name.
+ *
+ * "SHOW ME THE" in the brand orange, the black tile wordmark beside it (Jerry, 2026-10-15).
+ * No VIN, or a sold car: a plain "Free CARFAX" label, never a dead link.
+ *
+ * On a card the whole card is a stretched link (z-10); this one sits above it (z-20) so a
+ * tap on the button opens the report, not the car page.
+ */
+import { carfaxUrl } from '../lib/carfax';
+
+interface Props {
+  vin?: string;
+  /** "2015 Nissan Murano Platinum", for the accessible name */
+  title: string;
+  size?: 'lg' | 'sm';
+  /** data-cta value for GA4 */
+  cta: string;
+  lang?: string;
+  class?: string;
+}
+const { vin, title, size = 'sm', cta, lang = 'en', class: cls = '' } = Astro.props;
+const href = carfaxUrl(vin);
+const es = lang === 'es';
+const lg = size === 'lg';
+const tile = lg
+  ? 'bg-black text-white font-black text-[13px] leading-none w-[18px] h-[18px] flex items-center justify-center rounded-[2px]'
+  : 'bg-black text-white font-black text-[11px] leading-none w-[15px] h-[15px] flex items-center justify-center rounded-[2px]';
+---
+{href ? (
+  <a href={href} target="_blank" rel="noopener noreferrer" data-cta={cta} data-cta-name="carfax"
+     aria-label={es ? `Ver el reporte CARFAX gratis de este ${title}` : `Show me the free CARFAX report for this ${title}`}
+     class:list={[
+       'relative z-20 inline-flex items-center gap-2 rounded-lg border-2 border-black bg-white hover:bg-gray-50 transition-colors whitespace-nowrap',
+       lg ? 'h-11 px-3' : 'h-9 px-2',
+       cls,
+     ]}>
+    <span class:list={['font-extrabold tracking-wide text-orange-ink leading-none', lg ? 'text-sm' : 'text-[11px]']}>{es ? 'VER EL' : 'SHOW ME THE'}</span>
+    <span class="flex items-start" aria-hidden="true">
+      <span class="flex gap-[2px] border-2 border-black rounded-[5px] p-[2px] bg-white">
+        {'CARFA'.split('').map(ch => <span class={tile}>{ch}</span>)}
+        <span class={`${tile} !items-end pb-[2px]`}>x</span>
+      </span>
+      <span class="text-[7px] font-bold text-gray-900 ml-[2px]">®</span>
+    </span>
+    <span class:list={['font-bold text-gray-700 leading-none', lg ? 'text-sm' : 'text-[11px]']}>{es ? 'Gratis' : 'Free report'}</span>
+  </a>
+) : (
+  <span class:list={['inline-flex items-center gap-1 text-xs bg-gray-100 text-gray-600 px-2 py-1 rounded-full font-medium', cls]}>
+    {es ? 'CARFAX Gratis' : 'Free CARFAX'}
+  </span>
+)}
