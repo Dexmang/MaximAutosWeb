@@ -1,5 +1,5 @@
-// The free per VIN CARFAX report link, one builder for the whole site (Jerry, 2026-11-27:
-// "Show me the CARFAX" one of the first things wherever a car appears).
+// The free per VIN CARFAX report link, one builder for the whole site. The link shows on the
+// vehicle page only, never where a car is listed (Jerry, 2026-11-27).
 // partner=DVW_1 is Maxim Autos' CARFAX Advantage link code. The report opens only while
 // "Display CARFAX in Online Listings" is on for the unit in DealerCenter; see the CARFAX
 // section of businesses/maxim-autos/operations/inventory-pipeline.md.

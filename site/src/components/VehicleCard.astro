@@ -1,8 +1,6 @@
 ---
 import TrustPair from './TrustPair.astro';
 import Icon from './Icon.astro';
-import CarfaxButton from './CarfaxButton.astro';
-import allVehicles from '../data/vehicles.json';
 import { isDcPhoto as isDcUrl, dcResize, dcWebpSrcset } from '../lib/dc-image';
 
 interface Props {
@@ -36,8 +34,6 @@ interface Props {
 }
 
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
-// The cards are not handed the VIN; it is looked up by slug for the CARFAX button.
-const vin: string | undefined = ((allVehicles as any[]).find((x) => x.slug === Astro.props.slug) || {}).vin;
 const { slug, year, make, model, trim, price, mileage, drivetrain, engine, bodyStyle, photoPath, photoPrefix, inspected, primaryPhotoUrl, photos, dealRating, priceSavings, stockNumber, lang = 'en', priority = false, headingTag = 'h3' } = Astro.props;
 const isSpanish = lang === 'es';
 const Heading = headingTag;
@@ -173,9 +169,6 @@ const fullSrc = isDcPhoto && photoSrc ? dcResize(photoSrc, 1024, 768) : undefine
       {stockNumber && <span class="shrink-0 text-gray-500 font-medium whitespace-nowrap">Stock #{stockNumber}</span>}
     </p>
 
-    {/* Show me the CARFAX under the car name, ahead of the price (Jerry, 2026-11-27). */}
-    <CarfaxButton vin={vin} title={title} cta="card" lang={lang} class="mb-2.5" />
-
     <!-- Price, with the fee promise as the price's own label. No card payment (R1-03). -->
     <div class="flex justify-between items-baseline gap-2">
       <span class="text-xl font-extrabold text-navy">${price.toLocaleString()}</span>
@@ -188,6 +181,10 @@ const fullSrc = isDcPhoto && photoSrc ? dcResize(photoSrc, 1024, 768) : undefine
           <span class="text-xs text-gray-500 font-medium">CarGurus</span>
         </span>
       ) : <span></span>}
+      <span class="inline-flex items-center gap-1 text-xs bg-gray-100 text-gray-600 px-2 py-1 rounded-full font-medium">
+        <Icon name="description" class="text-xs" fill />
+        {lbl.freeCarfax}
+      </span>
     </div>
   </div>
 </div>
