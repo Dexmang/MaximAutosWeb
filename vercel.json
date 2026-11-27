@@ -370,16 +370,6 @@
       "permanent": true
     },
     {
-      "source": "/vehicle/2024-volkswagen-taos-se-4motion-j10290",
-      "destination": "/inventory",
-      "permanent": true
-    },
-    {
-      "source": "/vehicle/2024-volkswagen-taos-se-4motion-j10290/",
-      "destination": "/inventory",
-      "permanent": true
-    },
-    {
       "source": "/vehicle/2018-subaru-outback-2-5i-limited-j10271",
       "destination": "/inventory",
       "permanent": true

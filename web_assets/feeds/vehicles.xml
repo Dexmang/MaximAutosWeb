@@ -4,7 +4,7 @@
   <title>Maxim Autos Vehicle Inventory</title>
   <link>https://www.maximautos.com/</link>
   <description>Used vehicles for sale at Maxim Autos in Skokie, IL 60077. Phone +18475108947.</description>
-  <lastBuildDate>2026-11-27T19:21:45.229Z</lastBuildDate>
+  <lastBuildDate>2026-11-27T19:22:11.210Z</lastBuildDate>
   <item>
     <g:id>1G1PC5SB9E7454238</g:id>
     <g:title>2014 Chevrolet Cruze 1LT</g:title>
@@ -203,6 +203,106 @@
       <g:relationship_type>substitute</g:relationship_type>
       <g:identifier_type>id</g:identifier_type>
       <g:identifier>KNALN4D73F5184873</g:identifier>
+    </g:related_product>
+  </item>
+  <item>
+    <g:id>3VVVX7B25RM005747</g:id>
+    <g:title>2024 Volkswagen Taos SE 4MOTION</g:title>
+    <g:description>2024 Volkswagen Taos SE 4MOTION: all wheel drive, panoramic sunroof, heated front seats and heated steering wheel, adaptive cruise control with Travel Assist, and 32 MPG highway with 58,406 miles. Deep Black Pearl on gray cloth, 7 speed DSG automatic, 1.5 liter turbo four cylinder. A late model compact SUV that is ready for a Chicago winter and costs thousands less than a new one, with no dealer fees. Key features: EPA estimated 24 city and 32 highway MPG, 1.5 liter turbocharged four cylinder with 158 horsepower, 4MOTION all wheel drive with hill descent control, adaptive cruise control with stop and go, Travel Assist driver assistance, front collision mitigation, blind spot monitor with rear cross traffic alert, lane keeping assist, rearview camera, panoramic sunroof, heated front seats, heated steering wheel, 8 way power driver seat, CloudTex and cloth seating, dual zone automatic climate control, push button start with proximity key, rain sensing wipers with heated washer jets, wireless smartphone integration, satellite radio, WiFi hotspot, LED headlights with automatic high beams, and 18 inch two tone machined alloy wheels. With a 14.5 gallon tank and 27 MPG combined, it covers close to 390 miles between fill ups. The Maxim Autos Difference Independent inspection report included with every vehicle Metal plates issued on the spot, drive home today, skip the DMV No dealer fees at Maxim Autos, ever. The price you see is the price you pay, plus tax, title, and license. Financing for all credit levels Skokie, IL, Evanston, Niles, Morton Grove, Lincolnwood, Des Plaines, North Shore Chicago. Call or text (847) 510-8947 to confirm it is still available. Every car inspected. Every price transparent. Every car documented.</g:description>
+    <g:link>https://www.maximautos.com/vehicle/2024-volkswagen-taos-se-4motion-j10290</g:link>
+    <g:link_template>https://www.maximautos.com/vehicle/2024-volkswagen-taos-se-4motion-j10290?store={store_code}</g:link_template>
+    <g:image_link>https://imagesdl.dealercenter.net/1289/856/202611-9c14ebb9a9a147f7b28b1dfc4db98b40.jpg</g:image_link>
+    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202611-cc4eed2296784354bff055275de3e392.jpg</g:additional_image_link>
+    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202611-95f63b7616ed4e29b41f38173c99d19f.jpg</g:additional_image_link>
+    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202611-617d96f358814868a2dda846d506a569.jpg</g:additional_image_link>
+    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202611-887d512547cd49d984801d8bd1c7e94c.jpg</g:additional_image_link>
+    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202611-b1f3c21c46c24f0e8c00058743083322.jpg</g:additional_image_link>
+    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202611-1fc0ba7a787545239e0be7c456a62d0f.jpg</g:additional_image_link>
+    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202611-1d317eb12d4b447eb937378e86a3cccc.jpg</g:additional_image_link>
+    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202611-177860502eea401c8adf5ae5ec2c21d0.jpg</g:additional_image_link>
+    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202611-b503704664f243ecbac0311690d4f5a3.jpg</g:additional_image_link>
+    <g:additional_image_link>https://imagesdl.dealercenter.net/1289/856/202611-8d85360630d041e3aecebcfb68a7ef27.jpg</g:additional_image_link>
+    <g:condition>used</g:condition>
+    <g:price>14995 USD</g:price>
+    <g:availability>in_stock</g:availability>
+    <g:brand>Volkswagen</g:brand>
+    <g:google_product_category>Vehicles &amp; Parts &gt; Vehicles &gt; Motor Vehicles &gt; Cars, Trucks &amp; Vans</g:google_product_category>
+    <g:excluded_destination>Shopping_ads</g:excluded_destination>
+    <g:excluded_destination>Free_listings</g:excluded_destination>
+    <g:vin>3VVVX7B25RM005747</g:vin>
+    <g:year>2024</g:year>
+    <g:model>Taos</g:model>
+    <g:mileage>58406 Miles</g:mileage>
+    <g:store_code>08861907241419503398</g:store_code>
+    <g:vehicle_fulfillment>
+      <g:option>in_store</g:option>
+    </g:vehicle_fulfillment>
+    <g:color>Black</g:color>
+    <g:trim>SE 4MOTION</g:trim>
+    <g:body_style>suv</g:body_style>
+    <g:custom_label_0>age_0_30</g:custom_label_0>
+    <g:custom_label_1>suv</g:custom_label_1>
+    <g:custom_label_2>price_12k_plus</g:custom_label_2>
+    <g:custom_label_3>cg_unrated</g:custom_label_3>
+    <g:custom_label_4>awd_4wd</g:custom_label_4>
+    <g:question_and_answer>
+      <g:question>Is this used Volkswagen Taos inspected before sale?</g:question>
+      <g:answer>Every car is inspected before it goes on the lot, and a free CARFAX comes with it. Ask Jerry what was checked on any car before you decide.</g:answer>
+    </g:question_and_answer>
+    <g:question_and_answer>
+      <g:question>Does this Volkswagen Taos come with a CARFAX report?</g:question>
+      <g:answer>Yes. A CARFAX vehicle history report is included with every used vehicle at Maxim Autos at no extra cost.</g:answer>
+    </g:question_and_answer>
+    <g:question_and_answer>
+      <g:question>Can I get financing on this Volkswagen Taos?</g:question>
+      <g:answer>Yes. Maxim Autos offers financing for all credit levels, including first time buyers and those rebuilding credit. Start with the short financing form or a call to Jerry: neither touches your credit. A full application does include a credit check, and approval is never guaranteed.</g:answer>
+    </g:question_and_answer>
+    <g:question_and_answer>
+      <g:question>Are there dealer fees or doc fees on this Volkswagen Taos?</g:question>
+      <g:answer>No. Maxim Autos never charges dealer fees. No doc fee, no processing fee, no surprise extras at signing. The listed price is what you pay plus standard Illinois tax, title and license.</g:answer>
+    </g:question_and_answer>
+    <g:question_and_answer>
+      <g:question>Can I drive this Volkswagen Taos home the same day?</g:question>
+      <g:answer>Yes. Maxim Autos is an authorized Illinois CVR (Computer Vehicle Registration) electronic registration dealer. Metal plates are issued the same visit for cars registered in Illinois. Buyers registering in another state receive an Illinois drive away permit and plate the car at home.</g:answer>
+    </g:question_and_answer>
+    <g:question_and_answer>
+      <g:question>Is this Volkswagen Taos all wheel drive?</g:question>
+      <g:answer>Yes. This 2024 Volkswagen Taos SE 4MOTION is all wheel drive (AWD).</g:answer>
+    </g:question_and_answer>
+    <g:question_and_answer>
+      <g:question>What transmission does this Volkswagen Taos have?</g:question>
+      <g:answer>This 2024 Volkswagen Taos SE 4MOTION has an automatic transmission.</g:answer>
+    </g:question_and_answer>
+    <g:question_and_answer>
+      <g:question>What is the fuel economy of this Volkswagen Taos?</g:question>
+      <g:answer>EPA estimated 24 city and 32 highway MPG for this 2024 Volkswagen Taos SE 4MOTION.</g:answer>
+    </g:question_and_answer>
+    <g:question_and_answer>
+      <g:question>What engine is in this Volkswagen Taos?</g:question>
+      <g:answer>This 2024 Volkswagen Taos SE 4MOTION has a 158 hp 1.5L I4 engine.</g:answer>
+    </g:question_and_answer>
+    <g:question_and_answer>
+      <g:question>Where can I see this Volkswagen Taos in person?</g:question>
+      <g:answer>At Maxim Autos, 9101 Terminal Ave, Skokie, IL 60077, serving Evanston, Niles, Morton Grove, Lincolnwood, Des Plaines, Glenview, Wilmette and Park Ridge. Hours: Monday, Tuesday, Thursday and Friday 3 PM to 7 PM, Saturday 10 AM to 3 PM, Wednesday by appointment, Sunday closed. Call or text (847) 510-8947.</g:answer>
+    </g:question_and_answer>
+    <g:question_and_answer>
+      <g:question>Can I trade in my current car toward this Volkswagen Taos?</g:question>
+      <g:answer>Yes. Maxim Autos accepts trade ins and also buys cars outright. Text the VIN of your car to (847) 510-8947 for a quick offer, no obligation.</g:answer>
+    </g:question_and_answer>
+    <g:related_product>
+      <g:relationship_type>substitute</g:relationship_type>
+      <g:identifier_type>id</g:identifier_type>
+      <g:identifier>JTEZT14R470027866</g:identifier>
+    </g:related_product>
+    <g:related_product>
+      <g:relationship_type>substitute</g:relationship_type>
+      <g:identifier_type>id</g:identifier_type>
+      <g:identifier>YV4A22PK8G1072955</g:identifier>
+    </g:related_product>
+    <g:related_product>
+      <g:relationship_type>substitute</g:relationship_type>
+      <g:identifier_type>id</g:identifier_type>
+      <g:identifier>5N1AZ2MH6FN251280</g:identifier>
     </g:related_product>
   </item>
   <item>
@@ -677,17 +777,17 @@
     <g:related_product>
       <g:relationship_type>substitute</g:relationship_type>
       <g:identifier_type>id</g:identifier_type>
+      <g:identifier>3VVVX7B25RM005747</g:identifier>
+    </g:related_product>
+    <g:related_product>
+      <g:relationship_type>substitute</g:relationship_type>
+      <g:identifier_type>id</g:identifier_type>
       <g:identifier>YV4A22PK8G1072955</g:identifier>
     </g:related_product>
     <g:related_product>
       <g:relationship_type>substitute</g:relationship_type>
       <g:identifier_type>id</g:identifier_type>
       <g:identifier>5N1AZ2MH6FN251280</g:identifier>
-    </g:related_product>
-    <g:related_product>
-      <g:relationship_type>substitute</g:relationship_type>
-      <g:identifier_type>id</g:identifier_type>
-      <g:identifier>KM8J3CA48HU259737</g:identifier>
     </g:related_product>
   </item>
   <item>
@@ -1267,12 +1367,12 @@
     <g:related_product>
       <g:relationship_type>substitute</g:relationship_type>
       <g:identifier_type>id</g:identifier_type>
-      <g:identifier>5N1AZ2MH6FN251280</g:identifier>
+      <g:identifier>3VVVX7B25RM005747</g:identifier>
     </g:related_product>
     <g:related_product>
       <g:relationship_type>substitute</g:relationship_type>
       <g:identifier_type>id</g:identifier_type>
-      <g:identifier>KM8J3CA48HU259737</g:identifier>
+      <g:identifier>5N1AZ2MH6FN251280</g:identifier>
     </g:related_product>
   </item>
 </channel>
