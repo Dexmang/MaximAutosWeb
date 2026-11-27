@@ -8,6 +8,7 @@ import ReviewRotator from '../components/ReviewRotator.astro';
 import Icon from '../components/Icon.astro';
 import vehicles from '../data/vehicles.json';
 import reviews from '../data/reviews.json';
+import { heroName } from '../lib/hero-season';
 import { FEE_LIST, SIGN_LINE, notEven } from '../lib/fee-copy';
 import OtdEstimate from '../components/OtdEstimate.astro';
 import reviewsMeta from '../data/reviews_meta.json';
@@ -27,6 +28,8 @@ const otdFirst = otdLive[0];
 const title = 'Used Cars in Skokie IL, No Dealer Fees | Maxim Autos';
 const description = `${facts.reviews.ratingText} from ${facts.reviews.count} reviews. No dealer fees, ever. ${facts.inventory.stockLineText}, in Skokie, IL. Metal plates issued the same visit.`;
 const featured = vehicles.filter(v => (v as any).status !== 'sold');
+// The hero picture follows the season: src/data/hero-seasons.json, src/lib/hero-season.ts.
+const hero = heroName();
 // The home page shows six reviews, in the hero rotators and in the review section: the
 // newest ones short enough for a 288px card (300 characters), English on this page. A
 // review is picked or not, never trimmed. The full set (28 since 2026-11-26) lives on
@@ -121,9 +124,9 @@ const offGoogleSources = [...new Set(heroReviews.filter(r => r.source !== 'Googl
     <div class="hidden md:block relative w-full overflow-hidden md:overflow-visible md:absolute md:inset-0 md:z-0">
       <picture>
         <source media="(max-width: 767px)" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" width="1" height="1" />
-        <source media="(min-width: 768px)" srcset={`${base}/brand/hero-family.webp`} type="image/webp" width="1024" height="572" />
+        <source media="(min-width: 768px)" srcset={`${base}/brand/${hero}.webp`} type="image/webp" width="1024" height="572" />
         <img
-          src={`${base}/brand/hero-family.jpg`}
+          src={`${base}/brand/${hero}.jpg`}
           alt="Family enjoying their car purchased from Maxim Autos in Skokie IL"
           width="1024"
           height="572"

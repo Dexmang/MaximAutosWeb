@@ -1,0 +1,7 @@
+{
+  "_how": "Home page hero picture by date, Chicago time. The first season whose dates include today wins; a range may run across New Year (from 11-01 to 03-31). Any other day gets the default. Each name is two files in web_assets/brand: NAME.jpg and NAME.webp, both 1024 by 572. A season whose files are missing is skipped, so a typo here can never blank the hero. The site is static: the picture changes with the first build on or after the date, and the feed job builds most days.",
+  "seasons": [
+    { "name": "hero-family-winter", "from": "11-01", "to": "03-31", "look": "Bare trees, cold clear day, winter coats, no snow" }
+  ],
+  "default": "hero-family"
+}

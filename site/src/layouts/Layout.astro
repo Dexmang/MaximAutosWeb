@@ -10,6 +10,7 @@ import facts from '../data/facts.json';
 import iconNames from '../data/icon-names.json';
 import TrustPair from '../components/TrustPair.astro';
 import Icon from '../components/Icon.astro';
+import { heroName } from '../lib/hero-season';
 
 interface Props {
   title: string;
@@ -98,7 +99,7 @@ const canonical = canonicalUrl || (
     ? PRODUCTION_ORIGIN + Astro.url.pathname.replace(/^\/MaximAutosWeb/, '')
     : new URL(Astro.url.pathname, siteUrl).href
 );
-const ogImageAbsolute = new URL(ogImage ?? `${base}/brand/hero-family.jpg`, siteUrl).href;
+const ogImageAbsolute = new URL(ogImage ?? `${base}/brand/${heroName()}.jpg`, siteUrl).href;
 
 // Same family and axes as before; icon_names (sorted) is the only addition.
 const iconList: string[] = Array.isArray((iconNames as any)?.names) ? (iconNames as any).names : [];
