@@ -379,7 +379,7 @@ if (v.vin && v.vin !== 'TBD') (vehicleSchema as any).vehicleIdentificationNumber
               2026-11-27: one of the first pieces of information on the car page). The trust bar
               under the photos keeps its own link as well. */}
           {carfaxLink && (
-            <CarfaxButton vin={v.vin} title={titleText} size="lg" cta="vdp_header" class="mt-2.5" />
+            <CarfaxButton vin={v.vin} title={titleText} cta="vdp_header" class="mt-3" />
           )}
           {/* Below lg: the estimate folded to one total right under the price (Jerry's 2026-10-15
               placement, kept), then the cap line. Opens in place. Desktop has its own in the sidebar. */}
