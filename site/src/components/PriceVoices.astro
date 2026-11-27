@@ -39,12 +39,12 @@ const stars = (n: number) => '★'.repeat(Math.max(0, Math.min(5, Math.round(n))
 {picks.length > 0 && (
   <section class={`py-12 lg:py-14 bg-white ${className}`} id="price-voices">
     <div class="max-w-7xl mx-auto px-6 lg:px-8">
-      <span class="text-orange font-bold uppercase tracking-widest text-sm mb-2 block">{t.kicker}</span>
+      <span class="text-orange-ink font-bold uppercase tracking-widest text-sm mb-2 block">{t.kicker}</span>
       <h2 class="font-headline text-2xl md:text-3xl font-extrabold text-navy mb-6">{t.h2}</h2>
       <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
         {picks.map(r => (
           <figure class="bg-surface rounded-xl border border-gray-100 p-5">
-            <div class="text-orange text-sm tracking-wider" aria-label={`${r.rating} of 5`}>{stars(Number(r.rating))}</div>
+            <div class="text-orange text-sm tracking-wider" role="img" aria-label={`${r.rating} of 5`}>{stars(Number(r.rating))}</div>
             <blockquote class="text-gray-700 leading-relaxed mt-2">{r.text}</blockquote>
             <figcaption class="text-xs text-gray-500 mt-3"><span class="font-semibold text-gray-700">{r.name}</span>, {t.review} {r.source}</figcaption>
           </figure>

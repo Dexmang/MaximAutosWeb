@@ -56,8 +56,11 @@ interface Props {
    */
   variant?: 'full' | 'summary';
   targetId?: string;
+  /** h3 under a section h2 (fee page, home). The vehicle page passes h2: it follows the h1. */
+  headingTag?: 'h2' | 'h3';
 }
-const { price, title, stockNumber = '', lang = 'en', class: className = '', id = undefined, variant = 'full', targetId = 'estimate' } = Astro.props;
+const { price, title, stockNumber = '', lang = 'en', class: className = '', id = undefined, variant = 'full', targetId = 'estimate', headingTag = 'h3' } = Astro.props;
+const Heading = headingTag;
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 const es = lang === 'es';
 const T = facts.taxes;
@@ -178,7 +181,7 @@ const defaultSms = t.smsDefault.replace('{title}', title).replace('{stockPart}',
     <div class="-mx-4 -mt-4 mb-3 px-4 py-3 bg-navy text-white rounded-t-[10px] flex items-start gap-2.5">
       <Icon name="calculate" class="text-2xl text-orange shrink-0 mt-0.5" fill />
       <div>
-        <h3 class="font-headline text-base md:text-lg font-extrabold leading-tight">{t.headline}</h3>
+        <Heading class="font-headline text-base md:text-lg font-extrabold leading-tight">{t.headline}</Heading>
         <p class="text-sm text-white/80 leading-snug mt-0.5">{t.sub}</p>
       </div>
     </div>
@@ -209,7 +212,7 @@ const defaultSms = t.smsDefault.replace('{title}', title).replace('{stockPart}',
   <div class="-mx-4 -mt-4 mb-3 px-4 py-3 bg-navy text-white rounded-t-[10px] flex items-start gap-2.5">
     <Icon name="calculate" class="text-2xl text-orange shrink-0 mt-0.5" fill />
     <div>
-      <h3 class="font-headline text-base md:text-lg font-extrabold leading-tight">{t.headline}</h3>
+      <Heading class="font-headline text-base md:text-lg font-extrabold leading-tight">{t.headline}</Heading>
       <p class="text-sm text-white/80 leading-snug mt-0.5">{t.sub}</p>
     </div>
   </div>

@@ -50,7 +50,7 @@ const copy = lang === 'es'
           <path fill="#34A853" d="M24 48c6.1 0 11.2-2 14.9-5.4l-7.5-5.8c-2 1.4-4.6 2.2-7.4 2.2-6.2 0-11.5-4.2-13.4-9.8l-8 6.2C6.5 42.5 14.6 48 24 48z"/>
         </svg>{copy.googleLabel}
       </span>
-      <span class="text-orange text-sm tracking-wider" aria-label={`${first.rating} ${copy.starsLabel}`}>{'★'.repeat(first.rating)}</span>
+      <span class="text-orange text-sm tracking-wider" role="img" aria-label={`${first.rating} ${copy.starsLabel}`}>{'★'.repeat(first.rating)}</span>
     </div>
     <blockquote class="text-sm leading-relaxed text-gray-800 mb-2">{first.text}</blockquote>
     <p class="text-xs font-bold text-gray-700">{first.name}</p>
@@ -75,7 +75,7 @@ const copy = lang === 'es'
       </svg>
       <span data-source class="text-gray-500 text-xs font-semibold"></span>
     </div>
-    <div data-stars class="flex gap-0.5 text-orange text-sm leading-none"></div>
+    <div data-stars role="img" class="flex gap-0.5 text-orange text-sm leading-none"></div>
   </div>
   <blockquote data-text class="text-gray-800 text-sm leading-relaxed mb-2" style="transition: opacity 0.3s ease; min-height: 64px;"></blockquote>
   <p data-name class="font-bold text-gray-700 text-xs mb-3" style="transition: opacity 0.3s ease;"></p>

@@ -1,0 +1,20 @@
+{
+  "note": "Store hours for the 'open today' line (components/OpenToday.astro). The weekly table repeats what the footer, the contact page and the LocalBusiness schema already say: change all of them together, and the Google Business Profile with them. 'special' is keyed by date (YYYY-MM-DD, Chicago time) and wins over the weekly table. state is one of: open (with opens and closes, 24 hour HH:MM), closed, appointment, unconfirmed. An unconfirmed day shows 'Holiday hours today. Call or text before you come.' and the line never promises an opening on it. Replace each unconfirmed entry with the real answer once Jerry gives the holiday hours, and delete entries after their date passes.",
+  "timezone": "America/Chicago",
+  "week": {
+    "sun": { "state": "closed" },
+    "mon": { "state": "open", "opens": "15:00", "closes": "19:00" },
+    "tue": { "state": "open", "opens": "15:00", "closes": "19:00" },
+    "wed": { "state": "appointment" },
+    "thu": { "state": "open", "opens": "15:00", "closes": "19:00" },
+    "fri": { "state": "open", "opens": "15:00", "closes": "19:00" },
+    "sat": { "state": "open", "opens": "10:00", "closes": "15:00" }
+  },
+  "special": {
+    "2026-11-26": { "state": "closed", "label": "Thanksgiving" },
+    "2026-12-24": { "state": "unconfirmed", "label": "Christmas Eve" },
+    "2026-12-25": { "state": "unconfirmed", "label": "Christmas Day" },
+    "2026-12-31": { "state": "unconfirmed", "label": "New Year's Eve" },
+    "2027-01-01": { "state": "unconfirmed", "label": "New Year's Day" }
+  }
+}

@@ -527,13 +527,13 @@ const states = ['AL','AK','AZ','AR','CA','CO','CT','DE','FL','GA','HI','ID','IL'
           </p>
           <label class="flex items-start gap-3 cursor-pointer">
             <input type="checkbox" name="privacy_consent" required value="yes" class="mt-0.5 w-4 h-4 accent-orange shrink-0" />
-            <span class="text-sm text-gray-600">Al enviar esta solicitud, acepto la <a href={`${base}/privacy-policy`} class="text-orange hover:underline">Politica de Privacidad</a>. <span class="text-red-500">*</span></span>
+            <span class="text-sm text-gray-600">Al enviar esta solicitud, acepto la <a href={`${base}/privacy-policy`} class="text-orange-ink hover:underline">Politica de Privacidad</a>. <span class="text-red-500">*</span></span>
           </label>
         </div>
 
         <!-- Enviar -->
         <div class="text-center">
-          <p class="text-sm text-gray-500 mb-4">Al enviar esta solicitud, das tu consentimiento a que Maxim Autos te contacte por telefono, mensaje de texto o correo electronico. Tu informacion se maneja de acuerdo con nuestra <a href={`${base}/privacy-policy`} class="text-orange hover:underline">Politica de Privacidad</a>.</p>
+          <p class="text-sm text-gray-500 mb-4">Al enviar esta solicitud, das tu consentimiento a que Maxim Autos te contacte por telefono, mensaje de texto o correo electronico. Tu informacion se maneja de acuerdo con nuestra <a href={`${base}/privacy-policy`} class="text-orange-ink hover:underline">Politica de Privacidad</a>.</p>
           <button type="submit" id="apply-submit-btn"
             class="inline-flex items-center justify-center gap-2 bg-orange text-white px-12 py-4 rounded-xl font-bold text-lg hover:bg-orange-dark transition-colors shadow-lg shadow-orange/20">
             <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">send</span>
@@ -629,6 +629,7 @@ const states = ['AL','AK','AZ','AR','CA','CO','CT','DE','FL','GA','HI','ID','IL'
   }
   .app-input {
     width: 100%;
+    min-height: 44px;
     padding: 0.625rem 0.875rem;
     border: 1px solid #d1d5db;
     border-radius: 0.5rem;

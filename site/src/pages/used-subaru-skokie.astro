@@ -111,9 +111,9 @@ const faqSchema = {
     <div class="max-w-7xl mx-auto px-6 lg:px-8">
       <nav class="text-sm text-gray-400 mb-8" aria-label="Breadcrumb">
         <ol class="flex items-center gap-2 flex-wrap">
-          <li><a href={`${base}/`} class="hover:text-white transition-colors">Home</a></li>
+          <li><a href={`${base}/`} class="inline-block py-3 -my-3 hover:text-white transition-colors">Home</a></li>
           <li class="text-gray-600">/</li>
-          <li><a href={`${base}/inventory`} class="hover:text-white transition-colors">Inventory</a></li>
+          <li><a href={`${base}/inventory`} class="inline-block py-3 -my-3 hover:text-white transition-colors">Inventory</a></li>
           <li class="text-gray-600">/</li>
           <li class="text-gray-300">Used {MAKE}</li>
         </ol>
@@ -139,14 +139,14 @@ const faqSchema = {
           </h2>
           <p class="text-gray-600 mt-1 text-sm">All inspected. No dealer fees. Free CARFAX.</p>
         </div>
-        <a href={`${base}/inventory`} class="inline-flex items-center gap-2 text-orange font-semibold hover:underline text-sm">
+        <a href={`${base}/inventory`} class="inline-flex items-center gap-2 min-h-[44px] text-orange-ink font-semibold hover:underline text-sm">
           Full inventory <span class="material-symbols-outlined text-base">arrow_forward</span>
         </a>
       </div>
 
       {matches.length === 0 ? (
         <div class="bg-surface border border-gray-200 rounded-xl p-8 text-center">
-          <p class="text-gray-700">We rotate inventory weekly. Check back soon or text Jerry at <a href="sms:8475108947" class="text-orange font-bold">(847) 510-8947</a> to ask about incoming {MAKE} inventory.</p>
+          <p class="text-gray-700">We rotate inventory weekly. Check back soon or text Jerry at <a href="sms:8475108947" class="text-orange-ink font-bold">(847) 510-8947</a> to ask about incoming {MAKE} inventory.</p>
         </div>
       ) : (
         <Fragment>
@@ -199,7 +199,7 @@ const faqSchema = {
   <section class="py-14 bg-white">
     <div class="max-w-3xl mx-auto px-6 lg:px-8">
       <div class="text-center mb-10">
-        <span class="text-orange font-bold uppercase tracking-widest text-sm mb-2 block">FAQ</span>
+        <span class="text-orange-ink font-bold uppercase tracking-widest text-sm mb-2 block">FAQ</span>
         <h2 class="font-headline text-2xl md:text-3xl font-extrabold">Common Questions about Used {MAKE}</h2>
       </div>
       <div class="space-y-4">
