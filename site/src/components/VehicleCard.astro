@@ -53,7 +53,6 @@ const DEAL_BADGE: Record<string, { label: string; bg: string; text: string }> = 
 
 const lbl = isSpanish
   ? {
-      freeCarfax:     'CARFAX Gratis',
       photosComing:   'Fotos en 24 horas. Escribenos para verlo primero',
       justLanded:     'Recien llegado',
       fullyInspected: 'INSPECCIONADO',
@@ -61,7 +60,6 @@ const lbl = isSpanish
       mileageTbd:     'Millaje por confirmar',
     }
   : {
-      freeCarfax:     'Free CARFAX',
       photosComing:   'Photos within 24 hrs. Text to see it first',
       justLanded:     'Just landed',
       fullyInspected: 'INSPECTED',
@@ -108,7 +106,7 @@ const fullSrc = isDcPhoto && photoSrc ? dcResize(photoSrc, 1024, 768) : undefine
 // disclosure sat 5,700 px away. The estimate lives on the VDP beside the Reg Z string.
 ---
 
-<div class="vehicle-card group relative bg-white overflow-hidden rounded-xl shadow-sm hover:shadow-lg transition-all duration-300" data-price={price} data-body={bodyStyle} data-mileage={mileage} data-year={year} data-stock={stockNumber}>
+<div class="vehicle-card group relative h-full bg-white overflow-hidden rounded-xl shadow-sm hover:shadow-lg transition-all duration-300" data-price={price} data-body={bodyStyle} data-mileage={mileage} data-year={year} data-stock={stockNumber}>
   <!-- Stretched link covers the full card -->
   <a href={`${base}/vehicle/${slug}`} class="absolute inset-0 z-10" aria-label={`${lbl.viewLabel} ${title}`}></a>
 
@@ -174,17 +172,15 @@ const fullSrc = isDcPhoto && photoSrc ? dcResize(photoSrc, 1024, 768) : undefine
       <span class="text-xl font-extrabold text-navy">${price.toLocaleString()}</span>
       <TrustPair variant="fee" lang={lang} />
     </div>
-    <div class="flex justify-between items-center mt-2 min-h-[24px]">
-      {dealBadge ? (
+    {/* The CarGurus deal rating, when the car has one. No CARFAX label or link on a card: the
+        report shows on the car page only (Jerry, 2026-11-27). */}
+    {dealBadge && (
+      <div class="flex items-center mt-2 min-h-[24px]">
         <span class="inline-flex items-center gap-1">
           <span class="text-xs font-bold px-2 py-0.5 rounded" style={`background:${dealBadge.bg};color:${dealBadge.text}`}>{dealBadge.label}</span>
           <span class="text-xs text-gray-500 font-medium">CarGurus</span>
         </span>
-      ) : <span></span>}
-      <span class="inline-flex items-center gap-1 text-xs bg-gray-100 text-gray-600 px-2 py-1 rounded-full font-medium">
-        <Icon name="description" class="text-xs" fill />
-        {lbl.freeCarfax}
-      </span>
-    </div>
+      </div>
+    )}
   </div>
 </div>
