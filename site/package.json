@@ -11,6 +11,7 @@
   "dependencies": {
     "@astrojs/sitemap": "^3.7.2",
     "astro": "^5.7.10",
+    "photoswipe": "5.4.4",
     "qrcode-generator": "2.0.4"
   },
   "devDependencies": {
