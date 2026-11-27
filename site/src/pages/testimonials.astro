@@ -46,6 +46,7 @@ const ratingSchema = {
       "name": r.name
     },
     "reviewBody": r.text,
+    ...((r as any).lang ? { "inLanguage": (r as any).lang } : {}),
     "datePublished": r.date
   }))
 };
@@ -95,6 +96,7 @@ const ratingSchema = {
   <!-- Review Cards -->
   <section class="py-20 bg-white">
     <div class="max-w-7xl mx-auto px-6 lg:px-8">
+      <p class="text-center text-sm text-gray-500 mb-10">A selection of recent reviews, copied word for word. The full list is on <a href="https://www.google.com/search?q=Maxim+Autos+Skokie+IL+reviews" target="_blank" rel="noopener noreferrer" class="font-semibold text-navy underline underline-offset-2">Google</a>.</p>
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {reviews.map(review => (
           <div class="bg-surface p-8 rounded-xl border border-gray-100 hover:border-orange/20 hover:shadow-md transition-all flex flex-col">
