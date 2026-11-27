@@ -4,7 +4,7 @@
   <title>Maxim Autos Vehicle Inventory</title>
   <link>https://www.maximautos.com/</link>
   <description>Used vehicles for sale at Maxim Autos in Skokie, IL 60077. Phone +18475108947.</description>
-  <lastBuildDate>2026-11-26T17:30:15.694Z</lastBuildDate>
+  <lastBuildDate>2026-11-27T01:21:25.447Z</lastBuildDate>
   <item>
     <g:id>1G1PC5SB9E7454238</g:id>
     <g:title>2014 Chevrolet Cruze 1LT</g:title>
@@ -724,7 +724,7 @@
     <g:color>Burgundy</g:color>
     <g:trim>SE</g:trim>
     <g:body_style>suv</g:body_style>
-    <g:custom_label_0>age_0_30</g:custom_label_0>
+    <g:custom_label_0>age_31_60</g:custom_label_0>
     <g:custom_label_1>suv</g:custom_label_1>
     <g:custom_label_2>price_8k_to_12k</g:custom_label_2>
     <g:custom_label_3>cg_good_deal</g:custom_label_3>
@@ -1024,7 +1024,7 @@
     <g:color>Gray</g:color>
     <g:trim>LX</g:trim>
     <g:body_style>minivan</g:body_style>
-    <g:custom_label_0>age_0_30</g:custom_label_0>
+    <g:custom_label_0>age_31_60</g:custom_label_0>
     <g:custom_label_1>minivan</g:custom_label_1>
     <g:custom_label_2>price_under_8k</g:custom_label_2>
     <g:custom_label_3>cg_good_deal</g:custom_label_3>
