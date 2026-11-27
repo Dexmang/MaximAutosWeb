@@ -8,6 +8,7 @@ import ReviewRotator from '../../components/ReviewRotator.astro';
 import Icon from '../../components/Icon.astro';
 import vehicles from '../../data/vehicles.json';
 import reviews from '../../data/reviews.json';
+import { heroName } from '../../lib/hero-season';
 import { FEE_LIST, SIGN_LINE, notEven } from '../../lib/fee-copy';
 import OtdEstimate from '../../components/OtdEstimate.astro';
 import reviewsMeta from '../../data/reviews_meta.json';
@@ -26,6 +27,8 @@ const otdFirst = otdLive[0];
 const title = 'Autos Usados en Skokie, Sin Cargos de Dealer | Maxim Autos';
 const description = `${facts.reviews.ratingTextEs} con ${facts.reviews.count} resenas. Sin cargos de dealer. ${facts.inventory.stockLineTextEs}, en Skokie, IL. Placas el mismo dia.`;
 const featured = vehicles.filter(v => (v as any).status !== 'sold').slice(0, 6);
+// La foto del hero sigue la temporada: ver index.astro y src/lib/hero-season.ts.
+const hero = heroName();
 // Ver index.astro: seis resenas en la portada, las mas recientes que caben en la tarjeta
 // (300 caracteres), con las escritas en espanol primero. Nunca se recorta una resena.
 const shortReviews = (reviews as any[]).filter(r => r.text.length <= 300 && r.home !== false);
@@ -90,9 +93,9 @@ const offGoogleSources = [...new Set(heroReviews.filter(r => r.source !== 'Googl
     <div class="hidden md:block relative w-full overflow-hidden md:overflow-visible md:absolute md:inset-0 md:z-0">
       <picture>
         <source media="(max-width: 767px)" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" width="1" height="1" />
-        <source media="(min-width: 768px)" srcset={`${base}/brand/hero-family.webp`} type="image/webp" width="1024" height="572" />
+        <source media="(min-width: 768px)" srcset={`${base}/brand/${hero}.webp`} type="image/webp" width="1024" height="572" />
         <img
-          src={`${base}/brand/hero-family.jpg`}
+          src={`${base}/brand/${hero}.jpg`}
           alt="Familia disfrutando su auto comprado en Maxim Autos en Skokie IL"
           width="1024"
           height="572"
