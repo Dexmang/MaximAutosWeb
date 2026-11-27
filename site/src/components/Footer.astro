@@ -141,11 +141,11 @@ const labels = isSpanish
           <Icon name="location_on" class="text-orange text-xl" fill />
           9101 Terminal Ave, Skokie, IL 60077
         </p>
-        <a href="tel:8475108947" class="flex items-center gap-3 hover:text-white transition-colors">
+        <a href="tel:8475108947" class="flex items-center gap-3 min-h-[44px] md:min-h-0 hover:text-white transition-colors">
           <Icon name="phone" class="text-orange text-xl" fill />
           (847) 510-8947
         </a>
-        <a href="mailto:jfranco@maximautos.com" class="flex items-center gap-3 hover:text-white transition-colors">
+        <a href="mailto:jfranco@maximautos.com" class="flex items-center gap-3 min-h-[44px] md:min-h-0 hover:text-white transition-colors">
           <Icon name="mail" class="text-orange text-xl" fill />
           jfranco@maximautos.com
         </a>
@@ -190,27 +190,27 @@ const labels = isSpanish
     <!-- Quick Links -->
     <div>
       <h3 class="text-white/70 font-bold mb-6 font-headline text-sm uppercase tracking-widest">{labels.quickLinks}</h3>
-      <ul class="space-y-3 text-sm">
-        <li><a class="hover:text-white transition-colors" href={invHref}>{labels.browseInventory}</a></li>
-        <li><a class="hover:text-white transition-colors" href={finHref}>{labels.financing}</a></li>
-        <li><a class="hover:text-white transition-colors" href={noFeesHref}>{labels.noFees}</a></li>
-        <li><a class="hover:text-white transition-colors" href={applyHref}>{labels.creditApp}</a></li>
-        <li><a class="hover:text-white transition-colors" href={sellHref}>{labels.sellTrade}</a></li>
-        <li><a class="hover:text-white transition-colors" href={shipHref}>{labels.deliveredAnywhere}</a></li>
-        <li><a class="hover:text-white transition-colors" href={aboutHref}>{labels.about}</a></li>
-        <li><a class="hover:text-white transition-colors" href={reviewsHref}>{labels.reviews}</a></li>
-        <li><a class="hover:text-white transition-colors" href={faqHref}>{labels.faq}</a></li>
-        <li><a class="hover:text-white transition-colors" href={contactHref}>{labels.contact}</a></li>
+      <ul class="grid grid-cols-2 gap-x-4 md:block md:space-y-3 text-sm">
+        <li><a class="flex items-center min-h-[44px] leading-snug md:inline md:min-h-0 hover:text-white transition-colors" href={invHref}>{labels.browseInventory}</a></li>
+        <li><a class="flex items-center min-h-[44px] leading-snug md:inline md:min-h-0 hover:text-white transition-colors" href={finHref}>{labels.financing}</a></li>
+        <li><a class="flex items-center min-h-[44px] leading-snug md:inline md:min-h-0 hover:text-white transition-colors" href={noFeesHref}>{labels.noFees}</a></li>
+        <li><a class="flex items-center min-h-[44px] leading-snug md:inline md:min-h-0 hover:text-white transition-colors" href={applyHref}>{labels.creditApp}</a></li>
+        <li><a class="flex items-center min-h-[44px] leading-snug md:inline md:min-h-0 hover:text-white transition-colors" href={sellHref}>{labels.sellTrade}</a></li>
+        <li><a class="flex items-center min-h-[44px] leading-snug md:inline md:min-h-0 hover:text-white transition-colors" href={shipHref}>{labels.deliveredAnywhere}</a></li>
+        <li><a class="flex items-center min-h-[44px] leading-snug md:inline md:min-h-0 hover:text-white transition-colors" href={aboutHref}>{labels.about}</a></li>
+        <li><a class="flex items-center min-h-[44px] leading-snug md:inline md:min-h-0 hover:text-white transition-colors" href={reviewsHref}>{labels.reviews}</a></li>
+        <li><a class="flex items-center min-h-[44px] leading-snug md:inline md:min-h-0 hover:text-white transition-colors" href={faqHref}>{labels.faq}</a></li>
+        <li><a class="flex items-center min-h-[44px] leading-snug md:inline md:min-h-0 hover:text-white transition-colors" href={contactHref}>{labels.contact}</a></li>
       </ul>
     </div>
 
     <!-- Areas We Serve -->
     <div>
       <h3 class="text-white/70 font-bold mb-6 font-headline text-sm uppercase tracking-widest">{labels.areasServed}</h3>
-      <ul class="space-y-3 text-sm">
+      <ul class="grid grid-cols-2 gap-x-4 md:block md:space-y-3 text-sm">
         {suburbs.map(s => (
           <li>
-            <a class="hover:text-white transition-colors" href={`${base}/used-cars-${s.slug}-il`}>
+            <a class="flex items-center min-h-[44px] leading-snug md:inline md:min-h-0 hover:text-white transition-colors" href={`${base}/used-cars-${s.slug}-il`}>
               {s.city} {labels.usedCars}
             </a>
           </li>
@@ -223,11 +223,11 @@ const labels = isSpanish
     <span>
       &copy; {currentYear} Maxim Autos. Skokie, IL. {labels.allRightsReserved}
       &nbsp;&middot;&nbsp;
-      <a href={privacyHref} class="hover:text-white transition-colors">{labels.privacy}</a>
+      <a href={privacyHref} class="inline-block py-3.5 -my-3.5 hover:text-white transition-colors">{labels.privacy}</a>
       &nbsp;&middot;&nbsp;
-      <a href={termsHref} class="hover:text-white transition-colors">{labels.terms}</a>
+      <a href={termsHref} class="inline-block py-3.5 -my-3.5 hover:text-white transition-colors">{labels.terms}</a>
       &nbsp;&middot;&nbsp;
-      <a href={returnPolicyHref} class="hover:text-white transition-colors">{labels.returnPolicy}</a>
+      <a href={returnPolicyHref} class="inline-block py-3.5 -my-3.5 hover:text-white transition-colors">{labels.returnPolicy}</a>
     </span>
     <span class="flex items-center gap-x-2 flex-wrap justify-center sm:justify-end">
       {inventoryIso && (

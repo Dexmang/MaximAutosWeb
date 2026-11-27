@@ -187,6 +187,8 @@ const heroReviews = reviews.slice(0, 6);
           Ver Todo <Icon name="arrow_forward" class="text-lg" />
         </a>
       </div>
+      {/* Solo para lectores de pantalla en telefonos, donde la fila del titulo no se muestra. */}
+      <h2 class="sr-only md:hidden">Inventario actual</h2>
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {/* Primer auto: carga inmediata y prioridad alta (P1-11). Resena de Google fija
             despues del segundo auto, solo telefonos, sin rotacion (R2-05). */}
@@ -225,7 +227,7 @@ const heroReviews = reviews.slice(0, 6);
         <Icon name="local_shipping" class="text-2xl text-navy shrink-0" fill />
         <p class="text-sm text-gray-700">
           <span class="font-bold text-navy">Prefiero comprar desde casa?</span> Completa toda la compra en linea, local o a nivel nacional. Recoge en Skokie o pide entrega a domicilio.
-          <a href={`${base}/es/compra-en-linea`} class="text-orange font-bold hover:underline ml-1">Como funciona →</a>
+          <a href={`${base}/es/compra-en-linea`} class="text-orange-ink font-bold hover:underline ml-1">Como funciona →</a>
         </p>
       </div>
     </div>
@@ -235,7 +237,7 @@ const heroReviews = reviews.slice(0, 6);
   <section id="out-the-door" class="bg-white border-b border-gray-100 py-6 lg:py-12 scroll-mt-20">
     <div class="max-w-7xl mx-auto px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-5 gap-4 lg:gap-12 items-start">
       <div class="lg:col-span-3">
-        <p class="text-orange font-bold uppercase tracking-widest text-xs mb-2">Costo total</p>
+        <p class="text-orange-ink font-bold uppercase tracking-widest text-xs mb-2">Costo total</p>
         <h2 class="font-headline text-2xl md:text-3xl lg:text-4xl font-extrabold text-navy leading-tight">Calcula tu costo total antes de llamar.</h2>
         <p class="hidden lg:block text-gray-600 mt-3 max-w-xl leading-relaxed">Elige un auto y escribe tu codigo postal. Recibes el estimado para tu direccion, todo incluido: el precio mas el impuesto de Illinois, titulo y placas, nada mas.</p>
         <ul class="hidden lg:grid mt-4 gap-2 text-sm text-gray-700">
@@ -355,7 +357,7 @@ const heroReviews = reviews.slice(0, 6);
       <div class="flex gap-6 overflow-x-auto snap-x snap-mandatory pb-4 -mx-6 px-6 md:mx-0 md:px-0 md:pb-0 md:grid md:grid-cols-3 md:overflow-x-visible">
         {reviews.map(review => (
           <div class="bg-white/5 p-8 rounded-xl border border-white/10 shrink-0 w-[85vw] snap-center md:w-auto md:shrink">
-            <div class="flex items-center gap-1 mb-4" aria-label={review.rating + ' estrellas'}>
+            <div class="flex items-center gap-1 mb-4" role="img" aria-label={review.rating + ' estrellas'}>
               {Array.from({ length: review.rating }).map(() => (
                 <Icon name="star" class="text-orange text-sm" fill />
               ))}

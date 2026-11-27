@@ -3,14 +3,15 @@
   "type": "module",
   "version": "1.0.0",
   "scripts": {
-    "prebuild": "node ../scripts/build-facts.mjs && node ../scripts/build-llms.mjs",
+    "prebuild": "node ../scripts/build-facts.mjs && node ../scripts/build-llms.mjs && node ../scripts/build-icons.mjs",
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.2",
-    "astro": "^5.7.10"
+    "astro": "^5.7.10",
+    "qrcode-generator": "2.0.4"
   },
   "devDependencies": {
     "@astrojs/tailwind": "^6.0.2",

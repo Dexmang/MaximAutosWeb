@@ -1,0 +1,169 @@
+---
+/**
+ * TextJerryDialog: what "Text Jerry" does on a computer (Jerry, 2026-11-26).
+ *
+ * WHY
+ * Every text button on the site is an sms: link. On a phone that opens Messages. On a
+ * computer it opens nothing for most people, and 36% of visitors are on one (GA4, 28 days
+ * to 2026-11-25). The vehicle page had no other way to write: no form at all.
+ *
+ * WHAT
+ * On a device with a mouse, a click on any sms: link on a vehicle page opens this dialog
+ * instead (the switch is in Layout.astro's click listener, beside the lead counting, so a
+ * desktop click is no longer counted as a text lead that never happened). It offers three
+ * ways to reach Jerry about THIS car:
+ *   1. the number, as a real sms: link for people whose computer can send texts;
+ *   2. a QR code that opens a text on their phone with the car already named;
+ *   3. a short question form.
+ * Phones never see it: their sms: links work as before.
+ *
+ * THE FORM
+ * Posts to the same Formspree endpoint as the contact page. Its subject starts
+ * "Vehicle Question:" and names the car and stock number, and the form context script in
+ * Layout adds car_viewed, car_viewed_stock, car_viewed_page, form_page and lang. The hub's
+ * lead ingest reads both. Reports its own success to GA4 as generate_lead with
+ * lead_channel vehicle_question_form, only after Formspree accepts it.
+ *
+ * COPY RULES KEPT
+ * No price and no payment anywhere in it. No promise of how fast Jerry answers. The text
+ * body names the car and the stock number, as every other text link on the site does.
+ */
+import Icon from './Icon.astro';
+import { qrSvg } from '../lib/qr-svg';
+
+interface Props {
+  /** "2015 Nissan Murano Platinum" */
+  title: string;
+  stockNumber?: string;
+  /** The page's own sms: link, used for the number inside the dialog. */
+  smsHref: string;
+}
+const { title, stockNumber = '', smsHref } = Astro.props;
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const stockPart = stockNumber ? ` (stock ${stockNumber})` : '';
+// Shorter than the phone body on purpose: fewer characters make a coarser code that scans
+// more easily off a monitor. SMSTO:number:message is the form phone cameras read.
+const qrText = `SMSTO:+18475108947:Hi Jerry, is the ${title}${stockPart} still available? I saw it on MaximAutos.com.`;
+const qr = qrSvg(qrText, `QR code that opens a text to Maxim Autos about the ${title}`);
+const input = 'w-full px-3 py-2.5 rounded-lg border border-gray-300 focus:border-orange focus:ring-2 focus:ring-orange/20 text-gray-900 text-sm';
+const label = 'block text-xs font-semibold text-gray-700 mb-1';
+---
+<dialog id="text-jerry-dialog" aria-labelledby="tjd-title">
+  <div class="p-5 sm:p-6">
+    <div class="flex items-start justify-between gap-4">
+      <div class="min-w-0">
+        <h2 id="tjd-title" class="font-headline text-xl font-extrabold text-navy leading-tight">Text Jerry about this car</h2>
+        <p class="text-sm text-gray-600 mt-0.5">{title}{stockNumber && ` · Stock #${stockNumber}`}</p>
+      </div>
+      <button type="button" data-tjd-close aria-label="Close"
+              class="shrink-0 -mt-1.5 -mr-1.5 w-11 h-11 inline-flex items-center justify-center rounded-full text-gray-500 hover:bg-gray-100 hover:text-navy transition-colors">
+        <Icon name="close" class="text-2xl" />
+      </button>
+    </div>
+
+    <div class="mt-4 flex items-center gap-4 rounded-xl bg-surface border border-gray-200 p-3.5">
+      <div class="w-40 h-40 shrink-0 rounded-lg overflow-hidden bg-white" set:html={qr} />
+      <div class="min-w-0">
+        <p class="text-sm font-extrabold text-navy leading-snug">Scan with your phone camera</p>
+        <p class="text-sm text-gray-600 leading-snug mt-1">It opens a text to Jerry with this car already named.</p>
+        <p class="text-sm text-gray-600 leading-snug mt-3">Or text or call</p>
+        <a href={smsHref} data-tjd-native data-cta="vdp_text_dialog"
+           class="inline-flex items-center min-h-[44px] font-headline text-lg font-extrabold text-navy underline underline-offset-4 decoration-orange decoration-2 whitespace-nowrap">(847) 510-8947</a>
+      </div>
+    </div>
+
+    <p class="mt-5 text-xs font-bold uppercase tracking-widest text-gray-500">Or ask here</p>
+    <form id="vdp-question-form" action="https://formspree.io/f/xvzdgvan" method="POST" class="mt-2 space-y-3">
+      <input type="hidden" name="_subject" value={`Vehicle Question: ${title}${stockPart}, Maxim Autos`} />
+      <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" />
+      <div class="grid grid-cols-2 gap-3">
+        <div>
+          <label for="tjd-name" class={label}>Name</label>
+          <input type="text" id="tjd-name" name="name" required autocomplete="name" class={input} />
+        </div>
+        <div>
+          <label for="tjd-phone" class={label}>Phone</label>
+          <input type="tel" id="tjd-phone" name="phone" required autocomplete="tel" class={input} />
+        </div>
+      </div>
+      <div>
+        <label for="tjd-email" class={label}>Email <span class="font-normal text-gray-500">(optional)</span></label>
+        <input type="email" id="tjd-email" name="email" autocomplete="email" class={input} />
+      </div>
+      <div>
+        <label for="tjd-message" class={label}>Your question</label>
+        <textarea id="tjd-message" name="message" rows="3" required class={`${input} resize-none`}
+                  placeholder="Is it still available? When could I come see it?"></textarea>
+      </div>
+      <button type="submit"
+              class="w-full h-12 inline-flex items-center justify-center gap-2 bg-orange text-navy font-extrabold rounded-xl hover:bg-orange-light transition-colors">
+        <Icon name="send" class="text-lg" fill />Send to Jerry
+      </button>
+      <p class="text-xs text-gray-500 leading-snug">Jerry answers by text or email. Your details are used only to answer you.
+        <a href={`${base}/privacy-policy`} class="underline underline-offset-2 text-gray-600 hover:text-navy">Privacy Policy</a></p>
+    </form>
+  </div>
+</dialog>
+
+<style is:global>
+  #text-jerry-dialog {
+    width: min(92vw, 468px);
+    max-height: 92vh;
+    padding: 0;
+    border: none;
+    border-radius: 1rem;
+    overflow-y: auto;
+    box-shadow: 0 24px 64px rgba(10, 37, 64, 0.35);
+  }
+  #text-jerry-dialog::backdrop { background: rgba(10, 37, 64, 0.6); }
+</style>
+
+<script>
+  const dlg = document.getElementById('text-jerry-dialog') as HTMLDialogElement | null;
+  if (dlg && typeof dlg.showModal === 'function') {
+    const form = dlg.querySelector('#vdp-question-form') as HTMLFormElement | null;
+    const message = dlg.querySelector('#tjd-message') as HTMLTextAreaElement | null;
+
+    // Layout.astro calls this for a desktop click on an sms: link, passing the link's href.
+    // A link whose text body is a finished sentence (the estimate link: car, ZIP, total)
+    // prefills the question; a body with [day] and [time] blanks to fill in does not.
+    (window as any).maximOpenTextDialog = (href?: string) => {
+      if (message && !message.value && href) {
+        const m = href.match(/[?&]body=([^&]*)/);
+        if (m) {
+          let body = '';
+          try { body = decodeURIComponent(m[1]); } catch (e) { body = ''; }
+          if (body && body.indexOf('[') === -1) message.value = body.replace(/^(Hi|Hola) Jerry,\s*/i, '').replace(/^./, (c) => c.toUpperCase());
+        }
+      }
+      if (!dlg.open) dlg.showModal();
+    };
+
+    dlg.querySelectorAll('[data-tjd-close]').forEach((b) => b.addEventListener('click', () => dlg.close()));
+    // A click on the backdrop lands on the dialog element itself.
+    dlg.addEventListener('click', (e) => { if (e.target === dlg) dlg.close(); });
+
+    if (form) {
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const btn = form.querySelector('button[type="submit"]') as HTMLButtonElement;
+        const original = btn.innerHTML;
+        btn.disabled = true;
+        btn.textContent = 'Sending...';
+        const fail = () => {
+          btn.disabled = false;
+          btn.innerHTML = original;
+          alert('Something went wrong. Please text or call Jerry at (847) 510-8947.');
+        };
+        fetch(form.action, { method: 'POST', body: new FormData(form), headers: { Accept: 'application/json' } })
+          .then((res) => {
+            if (!res.ok) { fail(); return; }
+            // Counted only once Formspree has accepted it, like every other form on the site.
+            if ((window as any).maximLead) (window as any).maximLead('vehicle_question_form');
+            form.innerHTML = '<div class="text-center py-6"><p class="font-headline text-lg font-extrabold text-navy">Sent to Jerry.</p><p class="text-sm text-gray-600 mt-1">He answers by text or email. In a hurry? Call (847) 510-8947.</p></div>';
+          })
+          .catch(fail);
+      });
+    }
+  }
+</script>

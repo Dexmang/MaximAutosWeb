@@ -66,7 +66,7 @@ const driveChips = [
             <span class="hidden sm:inline">Mostrando </span><span class="text-navy font-bold" id="count-num">{liveVehicles.length}</span> vehiculos
           </p>
           <div class="flex items-center gap-2 md:hidden">
-            <select id="filter-sort" class="h-11 px-3 rounded-lg text-base font-semibold border border-gray-200 bg-white text-gray-700 cursor-pointer">
+            <select id="filter-sort" aria-label="Ordenar vehiculos" class="h-11 px-3 rounded-lg text-base font-semibold border border-gray-200 bg-white text-gray-700 cursor-pointer">
               <option value="price-asc">Precio ↑</option>
               <option value="price-desc">Precio ↓</option>
               <option value="year-desc">Mas recientes</option>
@@ -117,7 +117,7 @@ const driveChips = [
 
         <!-- Ordenar (solo escritorio) -->
         <div class="flex-col gap-1 md:ml-auto hidden md:flex">
-          <label class="text-xs font-semibold text-gray-500 uppercase tracking-wider">Ordenar</label>
+          <label for="filter-sort-desktop" class="text-xs font-semibold text-gray-500 uppercase tracking-wider">Ordenar</label>
           <select id="filter-sort-desktop" class="px-3 py-1.5 rounded-lg text-xs font-semibold border border-gray-200 bg-white text-gray-700 focus:ring-2 focus:ring-orange/30 focus:border-orange cursor-pointer">
             <option value="price-asc">Precio: menor a mayor</option>
             <option value="price-desc">Precio: mayor a menor</option>
@@ -178,6 +178,7 @@ const driveChips = [
               dealRating={(v as any).dealRating}
               priceSavings={(v as any).priceSavings}
               priority={i === 0}
+              headingTag="h2"
             />
           </div>
         ))}

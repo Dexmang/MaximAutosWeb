@@ -1,0 +1,122 @@
+---
+/**
+ * OpenToday: one line beside the call and text buttons that says whether the lot is open.
+ *
+ * WHY (Jerry, 2026-11-26)
+ * The hours lived in the footer and low in the sidebar. 55 of 71 shoppers in 30 days wrote
+ * outside posted hours, and the lot is open 21 hours a week. A buyer deciding whether to
+ * drive over should not have to hunt for that.
+ *
+ * WHAT IT SAYS
+ *   Open now until 7 PM.                          during open hours
+ *   Open today 3 to 7 PM.                         before opening on an open day
+ *   Closed for today. Opens tomorrow 3 PM.        after closing
+ *   By appointment today. Text Jerry to set a time.   Wednesday
+ *   Closed today. Opens Mon 3 PM.                 Sunday
+ *   Closed today for Thanksgiving. Opens Fri 3 PM.    a dated closure in hours.json
+ *   Holiday hours today. Call or text before you come.   a holiday not yet confirmed
+ *
+ * RULES
+ *   - Every figure comes from src/data/hours.json. Nothing about hours is typed here.
+ *   - The clock is the visitor's, read in Chicago time, so the line is right for a buyer
+ *     in another time zone and across the daylight saving switch.
+ *   - It never promises an opening on a holiday Jerry has not confirmed: the "Opens ..."
+ *     clause is dropped when the next open day is marked unconfirmed.
+ *   - The site is static, so without script the line shows the weekly hours instead, which
+ *     are always true. Script replaces it; nothing shifts, the row height is the same.
+ *   - English only: there is no Spanish vehicle page. Add a lang prop before using it on /es.
+ */
+import hours from '../data/hours.json';
+import Icon from './Icon.astro';
+
+interface Props {
+  class?: string;
+}
+const { class: className = '' } = Astro.props;
+
+const ORDER = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'] as const;
+const SHORT: Record<string, string> = { sun: 'Sun', mon: 'Mon', tue: 'Tue', wed: 'Wed', thu: 'Thu', fri: 'Fri', sat: 'Sat' };
+const fmt = (hm: string) => {
+  const [h, m] = hm.split(':').map(Number);
+  const h12 = ((h + 11) % 12) + 1;
+  return `${m ? `${h12}:${String(m).padStart(2, '0')}` : h12} ${h >= 12 ? 'PM' : 'AM'}`;
+};
+// "3 to 7 PM" when both ends share AM or PM, "10 AM to 3 PM" when they do not.
+const range = (o: string, c: string) => {
+  const a = fmt(o), b = fmt(c);
+  return a.slice(-2) === b.slice(-2) ? `${a.slice(0, -3)} to ${b}` : `${a} to ${b}`;
+};
+// Fallback for a visitor without script: the weekly table in one line, days with the same
+// hours grouped. "Mon, Tue, Thu, Fri 3 to 7 PM · Sat 10 AM to 3 PM".
+const groups = new Map<string, string[]>();
+for (const d of ORDER) {
+  const day = (hours.week as any)[d];
+  if (day?.state !== 'open') continue;
+  const key = range(day.opens, day.closes);
+  groups.set(key, [...(groups.get(key) || []), SHORT[d]]);
+}
+const fallback = [...groups.entries()].map(([k, days]) => `${days.join(', ')} ${k}`).join(' · ');
+---
+<p class={`flex items-center gap-1.5 text-[13px] font-semibold text-navy leading-snug ${className}`}
+   data-open-today data-hours={JSON.stringify({ timezone: hours.timezone, week: hours.week, special: hours.special })}>
+  <Icon name="schedule" class="text-base text-gray-500" />
+  <span data-open-today-text>{fallback}</span>
+</p>
+
+<script>
+  const DAYS = ['sun', 'mon', 'tue', 'wed', 'thu', 'fri', 'sat'];
+  const SHORT = { sun: 'Sun', mon: 'Mon', tue: 'Tue', wed: 'Wed', thu: 'Thu', fri: 'Fri', sat: 'Sat' };
+
+  const toMins = (hm) => { const [h, m] = hm.split(':').map(Number); return h * 60 + m; };
+  const fmt = (hm) => {
+    const [h, m] = hm.split(':').map(Number);
+    const h12 = ((h + 11) % 12) + 1;
+    return (m ? h12 + ':' + String(m).padStart(2, '0') : String(h12)) + ' ' + (h >= 12 ? 'PM' : 'AM');
+  };
+  const range = (o, c) => {
+    const a = fmt(o), b = fmt(c);
+    return a.slice(-2) === b.slice(-2) ? a.slice(0, -3) + ' to ' + b : a + ' to ' + b;
+  };
+  // Noon UTC keeps the date arithmetic away from any midnight or daylight saving edge.
+  const addDays = (ymd, n) => { const d = new Date(ymd + 'T12:00:00Z'); d.setUTCDate(d.getUTCDate() + n); return d.toISOString().slice(0, 10); };
+  const dowOf = (ymd) => DAYS[new Date(ymd + 'T12:00:00Z').getUTCDay()];
+
+  function storeNow(tz) {
+    const parts = new Intl.DateTimeFormat('en-US', {
+      timeZone: tz, year: 'numeric', month: '2-digit', day: '2-digit',
+      hour: '2-digit', minute: '2-digit', hourCycle: 'h23',
+    }).formatToParts(new Date());
+    const g = (t) => (parts.find((p) => p.type === t) || {}).value;
+    return { ymd: g('year') + '-' + g('month') + '-' + g('day'), mins: (Number(g('hour')) % 24) * 60 + Number(g('minute')) };
+  }
+
+  function line(H) {
+    const dayInfo = (ymd) => (H.special && H.special[ymd]) || H.week[dowOf(ymd)] || { state: 'closed' };
+    const now = storeNow(H.timezone);
+    const today = dayInfo(now.ymd);
+    // Next open day within ten days. Stops, with no promise, at an unconfirmed holiday.
+    let opensClause = '';
+    for (let i = 1; i <= 10; i++) {
+      const d = addDays(now.ymd, i);
+      const info = dayInfo(d);
+      if (info.state === 'unconfirmed') break;
+      if (info.state === 'open') { opensClause = ' Opens ' + (i === 1 ? 'tomorrow' : SHORT[dowOf(d)]) + ' ' + fmt(info.opens) + '.'; break; }
+    }
+    if (today.state === 'unconfirmed') return 'Holiday hours today. Call or text before you come.';
+    if (today.state === 'open') {
+      if (now.mins < toMins(today.opens)) return 'Open today ' + range(today.opens, today.closes) + '.';
+      if (now.mins < toMins(today.closes)) return 'Open now until ' + fmt(today.closes) + '.';
+      return 'Closed for today.' + opensClause;
+    }
+    if (today.state === 'appointment') return 'By appointment today. Text Jerry to set a time.';
+    return 'Closed today' + (today.label ? ' for ' + today.label : '') + '.' + opensClause;
+  }
+
+  document.querySelectorAll('[data-open-today]').forEach((el) => {
+    try {
+      const H = JSON.parse(el.getAttribute('data-hours') || '{}');
+      const out = el.querySelector('[data-open-today-text]');
+      if (H.week && out) out.textContent = line(H);
+    } catch (e) { /* keep the weekly hours fallback */ }
+  });
+</script>

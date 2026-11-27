@@ -239,6 +239,9 @@ const heroReviews = reviews.slice(0, 6);
           View All <Icon name="arrow_forward" class="text-lg" />
         </a>
       </div>
+      {/* Phones do not show the header row above, so the car names (h3) followed the h1
+          with no h2 between. This one is read by screen readers only (2026-11-26). */}
+      <h2 class="sr-only md:hidden">Current inventory</h2>
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {/* First card is the phone LCP: eager, high priority (P1-11). The static Google
             review sits after the second car, phones only; static so nothing shifts (R2-05). */}
@@ -276,7 +279,7 @@ const heroReviews = reviews.slice(0, 6);
         <Icon name="local_shipping" class="text-2xl text-navy shrink-0" fill />
         <p class="text-sm text-gray-700">
           <span class="font-bold text-navy">Rather buy from home?</span> Complete the entire purchase online, local or nationwide. Pick up or get it delivered.
-          <a href={`${base}/ship`} class="text-orange font-bold hover:underline ml-1">How it works →</a>
+          <a href={`${base}/ship`} class="text-orange-ink font-bold hover:underline ml-1">How it works →</a>
         </p>
       </div>
     </div>
@@ -290,7 +293,7 @@ const heroReviews = reviews.slice(0, 6);
   <section id="out-the-door" class="bg-white border-b border-gray-100 py-6 lg:py-12 scroll-mt-20">
     <div class="max-w-7xl mx-auto px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-5 gap-4 lg:gap-12 items-start">
       <div class="lg:col-span-3">
-        <p class="text-orange font-bold uppercase tracking-widest text-xs mb-2">Out the door cost</p>
+        <p class="text-orange-ink font-bold uppercase tracking-widest text-xs mb-2">Out the door cost</p>
         <h2 class="font-headline text-2xl md:text-3xl lg:text-4xl font-extrabold text-navy leading-tight">See your out the door cost before you call.</h2>
         <p class="hidden lg:block text-gray-600 mt-3 max-w-xl leading-relaxed">Pick a car and enter your ZIP. You get the estimate for your address, all in: the price plus Illinois tax, title and plates, nothing else.</p>
         <ul class="hidden lg:grid mt-4 gap-2 text-sm text-gray-700">
@@ -412,7 +415,7 @@ const heroReviews = reviews.slice(0, 6);
       <div class="flex gap-6 overflow-x-auto snap-x snap-mandatory pb-4 -mx-6 px-6 md:mx-0 md:px-0 md:pb-0 md:grid md:grid-cols-3 md:overflow-x-visible">
         {reviews.map(review => (
           <div class="bg-white/5 p-8 rounded-xl border border-white/10 shrink-0 w-[85vw] snap-center md:w-auto md:shrink">
-            <div class="flex items-center gap-1 mb-4" aria-label={review.rating + ' stars'}>
+            <div class="flex items-center gap-1 mb-4" role="img" aria-label={review.rating + ' stars'}>
               {Array.from({ length: review.rating }).map(() => (
                 <Icon name="star" class="text-orange text-sm" fill />
               ))}
@@ -467,7 +470,7 @@ const heroReviews = reviews.slice(0, 6);
   <section class="py-12 bg-surface border-t border-gray-100">
     <div class="max-w-7xl mx-auto px-6 lg:px-8">
       <div class="text-center mb-8">
-        <span class="text-orange font-bold uppercase tracking-widest text-sm mb-2 block">Service Area</span>
+        <span class="text-orange-ink font-bold uppercase tracking-widest text-sm mb-2 block">Service Area</span>
         <h2 class="font-headline text-2xl md:text-3xl font-extrabold text-navy mb-3">We Bring the Dealership to Your Neighborhood</h2>
         <p class="text-gray-600 text-base max-w-2xl mx-auto">Serving Skokie, Evanston, Niles, and all surrounding communities on Chicago's North Shore.</p>
       </div>

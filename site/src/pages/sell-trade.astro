@@ -93,6 +93,19 @@ const description = 'Sell your car or trade it in at Maxim Autos in Skokie, IL. 
             />
           </div>
         </div>
+        {/* Optional email (2026-11-26). The form asked for a phone only, so a reply could not
+            be staged as an email. Optional on purpose: the phone stays the one required way back. */}
+        <div>
+          <label for="sell-email" class="block text-sm font-medium text-gray-700 mb-2">Email <span class="text-gray-500">(optional)</span></label>
+          <input
+            type="email"
+            id="sell-email"
+            name="email"
+            autocomplete="email"
+            class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-orange focus:ring-2 focus:ring-orange/20 transition-colors text-gray-900"
+            placeholder="you@email.com"
+          />
+        </div>
         <div>
           <label for="sell-ymm" class="block text-sm font-medium text-gray-700 mb-2">Year / Make / Model</label>
           <input

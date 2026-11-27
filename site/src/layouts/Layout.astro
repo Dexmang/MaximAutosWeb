@@ -4,6 +4,10 @@
 // car falls inside violates 14 Ill. Adm. Code 475.390, which is what was found live on
 // 2026-07-25. See scripts/facts-core.mjs.
 import facts from '../data/facts.json';
+// The glyphs the site uses, written by scripts/build-icons.mjs in the prebuild. Google Fonts
+// serves only these when the stylesheet URL carries icon_names: about 1.14 MB down to a
+// few tens of KB (2026-11-26). An empty list falls back to the whole font.
+import iconNames from '../data/icon-names.json';
 import TrustPair from '../components/TrustPair.astro';
 import Icon from '../components/Icon.astro';
 
@@ -95,6 +99,12 @@ const canonical = canonicalUrl || (
     : new URL(Astro.url.pathname, siteUrl).href
 );
 const ogImageAbsolute = new URL(ogImage ?? `${base}/brand/hero-family.jpg`, siteUrl).href;
+
+// Same family and axes as before; icon_names (sorted) is the only addition.
+const iconList: string[] = Array.isArray((iconNames as any)?.names) ? (iconNames as any).names : [];
+const iconFontHref = 'https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1'
+  + (iconList.length > 0 ? `&icon_names=${[...iconList].sort().join(',')}` : '')
+  + '&display=swap';
 ---
 
 <!doctype html>
@@ -144,7 +154,7 @@ const ogImageAbsolute = new URL(ogImage ?? `${base}/brand/hero-family.jpg`, site
     <link href="https://fonts.googleapis.com" rel="preconnect" />
     <link crossorigin href="https://fonts.gstatic.com" rel="preconnect" />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+    <link href={iconFontHref} rel="stylesheet" />
 
     <!-- Material Symbols -->
     <style is:inline>
@@ -152,6 +162,27 @@ const ogImageAbsolute = new URL(ogImage ?? `${base}/brand/hero-family.jpg`, site
         font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
       }
     </style>
+
+    <!-- Photo fallback. A card or gallery picture lists several sizes and the browser loads
+         one; if that one fails (the DealerCenter CDN 404s its small sizes now and then) the
+         picture would stay broken. This swaps in the size named in data-full and drops the
+         other candidates, once. Defined in the head so it exists before any image errors. -->
+    <script is:inline>
+      window.maximImgFallback = function (img) {
+        if (!img || img.dataset.fellBack) return;
+        img.dataset.fellBack = '1';
+        var full = img.dataset.full;
+        if (!full) return;
+        var p = img.parentNode;
+        if (p && p.tagName === 'PICTURE') {
+          var s = p.querySelectorAll('source');
+          for (var i = 0; i < s.length; i++) p.removeChild(s[i]);
+        }
+        img.removeAttribute('srcset');
+        img.removeAttribute('sizes');
+        img.src = full;
+      };
+    </script>
 
     <!-- Organization schema, emitted on every page so SERP/knowledge-panel logo signal is universal -->
     <script type="application/ld+json" set:html={JSON.stringify({
@@ -234,7 +265,24 @@ const ogImageAbsolute = new URL(ogImage ?? `${base}/brand/hero-family.jpg`, site
           if (!t || typeof t.closest !== 'function') return;
           var a = t.closest('a[href^="tel:"], a[href^="sms:"]');
           if (a) {
-            lead(a.getAttribute('href').indexOf('sms:') === 0 ? 'sms' : 'phone', ctaLocation(a));
+            var isSms = a.getAttribute('href').indexOf('sms:') === 0;
+            // On a computer an sms: link opens nothing for most people. Where a page offers
+            // the text dialog (the vehicle page, TextJerryDialog.astro), a mouse click opens
+            // that instead, and it is counted as a dialog open, not as a text lead: until
+            // 2026-11-26 every such desktop click was reported to GA4 as an sms lead that
+            // never happened. The number inside the dialog (data-tjd-native) stays a real
+            // sms: link. Touch devices are untouched.
+            if (isSms && !a.hasAttribute('data-tjd-native')
+                && typeof window.maximOpenTextDialog === 'function'
+                && window.matchMedia && window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+              e.preventDefault();
+              window.maximOpenTextDialog(a.getAttribute('href'));
+              if (typeof gtag === 'function') {
+                gtag('event', 'cta_click', params({ cta_name: 'text_dialog_open', cta_location: ctaLocation(a) }));
+              }
+              return;
+            }
+            lead(isSms ? 'sms' : 'phone', ctaLocation(a));
             return;
           }
           // Taps that are not leads but are worth counting: carfax, google_reviews,
@@ -298,6 +346,58 @@ const ogImageAbsolute = new URL(ogImage ?? `${base}/brand/hero-family.jpg`, site
       <slot />
     </main>
     <slot name="footer" />
+
+    <!-- Form context (Jerry, 2026-11-26). A form mail used to arrive with no hint of which
+         car the person had been looking at or which page they wrote from, so the warmest
+         leads the site produces could not be tied to a car. Every Formspree form now carries
+         five hidden fields: form_page, lang, and when known car_viewed, car_viewed_stock and
+         car_viewed_page.
+         "Known" means: this page is a vehicle page (it marks itself with data-vehicle-context),
+         or the visitor opened one earlier in this tab (sessionStorage, gone when the tab
+         closes), or the link carried ?vehicle=<slug> as the financing buttons do. The fields
+         name a car and a page, never a person. privacy-policy.astro says so. The lead ingest
+         in the hub (operations/ingest_lead_email.py) reads these names; change both or neither. -->
+    <script is:inline define:vars={{ base }}>
+      (function () {
+        try {
+          var path = window.location.pathname;
+          if (base && path.indexOf(base) === 0) path = path.slice(base.length);
+          path = path.replace(/\/+$/, '') || '/';
+          var car = null;
+          var here = document.querySelector('[data-vehicle-context]');
+          if (here) {
+            car = { title: here.getAttribute('data-vehicle-title') || '', stock: here.getAttribute('data-vehicle-stock') || '', page: path };
+            try { sessionStorage.setItem('maxim_last_car', JSON.stringify(car)); } catch (e) { /* private mode */ }
+          } else {
+            var slug = '';
+            try { slug = new URLSearchParams(window.location.search).get('vehicle') || ''; } catch (e) { /* old browser */ }
+            if (/^[a-z0-9-]{3,120}$/.test(slug)) {
+              var m = slug.match(/-(j\d{5})$/i);
+              car = { title: slug.replace(/-j\d{5}$/i, '').replace(/-/g, ' '), stock: m ? m[1].toUpperCase() : '', page: '/vehicle/' + slug };
+            } else {
+              try { car = JSON.parse(sessionStorage.getItem('maxim_last_car') || 'null'); } catch (e) { car = null; }
+            }
+          }
+          var fields = { form_page: path, lang: document.documentElement.lang || 'en' };
+          if (car && (car.title || car.stock)) {
+            fields.car_viewed = String(car.title || '').slice(0, 120);
+            fields.car_viewed_stock = String(car.stock || '').slice(0, 12);
+            fields.car_viewed_page = String(car.page || '').slice(0, 200);
+          }
+          var forms = document.querySelectorAll('form[action*="formspree.io"]');
+          for (var i = 0; i < forms.length; i++) {
+            for (var name in fields) {
+              if (forms[i].querySelector('input[name="' + name + '"]')) continue;
+              var input = document.createElement('input');
+              input.type = 'hidden';
+              input.name = name;
+              input.value = fields[name];
+              forms[i].appendChild(input);
+            }
+          }
+        } catch (e) { /* never let this break a form */ }
+      })();
+    </script>
 
     <!-- GHL Chat Widget (disabled) -->
     <!-- <script src="https://widgets.leadconnectorhq.com/loader.js" data-resources-url="https://widgets.leadconnectorhq.com/chat-widget/loader.js" data-widget-id="6a26cef49372a70f7d2c31e3" data-source="WEB_USER"></script> -->

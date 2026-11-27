@@ -142,9 +142,9 @@ const localBusinessSchema = {
     <div class="max-w-7xl mx-auto px-6 lg:px-8">
       <nav class="text-sm text-gray-400 mb-8" aria-label="Breadcrumb">
         <ol class="flex items-center gap-2 flex-wrap">
-          <li><a href={`${base}/`} class="hover:text-white transition-colors">Home</a></li>
+          <li><a href={`${base}/`} class="inline-block py-3 -my-3 hover:text-white transition-colors">Home</a></li>
           <li class="text-gray-600">/</li>
-          <li><a href={`${base}/inventory`} class="hover:text-white transition-colors">Inventory</a></li>
+          <li><a href={`${base}/inventory`} class="inline-block py-3 -my-3 hover:text-white transition-colors">Inventory</a></li>
           <li class="text-gray-600">/</li>
           <li class="text-gray-300">Under 100k Miles</li>
         </ol>
@@ -171,7 +171,7 @@ const localBusinessSchema = {
           </h2>
           <p class="text-gray-600 mt-1 text-sm">All inspected. No dealer fees. Free CARFAX on every car.</p>
         </div>
-        <a href={`${base}/inventory`} class="inline-flex items-center gap-2 text-orange font-semibold hover:underline text-sm">
+        <a href={`${base}/inventory`} class="inline-flex items-center gap-2 min-h-[44px] text-orange-ink font-semibold hover:underline text-sm">
           Full inventory <span class="material-symbols-outlined text-base">arrow_forward</span>
         </a>
       </div>
@@ -179,7 +179,7 @@ const localBusinessSchema = {
       {n === 0 ? (
         <div class="bg-surface border border-gray-200 rounded-xl p-8 text-center">
           <p class="text-gray-700 mb-3">No vehicles available right now. Inventory rotates every week.</p>
-          <p class="text-gray-700">Text Jerry at <a href="sms:8475108947" class="text-orange font-bold">(847) 510-8947</a> with what you are looking for. He sources cars at auction every week.</p>
+          <p class="text-gray-700">Text Jerry at <a href="sms:8475108947" class="text-orange-ink font-bold">(847) 510-8947</a> with what you are looking for. He sources cars at auction every week.</p>
         </div>
       ) : (
         <Fragment>
@@ -238,7 +238,7 @@ const localBusinessSchema = {
   <section class="py-14 bg-white">
     <div class="max-w-3xl mx-auto px-6 lg:px-8">
       <div class="text-center mb-10">
-        <span class="text-orange font-bold uppercase tracking-widest text-sm mb-2 block">FAQ</span>
+        <span class="text-orange-ink font-bold uppercase tracking-widest text-sm mb-2 block">FAQ</span>
         <h2 class="font-headline text-2xl md:text-3xl font-extrabold text-navy">Common Questions About Lower Mileage Used Cars Near Skokie</h2>
       </div>
       <div class="space-y-4">
@@ -255,10 +255,10 @@ const localBusinessSchema = {
   <!-- More ways to browse -->
   <section class="py-10 bg-surface border-t border-gray-100">
     <div class="max-w-3xl mx-auto px-6 lg:px-8">
-      <p class="text-xs font-bold text-orange uppercase tracking-widest mb-3">More ways to browse</p>
+      <p class="text-xs font-bold text-orange-ink uppercase tracking-widest mb-3">More ways to browse</p>
       <nav aria-label="More ways to browse" class="flex flex-wrap gap-2">
         {browseLinks.map(l => (
-          <a href={l.href} class="inline-flex items-center px-4 py-2 rounded-full border border-gray-200 bg-white text-sm font-semibold text-navy hover:border-orange hover:text-orange transition-colors">{l.label}</a>
+          <a href={l.href} class="inline-flex items-center min-h-[44px] px-4 py-2 rounded-full border border-gray-200 bg-white text-sm font-semibold text-navy hover:border-orange hover:text-orange transition-colors">{l.label}</a>
         ))}
       </nav>
     </div>

@@ -1,6 +1,7 @@
 ---
 import TrustPair from './TrustPair.astro';
 import Icon from './Icon.astro';
+import { isDcPhoto as isDcUrl, dcResize, dcWebpSrcset } from '../lib/dc-image';
 
 interface Props {
   slug: string;
@@ -24,22 +25,30 @@ interface Props {
   lang?: string;
   /** First card in a grid: load eagerly at high priority, it is the phone LCP (P1-11). */
   priority?: boolean;
+  /**
+   * Heading tag for the car name. h3 under a section h2 (home, landing pages, "More
+   * Vehicles"); the inventory grid sits directly under the page h1, so it passes h2 and the
+   * outline does not skip a level (accessibility repair, 2026-11-26).
+   */
+  headingTag?: 'h2' | 'h3';
 }
 
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
-const { slug, year, make, model, trim, price, mileage, drivetrain, engine, bodyStyle, photoPath, photoPrefix, inspected, primaryPhotoUrl, photos, dealRating, priceSavings, stockNumber, lang = 'en', priority = false } = Astro.props;
+const { slug, year, make, model, trim, price, mileage, drivetrain, engine, bodyStyle, photoPath, photoPrefix, inspected, primaryPhotoUrl, photos, dealRating, priceSavings, stockNumber, lang = 'en', priority = false, headingTag = 'h3' } = Astro.props;
 const isSpanish = lang === 'es';
+const Heading = headingTag;
 
+// CarGurus price rating on the card: Good and Great only (Jerry, 2026-11-26). A "Fair Deal"
+// badge sat beside the price on 9 of 13 cars and argued against it; a Fair rating now shows
+// no badge at all. The vehicle page follows the same rule.
 const DEAL_BADGE: Record<string, { label: string; bg: string; text: string }> = isSpanish
   ? {
       GREAT_PRICE: { label: 'Gran Oferta',   bg: '#1a9b3b', text: '#fff' },
       GOOD_PRICE:  { label: 'Buena Oferta',  bg: '#2ecc71', text: '#fff' },
-      FAIR_PRICE:  { label: 'Oferta Justa',  bg: '#3498db', text: '#fff' },
     }
   : {
       GREAT_PRICE: { label: 'Great Deal', bg: '#1a9b3b', text: '#fff' },
       GOOD_PRICE:  { label: 'Good Deal',  bg: '#2ecc71', text: '#fff' },
-      FAIR_PRICE:  { label: 'Fair Deal',  bg: '#3498db', text: '#fff' },
     };
 
 const lbl = isSpanish
@@ -78,13 +87,22 @@ const photoSrc = primaryPhotoUrl || localThumb;
 // Responsive variants: the DealerCenter CDN resizes on the fly via the
 // /{width}/{height}/ path segments (400/300 ≈ 32KB vs 1024/768 ≈ 178KB).
 // CarGurus static URLs and local thumbs are fixed-size; they get no srcset.
-const DC_DIMS_RE = /\/(\d{2,4})\/(\d{2,4})\//;
-const isDcPhoto = photoSrc ? (photoSrc.includes('dealercenter.net') && DC_DIMS_RE.test(photoSrc)) : false;
-const dcResize = (u: string, w: number, h: number) => u.replace(DC_DIMS_RE, `/${w}/${h}/`);
+const isDcPhoto = photoSrc ? isDcUrl(photoSrc) : false;
 const cardSrcset = isDcPhoto && photoSrc
   ? `${dcResize(photoSrc, 400, 300)} 400w, ${dcResize(photoSrc, 640, 480)} 640w, ${dcResize(photoSrc, 1024, 768)} 1024w`
   : undefined;
-const cardSizes = cardSrcset ? '(min-width: 1024px) 390px, (min-width: 640px) 46vw, 92vw' : undefined;
+// The phone slot is declared as 213 px, a third of 640, although the card is about 92vw
+// wide. `sizes` only steers which file the browser picks (CSS still sizes the picture), and
+// with the true width a 3x phone took the 1024 px file for a 359 px card: 183 KB a card,
+// 1.7 MB of the home page (site review, 2026-11-26). At 213 px a 2x or 3x phone takes the
+// 640 px file, 1.8 times the card. Tablet and desktop slots are unchanged.
+const cardSizes = cardSrcset ? '(min-width: 1024px) 390px, (min-width: 640px) 46vw, 213px' : undefined;
+// Self hosted WebP at the same three widths, cut from the 1024/768 file at build time
+// (lib/dc-image.ts). Undefined when the photo could not be confirmed; the JPG list stands.
+const cardWebp = isDcPhoto && photoSrc ? await dcWebpSrcset(photoSrc) : undefined;
+// If the file the browser picked fails to load (the CDN's small sizes 404 now and then),
+// window.maximImgFallback in Layout swaps in this one, the size the CDN serves reliably.
+const fullSrc = isDcPhoto && photoSrc ? dcResize(photoSrc, 1024, 768) : undefined;
 
 // No monthly payment on the card (R1-03). A payment is a trigger term; on a card its
 // disclosure sat 5,700 px away. The estimate lives on the VDP beside the Reg Z string.
@@ -94,19 +112,27 @@ const cardSizes = cardSrcset ? '(min-width: 1024px) 390px, (min-width: 640px) 46
   <!-- Stretched link covers the full card -->
   <a href={`${base}/vehicle/${slug}`} class="absolute inset-0 z-10" aria-label={`${lbl.viewLabel} ${title}`}></a>
 
-  <div class="relative h-48 overflow-hidden bg-gray-100">
+  {/* 4:3, the shape of the photo itself, so the whole picture shows. The fixed 192 px box
+      cropped the top and bottom of every card and cut the last line of the photo's own
+      overlay (Jerry, 2026-11-26: main photo shown whole). */}
+  <div class="relative aspect-[4/3] overflow-hidden bg-gray-100">
     {photoSrc ? (
-      <img
-        src={photoSrc}
-        srcset={cardSrcset}
-        sizes={cardSizes}
-        alt={`${title} for sale at Maxim Autos Skokie IL`}
-        class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-        loading={priority ? 'eager' : 'lazy'}
-        fetchpriority={priority ? 'high' : undefined}
-        width="1024"
-        height="768"
-      />
+      <picture class="block w-full h-full">
+        {cardWebp && <source type="image/webp" srcset={cardWebp} sizes={cardSizes} />}
+        <img
+          src={photoSrc}
+          srcset={cardSrcset}
+          sizes={cardSizes}
+          alt={`${title} for sale at Maxim Autos Skokie IL`}
+          class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+          loading={priority ? 'eager' : 'lazy'}
+          fetchpriority={priority ? 'high' : undefined}
+          width="1024"
+          height="768"
+          data-full={fullSrc}
+          onerror={fullSrc ? 'window.maximImgFallback&&window.maximImgFallback(this)' : undefined}
+        />
+      </picture>
     ) : (
       <div class="w-full h-full flex flex-col justify-between p-3 text-white"
            style="background: radial-gradient(120% 90% at 100% 0%, rgba(240,128,16,.28) 0%, rgba(240,128,16,0) 55%), linear-gradient(160deg, #0a2540 0%, #061a2e 100%);">
@@ -115,8 +141,12 @@ const cardSizes = cardSrcset ? '(min-width: 1024px) 390px, (min-width: 640px) 46
         <div class="text-[11px] font-medium opacity-85">{lbl.photosComing}</div>
       </div>
     )}
+    {/* Top centre since 2026-11-26. The card now shows the whole photo, and the photo's own
+        overlay fills every corner: feature pills top left, the Maxim logo top right, the fee
+        line and phone bottom left, CARFAX and the rating bottom right. At top right these two
+        badges sat on the logo. The strip of sky between the pills and the logo is free. */}
     {(inspected || awdLabel) && (
-      <div class="absolute top-2 right-2 flex flex-col items-end gap-1">
+      <div class="absolute top-2 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1">
         {inspected && (
           <div class="bg-navy text-white text-xs font-bold px-2.5 py-1 rounded-md flex items-center gap-1">
             <Icon name="check_circle" class="text-xs" fill />
@@ -133,7 +163,7 @@ const cardSizes = cardSrcset ? '(min-width: 1024px) 390px, (min-width: 640px) 46
     )}
   </div>
   <div class="px-3 py-4 sm:px-4">
-    <h3 class="font-headline text-base font-bold text-gray-900 mb-0.5">{title}</h3>
+    <Heading class="font-headline text-base font-bold text-gray-900 mb-0.5">{title}</Heading>
     <p class="text-xs text-gray-500 mb-2.5 flex justify-between items-baseline gap-2">
       <span>{[engine, drivetrain, mileage > 0 ? `${mileage.toLocaleString()} mi` : lbl.mileageTbd].filter(Boolean).join(' • ')}</span>
       {stockNumber && <span class="shrink-0 text-gray-500 font-medium whitespace-nowrap">Stock #{stockNumber}</span>}

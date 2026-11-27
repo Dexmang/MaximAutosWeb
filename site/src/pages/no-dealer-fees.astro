@@ -140,7 +140,7 @@ const faqSchema = {
   <section class="py-10 lg:py-12 bg-white border-b border-gray-100">
     <div class="max-w-7xl mx-auto px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-start">
       <div>
-        <span class="text-orange font-bold uppercase tracking-widest text-sm mb-2 block">What shows up when you sign</span>
+        <span class="text-orange-ink font-bold uppercase tracking-widest text-sm mb-2 block">What shows up when you sign</span>
         <h2 class="font-headline text-2xl md:text-3xl font-extrabold text-navy mb-3">By the time the papers are in front of you, the extras can run into the thousands</h2>
         <p class="text-gray-700 leading-relaxed mb-3">The price that brought you in is one line on the buyer’s order. Under it a dealer can add a documentation fee, a prep or reconditioning fee, a delivery or destination charge, add ons installed before the sale, an electronic filing fee, a market adjustment, products folded into the payment. Each one is small print. Together they are the difference between the price you saw and the number you sign.</p>
         <a href="#fee-glossary" data-cta="body" data-cta-name="fee_glossary" class="inline-flex items-center gap-1.5 font-bold text-navy underline underline-offset-2">See what each fee means <Icon name="arrow_downward" class="text-lg" /></a>
@@ -279,7 +279,7 @@ const faqSchema = {
       <div class="space-y-3">
         {faq.map(f => (
           <details class="group bg-surface rounded-xl border border-gray-100 p-4">
-            <summary class="flex items-center justify-between gap-3 cursor-pointer font-bold text-navy list-none">
+            <summary class="flex items-center justify-between gap-3 min-h-[44px] cursor-pointer font-bold text-navy list-none">
               {f.q}
               <Icon name="expand_more" class="text-2xl text-gray-400 transition-transform group-open:rotate-180" />
             </summary>
