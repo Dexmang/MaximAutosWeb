@@ -47,7 +47,11 @@ const tile = lg
       </span>
       <span class="text-[7px] font-bold text-gray-900 ml-[2px]">®</span>
     </span>
-    <span class:list={['font-bold text-gray-700 leading-none', lg ? 'text-sm' : 'text-[11px]']}>{es ? 'Gratis' : 'Free report'}</span>
+    {/* The label shortens under 390 px and drops under 340 px, so the button never runs wider
+        than a narrow phone (it was 357 px wide and pushed the car page sideways at 360 px). */}
+    <span class:list={['font-bold text-gray-700 leading-none max-[339px]:hidden', lg ? 'text-sm' : 'text-[11px]']}>
+      {es ? 'Gratis' : <><span class="max-[389px]:hidden">Free report</span><span class="min-[390px]:hidden">Free</span></>}
+    </span>
   </a>
 ) : (
   <span class:list={['inline-flex items-center gap-1 text-xs bg-gray-100 text-gray-600 px-2 py-1 rounded-full font-medium', cls]}>

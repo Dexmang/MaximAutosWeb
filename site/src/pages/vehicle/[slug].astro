@@ -612,13 +612,15 @@ if (v.vin && v.vin !== 'TBD') (vehicleSchema as any).vehicleIdentificationNumber
           <span class="text-xs sm:text-sm font-bold text-gray-700">Ships nationwide</span>
         </a>
         <!-- Phone: one 44 px row, label beside the wordmark. md and up: the stacked badge.
-             "SHOW ME THE" in the brand orange at every width (Jerry, 2026-10-15). -->
+             "SHOW ME THE" in the brand orange (Jerry, 2026-10-15). Under 375 px the three cells
+             ran 11 px wider than the screen, so there the wordmark stands alone; the full lockup
+             is in the header button above. -->
         <div class="flex-1 flex items-center justify-center h-11 md:h-auto md:py-2.5 px-2">
           {carfaxLink ? (
             <a href={carfaxLink} target="_blank" rel="noopener noreferrer" data-cta="vdp_trust" data-cta-name="carfax"
                class="flex flex-row md:flex-col items-center justify-center gap-1.5 md:gap-0 w-full h-full leading-none hover:opacity-75 transition-opacity"
                aria-label={`Show me the free CARFAX report for this ${v.year} ${v.make} ${v.model}`}>
-              <span class="text-[11px] md:text-sm font-bold md:font-extrabold tracking-wide md:tracking-[0.14em] text-orange whitespace-nowrap">SHOW ME THE</span>
+              <span class="max-[374px]:hidden text-[11px] md:text-sm font-bold md:font-extrabold tracking-wide md:tracking-[0.14em] text-orange whitespace-nowrap">SHOW ME THE</span>
               <span class="flex items-start md:mt-[3px]">
                 <span class="flex gap-[2px] border-2 border-black rounded-[5px] p-[2px] bg-white">
                   {'CARFA'.split('').map(ch => (
