@@ -1,6 +1,8 @@
 ---
 import { getImage } from 'astro:assets';
 import { isRemoteImageAvailable } from '../../lib/remote-image';
+import { carfaxUrl } from '../../lib/carfax';
+import CarfaxButton from '../../components/CarfaxButton.astro';
 import Layout from '../../layouts/Layout.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
@@ -199,11 +201,8 @@ const smsBody = encodeURIComponent(`Hi Jerry, is the ${titleText}${stockNumber ?
 // every newly front-lined unit needs its report run + toggle checked.
 // Ops steps: businesses/maxim-autos/operations/inventory-pipeline.md ("CARFAX").
 // Sold VDPs never render the button — their links revert to the consumer paywall.
-const CARFAX_PARTNER = 'DVW_1';
-const CARFAX_LINKS_LIVE = true;
-const carfaxLink = (CARFAX_LINKS_LIVE && !isSold && v.vin && v.vin !== 'TBD')
-  ? `https://www.carfax.com/VehicleHistory/p/Report.cfx?partner=${CARFAX_PARTNER}&vin=${v.vin}`
-  : null;
+// URL builder and the on/off switch live in src/lib/carfax.ts since 2026-11-27.
+const carfaxLink = isSold ? null : carfaxUrl(v.vin);
 
 // Deal badge — sourced from CarGurus dealRating + priceSavings fields.
 // Good and Great only (Jerry, 2026-11-26): a "Fair Deal" badge beside the price argued
@@ -376,6 +375,12 @@ if (v.vin && v.vin !== 'TBD') (vehicleSchema as any).vehicleIdentificationNumber
             {/* MPG in the facts line below lg: the EPA figure from the car's record, no plus sign. */}
             {mpg && <><span class="text-gray-300 lg:hidden">·</span><span class="lg:hidden">{mpg} MPG, EPA estimate</span></>}
           </div>
+          {/* Show me the CARFAX, right under the name, price and facts on every screen (Jerry,
+              2026-11-27: one of the first pieces of information on the car page). The trust bar
+              under the photos keeps its own link as well. */}
+          {carfaxLink && (
+            <CarfaxButton vin={v.vin} title={titleText} size="lg" cta="vdp_header" class="mt-2.5" />
+          )}
           {/* Below lg: the estimate folded to one total right under the price (Jerry's 2026-10-15
               placement, kept), then the cap line. Opens in place. Desktop has its own in the sidebar. */}
           {!isSold && (
