@@ -1142,6 +1142,38 @@ if (v.vin && v.vin !== 'TBD') (vehicleSchema as any).vehicleIdentificationNumber
   #lightbox-next .material-symbols-outlined { font-size: 2rem; }
 </style>
 
+<script>
+  // Full screen photo viewer (Jerry, 2026-11-26): swipe left and right, pinch or double tap
+  // to zoom, swipe down to close, and the Back button closes it too. The code lives in
+  // src/lib/photo-viewer.ts and is fetched on the first touch of the gallery, so the page
+  // does not carry it. The inline script below calls window.maximOpenPhotos and falls back
+  // to the plain viewer if the fetch fails.
+  const photoDataEl = document.getElementById('photo-data');
+  const viewerPhotos: string[] = photoDataEl ? JSON.parse(photoDataEl.textContent || '[]') : [];
+  if (viewerPhotos.length) {
+    let viewer: Promise<typeof import('../../lib/photo-viewer')> | undefined;
+    const load = () => (viewer ??= import('../../lib/photo-viewer').catch((err) => { viewer = undefined; throw err; }));
+    const h1 = document.querySelector('h1');
+    const title = ((h1 && h1.textContent) || document.title).replace(/\s+/g, ' ').trim();
+    const strip = document.getElementById('gallery-strip');
+    (window as any).maximOpenPhotos = (index: number) =>
+      load().then((m) => m.openPhotoViewer({
+        photos: viewerPhotos,
+        index,
+        title,
+        // Leave the page strip on the photo the buyer stopped at.
+        onClose: (i) => {
+          if (strip && strip.offsetParent !== null) strip.scrollTo({ left: i * strip.clientWidth, behavior: 'instant' as ScrollBehavior });
+        },
+      }));
+    // Start the download when a finger or the mouse lands on the gallery, ahead of the tap.
+    const warm = () => { load().catch(() => {}); };
+    document.querySelectorAll('#gallery-strip, #gallery-hero, .gallery-thumb').forEach((el) => {
+      el.addEventListener('pointerdown', warm, { once: true, passive: true });
+    });
+  }
+</script>
+
 <script is:inline>
 (function () {
   var photoDataEl = document.getElementById('photo-data');
@@ -1158,10 +1190,21 @@ if (v.vin && v.vin !== 'TBD') (vehicleSchema as any).vehicleIdentificationNumber
     if (lightboxImg) lightboxImg.src = photos[index];
     if (lightboxCounter) lightboxCounter.textContent = (index + 1) + ' / ' + photos.length;
   }
-  function openLightbox(index) {
+  function openPlainLightbox(index) {
     if (!lightbox || !photos.length) return;
     updateLightbox(index);
     lightbox.showModal();
+  }
+  // The viewer with swipe, pinch zoom and swipe down to close (src/lib/photo-viewer.ts) is
+  // wired up by the module script below as window.maximOpenPhotos. The plain viewer in this
+  // page opens only when that code is not there yet or could not be fetched.
+  function openLightbox(index) {
+    if (!photos.length) return;
+    if (typeof window.maximOpenPhotos === 'function') {
+      window.maximOpenPhotos(index).catch(function () { openPlainLightbox(index); });
+      return;
+    }
+    openPlainLightbox(index);
   }
 
   var galleryHero = document.getElementById('gallery-hero');
