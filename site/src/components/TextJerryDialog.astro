@@ -43,7 +43,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 const stockPart = stockNumber ? ` (stock ${stockNumber})` : '';
 // Shorter than the phone body on purpose: fewer characters make a coarser code that scans
 // more easily off a monitor. SMSTO:number:message is the form phone cameras read.
-const qrText = `SMSTO:+18475108947:Hi Jerry, is the ${title}${stockPart} still available? I saw it on MaximAutos.com.`;
+const qrText = `SMSTO:+18475108947:Hi Jerry, is the ${title}${stockPart} still available?`;
 const qr = qrSvg(qrText, `QR code that opens a text to Maxim Autos about the ${title}`);
 const input = 'w-full px-3 py-2.5 rounded-lg border border-gray-300 focus:border-orange focus:ring-2 focus:ring-orange/20 text-gray-900 text-sm';
 const label = 'block text-xs font-semibold text-gray-700 mb-1';
@@ -93,7 +93,7 @@ const label = 'block text-xs font-semibold text-gray-700 mb-1';
       <div>
         <label for="tjd-message" class={label}>Your question</label>
         <textarea id="tjd-message" name="message" rows="3" required class={`${input} resize-none`}
-                  placeholder="Is it still available? When could I come see it?"></textarea>
+                  placeholder="Is it still available?"></textarea>
       </div>
       <button type="submit"
               class="w-full h-12 inline-flex items-center justify-center gap-2 bg-orange text-navy font-extrabold rounded-xl hover:bg-orange-light transition-colors">
@@ -126,7 +126,7 @@ const label = 'block text-xs font-semibold text-gray-700 mb-1';
 
     // Layout.astro calls this for a desktop click on an sms: link, passing the link's href.
     // A link whose text body is a finished sentence (the estimate link: car, ZIP, total)
-    // prefills the question; a body with [day] and [time] blanks to fill in does not.
+    // prefills the question; a body with [blanks] to fill in would not.
     (window as any).maximOpenTextDialog = (href?: string) => {
       if (message && !message.value && href) {
         const m = href.match(/[?&]body=([^&]*)/);

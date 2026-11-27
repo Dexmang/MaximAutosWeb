@@ -181,10 +181,10 @@ const stockNumber: string = (v as any).stockNumber || '';
 const mpg: string = (v as any).mpg || '';
 // Every text lead names the stock number, so Jerry knows the car before he opens the
 // thread (D2-22). Never a price or a payment in the body. No stock number, no parenthetical.
-// The visit sentence turns the availability check into a booked look: Jerry gets the day and
-// time beside the stock number, so one text confirms the car and sets the appointment (call
-// ahead build, 2026-10-24; layout review item 9). Still no price or payment in the body.
-const smsBody = encodeURIComponent(`Hi Jerry, is the ${titleText}${stockNumber ? ` (stock ${stockNumber})` : ''} still available? I am thinking of coming by [day] around [time]. I saw it on MaximAutos.com.`);
+// The body ends at the question (Jerry, 2026-11-27): no visit day or time and no site tag. The
+// visit sentence of the 2026-10-24 call ahead build was removed on his word. Do not add
+// anything after "still available?". Still no price or payment in the body.
+const smsBody = encodeURIComponent(`Hi Jerry, is the ${titleText}${stockNumber ? ` (stock ${stockNumber})` : ''} still available?`);
 
 // Call ahead line (2026-10-24): the sentence and the buttons only. No listed date and no feed
 // stamp beside it (Jerry, 2026-10-24: do not mention when it was listed or other info).
@@ -433,7 +433,7 @@ if (v.vin && v.vin !== 'TBD') (vehicleSchema as any).vehicleIdentificationNumber
         </div>
       </div>
       {/* Call ahead line (2026-10-24), full width under the title block on every screen. One tap
-          texts Jerry the car, the stock number and a visit time; the Call button shows from md up
+          texts Jerry the car and the stock number; the Call button shows from md up
           (the phone has the sticky bar) and is the first Text or Call on the desktop page (layout
           review F4, F9). data-cta-name confirm_availability for GA4. No date or feed stamp here
           (Jerry, 2026-10-24). */}
