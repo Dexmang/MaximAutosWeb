@@ -864,7 +864,7 @@
     "year": 2015,
     "make": "Hyundai",
     "model": "Santa Fe Sport",
-    "trim": "",
+    "trim": "2.4L",
     "price": 9995,
     "mileage": 87135,
     "exteriorColor": "White",
@@ -936,6 +936,7 @@
     "priceSavings": 377,
     "description": "2015 Hyundai Santa Fe Sport AWD: all wheel drive, heated front seats, rearview camera, Bluetooth, a tow hitch and 25 MPG highway with 87,135 miles. White on gray cloth, 6 speed Shiftronic automatic, 2.4 liter four cylinder. A roomy five passenger crossover that handles a Chicago winter and still fits the family budget, with no dealer fees. Key features: EPA estimated 19 city and 25 highway MPG, 2.4 liter direct injection four cylinder with 190 horsepower and 181 pound feet of torque, all wheel drive with traction control, heated front seats, rearview camera, Bluetooth, steering wheel audio and cruise controls, AM/FM/CD audio with satellite radio ready and auxiliary input, power windows, locks and mirrors, rear defroster, alloy wheels, tow hitch, and front, side and overhead airbags. Cargo space runs 35.4 cubic feet behind the rear seat and 71.5 cubic feet with it folded, and the 2015 Santa Fe Sport earned a 5 star overall NHTSA safety rating. The Maxim Autos Difference Independent inspection report included with every vehicle Metal plates issued on the spot, drive home today, skip the DMV No dealer fees at Maxim Autos, ever. The price you see is the price you pay, plus tax, title, and license. Financing for all credit levels Skokie, IL, Evanston, Niles, Morton Grove, Lincolnwood, Des Plaines, North Shore Chicago. Call or text (847) 510-8947 to confirm it is still available. Every car inspected. Every price transparent. Every car documented.",
     "highlights": [
+      "2.4L trim",
       "87,135 miles",
       "Fully inspected, free CARFAX"
     ],
@@ -1144,7 +1145,11 @@
       "65,531 miles",
       "Fully inspected, free CARFAX"
     ],
-    "features": [],
+    "features": [
+      "Sunroof",
+      "Turbocharged engine",
+      "Alloy wheels"
+    ],
     "featureTiers": {
       "headline": [
         {
@@ -1153,10 +1158,45 @@
           "icon": "local_gas_station"
         }
       ],
-      "love": [],
+      "love": [
+        {
+          "label": "Sunroof",
+          "icon": "wb_sunny",
+          "group": "Comfort"
+        },
+        {
+          "label": "Turbocharged engine",
+          "icon": "bolt",
+          "group": "Performance"
+        },
+        {
+          "label": "Alloy wheels",
+          "icon": "radio_button_unchecked",
+          "group": "Wheels and exterior"
+        }
+      ],
       "comfort": [],
-      "standard": [],
-      "groups": {}
+      "standard": [
+        "Air conditioning",
+        "Cloth seats",
+        "Automatic transmission"
+      ],
+      "groups": {
+        "Comfort": [
+          "Sunroof"
+        ],
+        "Performance": [
+          "Turbocharged engine"
+        ],
+        "Wheels and exterior": [
+          "Alloy wheels"
+        ],
+        "Standard": [
+          "Air conditioning",
+          "Cloth seats",
+          "Automatic transmission"
+        ]
+      }
     },
     "mpg": "28 city / 32 hwy",
     "mpgCity": 28,
@@ -2468,10 +2508,230 @@
       "102,137 miles",
       "Fully inspected, free CARFAX"
     ],
-    "features": [],
+    "features": [
+      "All wheel drive",
+      "Third row seating",
+      "Heated front seats",
+      "Heated steering wheel",
+      "Leather seats",
+      "Panoramic sunroof",
+      "Blind spot monitor",
+      "Backup camera",
+      "Adaptive cruise control",
+      "Navigation",
+      "Power liftgate",
+      "Head up display",
+      "Push button start",
+      "Lane departure warning",
+      "Parking sensors",
+      "Turbo and supercharged engine",
+      "Rear climate control",
+      "Bluetooth",
+      "Power driver seat",
+      "Memory seats",
+      "Fold flat third row",
+      "Alloy wheels",
+      "SiriusXM ready"
+    ],
     "photoPrefix": "2016-volvo-xc90-t6-momentum",
     "photoPath": "",
-    "dealerCenterUrl": ""
+    "dealerCenterUrl": "",
+    "featureTiers": {
+      "headline": [
+        {
+          "label": "25 MPG highway",
+          "sub": "20 city, EPA estimate",
+          "icon": "local_gas_station"
+        },
+        {
+          "label": "All wheel drive",
+          "sub": "Chicago winters",
+          "icon": "ac_unit"
+        },
+        {
+          "label": "Third row seating",
+          "sub": "seats six or seven",
+          "icon": "groups"
+        }
+      ],
+      "love": [
+        {
+          "label": "Heated front seats",
+          "icon": "whatshot",
+          "group": "Winter ready"
+        },
+        {
+          "label": "Heated steering wheel",
+          "icon": "thermostat",
+          "group": "Winter ready"
+        },
+        {
+          "label": "Leather seats",
+          "icon": "chair",
+          "group": "Comfort"
+        },
+        {
+          "label": "Panoramic sunroof",
+          "icon": "wb_sunny",
+          "group": "Comfort"
+        },
+        {
+          "label": "Blind spot monitor",
+          "icon": "visibility",
+          "group": "Safety"
+        },
+        {
+          "label": "Backup camera",
+          "icon": "photo_camera",
+          "group": "Safety"
+        },
+        {
+          "label": "Adaptive cruise control",
+          "icon": "speed",
+          "group": "Safety"
+        },
+        {
+          "label": "Navigation",
+          "icon": "navigation",
+          "group": "Tech"
+        },
+        {
+          "label": "Power liftgate",
+          "icon": "luggage",
+          "group": "Family and cargo"
+        },
+        {
+          "label": "Head up display",
+          "icon": "dashboard",
+          "group": "Tech"
+        },
+        {
+          "label": "Push button start",
+          "icon": "power_settings_new",
+          "group": "Comfort"
+        },
+        {
+          "label": "Lane departure warning",
+          "icon": "add_road",
+          "group": "Safety"
+        },
+        {
+          "label": "Parking sensors",
+          "icon": "sensors",
+          "group": "Safety"
+        },
+        {
+          "label": "Turbo and supercharged engine",
+          "icon": "bolt",
+          "group": "Performance"
+        },
+        {
+          "label": "Rear climate control",
+          "icon": "mode_fan",
+          "group": "Family and cargo"
+        }
+      ],
+      "comfort": [
+        "Bluetooth",
+        "Power driver seat",
+        "Memory seats",
+        "Fold flat third row",
+        "Alloy wheels",
+        "SiriusXM ready"
+      ],
+      "standard": [
+        "Air conditioning",
+        "Power locks",
+        "Power mirrors",
+        "Power windows",
+        "Rear defroster",
+        "AM/FM stereo",
+        "Aux input",
+        "ABS brakes",
+        "Automatic transmission",
+        "Overhead airbags",
+        "Side airbags",
+        "Traction control"
+      ],
+      "groups": {
+        "Winter ready": [
+          "All wheel drive",
+          "Heated front seats",
+          "Heated steering wheel"
+        ],
+        "Tech": [
+          "Navigation",
+          "Head up display",
+          "Bluetooth",
+          "SiriusXM ready"
+        ],
+        "Comfort": [
+          "Leather seats",
+          "Panoramic sunroof",
+          "Push button start",
+          "Power driver seat",
+          "Memory seats"
+        ],
+        "Safety": [
+          "Blind spot monitor",
+          "Backup camera",
+          "Adaptive cruise control",
+          "Lane departure warning",
+          "Parking sensors"
+        ],
+        "Family and cargo": [
+          "Third row seating",
+          "Power liftgate",
+          "Rear climate control",
+          "Fold flat third row"
+        ],
+        "Performance": [
+          "Turbo and supercharged engine"
+        ],
+        "Wheels and exterior": [
+          "Alloy wheels"
+        ],
+        "Standard": [
+          "Air conditioning",
+          "Power locks",
+          "Power mirrors",
+          "Power windows",
+          "Rear defroster",
+          "AM/FM stereo",
+          "Aux input",
+          "ABS brakes",
+          "Automatic transmission",
+          "Overhead airbags",
+          "Side airbags",
+          "Traction control"
+        ]
+      }
+    },
+    "mpg": "20 city / 25 hwy",
+    "mpgCity": 20,
+    "mpgHwy": 25,
+    "winter": {
+      "have": [
+        {
+          "key": "awd",
+          "label": "All wheel drive",
+          "icon": "ac_unit"
+        },
+        {
+          "key": "heated_front",
+          "label": "Heated front seats",
+          "icon": "whatshot"
+        },
+        {
+          "key": "heated_wheel",
+          "label": "Heated steering wheel",
+          "icon": "thermostat"
+        }
+      ],
+      "count": 3,
+      "total": 6,
+      "extras": []
+    }
   },
   {
     "year": 2015,
