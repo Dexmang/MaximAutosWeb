@@ -388,16 +388,6 @@
       "source": "/vehicle/2014-subaru-impreza-2-0i-premium-j10263/",
       "destination": "/inventory",
       "permanent": true
-    },
-    {
-      "source": "/vehicle/2016-audi-q5-3-0t-premium-plus-j10275",
-      "destination": "/inventory",
-      "permanent": true
-    },
-    {
-      "source": "/vehicle/2016-audi-q5-3-0t-premium-plus-j10275/",
-      "destination": "/inventory",
-      "permanent": true
     }
   ],
   "headers": [
