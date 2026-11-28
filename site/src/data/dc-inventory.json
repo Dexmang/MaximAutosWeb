@@ -593,7 +593,6 @@
         "Fully inspected, free CARFAX"
       ],
       "features": [
-        "All wheel drive",
         "Heated front seats",
         "Panoramic sunroof",
         "Backup camera",
@@ -613,11 +612,6 @@
             "label": "35 MPG highway",
             "sub": "25 city, EPA estimate",
             "icon": "local_gas_station"
-          },
-          {
-            "label": "All wheel drive",
-            "sub": "Chicago winters",
-            "icon": "ac_unit"
           }
         ],
         "love": [
@@ -677,7 +671,6 @@
         ],
         "groups": {
           "Winter ready": [
-            "All wheel drive",
             "Heated front seats"
           ],
           "Tech": [
@@ -724,17 +717,12 @@
       "winter": {
         "have": [
           {
-            "key": "awd",
-            "label": "All wheel drive",
-            "icon": "ac_unit"
-          },
-          {
             "key": "heated_front",
             "label": "Heated front seats",
             "icon": "whatshot"
           }
         ],
-        "count": 2,
+        "count": 1,
         "total": 6,
         "extras": []
       },
